@@ -52,10 +52,37 @@ var (
 // process-permanent, so one per vtable slot shape serves every delegate
 // instance (the instance is recovered from `this`). NewCallback passes
 // uintptr-sized register words through typed pointer parameters directly.
+//
+// Stack-growth discipline (see inspectable.go for the full story): a native
+// call such as add_Closed(&token) holds raw pointers into its Go caller's
+// stack while the runtime reenters Go here (QI/AddRef on the handler being
+// registered). Growing that goroutine's stack would move the caller's
+// frames and strand the native side's pointers, so QI/AddRef/Release stage
+// their tiny bodies on the shared inspectable worker. Invoke runs arbitrary
+// user handler code — which may itself call back into WinRT and must not
+// hold the worker — so it runs on a fresh goroutine instead, keeping the
+// callback goroutine's frames shallow either way.
 var (
-	callbackQI      = syscall.NewCallback(delegateQI)
-	callbackAddRef  = syscall.NewCallback(delegateAddRef)
-	callbackRelease = syscall.NewCallback(delegateRelease)
+	callbackQI = syscall.NewCallback(func(this *Delegate, riid *win32.GUID, ppv *uintptr) uintptr {
+		return dispatchInspectable(inspectableWork{
+			fn: func(w *inspectableWork) uintptr {
+				return delegateQI((*Delegate)(w.p0), (*win32.GUID)(w.p1), (*uintptr)(w.p2))
+			},
+			p0: unsafe.Pointer(this), p1: unsafe.Pointer(riid), p2: unsafe.Pointer(ppv),
+		})
+	})
+	callbackAddRef = syscall.NewCallback(func(this *Delegate) uintptr {
+		return dispatchInspectable(inspectableWork{
+			fn: func(w *inspectableWork) uintptr { return delegateAddRef((*Delegate)(w.p0)) },
+			p0: unsafe.Pointer(this),
+		})
+	})
+	callbackRelease = syscall.NewCallback(func(this *Delegate) uintptr {
+		return dispatchInspectable(inspectableWork{
+			fn: func(w *inspectableWork) uintptr { return delegateRelease((*Delegate)(w.p0)) },
+			p0: unsafe.Pointer(this),
+		})
+	})
 	callbackInvoke1 = syscall.NewCallback(func(this *Delegate, a uintptr) uintptr {
 		return dispatchInvoke(this, a)
 	})
@@ -83,6 +110,9 @@ func NewDelegate(iid win32.GUID, paramCount int, invoke func(args []uintptr) uin
 	if paramCount < 1 || paramCount > 3 {
 		return nil, fmt.Errorf("winrt: delegate with %d params unsupported (1-3)", paramCount)
 	}
+	// The delegate's QI/AddRef/Release trampolines stage onto the shared
+	// worker (see inspectable.go); make sure it is running.
+	inspectableWorkerOnce.Do(func() { go inspectableWorker() })
 	d := &Delegate{lpVtbl: &delegateVtbls[paramCount], iid: iid, invoke: invoke}
 	d.refs.Store(1)
 	delegateMu.Lock()
@@ -143,9 +173,18 @@ func delegateRelease(this *Delegate) uintptr {
 	return uintptr(remaining)
 }
 
+// dispatchInvoke runs the user handler on a fresh goroutine and parks the
+// callback goroutine until it finishes: the handler's stack can grow (and
+// nest further WinRT calls) without ever moving the frames a surrounding
+// native call may still point into.
 func dispatchInvoke(this *Delegate, args ...uintptr) uintptr {
-	if !registered(this) {
-		return eFail // invoked after release
-	}
-	return this.invoke(args)
+	done := make(chan uintptr, 1)
+	go func() {
+		if !registered(this) {
+			done <- eFail // invoked after release
+			return
+		}
+		done <- this.invoke(args)
+	}()
+	return <-done
 }

@@ -55,6 +55,27 @@ go run ./examples/calendar                # the vertical, end to end
     set per Invoke arity, 1–3 raw ABI words), a pin registry keyed by the
     native `this` word, and QI answering the delegate IID + IUnknown +
     IAgileObject. Live-proven by event registration in `acceptance/`.
+  - `inspectable.go` — the shared core for Go-implemented INSPECTABLE
+    objects: per-facet `inspectable` headers (vtable word first), shared
+    `syscall.NewCallback` trampolines for the six IInspectable slots (QI
+    answering the facet IIDs + IUnknown/IInspectable/IAgileObject with COM
+    identity preserved across tear-off facets, refcounted AddRef/Release,
+    GetIids via CoTaskMemAlloc, GetRuntimeClassName, GetTrustLevel =
+    BaseTrust), and its own pin registry (delegates keep theirs). Method
+    BODIES run on a dedicated worker goroutine: a reentrant callback that
+    grew the calling goroutine's stack would move it and strand the raw
+    `&result` out-pointer the in-flight generated SyscallN already handed
+    to native code (verified live), so the callback side only stages
+    arguments and parks, allocation-free.
+  - `collections.go` — Go-slice-backed WinRT string collections atop that
+    core: `NewStringIterable` (IIterable<String>), `NewStringIterator`
+    (IIterator<String>; E_BOUNDS past the end, GetMany partial reads), and
+    `NewStringVectorView` (IVectorView<String> plus an IIterable<String>
+    tear-off facet sharing one refcount/identity). IIDs hard-coded and
+    pinned against the pinterface derivation by `internal/verify`; cast
+    `Ptr()`/the object pointer to a generated consumer type
+    (`*globalization.IIterableOfString`) to pass into bindings — the
+    Calendar factory ctors are live-proven consuming one in `acceptance/`.
 - **`internal/winrtmeta` + `internal/winrtmeta/ingest`** — the IR and its
   producer: the pinned contract winmds project into per-namespace
   `metadata/winrt/<Namespace>.winrtmeta.json` files (committed; the CI

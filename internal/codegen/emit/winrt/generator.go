@@ -477,7 +477,7 @@ func guidLiteral(guid string) (string, error) {
 	}
 	tail := parts[3] + parts[4]
 	var data4 [8]string
-	for i := 0; i < 8; i++ {
+	for i := range 8 {
 		byteValue, err := strconv.ParseUint(tail[i*2:i*2+2], 16, 8)
 		if err != nil {
 			return "", fmt.Errorf("malformed GUID %q", guid)

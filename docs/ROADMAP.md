@@ -67,10 +67,16 @@ consumers prove it), so they are pure additions:
   interface returning the class default interface projects as a
   package-level constructor (`CreateGeographicRegion("US")`, live-tested;
   the factory is fetched per call — a cache is a future optimization).
-  Calendar's factory ctors emit too, but all take an `IIterable<String>`
-  the OS rejects as null (E_POINTER, verified live) — they become fully
-  usable once Go-implemented WinRT collections land. `[Composable]`
-  classes stay skipped.*
+  Calendar's factory ctors emit too; their `IIterable<String>` argument
+  (which the OS rejects as null with E_POINTER, verified live) is now
+  constructible — Go-implemented WinRT collections landed in
+  `bindings/runtime/winrt` (`inspectable.go` + `collections.go`:
+  `NewStringIterable`/`NewStringIterator`/`NewStringVectorView` over the
+  shared IInspectable trampoline core, IIDs pinned to the pinterface
+  derivation), and `CreateCalendarDefaultCalendarAndClock`/
+  `CreateCalendarWithTimeZone` are live-tested consuming a Go-backed
+  iterable in `acceptance/collections_test.go` — finding resolved.
+  `[Composable]` classes stay skipped.*
 - **Delegates** (TypeDef extending `System.MulticastDelegate`, `Invoke`
   method, `[Guid]`), **events** returning `EventRegistrationToken`.
   *Status: the Go-implemented delegate runtime

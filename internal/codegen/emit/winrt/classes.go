@@ -1,6 +1,7 @@
 package emitwinrt
 
 import (
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -153,7 +154,7 @@ func (g *Generator) buildStaticsAccessors(meta *winrtmeta.NamespaceMeta, fullNam
 		return nil
 	}
 	context := g.resolveContext(meta.Namespace)
-	statics := append([]string(nil), class.StaticInterfaces...)
+	statics := slices.Clone(class.StaticInterfaces)
 	sort.Strings(statics)
 	var models []view.StaticsAccessorModel
 	for _, staticFullName := range statics {
