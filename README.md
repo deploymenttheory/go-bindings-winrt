@@ -1,62 +1,106 @@
 # go-bindings-winrt
 
-**Status: full surface shipping — every namespace in the ingested contract
-winmds (282 packages, from `Windows.ApplicationModel` to
-`Windows.Web.UI.Interop`) is generated, compiled, and committed;
-`metadata/emit-roots.txt` pins the complete list.** Idiomatic Go bindings
-for the
-**Windows Runtime** (`Windows.*` namespaces: toasts/notifications,
-Bluetooth LE, Windows Hello, geolocation, camera, `Windows.Management.*`
-MDM/provisioning, …), the fourth member of the deploymenttheory Windows
-bindings family:
+Idiomatic Go bindings for the **Windows Runtime** — the `Windows.*` API
+surface: toasts/notifications, Bluetooth LE, storage, speech,
+`Windows.Management.*` MDM/provisioning, and everything else in the Windows
+SDK contract winmds. **The full surface ships**: every namespace in the
+ingested contracts is generated, compiled, and committed — 282 packages from
+`Windows.ApplicationModel` to `Windows.Web.UI.Interop`, pinned in
+[`metadata/emit-roots.txt`](metadata/emit-roots.txt).
 
-- [go-winmd](https://github.com/deploymenttheory/go-winmd) — the shared
-  ECMA-335 metadata reader (generics + event/property tables landed)
-- [go-bindings-win32](https://github.com/deploymenttheory/go-bindings-win32) —
-  the flat Win32 + COM surface (shipping); supplies this repo's ABI
-  foundation (HSTRING, IInspectable, Ro* activation)
-- [go-bindings-wdk](https://github.com/deploymenttheory/go-bindings-wdk) —
-  the WDK / user-mode Native API surface (shipping)
+Go strings in and out, `error` returns carrying real HRESULTs, typed event
+handlers for Go functions, a blocking `Await()` on async operations, and
+Go-implemented collection objects the OS can consume.
 
-What works today:
+## Install
 
-- `bindings/runtime/winrt` — Windows Runtime initialization, HSTRING
-  lifecycle, runtime-class activation, and interface querying, proven by
-  live tests.
-- `bindings/winrt/...` — GENERATED from the pinned contract winmds
-  (`go run ./cmd/generate bindings`, the full namespace list pinned in
-  `metadata/emit-roots.txt`): interfaces with
-  absolute vtable-slot dispatch, non-composable runtime classes (with
-  constructors, statics accessors, and factory constructors), enums, value
-  structs, events with typed Go handlers, async operations with a blocking
-  `Await()`, and monomorphized generic instantiations — with a determinism
-  gate and a diagnostics ratchet in CI.
-  Live acceptance tests and the `examples/calendar` vertical run entirely
-  over generated code, including the full toast pipeline (template XML →
-  `XmlDocument` → `ToastNotification` → `ToastNotifier.Show`), a BLE
-  advertisement-watcher scan cycle, `PackageManager` package queries, and
-  `SpeechSynthesizer` voice enumeration.
-
-Composition (composable classes) follows per
-[docs/ROADMAP.md](docs/ROADMAP.md).
-
-```go
-import "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/globalization"
-
-calendar, err := globalization.NewCalendar()
-// calendar.SetToNow(), calendar.Year(), calendar.MonthAsFullString(), …
-// Release when done
+```sh
+go get github.com/deploymenttheory/go-bindings-winrt@latest
 ```
+
+Windows on amd64/arm64; every Windows-facing file carries
+`//go:build windows && (amd64 || arm64)`.
+
+## Quick start
+
+A toast notification, end to end:
 
 ```go
 import "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/notifications"
 
 statics, err := notifications.ToastNotificationManagerStatics()
+defer statics.Release()
 doc, err := statics.GetTemplateContent(notifications.ToastTemplateTypeToastText01)
+defer doc.Release()
 toast, err := notifications.CreateToastNotification(doc)
+defer toast.Release()
 notifier, err := statics.CreateToastNotifierWithId("my.app.aumid")
+defer notifier.Release()
 err = notifier.Show(&toast.IToastNotification)
 ```
+
+Start with [docs/getting-started.md](docs/getting-started.md) for the mental
+model (three layers, activation, Release discipline).
+
+## Examples
+
+Runnable programs under [`examples/`](examples), all verified live; each
+degrades gracefully when hardware or identity is missing:
+
+| Example | What it shows |
+|---|---|
+| [calendar](examples/calendar) | Direct activation vs a factory constructor consuming a Go-implemented `IIterable<String>` |
+| [toast](examples/toast) | Template XML → DOM mutation → `ToastNotification` → notifier `Show`/`Hide` |
+| [async](examples/async) | `GetFileFromPathAsync(...).Await()`, plus the failure path via `errors.As` |
+| [events](examples/events) | A typed Go handler on `IMemoryBufferReference.Closed`: add, fire, remove, `Close` |
+| [collections](examples/collections) | Consume an OS vector view; pass a Go-backed iterable into a factory |
+| [bluetooth](examples/bluetooth) | Adapter capabilities; a ~3 s BLE advertisement scan via the typed `Received` handler |
+| [packages](examples/packages) | `PackageManager` current-user package query |
+| [speech](examples/speech) | Installed voices; synthesize a phrase to a stream and report its size |
+| [mdmpolicy](examples/mdmpolicy) | `MdmAllowPolicy` statics reads |
+
+## Documentation
+
+- [Getting started](docs/getting-started.md) — install, the three-layer
+  model, activation, statics, factory constructors, Release discipline.
+- [Strings and memory](docs/strings-and-memory.md) — HSTRING lifecycle,
+  refcount rules, the out-param heap invariant.
+- [Async operations](docs/async.md) — `Await`, `AsyncError`/`errors.As`,
+  IAsyncInfo, bounding waits.
+- [Events and delegates](docs/events-and-delegates.md) — typed handlers,
+  tokens, borrowed arguments, the execution model.
+- [Collections](docs/collections.md) — monomorphized generics, iteration,
+  Go-implemented collections.
+- [The generator](docs/generator.md) — for contributors: pipeline,
+  emit-roots, the diagnostics ratchet, the determinism gate.
+- [Roadmap / state](docs/ROADMAP.md) — what is landed vs deferred.
+
+## Capabilities
+
+| Area | State |
+|---|---|
+| Interfaces, runtime classes (non-composable), enums, value structs | **Emitted** — absolute vtable-slot dispatch, constructors, `As<Name>()` queries |
+| Statics + factory constructors | **Emitted** — package-level accessors and `Create*` functions |
+| Events | **Emitted** — `Add`/`Remove` accessors + typed Go handler constructors |
+| Async | **Emitted** — synthesized blocking `Await()` on `IAsyncOperation<T>`/`IAsyncAction` |
+| Generic instantiations | **Emitted** — monomorphized per consuming package, pinterface-derived IIDs |
+| Go-implemented collections | **Runtime** — `IIterable/IIterator/IVectorView` over `String` (`winrt.NewStringIterable` et al.) |
+| Composable classes (XAML-style inheritance) | Deferred — skipped with diagnostics |
+| `IAsyncOperationWithProgress` Await | Deferred — handler setters emit; no Await synthesis |
+| Writable / non-string Go collections (`IVector<T>`) | Deferred |
+| Delegate-returning methods (`get_Completed`), arrays, float ABI, wide by-value structs | Deferred — per-member skips tracked by the diagnostics ratchet |
+
+Every degradation is per member, never per namespace: skipped members leave
+`// slot N: name skipped: reason` comments and an entry in the committed
+diagnostics baseline, and vtable slots never renumber.
+
+## How it is built
+
+The tree is generated from pinned `Microsoft.Windows.SDK.Contracts` winmds
+through a committed IR (`go run ./cmd/generate fetch-metadata | ingest |
+bindings`), with CI enforcing byte-identical regeneration and a diagnostics
+ratchet that only ever shrinks. Details in
+[docs/generator.md](docs/generator.md).
 
 ## Related projects
 

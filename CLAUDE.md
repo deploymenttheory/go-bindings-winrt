@@ -207,7 +207,8 @@ go run ./examples/calendar                # the vertical, end to end
   for updates).
 - Conventional commits, release-please, SHA-pinned actions, LF-normalized
   text (`.gitattributes`), `*.winmd` binary.
-- See `docs/ROADMAP.md` for the wave plan and out-of-scope list
-  (composition, delegate returns, progress handlers' Await; events, statics,
+- See `docs/ROADMAP.md` for the landed/deferred state (composition, delegate
+  returns, and progress handlers' Await stay deferred; events, statics,
   factory constructors, delegate-typed method params, and async awaiting are
-  emitted).
+  emitted). User-facing guides live in `docs/*.md`; runnable examples in
+  `examples/` (indexed by `examples/README.md`).

@@ -22,10 +22,10 @@ import (
 // IID it derived by the same algorithm), and the raw-word adapter converting
 // the ABI arguments to typed Go values.
 
-// newMemoryBufferReference builds a real IMemoryBufferReference. Factory
-// constructors are not yet projected onto runtime classes, so the MemoryBuffer
-// activation factory is fetched by hand — but Create and everything after it
-// is generated code.
+// newMemoryBufferReference builds a real IMemoryBufferReference through the
+// hand-fetched activation factory. (A generated package-level Create exists
+// since factory-constructor emission; the by-hand fetch is kept here
+// deliberately — it exercises GetActivationFactory + the raw cast path.)
 func newMemoryBufferReference(t *testing.T) (*foundation.IMemoryBuffer, *foundation.IMemoryBufferReference) {
 	t.Helper()
 	factoryUnknown, err := winrt.GetActivationFactory("Windows.Foundation.MemoryBuffer", &foundation.IID_IMemoryBufferFactory)

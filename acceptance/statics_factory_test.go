@@ -114,9 +114,8 @@ func TestFactoryGeographicRegionLive(t *testing.T) {
 	t.Logf("region %s: %s", code, display)
 }
 
-// Calendar's factory constructors also emit (CreateCalendar et al.), but
-// every one requires an IIterable<String> languages argument that Go cannot
-// construct yet (implementing a WinRT vector object is out of scope), and
-// the OS rejects a null iterable with E_POINTER (0x80004003) — verified
-// live. They become fully exercisable once a Go-implemented IIterable
-// lands; CreateGeographicRegion above is the constructible factory proof.
+// Calendar's factory constructors require an IIterable<String> languages
+// argument; the OS rejects a null iterable with E_POINTER (verified live).
+// Go-implemented collections landed since (winrt.NewStringIterable) —
+// collections_test.go exercises those constructors end to end;
+// CreateGeographicRegion above remains the simplest factory proof.
