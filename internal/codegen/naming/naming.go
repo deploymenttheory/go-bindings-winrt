@@ -59,22 +59,47 @@ func stripRoot(namespace string) string {
 	return strings.TrimPrefix(namespace, "Windows.")
 }
 
+// goKeywords are the Go keywords proper — a package clause may not use one
+// ("package import" does not parse), so a namespace segment that lowercases
+// to a keyword takes a trailing underscore (Windows.Media.Import →
+// package import_ in media/import_). Predeclared identifiers (string, error)
+// are fine as package names and stay untouched.
+var goKeywords = map[string]bool{
+	"break": true, "case": true, "chan": true, "const": true, "continue": true,
+	"default": true, "defer": true, "else": true, "fallthrough": true, "for": true,
+	"func": true, "go": true, "goto": true, "if": true, "import": true,
+	"interface": true, "map": true, "package": true, "range": true, "return": true,
+	"select": true, "struct": true, "switch": true, "type": true, "var": true,
+}
+
+// packageSegment lowercases one namespace segment and escapes Go keywords so
+// the segment is always usable as a package name (and its directory matches).
+func packageSegment(segment string) string {
+	segment = strings.ToLower(segment)
+	if goKeywords[segment] {
+		return segment + "_"
+	}
+	return segment
+}
+
 // PackagePath converts a namespace ("Windows.Foundation.Collections") to the
 // generated package's directory path below the output root
-// ("foundation/collections").
+// ("foundation/collections"). Each segment goes through the same keyword
+// escaping as PackageName so the directory always matches the package clause.
 func PackagePath(namespace string) string {
 	segments := strings.Split(stripRoot(namespace), ".")
 	for i, segment := range segments {
-		segments[i] = strings.ToLower(segment)
+		segments[i] = packageSegment(segment)
 	}
 	return strings.Join(segments, "/")
 }
 
 // PackageName returns the Go package name for a namespace: the lowercased
-// final segment ("Windows.Globalization" → "globalization").
+// final segment ("Windows.Globalization" → "globalization"), keyword-escaped
+// (Windows.Media.Import → "import_").
 func PackageName(namespace string) string {
 	segments := strings.Split(namespace, ".")
-	return strings.ToLower(segments[len(segments)-1])
+	return packageSegment(segments[len(segments)-1])
 }
 
 // ImportAlias returns the alias generated files use for a cross-namespace

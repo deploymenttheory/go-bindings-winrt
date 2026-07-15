@@ -88,10 +88,10 @@ func NewUICommand() (*UICommand, error) {
 	return winrt.QueryInterface[UICommand](unsafe.Pointer(instance), &IID_IUICommand)
 }
 
-// Create1 constructs a Windows.UI.Popups.UICommand instance through
+// CreateUICommand constructs a Windows.UI.Popups.UICommand instance through
 // Windows.UI.Popups.IUICommandFactory.Create. The activation factory is fetched
 // per call (a factory cache is a future optimization).
-func Create1(label string) (*UICommand, error) {
+func CreateUICommand(label string) (*UICommand, error) {
 	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Popups.UICommand", &IID_IUICommandFactory)
 	if err != nil {
 		return nil, err

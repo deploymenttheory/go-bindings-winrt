@@ -251,14 +251,25 @@ func (g *Generator) buildFactoryFuncs(meta *winrtmeta.NamespaceMeta, fullName st
 			}
 			funcName := naming.Export(projected)
 			if !g.claimName(funcName) {
-				// Deterministic fallback: suffix with the factory's 1-based
-				// ordinal in the [Activatable] list.
-				suffixed := funcName + strconv.Itoa(ordinal+1)
-				if !g.claimName(suffixed) {
+				// Deterministic fallbacks. Bare factory names like Create
+				// recur across classes in dense packages, so a loser first
+				// gains its class name (Create → CreateSystemTrigger) —
+				// unless it already carries it (IWidgetFactory2.CreateWidget
+				// on Widget), where within-class disambiguation is what's
+				// needed — then the factory's 1-based [Activatable] ordinal.
+				candidate := funcName
+				if !strings.HasSuffix(candidate, model.TypeName) {
+					candidate += model.TypeName
+				}
+				switch suffixed := candidate + strconv.Itoa(ordinal+1); {
+				case candidate != funcName && g.claimName(candidate):
+					funcName = candidate
+				case g.claimName(suffixed):
+					funcName = suffixed
+				default:
 					g.diag("name-collision-skipped", "factory constructor %s for %s", funcName, fullName)
 					continue
 				}
-				funcName = suffixed
 			}
 			imports.Merge(record.imports)
 			models = append(models, view.FactoryFuncModel{
