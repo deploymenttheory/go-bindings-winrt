@@ -10,6 +10,30 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
+// ApplicationLanguagesStatics returns the Windows.Globalization.IApplicationLanguagesStatics statics of the
+// Windows.Globalization.ApplicationLanguages runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ApplicationLanguagesStatics() (*IApplicationLanguagesStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.ApplicationLanguages", &IID_IApplicationLanguagesStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IApplicationLanguagesStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ApplicationLanguagesStatics2 returns the Windows.Globalization.IApplicationLanguagesStatics2 statics of the
+// Windows.Globalization.ApplicationLanguages runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ApplicationLanguagesStatics2() (*IApplicationLanguagesStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.ApplicationLanguages", &IID_IApplicationLanguagesStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IApplicationLanguagesStatics2)(unsafe.Pointer(factory)), nil
+}
+
 // Calendar is the Windows.Globalization.Calendar runtime class, surfaced through its
 // default interface ICalendar. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -34,11 +58,163 @@ func (self *Calendar) AsTimeZoneOnCalendar() (*ITimeZoneOnCalendar, error) {
 	return winrt.QueryInterface[ITimeZoneOnCalendar](unsafe.Pointer(self), &IID_ITimeZoneOnCalendar)
 }
 
+// CreateCalendarDefaultCalendarAndClock constructs a Windows.Globalization.Calendar instance through
+// Windows.Globalization.ICalendarFactory.CreateCalendarDefaultCalendarAndClock. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateCalendarDefaultCalendarAndClock(languages *IIterableOfString) (*Calendar, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Globalization.Calendar", &IID_ICalendarFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICalendarFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateCalendarDefaultCalendarAndClock(languages)
+	if err != nil {
+		return nil, err
+	}
+	return (*Calendar)(unsafe.Pointer(instance)), nil
+}
+
+// CreateCalendar constructs a Windows.Globalization.Calendar instance through
+// Windows.Globalization.ICalendarFactory.CreateCalendar. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateCalendar(languages *IIterableOfString, calendar string, clock string) (*Calendar, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Globalization.Calendar", &IID_ICalendarFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICalendarFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateCalendar(languages, calendar, clock)
+	if err != nil {
+		return nil, err
+	}
+	return (*Calendar)(unsafe.Pointer(instance)), nil
+}
+
+// CreateCalendarWithTimeZone constructs a Windows.Globalization.Calendar instance through
+// Windows.Globalization.ICalendarFactory2.CreateCalendarWithTimeZone. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateCalendarWithTimeZone(languages *IIterableOfString, calendar string, clock string, timeZoneId string) (*Calendar, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Globalization.Calendar", &IID_ICalendarFactory2)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICalendarFactory2)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateCalendarWithTimeZone(languages, calendar, clock, timeZoneId)
+	if err != nil {
+		return nil, err
+	}
+	return (*Calendar)(unsafe.Pointer(instance)), nil
+}
+
+// CalendarIdentifiersStatics returns the Windows.Globalization.ICalendarIdentifiersStatics statics of the
+// Windows.Globalization.CalendarIdentifiers runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CalendarIdentifiersStatics() (*ICalendarIdentifiersStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.CalendarIdentifiers", &IID_ICalendarIdentifiersStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICalendarIdentifiersStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CalendarIdentifiersStatics2 returns the Windows.Globalization.ICalendarIdentifiersStatics2 statics of the
+// Windows.Globalization.CalendarIdentifiers runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CalendarIdentifiersStatics2() (*ICalendarIdentifiersStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.CalendarIdentifiers", &IID_ICalendarIdentifiersStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICalendarIdentifiersStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// CalendarIdentifiersStatics3 returns the Windows.Globalization.ICalendarIdentifiersStatics3 statics of the
+// Windows.Globalization.CalendarIdentifiers runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CalendarIdentifiersStatics3() (*ICalendarIdentifiersStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.CalendarIdentifiers", &IID_ICalendarIdentifiersStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICalendarIdentifiersStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// ClockIdentifiersStatics returns the Windows.Globalization.IClockIdentifiersStatics statics of the
+// Windows.Globalization.ClockIdentifiers runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ClockIdentifiersStatics() (*IClockIdentifiersStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.ClockIdentifiers", &IID_IClockIdentifiersStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IClockIdentifiersStatics)(unsafe.Pointer(factory)), nil
+}
+
 // CurrencyAmount is the Windows.Globalization.CurrencyAmount runtime class, surfaced through its
 // default interface ICurrencyAmount. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type CurrencyAmount struct {
 	ICurrencyAmount
+}
+
+// Create constructs a Windows.Globalization.CurrencyAmount instance through
+// Windows.Globalization.ICurrencyAmountFactory.Create. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func Create(amount string, currency string) (*CurrencyAmount, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Globalization.CurrencyAmount", &IID_ICurrencyAmountFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICurrencyAmountFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.Create(amount, currency)
+	if err != nil {
+		return nil, err
+	}
+	return (*CurrencyAmount)(unsafe.Pointer(instance)), nil
+}
+
+// CurrencyIdentifiersStatics returns the Windows.Globalization.ICurrencyIdentifiersStatics statics of the
+// Windows.Globalization.CurrencyIdentifiers runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CurrencyIdentifiersStatics() (*ICurrencyIdentifiersStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.CurrencyIdentifiers", &IID_ICurrencyIdentifiersStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICurrencyIdentifiersStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CurrencyIdentifiersStatics2 returns the Windows.Globalization.ICurrencyIdentifiersStatics2 statics of the
+// Windows.Globalization.CurrencyIdentifiers runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CurrencyIdentifiersStatics2() (*ICurrencyIdentifiersStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.CurrencyIdentifiers", &IID_ICurrencyIdentifiersStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICurrencyIdentifiersStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// CurrencyIdentifiersStatics3 returns the Windows.Globalization.ICurrencyIdentifiersStatics3 statics of the
+// Windows.Globalization.CurrencyIdentifiers runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CurrencyIdentifiersStatics3() (*ICurrencyIdentifiersStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.CurrencyIdentifiers", &IID_ICurrencyIdentifiersStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICurrencyIdentifiersStatics3)(unsafe.Pointer(factory)), nil
 }
 
 // GeographicRegion is the Windows.Globalization.GeographicRegion runtime class, surfaced through its
@@ -57,6 +233,35 @@ func NewGeographicRegion() (*GeographicRegion, error) {
 	}
 	defer instance.Release()
 	return winrt.QueryInterface[GeographicRegion](unsafe.Pointer(instance), &IID_IGeographicRegion)
+}
+
+// GeographicRegionStatics returns the Windows.Globalization.IGeographicRegionStatics statics of the
+// Windows.Globalization.GeographicRegion runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GeographicRegionStatics() (*IGeographicRegionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.GeographicRegion", &IID_IGeographicRegionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGeographicRegionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CreateGeographicRegion constructs a Windows.Globalization.GeographicRegion instance through
+// Windows.Globalization.IGeographicRegionFactory.CreateGeographicRegion. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateGeographicRegion(geographicRegionCode string) (*GeographicRegion, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Globalization.GeographicRegion", &IID_IGeographicRegionFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGeographicRegionFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateGeographicRegion(geographicRegionCode)
+	if err != nil {
+		return nil, err
+	}
+	return (*GeographicRegion)(unsafe.Pointer(instance)), nil
 }
 
 // Language is the Windows.Globalization.Language runtime class, surfaced through its
@@ -82,4 +287,81 @@ func (self *Language) AsLanguage2() (*ILanguage2, error) {
 // The returned reference is owned by the caller.
 func (self *Language) AsLanguage3() (*ILanguage3, error) {
 	return winrt.QueryInterface[ILanguage3](unsafe.Pointer(self), &IID_ILanguage3)
+}
+
+// LanguageStatics returns the Windows.Globalization.ILanguageStatics statics of the
+// Windows.Globalization.Language runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func LanguageStatics() (*ILanguageStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.Language", &IID_ILanguageStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ILanguageStatics)(unsafe.Pointer(factory)), nil
+}
+
+// LanguageStatics2 returns the Windows.Globalization.ILanguageStatics2 statics of the
+// Windows.Globalization.Language runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func LanguageStatics2() (*ILanguageStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.Language", &IID_ILanguageStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ILanguageStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// LanguageStatics3 returns the Windows.Globalization.ILanguageStatics3 statics of the
+// Windows.Globalization.Language runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func LanguageStatics3() (*ILanguageStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.Language", &IID_ILanguageStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*ILanguageStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// CreateLanguage constructs a Windows.Globalization.Language instance through
+// Windows.Globalization.ILanguageFactory.CreateLanguage. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateLanguage(languageTag string) (*Language, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Globalization.Language", &IID_ILanguageFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ILanguageFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateLanguage(languageTag)
+	if err != nil {
+		return nil, err
+	}
+	return (*Language)(unsafe.Pointer(instance)), nil
+}
+
+// NumeralSystemIdentifiersStatics returns the Windows.Globalization.INumeralSystemIdentifiersStatics statics of the
+// Windows.Globalization.NumeralSystemIdentifiers runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func NumeralSystemIdentifiersStatics() (*INumeralSystemIdentifiersStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.NumeralSystemIdentifiers", &IID_INumeralSystemIdentifiersStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*INumeralSystemIdentifiersStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NumeralSystemIdentifiersStatics2 returns the Windows.Globalization.INumeralSystemIdentifiersStatics2 statics of the
+// Windows.Globalization.NumeralSystemIdentifiers runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func NumeralSystemIdentifiersStatics2() (*INumeralSystemIdentifiersStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Globalization.NumeralSystemIdentifiers", &IID_INumeralSystemIdentifiersStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*INumeralSystemIdentifiersStatics2)(unsafe.Pointer(factory)), nil
 }

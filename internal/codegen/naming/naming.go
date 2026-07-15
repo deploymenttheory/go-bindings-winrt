@@ -26,6 +26,7 @@ var goReservedWords = map[string]bool{
 	// names bound by generated code
 	"unsafe": true, "syscall": true, "win32": true, "syswinrt": true,
 	"winrt": true, "err": true, "r1": true, "result": true, "instance": true,
+	"factory": true, "factoryUnknown": true, // factory-constructor locals
 	"self": true, // method receiver
 }
 
@@ -89,9 +90,21 @@ func ImportAlias(namespace string) string {
 // "As" plus the interface name with its I prefix stripped
 // (ITimeZoneOnCalendar → AsTimeZoneOnCalendar).
 func InterfaceAsName(interfaceName string) string {
-	trimmed := interfaceName
-	if len(trimmed) >= 2 && trimmed[0] == 'I' && trimmed[1] >= 'A' && trimmed[1] <= 'Z' {
-		trimmed = trimmed[1:]
+	return "As" + Export(trimInterfacePrefix(interfaceName))
+}
+
+// StaticsAccessorName is the package-level accessor name for a class's
+// statics interface: the interface name with its I prefix stripped
+// (ICalendarIdentifiersStatics → CalendarIdentifiersStatics).
+func StaticsAccessorName(interfaceName string) string {
+	return Export(trimInterfacePrefix(interfaceName))
+}
+
+// trimInterfacePrefix strips the WinRT interface I prefix when the name
+// follows the ICapitalized convention.
+func trimInterfacePrefix(interfaceName string) string {
+	if len(interfaceName) >= 2 && interfaceName[0] == 'I' && interfaceName[1] >= 'A' && interfaceName[1] <= 'Z' {
+		return interfaceName[1:]
 	}
-	return "As" + Export(trimmed)
+	return interfaceName
 }

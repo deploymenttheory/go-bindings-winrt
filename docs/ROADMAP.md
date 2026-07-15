@@ -59,6 +59,18 @@ consumers prove it), so they are pure additions:
   `[Composable]` (inheritance; hidden controlling-IInspectable factory
   params), `[Default]` interface per class, `[ExclusiveTo]`,
   `[Overload]`/`[DefaultOverload]`.
+  *Status: statics and factory constructors are landed. `[Static]`
+  interfaces project as package-level accessors
+  (`CalendarIdentifiersStatics()` — the activation factory queried to the
+  statics IID; statics-only classes emit just their accessors, no class
+  type), and each emitted method of a non-generic `[Activatable]` factory
+  interface returning the class default interface projects as a
+  package-level constructor (`CreateGeographicRegion("US")`, live-tested;
+  the factory is fetched per call — a cache is a future optimization).
+  Calendar's factory ctors emit too, but all take an `IIterable<String>`
+  the OS rejects as null (E_POINTER, verified live) — they become fully
+  usable once Go-implemented WinRT collections land. `[Composable]`
+  classes stay skipped.*
 - **Delegates** (TypeDef extending `System.MulticastDelegate`, `Invoke`
   method, `[Guid]`), **events** returning `EventRegistrationToken`.
   *Status: the Go-implemented delegate runtime
@@ -92,7 +104,7 @@ consumers prove it), so they are pure additions:
 2. Minimal runtime: HSTRING, IInspectable, activation, one hand-written
    vertical (e.g. `Windows.Globalization.Calendar` — the canonical sample).
 3. Generator for interfaces + runtime classes without composition; events;
-   then composition/statics.
+   statics + factory constructors (landed); then composition.
 4. First namespace targets, chosen for product value:
    `Windows.Management.*` (MDM enrollment/provisioning),
    `Windows.UI.Notifications` (toasts), `Windows.Devices.Bluetooth`.

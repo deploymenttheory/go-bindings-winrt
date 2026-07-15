@@ -55,6 +55,12 @@ type Generator struct {
 	pdelModels  []view.DelegateModel
 	pdelImports typemap.ImportSet
 
+	// ifaceMethods records each built interface's emitted method surface by
+	// MethodDef index (full metadata name → per-slot records), reset per
+	// namespace. The factory-constructor gather consults it so package-level
+	// wrappers always mirror the generated interface methods exactly.
+	ifaceMethods map[string][]emittedMethod
+
 	// writtenFiles records every path this run produced, so stale generated
 	// files from earlier runs can be pruned afterwards.
 	writtenFiles map[string]bool
@@ -393,6 +399,7 @@ func (g *Generator) prepareNamespaceClaims(meta *winrtmeta.NamespaceMeta) {
 	g.pdelByName = map[string]*winrtmeta.TypeRef{}
 	g.pdelModels = nil
 	g.pdelImports = typemap.ImportSet{}
+	g.ifaceMethods = map[string][]emittedMethod{}
 	claimType := func(name string) {
 		exported := naming.Export(name)
 		if !g.claimedNames[exported] {
