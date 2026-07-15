@@ -29,23 +29,23 @@ var IID_IDtdEntity = win32.GUID{Data1: 0x6a0b5ffc, Data2: 0x63b4, Data3: 0x480f,
 
 // PublicId (propget get_PublicId) dispatches through IDtdEntity's vtable slot 6.
 func (self *IDtdEntity) PublicId() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SystemId (propget get_SystemId) dispatches through IDtdEntity's vtable slot 7.
 func (self *IDtdEntity) SystemId() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // NotationName (propget get_NotationName) dispatches through IDtdEntity's vtable slot 8.
 func (self *IDtdEntity) NotationName() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDtdNotation is the WinRT interface Windows.Data.Xml.Dom.IDtdNotation.
@@ -61,16 +61,16 @@ var IID_IDtdNotation = win32.GUID{Data1: 0x8cb4e04d, Data2: 0x6d46, Data3: 0x4ed
 
 // PublicId (propget get_PublicId) dispatches through IDtdNotation's vtable slot 6.
 func (self *IDtdNotation) PublicId() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SystemId (propget get_SystemId) dispatches through IDtdNotation's vtable slot 7.
 func (self *IDtdNotation) SystemId() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IXmlAttribute is the WinRT interface Windows.Data.Xml.Dom.IXmlAttribute.
@@ -86,29 +86,29 @@ var IID_IXmlAttribute = win32.GUID{Data1: 0xac144aa4, Data2: 0xb4f1, Data3: 0x4d
 
 // Name (propget get_Name) dispatches through IXmlAttribute's vtable slot 6.
 func (self *IXmlAttribute) Name() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Specified (propget get_Specified) dispatches through IXmlAttribute's vtable slot 7.
 func (self *IXmlAttribute) Specified() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // Value (propget get_Value) dispatches through IXmlAttribute's vtable slot 8.
 func (self *IXmlAttribute) Value() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetValue (propput put_Value) dispatches through IXmlAttribute's vtable slot 9.
@@ -145,12 +145,12 @@ var IID_IXmlCharacterData = win32.GUID{Data1: 0x132e42ab, Data2: 0x4e36, Data3: 
 
 // Data (propget get_Data) dispatches through IXmlCharacterData's vtable slot 6.
 func (self *IXmlCharacterData) Data() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetData (propput put_Data) dispatches through IXmlCharacterData's vtable slot 7.
@@ -166,19 +166,19 @@ func (self *IXmlCharacterData) SetData(value string) error {
 
 // Length (propget get_Length) dispatches through IXmlCharacterData's vtable slot 8.
 func (self *IXmlCharacterData) Length() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SubstringData dispatches through IXmlCharacterData's vtable slot 9.
 func (self *IXmlCharacterData) SubstringData(offset uint32, count uint32) (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(offset), uintptr(count), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(offset), uintptr(count), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // AppendData dispatches through IXmlCharacterData's vtable slot 10.
@@ -244,23 +244,23 @@ var IID_IXmlDocument = win32.GUID{Data1: 0xf7f3a506, Data2: 0x1e87, Data3: 0x42d
 
 // Doctype (propget get_Doctype) dispatches through IXmlDocument's vtable slot 6.
 func (self *IXmlDocument) Doctype() (*IXmlDocumentType, error) {
-	var result *IXmlDocumentType
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlDocumentType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Implementation (propget get_Implementation) dispatches through IXmlDocument's vtable slot 7.
 func (self *IXmlDocument) Implementation() (*IXmlDomImplementation, error) {
-	var result *IXmlDomImplementation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlDomImplementation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DocumentElement (propget get_DocumentElement) dispatches through IXmlDocument's vtable slot 8.
 func (self *IXmlDocument) DocumentElement() (*IXmlElement, error) {
-	var result *IXmlElement
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlElement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateElement dispatches through IXmlDocument's vtable slot 9.
@@ -270,16 +270,16 @@ func (self *IXmlDocument) CreateElement(tagName string) (*IXmlElement, error) {
 		return nil, err
 	}
 	defer hTagName.Close()
-	var result *IXmlElement
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hTagName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlElement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hTagName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateDocumentFragment dispatches through IXmlDocument's vtable slot 10.
 func (self *IXmlDocument) CreateDocumentFragment() (*IXmlDocumentFragment, error) {
-	var result *IXmlDocumentFragment
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlDocumentFragment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateTextNode dispatches through IXmlDocument's vtable slot 11.
@@ -289,9 +289,9 @@ func (self *IXmlDocument) CreateTextNode(data string) (*IXmlText, error) {
 		return nil, err
 	}
 	defer hData.Close()
-	var result *IXmlText
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(hData.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlText)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(hData.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateComment dispatches through IXmlDocument's vtable slot 12.
@@ -301,9 +301,9 @@ func (self *IXmlDocument) CreateComment(data string) (*IXmlComment, error) {
 		return nil, err
 	}
 	defer hData.Close()
-	var result *IXmlComment
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(hData.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlComment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(hData.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateProcessingInstruction dispatches through IXmlDocument's vtable slot 13.
@@ -318,9 +318,9 @@ func (self *IXmlDocument) CreateProcessingInstruction(target string, data string
 		return nil, err
 	}
 	defer hData.Close()
-	var result *IXmlProcessingInstruction
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(hTarget.Raw()), uintptr(hData.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlProcessingInstruction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(hTarget.Raw()), uintptr(hData.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateAttribute dispatches through IXmlDocument's vtable slot 14.
@@ -330,9 +330,9 @@ func (self *IXmlDocument) CreateAttribute(name string) (*IXmlAttribute, error) {
 		return nil, err
 	}
 	defer hName.Close()
-	var result *IXmlAttribute
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlAttribute)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateEntityReference dispatches through IXmlDocument's vtable slot 15.
@@ -342,9 +342,9 @@ func (self *IXmlDocument) CreateEntityReference(name string) (*IXmlEntityReferen
 		return nil, err
 	}
 	defer hName.Close()
-	var result *IXmlEntityReference
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlEntityReference)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetElementsByTagName dispatches through IXmlDocument's vtable slot 16.
@@ -354,9 +354,9 @@ func (self *IXmlDocument) GetElementsByTagName(tagName string) (*IXmlNodeList, e
 		return nil, err
 	}
 	defer hTagName.Close()
-	var result *IXmlNodeList
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(hTagName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNodeList)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(hTagName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateCDataSection dispatches through IXmlDocument's vtable slot 17.
@@ -366,19 +366,19 @@ func (self *IXmlDocument) CreateCDataSection(data string) (*IXmlCDataSection, er
 		return nil, err
 	}
 	defer hData.Close()
-	var result *IXmlCDataSection
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(hData.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlCDataSection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(hData.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DocumentUri (propget get_DocumentUri) dispatches through IXmlDocument's vtable slot 18.
 func (self *IXmlDocument) DocumentUri() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // CreateAttributeNS dispatches through IXmlDocument's vtable slot 19.
@@ -388,9 +388,9 @@ func (self *IXmlDocument) CreateAttributeNS(namespaceUri *syswinrt.IInspectable,
 		return nil, err
 	}
 	defer hQualifiedName.Close()
-	var result *IXmlAttribute
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hQualifiedName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlAttribute)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hQualifiedName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateElementNS dispatches through IXmlDocument's vtable slot 20.
@@ -400,9 +400,9 @@ func (self *IXmlDocument) CreateElementNS(namespaceUri *syswinrt.IInspectable, q
 		return nil, err
 	}
 	defer hQualifiedName.Close()
-	var result *IXmlElement
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hQualifiedName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlElement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hQualifiedName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetElementById dispatches through IXmlDocument's vtable slot 21.
@@ -412,9 +412,9 @@ func (self *IXmlDocument) GetElementById(elementId string) (*IXmlElement, error)
 		return nil, err
 	}
 	defer hElementId.Close()
-	var result *IXmlElement
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(hElementId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlElement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(hElementId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ImportNode dispatches through IXmlDocument's vtable slot 22.
@@ -423,9 +423,9 @@ func (self *IXmlDocument) ImportNode(node *IXmlNode, deep bool) (*IXmlNode, erro
 	if deep {
 		_deep = 1
 	}
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(node)), _deep, uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(node)), _deep, uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IXmlDocumentFragment is the WinRT interface Windows.Data.Xml.Dom.IXmlDocumentFragment.
@@ -473,9 +473,9 @@ func (self *IXmlDocumentIO) LoadXmlWithSettings(xml string, loadSettings *IXmlLo
 
 // SaveToFileAsync dispatches through IXmlDocumentIO's vtable slot 8.
 func (self *IXmlDocumentIO) SaveToFileAsync(file *storage.IStorageFile) (*foundation.IAsyncAction, error) {
-	var result *foundation.IAsyncAction
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(file)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IAsyncAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(file)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IXmlDocumentIO2 is the WinRT interface Windows.Data.Xml.Dom.IXmlDocumentIO2.
@@ -512,30 +512,30 @@ var IID_IXmlDocumentStatics = win32.GUID{Data1: 0x5543d254, Data2: 0xd757, Data3
 
 // LoadFromUriAsync dispatches through IXmlDocumentStatics's vtable slot 6.
 func (self *IXmlDocumentStatics) LoadFromUriAsync(uri *foundation.IUriRuntimeClass) (*IAsyncOperationOfXmlDocument, error) {
-	var result *IAsyncOperationOfXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LoadFromUriWithSettingsAsync dispatches through IXmlDocumentStatics's vtable slot 7.
 func (self *IXmlDocumentStatics) LoadFromUriWithSettingsAsync(uri *foundation.IUriRuntimeClass, loadSettings *IXmlLoadSettings) (*IAsyncOperationOfXmlDocument, error) {
-	var result *IAsyncOperationOfXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(loadSettings)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(loadSettings)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LoadFromFileAsync dispatches through IXmlDocumentStatics's vtable slot 8.
 func (self *IXmlDocumentStatics) LoadFromFileAsync(file *storage.IStorageFile) (*IAsyncOperationOfXmlDocument, error) {
-	var result *IAsyncOperationOfXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(file)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(file)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LoadFromFileWithSettingsAsync dispatches through IXmlDocumentStatics's vtable slot 9.
 func (self *IXmlDocumentStatics) LoadFromFileWithSettingsAsync(file *storage.IStorageFile, loadSettings *IXmlLoadSettings) (*IAsyncOperationOfXmlDocument, error) {
-	var result *IAsyncOperationOfXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(file)), uintptr(unsafe.Pointer(loadSettings)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(file)), uintptr(unsafe.Pointer(loadSettings)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IXmlDocumentType is the WinRT interface Windows.Data.Xml.Dom.IXmlDocumentType.
@@ -551,26 +551,26 @@ var IID_IXmlDocumentType = win32.GUID{Data1: 0xf7342425, Data2: 0x9781, Data3: 0
 
 // Name (propget get_Name) dispatches through IXmlDocumentType's vtable slot 6.
 func (self *IXmlDocumentType) Name() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Entities (propget get_Entities) dispatches through IXmlDocumentType's vtable slot 7.
 func (self *IXmlDocumentType) Entities() (*IXmlNamedNodeMap, error) {
-	var result *IXmlNamedNodeMap
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNamedNodeMap)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Notations (propget get_Notations) dispatches through IXmlDocumentType's vtable slot 8.
 func (self *IXmlDocumentType) Notations() (*IXmlNamedNodeMap, error) {
-	var result *IXmlNamedNodeMap
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNamedNodeMap)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IXmlDomImplementation is the WinRT interface Windows.Data.Xml.Dom.IXmlDomImplementation.
@@ -590,9 +590,9 @@ func (self *IXmlDomImplementation) HasFeature(feature string, version *syswinrt.
 		return false, err
 	}
 	defer hFeature.Close()
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hFeature.Raw()), uintptr(unsafe.Pointer(version)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hFeature.Raw()), uintptr(unsafe.Pointer(version)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IXmlElement is the WinRT interface Windows.Data.Xml.Dom.IXmlElement.
@@ -608,12 +608,12 @@ var IID_IXmlElement = win32.GUID{Data1: 0x2dfb8a1f, Data2: 0x6b10, Data3: 0x4ef8
 
 // TagName (propget get_TagName) dispatches through IXmlElement's vtable slot 6.
 func (self *IXmlElement) TagName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // GetAttribute dispatches through IXmlElement's vtable slot 7.
@@ -623,12 +623,12 @@ func (self *IXmlElement) GetAttribute(attributeName string) (string, error) {
 		return "", err
 	}
 	defer hAttributeName.Close()
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hAttributeName.Raw()), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hAttributeName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetAttribute dispatches through IXmlElement's vtable slot 8.
@@ -665,23 +665,23 @@ func (self *IXmlElement) GetAttributeNode(attributeName string) (*IXmlAttribute,
 		return nil, err
 	}
 	defer hAttributeName.Close()
-	var result *IXmlAttribute
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hAttributeName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlAttribute)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hAttributeName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAttributeNode dispatches through IXmlElement's vtable slot 11.
 func (self *IXmlElement) SetAttributeNode(newAttribute *IXmlAttribute) (*IXmlAttribute, error) {
-	var result *IXmlAttribute
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newAttribute)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlAttribute)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newAttribute)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAttributeNode dispatches through IXmlElement's vtable slot 12.
 func (self *IXmlElement) RemoveAttributeNode(attributeNode *IXmlAttribute) (*IXmlAttribute, error) {
-	var result *IXmlAttribute
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(attributeNode)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlAttribute)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(attributeNode)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetElementsByTagName dispatches through IXmlElement's vtable slot 13.
@@ -691,9 +691,9 @@ func (self *IXmlElement) GetElementsByTagName(tagName string) (*IXmlNodeList, er
 		return nil, err
 	}
 	defer hTagName.Close()
-	var result *IXmlNodeList
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(hTagName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNodeList)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(hTagName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAttributeNS dispatches through IXmlElement's vtable slot 14.
@@ -719,12 +719,12 @@ func (self *IXmlElement) GetAttributeNS(namespaceUri *syswinrt.IInspectable, loc
 		return "", err
 	}
 	defer hLocalName.Close()
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hLocalName.Raw()), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hLocalName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // RemoveAttributeNS dispatches through IXmlElement's vtable slot 16.
@@ -740,9 +740,9 @@ func (self *IXmlElement) RemoveAttributeNS(namespaceUri *syswinrt.IInspectable, 
 
 // SetAttributeNodeNS dispatches through IXmlElement's vtable slot 17.
 func (self *IXmlElement) SetAttributeNodeNS(newAttribute *IXmlAttribute) (*IXmlAttribute, error) {
-	var result *IXmlAttribute
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newAttribute)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlAttribute)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newAttribute)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetAttributeNodeNS dispatches through IXmlElement's vtable slot 18.
@@ -752,9 +752,9 @@ func (self *IXmlElement) GetAttributeNodeNS(namespaceUri *syswinrt.IInspectable,
 		return nil, err
 	}
 	defer hLocalName.Close()
-	var result *IXmlAttribute
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hLocalName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlAttribute)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hLocalName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IXmlEntityReference is the WinRT interface Windows.Data.Xml.Dom.IXmlEntityReference.
@@ -780,9 +780,9 @@ var IID_IXmlLoadSettings = win32.GUID{Data1: 0x58aa07a8, Data2: 0xfed6, Data3: 0
 
 // MaxElementDepth (propget get_MaxElementDepth) dispatches through IXmlLoadSettings's vtable slot 6.
 func (self *IXmlLoadSettings) MaxElementDepth() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetMaxElementDepth (propput put_MaxElementDepth) dispatches through IXmlLoadSettings's vtable slot 7.
@@ -793,9 +793,9 @@ func (self *IXmlLoadSettings) SetMaxElementDepth(value uint32) error {
 
 // ProhibitDtd (propget get_ProhibitDtd) dispatches through IXmlLoadSettings's vtable slot 8.
 func (self *IXmlLoadSettings) ProhibitDtd() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetProhibitDtd (propput put_ProhibitDtd) dispatches through IXmlLoadSettings's vtable slot 9.
@@ -810,9 +810,9 @@ func (self *IXmlLoadSettings) SetProhibitDtd(value bool) error {
 
 // ResolveExternals (propget get_ResolveExternals) dispatches through IXmlLoadSettings's vtable slot 10.
 func (self *IXmlLoadSettings) ResolveExternals() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetResolveExternals (propput put_ResolveExternals) dispatches through IXmlLoadSettings's vtable slot 11.
@@ -827,9 +827,9 @@ func (self *IXmlLoadSettings) SetResolveExternals(value bool) error {
 
 // ValidateOnParse (propget get_ValidateOnParse) dispatches through IXmlLoadSettings's vtable slot 12.
 func (self *IXmlLoadSettings) ValidateOnParse() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetValidateOnParse (propput put_ValidateOnParse) dispatches through IXmlLoadSettings's vtable slot 13.
@@ -844,9 +844,9 @@ func (self *IXmlLoadSettings) SetValidateOnParse(value bool) error {
 
 // ElementContentWhiteSpace (propget get_ElementContentWhiteSpace) dispatches through IXmlLoadSettings's vtable slot 14.
 func (self *IXmlLoadSettings) ElementContentWhiteSpace() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetElementContentWhiteSpace (propput put_ElementContentWhiteSpace) dispatches through IXmlLoadSettings's vtable slot 15.
@@ -872,16 +872,16 @@ var IID_IXmlNamedNodeMap = win32.GUID{Data1: 0xb3a69eb0, Data2: 0xaab0, Data3: 0
 
 // Length (propget get_Length) dispatches through IXmlNamedNodeMap's vtable slot 6.
 func (self *IXmlNamedNodeMap) Length() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Item dispatches through IXmlNamedNodeMap's vtable slot 7.
 func (self *IXmlNamedNodeMap) Item(index uint32) (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetNamedItem dispatches through IXmlNamedNodeMap's vtable slot 8.
@@ -891,16 +891,16 @@ func (self *IXmlNamedNodeMap) GetNamedItem(name string) (*IXmlNode, error) {
 		return nil, err
 	}
 	defer hName.Close()
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetNamedItem dispatches through IXmlNamedNodeMap's vtable slot 9.
 func (self *IXmlNamedNodeMap) SetNamedItem(node *IXmlNode) (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(node)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(node)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveNamedItem dispatches through IXmlNamedNodeMap's vtable slot 10.
@@ -910,9 +910,9 @@ func (self *IXmlNamedNodeMap) RemoveNamedItem(name string) (*IXmlNode, error) {
 		return nil, err
 	}
 	defer hName.Close()
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetNamedItemNS dispatches through IXmlNamedNodeMap's vtable slot 11.
@@ -922,9 +922,9 @@ func (self *IXmlNamedNodeMap) GetNamedItemNS(namespaceUri *syswinrt.IInspectable
 		return nil, err
 	}
 	defer hName.Close()
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveNamedItemNS dispatches through IXmlNamedNodeMap's vtable slot 12.
@@ -934,16 +934,16 @@ func (self *IXmlNamedNodeMap) RemoveNamedItemNS(namespaceUri *syswinrt.IInspecta
 		return nil, err
 	}
 	defer hName.Close()
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(namespaceUri)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetNamedItemNS dispatches through IXmlNamedNodeMap's vtable slot 13.
 func (self *IXmlNamedNodeMap) SetNamedItemNS(node *IXmlNode) (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(node)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(node)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IXmlNode is the WinRT interface Windows.Data.Xml.Dom.IXmlNode.
@@ -958,9 +958,9 @@ var IID_IXmlNode = win32.GUID{Data1: 0x1c741d59, Data2: 0x2122, Data3: 0x47d5, D
 
 // NodeValue (propget get_NodeValue) dispatches through IXmlNode's vtable slot 6.
 func (self *IXmlNode) NodeValue() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetNodeValue (propput put_NodeValue) dispatches through IXmlNode's vtable slot 7.
@@ -971,110 +971,110 @@ func (self *IXmlNode) SetNodeValue(value *syswinrt.IInspectable) error {
 
 // NodeType (propget get_NodeType) dispatches through IXmlNode's vtable slot 8.
 func (self *IXmlNode) NodeType() (NodeType, error) {
-	var result NodeType
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(NodeType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // NodeName (propget get_NodeName) dispatches through IXmlNode's vtable slot 9.
 func (self *IXmlNode) NodeName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // ParentNode (propget get_ParentNode) dispatches through IXmlNode's vtable slot 10.
 func (self *IXmlNode) ParentNode() (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ChildNodes (propget get_ChildNodes) dispatches through IXmlNode's vtable slot 11.
 func (self *IXmlNode) ChildNodes() (*IXmlNodeList, error) {
-	var result *IXmlNodeList
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNodeList)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FirstChild (propget get_FirstChild) dispatches through IXmlNode's vtable slot 12.
 func (self *IXmlNode) FirstChild() (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LastChild (propget get_LastChild) dispatches through IXmlNode's vtable slot 13.
 func (self *IXmlNode) LastChild() (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PreviousSibling (propget get_PreviousSibling) dispatches through IXmlNode's vtable slot 14.
 func (self *IXmlNode) PreviousSibling() (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // NextSibling (propget get_NextSibling) dispatches through IXmlNode's vtable slot 15.
 func (self *IXmlNode) NextSibling() (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Attributes (propget get_Attributes) dispatches through IXmlNode's vtable slot 16.
 func (self *IXmlNode) Attributes() (*IXmlNamedNodeMap, error) {
-	var result *IXmlNamedNodeMap
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNamedNodeMap)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // HasChildNodes dispatches through IXmlNode's vtable slot 17.
 func (self *IXmlNode) HasChildNodes() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // OwnerDocument (propget get_OwnerDocument) dispatches through IXmlNode's vtable slot 18.
 func (self *IXmlNode) OwnerDocument() (*IXmlDocument, error) {
-	var result *IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // InsertBefore dispatches through IXmlNode's vtable slot 19.
 func (self *IXmlNode) InsertBefore(newChild *IXmlNode, referenceChild *IXmlNode) (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newChild)), uintptr(unsafe.Pointer(referenceChild)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newChild)), uintptr(unsafe.Pointer(referenceChild)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ReplaceChild dispatches through IXmlNode's vtable slot 20.
 func (self *IXmlNode) ReplaceChild(newChild *IXmlNode, referenceChild *IXmlNode) (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newChild)), uintptr(unsafe.Pointer(referenceChild)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newChild)), uintptr(unsafe.Pointer(referenceChild)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveChild dispatches through IXmlNode's vtable slot 21.
 func (self *IXmlNode) RemoveChild(childNode *IXmlNode) (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(childNode)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(childNode)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AppendChild dispatches through IXmlNode's vtable slot 22.
 func (self *IXmlNode) AppendChild(newChild *IXmlNode) (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newChild)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newChild)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CloneNode dispatches through IXmlNode's vtable slot 23.
@@ -1083,30 +1083,30 @@ func (self *IXmlNode) CloneNode(deep bool) (*IXmlNode, error) {
 	if deep {
 		_deep = 1
 	}
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), _deep, uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), _deep, uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // NamespaceUri (propget get_NamespaceUri) dispatches through IXmlNode's vtable slot 24.
 func (self *IXmlNode) NamespaceUri() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LocalName (propget get_LocalName) dispatches through IXmlNode's vtable slot 25.
 func (self *IXmlNode) LocalName() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Prefix (propget get_Prefix) dispatches through IXmlNode's vtable slot 26.
 func (self *IXmlNode) Prefix() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Normalize dispatches through IXmlNode's vtable slot 27.
@@ -1134,16 +1134,16 @@ var IID_IXmlNodeList = win32.GUID{Data1: 0x8c60ad77, Data2: 0x83a4, Data3: 0x4ec
 
 // Length (propget get_Length) dispatches through IXmlNodeList's vtable slot 6.
 func (self *IXmlNodeList) Length() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Item dispatches through IXmlNodeList's vtable slot 7.
 func (self *IXmlNodeList) Item(index uint32) (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IXmlNodeSelector is the WinRT interface Windows.Data.Xml.Dom.IXmlNodeSelector.
@@ -1162,9 +1162,9 @@ func (self *IXmlNodeSelector) SelectSingleNode(xpath string) (*IXmlNode, error) 
 		return nil, err
 	}
 	defer hXpath.Close()
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hXpath.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hXpath.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SelectNodes dispatches through IXmlNodeSelector's vtable slot 7.
@@ -1174,9 +1174,9 @@ func (self *IXmlNodeSelector) SelectNodes(xpath string) (*IXmlNodeList, error) {
 		return nil, err
 	}
 	defer hXpath.Close()
-	var result *IXmlNodeList
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hXpath.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNodeList)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hXpath.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SelectSingleNodeNS dispatches through IXmlNodeSelector's vtable slot 8.
@@ -1186,9 +1186,9 @@ func (self *IXmlNodeSelector) SelectSingleNodeNS(xpath string, namespaces *syswi
 		return nil, err
 	}
 	defer hXpath.Close()
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hXpath.Raw()), uintptr(unsafe.Pointer(namespaces)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hXpath.Raw()), uintptr(unsafe.Pointer(namespaces)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SelectNodesNS dispatches through IXmlNodeSelector's vtable slot 9.
@@ -1198,9 +1198,9 @@ func (self *IXmlNodeSelector) SelectNodesNS(xpath string, namespaces *syswinrt.I
 		return nil, err
 	}
 	defer hXpath.Close()
-	var result *IXmlNodeList
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hXpath.Raw()), uintptr(unsafe.Pointer(namespaces)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNodeList)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hXpath.Raw()), uintptr(unsafe.Pointer(namespaces)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IXmlNodeSerializer is the WinRT interface Windows.Data.Xml.Dom.IXmlNodeSerializer.
@@ -1214,22 +1214,22 @@ var IID_IXmlNodeSerializer = win32.GUID{Data1: 0x5cc5b382, Data2: 0xe6dd, Data3:
 
 // GetXml dispatches through IXmlNodeSerializer's vtable slot 6.
 func (self *IXmlNodeSerializer) GetXml() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // InnerText (propget get_InnerText) dispatches through IXmlNodeSerializer's vtable slot 7.
 func (self *IXmlNodeSerializer) InnerText() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetInnerText (propput put_InnerText) dispatches through IXmlNodeSerializer's vtable slot 8.
@@ -1256,22 +1256,22 @@ var IID_IXmlProcessingInstruction = win32.GUID{Data1: 0x2707fd1e, Data2: 0x1e92,
 
 // Target (propget get_Target) dispatches through IXmlProcessingInstruction's vtable slot 6.
 func (self *IXmlProcessingInstruction) Target() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Data (propget get_Data) dispatches through IXmlProcessingInstruction's vtable slot 7.
 func (self *IXmlProcessingInstruction) Data() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetData (propput put_Data) dispatches through IXmlProcessingInstruction's vtable slot 8.
@@ -1297,7 +1297,7 @@ var IID_IXmlText = win32.GUID{Data1: 0xf931a4cb, Data2: 0x308d, Data3: 0x4760, D
 
 // SplitText dispatches through IXmlText's vtable slot 6.
 func (self *IXmlText) SplitText(offset uint32) (*IXmlText, error) {
-	var result *IXmlText
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(offset), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlText)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(offset), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }

@@ -65,10 +65,14 @@ func (g *Generator) buildAddAccessor(meta *winrtmeta.NamespaceMeta, interfaceGoN
 		ParamStr:   "handler *" + handlerType,
 		ReturnSig:  "(syswinrt.EventRegistrationToken, error)",
 		ReturnKind: view.RetValue,
-		ResultDecl: "var result syswinrt.EventRegistrationToken",
-		ResultExpr: "result",
+		// The token is a native-written out-param: heap-allocated via new +
+		// winrt.OutParam (the out-param invariant — registration always
+		// reenters Go to QI/AddRef the Go-implemented handler; see
+		// buildMethod in interfaces.go).
+		ResultDecl: "result := new(syswinrt.EventRegistrationToken)",
+		ResultExpr: "*result",
 		ZeroReturn: "syswinrt.EventRegistrationToken{}",
-		ArgExprs:   []string{"handler.Ptr()", "uintptr(unsafe.Pointer(&result))"},
+		ArgExprs:   []string{"handler.Ptr()", "uintptr(winrt.OutParam(unsafe.Pointer(result)))"},
 		CommentLines: []string{
 			fmt.Sprintf("%s (event add %s) dispatches through %s's vtable slot %d.", goName, method.Name, interfaceGoName, slot),
 			"The handler stays registered (and referenced by the runtime) until the",

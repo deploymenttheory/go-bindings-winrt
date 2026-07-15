@@ -18,15 +18,17 @@ const modulePath = "github.com/deploymenttheory/go-bindings-winrt"
 // runBindings emits the bindings tree (bindings/winrt) from the ingested
 // metadata. It is self-cleaning — generated files from an earlier run that
 // this run does not rewrite are pruned (hand-written files, which lack the
-// DO-NOT-EDIT header, are never touched). A --namespace filter seeds the
-// emit with one or more comma-separated root namespaces; the output is the
-// roots plus the transitive closure of namespaces referenced by their
-// emitted members.
+// DO-NOT-EDIT header, are never touched). The emit is seeded with root
+// namespaces — by default the committed metadata/emit-roots.txt list, or an
+// ad-hoc comma-separated --namespace override — and the output is the roots
+// plus the transitive closure of namespaces referenced by their emitted
+// members.
 func runBindings(args []string) error {
 	flags := flag.NewFlagSet("bindings", flag.ExitOnError)
 	metadataDir := flags.String("metadata", filepath.Join("metadata", "winrt"), "directory of .winrtmeta.json files")
 	outDir := flags.String("out", filepath.Join("bindings", "winrt"), "bindings output root")
-	namespaceFilter := flags.String("namespace", "", "comma-separated root namespaces (full names, e.g. Windows.Globalization,Windows.UI.Notifications); emits the roots plus their referenced-namespace closure; empty = all loaded")
+	rootsFile := flags.String("roots", filepath.Join("metadata", "emit-roots.txt"), "committed root-namespace list, read when --namespace is not given (missing file = all loaded)")
+	namespaceFilter := flags.String("namespace", "", "comma-separated root namespaces (full names, e.g. Windows.Globalization,Windows.UI.Notifications); emits the roots plus their referenced-namespace closure; overrides --roots")
 	verbose := flags.Bool("v", false, "print every diagnostic")
 	writeBaseline := flags.String("diagnostics", "", "write the diagnostics baseline to this path")
 	checkBaseline := flags.String("diagnostics-baseline", "", "fail if any diagnostic is not in this committed baseline")
@@ -38,8 +40,17 @@ func runBindings(args []string) error {
 	if err != nil {
 		return err
 	}
+	roots := strings.Split(*namespaceFilter, ",")
+	if *namespaceFilter == "" {
+		if roots, err = pipeline.ReadRootsFile(*rootsFile); err != nil {
+			if !os.IsNotExist(err) {
+				return err
+			}
+			roots = nil // no override, no committed list: emit all loaded
+		}
+	}
 	filter := map[string]bool{}
-	for _, name := range strings.Split(*namespaceFilter, ",") {
+	for _, name := range roots {
 		if name = strings.TrimSpace(name); name != "" {
 			filter[name] = true
 		}

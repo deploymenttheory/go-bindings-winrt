@@ -41,9 +41,9 @@ func (self *IAsyncOperationOfBool) SetCompleted(handler *AsyncOperationCompleted
 
 // GetResults dispatches through IAsyncOperationOfBool's vtable slot 8.
 func (self *IAsyncOperationOfBool) GetResults() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfBool reaches
@@ -97,9 +97,9 @@ var IID_IReferenceOfColor = win32.GUID{Data1: 0xab8e5d11, Data2: 0xb0c1, Data3: 
 
 // Value (propget get_Value) dispatches through IReferenceOfColor's vtable slot 6.
 func (self *IReferenceOfColor) Value() (ui.Color, error) {
-	var result ui.Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ui.Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IVectorViewOfDisplayRegion is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.WindowManagement.DisplayRegion>.
@@ -114,23 +114,23 @@ var IID_IVectorViewOfDisplayRegion = win32.GUID{Data1: 0x9460debb, Data2: 0xa0d6
 
 // GetAt dispatches through IVectorViewOfDisplayRegion's vtable slot 6.
 func (self *IVectorViewOfDisplayRegion) GetAt(index uint32) (*uiwindowmanagement.IDisplayRegion, error) {
-	var result *uiwindowmanagement.IDisplayRegion
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*uiwindowmanagement.IDisplayRegion)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorViewOfDisplayRegion's vtable slot 7.
 func (self *IVectorViewOfDisplayRegion) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorViewOfDisplayRegion's vtable slot 8.
 func (self *IVectorViewOfDisplayRegion) IndexOf(value *uiwindowmanagement.IDisplayRegion, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array

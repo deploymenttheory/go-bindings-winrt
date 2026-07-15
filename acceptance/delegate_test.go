@@ -35,10 +35,14 @@ var (
 )
 
 // AddRebootNeeded dispatches through IMediaProtectionManager's vtable slot 8.
+// The token out-param is heap-allocated via new + winrt.OutParam (the
+// out-param invariant, see the runtime's outparam.go): registration reenters
+// Go to QI/AddRef the Go-implemented handler, parking this goroutine where a
+// GC stack shrink would strand a stack address.
 func (self *iMediaProtectionManager) AddRebootNeeded(handler uintptr) (syswinrt.EventRegistrationToken, error) {
-	var token syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), handler, uintptr(unsafe.Pointer(&token)))
-	return token, win32.ErrIfFailed(int32(r1))
+	token := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), handler, uintptr(winrt.OutParam(unsafe.Pointer(token))))
+	return *token, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveRebootNeeded dispatches through IMediaProtectionManager's vtable

@@ -39,9 +39,9 @@ func (self *IAsyncOperationOfBool) SetCompleted(handler *AsyncOperationCompleted
 
 // GetResults dispatches through IAsyncOperationOfBool's vtable slot 8.
 func (self *IAsyncOperationOfBool) GetResults() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfBool reaches
@@ -108,9 +108,9 @@ func (self *IAsyncOperationOfIVectorOfPackageContentGroup) SetCompleted(handler 
 
 // GetResults dispatches through IAsyncOperationOfIVectorOfPackageContentGroup's vtable slot 8.
 func (self *IAsyncOperationOfIVectorOfPackageContentGroup) GetResults() (*IVectorOfPackageContentGroup, error) {
-	var result *IVectorOfPackageContentGroup
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfPackageContentGroup)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfIVectorOfPackageContentGroup reaches
@@ -177,9 +177,9 @@ func (self *IAsyncOperationOfIVectorViewOfAppListEntry) SetCompleted(handler *As
 
 // GetResults dispatches through IAsyncOperationOfIVectorViewOfAppListEntry's vtable slot 8.
 func (self *IAsyncOperationOfIVectorViewOfAppListEntry) GetResults() (*IVectorViewOfAppListEntry, error) {
-	var result *IVectorViewOfAppListEntry
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfAppListEntry)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfIVectorViewOfAppListEntry reaches
@@ -246,9 +246,9 @@ func (self *IAsyncOperationOfPackageCatalogAddOptionalPackageResult) SetComplete
 
 // GetResults dispatches through IAsyncOperationOfPackageCatalogAddOptionalPackageResult's vtable slot 8.
 func (self *IAsyncOperationOfPackageCatalogAddOptionalPackageResult) GetResults() (*IPackageCatalogAddOptionalPackageResult, error) {
-	var result *IPackageCatalogAddOptionalPackageResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IPackageCatalogAddOptionalPackageResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfPackageCatalogAddOptionalPackageResult reaches
@@ -315,9 +315,9 @@ func (self *IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult) SetComp
 
 // GetResults dispatches through IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult's vtable slot 8.
 func (self *IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult) GetResults() (*IPackageCatalogRemoveOptionalPackagesResult, error) {
-	var result *IPackageCatalogRemoveOptionalPackagesResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IPackageCatalogRemoveOptionalPackagesResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult reaches
@@ -384,9 +384,9 @@ func (self *IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult) SetComp
 
 // GetResults dispatches through IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult's vtable slot 8.
 func (self *IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult) GetResults() (*IPackageCatalogRemoveResourcePackagesResult, error) {
-	var result *IPackageCatalogRemoveResourcePackagesResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IPackageCatalogRemoveResourcePackagesResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult reaches
@@ -453,9 +453,9 @@ func (self *IAsyncOperationOfPackageContentGroup) SetCompleted(handler *AsyncOpe
 
 // GetResults dispatches through IAsyncOperationOfPackageContentGroup's vtable slot 8.
 func (self *IAsyncOperationOfPackageContentGroup) GetResults() (*IPackageContentGroup, error) {
-	var result *IPackageContentGroup
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IPackageContentGroup)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfPackageContentGroup reaches
@@ -522,9 +522,9 @@ func (self *IAsyncOperationOfPackageUpdateAvailabilityResult) SetCompleted(handl
 
 // GetResults dispatches through IAsyncOperationOfPackageUpdateAvailabilityResult's vtable slot 8.
 func (self *IAsyncOperationOfPackageUpdateAvailabilityResult) GetResults() (*IPackageUpdateAvailabilityResult, error) {
-	var result *IPackageUpdateAvailabilityResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IPackageUpdateAvailabilityResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfPackageUpdateAvailabilityResult reaches
@@ -595,9 +595,9 @@ func (self *IAsyncOperationWithProgressOfPackageCatalogAddResourcePackageResultA
 
 // GetResults dispatches through IAsyncOperationWithProgressOfPackageCatalogAddResourcePackageResultAndPackageInstallProgress's vtable slot 10.
 func (self *IAsyncOperationWithProgressOfPackageCatalogAddResourcePackageResultAndPackageInstallProgress) GetResults() (*IPackageCatalogAddResourcePackageResult, error) {
-	var result *IPackageCatalogAddResourcePackageResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IPackageCatalogAddResourcePackageResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IIterableOfPackage is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Package>.
@@ -611,9 +611,9 @@ var IID_IIterableOfPackage = win32.GUID{Data1: 0x69ad6aa7, Data2: 0x0c49, Data3:
 
 // First dispatches through IIterableOfPackage's vtable slot 6.
 func (self *IIterableOfPackage) First() (*IIteratorOfPackage, error) {
-	var result *IIteratorOfPackage
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IIteratorOfPackage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
@@ -627,9 +627,9 @@ var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 
 
 // First dispatches through IIterableOfString's vtable slot 6.
 func (self *IIterableOfString) First() (*IIteratorOfString, error) {
-	var result *IIteratorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IIteratorOfPackage is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Package>.
@@ -643,23 +643,23 @@ var IID_IIteratorOfPackage = win32.GUID{Data1: 0x0217f069, Data2: 0x025c, Data3:
 
 // Current (propget get_Current) dispatches through IIteratorOfPackage's vtable slot 6.
 func (self *IIteratorOfPackage) Current() (*IPackage, error) {
-	var result *IPackage
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IPackage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPackage's vtable slot 7.
 func (self *IIteratorOfPackage) HasCurrent() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // MoveNext dispatches through IIteratorOfPackage's vtable slot 8.
 func (self *IIteratorOfPackage) MoveNext() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
@@ -675,26 +675,26 @@ var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 
 
 // Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
 func (self *IIteratorOfString) Current() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
 func (self *IIteratorOfString) HasCurrent() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // MoveNext dispatches through IIteratorOfString's vtable slot 8.
 func (self *IIteratorOfString) MoveNext() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
@@ -711,9 +711,9 @@ var IID_IReferenceOfDateTime = win32.GUID{Data1: 0x5541d8a7, Data2: 0x497c, Data
 
 // Value (propget get_Value) dispatches through IReferenceOfDateTime's vtable slot 6.
 func (self *IReferenceOfDateTime) Value() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IVectorOfAppInstance is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.AppInstance>.
@@ -728,30 +728,30 @@ var IID_IVectorOfAppInstance = win32.GUID{Data1: 0x7ff85c5e, Data2: 0x7752, Data
 
 // GetAt dispatches through IVectorOfAppInstance's vtable slot 6.
 func (self *IVectorOfAppInstance) GetAt(index uint32) (*IAppInstance, error) {
-	var result *IAppInstance
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppInstance)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorOfAppInstance's vtable slot 7.
 func (self *IVectorOfAppInstance) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetView dispatches through IVectorOfAppInstance's vtable slot 8.
 func (self *IVectorOfAppInstance) GetView() (*IVectorViewOfAppInstance, error) {
-	var result *IVectorViewOfAppInstance
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfAppInstance)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorOfAppInstance's vtable slot 9.
 func (self *IVectorOfAppInstance) IndexOf(value *IAppInstance, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfAppInstance's vtable slot 10.
@@ -806,30 +806,30 @@ var IID_IVectorOfPackage = win32.GUID{Data1: 0xd1bb509e, Data2: 0x6989, Data3: 0
 
 // GetAt dispatches through IVectorOfPackage's vtable slot 6.
 func (self *IVectorOfPackage) GetAt(index uint32) (*IPackage, error) {
-	var result *IPackage
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IPackage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorOfPackage's vtable slot 7.
 func (self *IVectorOfPackage) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetView dispatches through IVectorOfPackage's vtable slot 8.
 func (self *IVectorOfPackage) GetView() (*IVectorViewOfPackage, error) {
-	var result *IVectorViewOfPackage
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfPackage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorOfPackage's vtable slot 9.
 func (self *IVectorOfPackage) IndexOf(value *IPackage, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfPackage's vtable slot 10.
@@ -884,30 +884,30 @@ var IID_IVectorOfPackageContentGroup = win32.GUID{Data1: 0x29adc699, Data2: 0x58
 
 // GetAt dispatches through IVectorOfPackageContentGroup's vtable slot 6.
 func (self *IVectorOfPackageContentGroup) GetAt(index uint32) (*IPackageContentGroup, error) {
-	var result *IPackageContentGroup
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IPackageContentGroup)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorOfPackageContentGroup's vtable slot 7.
 func (self *IVectorOfPackageContentGroup) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetView dispatches through IVectorOfPackageContentGroup's vtable slot 8.
 func (self *IVectorOfPackageContentGroup) GetView() (*IVectorViewOfPackageContentGroup, error) {
-	var result *IVectorViewOfPackageContentGroup
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfPackageContentGroup)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorOfPackageContentGroup's vtable slot 9.
 func (self *IVectorOfPackageContentGroup) IndexOf(value *IPackageContentGroup, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfPackageContentGroup's vtable slot 10.
@@ -962,23 +962,23 @@ var IID_IVectorViewOfAppInstance = win32.GUID{Data1: 0xd1864e26, Data2: 0xb62b, 
 
 // GetAt dispatches through IVectorViewOfAppInstance's vtable slot 6.
 func (self *IVectorViewOfAppInstance) GetAt(index uint32) (*IAppInstance, error) {
-	var result *IAppInstance
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppInstance)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorViewOfAppInstance's vtable slot 7.
 func (self *IVectorViewOfAppInstance) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorViewOfAppInstance's vtable slot 8.
 func (self *IVectorViewOfAppInstance) IndexOf(value *IAppInstance, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
@@ -997,9 +997,9 @@ var IID_IVectorViewOfAppListEntry = win32.GUID{Data1: 0x920c8b92, Data2: 0xd5ef,
 
 // Size (propget get_Size) dispatches through IVectorViewOfAppListEntry's vtable slot 7.
 func (self *IVectorViewOfAppListEntry) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 8: IndexOf skipped: reference to Windows.ApplicationModel.Core.AppListEntry crosses a severed import edge
@@ -1018,23 +1018,23 @@ var IID_IVectorViewOfPackage = win32.GUID{Data1: 0x0263c4d4, Data2: 0x195c, Data
 
 // GetAt dispatches through IVectorViewOfPackage's vtable slot 6.
 func (self *IVectorViewOfPackage) GetAt(index uint32) (*IPackage, error) {
-	var result *IPackage
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IPackage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorViewOfPackage's vtable slot 7.
 func (self *IVectorViewOfPackage) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorViewOfPackage's vtable slot 8.
 func (self *IVectorViewOfPackage) IndexOf(value *IPackage, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
@@ -1051,23 +1051,23 @@ var IID_IVectorViewOfPackageContentGroup = win32.GUID{Data1: 0xdeae10f1, Data2: 
 
 // GetAt dispatches through IVectorViewOfPackageContentGroup's vtable slot 6.
 func (self *IVectorViewOfPackageContentGroup) GetAt(index uint32) (*IPackageContentGroup, error) {
-	var result *IPackageContentGroup
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IPackageContentGroup)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorViewOfPackageContentGroup's vtable slot 7.
 func (self *IVectorViewOfPackageContentGroup) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorViewOfPackageContentGroup's vtable slot 8.
 func (self *IVectorViewOfPackageContentGroup) IndexOf(value *IPackageContentGroup, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
@@ -1084,23 +1084,23 @@ var IID_IVectorViewOfUri = win32.GUID{Data1: 0x4b8385bd, Data2: 0xa2cd, Data3: 0
 
 // GetAt dispatches through IVectorViewOfUri's vtable slot 6.
 func (self *IVectorViewOfUri) GetAt(index uint32) (*foundation.IUriRuntimeClass, error) {
-	var result *foundation.IUriRuntimeClass
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IUriRuntimeClass)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorViewOfUri's vtable slot 7.
 func (self *IVectorViewOfUri) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorViewOfUri's vtable slot 8.
 func (self *IVectorViewOfUri) IndexOf(value *foundation.IUriRuntimeClass, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array

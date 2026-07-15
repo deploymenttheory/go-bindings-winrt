@@ -4,6 +4,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/emit/winrt/render"
 	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/emit/winrt/view"
 	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/pipeline"
 	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/typemap"
@@ -140,10 +141,11 @@ func TestMethodLowering(t *testing.T) {
 		}
 	}
 
-	// HSTRING retval: short-circuit shape.
+	// HSTRING retval: short-circuit shape, heap-allocated out-param.
 	getName := byName["GetName"]
 	if getName.ReturnKind != view.RetString || getName.ReturnSig != "(string, error)" ||
-		getName.ResultExpr != "winrt.TakeHString(result)" {
+		getName.ResultDecl != "result := new(syswinrt.HSTRING)" ||
+		getName.ResultExpr != "winrt.TakeHString(*result)" {
 		t.Errorf("GetName lowering = %+v", getName)
 	}
 	// By-value single-word struct flattens to its field.
@@ -151,9 +153,9 @@ func TestMethodLowering(t *testing.T) {
 	if len(setWhen.ArgExprs) != 1 || setWhen.ArgExprs[0] != "uintptr(value.UniversalTime)" {
 		t.Errorf("SetWhen args = %v", setWhen.ArgExprs)
 	}
-	// Bool retval reads a byte.
+	// Bool retval reads a heap-allocated byte.
 	isEnabled := byName["IsEnabled"]
-	if isEnabled.ResultDecl != "var result byte" || isEnabled.ResultExpr != "result != 0" {
+	if isEnabled.ResultDecl != "result := new(byte)" || isEnabled.ResultExpr != "*result != 0" {
 		t.Errorf("IsEnabled lowering = %+v", isEnabled)
 	}
 	// Bool input becomes a 0/1 word.
@@ -175,5 +177,49 @@ func TestMethodLowering(t *testing.T) {
 		if !strings.Contains(diagnostics, key) {
 			t.Errorf("diagnostics missing key %s: %v", key, generator.Diagnostics)
 		}
+	}
+}
+
+// TestMethodBodyHeapEscapesOutParams pins the out-param invariant in a
+// RENDERED method body: every native-written pointer is heap-allocated
+// (`result := new(T)`) and crosses SyscallN through winrt.OutParam — never
+// as the address of a stack local. A native call can reenter Go and park
+// this goroutine while a GC stack shrink moves its frames, so a
+// `&stackLocal` out-param word goes stale mid-call (see
+// bindings/runtime/winrt/outparam.go).
+func TestMethodBodyHeapEscapesOutParams(t *testing.T) {
+	registry := testRegistry()
+	generator := New(registry, "example.com/mod", t.TempDir())
+	meta := registry.ByNamespace["Windows.Test"]
+	generator.prepareNamespaceClaims(meta)
+
+	models := generator.buildInterfaceModels(meta, typemap.ImportSet{})
+	if len(models) != 1 {
+		t.Fatalf("interface models = %d, want 1", len(models))
+	}
+	body, err := render.Interface(models[0])
+	if err != nil {
+		t.Fatalf("render.Interface: %v", err)
+	}
+
+	// The complete HSTRING-retval method, byte for byte.
+	want := "func (self *IThing) GetName() (string, error) {\n" +
+		"\tresult := new(syswinrt.HSTRING)\n" +
+		"\tr1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))\n" +
+		"\tif err := win32.ErrIfFailed(int32(r1)); err != nil {\n" +
+		"\t\treturn \"\", err\n" +
+		"\t}\n" +
+		"\treturn winrt.TakeHString(*result), nil\n" +
+		"}"
+	if !strings.Contains(body, want) {
+		t.Errorf("rendered body missing the heap-escaped GetName shape:\nwant:\n%s\ngot:\n%s", want, body)
+	}
+	// The bool retval keeps the same shape.
+	if !strings.Contains(body, "result := new(byte)") || !strings.Contains(body, "return *result != 0, win32.ErrIfFailed(int32(r1))") {
+		t.Errorf("rendered body missing the heap-escaped bool retval shape:\n%s", body)
+	}
+	// No method may ever pass a stack local's address to native code.
+	if strings.Contains(body, "unsafe.Pointer(&") {
+		t.Errorf("rendered body passes a stack address to SyscallN:\n%s", body)
 	}
 }

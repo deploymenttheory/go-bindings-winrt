@@ -28,8 +28,9 @@ go test ./internal/... ./acceptance/...   # slot/IID guard + live acceptance
 go run ./cmd/generate fetch-metadata      # refresh the pinned contract winmds
 go run ./cmd/generate ingest              # winmds → metadata/winrt/*.winrtmeta.json (committed)
 go run ./cmd/generate validate            # structural integrity checks over the IR
-go run ./cmd/generate bindings --namespace Windows.Globalization,Windows.UI.Notifications \
+go run ./cmd/generate bindings \
   --diagnostics-baseline metadata/diagnostics-baseline.json      # regenerate the committed tree
+  # roots come from metadata/emit-roots.txt; --namespace A,B is an ad-hoc override
 go run ./cmd/generate diff --old <dir> --new <dir>               # semantic API diff between IR trees
 go run ./examples/calendar                # the vertical, end to end
 ```
@@ -173,12 +174,15 @@ go run ./examples/calendar                # the vertical, end to end
 - **Diagnostics ratchet**: `metadata/diagnostics-baseline.json` is the
   committed degradation set; `bindings --diagnostics-baseline` fails on any
   NEW diagnostic, and CI's regen job enforces byte-identical regeneration
-  of the committed tree — the closure of the root namespaces
-  {Windows.Globalization, Windows.UI.Notifications} (`--namespace` takes a
-  comma-separated root list; the emit chases every namespace the roots'
-  emitted members reference, currently 16 packages including
-  Windows.Data.Xml.Dom, Windows.System, Windows.Storage, and
-  Windows.ApplicationModel).
+  of the committed tree — the closure of the root namespaces pinned in
+  `metadata/emit-roots.txt` (read when `--namespace` is absent; `--namespace`
+  takes a comma-separated root list as an ad-hoc override). The roots are
+  {Windows.Globalization, Windows.UI.Notifications, Windows.Devices.Bluetooth
+  (+ .GenericAttributeProfile, .Advertisement), Windows.Management
+  (+ .Deployment, .Policies, .Workplace)}; the emit chases every namespace
+  the roots' emitted members reference, currently 25 packages including
+  Windows.Data.Xml.Dom, Windows.System, Windows.Storage,
+  Windows.ApplicationModel, Windows.Devices.Radios, and Windows.Networking.
 - **Never redeclare the ABI**: HSTRING, IInspectable, IActivationFactory,
   EventRegistrationToken, TrustLevel, and every Ro*/Windows* function come
   from `go-bindings-win32/bindings/win32/system/winrt` (import alias

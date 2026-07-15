@@ -27,35 +27,35 @@ var IID_IAppWindow = win32.GUID{Data1: 0x663014a6, Data2: 0xb75e, Data3: 0x5dbd,
 
 // Content (propget get_Content) dispatches through IAppWindow's vtable slot 6.
 func (self *IAppWindow) Content() (*ui.IUIContentRoot, error) {
-	var result *ui.IUIContentRoot
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ui.IUIContentRoot)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 7: get_DispatcherQueue skipped: reference to Windows.System.DispatcherQueue crosses a severed import edge
 
 // Frame (propget get_Frame) dispatches through IAppWindow's vtable slot 8.
 func (self *IAppWindow) Frame() (*IAppWindowFrame, error) {
-	var result *IAppWindowFrame
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppWindowFrame)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IsVisible (propget get_IsVisible) dispatches through IAppWindow's vtable slot 9.
 func (self *IAppWindow) IsVisible() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // PersistedStateId (propget get_PersistedStateId) dispatches through IAppWindow's vtable slot 10.
 func (self *IAppWindow) PersistedStateId() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetPersistedStateId (propput put_PersistedStateId) dispatches through IAppWindow's vtable slot 11.
@@ -71,19 +71,19 @@ func (self *IAppWindow) SetPersistedStateId(value string) error {
 
 // Presenter (propget get_Presenter) dispatches through IAppWindow's vtable slot 12.
 func (self *IAppWindow) Presenter() (*IAppWindowPresenter, error) {
-	var result *IAppWindowPresenter
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppWindowPresenter)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Title (propget get_Title) dispatches through IAppWindow's vtable slot 13.
 func (self *IAppWindow) Title() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetTitle (propput put_Title) dispatches through IAppWindow's vtable slot 14.
@@ -99,44 +99,44 @@ func (self *IAppWindow) SetTitle(value string) error {
 
 // TitleBar (propget get_TitleBar) dispatches through IAppWindow's vtable slot 15.
 func (self *IAppWindow) TitleBar() (*IAppWindowTitleBar, error) {
-	var result *IAppWindowTitleBar
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppWindowTitleBar)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // UIContext (propget get_UIContext) dispatches through IAppWindow's vtable slot 16.
 func (self *IAppWindow) UIContext() (*ui.IUIContext, error) {
-	var result *ui.IUIContext
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ui.IUIContext)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // WindowingEnvironment (propget get_WindowingEnvironment) dispatches through IAppWindow's vtable slot 17.
 func (self *IAppWindow) WindowingEnvironment() (*IWindowingEnvironment, error) {
-	var result *IWindowingEnvironment
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IWindowingEnvironment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CloseAsync dispatches through IAppWindow's vtable slot 18.
 func (self *IAppWindow) CloseAsync() (*foundation.IAsyncAction, error) {
-	var result *foundation.IAsyncAction
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IAsyncAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetPlacement dispatches through IAppWindow's vtable slot 19.
 func (self *IAppWindow) GetPlacement() (*IAppWindowPlacement, error) {
-	var result *IAppWindowPlacement
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppWindowPlacement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetDisplayRegions dispatches through IAppWindow's vtable slot 20.
 func (self *IAppWindow) GetDisplayRegions() (*IVectorViewOfDisplayRegion, error) {
-	var result *IVectorViewOfDisplayRegion
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfDisplayRegion)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RequestMoveToDisplayRegion dispatches through IAppWindow's vtable slot 21.
@@ -167,18 +167,18 @@ func (self *IAppWindow) RequestMoveAdjacentToWindow(anchorWindow *IAppWindow) er
 
 // TryShowAsync dispatches through IAppWindow's vtable slot 28.
 func (self *IAppWindow) TryShowAsync() (*IAsyncOperationOfBool, error) {
-	var result *IAsyncOperationOfBool
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfBool)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddChanged (event add add_Changed) dispatches through IAppWindow's vtable slot 29.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveChanged.
 func (self *IAppWindow) AddChanged(handler *TypedEventHandlerOfAppWindowAndAppWindowChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveChanged (event remove remove_Changed) dispatches through IAppWindow's vtable slot 30,
@@ -192,9 +192,9 @@ func (self *IAppWindow) RemoveChanged(token syswinrt.EventRegistrationToken) err
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveClosed.
 func (self *IAppWindow) AddClosed(handler *TypedEventHandlerOfAppWindowAndAppWindowClosedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[31], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[31], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveClosed (event remove remove_Closed) dispatches through IAppWindow's vtable slot 32,
@@ -208,9 +208,9 @@ func (self *IAppWindow) RemoveClosed(token syswinrt.EventRegistrationToken) erro
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveCloseRequested.
 func (self *IAppWindow) AddCloseRequested(handler *TypedEventHandlerOfAppWindowAndAppWindowCloseRequestedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[33], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[33], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveCloseRequested (event remove remove_CloseRequested) dispatches through IAppWindow's vtable slot 34,
@@ -232,58 +232,58 @@ var IID_IAppWindowChangedEventArgs = win32.GUID{Data1: 0x1de1f3be, Data2: 0xa655
 
 // DidAvailableWindowPresentationsChange (propget get_DidAvailableWindowPresentationsChange) dispatches through IAppWindowChangedEventArgs's vtable slot 6.
 func (self *IAppWindowChangedEventArgs) DidAvailableWindowPresentationsChange() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // DidDisplayRegionsChange (propget get_DidDisplayRegionsChange) dispatches through IAppWindowChangedEventArgs's vtable slot 7.
 func (self *IAppWindowChangedEventArgs) DidDisplayRegionsChange() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // DidFrameChange (propget get_DidFrameChange) dispatches through IAppWindowChangedEventArgs's vtable slot 8.
 func (self *IAppWindowChangedEventArgs) DidFrameChange() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // DidSizeChange (propget get_DidSizeChange) dispatches through IAppWindowChangedEventArgs's vtable slot 9.
 func (self *IAppWindowChangedEventArgs) DidSizeChange() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // DidTitleBarChange (propget get_DidTitleBarChange) dispatches through IAppWindowChangedEventArgs's vtable slot 10.
 func (self *IAppWindowChangedEventArgs) DidTitleBarChange() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // DidVisibilityChange (propget get_DidVisibilityChange) dispatches through IAppWindowChangedEventArgs's vtable slot 11.
 func (self *IAppWindowChangedEventArgs) DidVisibilityChange() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // DidWindowingEnvironmentChange (propget get_DidWindowingEnvironmentChange) dispatches through IAppWindowChangedEventArgs's vtable slot 12.
 func (self *IAppWindowChangedEventArgs) DidWindowingEnvironmentChange() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // DidWindowPresentationChange (propget get_DidWindowPresentationChange) dispatches through IAppWindowChangedEventArgs's vtable slot 13.
 func (self *IAppWindowChangedEventArgs) DidWindowPresentationChange() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppWindowCloseRequestedEventArgs is the WinRT interface Windows.UI.WindowManagement.IAppWindowCloseRequestedEventArgs.
@@ -298,9 +298,9 @@ var IID_IAppWindowCloseRequestedEventArgs = win32.GUID{Data1: 0xe9ff01da, Data2:
 
 // Cancel (propget get_Cancel) dispatches through IAppWindowCloseRequestedEventArgs's vtable slot 6.
 func (self *IAppWindowCloseRequestedEventArgs) Cancel() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCancel (propput put_Cancel) dispatches through IAppWindowCloseRequestedEventArgs's vtable slot 7.
@@ -315,9 +315,9 @@ func (self *IAppWindowCloseRequestedEventArgs) SetCancel(value bool) error {
 
 // GetDeferral dispatches through IAppWindowCloseRequestedEventArgs's vtable slot 8.
 func (self *IAppWindowCloseRequestedEventArgs) GetDeferral() (*foundation.IDeferral, error) {
-	var result *foundation.IDeferral
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IDeferral)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppWindowClosedEventArgs is the WinRT interface Windows.UI.WindowManagement.IAppWindowClosedEventArgs.
@@ -332,9 +332,9 @@ var IID_IAppWindowClosedEventArgs = win32.GUID{Data1: 0xcc7df816, Data2: 0x9520,
 
 // Reason (propget get_Reason) dispatches through IAppWindowClosedEventArgs's vtable slot 6.
 func (self *IAppWindowClosedEventArgs) Reason() (AppWindowClosedReason, error) {
-	var result AppWindowClosedReason
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AppWindowClosedReason)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppWindowFrame is the WinRT interface Windows.UI.WindowManagement.IAppWindowFrame.
@@ -349,9 +349,9 @@ var IID_IAppWindowFrame = win32.GUID{Data1: 0x9ee22601, Data2: 0x7e5d, Data3: 0x
 
 // DragRegionVisuals (propget get_DragRegionVisuals) dispatches through IAppWindowFrame's vtable slot 6.
 func (self *IAppWindowFrame) DragRegionVisuals() (*IVectorOfIVisualElement, error) {
-	var result *IVectorOfIVisualElement
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfIVisualElement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppWindowFrameStyle is the WinRT interface Windows.UI.WindowManagement.IAppWindowFrameStyle.
@@ -366,9 +366,9 @@ var IID_IAppWindowFrameStyle = win32.GUID{Data1: 0xac412946, Data2: 0xe1ac, Data
 
 // GetFrameStyle dispatches through IAppWindowFrameStyle's vtable slot 6.
 func (self *IAppWindowFrameStyle) GetFrameStyle() (AppWindowFrameStyle, error) {
-	var result AppWindowFrameStyle
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AppWindowFrameStyle)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetFrameStyle dispatches through IAppWindowFrameStyle's vtable slot 7.
@@ -389,23 +389,23 @@ var IID_IAppWindowPlacement = win32.GUID{Data1: 0x03dc815e, Data2: 0xe7a9, Data3
 
 // DisplayRegion (propget get_DisplayRegion) dispatches through IAppWindowPlacement's vtable slot 6.
 func (self *IAppWindowPlacement) DisplayRegion() (*IDisplayRegion, error) {
-	var result *IDisplayRegion
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDisplayRegion)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Offset (propget get_Offset) dispatches through IAppWindowPlacement's vtable slot 7.
 func (self *IAppWindowPlacement) Offset() (foundation.Point, error) {
-	var result foundation.Point
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.Point)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IAppWindowPlacement's vtable slot 8.
 func (self *IAppWindowPlacement) Size() (foundation.Size, error) {
-	var result foundation.Size
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.Size)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppWindowPresentationConfiguration is the WinRT interface Windows.UI.WindowManagement.IAppWindowPresentationConfiguration.
@@ -420,9 +420,9 @@ var IID_IAppWindowPresentationConfiguration = win32.GUID{Data1: 0xb5a43ee3, Data
 
 // Kind (propget get_Kind) dispatches through IAppWindowPresentationConfiguration's vtable slot 6.
 func (self *IAppWindowPresentationConfiguration) Kind() (AppWindowPresentationKind, error) {
-	var result AppWindowPresentationKind
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AppWindowPresentationKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppWindowPresentationConfigurationFactory is the WinRT interface Windows.UI.WindowManagement.IAppWindowPresentationConfigurationFactory.
@@ -447,30 +447,30 @@ var IID_IAppWindowPresenter = win32.GUID{Data1: 0x5ae9ed73, Data2: 0xe1fd, Data3
 
 // GetConfiguration dispatches through IAppWindowPresenter's vtable slot 6.
 func (self *IAppWindowPresenter) GetConfiguration() (*IAppWindowPresentationConfiguration, error) {
-	var result *IAppWindowPresentationConfiguration
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppWindowPresentationConfiguration)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IsPresentationSupported dispatches through IAppWindowPresenter's vtable slot 7.
 func (self *IAppWindowPresenter) IsPresentationSupported(presentationKind AppWindowPresentationKind) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(presentationKind), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(presentationKind), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // RequestPresentation dispatches through IAppWindowPresenter's vtable slot 8.
 func (self *IAppWindowPresenter) RequestPresentation(configuration *IAppWindowPresentationConfiguration) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(configuration)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(configuration)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // RequestPresentationByKind dispatches through IAppWindowPresenter's vtable slot 9.
 func (self *IAppWindowPresenter) RequestPresentationByKind(presentationKind AppWindowPresentationKind) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(presentationKind), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(presentationKind), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppWindowStatics is the WinRT interface Windows.UI.WindowManagement.IAppWindowStatics.
@@ -485,9 +485,9 @@ var IID_IAppWindowStatics = win32.GUID{Data1: 0xff1f3ea3, Data2: 0xb769, Data3: 
 
 // TryCreateAsync dispatches through IAppWindowStatics's vtable slot 6.
 func (self *IAppWindowStatics) TryCreateAsync() (*IAsyncOperationOfAppWindow, error) {
-	var result *IAsyncOperationOfAppWindow
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfAppWindow)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ClearAllPersistedState dispatches through IAppWindowStatics's vtable slot 7.
@@ -519,9 +519,9 @@ var IID_IAppWindowTitleBar = win32.GUID{Data1: 0x6e932c84, Data2: 0xf644, Data3:
 
 // BackgroundColor (propget get_BackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 6.
 func (self *IAppWindowTitleBar) BackgroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetBackgroundColor (propput put_BackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 7.
@@ -532,9 +532,9 @@ func (self *IAppWindowTitleBar) SetBackgroundColor(value *IReferenceOfColor) err
 
 // ButtonBackgroundColor (propget get_ButtonBackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 8.
 func (self *IAppWindowTitleBar) ButtonBackgroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetButtonBackgroundColor (propput put_ButtonBackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 9.
@@ -545,9 +545,9 @@ func (self *IAppWindowTitleBar) SetButtonBackgroundColor(value *IReferenceOfColo
 
 // ButtonForegroundColor (propget get_ButtonForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 10.
 func (self *IAppWindowTitleBar) ButtonForegroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetButtonForegroundColor (propput put_ButtonForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 11.
@@ -558,9 +558,9 @@ func (self *IAppWindowTitleBar) SetButtonForegroundColor(value *IReferenceOfColo
 
 // ButtonHoverBackgroundColor (propget get_ButtonHoverBackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 12.
 func (self *IAppWindowTitleBar) ButtonHoverBackgroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetButtonHoverBackgroundColor (propput put_ButtonHoverBackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 13.
@@ -571,9 +571,9 @@ func (self *IAppWindowTitleBar) SetButtonHoverBackgroundColor(value *IReferenceO
 
 // ButtonHoverForegroundColor (propget get_ButtonHoverForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 14.
 func (self *IAppWindowTitleBar) ButtonHoverForegroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetButtonHoverForegroundColor (propput put_ButtonHoverForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 15.
@@ -584,9 +584,9 @@ func (self *IAppWindowTitleBar) SetButtonHoverForegroundColor(value *IReferenceO
 
 // ButtonInactiveBackgroundColor (propget get_ButtonInactiveBackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 16.
 func (self *IAppWindowTitleBar) ButtonInactiveBackgroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetButtonInactiveBackgroundColor (propput put_ButtonInactiveBackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 17.
@@ -597,9 +597,9 @@ func (self *IAppWindowTitleBar) SetButtonInactiveBackgroundColor(value *IReferen
 
 // ButtonInactiveForegroundColor (propget get_ButtonInactiveForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 18.
 func (self *IAppWindowTitleBar) ButtonInactiveForegroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetButtonInactiveForegroundColor (propput put_ButtonInactiveForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 19.
@@ -610,9 +610,9 @@ func (self *IAppWindowTitleBar) SetButtonInactiveForegroundColor(value *IReferen
 
 // ButtonPressedBackgroundColor (propget get_ButtonPressedBackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 20.
 func (self *IAppWindowTitleBar) ButtonPressedBackgroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetButtonPressedBackgroundColor (propput put_ButtonPressedBackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 21.
@@ -623,9 +623,9 @@ func (self *IAppWindowTitleBar) SetButtonPressedBackgroundColor(value *IReferenc
 
 // ButtonPressedForegroundColor (propget get_ButtonPressedForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 22.
 func (self *IAppWindowTitleBar) ButtonPressedForegroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetButtonPressedForegroundColor (propput put_ButtonPressedForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 23.
@@ -636,9 +636,9 @@ func (self *IAppWindowTitleBar) SetButtonPressedForegroundColor(value *IReferenc
 
 // ExtendsContentIntoTitleBar (propget get_ExtendsContentIntoTitleBar) dispatches through IAppWindowTitleBar's vtable slot 24.
 func (self *IAppWindowTitleBar) ExtendsContentIntoTitleBar() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetExtendsContentIntoTitleBar (propput put_ExtendsContentIntoTitleBar) dispatches through IAppWindowTitleBar's vtable slot 25.
@@ -653,9 +653,9 @@ func (self *IAppWindowTitleBar) SetExtendsContentIntoTitleBar(value bool) error 
 
 // ForegroundColor (propget get_ForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 26.
 func (self *IAppWindowTitleBar) ForegroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetForegroundColor (propput put_ForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 27.
@@ -666,9 +666,9 @@ func (self *IAppWindowTitleBar) SetForegroundColor(value *IReferenceOfColor) err
 
 // InactiveBackgroundColor (propget get_InactiveBackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 28.
 func (self *IAppWindowTitleBar) InactiveBackgroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetInactiveBackgroundColor (propput put_InactiveBackgroundColor) dispatches through IAppWindowTitleBar's vtable slot 29.
@@ -679,9 +679,9 @@ func (self *IAppWindowTitleBar) SetInactiveBackgroundColor(value *IReferenceOfCo
 
 // InactiveForegroundColor (propget get_InactiveForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 30.
 func (self *IAppWindowTitleBar) InactiveForegroundColor() (*IReferenceOfColor, error) {
-	var result *IReferenceOfColor
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[30], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfColor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[30], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetInactiveForegroundColor (propput put_InactiveForegroundColor) dispatches through IAppWindowTitleBar's vtable slot 31.
@@ -692,16 +692,16 @@ func (self *IAppWindowTitleBar) SetInactiveForegroundColor(value *IReferenceOfCo
 
 // IsVisible (propget get_IsVisible) dispatches through IAppWindowTitleBar's vtable slot 32.
 func (self *IAppWindowTitleBar) IsVisible() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[32], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[32], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // GetTitleBarOcclusions dispatches through IAppWindowTitleBar's vtable slot 33.
 func (self *IAppWindowTitleBar) GetTitleBarOcclusions() (*IVectorViewOfAppWindowTitleBarOcclusion, error) {
-	var result *IVectorViewOfAppWindowTitleBarOcclusion
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[33], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfAppWindowTitleBarOcclusion)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[33], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppWindowTitleBarOcclusion is the WinRT interface Windows.UI.WindowManagement.IAppWindowTitleBarOcclusion.
@@ -716,9 +716,9 @@ var IID_IAppWindowTitleBarOcclusion = win32.GUID{Data1: 0xfea3cffd, Data2: 0x2cc
 
 // OccludingRect (propget get_OccludingRect) dispatches through IAppWindowTitleBarOcclusion's vtable slot 6.
 func (self *IAppWindowTitleBarOcclusion) OccludingRect() (foundation.Rect, error) {
-	var result foundation.Rect
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.Rect)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppWindowTitleBarVisibility is the WinRT interface Windows.UI.WindowManagement.IAppWindowTitleBarVisibility.
@@ -733,9 +733,9 @@ var IID_IAppWindowTitleBarVisibility = win32.GUID{Data1: 0xa215a4e3, Data2: 0x6e
 
 // GetPreferredVisibility dispatches through IAppWindowTitleBarVisibility's vtable slot 6.
 func (self *IAppWindowTitleBarVisibility) GetPreferredVisibility() (AppWindowTitleBarVisibility, error) {
-	var result AppWindowTitleBarVisibility
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AppWindowTitleBarVisibility)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPreferredVisibility dispatches through IAppWindowTitleBarVisibility's vtable slot 7.
@@ -776,49 +776,49 @@ var IID_IDisplayRegion = win32.GUID{Data1: 0xdb50c3a2, Data2: 0x4094, Data3: 0x5
 
 // DisplayMonitorDeviceId (propget get_DisplayMonitorDeviceId) dispatches through IDisplayRegion's vtable slot 6.
 func (self *IDisplayRegion) DisplayMonitorDeviceId() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IsVisible (propget get_IsVisible) dispatches through IDisplayRegion's vtable slot 7.
 func (self *IDisplayRegion) IsVisible() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // WorkAreaOffset (propget get_WorkAreaOffset) dispatches through IDisplayRegion's vtable slot 8.
 func (self *IDisplayRegion) WorkAreaOffset() (foundation.Point, error) {
-	var result foundation.Point
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.Point)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // WorkAreaSize (propget get_WorkAreaSize) dispatches through IDisplayRegion's vtable slot 9.
 func (self *IDisplayRegion) WorkAreaSize() (foundation.Size, error) {
-	var result foundation.Size
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.Size)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // WindowingEnvironment (propget get_WindowingEnvironment) dispatches through IDisplayRegion's vtable slot 10.
 func (self *IDisplayRegion) WindowingEnvironment() (*IWindowingEnvironment, error) {
-	var result *IWindowingEnvironment
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IWindowingEnvironment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddChanged (event add add_Changed) dispatches through IDisplayRegion's vtable slot 11.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveChanged.
 func (self *IDisplayRegion) AddChanged(handler *TypedEventHandlerOfDisplayRegionAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveChanged (event remove remove_Changed) dispatches through IDisplayRegion's vtable slot 12,
@@ -840,9 +840,9 @@ var IID_IFullScreenPresentationConfiguration = win32.GUID{Data1: 0x43d3dcd8, Dat
 
 // IsExclusive (propget get_IsExclusive) dispatches through IFullScreenPresentationConfiguration's vtable slot 6.
 func (self *IFullScreenPresentationConfiguration) IsExclusive() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetIsExclusive (propput put_IsExclusive) dispatches through IFullScreenPresentationConfiguration's vtable slot 7.
@@ -867,9 +867,9 @@ var IID_IWindowServicesStatics = win32.GUID{Data1: 0xcff4d519, Data2: 0x50a6, Da
 
 // FindAllTopLevelWindowIds dispatches through IWindowServicesStatics's vtable slot 6.
 func (self *IWindowServicesStatics) FindAllTopLevelWindowIds() (*IVectorViewOfWindowId, error) {
-	var result *IVectorViewOfWindowId
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfWindowId)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IWindowingEnvironment is the WinRT interface Windows.UI.WindowManagement.IWindowingEnvironment.
@@ -884,32 +884,32 @@ var IID_IWindowingEnvironment = win32.GUID{Data1: 0x264363c0, Data2: 0x2a49, Dat
 
 // IsEnabled (propget get_IsEnabled) dispatches through IWindowingEnvironment's vtable slot 6.
 func (self *IWindowingEnvironment) IsEnabled() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // Kind (propget get_Kind) dispatches through IWindowingEnvironment's vtable slot 7.
 func (self *IWindowingEnvironment) Kind() (WindowingEnvironmentKind, error) {
-	var result WindowingEnvironmentKind
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(WindowingEnvironmentKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetDisplayRegions dispatches through IWindowingEnvironment's vtable slot 8.
 func (self *IWindowingEnvironment) GetDisplayRegions() (*IVectorViewOfDisplayRegion, error) {
-	var result *IVectorViewOfDisplayRegion
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfDisplayRegion)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddChanged (event add add_Changed) dispatches through IWindowingEnvironment's vtable slot 9.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveChanged.
 func (self *IWindowingEnvironment) AddChanged(handler *TypedEventHandlerOfWindowingEnvironmentAndWindowingEnvironmentChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveChanged (event remove remove_Changed) dispatches through IWindowingEnvironment's vtable slot 10,
@@ -931,9 +931,9 @@ var IID_IWindowingEnvironmentAddedEventArgs = win32.GUID{Data1: 0xff2a5b7f, Data
 
 // WindowingEnvironment (propget get_WindowingEnvironment) dispatches through IWindowingEnvironmentAddedEventArgs's vtable slot 6.
 func (self *IWindowingEnvironmentAddedEventArgs) WindowingEnvironment() (*IWindowingEnvironment, error) {
-	var result *IWindowingEnvironment
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IWindowingEnvironment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IWindowingEnvironmentChangedEventArgs is the WinRT interface Windows.UI.WindowManagement.IWindowingEnvironmentChangedEventArgs.
@@ -958,9 +958,9 @@ var IID_IWindowingEnvironmentRemovedEventArgs = win32.GUID{Data1: 0x2e5b5473, Da
 
 // WindowingEnvironment (propget get_WindowingEnvironment) dispatches through IWindowingEnvironmentRemovedEventArgs's vtable slot 6.
 func (self *IWindowingEnvironmentRemovedEventArgs) WindowingEnvironment() (*IWindowingEnvironment, error) {
-	var result *IWindowingEnvironment
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IWindowingEnvironment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IWindowingEnvironmentStatics is the WinRT interface Windows.UI.WindowManagement.IWindowingEnvironmentStatics.
@@ -975,14 +975,14 @@ var IID_IWindowingEnvironmentStatics = win32.GUID{Data1: 0x874e9fb7, Data2: 0xc6
 
 // FindAll dispatches through IWindowingEnvironmentStatics's vtable slot 6.
 func (self *IWindowingEnvironmentStatics) FindAll() (*IVectorViewOfWindowingEnvironment, error) {
-	var result *IVectorViewOfWindowingEnvironment
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfWindowingEnvironment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAllWithKind dispatches through IWindowingEnvironmentStatics's vtable slot 7.
 func (self *IWindowingEnvironmentStatics) FindAllWithKind(kind WindowingEnvironmentKind) (*IVectorViewOfWindowingEnvironment, error) {
-	var result *IVectorViewOfWindowingEnvironment
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(kind), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfWindowingEnvironment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(kind), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }

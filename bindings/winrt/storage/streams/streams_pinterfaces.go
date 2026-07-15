@@ -39,9 +39,9 @@ func (self *IAsyncOperationOfBool) SetCompleted(handler *AsyncOperationCompleted
 
 // GetResults dispatches through IAsyncOperationOfBool's vtable slot 8.
 func (self *IAsyncOperationOfBool) GetResults() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfBool reaches
@@ -108,9 +108,9 @@ func (self *IAsyncOperationOfIInputStream) SetCompleted(handler *AsyncOperationC
 
 // GetResults dispatches through IAsyncOperationOfIInputStream's vtable slot 8.
 func (self *IAsyncOperationOfIInputStream) GetResults() (*IInputStream, error) {
-	var result *IInputStream
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IInputStream)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfIInputStream reaches
@@ -177,9 +177,9 @@ func (self *IAsyncOperationOfIRandomAccessStream) SetCompleted(handler *AsyncOpe
 
 // GetResults dispatches through IAsyncOperationOfIRandomAccessStream's vtable slot 8.
 func (self *IAsyncOperationOfIRandomAccessStream) GetResults() (*IRandomAccessStream, error) {
-	var result *IRandomAccessStream
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IRandomAccessStream)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfIRandomAccessStream reaches
@@ -246,9 +246,9 @@ func (self *IAsyncOperationOfIRandomAccessStreamWithContentType) SetCompleted(ha
 
 // GetResults dispatches through IAsyncOperationOfIRandomAccessStreamWithContentType's vtable slot 8.
 func (self *IAsyncOperationOfIRandomAccessStreamWithContentType) GetResults() (*IRandomAccessStreamWithContentType, error) {
-	var result *IRandomAccessStreamWithContentType
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IRandomAccessStreamWithContentType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfIRandomAccessStreamWithContentType reaches
@@ -353,9 +353,9 @@ func (self *IAsyncOperationWithProgressOfIBufferAndUInt32) SetCompleted(handler 
 
 // GetResults dispatches through IAsyncOperationWithProgressOfIBufferAndUInt32's vtable slot 10.
 func (self *IAsyncOperationWithProgressOfIBufferAndUInt32) GetResults() (*IBuffer, error) {
-	var result *IBuffer
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAsyncOperationWithProgressOfUInt32AndUInt32 is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<UInt32, UInt32>.
@@ -396,9 +396,9 @@ func (self *IAsyncOperationWithProgressOfUInt32AndUInt32) SetCompleted(handler *
 
 // GetResults dispatches through IAsyncOperationWithProgressOfUInt32AndUInt32's vtable slot 10.
 func (self *IAsyncOperationWithProgressOfUInt32AndUInt32) GetResults() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAsyncOperationWithProgressOfUInt64AndUInt64 is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<UInt64, UInt64>.
@@ -439,7 +439,7 @@ func (self *IAsyncOperationWithProgressOfUInt64AndUInt64) SetCompleted(handler *
 
 // GetResults dispatches through IAsyncOperationWithProgressOfUInt64AndUInt64's vtable slot 10.
 func (self *IAsyncOperationWithProgressOfUInt64AndUInt64) GetResults() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }

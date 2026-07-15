@@ -219,8 +219,8 @@ func TestEventAccessorEmission(t *testing.T) {
 	addClosed := byName["AddClosed"]
 	if addClosed.ParamStr != "handler *TypedEventHandlerOfIThingAndObject" ||
 		addClosed.ReturnSig != "(syswinrt.EventRegistrationToken, error)" ||
-		addClosed.ResultDecl != "var result syswinrt.EventRegistrationToken" ||
-		strings.Join(addClosed.ArgExprs, ",") != "handler.Ptr(),uintptr(unsafe.Pointer(&result))" {
+		addClosed.ResultDecl != "result := new(syswinrt.EventRegistrationToken)" ||
+		strings.Join(addClosed.ArgExprs, ",") != "handler.Ptr(),uintptr(winrt.OutParam(unsafe.Pointer(result)))" {
 		t.Errorf("AddClosed lowering = %+v", addClosed)
 	}
 	// Remove: the token's single word by value.

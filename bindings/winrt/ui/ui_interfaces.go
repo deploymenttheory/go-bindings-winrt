@@ -10,6 +10,7 @@ import (
 
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
 // IColorHelper is the WinRT interface Windows.UI.IColorHelper.
@@ -34,9 +35,9 @@ var IID_IColorHelperStatics = win32.GUID{Data1: 0x8504dbea, Data2: 0xfb6a, Data3
 
 // FromArgb dispatches through IColorHelperStatics's vtable slot 6.
 func (self *IColorHelperStatics) FromArgb(a byte, r byte, g byte, b byte) (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(a), uintptr(r), uintptr(g), uintptr(b), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(a), uintptr(r), uintptr(g), uintptr(b), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IColorHelperStatics2 is the WinRT interface Windows.UI.IColorHelperStatics2.
@@ -73,989 +74,989 @@ var IID_IColorsStatics = win32.GUID{Data1: 0xcff52e04, Data2: 0xcca6, Data3: 0x4
 
 // AliceBlue (propget get_AliceBlue) dispatches through IColorsStatics's vtable slot 6.
 func (self *IColorsStatics) AliceBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AntiqueWhite (propget get_AntiqueWhite) dispatches through IColorsStatics's vtable slot 7.
 func (self *IColorsStatics) AntiqueWhite() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Aqua (propget get_Aqua) dispatches through IColorsStatics's vtable slot 8.
 func (self *IColorsStatics) Aqua() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Aquamarine (propget get_Aquamarine) dispatches through IColorsStatics's vtable slot 9.
 func (self *IColorsStatics) Aquamarine() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Azure (propget get_Azure) dispatches through IColorsStatics's vtable slot 10.
 func (self *IColorsStatics) Azure() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Beige (propget get_Beige) dispatches through IColorsStatics's vtable slot 11.
 func (self *IColorsStatics) Beige() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Bisque (propget get_Bisque) dispatches through IColorsStatics's vtable slot 12.
 func (self *IColorsStatics) Bisque() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Black (propget get_Black) dispatches through IColorsStatics's vtable slot 13.
 func (self *IColorsStatics) Black() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // BlanchedAlmond (propget get_BlanchedAlmond) dispatches through IColorsStatics's vtable slot 14.
 func (self *IColorsStatics) BlanchedAlmond() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Blue (propget get_Blue) dispatches through IColorsStatics's vtable slot 15.
 func (self *IColorsStatics) Blue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // BlueViolet (propget get_BlueViolet) dispatches through IColorsStatics's vtable slot 16.
 func (self *IColorsStatics) BlueViolet() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Brown (propget get_Brown) dispatches through IColorsStatics's vtable slot 17.
 func (self *IColorsStatics) Brown() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // BurlyWood (propget get_BurlyWood) dispatches through IColorsStatics's vtable slot 18.
 func (self *IColorsStatics) BurlyWood() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CadetBlue (propget get_CadetBlue) dispatches through IColorsStatics's vtable slot 19.
 func (self *IColorsStatics) CadetBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Chartreuse (propget get_Chartreuse) dispatches through IColorsStatics's vtable slot 20.
 func (self *IColorsStatics) Chartreuse() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Chocolate (propget get_Chocolate) dispatches through IColorsStatics's vtable slot 21.
 func (self *IColorsStatics) Chocolate() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Coral (propget get_Coral) dispatches through IColorsStatics's vtable slot 22.
 func (self *IColorsStatics) Coral() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CornflowerBlue (propget get_CornflowerBlue) dispatches through IColorsStatics's vtable slot 23.
 func (self *IColorsStatics) CornflowerBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Cornsilk (propget get_Cornsilk) dispatches through IColorsStatics's vtable slot 24.
 func (self *IColorsStatics) Cornsilk() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Crimson (propget get_Crimson) dispatches through IColorsStatics's vtable slot 25.
 func (self *IColorsStatics) Crimson() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Cyan (propget get_Cyan) dispatches through IColorsStatics's vtable slot 26.
 func (self *IColorsStatics) Cyan() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkBlue (propget get_DarkBlue) dispatches through IColorsStatics's vtable slot 27.
 func (self *IColorsStatics) DarkBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[27], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[27], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkCyan (propget get_DarkCyan) dispatches through IColorsStatics's vtable slot 28.
 func (self *IColorsStatics) DarkCyan() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkGoldenrod (propget get_DarkGoldenrod) dispatches through IColorsStatics's vtable slot 29.
 func (self *IColorsStatics) DarkGoldenrod() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkGray (propget get_DarkGray) dispatches through IColorsStatics's vtable slot 30.
 func (self *IColorsStatics) DarkGray() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[30], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[30], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkGreen (propget get_DarkGreen) dispatches through IColorsStatics's vtable slot 31.
 func (self *IColorsStatics) DarkGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[31], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[31], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkKhaki (propget get_DarkKhaki) dispatches through IColorsStatics's vtable slot 32.
 func (self *IColorsStatics) DarkKhaki() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[32], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[32], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkMagenta (propget get_DarkMagenta) dispatches through IColorsStatics's vtable slot 33.
 func (self *IColorsStatics) DarkMagenta() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[33], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[33], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkOliveGreen (propget get_DarkOliveGreen) dispatches through IColorsStatics's vtable slot 34.
 func (self *IColorsStatics) DarkOliveGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[34], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[34], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkOrange (propget get_DarkOrange) dispatches through IColorsStatics's vtable slot 35.
 func (self *IColorsStatics) DarkOrange() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[35], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[35], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkOrchid (propget get_DarkOrchid) dispatches through IColorsStatics's vtable slot 36.
 func (self *IColorsStatics) DarkOrchid() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[36], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[36], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkRed (propget get_DarkRed) dispatches through IColorsStatics's vtable slot 37.
 func (self *IColorsStatics) DarkRed() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[37], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[37], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkSalmon (propget get_DarkSalmon) dispatches through IColorsStatics's vtable slot 38.
 func (self *IColorsStatics) DarkSalmon() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[38], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[38], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkSeaGreen (propget get_DarkSeaGreen) dispatches through IColorsStatics's vtable slot 39.
 func (self *IColorsStatics) DarkSeaGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[39], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[39], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkSlateBlue (propget get_DarkSlateBlue) dispatches through IColorsStatics's vtable slot 40.
 func (self *IColorsStatics) DarkSlateBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[40], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[40], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkSlateGray (propget get_DarkSlateGray) dispatches through IColorsStatics's vtable slot 41.
 func (self *IColorsStatics) DarkSlateGray() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[41], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[41], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkTurquoise (propget get_DarkTurquoise) dispatches through IColorsStatics's vtable slot 42.
 func (self *IColorsStatics) DarkTurquoise() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[42], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[42], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DarkViolet (propget get_DarkViolet) dispatches through IColorsStatics's vtable slot 43.
 func (self *IColorsStatics) DarkViolet() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[43], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[43], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DeepPink (propget get_DeepPink) dispatches through IColorsStatics's vtable slot 44.
 func (self *IColorsStatics) DeepPink() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[44], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[44], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DeepSkyBlue (propget get_DeepSkyBlue) dispatches through IColorsStatics's vtable slot 45.
 func (self *IColorsStatics) DeepSkyBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[45], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[45], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DimGray (propget get_DimGray) dispatches through IColorsStatics's vtable slot 46.
 func (self *IColorsStatics) DimGray() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[46], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[46], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DodgerBlue (propget get_DodgerBlue) dispatches through IColorsStatics's vtable slot 47.
 func (self *IColorsStatics) DodgerBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[47], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[47], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Firebrick (propget get_Firebrick) dispatches through IColorsStatics's vtable slot 48.
 func (self *IColorsStatics) Firebrick() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[48], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[48], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FloralWhite (propget get_FloralWhite) dispatches through IColorsStatics's vtable slot 49.
 func (self *IColorsStatics) FloralWhite() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[49], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[49], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ForestGreen (propget get_ForestGreen) dispatches through IColorsStatics's vtable slot 50.
 func (self *IColorsStatics) ForestGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[50], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[50], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Fuchsia (propget get_Fuchsia) dispatches through IColorsStatics's vtable slot 51.
 func (self *IColorsStatics) Fuchsia() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[51], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[51], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Gainsboro (propget get_Gainsboro) dispatches through IColorsStatics's vtable slot 52.
 func (self *IColorsStatics) Gainsboro() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[52], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[52], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GhostWhite (propget get_GhostWhite) dispatches through IColorsStatics's vtable slot 53.
 func (self *IColorsStatics) GhostWhite() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[53], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[53], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Gold (propget get_Gold) dispatches through IColorsStatics's vtable slot 54.
 func (self *IColorsStatics) Gold() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[54], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[54], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Goldenrod (propget get_Goldenrod) dispatches through IColorsStatics's vtable slot 55.
 func (self *IColorsStatics) Goldenrod() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[55], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[55], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Gray (propget get_Gray) dispatches through IColorsStatics's vtable slot 56.
 func (self *IColorsStatics) Gray() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[56], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[56], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Green (propget get_Green) dispatches through IColorsStatics's vtable slot 57.
 func (self *IColorsStatics) Green() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[57], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[57], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GreenYellow (propget get_GreenYellow) dispatches through IColorsStatics's vtable slot 58.
 func (self *IColorsStatics) GreenYellow() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[58], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[58], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Honeydew (propget get_Honeydew) dispatches through IColorsStatics's vtable slot 59.
 func (self *IColorsStatics) Honeydew() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[59], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[59], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // HotPink (propget get_HotPink) dispatches through IColorsStatics's vtable slot 60.
 func (self *IColorsStatics) HotPink() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[60], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[60], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndianRed (propget get_IndianRed) dispatches through IColorsStatics's vtable slot 61.
 func (self *IColorsStatics) IndianRed() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[61], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[61], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Indigo (propget get_Indigo) dispatches through IColorsStatics's vtable slot 62.
 func (self *IColorsStatics) Indigo() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[62], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[62], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Ivory (propget get_Ivory) dispatches through IColorsStatics's vtable slot 63.
 func (self *IColorsStatics) Ivory() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[63], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[63], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Khaki (propget get_Khaki) dispatches through IColorsStatics's vtable slot 64.
 func (self *IColorsStatics) Khaki() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[64], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[64], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Lavender (propget get_Lavender) dispatches through IColorsStatics's vtable slot 65.
 func (self *IColorsStatics) Lavender() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[65], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[65], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LavenderBlush (propget get_LavenderBlush) dispatches through IColorsStatics's vtable slot 66.
 func (self *IColorsStatics) LavenderBlush() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[66], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[66], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LawnGreen (propget get_LawnGreen) dispatches through IColorsStatics's vtable slot 67.
 func (self *IColorsStatics) LawnGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[67], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[67], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LemonChiffon (propget get_LemonChiffon) dispatches through IColorsStatics's vtable slot 68.
 func (self *IColorsStatics) LemonChiffon() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[68], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[68], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightBlue (propget get_LightBlue) dispatches through IColorsStatics's vtable slot 69.
 func (self *IColorsStatics) LightBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[69], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[69], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightCoral (propget get_LightCoral) dispatches through IColorsStatics's vtable slot 70.
 func (self *IColorsStatics) LightCoral() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[70], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[70], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightCyan (propget get_LightCyan) dispatches through IColorsStatics's vtable slot 71.
 func (self *IColorsStatics) LightCyan() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[71], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[71], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightGoldenrodYellow (propget get_LightGoldenrodYellow) dispatches through IColorsStatics's vtable slot 72.
 func (self *IColorsStatics) LightGoldenrodYellow() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[72], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[72], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightGreen (propget get_LightGreen) dispatches through IColorsStatics's vtable slot 73.
 func (self *IColorsStatics) LightGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[73], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[73], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightGray (propget get_LightGray) dispatches through IColorsStatics's vtable slot 74.
 func (self *IColorsStatics) LightGray() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[74], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[74], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightPink (propget get_LightPink) dispatches through IColorsStatics's vtable slot 75.
 func (self *IColorsStatics) LightPink() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[75], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[75], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightSalmon (propget get_LightSalmon) dispatches through IColorsStatics's vtable slot 76.
 func (self *IColorsStatics) LightSalmon() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[76], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[76], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightSeaGreen (propget get_LightSeaGreen) dispatches through IColorsStatics's vtable slot 77.
 func (self *IColorsStatics) LightSeaGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[77], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[77], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightSkyBlue (propget get_LightSkyBlue) dispatches through IColorsStatics's vtable slot 78.
 func (self *IColorsStatics) LightSkyBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[78], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[78], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightSlateGray (propget get_LightSlateGray) dispatches through IColorsStatics's vtable slot 79.
 func (self *IColorsStatics) LightSlateGray() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[79], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[79], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightSteelBlue (propget get_LightSteelBlue) dispatches through IColorsStatics's vtable slot 80.
 func (self *IColorsStatics) LightSteelBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[80], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[80], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightYellow (propget get_LightYellow) dispatches through IColorsStatics's vtable slot 81.
 func (self *IColorsStatics) LightYellow() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[81], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[81], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Lime (propget get_Lime) dispatches through IColorsStatics's vtable slot 82.
 func (self *IColorsStatics) Lime() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[82], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[82], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LimeGreen (propget get_LimeGreen) dispatches through IColorsStatics's vtable slot 83.
 func (self *IColorsStatics) LimeGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[83], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[83], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Linen (propget get_Linen) dispatches through IColorsStatics's vtable slot 84.
 func (self *IColorsStatics) Linen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[84], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[84], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Magenta (propget get_Magenta) dispatches through IColorsStatics's vtable slot 85.
 func (self *IColorsStatics) Magenta() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[85], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[85], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Maroon (propget get_Maroon) dispatches through IColorsStatics's vtable slot 86.
 func (self *IColorsStatics) Maroon() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[86], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[86], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MediumAquamarine (propget get_MediumAquamarine) dispatches through IColorsStatics's vtable slot 87.
 func (self *IColorsStatics) MediumAquamarine() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[87], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[87], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MediumBlue (propget get_MediumBlue) dispatches through IColorsStatics's vtable slot 88.
 func (self *IColorsStatics) MediumBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[88], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[88], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MediumOrchid (propget get_MediumOrchid) dispatches through IColorsStatics's vtable slot 89.
 func (self *IColorsStatics) MediumOrchid() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[89], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[89], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MediumPurple (propget get_MediumPurple) dispatches through IColorsStatics's vtable slot 90.
 func (self *IColorsStatics) MediumPurple() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[90], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[90], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MediumSeaGreen (propget get_MediumSeaGreen) dispatches through IColorsStatics's vtable slot 91.
 func (self *IColorsStatics) MediumSeaGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[91], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[91], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MediumSlateBlue (propget get_MediumSlateBlue) dispatches through IColorsStatics's vtable slot 92.
 func (self *IColorsStatics) MediumSlateBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[92], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[92], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MediumSpringGreen (propget get_MediumSpringGreen) dispatches through IColorsStatics's vtable slot 93.
 func (self *IColorsStatics) MediumSpringGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[93], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[93], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MediumTurquoise (propget get_MediumTurquoise) dispatches through IColorsStatics's vtable slot 94.
 func (self *IColorsStatics) MediumTurquoise() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[94], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[94], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MediumVioletRed (propget get_MediumVioletRed) dispatches through IColorsStatics's vtable slot 95.
 func (self *IColorsStatics) MediumVioletRed() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[95], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[95], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MidnightBlue (propget get_MidnightBlue) dispatches through IColorsStatics's vtable slot 96.
 func (self *IColorsStatics) MidnightBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[96], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[96], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MintCream (propget get_MintCream) dispatches through IColorsStatics's vtable slot 97.
 func (self *IColorsStatics) MintCream() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[97], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[97], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MistyRose (propget get_MistyRose) dispatches through IColorsStatics's vtable slot 98.
 func (self *IColorsStatics) MistyRose() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[98], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[98], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Moccasin (propget get_Moccasin) dispatches through IColorsStatics's vtable slot 99.
 func (self *IColorsStatics) Moccasin() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[99], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[99], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // NavajoWhite (propget get_NavajoWhite) dispatches through IColorsStatics's vtable slot 100.
 func (self *IColorsStatics) NavajoWhite() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[100], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[100], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Navy (propget get_Navy) dispatches through IColorsStatics's vtable slot 101.
 func (self *IColorsStatics) Navy() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[101], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[101], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // OldLace (propget get_OldLace) dispatches through IColorsStatics's vtable slot 102.
 func (self *IColorsStatics) OldLace() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[102], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[102], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Olive (propget get_Olive) dispatches through IColorsStatics's vtable slot 103.
 func (self *IColorsStatics) Olive() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[103], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[103], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // OliveDrab (propget get_OliveDrab) dispatches through IColorsStatics's vtable slot 104.
 func (self *IColorsStatics) OliveDrab() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[104], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[104], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Orange (propget get_Orange) dispatches through IColorsStatics's vtable slot 105.
 func (self *IColorsStatics) Orange() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[105], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[105], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // OrangeRed (propget get_OrangeRed) dispatches through IColorsStatics's vtable slot 106.
 func (self *IColorsStatics) OrangeRed() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[106], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[106], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Orchid (propget get_Orchid) dispatches through IColorsStatics's vtable slot 107.
 func (self *IColorsStatics) Orchid() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[107], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[107], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PaleGoldenrod (propget get_PaleGoldenrod) dispatches through IColorsStatics's vtable slot 108.
 func (self *IColorsStatics) PaleGoldenrod() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[108], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[108], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PaleGreen (propget get_PaleGreen) dispatches through IColorsStatics's vtable slot 109.
 func (self *IColorsStatics) PaleGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[109], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[109], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PaleTurquoise (propget get_PaleTurquoise) dispatches through IColorsStatics's vtable slot 110.
 func (self *IColorsStatics) PaleTurquoise() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[110], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[110], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PaleVioletRed (propget get_PaleVioletRed) dispatches through IColorsStatics's vtable slot 111.
 func (self *IColorsStatics) PaleVioletRed() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[111], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[111], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PapayaWhip (propget get_PapayaWhip) dispatches through IColorsStatics's vtable slot 112.
 func (self *IColorsStatics) PapayaWhip() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[112], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[112], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PeachPuff (propget get_PeachPuff) dispatches through IColorsStatics's vtable slot 113.
 func (self *IColorsStatics) PeachPuff() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[113], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[113], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Peru (propget get_Peru) dispatches through IColorsStatics's vtable slot 114.
 func (self *IColorsStatics) Peru() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[114], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[114], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Pink (propget get_Pink) dispatches through IColorsStatics's vtable slot 115.
 func (self *IColorsStatics) Pink() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[115], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[115], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Plum (propget get_Plum) dispatches through IColorsStatics's vtable slot 116.
 func (self *IColorsStatics) Plum() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[116], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[116], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PowderBlue (propget get_PowderBlue) dispatches through IColorsStatics's vtable slot 117.
 func (self *IColorsStatics) PowderBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[117], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[117], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Purple (propget get_Purple) dispatches through IColorsStatics's vtable slot 118.
 func (self *IColorsStatics) Purple() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[118], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[118], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Red (propget get_Red) dispatches through IColorsStatics's vtable slot 119.
 func (self *IColorsStatics) Red() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[119], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[119], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RosyBrown (propget get_RosyBrown) dispatches through IColorsStatics's vtable slot 120.
 func (self *IColorsStatics) RosyBrown() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[120], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[120], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RoyalBlue (propget get_RoyalBlue) dispatches through IColorsStatics's vtable slot 121.
 func (self *IColorsStatics) RoyalBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[121], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[121], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SaddleBrown (propget get_SaddleBrown) dispatches through IColorsStatics's vtable slot 122.
 func (self *IColorsStatics) SaddleBrown() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[122], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[122], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Salmon (propget get_Salmon) dispatches through IColorsStatics's vtable slot 123.
 func (self *IColorsStatics) Salmon() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[123], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[123], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SandyBrown (propget get_SandyBrown) dispatches through IColorsStatics's vtable slot 124.
 func (self *IColorsStatics) SandyBrown() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[124], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[124], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SeaGreen (propget get_SeaGreen) dispatches through IColorsStatics's vtable slot 125.
 func (self *IColorsStatics) SeaGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[125], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[125], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SeaShell (propget get_SeaShell) dispatches through IColorsStatics's vtable slot 126.
 func (self *IColorsStatics) SeaShell() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[126], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[126], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Sienna (propget get_Sienna) dispatches through IColorsStatics's vtable slot 127.
 func (self *IColorsStatics) Sienna() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[127], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[127], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Silver (propget get_Silver) dispatches through IColorsStatics's vtable slot 128.
 func (self *IColorsStatics) Silver() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[128], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[128], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SkyBlue (propget get_SkyBlue) dispatches through IColorsStatics's vtable slot 129.
 func (self *IColorsStatics) SkyBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[129], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[129], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SlateBlue (propget get_SlateBlue) dispatches through IColorsStatics's vtable slot 130.
 func (self *IColorsStatics) SlateBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[130], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[130], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SlateGray (propget get_SlateGray) dispatches through IColorsStatics's vtable slot 131.
 func (self *IColorsStatics) SlateGray() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[131], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[131], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Snow (propget get_Snow) dispatches through IColorsStatics's vtable slot 132.
 func (self *IColorsStatics) Snow() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[132], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[132], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SpringGreen (propget get_SpringGreen) dispatches through IColorsStatics's vtable slot 133.
 func (self *IColorsStatics) SpringGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[133], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[133], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SteelBlue (propget get_SteelBlue) dispatches through IColorsStatics's vtable slot 134.
 func (self *IColorsStatics) SteelBlue() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[134], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[134], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Tan (propget get_Tan) dispatches through IColorsStatics's vtable slot 135.
 func (self *IColorsStatics) Tan() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[135], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[135], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Teal (propget get_Teal) dispatches through IColorsStatics's vtable slot 136.
 func (self *IColorsStatics) Teal() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[136], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[136], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Thistle (propget get_Thistle) dispatches through IColorsStatics's vtable slot 137.
 func (self *IColorsStatics) Thistle() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[137], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[137], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Tomato (propget get_Tomato) dispatches through IColorsStatics's vtable slot 138.
 func (self *IColorsStatics) Tomato() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[138], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[138], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Transparent (propget get_Transparent) dispatches through IColorsStatics's vtable slot 139.
 func (self *IColorsStatics) Transparent() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[139], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[139], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Turquoise (propget get_Turquoise) dispatches through IColorsStatics's vtable slot 140.
 func (self *IColorsStatics) Turquoise() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[140], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[140], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Violet (propget get_Violet) dispatches through IColorsStatics's vtable slot 141.
 func (self *IColorsStatics) Violet() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[141], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[141], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Wheat (propget get_Wheat) dispatches through IColorsStatics's vtable slot 142.
 func (self *IColorsStatics) Wheat() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[142], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[142], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // White (propget get_White) dispatches through IColorsStatics's vtable slot 143.
 func (self *IColorsStatics) White() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[143], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[143], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // WhiteSmoke (propget get_WhiteSmoke) dispatches through IColorsStatics's vtable slot 144.
 func (self *IColorsStatics) WhiteSmoke() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[144], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[144], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Yellow (propget get_Yellow) dispatches through IColorsStatics's vtable slot 145.
 func (self *IColorsStatics) Yellow() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[145], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[145], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // YellowGreen (propget get_YellowGreen) dispatches through IColorsStatics's vtable slot 146.
 func (self *IColorsStatics) YellowGreen() (Color, error) {
-	var result Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[146], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[146], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUIContentRoot is the WinRT interface Windows.UI.IUIContentRoot.
@@ -1070,9 +1071,9 @@ var IID_IUIContentRoot = win32.GUID{Data1: 0x1dfcbac6, Data2: 0xb36b, Data3: 0x5
 
 // UIContext (propget get_UIContext) dispatches through IUIContentRoot's vtable slot 6.
 func (self *IUIContentRoot) UIContext() (*IUIContext, error) {
-	var result *IUIContext
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUIContext)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUIContext is the WinRT interface Windows.UI.IUIContext.

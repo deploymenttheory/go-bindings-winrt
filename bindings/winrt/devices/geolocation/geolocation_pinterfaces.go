@@ -39,9 +39,9 @@ func (self *IAsyncOperationOfGeolocationAccessStatus) SetCompleted(handler *Asyn
 
 // GetResults dispatches through IAsyncOperationOfGeolocationAccessStatus's vtable slot 8.
 func (self *IAsyncOperationOfGeolocationAccessStatus) GetResults() (GeolocationAccessStatus, error) {
-	var result GeolocationAccessStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(GeolocationAccessStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfGeolocationAccessStatus reaches
@@ -108,9 +108,9 @@ func (self *IAsyncOperationOfGeoposition) SetCompleted(handler *AsyncOperationCo
 
 // GetResults dispatches through IAsyncOperationOfGeoposition's vtable slot 8.
 func (self *IAsyncOperationOfGeoposition) GetResults() (*IGeoposition, error) {
-	var result *IGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfGeoposition reaches
@@ -177,9 +177,9 @@ func (self *IAsyncOperationOfGeovisit) SetCompleted(handler *AsyncOperationCompl
 
 // GetResults dispatches through IAsyncOperationOfGeovisit's vtable slot 8.
 func (self *IAsyncOperationOfGeovisit) GetResults() (*IGeovisit, error) {
-	var result *IGeovisit
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeovisit)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfGeovisit reaches
@@ -246,9 +246,9 @@ func (self *IAsyncOperationOfIVectorViewOfGeoposition) SetCompleted(handler *Asy
 
 // GetResults dispatches through IAsyncOperationOfIVectorViewOfGeoposition's vtable slot 8.
 func (self *IAsyncOperationOfIVectorViewOfGeoposition) GetResults() (*IVectorViewOfGeoposition, error) {
-	var result *IVectorViewOfGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfIVectorViewOfGeoposition reaches
@@ -301,9 +301,9 @@ var IID_IIterableOfBasicGeoposition = win32.GUID{Data1: 0x922399a8, Data2: 0x009
 
 // First dispatches through IIterableOfBasicGeoposition's vtable slot 6.
 func (self *IIterableOfBasicGeoposition) First() (*IIteratorOfBasicGeoposition, error) {
-	var result *IIteratorOfBasicGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IIteratorOfBasicGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IIteratorOfBasicGeoposition is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Geolocation.BasicGeoposition>.
@@ -317,23 +317,23 @@ var IID_IIteratorOfBasicGeoposition = win32.GUID{Data1: 0x1b4e26a1, Data2: 0x88e
 
 // Current (propget get_Current) dispatches through IIteratorOfBasicGeoposition's vtable slot 6.
 func (self *IIteratorOfBasicGeoposition) Current() (BasicGeoposition, error) {
-	var result BasicGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(BasicGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfBasicGeoposition's vtable slot 7.
 func (self *IIteratorOfBasicGeoposition) HasCurrent() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // MoveNext dispatches through IIteratorOfBasicGeoposition's vtable slot 8.
 func (self *IIteratorOfBasicGeoposition) MoveNext() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
@@ -350,9 +350,9 @@ var IID_IReferenceOfBasicGeoposition = win32.GUID{Data1: 0xe4d5dda6, Data2: 0xf5
 
 // Value (propget get_Value) dispatches through IReferenceOfBasicGeoposition's vtable slot 6.
 func (self *IReferenceOfBasicGeoposition) Value() (BasicGeoposition, error) {
-	var result BasicGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(BasicGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IReferenceOfDateTime is the WinRT interface Windows.Foundation.IReference`1<Windows.Foundation.DateTime>.
@@ -367,9 +367,9 @@ var IID_IReferenceOfDateTime = win32.GUID{Data1: 0x5541d8a7, Data2: 0x497c, Data
 
 // Value (propget get_Value) dispatches through IReferenceOfDateTime's vtable slot 6.
 func (self *IReferenceOfDateTime) Value() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IReferenceOfDouble is the WinRT interface Windows.Foundation.IReference`1<Double>.
@@ -396,9 +396,9 @@ var IID_IReferenceOfUInt32 = win32.GUID{Data1: 0x513ef3af, Data2: 0xe784, Data3:
 
 // Value (propget get_Value) dispatches through IReferenceOfUInt32's vtable slot 6.
 func (self *IReferenceOfUInt32) Value() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IVectorViewOfBasicGeoposition is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.BasicGeoposition>.
@@ -413,16 +413,16 @@ var IID_IVectorViewOfBasicGeoposition = win32.GUID{Data1: 0x177f5719, Data2: 0xe
 
 // GetAt dispatches through IVectorViewOfBasicGeoposition's vtable slot 6.
 func (self *IVectorViewOfBasicGeoposition) GetAt(index uint32) (BasicGeoposition, error) {
-	var result BasicGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(BasicGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorViewOfBasicGeoposition's vtable slot 7.
 func (self *IVectorViewOfBasicGeoposition) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 8: IndexOf skipped: by-value Windows.Devices.Geolocation.BasicGeoposition parameter value does not flatten to one integer word
@@ -441,23 +441,23 @@ var IID_IVectorViewOfGeoposition = win32.GUID{Data1: 0xd572ccf3, Data2: 0x0c60, 
 
 // GetAt dispatches through IVectorViewOfGeoposition's vtable slot 6.
 func (self *IVectorViewOfGeoposition) GetAt(index uint32) (*IGeoposition, error) {
-	var result *IGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorViewOfGeoposition's vtable slot 7.
 func (self *IVectorViewOfGeoposition) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorViewOfGeoposition's vtable slot 8.
 func (self *IVectorViewOfGeoposition) IndexOf(value *IGeoposition, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
@@ -474,23 +474,23 @@ var IID_IVectorViewOfGeovisit = win32.GUID{Data1: 0x90ad35e9, Data2: 0xf1de, Dat
 
 // GetAt dispatches through IVectorViewOfGeovisit's vtable slot 6.
 func (self *IVectorViewOfGeovisit) GetAt(index uint32) (*IGeovisit, error) {
-	var result *IGeovisit
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeovisit)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorViewOfGeovisit's vtable slot 7.
 func (self *IVectorViewOfGeovisit) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorViewOfGeovisit's vtable slot 8.
 func (self *IVectorViewOfGeovisit) IndexOf(value *IGeovisit, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array

@@ -1,9 +1,12 @@
 # go-bindings-winrt
 
-**Status: generator online — generated bindings for `Windows.Globalization`
-and `Windows.UI.Notifications` (toasts, + their closure:
-`Windows.Data.Xml.Dom`, `Windows.Foundation`, `Windows.System`,
-`Windows.Storage`, …) shipping.** Idiomatic Go bindings for the
+**Status: generator online — generated bindings for `Windows.Globalization`,
+`Windows.UI.Notifications` (toasts), `Windows.Devices.Bluetooth` (+
+`.GenericAttributeProfile`, `.Advertisement` — BLE), and
+`Windows.Management` (+ `.Deployment`, `.Policies`, `.Workplace` — MDM +
+package deployment), plus their closure (`Windows.Data.Xml.Dom`,
+`Windows.Foundation`, `Windows.System`, `Windows.Storage`,
+`Windows.Devices.Radios`, …) shipping.** Idiomatic Go bindings for the
 **Windows Runtime** (`Windows.*` namespaces: toasts/notifications,
 Bluetooth LE, Windows Hello, geolocation, camera, `Windows.Management.*`
 MDM/provisioning, …), the fourth member of the deploymenttheory Windows
@@ -23,17 +26,19 @@ What works today:
   lifecycle, runtime-class activation, and interface querying, proven by
   live tests.
 - `bindings/winrt/...` — GENERATED from the pinned contract winmds
-  (`go run ./cmd/generate bindings --namespace
-  Windows.Globalization,Windows.UI.Notifications`): interfaces with
+  (`go run ./cmd/generate bindings`, roots pinned in
+  `metadata/emit-roots.txt`): interfaces with
   absolute vtable-slot dispatch, non-composable runtime classes (with
   constructors, statics accessors, and factory constructors), enums, value
-  structs, events with typed Go handlers, and monomorphized generic
-  instantiations — with a determinism gate and a diagnostics ratchet in CI.
+  structs, events with typed Go handlers, async operations with a blocking
+  `Await()`, and monomorphized generic instantiations — with a determinism
+  gate and a diagnostics ratchet in CI.
   Live acceptance tests and the `examples/calendar` vertical run entirely
   over generated code, including the full toast pipeline (template XML →
-  `XmlDocument` → `ToastNotification` → `ToastNotifier.Show`).
+  `XmlDocument` → `ToastNotification` → `ToastNotifier.Show`), a BLE
+  advertisement-watcher scan cycle, and `PackageManager` package queries.
 
-Wider namespace coverage, composition, and async follow per
+Wider namespace coverage and composition follow per
 [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ```go

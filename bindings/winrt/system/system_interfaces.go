@@ -29,16 +29,16 @@ var IID_IAppActivationResult = win32.GUID{Data1: 0x6b528900, Data2: 0xf46e, Data
 
 // ExtendedError (propget get_ExtendedError) dispatches through IAppActivationResult's vtable slot 6.
 func (self *IAppActivationResult) ExtendedError() (int32, error) {
-	var result int32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(int32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AppResourceGroupInfo (propget get_AppResourceGroupInfo) dispatches through IAppActivationResult's vtable slot 7.
 func (self *IAppActivationResult) AppResourceGroupInfo() (*IAppResourceGroupInfo, error) {
-	var result *IAppResourceGroupInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppResourceGroupInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppDiagnosticInfo is the WinRT interface Windows.System.IAppDiagnosticInfo.
@@ -65,16 +65,16 @@ var IID_IAppDiagnosticInfo2 = win32.GUID{Data1: 0xdf46fbd7, Data2: 0x191a, Data3
 
 // GetResourceGroups dispatches through IAppDiagnosticInfo2's vtable slot 6.
 func (self *IAppDiagnosticInfo2) GetResourceGroups() (*IVectorOfAppResourceGroupInfo, error) {
-	var result *IVectorOfAppResourceGroupInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfAppResourceGroupInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateResourceGroupWatcher dispatches through IAppDiagnosticInfo2's vtable slot 7.
 func (self *IAppDiagnosticInfo2) CreateResourceGroupWatcher() (*IAppResourceGroupInfoWatcher, error) {
-	var result *IAppResourceGroupInfoWatcher
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppResourceGroupInfoWatcher)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppDiagnosticInfo3 is the WinRT interface Windows.System.IAppDiagnosticInfo3.
@@ -89,9 +89,9 @@ var IID_IAppDiagnosticInfo3 = win32.GUID{Data1: 0xc895c63d, Data2: 0xdd61, Data3
 
 // LaunchAsync dispatches through IAppDiagnosticInfo3's vtable slot 6.
 func (self *IAppDiagnosticInfo3) LaunchAsync() (*IAsyncOperationOfAppActivationResult, error) {
-	var result *IAsyncOperationOfAppActivationResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfAppActivationResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppDiagnosticInfoStatics is the WinRT interface Windows.System.IAppDiagnosticInfoStatics.
@@ -106,9 +106,9 @@ var IID_IAppDiagnosticInfoStatics = win32.GUID{Data1: 0xce6925bf, Data2: 0x10ca,
 
 // RequestInfoAsync dispatches through IAppDiagnosticInfoStatics's vtable slot 6.
 func (self *IAppDiagnosticInfoStatics) RequestInfoAsync() (*IAsyncOperationOfIVectorOfAppDiagnosticInfo, error) {
-	var result *IAsyncOperationOfIVectorOfAppDiagnosticInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorOfAppDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppDiagnosticInfoStatics2 is the WinRT interface Windows.System.IAppDiagnosticInfoStatics2.
@@ -123,16 +123,16 @@ var IID_IAppDiagnosticInfoStatics2 = win32.GUID{Data1: 0x05b24b86, Data2: 0x1000
 
 // CreateWatcher dispatches through IAppDiagnosticInfoStatics2's vtable slot 6.
 func (self *IAppDiagnosticInfoStatics2) CreateWatcher() (*IAppDiagnosticInfoWatcher, error) {
-	var result *IAppDiagnosticInfoWatcher
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppDiagnosticInfoWatcher)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RequestAccessAsync dispatches through IAppDiagnosticInfoStatics2's vtable slot 7.
 func (self *IAppDiagnosticInfoStatics2) RequestAccessAsync() (*IAsyncOperationOfDiagnosticAccessStatus, error) {
-	var result *IAsyncOperationOfDiagnosticAccessStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDiagnosticAccessStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RequestInfoForPackageAsync dispatches through IAppDiagnosticInfoStatics2's vtable slot 8.
@@ -142,16 +142,16 @@ func (self *IAppDiagnosticInfoStatics2) RequestInfoForPackageAsync(packageFamily
 		return nil, err
 	}
 	defer hPackageFamilyName.Close()
-	var result *IAsyncOperationOfIVectorOfAppDiagnosticInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hPackageFamilyName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorOfAppDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hPackageFamilyName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RequestInfoForAppAsync dispatches through IAppDiagnosticInfoStatics2's vtable slot 9.
 func (self *IAppDiagnosticInfoStatics2) RequestInfoForAppAsync() (*IAsyncOperationOfIVectorOfAppDiagnosticInfo, error) {
-	var result *IAsyncOperationOfIVectorOfAppDiagnosticInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorOfAppDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RequestInfoForAppUserModelId dispatches through IAppDiagnosticInfoStatics2's vtable slot 10.
@@ -161,9 +161,9 @@ func (self *IAppDiagnosticInfoStatics2) RequestInfoForAppUserModelId(appUserMode
 		return nil, err
 	}
 	defer hAppUserModelId.Close()
-	var result *IAsyncOperationOfIVectorOfAppDiagnosticInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hAppUserModelId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorOfAppDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hAppUserModelId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppDiagnosticInfoWatcher is the WinRT interface Windows.System.IAppDiagnosticInfoWatcher.
@@ -180,9 +180,9 @@ var IID_IAppDiagnosticInfoWatcher = win32.GUID{Data1: 0x75575070, Data2: 0x01d3,
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveAdded.
 func (self *IAppDiagnosticInfoWatcher) AddAdded(handler *TypedEventHandlerOfAppDiagnosticInfoWatcherAndAppDiagnosticInfoWatcherEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAdded (event remove remove_Added) dispatches through IAppDiagnosticInfoWatcher's vtable slot 7,
@@ -196,9 +196,9 @@ func (self *IAppDiagnosticInfoWatcher) RemoveAdded(token syswinrt.EventRegistrat
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveRemoved.
 func (self *IAppDiagnosticInfoWatcher) AddRemoved(handler *TypedEventHandlerOfAppDiagnosticInfoWatcherAndAppDiagnosticInfoWatcherEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveRemoved (event remove remove_Removed) dispatches through IAppDiagnosticInfoWatcher's vtable slot 9,
@@ -212,9 +212,9 @@ func (self *IAppDiagnosticInfoWatcher) RemoveRemoved(token syswinrt.EventRegistr
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveEnumerationCompleted.
 func (self *IAppDiagnosticInfoWatcher) AddEnumerationCompleted(handler *TypedEventHandlerOfAppDiagnosticInfoWatcherAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveEnumerationCompleted (event remove remove_EnumerationCompleted) dispatches through IAppDiagnosticInfoWatcher's vtable slot 11,
@@ -228,9 +228,9 @@ func (self *IAppDiagnosticInfoWatcher) RemoveEnumerationCompleted(token syswinrt
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveStopped.
 func (self *IAppDiagnosticInfoWatcher) AddStopped(handler *TypedEventHandlerOfAppDiagnosticInfoWatcherAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveStopped (event remove remove_Stopped) dispatches through IAppDiagnosticInfoWatcher's vtable slot 13,
@@ -242,9 +242,9 @@ func (self *IAppDiagnosticInfoWatcher) RemoveStopped(token syswinrt.EventRegistr
 
 // Status (propget get_Status) dispatches through IAppDiagnosticInfoWatcher's vtable slot 14.
 func (self *IAppDiagnosticInfoWatcher) Status() (AppDiagnosticInfoWatcherStatus, error) {
-	var result AppDiagnosticInfoWatcherStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AppDiagnosticInfoWatcherStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Start dispatches through IAppDiagnosticInfoWatcher's vtable slot 15.
@@ -271,9 +271,9 @@ var IID_IAppDiagnosticInfoWatcherEventArgs = win32.GUID{Data1: 0x7017c716, Data2
 
 // AppDiagnosticInfo (propget get_AppDiagnosticInfo) dispatches through IAppDiagnosticInfoWatcherEventArgs's vtable slot 6.
 func (self *IAppDiagnosticInfoWatcherEventArgs) AppDiagnosticInfo() (*IAppDiagnosticInfo, error) {
-	var result *IAppDiagnosticInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppExecutionStateChangeResult is the WinRT interface Windows.System.IAppExecutionStateChangeResult.
@@ -288,9 +288,9 @@ var IID_IAppExecutionStateChangeResult = win32.GUID{Data1: 0x6f039bf0, Data2: 0x
 
 // ExtendedError (propget get_ExtendedError) dispatches through IAppExecutionStateChangeResult's vtable slot 6.
 func (self *IAppExecutionStateChangeResult) ExtendedError() (int32, error) {
-	var result int32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(int32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppMemoryReport is the WinRT interface Windows.System.IAppMemoryReport.
@@ -305,30 +305,30 @@ var IID_IAppMemoryReport = win32.GUID{Data1: 0x6d65339b, Data2: 0x4d6f, Data3: 0
 
 // PrivateCommitUsage (propget get_PrivateCommitUsage) dispatches through IAppMemoryReport's vtable slot 6.
 func (self *IAppMemoryReport) PrivateCommitUsage() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PeakPrivateCommitUsage (propget get_PeakPrivateCommitUsage) dispatches through IAppMemoryReport's vtable slot 7.
 func (self *IAppMemoryReport) PeakPrivateCommitUsage() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TotalCommitUsage (propget get_TotalCommitUsage) dispatches through IAppMemoryReport's vtable slot 8.
 func (self *IAppMemoryReport) TotalCommitUsage() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TotalCommitLimit (propget get_TotalCommitLimit) dispatches through IAppMemoryReport's vtable slot 9.
 func (self *IAppMemoryReport) TotalCommitLimit() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppMemoryReport2 is the WinRT interface Windows.System.IAppMemoryReport2.
@@ -343,9 +343,9 @@ var IID_IAppMemoryReport2 = win32.GUID{Data1: 0x5f7f3738, Data2: 0x51b7, Data3: 
 
 // ExpectedTotalCommitLimit (propget get_ExpectedTotalCommitLimit) dispatches through IAppMemoryReport2's vtable slot 6.
 func (self *IAppMemoryReport2) ExpectedTotalCommitLimit() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppMemoryUsageLimitChangingEventArgs is the WinRT interface Windows.System.IAppMemoryUsageLimitChangingEventArgs.
@@ -360,16 +360,16 @@ var IID_IAppMemoryUsageLimitChangingEventArgs = win32.GUID{Data1: 0x79f86664, Da
 
 // OldLimit (propget get_OldLimit) dispatches through IAppMemoryUsageLimitChangingEventArgs's vtable slot 6.
 func (self *IAppMemoryUsageLimitChangingEventArgs) OldLimit() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // NewLimit (propget get_NewLimit) dispatches through IAppMemoryUsageLimitChangingEventArgs's vtable slot 7.
 func (self *IAppMemoryUsageLimitChangingEventArgs) NewLimit() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppResourceGroupBackgroundTaskReport is the WinRT interface Windows.System.IAppResourceGroupBackgroundTaskReport.
@@ -384,39 +384,39 @@ var IID_IAppResourceGroupBackgroundTaskReport = win32.GUID{Data1: 0x2566e74e, Da
 
 // TaskId (propget get_TaskId) dispatches through IAppResourceGroupBackgroundTaskReport's vtable slot 6.
 func (self *IAppResourceGroupBackgroundTaskReport) TaskId() (win32.GUID, error) {
-	var result win32.GUID
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(win32.GUID)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Name (propget get_Name) dispatches through IAppResourceGroupBackgroundTaskReport's vtable slot 7.
 func (self *IAppResourceGroupBackgroundTaskReport) Name() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Trigger (propget get_Trigger) dispatches through IAppResourceGroupBackgroundTaskReport's vtable slot 8.
 func (self *IAppResourceGroupBackgroundTaskReport) Trigger() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // EntryPoint (propget get_EntryPoint) dispatches through IAppResourceGroupBackgroundTaskReport's vtable slot 9.
 func (self *IAppResourceGroupBackgroundTaskReport) EntryPoint() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IAppResourceGroupInfo is the WinRT interface Windows.System.IAppResourceGroupInfo.
@@ -431,44 +431,44 @@ var IID_IAppResourceGroupInfo = win32.GUID{Data1: 0xb913f77a, Data2: 0xe807, Dat
 
 // InstanceId (propget get_InstanceId) dispatches through IAppResourceGroupInfo's vtable slot 6.
 func (self *IAppResourceGroupInfo) InstanceId() (win32.GUID, error) {
-	var result win32.GUID
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(win32.GUID)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IsShared (propget get_IsShared) dispatches through IAppResourceGroupInfo's vtable slot 7.
 func (self *IAppResourceGroupInfo) IsShared() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // GetBackgroundTaskReports dispatches through IAppResourceGroupInfo's vtable slot 8.
 func (self *IAppResourceGroupInfo) GetBackgroundTaskReports() (*IVectorOfAppResourceGroupBackgroundTaskReport, error) {
-	var result *IVectorOfAppResourceGroupBackgroundTaskReport
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfAppResourceGroupBackgroundTaskReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetMemoryReport dispatches through IAppResourceGroupInfo's vtable slot 9.
 func (self *IAppResourceGroupInfo) GetMemoryReport() (*IAppResourceGroupMemoryReport, error) {
-	var result *IAppResourceGroupMemoryReport
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppResourceGroupMemoryReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetProcessDiagnosticInfos dispatches through IAppResourceGroupInfo's vtable slot 10.
 func (self *IAppResourceGroupInfo) GetProcessDiagnosticInfos() (*IVectorOfProcessDiagnosticInfo, error) {
-	var result *IVectorOfProcessDiagnosticInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfProcessDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetStateReport dispatches through IAppResourceGroupInfo's vtable slot 11.
 func (self *IAppResourceGroupInfo) GetStateReport() (*IAppResourceGroupStateReport, error) {
-	var result *IAppResourceGroupStateReport
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppResourceGroupStateReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppResourceGroupInfo2 is the WinRT interface Windows.System.IAppResourceGroupInfo2.
@@ -483,23 +483,23 @@ var IID_IAppResourceGroupInfo2 = win32.GUID{Data1: 0xee9b236d, Data2: 0xd305, Da
 
 // StartSuspendAsync dispatches through IAppResourceGroupInfo2's vtable slot 6.
 func (self *IAppResourceGroupInfo2) StartSuspendAsync() (*IAsyncOperationOfAppExecutionStateChangeResult, error) {
-	var result *IAsyncOperationOfAppExecutionStateChangeResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfAppExecutionStateChangeResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // StartResumeAsync dispatches through IAppResourceGroupInfo2's vtable slot 7.
 func (self *IAppResourceGroupInfo2) StartResumeAsync() (*IAsyncOperationOfAppExecutionStateChangeResult, error) {
-	var result *IAsyncOperationOfAppExecutionStateChangeResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfAppExecutionStateChangeResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // StartTerminateAsync dispatches through IAppResourceGroupInfo2's vtable slot 8.
 func (self *IAppResourceGroupInfo2) StartTerminateAsync() (*IAsyncOperationOfAppExecutionStateChangeResult, error) {
-	var result *IAsyncOperationOfAppExecutionStateChangeResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfAppExecutionStateChangeResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppResourceGroupInfoWatcher is the WinRT interface Windows.System.IAppResourceGroupInfoWatcher.
@@ -516,9 +516,9 @@ var IID_IAppResourceGroupInfoWatcher = win32.GUID{Data1: 0xd9b0a0fd, Data2: 0x6e
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveAdded.
 func (self *IAppResourceGroupInfoWatcher) AddAdded(handler *TypedEventHandlerOfAppResourceGroupInfoWatcherAndAppResourceGroupInfoWatcherEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAdded (event remove remove_Added) dispatches through IAppResourceGroupInfoWatcher's vtable slot 7,
@@ -532,9 +532,9 @@ func (self *IAppResourceGroupInfoWatcher) RemoveAdded(token syswinrt.EventRegist
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveRemoved.
 func (self *IAppResourceGroupInfoWatcher) AddRemoved(handler *TypedEventHandlerOfAppResourceGroupInfoWatcherAndAppResourceGroupInfoWatcherEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveRemoved (event remove remove_Removed) dispatches through IAppResourceGroupInfoWatcher's vtable slot 9,
@@ -548,9 +548,9 @@ func (self *IAppResourceGroupInfoWatcher) RemoveRemoved(token syswinrt.EventRegi
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveEnumerationCompleted.
 func (self *IAppResourceGroupInfoWatcher) AddEnumerationCompleted(handler *TypedEventHandlerOfAppResourceGroupInfoWatcherAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveEnumerationCompleted (event remove remove_EnumerationCompleted) dispatches through IAppResourceGroupInfoWatcher's vtable slot 11,
@@ -564,9 +564,9 @@ func (self *IAppResourceGroupInfoWatcher) RemoveEnumerationCompleted(token syswi
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveStopped.
 func (self *IAppResourceGroupInfoWatcher) AddStopped(handler *TypedEventHandlerOfAppResourceGroupInfoWatcherAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveStopped (event remove remove_Stopped) dispatches through IAppResourceGroupInfoWatcher's vtable slot 13,
@@ -580,9 +580,9 @@ func (self *IAppResourceGroupInfoWatcher) RemoveStopped(token syswinrt.EventRegi
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveExecutionStateChanged.
 func (self *IAppResourceGroupInfoWatcher) AddExecutionStateChanged(handler *TypedEventHandlerOfAppResourceGroupInfoWatcherAndAppResourceGroupInfoWatcherExecutionStateChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveExecutionStateChanged (event remove remove_ExecutionStateChanged) dispatches through IAppResourceGroupInfoWatcher's vtable slot 15,
@@ -594,9 +594,9 @@ func (self *IAppResourceGroupInfoWatcher) RemoveExecutionStateChanged(token sysw
 
 // Status (propget get_Status) dispatches through IAppResourceGroupInfoWatcher's vtable slot 16.
 func (self *IAppResourceGroupInfoWatcher) Status() (AppResourceGroupInfoWatcherStatus, error) {
-	var result AppResourceGroupInfoWatcherStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AppResourceGroupInfoWatcherStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Start dispatches through IAppResourceGroupInfoWatcher's vtable slot 17.
@@ -623,16 +623,16 @@ var IID_IAppResourceGroupInfoWatcherEventArgs = win32.GUID{Data1: 0x7a787637, Da
 
 // AppDiagnosticInfos (propget get_AppDiagnosticInfos) dispatches through IAppResourceGroupInfoWatcherEventArgs's vtable slot 6.
 func (self *IAppResourceGroupInfoWatcherEventArgs) AppDiagnosticInfos() (*IVectorViewOfAppDiagnosticInfo, error) {
-	var result *IVectorViewOfAppDiagnosticInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfAppDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AppResourceGroupInfo (propget get_AppResourceGroupInfo) dispatches through IAppResourceGroupInfoWatcherEventArgs's vtable slot 7.
 func (self *IAppResourceGroupInfoWatcherEventArgs) AppResourceGroupInfo() (*IAppResourceGroupInfo, error) {
-	var result *IAppResourceGroupInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppResourceGroupInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs is the WinRT interface Windows.System.IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs.
@@ -647,16 +647,16 @@ var IID_IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs = win32.GUID{
 
 // AppDiagnosticInfos (propget get_AppDiagnosticInfos) dispatches through IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs's vtable slot 6.
 func (self *IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs) AppDiagnosticInfos() (*IVectorViewOfAppDiagnosticInfo, error) {
-	var result *IVectorViewOfAppDiagnosticInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfAppDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AppResourceGroupInfo (propget get_AppResourceGroupInfo) dispatches through IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs's vtable slot 7.
 func (self *IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs) AppResourceGroupInfo() (*IAppResourceGroupInfo, error) {
-	var result *IAppResourceGroupInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppResourceGroupInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppResourceGroupMemoryReport is the WinRT interface Windows.System.IAppResourceGroupMemoryReport.
@@ -671,30 +671,30 @@ var IID_IAppResourceGroupMemoryReport = win32.GUID{Data1: 0x2c8c06b1, Data2: 0x7
 
 // CommitUsageLimit (propget get_CommitUsageLimit) dispatches through IAppResourceGroupMemoryReport's vtable slot 6.
 func (self *IAppResourceGroupMemoryReport) CommitUsageLimit() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CommitUsageLevel (propget get_CommitUsageLevel) dispatches through IAppResourceGroupMemoryReport's vtable slot 7.
 func (self *IAppResourceGroupMemoryReport) CommitUsageLevel() (AppMemoryUsageLevel, error) {
-	var result AppMemoryUsageLevel
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AppMemoryUsageLevel)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PrivateCommitUsage (propget get_PrivateCommitUsage) dispatches through IAppResourceGroupMemoryReport's vtable slot 8.
 func (self *IAppResourceGroupMemoryReport) PrivateCommitUsage() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TotalCommitUsage (propget get_TotalCommitUsage) dispatches through IAppResourceGroupMemoryReport's vtable slot 9.
 func (self *IAppResourceGroupMemoryReport) TotalCommitUsage() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppResourceGroupStateReport is the WinRT interface Windows.System.IAppResourceGroupStateReport.
@@ -709,16 +709,16 @@ var IID_IAppResourceGroupStateReport = win32.GUID{Data1: 0x52849f18, Data2: 0x2f
 
 // ExecutionState (propget get_ExecutionState) dispatches through IAppResourceGroupStateReport's vtable slot 6.
 func (self *IAppResourceGroupStateReport) ExecutionState() (AppResourceGroupExecutionState, error) {
-	var result AppResourceGroupExecutionState
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AppResourceGroupExecutionState)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // EnergyQuotaState (propget get_EnergyQuotaState) dispatches through IAppResourceGroupStateReport's vtable slot 7.
 func (self *IAppResourceGroupStateReport) EnergyQuotaState() (AppResourceGroupEnergyQuotaState, error) {
-	var result AppResourceGroupEnergyQuotaState
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AppResourceGroupEnergyQuotaState)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppUriHandlerHost is the WinRT interface Windows.System.IAppUriHandlerHost.
@@ -733,12 +733,12 @@ var IID_IAppUriHandlerHost = win32.GUID{Data1: 0x5d50cac5, Data2: 0x92d2, Data3:
 
 // Name (propget get_Name) dispatches through IAppUriHandlerHost's vtable slot 6.
 func (self *IAppUriHandlerHost) Name() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetName (propput put_Name) dispatches through IAppUriHandlerHost's vtable slot 7.
@@ -764,9 +764,9 @@ var IID_IAppUriHandlerHost2 = win32.GUID{Data1: 0x3a0bee95, Data2: 0x29e4, Data3
 
 // IsEnabled (propget get_IsEnabled) dispatches through IAppUriHandlerHost2's vtable slot 6.
 func (self *IAppUriHandlerHost2) IsEnabled() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetIsEnabled (propput put_IsEnabled) dispatches through IAppUriHandlerHost2's vtable slot 7.
@@ -796,9 +796,9 @@ func (self *IAppUriHandlerHostFactory) CreateInstance(name string) (*IAppUriHand
 		return nil, err
 	}
 	defer hName.Close()
-	var result *IAppUriHandlerHost
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppUriHandlerHost)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppUriHandlerRegistration is the WinRT interface Windows.System.IAppUriHandlerRegistration.
@@ -813,33 +813,33 @@ var IID_IAppUriHandlerRegistration = win32.GUID{Data1: 0x6f73aeb1, Data2: 0x4569
 
 // Name (propget get_Name) dispatches through IAppUriHandlerRegistration's vtable slot 6.
 func (self *IAppUriHandlerRegistration) Name() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // User (propget get_User) dispatches through IAppUriHandlerRegistration's vtable slot 7.
 func (self *IAppUriHandlerRegistration) User() (*IUser, error) {
-	var result *IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetAppAddedHostsAsync dispatches through IAppUriHandlerRegistration's vtable slot 8.
 func (self *IAppUriHandlerRegistration) GetAppAddedHostsAsync() (*IAsyncOperationOfIVectorOfAppUriHandlerHost, error) {
-	var result *IAsyncOperationOfIVectorOfAppUriHandlerHost
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorOfAppUriHandlerHost)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAppAddedHostsAsync dispatches through IAppUriHandlerRegistration's vtable slot 9.
 func (self *IAppUriHandlerRegistration) SetAppAddedHostsAsync(hosts *IIterableOfAppUriHandlerHost) (*foundation.IAsyncAction, error) {
-	var result *foundation.IAsyncAction
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(hosts)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IAsyncAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(hosts)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppUriHandlerRegistration2 is the WinRT interface Windows.System.IAppUriHandlerRegistration2.
@@ -854,9 +854,9 @@ var IID_IAppUriHandlerRegistration2 = win32.GUID{Data1: 0xd54dac97, Data2: 0xcb3
 
 // GetAllHosts dispatches through IAppUriHandlerRegistration2's vtable slot 6.
 func (self *IAppUriHandlerRegistration2) GetAllHosts() (*IVectorOfAppUriHandlerHost, error) {
-	var result *IVectorOfAppUriHandlerHost
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfAppUriHandlerHost)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // UpdateHosts dispatches through IAppUriHandlerRegistration2's vtable slot 7.
@@ -867,12 +867,12 @@ func (self *IAppUriHandlerRegistration2) UpdateHosts(hosts *IIterableOfAppUriHan
 
 // PackageFamilyName (propget get_PackageFamilyName) dispatches through IAppUriHandlerRegistration2's vtable slot 8.
 func (self *IAppUriHandlerRegistration2) PackageFamilyName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IAppUriHandlerRegistrationManager is the WinRT interface Windows.System.IAppUriHandlerRegistrationManager.
@@ -887,9 +887,9 @@ var IID_IAppUriHandlerRegistrationManager = win32.GUID{Data1: 0xe62c9a52, Data2:
 
 // User (propget get_User) dispatches through IAppUriHandlerRegistrationManager's vtable slot 6.
 func (self *IAppUriHandlerRegistrationManager) User() (*IUser, error) {
-	var result *IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TryGetRegistration dispatches through IAppUriHandlerRegistrationManager's vtable slot 7.
@@ -899,9 +899,9 @@ func (self *IAppUriHandlerRegistrationManager) TryGetRegistration(name string) (
 		return nil, err
 	}
 	defer hName.Close()
-	var result *IAppUriHandlerRegistration
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppUriHandlerRegistration)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppUriHandlerRegistrationManager2 is the WinRT interface Windows.System.IAppUriHandlerRegistrationManager2.
@@ -916,12 +916,12 @@ var IID_IAppUriHandlerRegistrationManager2 = win32.GUID{Data1: 0xbddfcaf1, Data2
 
 // PackageFamilyName (propget get_PackageFamilyName) dispatches through IAppUriHandlerRegistrationManager2's vtable slot 6.
 func (self *IAppUriHandlerRegistrationManager2) PackageFamilyName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IAppUriHandlerRegistrationManagerStatics is the WinRT interface Windows.System.IAppUriHandlerRegistrationManagerStatics.
@@ -936,16 +936,16 @@ var IID_IAppUriHandlerRegistrationManagerStatics = win32.GUID{Data1: 0xd5cedd9f,
 
 // GetDefault dispatches through IAppUriHandlerRegistrationManagerStatics's vtable slot 6.
 func (self *IAppUriHandlerRegistrationManagerStatics) GetDefault() (*IAppUriHandlerRegistrationManager, error) {
-	var result *IAppUriHandlerRegistrationManager
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppUriHandlerRegistrationManager)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetForUser dispatches through IAppUriHandlerRegistrationManagerStatics's vtable slot 7.
 func (self *IAppUriHandlerRegistrationManagerStatics) GetForUser(user *IUser) (*IAppUriHandlerRegistrationManager, error) {
-	var result *IAppUriHandlerRegistrationManager
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppUriHandlerRegistrationManager)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAppUriHandlerRegistrationManagerStatics2 is the WinRT interface Windows.System.IAppUriHandlerRegistrationManagerStatics2.
@@ -965,9 +965,9 @@ func (self *IAppUriHandlerRegistrationManagerStatics2) GetForPackage(packageFami
 		return nil, err
 	}
 	defer hPackageFamilyName.Close()
-	var result *IAppUriHandlerRegistrationManager
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hPackageFamilyName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppUriHandlerRegistrationManager)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hPackageFamilyName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetForPackageForUser dispatches through IAppUriHandlerRegistrationManagerStatics2's vtable slot 7.
@@ -977,9 +977,9 @@ func (self *IAppUriHandlerRegistrationManagerStatics2) GetForPackageForUser(pack
 		return nil, err
 	}
 	defer hPackageFamilyName.Close()
-	var result *IAppUriHandlerRegistrationManager
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hPackageFamilyName.Raw()), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppUriHandlerRegistrationManager)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hPackageFamilyName.Raw()), uintptr(unsafe.Pointer(user)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDispatcherQueue is the WinRT interface Windows.System.IDispatcherQueue.
@@ -994,9 +994,9 @@ var IID_IDispatcherQueue = win32.GUID{Data1: 0x603e88e4, Data2: 0xa338, Data3: 0
 
 // CreateTimer dispatches through IDispatcherQueue's vtable slot 6.
 func (self *IDispatcherQueue) CreateTimer() (*IDispatcherQueueTimer, error) {
-	var result *IDispatcherQueueTimer
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDispatcherQueueTimer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 7: TryEnqueue skipped: delegate Windows.System.DispatcherQueueHandler
@@ -1007,9 +1007,9 @@ func (self *IDispatcherQueue) CreateTimer() (*IDispatcherQueueTimer, error) {
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveShutdownStarting.
 func (self *IDispatcherQueue) AddShutdownStarting(handler *TypedEventHandlerOfDispatcherQueueAndDispatcherQueueShutdownStartingEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveShutdownStarting (event remove remove_ShutdownStarting) dispatches through IDispatcherQueue's vtable slot 10,
@@ -1023,9 +1023,9 @@ func (self *IDispatcherQueue) RemoveShutdownStarting(token syswinrt.EventRegistr
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveShutdownCompleted.
 func (self *IDispatcherQueue) AddShutdownCompleted(handler *TypedEventHandlerOfDispatcherQueueAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveShutdownCompleted (event remove remove_ShutdownCompleted) dispatches through IDispatcherQueue's vtable slot 12,
@@ -1047,9 +1047,9 @@ var IID_IDispatcherQueue2 = win32.GUID{Data1: 0xc822c647, Data2: 0x30ef, Data3: 
 
 // HasThreadAccess (propget get_HasThreadAccess) dispatches through IDispatcherQueue2's vtable slot 6.
 func (self *IDispatcherQueue2) HasThreadAccess() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IDispatcherQueueController is the WinRT interface Windows.System.IDispatcherQueueController.
@@ -1064,16 +1064,16 @@ var IID_IDispatcherQueueController = win32.GUID{Data1: 0x22f34e66, Data2: 0x50db
 
 // DispatcherQueue (propget get_DispatcherQueue) dispatches through IDispatcherQueueController's vtable slot 6.
 func (self *IDispatcherQueueController) DispatcherQueue() (*IDispatcherQueue, error) {
-	var result *IDispatcherQueue
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDispatcherQueue)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ShutdownQueueAsync dispatches through IDispatcherQueueController's vtable slot 7.
 func (self *IDispatcherQueueController) ShutdownQueueAsync() (*foundation.IAsyncAction, error) {
-	var result *foundation.IAsyncAction
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IAsyncAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDispatcherQueueControllerStatics is the WinRT interface Windows.System.IDispatcherQueueControllerStatics.
@@ -1088,9 +1088,9 @@ var IID_IDispatcherQueueControllerStatics = win32.GUID{Data1: 0x0a6c98e0, Data2:
 
 // CreateOnDedicatedThread dispatches through IDispatcherQueueControllerStatics's vtable slot 6.
 func (self *IDispatcherQueueControllerStatics) CreateOnDedicatedThread() (*IDispatcherQueueController, error) {
-	var result *IDispatcherQueueController
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDispatcherQueueController)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDispatcherQueueShutdownStartingEventArgs is the WinRT interface Windows.System.IDispatcherQueueShutdownStartingEventArgs.
@@ -1105,9 +1105,9 @@ var IID_IDispatcherQueueShutdownStartingEventArgs = win32.GUID{Data1: 0xc4724c4c
 
 // GetDeferral dispatches through IDispatcherQueueShutdownStartingEventArgs's vtable slot 6.
 func (self *IDispatcherQueueShutdownStartingEventArgs) GetDeferral() (*foundation.IDeferral, error) {
-	var result *foundation.IDeferral
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IDeferral)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDispatcherQueueStatics is the WinRT interface Windows.System.IDispatcherQueueStatics.
@@ -1122,9 +1122,9 @@ var IID_IDispatcherQueueStatics = win32.GUID{Data1: 0xa96d83d7, Data2: 0x9371, D
 
 // GetForCurrentThread dispatches through IDispatcherQueueStatics's vtable slot 6.
 func (self *IDispatcherQueueStatics) GetForCurrentThread() (*IDispatcherQueue, error) {
-	var result *IDispatcherQueue
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDispatcherQueue)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDispatcherQueueTimer is the WinRT interface Windows.System.IDispatcherQueueTimer.
@@ -1139,9 +1139,9 @@ var IID_IDispatcherQueueTimer = win32.GUID{Data1: 0x5feabb1d, Data2: 0xa31c, Dat
 
 // Interval (propget get_Interval) dispatches through IDispatcherQueueTimer's vtable slot 6.
 func (self *IDispatcherQueueTimer) Interval() (foundation.TimeSpan, error) {
-	var result foundation.TimeSpan
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.TimeSpan)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetInterval (propput put_Interval) dispatches through IDispatcherQueueTimer's vtable slot 7.
@@ -1152,16 +1152,16 @@ func (self *IDispatcherQueueTimer) SetInterval(value foundation.TimeSpan) error 
 
 // IsRunning (propget get_IsRunning) dispatches through IDispatcherQueueTimer's vtable slot 8.
 func (self *IDispatcherQueueTimer) IsRunning() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IsRepeating (propget get_IsRepeating) dispatches through IDispatcherQueueTimer's vtable slot 9.
 func (self *IDispatcherQueueTimer) IsRepeating() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetIsRepeating (propput put_IsRepeating) dispatches through IDispatcherQueueTimer's vtable slot 10.
@@ -1190,9 +1190,9 @@ func (self *IDispatcherQueueTimer) Stop() error {
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveTick.
 func (self *IDispatcherQueueTimer) AddTick(handler *TypedEventHandlerOfDispatcherQueueTimerAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveTick (event remove remove_Tick) dispatches through IDispatcherQueueTimer's vtable slot 14,
@@ -1214,9 +1214,9 @@ var IID_IFolderLauncherOptions = win32.GUID{Data1: 0xbb91c27d, Data2: 0x6b87, Da
 
 // ItemsToSelect (propget get_ItemsToSelect) dispatches through IFolderLauncherOptions's vtable slot 6.
 func (self *IFolderLauncherOptions) ItemsToSelect() (*IVectorOfIStorageItem, error) {
-	var result *IVectorOfIStorageItem
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfIStorageItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IKnownUserPropertiesStatics is the WinRT interface Windows.System.IKnownUserPropertiesStatics.
@@ -1231,92 +1231,92 @@ var IID_IKnownUserPropertiesStatics = win32.GUID{Data1: 0x7755911a, Data2: 0x70c
 
 // DisplayName (propget get_DisplayName) dispatches through IKnownUserPropertiesStatics's vtable slot 6.
 func (self *IKnownUserPropertiesStatics) DisplayName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // FirstName (propget get_FirstName) dispatches through IKnownUserPropertiesStatics's vtable slot 7.
 func (self *IKnownUserPropertiesStatics) FirstName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // LastName (propget get_LastName) dispatches through IKnownUserPropertiesStatics's vtable slot 8.
 func (self *IKnownUserPropertiesStatics) LastName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // ProviderName (propget get_ProviderName) dispatches through IKnownUserPropertiesStatics's vtable slot 9.
 func (self *IKnownUserPropertiesStatics) ProviderName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // AccountName (propget get_AccountName) dispatches through IKnownUserPropertiesStatics's vtable slot 10.
 func (self *IKnownUserPropertiesStatics) AccountName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // GuestHost (propget get_GuestHost) dispatches through IKnownUserPropertiesStatics's vtable slot 11.
 func (self *IKnownUserPropertiesStatics) GuestHost() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // PrincipalName (propget get_PrincipalName) dispatches through IKnownUserPropertiesStatics's vtable slot 12.
 func (self *IKnownUserPropertiesStatics) PrincipalName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // DomainName (propget get_DomainName) dispatches through IKnownUserPropertiesStatics's vtable slot 13.
 func (self *IKnownUserPropertiesStatics) DomainName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SessionInitiationProtocolUri (propget get_SessionInitiationProtocolUri) dispatches through IKnownUserPropertiesStatics's vtable slot 14.
 func (self *IKnownUserPropertiesStatics) SessionInitiationProtocolUri() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IKnownUserPropertiesStatics2 is the WinRT interface Windows.System.IKnownUserPropertiesStatics2.
@@ -1331,12 +1331,12 @@ var IID_IKnownUserPropertiesStatics2 = win32.GUID{Data1: 0x5b450782, Data2: 0xf6
 
 // AgeEnforcementRegion (propget get_AgeEnforcementRegion) dispatches through IKnownUserPropertiesStatics2's vtable slot 6.
 func (self *IKnownUserPropertiesStatics2) AgeEnforcementRegion() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // ILaunchUriResult is the WinRT interface Windows.System.ILaunchUriResult.
@@ -1351,16 +1351,16 @@ var IID_ILaunchUriResult = win32.GUID{Data1: 0xec27a8df, Data2: 0xf6d5, Data3: 0
 
 // Status (propget get_Status) dispatches through ILaunchUriResult's vtable slot 6.
 func (self *ILaunchUriResult) Status() (LaunchUriStatus, error) {
-	var result LaunchUriStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(LaunchUriStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Result (propget get_Result) dispatches through ILaunchUriResult's vtable slot 7.
 func (self *ILaunchUriResult) Result() (*foundationcollections.IPropertySet, error) {
-	var result *foundationcollections.IPropertySet
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundationcollections.IPropertySet)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ILauncherOptions is the WinRT interface Windows.System.ILauncherOptions.
@@ -1375,9 +1375,9 @@ var IID_ILauncherOptions = win32.GUID{Data1: 0xbafa21d8, Data2: 0xb071, Data3: 0
 
 // TreatAsUntrusted (propget get_TreatAsUntrusted) dispatches through ILauncherOptions's vtable slot 6.
 func (self *ILauncherOptions) TreatAsUntrusted() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetTreatAsUntrusted (propput put_TreatAsUntrusted) dispatches through ILauncherOptions's vtable slot 7.
@@ -1392,9 +1392,9 @@ func (self *ILauncherOptions) SetTreatAsUntrusted(value bool) error {
 
 // DisplayApplicationPicker (propget get_DisplayApplicationPicker) dispatches through ILauncherOptions's vtable slot 8.
 func (self *ILauncherOptions) DisplayApplicationPicker() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDisplayApplicationPicker (propput put_DisplayApplicationPicker) dispatches through ILauncherOptions's vtable slot 9.
@@ -1409,19 +1409,19 @@ func (self *ILauncherOptions) SetDisplayApplicationPicker(value bool) error {
 
 // UI (propget get_UI) dispatches through ILauncherOptions's vtable slot 10.
 func (self *ILauncherOptions) UI() (*ILauncherUIOptions, error) {
-	var result *ILauncherUIOptions
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ILauncherUIOptions)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PreferredApplicationPackageFamilyName (propget get_PreferredApplicationPackageFamilyName) dispatches through ILauncherOptions's vtable slot 11.
 func (self *ILauncherOptions) PreferredApplicationPackageFamilyName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetPreferredApplicationPackageFamilyName (propput put_PreferredApplicationPackageFamilyName) dispatches through ILauncherOptions's vtable slot 12.
@@ -1437,12 +1437,12 @@ func (self *ILauncherOptions) SetPreferredApplicationPackageFamilyName(value str
 
 // PreferredApplicationDisplayName (propget get_PreferredApplicationDisplayName) dispatches through ILauncherOptions's vtable slot 13.
 func (self *ILauncherOptions) PreferredApplicationDisplayName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetPreferredApplicationDisplayName (propput put_PreferredApplicationDisplayName) dispatches through ILauncherOptions's vtable slot 14.
@@ -1458,9 +1458,9 @@ func (self *ILauncherOptions) SetPreferredApplicationDisplayName(value string) e
 
 // FallbackUri (propget get_FallbackUri) dispatches through ILauncherOptions's vtable slot 15.
 func (self *ILauncherOptions) FallbackUri() (*foundation.IUriRuntimeClass, error) {
-	var result *foundation.IUriRuntimeClass
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IUriRuntimeClass)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetFallbackUri (propput put_FallbackUri) dispatches through ILauncherOptions's vtable slot 16.
@@ -1471,12 +1471,12 @@ func (self *ILauncherOptions) SetFallbackUri(value *foundation.IUriRuntimeClass)
 
 // ContentType (propget get_ContentType) dispatches through ILauncherOptions's vtable slot 17.
 func (self *ILauncherOptions) ContentType() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetContentType (propput put_ContentType) dispatches through ILauncherOptions's vtable slot 18.
@@ -1502,12 +1502,12 @@ var IID_ILauncherOptions2 = win32.GUID{Data1: 0x3ba08eb4, Data2: 0x6e40, Data3: 
 
 // TargetApplicationPackageFamilyName (propget get_TargetApplicationPackageFamilyName) dispatches through ILauncherOptions2's vtable slot 6.
 func (self *ILauncherOptions2) TargetApplicationPackageFamilyName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetTargetApplicationPackageFamilyName (propput put_TargetApplicationPackageFamilyName) dispatches through ILauncherOptions2's vtable slot 7.
@@ -1537,9 +1537,9 @@ var IID_ILauncherOptions3 = win32.GUID{Data1: 0xf0770655, Data2: 0x4b63, Data3: 
 
 // IgnoreAppUriHandlers (propget get_IgnoreAppUriHandlers) dispatches through ILauncherOptions3's vtable slot 6.
 func (self *ILauncherOptions3) IgnoreAppUriHandlers() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetIgnoreAppUriHandlers (propput put_IgnoreAppUriHandlers) dispatches through ILauncherOptions3's vtable slot 7.
@@ -1564,9 +1564,9 @@ var IID_ILauncherOptions4 = win32.GUID{Data1: 0xef6fd10e, Data2: 0xe6fb, Data3: 
 
 // LimitPickerToCurrentAppAndAppUriHandlers (propget get_LimitPickerToCurrentAppAndAppUriHandlers) dispatches through ILauncherOptions4's vtable slot 6.
 func (self *ILauncherOptions4) LimitPickerToCurrentAppAndAppUriHandlers() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetLimitPickerToCurrentAppAndAppUriHandlers (propput put_LimitPickerToCurrentAppAndAppUriHandlers) dispatches through ILauncherOptions4's vtable slot 7.
@@ -1595,16 +1595,16 @@ var IID_ILauncherStatics = win32.GUID{Data1: 0x277151c3, Data2: 0x9e3e, Data3: 0
 
 // LaunchUriAsync dispatches through ILauncherStatics's vtable slot 8.
 func (self *ILauncherStatics) LaunchUriAsync(uri *foundation.IUriRuntimeClass) (*IAsyncOperationOfBool, error) {
-	var result *IAsyncOperationOfBool
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfBool)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LaunchUriWithOptionsAsync dispatches through ILauncherStatics's vtable slot 9.
 func (self *ILauncherStatics) LaunchUriWithOptionsAsync(uri *foundation.IUriRuntimeClass, options *ILauncherOptions) (*IAsyncOperationOfBool, error) {
-	var result *IAsyncOperationOfBool
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfBool)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ILauncherStatics2 is the WinRT interface Windows.System.ILauncherStatics2.
@@ -1619,30 +1619,30 @@ var IID_ILauncherStatics2 = win32.GUID{Data1: 0x59ba2fbb, Data2: 0x24cb, Data3: 
 
 // LaunchUriForResultsAsync dispatches through ILauncherStatics2's vtable slot 6.
 func (self *ILauncherStatics2) LaunchUriForResultsAsync(uri *foundation.IUriRuntimeClass, options *ILauncherOptions) (*IAsyncOperationOfLaunchUriResult, error) {
-	var result *IAsyncOperationOfLaunchUriResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfLaunchUriResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LaunchUriForResultsWithDataAsync dispatches through ILauncherStatics2's vtable slot 7.
 func (self *ILauncherStatics2) LaunchUriForResultsWithDataAsync(uri *foundation.IUriRuntimeClass, options *ILauncherOptions, inputData *foundationcollections.IPropertySet) (*IAsyncOperationOfLaunchUriResult, error) {
-	var result *IAsyncOperationOfLaunchUriResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(inputData)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfLaunchUriResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(inputData)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LaunchUriWithDataAsync dispatches through ILauncherStatics2's vtable slot 8.
 func (self *ILauncherStatics2) LaunchUriWithDataAsync(uri *foundation.IUriRuntimeClass, options *ILauncherOptions, inputData *foundationcollections.IPropertySet) (*IAsyncOperationOfBool, error) {
-	var result *IAsyncOperationOfBool
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(inputData)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfBool)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(inputData)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // QueryUriSupportAsync dispatches through ILauncherStatics2's vtable slot 9.
 func (self *ILauncherStatics2) QueryUriSupportAsync(uri *foundation.IUriRuntimeClass, launchQuerySupportType LaunchQuerySupportType) (*IAsyncOperationOfLaunchQuerySupportStatus, error) {
-	var result *IAsyncOperationOfLaunchQuerySupportStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(launchQuerySupportType), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfLaunchQuerySupportStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(launchQuerySupportType), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // QueryUriSupportWithPackageFamilyNameAsync dispatches through ILauncherStatics2's vtable slot 10.
@@ -1652,9 +1652,9 @@ func (self *ILauncherStatics2) QueryUriSupportWithPackageFamilyNameAsync(uri *fo
 		return nil, err
 	}
 	defer hPackageFamilyName.Close()
-	var result *IAsyncOperationOfLaunchQuerySupportStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(launchQuerySupportType), uintptr(hPackageFamilyName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfLaunchQuerySupportStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(launchQuerySupportType), uintptr(hPackageFamilyName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 11: QueryFileSupportAsync skipped: reference to Windows.Storage.StorageFile crosses a severed import edge
@@ -1668,9 +1668,9 @@ func (self *ILauncherStatics2) FindUriSchemeHandlersAsync(scheme string) (*IAsyn
 		return nil, err
 	}
 	defer hScheme.Close()
-	var result *IAsyncOperationOfIVectorViewOfAppInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(hScheme.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorViewOfAppInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(hScheme.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindUriSchemeHandlersWithLaunchUriTypeAsync dispatches through ILauncherStatics2's vtable slot 14.
@@ -1680,9 +1680,9 @@ func (self *ILauncherStatics2) FindUriSchemeHandlersWithLaunchUriTypeAsync(schem
 		return nil, err
 	}
 	defer hScheme.Close()
-	var result *IAsyncOperationOfIVectorViewOfAppInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(hScheme.Raw()), uintptr(launchQuerySupportType), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorViewOfAppInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(hScheme.Raw()), uintptr(launchQuerySupportType), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindFileHandlersAsync dispatches through ILauncherStatics2's vtable slot 15.
@@ -1692,9 +1692,9 @@ func (self *ILauncherStatics2) FindFileHandlersAsync(extension string) (*IAsyncO
 		return nil, err
 	}
 	defer hExtension.Close()
-	var result *IAsyncOperationOfIVectorViewOfAppInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(hExtension.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorViewOfAppInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(hExtension.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ILauncherStatics3 is the WinRT interface Windows.System.ILauncherStatics3.
@@ -1723,9 +1723,9 @@ var IID_ILauncherStatics4 = win32.GUID{Data1: 0xb9ec819f, Data2: 0xb5a5, Data3: 
 
 // QueryAppUriSupportAsync dispatches through ILauncherStatics4's vtable slot 6.
 func (self *ILauncherStatics4) QueryAppUriSupportAsync(uri *foundation.IUriRuntimeClass) (*IAsyncOperationOfLaunchQuerySupportStatus, error) {
-	var result *IAsyncOperationOfLaunchQuerySupportStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfLaunchQuerySupportStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // QueryAppUriSupportWithPackageFamilyNameAsync dispatches through ILauncherStatics4's vtable slot 7.
@@ -1735,51 +1735,51 @@ func (self *ILauncherStatics4) QueryAppUriSupportWithPackageFamilyNameAsync(uri 
 		return nil, err
 	}
 	defer hPackageFamilyName.Close()
-	var result *IAsyncOperationOfLaunchQuerySupportStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(hPackageFamilyName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfLaunchQuerySupportStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(hPackageFamilyName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAppUriHandlersAsync dispatches through ILauncherStatics4's vtable slot 8.
 func (self *ILauncherStatics4) FindAppUriHandlersAsync(uri *foundation.IUriRuntimeClass) (*IAsyncOperationOfIVectorViewOfAppInfo, error) {
-	var result *IAsyncOperationOfIVectorViewOfAppInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorViewOfAppInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LaunchUriForUserAsync dispatches through ILauncherStatics4's vtable slot 9.
 func (self *ILauncherStatics4) LaunchUriForUserAsync(user *IUser, uri *foundation.IUriRuntimeClass) (*IAsyncOperationOfLaunchUriStatus, error) {
-	var result *IAsyncOperationOfLaunchUriStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfLaunchUriStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(uri)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LaunchUriWithOptionsForUserAsync dispatches through ILauncherStatics4's vtable slot 10.
 func (self *ILauncherStatics4) LaunchUriWithOptionsForUserAsync(user *IUser, uri *foundation.IUriRuntimeClass, options *ILauncherOptions) (*IAsyncOperationOfLaunchUriStatus, error) {
-	var result *IAsyncOperationOfLaunchUriStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfLaunchUriStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LaunchUriWithDataForUserAsync dispatches through ILauncherStatics4's vtable slot 11.
 func (self *ILauncherStatics4) LaunchUriWithDataForUserAsync(user *IUser, uri *foundation.IUriRuntimeClass, options *ILauncherOptions, inputData *foundationcollections.IPropertySet) (*IAsyncOperationOfLaunchUriStatus, error) {
-	var result *IAsyncOperationOfLaunchUriStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(inputData)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfLaunchUriStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(inputData)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LaunchUriForResultsForUserAsync dispatches through ILauncherStatics4's vtable slot 12.
 func (self *ILauncherStatics4) LaunchUriForResultsForUserAsync(user *IUser, uri *foundation.IUriRuntimeClass, options *ILauncherOptions) (*IAsyncOperationOfLaunchUriResult, error) {
-	var result *IAsyncOperationOfLaunchUriResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfLaunchUriResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LaunchUriForResultsWithDataForUserAsync dispatches through ILauncherStatics4's vtable slot 13.
 func (self *ILauncherStatics4) LaunchUriForResultsWithDataForUserAsync(user *IUser, uri *foundation.IUriRuntimeClass, options *ILauncherOptions, inputData *foundationcollections.IPropertySet) (*IAsyncOperationOfLaunchUriResult, error) {
-	var result *IAsyncOperationOfLaunchUriResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(inputData)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfLaunchUriResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(inputData)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ILauncherStatics5 is the WinRT interface Windows.System.ILauncherStatics5.
@@ -1799,9 +1799,9 @@ func (self *ILauncherStatics5) LaunchFolderPathAsync(path string) (*IAsyncOperat
 		return nil, err
 	}
 	defer hPath.Close()
-	var result *IAsyncOperationOfBool
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hPath.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfBool)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hPath.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LaunchFolderPathWithOptionsAsync dispatches through ILauncherStatics5's vtable slot 7.
@@ -1811,9 +1811,9 @@ func (self *ILauncherStatics5) LaunchFolderPathWithOptionsAsync(path string, opt
 		return nil, err
 	}
 	defer hPath.Close()
-	var result *IAsyncOperationOfBool
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hPath.Raw()), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfBool)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hPath.Raw()), uintptr(unsafe.Pointer(options)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LaunchFolderPathForUserAsync dispatches through ILauncherStatics5's vtable slot 8.
@@ -1823,9 +1823,9 @@ func (self *ILauncherStatics5) LaunchFolderPathForUserAsync(user *IUser, path st
 		return nil, err
 	}
 	defer hPath.Close()
-	var result *IAsyncOperationOfBool
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(hPath.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfBool)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(hPath.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LaunchFolderPathWithOptionsForUserAsync dispatches through ILauncherStatics5's vtable slot 9.
@@ -1835,9 +1835,9 @@ func (self *ILauncherStatics5) LaunchFolderPathWithOptionsForUserAsync(user *IUs
 		return nil, err
 	}
 	defer hPath.Close()
-	var result *IAsyncOperationOfBool
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(hPath.Raw()), uintptr(unsafe.Pointer(options)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfBool)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(hPath.Raw()), uintptr(unsafe.Pointer(options)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ILauncherUIOptions is the WinRT interface Windows.System.ILauncherUIOptions.
@@ -1852,9 +1852,9 @@ var IID_ILauncherUIOptions = win32.GUID{Data1: 0x1b25da6e, Data2: 0x8aa6, Data3:
 
 // InvocationPoint (propget get_InvocationPoint) dispatches through ILauncherUIOptions's vtable slot 6.
 func (self *ILauncherUIOptions) InvocationPoint() (*IReferenceOfPoint, error) {
-	var result *IReferenceOfPoint
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfPoint)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetInvocationPoint (propput put_InvocationPoint) dispatches through ILauncherUIOptions's vtable slot 7.
@@ -1865,9 +1865,9 @@ func (self *ILauncherUIOptions) SetInvocationPoint(value *IReferenceOfPoint) err
 
 // SelectionRect (propget get_SelectionRect) dispatches through ILauncherUIOptions's vtable slot 8.
 func (self *ILauncherUIOptions) SelectionRect() (*IReferenceOfRect, error) {
-	var result *IReferenceOfRect
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfRect)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectionRect (propput put_SelectionRect) dispatches through ILauncherUIOptions's vtable slot 9.
@@ -1878,9 +1878,9 @@ func (self *ILauncherUIOptions) SetSelectionRect(value *IReferenceOfRect) error 
 
 // PreferredPlacement (propget get_PreferredPlacement) dispatches through ILauncherUIOptions's vtable slot 10.
 func (self *ILauncherUIOptions) PreferredPlacement() (uipopups.Placement, error) {
-	var result uipopups.Placement
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uipopups.Placement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPreferredPlacement (propput put_PreferredPlacement) dispatches through ILauncherUIOptions's vtable slot 11.
@@ -1900,9 +1900,9 @@ var IID_ILauncherViewOptions = win32.GUID{Data1: 0x8a9b29f1, Data2: 0x7ca7, Data
 
 // DesiredRemainingView (propget get_DesiredRemainingView) dispatches through ILauncherViewOptions's vtable slot 6.
 func (self *ILauncherViewOptions) DesiredRemainingView() (uiviewmanagement.ViewSizePreference, error) {
-	var result uiviewmanagement.ViewSizePreference
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uiviewmanagement.ViewSizePreference)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDesiredRemainingView (propput put_DesiredRemainingView) dispatches through ILauncherViewOptions's vtable slot 7.
@@ -1923,32 +1923,32 @@ var IID_IMemoryManagerStatics = win32.GUID{Data1: 0x5c6c279c, Data2: 0xd7ca, Dat
 
 // AppMemoryUsage (propget get_AppMemoryUsage) dispatches through IMemoryManagerStatics's vtable slot 6.
 func (self *IMemoryManagerStatics) AppMemoryUsage() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AppMemoryUsageLimit (propget get_AppMemoryUsageLimit) dispatches through IMemoryManagerStatics's vtable slot 7.
 func (self *IMemoryManagerStatics) AppMemoryUsageLimit() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AppMemoryUsageLevel (propget get_AppMemoryUsageLevel) dispatches through IMemoryManagerStatics's vtable slot 8.
 func (self *IMemoryManagerStatics) AppMemoryUsageLevel() (AppMemoryUsageLevel, error) {
-	var result AppMemoryUsageLevel
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AppMemoryUsageLevel)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddAppMemoryUsageIncreased (event add add_AppMemoryUsageIncreased) dispatches through IMemoryManagerStatics's vtable slot 9.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveAppMemoryUsageIncreased.
 func (self *IMemoryManagerStatics) AddAppMemoryUsageIncreased(handler *EventHandlerOfObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAppMemoryUsageIncreased (event remove remove_AppMemoryUsageIncreased) dispatches through IMemoryManagerStatics's vtable slot 10,
@@ -1962,9 +1962,9 @@ func (self *IMemoryManagerStatics) RemoveAppMemoryUsageIncreased(token syswinrt.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveAppMemoryUsageDecreased.
 func (self *IMemoryManagerStatics) AddAppMemoryUsageDecreased(handler *EventHandlerOfObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAppMemoryUsageDecreased (event remove remove_AppMemoryUsageDecreased) dispatches through IMemoryManagerStatics's vtable slot 12,
@@ -1978,9 +1978,9 @@ func (self *IMemoryManagerStatics) RemoveAppMemoryUsageDecreased(token syswinrt.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveAppMemoryUsageLimitChanging.
 func (self *IMemoryManagerStatics) AddAppMemoryUsageLimitChanging(handler *EventHandlerOfAppMemoryUsageLimitChangingEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAppMemoryUsageLimitChanging (event remove remove_AppMemoryUsageLimitChanging) dispatches through IMemoryManagerStatics's vtable slot 14,
@@ -2002,16 +2002,16 @@ var IID_IMemoryManagerStatics2 = win32.GUID{Data1: 0x6eee351f, Data2: 0x6d62, Da
 
 // GetAppMemoryReport dispatches through IMemoryManagerStatics2's vtable slot 6.
 func (self *IMemoryManagerStatics2) GetAppMemoryReport() (*IAppMemoryReport, error) {
-	var result *IAppMemoryReport
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAppMemoryReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetProcessMemoryReport dispatches through IMemoryManagerStatics2's vtable slot 7.
 func (self *IMemoryManagerStatics2) GetProcessMemoryReport() (*IProcessMemoryReport, error) {
-	var result *IProcessMemoryReport
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IProcessMemoryReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IMemoryManagerStatics3 is the WinRT interface Windows.System.IMemoryManagerStatics3.
@@ -2026,9 +2026,9 @@ var IID_IMemoryManagerStatics3 = win32.GUID{Data1: 0x149b59ce, Data2: 0x92ad, Da
 
 // TrySetAppMemoryUsageLimit dispatches through IMemoryManagerStatics3's vtable slot 6.
 func (self *IMemoryManagerStatics3) TrySetAppMemoryUsageLimit(value uint64) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(value), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(value), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IMemoryManagerStatics4 is the WinRT interface Windows.System.IMemoryManagerStatics4.
@@ -2043,9 +2043,9 @@ var IID_IMemoryManagerStatics4 = win32.GUID{Data1: 0xc5a94828, Data2: 0xe84e, Da
 
 // ExpectedAppMemoryUsageLimit (propget get_ExpectedAppMemoryUsageLimit) dispatches through IMemoryManagerStatics4's vtable slot 6.
 func (self *IMemoryManagerStatics4) ExpectedAppMemoryUsageLimit() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IProcessMemoryReport is the WinRT interface Windows.System.IProcessMemoryReport.
@@ -2060,16 +2060,16 @@ var IID_IProcessMemoryReport = win32.GUID{Data1: 0x087305a8, Data2: 0x9b70, Data
 
 // PrivateWorkingSetUsage (propget get_PrivateWorkingSetUsage) dispatches through IProcessMemoryReport's vtable slot 6.
 func (self *IProcessMemoryReport) PrivateWorkingSetUsage() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TotalWorkingSetUsage (propget get_TotalWorkingSetUsage) dispatches through IProcessMemoryReport's vtable slot 7.
 func (self *IProcessMemoryReport) TotalWorkingSetUsage() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IProtocolForResultsOperation is the WinRT interface Windows.System.IProtocolForResultsOperation.
@@ -2100,9 +2100,9 @@ var IID_IRemoteLauncherOptions = win32.GUID{Data1: 0x9e3a2788, Data2: 0x2891, Da
 
 // FallbackUri (propget get_FallbackUri) dispatches through IRemoteLauncherOptions's vtable slot 6.
 func (self *IRemoteLauncherOptions) FallbackUri() (*foundation.IUriRuntimeClass, error) {
-	var result *foundation.IUriRuntimeClass
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IUriRuntimeClass)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetFallbackUri (propput put_FallbackUri) dispatches through IRemoteLauncherOptions's vtable slot 7.
@@ -2113,9 +2113,9 @@ func (self *IRemoteLauncherOptions) SetFallbackUri(value *foundation.IUriRuntime
 
 // PreferredAppIds (propget get_PreferredAppIds) dispatches through IRemoteLauncherOptions's vtable slot 8.
 func (self *IRemoteLauncherOptions) PreferredAppIds() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IRemoteLauncherStatics is the WinRT interface Windows.System.IRemoteLauncherStatics.
@@ -2146,26 +2146,26 @@ var IID_IUser = win32.GUID{Data1: 0xdf9a26c6, Data2: 0xe746, Data3: 0x4bcd, Data
 
 // NonRoamableId (propget get_NonRoamableId) dispatches through IUser's vtable slot 6.
 func (self *IUser) NonRoamableId() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // AuthenticationStatus (propget get_AuthenticationStatus) dispatches through IUser's vtable slot 7.
 func (self *IUser) AuthenticationStatus() (UserAuthenticationStatus, error) {
-	var result UserAuthenticationStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(UserAuthenticationStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Type (propget get_Type) dispatches through IUser's vtable slot 8.
 func (self *IUser) Type() (UserType, error) {
-	var result UserType
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(UserType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetPropertyAsync dispatches through IUser's vtable slot 9.
@@ -2175,23 +2175,23 @@ func (self *IUser) GetPropertyAsync(value string) (*IAsyncOperationOfObject, err
 		return nil, err
 	}
 	defer hValue.Close()
-	var result *IAsyncOperationOfObject
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hValue.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hValue.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetPropertiesAsync dispatches through IUser's vtable slot 10.
 func (self *IUser) GetPropertiesAsync(values *IVectorViewOfString) (*IAsyncOperationOfIPropertySet, error) {
-	var result *IAsyncOperationOfIPropertySet
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(values)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIPropertySet)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(values)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetPictureAsync dispatches through IUser's vtable slot 11.
 func (self *IUser) GetPictureAsync(desiredSize UserPictureSize) (*IAsyncOperationOfIRandomAccessStreamReference, error) {
-	var result *IAsyncOperationOfIRandomAccessStreamReference
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(desiredSize), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIRandomAccessStreamReference)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(desiredSize), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUser2 is the WinRT interface Windows.System.IUser2.
@@ -2206,9 +2206,9 @@ var IID_IUser2 = win32.GUID{Data1: 0x98ba5628, Data2: 0xa6e3, Data3: 0x518e, Dat
 
 // CheckUserAgeConsentGroupAsync dispatches through IUser2's vtable slot 6.
 func (self *IUser2) CheckUserAgeConsentGroupAsync(consentGroup UserAgeConsentGroup) (*IAsyncOperationOfUserAgeConsentResult, error) {
-	var result *IAsyncOperationOfUserAgeConsentResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(consentGroup), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfUserAgeConsentResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(consentGroup), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUserAuthenticationStatusChangeDeferral is the WinRT interface Windows.System.IUserAuthenticationStatusChangeDeferral.
@@ -2239,30 +2239,30 @@ var IID_IUserAuthenticationStatusChangingEventArgs = win32.GUID{Data1: 0x8c030f2
 
 // GetDeferral dispatches through IUserAuthenticationStatusChangingEventArgs's vtable slot 6.
 func (self *IUserAuthenticationStatusChangingEventArgs) GetDeferral() (*IUserAuthenticationStatusChangeDeferral, error) {
-	var result *IUserAuthenticationStatusChangeDeferral
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUserAuthenticationStatusChangeDeferral)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // User (propget get_User) dispatches through IUserAuthenticationStatusChangingEventArgs's vtable slot 7.
 func (self *IUserAuthenticationStatusChangingEventArgs) User() (*IUser, error) {
-	var result *IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // NewStatus (propget get_NewStatus) dispatches through IUserAuthenticationStatusChangingEventArgs's vtable slot 8.
 func (self *IUserAuthenticationStatusChangingEventArgs) NewStatus() (UserAuthenticationStatus, error) {
-	var result UserAuthenticationStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(UserAuthenticationStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CurrentStatus (propget get_CurrentStatus) dispatches through IUserAuthenticationStatusChangingEventArgs's vtable slot 9.
 func (self *IUserAuthenticationStatusChangingEventArgs) CurrentStatus() (UserAuthenticationStatus, error) {
-	var result UserAuthenticationStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(UserAuthenticationStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUserChangedEventArgs is the WinRT interface Windows.System.IUserChangedEventArgs.
@@ -2277,9 +2277,9 @@ var IID_IUserChangedEventArgs = win32.GUID{Data1: 0x086459dc, Data2: 0x18c6, Dat
 
 // User (propget get_User) dispatches through IUserChangedEventArgs's vtable slot 6.
 func (self *IUserChangedEventArgs) User() (*IUser, error) {
-	var result *IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUserChangedEventArgs2 is the WinRT interface Windows.System.IUserChangedEventArgs2.
@@ -2294,9 +2294,9 @@ var IID_IUserChangedEventArgs2 = win32.GUID{Data1: 0x6b2ccb44, Data2: 0x6f01, Da
 
 // ChangedPropertyKinds (propget get_ChangedPropertyKinds) dispatches through IUserChangedEventArgs2's vtable slot 6.
 func (self *IUserChangedEventArgs2) ChangedPropertyKinds() (*IVectorViewOfUserWatcherUpdateKind, error) {
-	var result *IVectorViewOfUserWatcherUpdateKind
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfUserWatcherUpdateKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUserDeviceAssociationChangedEventArgs is the WinRT interface Windows.System.IUserDeviceAssociationChangedEventArgs.
@@ -2311,26 +2311,26 @@ var IID_IUserDeviceAssociationChangedEventArgs = win32.GUID{Data1: 0xbd1f6f6c, D
 
 // DeviceId (propget get_DeviceId) dispatches through IUserDeviceAssociationChangedEventArgs's vtable slot 6.
 func (self *IUserDeviceAssociationChangedEventArgs) DeviceId() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // NewUser (propget get_NewUser) dispatches through IUserDeviceAssociationChangedEventArgs's vtable slot 7.
 func (self *IUserDeviceAssociationChangedEventArgs) NewUser() (*IUser, error) {
-	var result *IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // OldUser (propget get_OldUser) dispatches through IUserDeviceAssociationChangedEventArgs's vtable slot 8.
 func (self *IUserDeviceAssociationChangedEventArgs) OldUser() (*IUser, error) {
-	var result *IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUserDeviceAssociationStatics is the WinRT interface Windows.System.IUserDeviceAssociationStatics.
@@ -2350,18 +2350,18 @@ func (self *IUserDeviceAssociationStatics) FindUserFromDeviceId(deviceId string)
 		return nil, err
 	}
 	defer hDeviceId.Close()
-	var result *IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddUserDeviceAssociationChanged (event add add_UserDeviceAssociationChanged) dispatches through IUserDeviceAssociationStatics's vtable slot 7.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveUserDeviceAssociationChanged.
 func (self *IUserDeviceAssociationStatics) AddUserDeviceAssociationChanged(handler *EventHandlerOfUserDeviceAssociationChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveUserDeviceAssociationChanged (event remove remove_UserDeviceAssociationChanged) dispatches through IUserDeviceAssociationStatics's vtable slot 8,
@@ -2383,9 +2383,9 @@ var IID_IUserPicker = win32.GUID{Data1: 0x7d548008, Data2: 0xf1e3, Data3: 0x4a6c
 
 // AllowGuestAccounts (propget get_AllowGuestAccounts) dispatches through IUserPicker's vtable slot 6.
 func (self *IUserPicker) AllowGuestAccounts() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAllowGuestAccounts (propput put_AllowGuestAccounts) dispatches through IUserPicker's vtable slot 7.
@@ -2400,9 +2400,9 @@ func (self *IUserPicker) SetAllowGuestAccounts(value bool) error {
 
 // SuggestedSelectedUser (propget get_SuggestedSelectedUser) dispatches through IUserPicker's vtable slot 8.
 func (self *IUserPicker) SuggestedSelectedUser() (*IUser, error) {
-	var result *IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSuggestedSelectedUser (propput put_SuggestedSelectedUser) dispatches through IUserPicker's vtable slot 9.
@@ -2413,9 +2413,9 @@ func (self *IUserPicker) SetSuggestedSelectedUser(value *IUser) error {
 
 // PickSingleUserAsync dispatches through IUserPicker's vtable slot 10.
 func (self *IUserPicker) PickSingleUserAsync() (*IAsyncOperationOfUser, error) {
-	var result *IAsyncOperationOfUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUserPickerStatics is the WinRT interface Windows.System.IUserPickerStatics.
@@ -2430,9 +2430,9 @@ var IID_IUserPickerStatics = win32.GUID{Data1: 0xde3290dc, Data2: 0x7e73, Data3:
 
 // IsSupported dispatches through IUserPickerStatics's vtable slot 6.
 func (self *IUserPickerStatics) IsSupported() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IUserStatics is the WinRT interface Windows.System.IUserStatics.
@@ -2447,30 +2447,30 @@ var IID_IUserStatics = win32.GUID{Data1: 0x155eb23b, Data2: 0x242a, Data3: 0x45e
 
 // CreateWatcher dispatches through IUserStatics's vtable slot 6.
 func (self *IUserStatics) CreateWatcher() (*IUserWatcher, error) {
-	var result *IUserWatcher
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUserWatcher)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAllAsync dispatches through IUserStatics's vtable slot 7.
 func (self *IUserStatics) FindAllAsync() (*IAsyncOperationOfIVectorViewOfUser, error) {
-	var result *IAsyncOperationOfIVectorViewOfUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorViewOfUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAllAsyncByType dispatches through IUserStatics's vtable slot 8.
 func (self *IUserStatics) FindAllAsyncByType(type_ UserType) (*IAsyncOperationOfIVectorViewOfUser, error) {
-	var result *IAsyncOperationOfIVectorViewOfUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorViewOfUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAllAsyncByTypeAndStatus dispatches through IUserStatics's vtable slot 9.
 func (self *IUserStatics) FindAllAsyncByTypeAndStatus(type_ UserType, status UserAuthenticationStatus) (*IAsyncOperationOfIVectorViewOfUser, error) {
-	var result *IAsyncOperationOfIVectorViewOfUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(status), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorViewOfUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(status), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetFromId dispatches through IUserStatics's vtable slot 10.
@@ -2480,9 +2480,9 @@ func (self *IUserStatics) GetFromId(nonRoamableId string) (*IUser, error) {
 		return nil, err
 	}
 	defer hNonRoamableId.Close()
-	var result *IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hNonRoamableId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hNonRoamableId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUserStatics2 is the WinRT interface Windows.System.IUserStatics2.
@@ -2497,9 +2497,9 @@ var IID_IUserStatics2 = win32.GUID{Data1: 0x74a37e11, Data2: 0x2eb5, Data3: 0x44
 
 // GetDefault dispatches through IUserStatics2's vtable slot 6.
 func (self *IUserStatics2) GetDefault() (*IUser, error) {
-	var result *IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUserWatcher is the WinRT interface Windows.System.IUserWatcher.
@@ -2514,9 +2514,9 @@ var IID_IUserWatcher = win32.GUID{Data1: 0x155eb23b, Data2: 0x242a, Data3: 0x45e
 
 // Status (propget get_Status) dispatches through IUserWatcher's vtable slot 6.
 func (self *IUserWatcher) Status() (UserWatcherStatus, error) {
-	var result UserWatcherStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(UserWatcherStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Start dispatches through IUserWatcher's vtable slot 7.
@@ -2535,9 +2535,9 @@ func (self *IUserWatcher) Stop() error {
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveAdded.
 func (self *IUserWatcher) AddAdded(handler *TypedEventHandlerOfUserWatcherAndUserChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAdded (event remove remove_Added) dispatches through IUserWatcher's vtable slot 10,
@@ -2551,9 +2551,9 @@ func (self *IUserWatcher) RemoveAdded(token syswinrt.EventRegistrationToken) err
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveRemoved.
 func (self *IUserWatcher) AddRemoved(handler *TypedEventHandlerOfUserWatcherAndUserChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveRemoved (event remove remove_Removed) dispatches through IUserWatcher's vtable slot 12,
@@ -2567,9 +2567,9 @@ func (self *IUserWatcher) RemoveRemoved(token syswinrt.EventRegistrationToken) e
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveUpdated.
 func (self *IUserWatcher) AddUpdated(handler *TypedEventHandlerOfUserWatcherAndUserChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveUpdated (event remove remove_Updated) dispatches through IUserWatcher's vtable slot 14,
@@ -2583,9 +2583,9 @@ func (self *IUserWatcher) RemoveUpdated(token syswinrt.EventRegistrationToken) e
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveAuthenticationStatusChanged.
 func (self *IUserWatcher) AddAuthenticationStatusChanged(handler *TypedEventHandlerOfUserWatcherAndUserChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAuthenticationStatusChanged (event remove remove_AuthenticationStatusChanged) dispatches through IUserWatcher's vtable slot 16,
@@ -2599,9 +2599,9 @@ func (self *IUserWatcher) RemoveAuthenticationStatusChanged(token syswinrt.Event
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveAuthenticationStatusChanging.
 func (self *IUserWatcher) AddAuthenticationStatusChanging(handler *TypedEventHandlerOfUserWatcherAndUserAuthenticationStatusChangingEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAuthenticationStatusChanging (event remove remove_AuthenticationStatusChanging) dispatches through IUserWatcher's vtable slot 18,
@@ -2615,9 +2615,9 @@ func (self *IUserWatcher) RemoveAuthenticationStatusChanging(token syswinrt.Even
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveEnumerationCompleted.
 func (self *IUserWatcher) AddEnumerationCompleted(handler *TypedEventHandlerOfUserWatcherAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveEnumerationCompleted (event remove remove_EnumerationCompleted) dispatches through IUserWatcher's vtable slot 20,
@@ -2631,9 +2631,9 @@ func (self *IUserWatcher) RemoveEnumerationCompleted(token syswinrt.EventRegistr
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveStopped.
 func (self *IUserWatcher) AddStopped(handler *TypedEventHandlerOfUserWatcherAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveStopped (event remove remove_Stopped) dispatches through IUserWatcher's vtable slot 22,

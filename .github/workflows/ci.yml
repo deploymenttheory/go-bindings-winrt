@@ -64,10 +64,10 @@ jobs:
         run: go run ./cmd/generate validate
 
       # One command clears and re-emits the committed bindings tree (the
-      # {Windows.Globalization, Windows.UI.Notifications} closure) and
-      # enforces the diagnostics ratchet.
+      # closure of the roots pinned in metadata/emit-roots.txt) and enforces
+      # the diagnostics ratchet.
       - name: Regenerate bindings with ratchet
-        run: go run ./cmd/generate bindings --namespace Windows.Globalization,Windows.UI.Notifications --diagnostics-baseline metadata/diagnostics-baseline.json
+        run: go run ./cmd/generate bindings --diagnostics-baseline metadata/diagnostics-baseline.json
 
       - name: Generated output must match the committed tree
         shell: bash

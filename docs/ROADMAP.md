@@ -125,16 +125,33 @@ consumers prove it), so they are pure additions:
    vertical (e.g. `Windows.Globalization.Calendar` — the canonical sample).
 3. Generator for interfaces + runtime classes without composition; events;
    statics + factory constructors (landed); then composition.
-4. First namespace targets, chosen for product value:
-   `Windows.Management.*` (MDM enrollment/provisioning),
-   `Windows.UI.Notifications` (toasts) **(landed — the first namespace
-   target shipped: the committed tree is the closure of
-   {`Windows.Globalization`, `Windows.UI.Notifications`}, pulling in
-   `Windows.Data.Xml.Dom`, `Windows.System`, `Windows.Storage`, and
-   `Windows.ApplicationModel`; the toast pipeline — template XML →
-   `XmlDocument` → `ToastNotification` → `ToastNotifier.Show`/`Hide` — is
-   live-tested end to end in `acceptance/toast_test.go`)**,
-   `Windows.Devices.Bluetooth`.
+4. First namespace targets, chosen for product value — **all three landed**:
+   - `Windows.UI.Notifications` (toasts): the toast pipeline — template XML
+     → `XmlDocument` → `ToastNotification` → `ToastNotifier.Show`/`Hide` —
+     is live-tested end to end in `acceptance/toast_test.go`.
+   - `Windows.Management.*` (MDM enrollment/provisioning): the
+     `Windows.Management`, `.Deployment`, `.Policies`, and `.Workplace`
+     roots are in the committed tree; `PackageManager` activation +
+     current-user package queries (iterating the monomorphized
+     `IIterable<Package>`) and the `MdmAllowPolicy` statics are live-tested
+     in `acceptance/bluetooth_management_test.go`. (`.Core`, `.Setup`, and
+     `.Update` are deliberately NOT roots — they are provisioning-agent /
+     OS-update surfaces outside the MDM-enrollment intent; add them as
+     roots in `metadata/emit-roots.txt` if that changes.)
+   - `Windows.Devices.Bluetooth` (+ `.GenericAttributeProfile`,
+     `.Advertisement`): `BluetoothAdapter.GetDefaultAsync().Await()`, radio
+     state via the pulled-in `Windows.Devices.Radios`, and a full
+     `BluetoothLEAdvertisementWatcher` scan cycle (Start needs a Received
+     subscription — E_ILLEGAL_METHOD_CALL otherwise, verified live) are
+     hardware-guarded live tests in the same file. (`.Rfcomm` and
+     `.Background` are not roots; Rfcomm types referenced from Bluetooth
+     surface via the closure where emittable.)
+
+   The committed tree is the closure of the roots pinned in
+   `metadata/emit-roots.txt` (25 packages), which also pulls in
+   `Windows.Data.Xml.Dom`, `Windows.System`, `Windows.Storage`,
+   `Windows.ApplicationModel`, `Windows.Devices.Radios`, and
+   `Windows.Networking`.
 
 ## CI note
 
