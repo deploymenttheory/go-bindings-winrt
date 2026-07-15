@@ -107,7 +107,14 @@ consumers prove it), so they are pure additions:
    statics + factory constructors (landed); then composition.
 4. First namespace targets, chosen for product value:
    `Windows.Management.*` (MDM enrollment/provisioning),
-   `Windows.UI.Notifications` (toasts), `Windows.Devices.Bluetooth`.
+   `Windows.UI.Notifications` (toasts) **(landed — the first namespace
+   target shipped: the committed tree is the closure of
+   {`Windows.Globalization`, `Windows.UI.Notifications`}, pulling in
+   `Windows.Data.Xml.Dom`, `Windows.System`, `Windows.Storage`, and
+   `Windows.ApplicationModel`; the toast pipeline — template XML →
+   `XmlDocument` → `ToastNotification` → `ToastNotifier.Show`/`Hide` — is
+   live-tested end to end in `acceptance/toast_test.go`)**,
+   `Windows.Devices.Bluetooth`.
 
 ## CI note
 

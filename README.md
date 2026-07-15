@@ -1,8 +1,10 @@
 # go-bindings-winrt
 
 **Status: generator online — generated bindings for `Windows.Globalization`
-(+ its `Windows.Foundation` closure) shipping.** Idiomatic Go bindings for
-the **Windows Runtime** (`Windows.*` namespaces: toasts/notifications,
+and `Windows.UI.Notifications` (toasts, + their closure:
+`Windows.Data.Xml.Dom`, `Windows.Foundation`, `Windows.System`,
+`Windows.Storage`, …) shipping.** Idiomatic Go bindings for the
+**Windows Runtime** (`Windows.*` namespaces: toasts/notifications,
 Bluetooth LE, Windows Hello, geolocation, camera, `Windows.Management.*`
 MDM/provisioning, …), the fourth member of the deploymenttheory Windows
 bindings family:
@@ -20,15 +22,19 @@ What works today:
 - `bindings/runtime/winrt` — Windows Runtime initialization, HSTRING
   lifecycle, runtime-class activation, and interface querying, proven by
   live tests.
-- `bindings/winrt/globalization` + `bindings/winrt/foundation` — GENERATED
-  from the pinned contract winmds (`go run ./cmd/generate bindings
-  --namespace Windows.Globalization`): interfaces with absolute vtable-slot
-  dispatch, non-composable runtime classes, enums, and value structs, with
-  a determinism gate and a diagnostics ratchet in CI. Live acceptance tests
-  and the `examples/calendar` vertical run entirely over generated code.
+- `bindings/winrt/...` — GENERATED from the pinned contract winmds
+  (`go run ./cmd/generate bindings --namespace
+  Windows.Globalization,Windows.UI.Notifications`): interfaces with
+  absolute vtable-slot dispatch, non-composable runtime classes (with
+  constructors, statics accessors, and factory constructors), enums, value
+  structs, events with typed Go handlers, and monomorphized generic
+  instantiations — with a determinism gate and a diagnostics ratchet in CI.
+  Live acceptance tests and the `examples/calendar` vertical run entirely
+  over generated code, including the full toast pipeline (template XML →
+  `XmlDocument` → `ToastNotification` → `ToastNotifier.Show`).
 
-Wider namespace coverage, events/delegates, statics, and factory
-constructors follow per [docs/ROADMAP.md](docs/ROADMAP.md).
+Wider namespace coverage, composition, and async follow per
+[docs/ROADMAP.md](docs/ROADMAP.md).
 
 ```go
 import "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/globalization"
@@ -36,6 +42,16 @@ import "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/globalizati
 calendar, err := globalization.NewCalendar()
 // calendar.SetToNow(), calendar.Year(), calendar.MonthAsFullString(), …
 // Release when done
+```
+
+```go
+import "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/notifications"
+
+statics, err := notifications.ToastNotificationManagerStatics()
+doc, err := statics.GetTemplateContent(notifications.ToastTemplateTypeToastText01)
+toast, err := notifications.CreateToastNotification(doc)
+notifier, err := statics.CreateToastNotifierWithId("my.app.aumid")
+err = notifier.Show(&toast.IToastNotification)
 ```
 
 ## Related projects

@@ -29,6 +29,11 @@ type emittedMethod struct {
 	paramNames []string
 	// returnType is the logical Go return type ("" for none).
 	returnType string
+	// imports are the import edges the method's signature and body need. A
+	// wrapper that restates the signature in another file (a factory
+	// constructor in <pkg>_classes.go) must merge them into that file's
+	// import set.
+	imports typemap.ImportSet
 }
 
 // splitReason converts a typemap degradation Reason ("key: detail") into a
@@ -117,6 +122,7 @@ func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, fullName, goNa
 		memberPath := model.FullName + "." + method.Name
 		var methodModel view.MethodModel
 		var skipped *skip
+		var methodImports typemap.ImportSet
 		plain := false
 		switch {
 		case strings.HasPrefix(method.Name, "add_"):
@@ -124,7 +130,12 @@ func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, fullName, goNa
 		case strings.HasPrefix(method.Name, "remove_"):
 			methodModel, skipped = g.buildRemoveAccessor(meta, goName, method, slot, removeEvents[method.Name])
 		default:
-			methodModel, skipped = g.buildMethod(meta, goName, method, slot, imports)
+			// Per-method import set: merged into the file's set here, and
+			// recorded on the method so signature-restating wrappers (factory
+			// constructors) can merge it into THEIR file's set too.
+			methodImports = typemap.ImportSet{}
+			methodModel, skipped = g.buildMethod(meta, goName, method, slot, methodImports)
+			imports.Merge(methodImports)
 			plain = true
 		}
 		if skipped != nil {
@@ -146,6 +157,7 @@ func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, fullName, goNa
 				paramStr:   methodModel.ParamStr,
 				paramNames: goParamNames(method),
 				returnType: logicalReturnType(methodModel.ReturnSig),
+				imports:    methodImports,
 			}
 		}
 	}
