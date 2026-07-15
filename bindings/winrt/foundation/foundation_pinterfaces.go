@@ -10,6 +10,7 @@ import (
 
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
 // IIterableOfIWwwFormUrlDecoderEntry is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.IWwwFormUrlDecoderEntry>.
@@ -23,9 +24,9 @@ var IID_IIterableOfIWwwFormUrlDecoderEntry = win32.GUID{Data1: 0x876be83b, Data2
 
 // First dispatches through IIterableOfIWwwFormUrlDecoderEntry's vtable slot 6.
 func (self *IIterableOfIWwwFormUrlDecoderEntry) First() (*IIteratorOfIWwwFormUrlDecoderEntry, error) {
-	var result *IIteratorOfIWwwFormUrlDecoderEntry
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IIteratorOfIWwwFormUrlDecoderEntry)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IIteratorOfIWwwFormUrlDecoderEntry is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Foundation.IWwwFormUrlDecoderEntry>.
@@ -39,23 +40,23 @@ var IID_IIteratorOfIWwwFormUrlDecoderEntry = win32.GUID{Data1: 0x32e54295, Data2
 
 // Current (propget get_Current) dispatches through IIteratorOfIWwwFormUrlDecoderEntry's vtable slot 6.
 func (self *IIteratorOfIWwwFormUrlDecoderEntry) Current() (*IWwwFormUrlDecoderEntry, error) {
-	var result *IWwwFormUrlDecoderEntry
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IWwwFormUrlDecoderEntry)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIWwwFormUrlDecoderEntry's vtable slot 7.
 func (self *IIteratorOfIWwwFormUrlDecoderEntry) HasCurrent() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // MoveNext dispatches through IIteratorOfIWwwFormUrlDecoderEntry's vtable slot 8.
 func (self *IIteratorOfIWwwFormUrlDecoderEntry) MoveNext() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
@@ -72,23 +73,23 @@ var IID_IVectorViewOfIWwwFormUrlDecoderEntry = win32.GUID{Data1: 0xb1f00d3b, Dat
 
 // GetAt dispatches through IVectorViewOfIWwwFormUrlDecoderEntry's vtable slot 6.
 func (self *IVectorViewOfIWwwFormUrlDecoderEntry) GetAt(index uint32) (*IWwwFormUrlDecoderEntry, error) {
-	var result *IWwwFormUrlDecoderEntry
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IWwwFormUrlDecoderEntry)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorViewOfIWwwFormUrlDecoderEntry's vtable slot 7.
 func (self *IVectorViewOfIWwwFormUrlDecoderEntry) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorViewOfIWwwFormUrlDecoderEntry's vtable slot 8.
 func (self *IVectorViewOfIWwwFormUrlDecoderEntry) IndexOf(value *IWwwFormUrlDecoderEntry, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array

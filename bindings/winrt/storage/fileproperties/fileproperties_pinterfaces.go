@@ -40,9 +40,9 @@ func (self *IAsyncOperationOfDocumentProperties) SetCompleted(handler *AsyncOper
 
 // GetResults dispatches through IAsyncOperationOfDocumentProperties's vtable slot 8.
 func (self *IAsyncOperationOfDocumentProperties) GetResults() (*IDocumentProperties, error) {
-	var result *IDocumentProperties
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDocumentProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfDocumentProperties reaches
@@ -109,9 +109,9 @@ func (self *IAsyncOperationOfGeopoint) SetCompleted(handler *AsyncOperationCompl
 
 // GetResults dispatches through IAsyncOperationOfGeopoint's vtable slot 8.
 func (self *IAsyncOperationOfGeopoint) GetResults() (*devicesgeolocation.IGeopoint, error) {
-	var result *devicesgeolocation.IGeopoint
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*devicesgeolocation.IGeopoint)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfGeopoint reaches
@@ -178,9 +178,9 @@ func (self *IAsyncOperationOfIMapOfStringAndObject) SetCompleted(handler *AsyncO
 
 // GetResults dispatches through IAsyncOperationOfIMapOfStringAndObject's vtable slot 8.
 func (self *IAsyncOperationOfIMapOfStringAndObject) GetResults() (*IMapOfStringAndObject, error) {
-	var result *IMapOfStringAndObject
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IMapOfStringAndObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfIMapOfStringAndObject reaches
@@ -247,9 +247,9 @@ func (self *IAsyncOperationOfImageProperties) SetCompleted(handler *AsyncOperati
 
 // GetResults dispatches through IAsyncOperationOfImageProperties's vtable slot 8.
 func (self *IAsyncOperationOfImageProperties) GetResults() (*IImageProperties, error) {
-	var result *IImageProperties
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IImageProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfImageProperties reaches
@@ -316,9 +316,9 @@ func (self *IAsyncOperationOfMusicProperties) SetCompleted(handler *AsyncOperati
 
 // GetResults dispatches through IAsyncOperationOfMusicProperties's vtable slot 8.
 func (self *IAsyncOperationOfMusicProperties) GetResults() (*IMusicProperties, error) {
-	var result *IMusicProperties
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IMusicProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfMusicProperties reaches
@@ -385,9 +385,9 @@ func (self *IAsyncOperationOfVideoProperties) SetCompleted(handler *AsyncOperati
 
 // GetResults dispatches through IAsyncOperationOfVideoProperties's vtable slot 8.
 func (self *IAsyncOperationOfVideoProperties) GetResults() (*IVideoProperties, error) {
-	var result *IVideoProperties
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVideoProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfVideoProperties reaches
@@ -440,9 +440,9 @@ var IID_IIterableOfIKeyValuePairOfStringAndObject = win32.GUID{Data1: 0xfe2f3d47
 
 // First dispatches through IIterableOfIKeyValuePairOfStringAndObject's vtable slot 6.
 func (self *IIterableOfIKeyValuePairOfStringAndObject) First() (*IIteratorOfIKeyValuePairOfStringAndObject, error) {
-	var result *IIteratorOfIKeyValuePairOfStringAndObject
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IIteratorOfIKeyValuePairOfStringAndObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
@@ -456,9 +456,9 @@ var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 
 
 // First dispatches through IIterableOfString's vtable slot 6.
 func (self *IIterableOfString) First() (*IIteratorOfString, error) {
-	var result *IIteratorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IIteratorOfIKeyValuePairOfStringAndObject is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>.
@@ -472,23 +472,23 @@ var IID_IIteratorOfIKeyValuePairOfStringAndObject = win32.GUID{Data1: 0x5db5fa32
 
 // Current (propget get_Current) dispatches through IIteratorOfIKeyValuePairOfStringAndObject's vtable slot 6.
 func (self *IIteratorOfIKeyValuePairOfStringAndObject) Current() (*IKeyValuePairOfStringAndObject, error) {
-	var result *IKeyValuePairOfStringAndObject
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IKeyValuePairOfStringAndObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIKeyValuePairOfStringAndObject's vtable slot 7.
 func (self *IIteratorOfIKeyValuePairOfStringAndObject) HasCurrent() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // MoveNext dispatches through IIteratorOfIKeyValuePairOfStringAndObject's vtable slot 8.
 func (self *IIteratorOfIKeyValuePairOfStringAndObject) MoveNext() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
@@ -504,26 +504,26 @@ var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 
 
 // Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
 func (self *IIteratorOfString) Current() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
 func (self *IIteratorOfString) HasCurrent() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // MoveNext dispatches through IIteratorOfString's vtable slot 8.
 func (self *IIteratorOfString) MoveNext() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
@@ -539,19 +539,19 @@ var IID_IKeyValuePairOfStringAndObject = win32.GUID{Data1: 0x09335560, Data2: 0x
 
 // Key (propget get_Key) dispatches through IKeyValuePairOfStringAndObject's vtable slot 6.
 func (self *IKeyValuePairOfStringAndObject) Key() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Value (propget get_Value) dispatches through IKeyValuePairOfStringAndObject's vtable slot 7.
 func (self *IKeyValuePairOfStringAndObject) Value() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IMapOfStringAndObject is the WinRT interface Windows.Foundation.Collections.IMap`2<String, Object>.
@@ -571,16 +571,16 @@ func (self *IMapOfStringAndObject) Lookup(key string) (*syswinrt.IInspectable, e
 		return nil, err
 	}
 	defer hKey.Close()
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IMapOfStringAndObject's vtable slot 7.
 func (self *IMapOfStringAndObject) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // HasKey dispatches through IMapOfStringAndObject's vtable slot 8.
@@ -590,16 +590,16 @@ func (self *IMapOfStringAndObject) HasKey(key string) (bool, error) {
 		return false, err
 	}
 	defer hKey.Close()
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // GetView dispatches through IMapOfStringAndObject's vtable slot 9.
 func (self *IMapOfStringAndObject) GetView() (*IMapViewOfStringAndObject, error) {
-	var result *IMapViewOfStringAndObject
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IMapViewOfStringAndObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Insert dispatches through IMapOfStringAndObject's vtable slot 10.
@@ -609,9 +609,9 @@ func (self *IMapOfStringAndObject) Insert(key string, value *syswinrt.IInspectab
 		return false, err
 	}
 	defer hKey.Close()
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // Remove dispatches through IMapOfStringAndObject's vtable slot 11.
@@ -648,16 +648,16 @@ func (self *IMapViewOfStringAndObject) Lookup(key string) (*syswinrt.IInspectabl
 		return nil, err
 	}
 	defer hKey.Close()
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IMapViewOfStringAndObject's vtable slot 7.
 func (self *IMapViewOfStringAndObject) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // HasKey dispatches through IMapViewOfStringAndObject's vtable slot 8.
@@ -667,14 +667,14 @@ func (self *IMapViewOfStringAndObject) HasKey(key string) (bool, error) {
 		return false, err
 	}
 	defer hKey.Close()
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // Split dispatches through IMapViewOfStringAndObject's vtable slot 9.
 func (self *IMapViewOfStringAndObject) Split(first **IMapViewOfStringAndObject, second **IMapViewOfStringAndObject) error {
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(first)), uintptr(unsafe.Pointer(second)))
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(first))), uintptr(winrt.OutParam(unsafe.Pointer(second))))
 	return win32.ErrIfFailed(int32(r1))
 }
 
@@ -702,26 +702,26 @@ var IID_IVectorOfString = win32.GUID{Data1: 0x98b9acc1, Data2: 0x4b56, Data3: 0x
 
 // GetAt dispatches through IVectorOfString's vtable slot 6.
 func (self *IVectorOfString) GetAt(index uint32) (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Size (propget get_Size) dispatches through IVectorOfString's vtable slot 7.
 func (self *IVectorOfString) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetView dispatches through IVectorOfString's vtable slot 8.
 func (self *IVectorOfString) GetView() (*IVectorViewOfString, error) {
-	var result *IVectorViewOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorOfString's vtable slot 9.
@@ -731,9 +731,9 @@ func (self *IVectorOfString) IndexOf(value string, index *uint32) (bool, error) 
 		return false, err
 	}
 	defer hValue.Close()
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hValue.Raw()), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hValue.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfString's vtable slot 10.
@@ -803,19 +803,19 @@ var IID_IVectorViewOfString = win32.GUID{Data1: 0x2f13c006, Data2: 0xa03a, Data3
 
 // GetAt dispatches through IVectorViewOfString's vtable slot 6.
 func (self *IVectorViewOfString) GetAt(index uint32) (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Size (propget get_Size) dispatches through IVectorViewOfString's vtable slot 7.
 func (self *IVectorViewOfString) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorViewOfString's vtable slot 8.
@@ -825,9 +825,9 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 		return false, err
 	}
 	defer hValue.Close()
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hValue.Raw()), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hValue.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array

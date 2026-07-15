@@ -25,12 +25,12 @@ var IID_IMessageDialog = win32.GUID{Data1: 0x33f59b01, Data2: 0x5325, Data3: 0x4
 
 // Title (propget get_Title) dispatches through IMessageDialog's vtable slot 6.
 func (self *IMessageDialog) Title() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetTitle (propput put_Title) dispatches through IMessageDialog's vtable slot 7.
@@ -46,16 +46,16 @@ func (self *IMessageDialog) SetTitle(value string) error {
 
 // Commands (propget get_Commands) dispatches through IMessageDialog's vtable slot 8.
 func (self *IMessageDialog) Commands() (*IVectorOfIUICommand, error) {
-	var result *IVectorOfIUICommand
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfIUICommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DefaultCommandIndex (propget get_DefaultCommandIndex) dispatches through IMessageDialog's vtable slot 9.
 func (self *IMessageDialog) DefaultCommandIndex() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDefaultCommandIndex (propput put_DefaultCommandIndex) dispatches through IMessageDialog's vtable slot 10.
@@ -66,9 +66,9 @@ func (self *IMessageDialog) SetDefaultCommandIndex(value uint32) error {
 
 // CancelCommandIndex (propget get_CancelCommandIndex) dispatches through IMessageDialog's vtable slot 11.
 func (self *IMessageDialog) CancelCommandIndex() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCancelCommandIndex (propput put_CancelCommandIndex) dispatches through IMessageDialog's vtable slot 12.
@@ -79,12 +79,12 @@ func (self *IMessageDialog) SetCancelCommandIndex(value uint32) error {
 
 // Content (propget get_Content) dispatches through IMessageDialog's vtable slot 13.
 func (self *IMessageDialog) Content() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetContent (propput put_Content) dispatches through IMessageDialog's vtable slot 14.
@@ -100,16 +100,16 @@ func (self *IMessageDialog) SetContent(value string) error {
 
 // ShowAsync dispatches through IMessageDialog's vtable slot 15.
 func (self *IMessageDialog) ShowAsync() (*IAsyncOperationOfIUICommand, error) {
-	var result *IAsyncOperationOfIUICommand
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIUICommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Options (propget get_Options) dispatches through IMessageDialog's vtable slot 16.
 func (self *IMessageDialog) Options() (MessageDialogOptions, error) {
-	var result MessageDialogOptions
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(MessageDialogOptions)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetOptions (propput put_Options) dispatches through IMessageDialog's vtable slot 17.
@@ -135,9 +135,9 @@ func (self *IMessageDialogFactory) Create(content string) (*IMessageDialog, erro
 		return nil, err
 	}
 	defer hContent.Close()
-	var result *IMessageDialog
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hContent.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IMessageDialog)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hContent.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWithTitle dispatches through IMessageDialogFactory's vtable slot 7.
@@ -152,9 +152,9 @@ func (self *IMessageDialogFactory) CreateWithTitle(content string, title string)
 		return nil, err
 	}
 	defer hTitle.Close()
-	var result *IMessageDialog
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hContent.Raw()), uintptr(hTitle.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IMessageDialog)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hContent.Raw()), uintptr(hTitle.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IPopupMenu is the WinRT interface Windows.UI.Popups.IPopupMenu.
@@ -169,9 +169,9 @@ var IID_IPopupMenu = win32.GUID{Data1: 0x4e9bc6dc, Data2: 0x880d, Data3: 0x47fc,
 
 // Commands (propget get_Commands) dispatches through IPopupMenu's vtable slot 6.
 func (self *IPopupMenu) Commands() (*IVectorOfIUICommand, error) {
-	var result *IVectorOfIUICommand
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfIUICommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 7: ShowAsync skipped: by-value Windows.Foundation.Point parameter invocationPoint does not flatten to one integer word
@@ -191,12 +191,12 @@ var IID_IUICommand = win32.GUID{Data1: 0x4ff93a75, Data2: 0x4145, Data3: 0x47ff,
 
 // Label (propget get_Label) dispatches through IUICommand's vtable slot 6.
 func (self *IUICommand) Label() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetLabel (propput put_Label) dispatches through IUICommand's vtable slot 7.
@@ -225,9 +225,9 @@ func (self *IUICommand) SetInvoked(value *UICommandInvokedHandler) error {
 
 // Id (propget get_Id) dispatches through IUICommand's vtable slot 10.
 func (self *IUICommand) Id() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetId (propput put_Id) dispatches through IUICommand's vtable slot 11.
@@ -253,9 +253,9 @@ func (self *IUICommandFactory) Create(label string) (*IUICommand, error) {
 		return nil, err
 	}
 	defer hLabel.Close()
-	var result *IUICommand
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hLabel.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUICommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hLabel.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWithHandler dispatches through IUICommandFactory's vtable slot 7.
@@ -270,9 +270,9 @@ func (self *IUICommandFactory) CreateWithHandler(label string, action *UICommand
 	if action != nil {
 		_action = action.Ptr()
 	}
-	var result *IUICommand
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hLabel.Raw()), _action, uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUICommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hLabel.Raw()), _action, uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWithHandlerAndId dispatches through IUICommandFactory's vtable slot 8.
@@ -287,7 +287,7 @@ func (self *IUICommandFactory) CreateWithHandlerAndId(label string, action *UICo
 	if action != nil {
 		_action = action.Ptr()
 	}
-	var result *IUICommand
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hLabel.Raw()), _action, uintptr(unsafe.Pointer(commandId)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IUICommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hLabel.Raw()), _action, uintptr(unsafe.Pointer(commandId)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }

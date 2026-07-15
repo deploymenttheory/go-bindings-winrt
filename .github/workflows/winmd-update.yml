@@ -58,12 +58,12 @@ jobs:
             go run ./cmd/generate diff --old old-metadata --new metadata/winrt | head -c 60000
           } > pr-body.md
 
-      # One command regenerates the committed bindings tree (the
-      # {Windows.Globalization, Windows.UI.Notifications} closure) and
-      # rewrites the diagnostics baseline (reviewed via this PR).
+      # One command regenerates the committed bindings tree (the closure of
+      # the roots pinned in metadata/emit-roots.txt) and rewrites the
+      # diagnostics baseline (reviewed via this PR).
       - name: Regenerate bindings and baseline
         if: steps.fetch.outputs.updated == 'true'
-        run: go run ./cmd/generate bindings --namespace Windows.Globalization,Windows.UI.Notifications --diagnostics metadata/diagnostics-baseline.json
+        run: go run ./cmd/generate bindings --diagnostics metadata/diagnostics-baseline.json
 
       - name: Build and test the regenerated tree
         if: steps.fetch.outputs.updated == 'true'

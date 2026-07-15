@@ -26,23 +26,23 @@ var IID_IBasicProperties = win32.GUID{Data1: 0xd05d55db, Data2: 0x785e, Data3: 0
 
 // Size (propget get_Size) dispatches through IBasicProperties's vtable slot 6.
 func (self *IBasicProperties) Size() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DateModified (propget get_DateModified) dispatches through IBasicProperties's vtable slot 7.
 func (self *IBasicProperties) DateModified() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ItemDate (propget get_ItemDate) dispatches through IBasicProperties's vtable slot 8.
 func (self *IBasicProperties) ItemDate() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDocumentProperties is the WinRT interface Windows.Storage.FileProperties.IDocumentProperties.
@@ -58,19 +58,19 @@ var IID_IDocumentProperties = win32.GUID{Data1: 0x7eab19bc, Data2: 0x1821, Data3
 
 // Author (propget get_Author) dispatches through IDocumentProperties's vtable slot 6.
 func (self *IDocumentProperties) Author() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Title (propget get_Title) dispatches through IDocumentProperties's vtable slot 7.
 func (self *IDocumentProperties) Title() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetTitle (propput put_Title) dispatches through IDocumentProperties's vtable slot 8.
@@ -86,19 +86,19 @@ func (self *IDocumentProperties) SetTitle(value string) error {
 
 // Keywords (propget get_Keywords) dispatches through IDocumentProperties's vtable slot 9.
 func (self *IDocumentProperties) Keywords() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Comment (propget get_Comment) dispatches through IDocumentProperties's vtable slot 10.
 func (self *IDocumentProperties) Comment() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetComment (propput put_Comment) dispatches through IDocumentProperties's vtable slot 11.
@@ -141,9 +141,9 @@ var IID_IImageProperties = win32.GUID{Data1: 0x523c9424, Data2: 0xfcff, Data3: 0
 
 // Rating (propget get_Rating) dispatches through IImageProperties's vtable slot 6.
 func (self *IImageProperties) Rating() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetRating (propput put_Rating) dispatches through IImageProperties's vtable slot 7.
@@ -154,16 +154,16 @@ func (self *IImageProperties) SetRating(value uint32) error {
 
 // Keywords (propget get_Keywords) dispatches through IImageProperties's vtable slot 8.
 func (self *IImageProperties) Keywords() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DateTaken (propget get_DateTaken) dispatches through IImageProperties's vtable slot 9.
 func (self *IImageProperties) DateTaken() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDateTaken (propput put_DateTaken) dispatches through IImageProperties's vtable slot 10.
@@ -174,26 +174,26 @@ func (self *IImageProperties) SetDateTaken(value foundation.DateTime) error {
 
 // Width (propget get_Width) dispatches through IImageProperties's vtable slot 11.
 func (self *IImageProperties) Width() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Height (propget get_Height) dispatches through IImageProperties's vtable slot 12.
 func (self *IImageProperties) Height() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Title (propget get_Title) dispatches through IImageProperties's vtable slot 13.
 func (self *IImageProperties) Title() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetTitle (propput put_Title) dispatches through IImageProperties's vtable slot 14.
@@ -209,26 +209,26 @@ func (self *IImageProperties) SetTitle(value string) error {
 
 // Latitude (propget get_Latitude) dispatches through IImageProperties's vtable slot 15.
 func (self *IImageProperties) Latitude() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Longitude (propget get_Longitude) dispatches through IImageProperties's vtable slot 16.
 func (self *IImageProperties) Longitude() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CameraManufacturer (propget get_CameraManufacturer) dispatches through IImageProperties's vtable slot 17.
 func (self *IImageProperties) CameraManufacturer() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetCameraManufacturer (propput put_CameraManufacturer) dispatches through IImageProperties's vtable slot 18.
@@ -244,12 +244,12 @@ func (self *IImageProperties) SetCameraManufacturer(value string) error {
 
 // CameraModel (propget get_CameraModel) dispatches through IImageProperties's vtable slot 19.
 func (self *IImageProperties) CameraModel() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetCameraModel (propput put_CameraModel) dispatches through IImageProperties's vtable slot 20.
@@ -265,16 +265,16 @@ func (self *IImageProperties) SetCameraModel(value string) error {
 
 // Orientation (propget get_Orientation) dispatches through IImageProperties's vtable slot 21.
 func (self *IImageProperties) Orientation() (PhotoOrientation, error) {
-	var result PhotoOrientation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(PhotoOrientation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PeopleNames (propget get_PeopleNames) dispatches through IImageProperties's vtable slot 22.
 func (self *IImageProperties) PeopleNames() (*IVectorViewOfString, error) {
-	var result *IVectorViewOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IMusicProperties is the WinRT interface Windows.Storage.FileProperties.IMusicProperties.
@@ -290,12 +290,12 @@ var IID_IMusicProperties = win32.GUID{Data1: 0xbc8aab62, Data2: 0x66ec, Data3: 0
 
 // Album (propget get_Album) dispatches through IMusicProperties's vtable slot 6.
 func (self *IMusicProperties) Album() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetAlbum (propput put_Album) dispatches through IMusicProperties's vtable slot 7.
@@ -311,12 +311,12 @@ func (self *IMusicProperties) SetAlbum(value string) error {
 
 // Artist (propget get_Artist) dispatches through IMusicProperties's vtable slot 8.
 func (self *IMusicProperties) Artist() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetArtist (propput put_Artist) dispatches through IMusicProperties's vtable slot 9.
@@ -332,16 +332,16 @@ func (self *IMusicProperties) SetArtist(value string) error {
 
 // Genre (propget get_Genre) dispatches through IMusicProperties's vtable slot 10.
 func (self *IMusicProperties) Genre() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TrackNumber (propget get_TrackNumber) dispatches through IMusicProperties's vtable slot 11.
 func (self *IMusicProperties) TrackNumber() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetTrackNumber (propput put_TrackNumber) dispatches through IMusicProperties's vtable slot 12.
@@ -352,12 +352,12 @@ func (self *IMusicProperties) SetTrackNumber(value uint32) error {
 
 // Title (propget get_Title) dispatches through IMusicProperties's vtable slot 13.
 func (self *IMusicProperties) Title() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetTitle (propput put_Title) dispatches through IMusicProperties's vtable slot 14.
@@ -373,9 +373,9 @@ func (self *IMusicProperties) SetTitle(value string) error {
 
 // Rating (propget get_Rating) dispatches through IMusicProperties's vtable slot 15.
 func (self *IMusicProperties) Rating() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetRating (propput put_Rating) dispatches through IMusicProperties's vtable slot 16.
@@ -386,26 +386,26 @@ func (self *IMusicProperties) SetRating(value uint32) error {
 
 // Duration (propget get_Duration) dispatches through IMusicProperties's vtable slot 17.
 func (self *IMusicProperties) Duration() (foundation.TimeSpan, error) {
-	var result foundation.TimeSpan
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.TimeSpan)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Bitrate (propget get_Bitrate) dispatches through IMusicProperties's vtable slot 18.
 func (self *IMusicProperties) Bitrate() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AlbumArtist (propget get_AlbumArtist) dispatches through IMusicProperties's vtable slot 19.
 func (self *IMusicProperties) AlbumArtist() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetAlbumArtist (propput put_AlbumArtist) dispatches through IMusicProperties's vtable slot 20.
@@ -421,26 +421,26 @@ func (self *IMusicProperties) SetAlbumArtist(value string) error {
 
 // Composers (propget get_Composers) dispatches through IMusicProperties's vtable slot 21.
 func (self *IMusicProperties) Composers() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Conductors (propget get_Conductors) dispatches through IMusicProperties's vtable slot 22.
 func (self *IMusicProperties) Conductors() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Subtitle (propget get_Subtitle) dispatches through IMusicProperties's vtable slot 23.
 func (self *IMusicProperties) Subtitle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetSubtitle (propput put_Subtitle) dispatches through IMusicProperties's vtable slot 24.
@@ -456,19 +456,19 @@ func (self *IMusicProperties) SetSubtitle(value string) error {
 
 // Producers (propget get_Producers) dispatches through IMusicProperties's vtable slot 25.
 func (self *IMusicProperties) Producers() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Publisher (propget get_Publisher) dispatches through IMusicProperties's vtable slot 26.
 func (self *IMusicProperties) Publisher() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetPublisher (propput put_Publisher) dispatches through IMusicProperties's vtable slot 27.
@@ -484,16 +484,16 @@ func (self *IMusicProperties) SetPublisher(value string) error {
 
 // Writers (propget get_Writers) dispatches through IMusicProperties's vtable slot 28.
 func (self *IMusicProperties) Writers() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Year (propget get_Year) dispatches through IMusicProperties's vtable slot 29.
 func (self *IMusicProperties) Year() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetYear (propput put_Year) dispatches through IMusicProperties's vtable slot 30.
@@ -515,30 +515,30 @@ var IID_IStorageItemContentProperties = win32.GUID{Data1: 0x05294bad, Data2: 0xb
 
 // GetMusicPropertiesAsync dispatches through IStorageItemContentProperties's vtable slot 6.
 func (self *IStorageItemContentProperties) GetMusicPropertiesAsync() (*IAsyncOperationOfMusicProperties, error) {
-	var result *IAsyncOperationOfMusicProperties
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfMusicProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetVideoPropertiesAsync dispatches through IStorageItemContentProperties's vtable slot 7.
 func (self *IStorageItemContentProperties) GetVideoPropertiesAsync() (*IAsyncOperationOfVideoProperties, error) {
-	var result *IAsyncOperationOfVideoProperties
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfVideoProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetImagePropertiesAsync dispatches through IStorageItemContentProperties's vtable slot 8.
 func (self *IStorageItemContentProperties) GetImagePropertiesAsync() (*IAsyncOperationOfImageProperties, error) {
-	var result *IAsyncOperationOfImageProperties
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfImageProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetDocumentPropertiesAsync dispatches through IStorageItemContentProperties's vtable slot 9.
 func (self *IStorageItemContentProperties) GetDocumentPropertiesAsync() (*IAsyncOperationOfDocumentProperties, error) {
-	var result *IAsyncOperationOfDocumentProperties
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDocumentProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IStorageItemExtraProperties is the WinRT interface Windows.Storage.FileProperties.IStorageItemExtraProperties.
@@ -552,23 +552,23 @@ var IID_IStorageItemExtraProperties = win32.GUID{Data1: 0xc54361b2, Data2: 0x54c
 
 // RetrievePropertiesAsync dispatches through IStorageItemExtraProperties's vtable slot 6.
 func (self *IStorageItemExtraProperties) RetrievePropertiesAsync(propertiesToRetrieve *IIterableOfString) (*IAsyncOperationOfIMapOfStringAndObject, error) {
-	var result *IAsyncOperationOfIMapOfStringAndObject
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(propertiesToRetrieve)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIMapOfStringAndObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(propertiesToRetrieve)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SavePropertiesAsync dispatches through IStorageItemExtraProperties's vtable slot 7.
 func (self *IStorageItemExtraProperties) SavePropertiesAsync(propertiesToSave *IIterableOfIKeyValuePairOfStringAndObject) (*foundation.IAsyncAction, error) {
-	var result *foundation.IAsyncAction
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(propertiesToSave)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IAsyncAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(propertiesToSave)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SavePropertiesAsyncOverloadDefault dispatches through IStorageItemExtraProperties's vtable slot 8.
 func (self *IStorageItemExtraProperties) SavePropertiesAsyncOverloadDefault() (*foundation.IAsyncAction, error) {
-	var result *foundation.IAsyncAction
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IAsyncAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IThumbnailProperties is the WinRT interface Windows.Storage.FileProperties.IThumbnailProperties.
@@ -583,30 +583,30 @@ var IID_IThumbnailProperties = win32.GUID{Data1: 0x693dd42f, Data2: 0xdbe7, Data
 
 // OriginalWidth (propget get_OriginalWidth) dispatches through IThumbnailProperties's vtable slot 6.
 func (self *IThumbnailProperties) OriginalWidth() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // OriginalHeight (propget get_OriginalHeight) dispatches through IThumbnailProperties's vtable slot 7.
 func (self *IThumbnailProperties) OriginalHeight() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ReturnedSmallerCachedSize (propget get_ReturnedSmallerCachedSize) dispatches through IThumbnailProperties's vtable slot 8.
 func (self *IThumbnailProperties) ReturnedSmallerCachedSize() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // Type (propget get_Type) dispatches through IThumbnailProperties's vtable slot 9.
 func (self *IThumbnailProperties) Type() (ThumbnailType, error) {
-	var result ThumbnailType
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ThumbnailType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IVideoProperties is the WinRT interface Windows.Storage.FileProperties.IVideoProperties.
@@ -622,9 +622,9 @@ var IID_IVideoProperties = win32.GUID{Data1: 0x719ae507, Data2: 0x68de, Data3: 0
 
 // Rating (propget get_Rating) dispatches through IVideoProperties's vtable slot 6.
 func (self *IVideoProperties) Rating() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetRating (propput put_Rating) dispatches through IVideoProperties's vtable slot 7.
@@ -635,54 +635,54 @@ func (self *IVideoProperties) SetRating(value uint32) error {
 
 // Keywords (propget get_Keywords) dispatches through IVideoProperties's vtable slot 8.
 func (self *IVideoProperties) Keywords() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Width (propget get_Width) dispatches through IVideoProperties's vtable slot 9.
 func (self *IVideoProperties) Width() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Height (propget get_Height) dispatches through IVideoProperties's vtable slot 10.
 func (self *IVideoProperties) Height() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Duration (propget get_Duration) dispatches through IVideoProperties's vtable slot 11.
 func (self *IVideoProperties) Duration() (foundation.TimeSpan, error) {
-	var result foundation.TimeSpan
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.TimeSpan)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Latitude (propget get_Latitude) dispatches through IVideoProperties's vtable slot 12.
 func (self *IVideoProperties) Latitude() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Longitude (propget get_Longitude) dispatches through IVideoProperties's vtable slot 13.
 func (self *IVideoProperties) Longitude() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Title (propget get_Title) dispatches through IVideoProperties's vtable slot 14.
 func (self *IVideoProperties) Title() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetTitle (propput put_Title) dispatches through IVideoProperties's vtable slot 15.
@@ -698,12 +698,12 @@ func (self *IVideoProperties) SetTitle(value string) error {
 
 // Subtitle (propget get_Subtitle) dispatches through IVideoProperties's vtable slot 16.
 func (self *IVideoProperties) Subtitle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetSubtitle (propput put_Subtitle) dispatches through IVideoProperties's vtable slot 17.
@@ -719,19 +719,19 @@ func (self *IVideoProperties) SetSubtitle(value string) error {
 
 // Producers (propget get_Producers) dispatches through IVideoProperties's vtable slot 18.
 func (self *IVideoProperties) Producers() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Publisher (propget get_Publisher) dispatches through IVideoProperties's vtable slot 19.
 func (self *IVideoProperties) Publisher() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetPublisher (propput put_Publisher) dispatches through IVideoProperties's vtable slot 20.
@@ -747,16 +747,16 @@ func (self *IVideoProperties) SetPublisher(value string) error {
 
 // Writers (propget get_Writers) dispatches through IVideoProperties's vtable slot 21.
 func (self *IVideoProperties) Writers() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Year (propget get_Year) dispatches through IVideoProperties's vtable slot 22.
 func (self *IVideoProperties) Year() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetYear (propput put_Year) dispatches through IVideoProperties's vtable slot 23.
@@ -767,21 +767,21 @@ func (self *IVideoProperties) SetYear(value uint32) error {
 
 // Bitrate (propget get_Bitrate) dispatches through IVideoProperties's vtable slot 24.
 func (self *IVideoProperties) Bitrate() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Directors (propget get_Directors) dispatches through IVideoProperties's vtable slot 25.
 func (self *IVideoProperties) Directors() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Orientation (propget get_Orientation) dispatches through IVideoProperties's vtable slot 26.
 func (self *IVideoProperties) Orientation() (VideoOrientation, error) {
-	var result VideoOrientation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(VideoOrientation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }

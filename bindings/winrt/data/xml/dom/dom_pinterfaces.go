@@ -39,9 +39,9 @@ func (self *IAsyncOperationOfXmlDocument) SetCompleted(handler *AsyncOperationCo
 
 // GetResults dispatches through IAsyncOperationOfXmlDocument's vtable slot 8.
 func (self *IAsyncOperationOfXmlDocument) GetResults() (*IXmlDocument, error) {
-	var result *IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Await registers a Completed handler and blocks until IAsyncOperationOfXmlDocument reaches
@@ -94,9 +94,9 @@ var IID_IIterableOfIXmlNode = win32.GUID{Data1: 0xf1146ffc, Data2: 0x8c92, Data3
 
 // First dispatches through IIterableOfIXmlNode's vtable slot 6.
 func (self *IIterableOfIXmlNode) First() (*IIteratorOfIXmlNode, error) {
-	var result *IIteratorOfIXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IIteratorOfIXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IIteratorOfIXmlNode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Data.Xml.Dom.IXmlNode>.
@@ -110,23 +110,23 @@ var IID_IIteratorOfIXmlNode = win32.GUID{Data1: 0x3833a35e, Data2: 0x2c61, Data3
 
 // Current (propget get_Current) dispatches through IIteratorOfIXmlNode's vtable slot 6.
 func (self *IIteratorOfIXmlNode) Current() (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIXmlNode's vtable slot 7.
 func (self *IIteratorOfIXmlNode) HasCurrent() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // MoveNext dispatches through IIteratorOfIXmlNode's vtable slot 8.
 func (self *IIteratorOfIXmlNode) MoveNext() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
@@ -143,23 +143,23 @@ var IID_IVectorViewOfIXmlNode = win32.GUID{Data1: 0x139d959e, Data2: 0xe7b5, Dat
 
 // GetAt dispatches through IVectorViewOfIXmlNode's vtable slot 6.
 func (self *IVectorViewOfIXmlNode) GetAt(index uint32) (*IXmlNode, error) {
-	var result *IXmlNode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IXmlNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Size (propget get_Size) dispatches through IVectorViewOfIXmlNode's vtable slot 7.
 func (self *IVectorViewOfIXmlNode) Size() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IndexOf dispatches through IVectorViewOfIXmlNode's vtable slot 8.
 func (self *IVectorViewOfIXmlNode) IndexOf(value *IXmlNode, index *uint32) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(unsafe.Pointer(index)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array

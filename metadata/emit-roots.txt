@@ -1,0 +1,14 @@
+# The committed emit roots — the single pinned definition of the generated
+# surface. `go run ./cmd/generate bindings` reads this file when --namespace
+# is not given (--namespace stays as an ad-hoc override); the committed
+# bindings/winrt tree is these roots plus the transitive closure of every
+# namespace their emitted members reference.
+Windows.Globalization
+Windows.UI.Notifications
+Windows.Devices.Bluetooth
+Windows.Devices.Bluetooth.GenericAttributeProfile
+Windows.Devices.Bluetooth.Advertisement
+Windows.Management
+Windows.Management.Deployment
+Windows.Management.Policies
+Windows.Management.Workplace

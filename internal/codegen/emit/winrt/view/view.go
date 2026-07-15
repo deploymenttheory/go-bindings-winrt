@@ -128,11 +128,13 @@ type MethodModel struct {
 	ArgExprs []string
 	// ReturnKind selects the body shape (Ret* constants).
 	ReturnKind int
-	// ResultDecl declares the retval local ("var result int32"); empty for
-	// RetError.
+	// ResultDecl declares the retval local ("result := new(int32)") —
+	// heap-allocated, because the native side writes through it and a stack
+	// address can go stale mid-call (the out-param invariant; see buildMethod
+	// in the gather layer). Empty for RetError.
 	ResultDecl string
 	// ResultExpr converts the retval local to the Go return value
-	// ("result", "result != 0", "winrt.TakeHString(result)").
+	// ("*result", "*result != 0", "winrt.TakeHString(*result)").
 	ResultExpr string
 	// ZeroReturn is the zero value returned alongside a non-nil error in
 	// preamble/RetString short-circuits (`""`, "0", "nil").

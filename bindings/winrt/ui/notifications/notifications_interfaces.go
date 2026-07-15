@@ -29,16 +29,16 @@ var IID_IAdaptiveNotificationContent = win32.GUID{Data1: 0xeb0dbe66, Data2: 0x74
 
 // Kind (propget get_Kind) dispatches through IAdaptiveNotificationContent's vtable slot 6.
 func (self *IAdaptiveNotificationContent) Kind() (AdaptiveNotificationContentKind, error) {
-	var result AdaptiveNotificationContentKind
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AdaptiveNotificationContentKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Hints (propget get_Hints) dispatches through IAdaptiveNotificationContent's vtable slot 7.
 func (self *IAdaptiveNotificationContent) Hints() (*IMapOfStringAndString, error) {
-	var result *IMapOfStringAndString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IMapOfStringAndString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IAdaptiveNotificationText is the WinRT interface Windows.UI.Notifications.IAdaptiveNotificationText.
@@ -53,12 +53,12 @@ var IID_IAdaptiveNotificationText = win32.GUID{Data1: 0x46d4a3be, Data2: 0x609a,
 
 // Text (propget get_Text) dispatches through IAdaptiveNotificationText's vtable slot 6.
 func (self *IAdaptiveNotificationText) Text() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetText (propput put_Text) dispatches through IAdaptiveNotificationText's vtable slot 7.
@@ -74,12 +74,12 @@ func (self *IAdaptiveNotificationText) SetText(value string) error {
 
 // Language (propget get_Language) dispatches through IAdaptiveNotificationText's vtable slot 8.
 func (self *IAdaptiveNotificationText) Language() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetLanguage (propput put_Language) dispatches through IAdaptiveNotificationText's vtable slot 9.
@@ -105,9 +105,9 @@ var IID_IBadgeNotification = win32.GUID{Data1: 0x075cb4ca, Data2: 0xd08a, Data3:
 
 // Content (propget get_Content) dispatches through IBadgeNotification's vtable slot 6.
 func (self *IBadgeNotification) Content() (*dataxmldom.IXmlDocument, error) {
-	var result *dataxmldom.IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*dataxmldom.IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetExpirationTime (propput put_ExpirationTime) dispatches through IBadgeNotification's vtable slot 7.
@@ -118,9 +118,9 @@ func (self *IBadgeNotification) SetExpirationTime(value *IReferenceOfDateTime) e
 
 // ExpirationTime (propget get_ExpirationTime) dispatches through IBadgeNotification's vtable slot 8.
 func (self *IBadgeNotification) ExpirationTime() (*IReferenceOfDateTime, error) {
-	var result *IReferenceOfDateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IBadgeNotificationFactory is the WinRT interface Windows.UI.Notifications.IBadgeNotificationFactory.
@@ -135,9 +135,9 @@ var IID_IBadgeNotificationFactory = win32.GUID{Data1: 0xedf255ce, Data2: 0x0618,
 
 // CreateBadgeNotification dispatches through IBadgeNotificationFactory's vtable slot 6.
 func (self *IBadgeNotificationFactory) CreateBadgeNotification(content *dataxmldom.IXmlDocument) (*IBadgeNotification, error) {
-	var result *IBadgeNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBadgeNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IBadgeUpdateManagerForUser is the WinRT interface Windows.UI.Notifications.IBadgeUpdateManagerForUser.
@@ -152,9 +152,9 @@ var IID_IBadgeUpdateManagerForUser = win32.GUID{Data1: 0x996b21bc, Data2: 0x0386
 
 // CreateBadgeUpdaterForApplication dispatches through IBadgeUpdateManagerForUser's vtable slot 6.
 func (self *IBadgeUpdateManagerForUser) CreateBadgeUpdaterForApplication() (*IBadgeUpdater, error) {
-	var result *IBadgeUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBadgeUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateBadgeUpdaterForApplicationWithId dispatches through IBadgeUpdateManagerForUser's vtable slot 7.
@@ -164,9 +164,9 @@ func (self *IBadgeUpdateManagerForUser) CreateBadgeUpdaterForApplicationWithId(a
 		return nil, err
 	}
 	defer hApplicationId.Close()
-	var result *IBadgeUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBadgeUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateBadgeUpdaterForSecondaryTile dispatches through IBadgeUpdateManagerForUser's vtable slot 8.
@@ -176,16 +176,16 @@ func (self *IBadgeUpdateManagerForUser) CreateBadgeUpdaterForSecondaryTile(tileI
 		return nil, err
 	}
 	defer hTileId.Close()
-	var result *IBadgeUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hTileId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBadgeUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hTileId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // User (propget get_User) dispatches through IBadgeUpdateManagerForUser's vtable slot 9.
 func (self *IBadgeUpdateManagerForUser) User() (*system.IUser, error) {
-	var result *system.IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*system.IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IBadgeUpdateManagerStatics is the WinRT interface Windows.UI.Notifications.IBadgeUpdateManagerStatics.
@@ -200,9 +200,9 @@ var IID_IBadgeUpdateManagerStatics = win32.GUID{Data1: 0x33400faa, Data2: 0x6dd5
 
 // CreateBadgeUpdaterForApplication dispatches through IBadgeUpdateManagerStatics's vtable slot 6.
 func (self *IBadgeUpdateManagerStatics) CreateBadgeUpdaterForApplication() (*IBadgeUpdater, error) {
-	var result *IBadgeUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBadgeUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateBadgeUpdaterForApplicationWithId dispatches through IBadgeUpdateManagerStatics's vtable slot 7.
@@ -212,9 +212,9 @@ func (self *IBadgeUpdateManagerStatics) CreateBadgeUpdaterForApplicationWithId(a
 		return nil, err
 	}
 	defer hApplicationId.Close()
-	var result *IBadgeUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBadgeUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateBadgeUpdaterForSecondaryTile dispatches through IBadgeUpdateManagerStatics's vtable slot 8.
@@ -224,16 +224,16 @@ func (self *IBadgeUpdateManagerStatics) CreateBadgeUpdaterForSecondaryTile(tileI
 		return nil, err
 	}
 	defer hTileId.Close()
-	var result *IBadgeUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hTileId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBadgeUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hTileId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetTemplateContent dispatches through IBadgeUpdateManagerStatics's vtable slot 9.
 func (self *IBadgeUpdateManagerStatics) GetTemplateContent(type_ BadgeTemplateType) (*dataxmldom.IXmlDocument, error) {
-	var result *dataxmldom.IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*dataxmldom.IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IBadgeUpdateManagerStatics2 is the WinRT interface Windows.UI.Notifications.IBadgeUpdateManagerStatics2.
@@ -248,9 +248,9 @@ var IID_IBadgeUpdateManagerStatics2 = win32.GUID{Data1: 0x979a35ce, Data2: 0xf94
 
 // GetForUser dispatches through IBadgeUpdateManagerStatics2's vtable slot 6.
 func (self *IBadgeUpdateManagerStatics2) GetForUser(user *system.IUser) (*IBadgeUpdateManagerForUser, error) {
-	var result *IBadgeUpdateManagerForUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBadgeUpdateManagerForUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IBadgeUpdater is the WinRT interface Windows.UI.Notifications.IBadgeUpdater.
@@ -305,62 +305,62 @@ var IID_IKnownAdaptiveNotificationHintsStatics = win32.GUID{Data1: 0x06206598, D
 
 // Style (propget get_Style) dispatches through IKnownAdaptiveNotificationHintsStatics's vtable slot 6.
 func (self *IKnownAdaptiveNotificationHintsStatics) Style() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Wrap (propget get_Wrap) dispatches through IKnownAdaptiveNotificationHintsStatics's vtable slot 7.
 func (self *IKnownAdaptiveNotificationHintsStatics) Wrap() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // MaxLines (propget get_MaxLines) dispatches through IKnownAdaptiveNotificationHintsStatics's vtable slot 8.
 func (self *IKnownAdaptiveNotificationHintsStatics) MaxLines() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // MinLines (propget get_MinLines) dispatches through IKnownAdaptiveNotificationHintsStatics's vtable slot 9.
 func (self *IKnownAdaptiveNotificationHintsStatics) MinLines() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // TextStacking (propget get_TextStacking) dispatches through IKnownAdaptiveNotificationHintsStatics's vtable slot 10.
 func (self *IKnownAdaptiveNotificationHintsStatics) TextStacking() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Align (propget get_Align) dispatches through IKnownAdaptiveNotificationHintsStatics's vtable slot 11.
 func (self *IKnownAdaptiveNotificationHintsStatics) Align() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IKnownAdaptiveNotificationTextStylesStatics is the WinRT interface Windows.UI.Notifications.IKnownAdaptiveNotificationTextStylesStatics.
@@ -375,192 +375,192 @@ var IID_IKnownAdaptiveNotificationTextStylesStatics = win32.GUID{Data1: 0x202192
 
 // Caption (propget get_Caption) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 6.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) Caption() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Body (propget get_Body) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 7.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) Body() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Base (propget get_Base) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 8.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) Base() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Subtitle (propget get_Subtitle) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 9.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) Subtitle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Title (propget get_Title) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 10.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) Title() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Subheader (propget get_Subheader) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 11.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) Subheader() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Header (propget get_Header) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 12.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) Header() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // TitleNumeral (propget get_TitleNumeral) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 13.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) TitleNumeral() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SubheaderNumeral (propget get_SubheaderNumeral) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 14.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) SubheaderNumeral() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // HeaderNumeral (propget get_HeaderNumeral) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 15.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) HeaderNumeral() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // CaptionSubtle (propget get_CaptionSubtle) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 16.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) CaptionSubtle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // BodySubtle (propget get_BodySubtle) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 17.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) BodySubtle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // BaseSubtle (propget get_BaseSubtle) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 18.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) BaseSubtle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SubtitleSubtle (propget get_SubtitleSubtle) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 19.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) SubtitleSubtle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // TitleSubtle (propget get_TitleSubtle) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 20.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) TitleSubtle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SubheaderSubtle (propget get_SubheaderSubtle) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 21.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) SubheaderSubtle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SubheaderNumeralSubtle (propget get_SubheaderNumeralSubtle) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 22.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) SubheaderNumeralSubtle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // HeaderSubtle (propget get_HeaderSubtle) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 23.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) HeaderSubtle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // HeaderNumeralSubtle (propget get_HeaderNumeralSubtle) dispatches through IKnownAdaptiveNotificationTextStylesStatics's vtable slot 24.
 func (self *IKnownAdaptiveNotificationTextStylesStatics) HeaderNumeralSubtle() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IKnownNotificationBindingsStatics is the WinRT interface Windows.UI.Notifications.IKnownNotificationBindingsStatics.
@@ -575,12 +575,12 @@ var IID_IKnownNotificationBindingsStatics = win32.GUID{Data1: 0x79427bae, Data2:
 
 // ToastGeneric (propget get_ToastGeneric) dispatches through IKnownNotificationBindingsStatics's vtable slot 6.
 func (self *IKnownNotificationBindingsStatics) ToastGeneric() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // INotification is the WinRT interface Windows.UI.Notifications.INotification.
@@ -595,9 +595,9 @@ var IID_INotification = win32.GUID{Data1: 0x108037fe, Data2: 0xeb76, Data3: 0x4f
 
 // ExpirationTime (propget get_ExpirationTime) dispatches through INotification's vtable slot 6.
 func (self *INotification) ExpirationTime() (*IReferenceOfDateTime, error) {
-	var result *IReferenceOfDateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetExpirationTime (propput put_ExpirationTime) dispatches through INotification's vtable slot 7.
@@ -608,9 +608,9 @@ func (self *INotification) SetExpirationTime(value *IReferenceOfDateTime) error 
 
 // Visual (propget get_Visual) dispatches through INotification's vtable slot 8.
 func (self *INotification) Visual() (*INotificationVisual, error) {
-	var result *INotificationVisual
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*INotificationVisual)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetVisual (propput put_Visual) dispatches through INotification's vtable slot 9.
@@ -631,12 +631,12 @@ var IID_INotificationBinding = win32.GUID{Data1: 0xf29e4b85, Data2: 0x0370, Data
 
 // Template (propget get_Template) dispatches through INotificationBinding's vtable slot 6.
 func (self *INotificationBinding) Template() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetTemplate (propput put_Template) dispatches through INotificationBinding's vtable slot 7.
@@ -652,12 +652,12 @@ func (self *INotificationBinding) SetTemplate(value string) error {
 
 // Language (propget get_Language) dispatches through INotificationBinding's vtable slot 8.
 func (self *INotificationBinding) Language() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetLanguage (propput put_Language) dispatches through INotificationBinding's vtable slot 9.
@@ -673,16 +673,16 @@ func (self *INotificationBinding) SetLanguage(value string) error {
 
 // Hints (propget get_Hints) dispatches through INotificationBinding's vtable slot 10.
 func (self *INotificationBinding) Hints() (*IMapOfStringAndString, error) {
-	var result *IMapOfStringAndString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IMapOfStringAndString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetTextElements dispatches through INotificationBinding's vtable slot 11.
 func (self *INotificationBinding) GetTextElements() (*IVectorViewOfAdaptiveNotificationText, error) {
-	var result *IVectorViewOfAdaptiveNotificationText
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfAdaptiveNotificationText)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // INotificationData is the WinRT interface Windows.UI.Notifications.INotificationData.
@@ -697,16 +697,16 @@ var IID_INotificationData = win32.GUID{Data1: 0x9ffd2312, Data2: 0x9d6a, Data3: 
 
 // Values (propget get_Values) dispatches through INotificationData's vtable slot 6.
 func (self *INotificationData) Values() (*IMapOfStringAndString, error) {
-	var result *IMapOfStringAndString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IMapOfStringAndString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SequenceNumber (propget get_SequenceNumber) dispatches through INotificationData's vtable slot 7.
 func (self *INotificationData) SequenceNumber() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSequenceNumber (propput put_SequenceNumber) dispatches through INotificationData's vtable slot 8.
@@ -727,16 +727,16 @@ var IID_INotificationDataFactory = win32.GUID{Data1: 0x23c1e33a, Data2: 0x1c10, 
 
 // CreateNotificationDataWithValuesAndSequenceNumber dispatches through INotificationDataFactory's vtable slot 6.
 func (self *INotificationDataFactory) CreateNotificationDataWithValuesAndSequenceNumber(initialValues *IIterableOfIKeyValuePairOfStringAndString, sequenceNumber uint32) (*INotificationData, error) {
-	var result *INotificationData
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(initialValues)), uintptr(sequenceNumber), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*INotificationData)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(initialValues)), uintptr(sequenceNumber), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateNotificationDataWithValues dispatches through INotificationDataFactory's vtable slot 7.
 func (self *INotificationDataFactory) CreateNotificationDataWithValues(initialValues *IIterableOfIKeyValuePairOfStringAndString) (*INotificationData, error) {
-	var result *INotificationData
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(initialValues)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*INotificationData)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(initialValues)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // INotificationVisual is the WinRT interface Windows.UI.Notifications.INotificationVisual.
@@ -751,12 +751,12 @@ var IID_INotificationVisual = win32.GUID{Data1: 0x68835b8e, Data2: 0xaa56, Data3
 
 // Language (propget get_Language) dispatches through INotificationVisual's vtable slot 6.
 func (self *INotificationVisual) Language() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetLanguage (propput put_Language) dispatches through INotificationVisual's vtable slot 7.
@@ -772,9 +772,9 @@ func (self *INotificationVisual) SetLanguage(value string) error {
 
 // Bindings (propget get_Bindings) dispatches through INotificationVisual's vtable slot 8.
 func (self *INotificationVisual) Bindings() (*IVectorOfNotificationBinding, error) {
-	var result *IVectorOfNotificationBinding
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfNotificationBinding)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetBinding dispatches through INotificationVisual's vtable slot 9.
@@ -784,9 +784,9 @@ func (self *INotificationVisual) GetBinding(templateName string) (*INotification
 		return nil, err
 	}
 	defer hTemplateName.Close()
-	var result *INotificationBinding
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hTemplateName.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*INotificationBinding)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hTemplateName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IScheduledTileNotification is the WinRT interface Windows.UI.Notifications.IScheduledTileNotification.
@@ -801,16 +801,16 @@ var IID_IScheduledTileNotification = win32.GUID{Data1: 0x0abca6d5, Data2: 0x99dc
 
 // Content (propget get_Content) dispatches through IScheduledTileNotification's vtable slot 6.
 func (self *IScheduledTileNotification) Content() (*dataxmldom.IXmlDocument, error) {
-	var result *dataxmldom.IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*dataxmldom.IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DeliveryTime (propget get_DeliveryTime) dispatches through IScheduledTileNotification's vtable slot 7.
 func (self *IScheduledTileNotification) DeliveryTime() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetExpirationTime (propput put_ExpirationTime) dispatches through IScheduledTileNotification's vtable slot 8.
@@ -821,9 +821,9 @@ func (self *IScheduledTileNotification) SetExpirationTime(value *IReferenceOfDat
 
 // ExpirationTime (propget get_ExpirationTime) dispatches through IScheduledTileNotification's vtable slot 9.
 func (self *IScheduledTileNotification) ExpirationTime() (*IReferenceOfDateTime, error) {
-	var result *IReferenceOfDateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetTag (propput put_Tag) dispatches through IScheduledTileNotification's vtable slot 10.
@@ -839,12 +839,12 @@ func (self *IScheduledTileNotification) SetTag(value string) error {
 
 // Tag (propget get_Tag) dispatches through IScheduledTileNotification's vtable slot 11.
 func (self *IScheduledTileNotification) Tag() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetId (propput put_Id) dispatches through IScheduledTileNotification's vtable slot 12.
@@ -860,12 +860,12 @@ func (self *IScheduledTileNotification) SetId(value string) error {
 
 // Id (propget get_Id) dispatches through IScheduledTileNotification's vtable slot 13.
 func (self *IScheduledTileNotification) Id() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IScheduledTileNotificationFactory is the WinRT interface Windows.UI.Notifications.IScheduledTileNotificationFactory.
@@ -880,9 +880,9 @@ var IID_IScheduledTileNotificationFactory = win32.GUID{Data1: 0x3383138a, Data2:
 
 // CreateScheduledTileNotification dispatches through IScheduledTileNotificationFactory's vtable slot 6.
 func (self *IScheduledTileNotificationFactory) CreateScheduledTileNotification(content *dataxmldom.IXmlDocument, deliveryTime foundation.DateTime) (*IScheduledTileNotification, error) {
-	var result *IScheduledTileNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(deliveryTime.UniversalTime), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IScheduledTileNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(deliveryTime.UniversalTime), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IScheduledToastNotification is the WinRT interface Windows.UI.Notifications.IScheduledToastNotification.
@@ -897,30 +897,30 @@ var IID_IScheduledToastNotification = win32.GUID{Data1: 0x79f577f8, Data2: 0x0de
 
 // Content (propget get_Content) dispatches through IScheduledToastNotification's vtable slot 6.
 func (self *IScheduledToastNotification) Content() (*dataxmldom.IXmlDocument, error) {
-	var result *dataxmldom.IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*dataxmldom.IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DeliveryTime (propget get_DeliveryTime) dispatches through IScheduledToastNotification's vtable slot 7.
 func (self *IScheduledToastNotification) DeliveryTime() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SnoozeInterval (propget get_SnoozeInterval) dispatches through IScheduledToastNotification's vtable slot 8.
 func (self *IScheduledToastNotification) SnoozeInterval() (*IReferenceOfTimeSpan, error) {
-	var result *IReferenceOfTimeSpan
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfTimeSpan)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MaximumSnoozeCount (propget get_MaximumSnoozeCount) dispatches through IScheduledToastNotification's vtable slot 9.
 func (self *IScheduledToastNotification) MaximumSnoozeCount() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetId (propput put_Id) dispatches through IScheduledToastNotification's vtable slot 10.
@@ -936,12 +936,12 @@ func (self *IScheduledToastNotification) SetId(value string) error {
 
 // Id (propget get_Id) dispatches through IScheduledToastNotification's vtable slot 11.
 func (self *IScheduledToastNotification) Id() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IScheduledToastNotification2 is the WinRT interface Windows.UI.Notifications.IScheduledToastNotification2.
@@ -967,12 +967,12 @@ func (self *IScheduledToastNotification2) SetTag(value string) error {
 
 // Tag (propget get_Tag) dispatches through IScheduledToastNotification2's vtable slot 7.
 func (self *IScheduledToastNotification2) Tag() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetGroup (propput put_Group) dispatches through IScheduledToastNotification2's vtable slot 8.
@@ -988,12 +988,12 @@ func (self *IScheduledToastNotification2) SetGroup(value string) error {
 
 // Group (propget get_Group) dispatches through IScheduledToastNotification2's vtable slot 9.
 func (self *IScheduledToastNotification2) Group() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetSuppressPopup (propput put_SuppressPopup) dispatches through IScheduledToastNotification2's vtable slot 10.
@@ -1008,9 +1008,9 @@ func (self *IScheduledToastNotification2) SetSuppressPopup(value bool) error {
 
 // SuppressPopup (propget get_SuppressPopup) dispatches through IScheduledToastNotification2's vtable slot 11.
 func (self *IScheduledToastNotification2) SuppressPopup() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IScheduledToastNotification3 is the WinRT interface Windows.UI.Notifications.IScheduledToastNotification3.
@@ -1025,9 +1025,9 @@ var IID_IScheduledToastNotification3 = win32.GUID{Data1: 0x98429e8b, Data2: 0xbd
 
 // NotificationMirroring (propget get_NotificationMirroring) dispatches through IScheduledToastNotification3's vtable slot 6.
 func (self *IScheduledToastNotification3) NotificationMirroring() (NotificationMirroring, error) {
-	var result NotificationMirroring
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(NotificationMirroring)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetNotificationMirroring (propput put_NotificationMirroring) dispatches through IScheduledToastNotification3's vtable slot 7.
@@ -1038,12 +1038,12 @@ func (self *IScheduledToastNotification3) SetNotificationMirroring(value Notific
 
 // RemoteId (propget get_RemoteId) dispatches through IScheduledToastNotification3's vtable slot 8.
 func (self *IScheduledToastNotification3) RemoteId() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetRemoteId (propput put_RemoteId) dispatches through IScheduledToastNotification3's vtable slot 9.
@@ -1069,9 +1069,9 @@ var IID_IScheduledToastNotification4 = win32.GUID{Data1: 0x1d4761fd, Data2: 0xbd
 
 // ExpirationTime (propget get_ExpirationTime) dispatches through IScheduledToastNotification4's vtable slot 6.
 func (self *IScheduledToastNotification4) ExpirationTime() (*IReferenceOfDateTime, error) {
-	var result *IReferenceOfDateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetExpirationTime (propput put_ExpirationTime) dispatches through IScheduledToastNotification4's vtable slot 7.
@@ -1092,16 +1092,16 @@ var IID_IScheduledToastNotificationFactory = win32.GUID{Data1: 0xe7bed191, Data2
 
 // CreateScheduledToastNotification dispatches through IScheduledToastNotificationFactory's vtable slot 6.
 func (self *IScheduledToastNotificationFactory) CreateScheduledToastNotification(content *dataxmldom.IXmlDocument, deliveryTime foundation.DateTime) (*IScheduledToastNotification, error) {
-	var result *IScheduledToastNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(deliveryTime.UniversalTime), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IScheduledToastNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(deliveryTime.UniversalTime), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateScheduledToastNotificationRecurring dispatches through IScheduledToastNotificationFactory's vtable slot 7.
 func (self *IScheduledToastNotificationFactory) CreateScheduledToastNotificationRecurring(content *dataxmldom.IXmlDocument, deliveryTime foundation.DateTime, snoozeInterval foundation.TimeSpan, maximumSnoozeCount uint32) (*IScheduledToastNotification, error) {
-	var result *IScheduledToastNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(deliveryTime.UniversalTime), uintptr(snoozeInterval.Duration), uintptr(maximumSnoozeCount), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IScheduledToastNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(deliveryTime.UniversalTime), uintptr(snoozeInterval.Duration), uintptr(maximumSnoozeCount), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IScheduledToastNotificationShowingEventArgs is the WinRT interface Windows.UI.Notifications.IScheduledToastNotificationShowingEventArgs.
@@ -1116,9 +1116,9 @@ var IID_IScheduledToastNotificationShowingEventArgs = win32.GUID{Data1: 0x6173f6
 
 // Cancel (propget get_Cancel) dispatches through IScheduledToastNotificationShowingEventArgs's vtable slot 6.
 func (self *IScheduledToastNotificationShowingEventArgs) Cancel() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCancel (propput put_Cancel) dispatches through IScheduledToastNotificationShowingEventArgs's vtable slot 7.
@@ -1133,16 +1133,16 @@ func (self *IScheduledToastNotificationShowingEventArgs) SetCancel(value bool) e
 
 // ScheduledToastNotification (propget get_ScheduledToastNotification) dispatches through IScheduledToastNotificationShowingEventArgs's vtable slot 8.
 func (self *IScheduledToastNotificationShowingEventArgs) ScheduledToastNotification() (*IScheduledToastNotification, error) {
-	var result *IScheduledToastNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IScheduledToastNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetDeferral dispatches through IScheduledToastNotificationShowingEventArgs's vtable slot 9.
 func (self *IScheduledToastNotificationShowingEventArgs) GetDeferral() (*foundation.IDeferral, error) {
-	var result *foundation.IDeferral
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IDeferral)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IShownTileNotification is the WinRT interface Windows.UI.Notifications.IShownTileNotification.
@@ -1157,12 +1157,12 @@ var IID_IShownTileNotification = win32.GUID{Data1: 0x342d8988, Data2: 0x5af2, Da
 
 // Arguments (propget get_Arguments) dispatches through IShownTileNotification's vtable slot 6.
 func (self *IShownTileNotification) Arguments() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // ITileFlyoutNotification is the WinRT interface Windows.UI.Notifications.ITileFlyoutNotification.
@@ -1177,9 +1177,9 @@ var IID_ITileFlyoutNotification = win32.GUID{Data1: 0x9a53b261, Data2: 0xc70c, D
 
 // Content (propget get_Content) dispatches through ITileFlyoutNotification's vtable slot 6.
 func (self *ITileFlyoutNotification) Content() (*dataxmldom.IXmlDocument, error) {
-	var result *dataxmldom.IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*dataxmldom.IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetExpirationTime (propput put_ExpirationTime) dispatches through ITileFlyoutNotification's vtable slot 7.
@@ -1190,9 +1190,9 @@ func (self *ITileFlyoutNotification) SetExpirationTime(value *IReferenceOfDateTi
 
 // ExpirationTime (propget get_ExpirationTime) dispatches through ITileFlyoutNotification's vtable slot 8.
 func (self *ITileFlyoutNotification) ExpirationTime() (*IReferenceOfDateTime, error) {
-	var result *IReferenceOfDateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ITileFlyoutNotificationFactory is the WinRT interface Windows.UI.Notifications.ITileFlyoutNotificationFactory.
@@ -1207,9 +1207,9 @@ var IID_ITileFlyoutNotificationFactory = win32.GUID{Data1: 0xef556ff5, Data2: 0x
 
 // CreateTileFlyoutNotification dispatches through ITileFlyoutNotificationFactory's vtable slot 6.
 func (self *ITileFlyoutNotificationFactory) CreateTileFlyoutNotification(content *dataxmldom.IXmlDocument) (*ITileFlyoutNotification, error) {
-	var result *ITileFlyoutNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileFlyoutNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ITileFlyoutUpdateManagerStatics is the WinRT interface Windows.UI.Notifications.ITileFlyoutUpdateManagerStatics.
@@ -1224,9 +1224,9 @@ var IID_ITileFlyoutUpdateManagerStatics = win32.GUID{Data1: 0x04363b0b, Data2: 0
 
 // CreateTileFlyoutUpdaterForApplication dispatches through ITileFlyoutUpdateManagerStatics's vtable slot 6.
 func (self *ITileFlyoutUpdateManagerStatics) CreateTileFlyoutUpdaterForApplication() (*ITileFlyoutUpdater, error) {
-	var result *ITileFlyoutUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileFlyoutUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateTileFlyoutUpdaterForApplicationWithId dispatches through ITileFlyoutUpdateManagerStatics's vtable slot 7.
@@ -1236,9 +1236,9 @@ func (self *ITileFlyoutUpdateManagerStatics) CreateTileFlyoutUpdaterForApplicati
 		return nil, err
 	}
 	defer hApplicationId.Close()
-	var result *ITileFlyoutUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileFlyoutUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateTileFlyoutUpdaterForSecondaryTile dispatches through ITileFlyoutUpdateManagerStatics's vtable slot 8.
@@ -1248,16 +1248,16 @@ func (self *ITileFlyoutUpdateManagerStatics) CreateTileFlyoutUpdaterForSecondary
 		return nil, err
 	}
 	defer hTileId.Close()
-	var result *ITileFlyoutUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hTileId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileFlyoutUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hTileId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetTemplateContent dispatches through ITileFlyoutUpdateManagerStatics's vtable slot 9.
 func (self *ITileFlyoutUpdateManagerStatics) GetTemplateContent(type_ TileFlyoutTemplateType) (*dataxmldom.IXmlDocument, error) {
-	var result *dataxmldom.IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*dataxmldom.IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ITileFlyoutUpdater is the WinRT interface Windows.UI.Notifications.ITileFlyoutUpdater.
@@ -1302,9 +1302,9 @@ func (self *ITileFlyoutUpdater) StopPeriodicUpdate() error {
 
 // Setting (propget get_Setting) dispatches through ITileFlyoutUpdater's vtable slot 11.
 func (self *ITileFlyoutUpdater) Setting() (NotificationSetting, error) {
-	var result NotificationSetting
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(NotificationSetting)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ITileNotification is the WinRT interface Windows.UI.Notifications.ITileNotification.
@@ -1319,9 +1319,9 @@ var IID_ITileNotification = win32.GUID{Data1: 0xebaec8fa, Data2: 0x50ec, Data3: 
 
 // Content (propget get_Content) dispatches through ITileNotification's vtable slot 6.
 func (self *ITileNotification) Content() (*dataxmldom.IXmlDocument, error) {
-	var result *dataxmldom.IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*dataxmldom.IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetExpirationTime (propput put_ExpirationTime) dispatches through ITileNotification's vtable slot 7.
@@ -1332,9 +1332,9 @@ func (self *ITileNotification) SetExpirationTime(value *IReferenceOfDateTime) er
 
 // ExpirationTime (propget get_ExpirationTime) dispatches through ITileNotification's vtable slot 8.
 func (self *ITileNotification) ExpirationTime() (*IReferenceOfDateTime, error) {
-	var result *IReferenceOfDateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetTag (propput put_Tag) dispatches through ITileNotification's vtable slot 9.
@@ -1350,12 +1350,12 @@ func (self *ITileNotification) SetTag(value string) error {
 
 // Tag (propget get_Tag) dispatches through ITileNotification's vtable slot 10.
 func (self *ITileNotification) Tag() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // ITileNotificationFactory is the WinRT interface Windows.UI.Notifications.ITileNotificationFactory.
@@ -1370,9 +1370,9 @@ var IID_ITileNotificationFactory = win32.GUID{Data1: 0xc6abdd6e, Data2: 0x4928, 
 
 // CreateTileNotification dispatches through ITileNotificationFactory's vtable slot 6.
 func (self *ITileNotificationFactory) CreateTileNotification(content *dataxmldom.IXmlDocument) (*ITileNotification, error) {
-	var result *ITileNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ITileUpdateManagerForUser is the WinRT interface Windows.UI.Notifications.ITileUpdateManagerForUser.
@@ -1387,9 +1387,9 @@ var IID_ITileUpdateManagerForUser = win32.GUID{Data1: 0x55141348, Data2: 0x2ee2,
 
 // CreateTileUpdaterForApplication dispatches through ITileUpdateManagerForUser's vtable slot 6.
 func (self *ITileUpdateManagerForUser) CreateTileUpdaterForApplication() (*ITileUpdater, error) {
-	var result *ITileUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateTileUpdaterForApplicationWithId dispatches through ITileUpdateManagerForUser's vtable slot 7.
@@ -1399,9 +1399,9 @@ func (self *ITileUpdateManagerForUser) CreateTileUpdaterForApplicationWithId(app
 		return nil, err
 	}
 	defer hApplicationId.Close()
-	var result *ITileUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateTileUpdaterForSecondaryTile dispatches through ITileUpdateManagerForUser's vtable slot 8.
@@ -1411,16 +1411,16 @@ func (self *ITileUpdateManagerForUser) CreateTileUpdaterForSecondaryTile(tileId 
 		return nil, err
 	}
 	defer hTileId.Close()
-	var result *ITileUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hTileId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hTileId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // User (propget get_User) dispatches through ITileUpdateManagerForUser's vtable slot 9.
 func (self *ITileUpdateManagerForUser) User() (*system.IUser, error) {
-	var result *system.IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*system.IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ITileUpdateManagerStatics is the WinRT interface Windows.UI.Notifications.ITileUpdateManagerStatics.
@@ -1435,9 +1435,9 @@ var IID_ITileUpdateManagerStatics = win32.GUID{Data1: 0xda159e5d, Data2: 0x3ea9,
 
 // CreateTileUpdaterForApplication dispatches through ITileUpdateManagerStatics's vtable slot 6.
 func (self *ITileUpdateManagerStatics) CreateTileUpdaterForApplication() (*ITileUpdater, error) {
-	var result *ITileUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateTileUpdaterForApplicationWithId dispatches through ITileUpdateManagerStatics's vtable slot 7.
@@ -1447,9 +1447,9 @@ func (self *ITileUpdateManagerStatics) CreateTileUpdaterForApplicationWithId(app
 		return nil, err
 	}
 	defer hApplicationId.Close()
-	var result *ITileUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateTileUpdaterForSecondaryTile dispatches through ITileUpdateManagerStatics's vtable slot 8.
@@ -1459,16 +1459,16 @@ func (self *ITileUpdateManagerStatics) CreateTileUpdaterForSecondaryTile(tileId 
 		return nil, err
 	}
 	defer hTileId.Close()
-	var result *ITileUpdater
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hTileId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileUpdater)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hTileId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetTemplateContent dispatches through ITileUpdateManagerStatics's vtable slot 9.
 func (self *ITileUpdateManagerStatics) GetTemplateContent(type_ TileTemplateType) (*dataxmldom.IXmlDocument, error) {
-	var result *dataxmldom.IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*dataxmldom.IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ITileUpdateManagerStatics2 is the WinRT interface Windows.UI.Notifications.ITileUpdateManagerStatics2.
@@ -1483,9 +1483,9 @@ var IID_ITileUpdateManagerStatics2 = win32.GUID{Data1: 0x731c1ddc, Data2: 0x8e14
 
 // GetForUser dispatches through ITileUpdateManagerStatics2's vtable slot 6.
 func (self *ITileUpdateManagerStatics2) GetForUser(user *system.IUser) (*ITileUpdateManagerForUser, error) {
-	var result *ITileUpdateManagerForUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ITileUpdateManagerForUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ITileUpdater is the WinRT interface Windows.UI.Notifications.ITileUpdater.
@@ -1522,9 +1522,9 @@ func (self *ITileUpdater) EnableNotificationQueue(enable bool) error {
 
 // Setting (propget get_Setting) dispatches through ITileUpdater's vtable slot 9.
 func (self *ITileUpdater) Setting() (NotificationSetting, error) {
-	var result NotificationSetting
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(NotificationSetting)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddToSchedule dispatches through ITileUpdater's vtable slot 10.
@@ -1541,9 +1541,9 @@ func (self *ITileUpdater) RemoveFromSchedule(scheduledTile *IScheduledTileNotifi
 
 // GetScheduledTileNotifications dispatches through ITileUpdater's vtable slot 12.
 func (self *ITileUpdater) GetScheduledTileNotifications() (*IVectorViewOfScheduledTileNotification, error) {
-	var result *IVectorViewOfScheduledTileNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfScheduledTileNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // StartPeriodicUpdate dispatches through ITileUpdater's vtable slot 13.
@@ -1628,12 +1628,12 @@ var IID_IToastActivatedEventArgs = win32.GUID{Data1: 0xe3bf92f3, Data2: 0xc197, 
 
 // Arguments (propget get_Arguments) dispatches through IToastActivatedEventArgs's vtable slot 6.
 func (self *IToastActivatedEventArgs) Arguments() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IToastActivatedEventArgs2 is the WinRT interface Windows.UI.Notifications.IToastActivatedEventArgs2.
@@ -1648,9 +1648,9 @@ var IID_IToastActivatedEventArgs2 = win32.GUID{Data1: 0xab7da512, Data2: 0xcc61,
 
 // UserInput (propget get_UserInput) dispatches through IToastActivatedEventArgs2's vtable slot 6.
 func (self *IToastActivatedEventArgs2) UserInput() (*foundationcollections.IPropertySet, error) {
-	var result *foundationcollections.IPropertySet
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundationcollections.IPropertySet)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastCollection is the WinRT interface Windows.UI.Notifications.IToastCollection.
@@ -1665,22 +1665,22 @@ var IID_IToastCollection = win32.GUID{Data1: 0x0a8bc3b0, Data2: 0xe0be, Data3: 0
 
 // Id (propget get_Id) dispatches through IToastCollection's vtable slot 6.
 func (self *IToastCollection) Id() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // DisplayName (propget get_DisplayName) dispatches through IToastCollection's vtable slot 7.
 func (self *IToastCollection) DisplayName() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetDisplayName (propput put_DisplayName) dispatches through IToastCollection's vtable slot 8.
@@ -1696,12 +1696,12 @@ func (self *IToastCollection) SetDisplayName(value string) error {
 
 // LaunchArgs (propget get_LaunchArgs) dispatches through IToastCollection's vtable slot 9.
 func (self *IToastCollection) LaunchArgs() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetLaunchArgs (propput put_LaunchArgs) dispatches through IToastCollection's vtable slot 10.
@@ -1717,9 +1717,9 @@ func (self *IToastCollection) SetLaunchArgs(value string) error {
 
 // Icon (propget get_Icon) dispatches through IToastCollection's vtable slot 11.
 func (self *IToastCollection) Icon() (*foundation.IUriRuntimeClass, error) {
-	var result *foundation.IUriRuntimeClass
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IUriRuntimeClass)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetIcon (propput put_Icon) dispatches through IToastCollection's vtable slot 12.
@@ -1755,9 +1755,9 @@ func (self *IToastCollectionFactory) CreateInstance(collectionId string, display
 		return nil, err
 	}
 	defer hLaunchArgs.Close()
-	var result *IToastCollection
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hCollectionId.Raw()), uintptr(hDisplayName.Raw()), uintptr(hLaunchArgs.Raw()), uintptr(unsafe.Pointer(iconUri)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastCollection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hCollectionId.Raw()), uintptr(hDisplayName.Raw()), uintptr(hLaunchArgs.Raw()), uintptr(unsafe.Pointer(iconUri)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastCollectionManager is the WinRT interface Windows.UI.Notifications.IToastCollectionManager.
@@ -1772,16 +1772,16 @@ var IID_IToastCollectionManager = win32.GUID{Data1: 0x2a1821fe, Data2: 0x179d, D
 
 // SaveToastCollectionAsync dispatches through IToastCollectionManager's vtable slot 6.
 func (self *IToastCollectionManager) SaveToastCollectionAsync(collection *IToastCollection) (*foundation.IAsyncAction, error) {
-	var result *foundation.IAsyncAction
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(collection)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IAsyncAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(collection)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAllToastCollectionsAsync dispatches through IToastCollectionManager's vtable slot 7.
 func (self *IToastCollectionManager) FindAllToastCollectionsAsync() (*IAsyncOperationOfIVectorViewOfToastCollection, error) {
-	var result *IAsyncOperationOfIVectorViewOfToastCollection
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorViewOfToastCollection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetToastCollectionAsync dispatches through IToastCollectionManager's vtable slot 8.
@@ -1791,9 +1791,9 @@ func (self *IToastCollectionManager) GetToastCollectionAsync(collectionId string
 		return nil, err
 	}
 	defer hCollectionId.Close()
-	var result *IAsyncOperationOfToastCollection
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hCollectionId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfToastCollection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hCollectionId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveToastCollectionAsync dispatches through IToastCollectionManager's vtable slot 9.
@@ -1803,33 +1803,33 @@ func (self *IToastCollectionManager) RemoveToastCollectionAsync(collectionId str
 		return nil, err
 	}
 	defer hCollectionId.Close()
-	var result *foundation.IAsyncAction
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hCollectionId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IAsyncAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hCollectionId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAllToastCollectionsAsync dispatches through IToastCollectionManager's vtable slot 10.
 func (self *IToastCollectionManager) RemoveAllToastCollectionsAsync() (*foundation.IAsyncAction, error) {
-	var result *foundation.IAsyncAction
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IAsyncAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // User (propget get_User) dispatches through IToastCollectionManager's vtable slot 11.
 func (self *IToastCollectionManager) User() (*system.IUser, error) {
-	var result *system.IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*system.IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AppId (propget get_AppId) dispatches through IToastCollectionManager's vtable slot 12.
 func (self *IToastCollectionManager) AppId() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IToastDismissedEventArgs is the WinRT interface Windows.UI.Notifications.IToastDismissedEventArgs.
@@ -1844,9 +1844,9 @@ var IID_IToastDismissedEventArgs = win32.GUID{Data1: 0x3f89d935, Data2: 0xd9cb, 
 
 // Reason (propget get_Reason) dispatches through IToastDismissedEventArgs's vtable slot 6.
 func (self *IToastDismissedEventArgs) Reason() (ToastDismissalReason, error) {
-	var result ToastDismissalReason
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ToastDismissalReason)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastFailedEventArgs is the WinRT interface Windows.UI.Notifications.IToastFailedEventArgs.
@@ -1861,9 +1861,9 @@ var IID_IToastFailedEventArgs = win32.GUID{Data1: 0x35176862, Data2: 0xcfd4, Dat
 
 // ErrorCode (propget get_ErrorCode) dispatches through IToastFailedEventArgs's vtable slot 6.
 func (self *IToastFailedEventArgs) ErrorCode() (int32, error) {
-	var result int32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(int32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotification is the WinRT interface Windows.UI.Notifications.IToastNotification.
@@ -1878,9 +1878,9 @@ var IID_IToastNotification = win32.GUID{Data1: 0x997e2675, Data2: 0x059e, Data3:
 
 // Content (propget get_Content) dispatches through IToastNotification's vtable slot 6.
 func (self *IToastNotification) Content() (*dataxmldom.IXmlDocument, error) {
-	var result *dataxmldom.IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*dataxmldom.IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetExpirationTime (propput put_ExpirationTime) dispatches through IToastNotification's vtable slot 7.
@@ -1891,18 +1891,18 @@ func (self *IToastNotification) SetExpirationTime(value *IReferenceOfDateTime) e
 
 // ExpirationTime (propget get_ExpirationTime) dispatches through IToastNotification's vtable slot 8.
 func (self *IToastNotification) ExpirationTime() (*IReferenceOfDateTime, error) {
-	var result *IReferenceOfDateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddDismissed (event add add_Dismissed) dispatches through IToastNotification's vtable slot 9.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveDismissed.
 func (self *IToastNotification) AddDismissed(handler *TypedEventHandlerOfToastNotificationAndToastDismissedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveDismissed (event remove remove_Dismissed) dispatches through IToastNotification's vtable slot 10,
@@ -1916,9 +1916,9 @@ func (self *IToastNotification) RemoveDismissed(token syswinrt.EventRegistration
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveActivated.
 func (self *IToastNotification) AddActivated(handler *TypedEventHandlerOfToastNotificationAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveActivated (event remove remove_Activated) dispatches through IToastNotification's vtable slot 12,
@@ -1932,9 +1932,9 @@ func (self *IToastNotification) RemoveActivated(token syswinrt.EventRegistration
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveFailed.
 func (self *IToastNotification) AddFailed(handler *TypedEventHandlerOfToastNotificationAndToastFailedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveFailed (event remove remove_Failed) dispatches through IToastNotification's vtable slot 14,
@@ -1967,12 +1967,12 @@ func (self *IToastNotification2) SetTag(value string) error {
 
 // Tag (propget get_Tag) dispatches through IToastNotification2's vtable slot 7.
 func (self *IToastNotification2) Tag() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetGroup (propput put_Group) dispatches through IToastNotification2's vtable slot 8.
@@ -1988,12 +1988,12 @@ func (self *IToastNotification2) SetGroup(value string) error {
 
 // Group (propget get_Group) dispatches through IToastNotification2's vtable slot 9.
 func (self *IToastNotification2) Group() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetSuppressPopup (propput put_SuppressPopup) dispatches through IToastNotification2's vtable slot 10.
@@ -2008,9 +2008,9 @@ func (self *IToastNotification2) SetSuppressPopup(value bool) error {
 
 // SuppressPopup (propget get_SuppressPopup) dispatches through IToastNotification2's vtable slot 11.
 func (self *IToastNotification2) SuppressPopup() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotification3 is the WinRT interface Windows.UI.Notifications.IToastNotification3.
@@ -2025,9 +2025,9 @@ var IID_IToastNotification3 = win32.GUID{Data1: 0x31e8aed8, Data2: 0x8141, Data3
 
 // NotificationMirroring (propget get_NotificationMirroring) dispatches through IToastNotification3's vtable slot 6.
 func (self *IToastNotification3) NotificationMirroring() (NotificationMirroring, error) {
-	var result NotificationMirroring
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(NotificationMirroring)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetNotificationMirroring (propput put_NotificationMirroring) dispatches through IToastNotification3's vtable slot 7.
@@ -2038,12 +2038,12 @@ func (self *IToastNotification3) SetNotificationMirroring(value NotificationMirr
 
 // RemoteId (propget get_RemoteId) dispatches through IToastNotification3's vtable slot 8.
 func (self *IToastNotification3) RemoteId() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetRemoteId (propput put_RemoteId) dispatches through IToastNotification3's vtable slot 9.
@@ -2069,9 +2069,9 @@ var IID_IToastNotification4 = win32.GUID{Data1: 0x15154935, Data2: 0x28ea, Data3
 
 // Data (propget get_Data) dispatches through IToastNotification4's vtable slot 6.
 func (self *IToastNotification4) Data() (*INotificationData, error) {
-	var result *INotificationData
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*INotificationData)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetData (propput put_Data) dispatches through IToastNotification4's vtable slot 7.
@@ -2082,9 +2082,9 @@ func (self *IToastNotification4) SetData(value *INotificationData) error {
 
 // Priority (propget get_Priority) dispatches through IToastNotification4's vtable slot 8.
 func (self *IToastNotification4) Priority() (ToastNotificationPriority, error) {
-	var result ToastNotificationPriority
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ToastNotificationPriority)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPriority (propput put_Priority) dispatches through IToastNotification4's vtable slot 9.
@@ -2105,9 +2105,9 @@ var IID_IToastNotification6 = win32.GUID{Data1: 0x43ebfe53, Data2: 0x89ae, Data3
 
 // ExpiresOnReboot (propget get_ExpiresOnReboot) dispatches through IToastNotification6's vtable slot 6.
 func (self *IToastNotification6) ExpiresOnReboot() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetExpiresOnReboot (propput put_ExpiresOnReboot) dispatches through IToastNotification6's vtable slot 7.
@@ -2132,19 +2132,19 @@ var IID_IToastNotificationActionTriggerDetail = win32.GUID{Data1: 0x9445135a, Da
 
 // Argument (propget get_Argument) dispatches through IToastNotificationActionTriggerDetail's vtable slot 6.
 func (self *IToastNotificationActionTriggerDetail) Argument() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // UserInput (propget get_UserInput) dispatches through IToastNotificationActionTriggerDetail's vtable slot 7.
 func (self *IToastNotificationActionTriggerDetail) UserInput() (*foundationcollections.IPropertySet, error) {
-	var result *foundationcollections.IPropertySet
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundationcollections.IPropertySet)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotificationFactory is the WinRT interface Windows.UI.Notifications.IToastNotificationFactory.
@@ -2159,9 +2159,9 @@ var IID_IToastNotificationFactory = win32.GUID{Data1: 0x04124b20, Data2: 0x82c6,
 
 // CreateToastNotification dispatches through IToastNotificationFactory's vtable slot 6.
 func (self *IToastNotificationFactory) CreateToastNotification(content *dataxmldom.IXmlDocument) (*IToastNotification, error) {
-	var result *IToastNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(content)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotificationHistory is the WinRT interface Windows.UI.Notifications.IToastNotificationHistory.
@@ -2278,9 +2278,9 @@ var IID_IToastNotificationHistory2 = win32.GUID{Data1: 0x3bc3d253, Data2: 0x2f31
 
 // GetHistory dispatches through IToastNotificationHistory2's vtable slot 6.
 func (self *IToastNotificationHistory2) GetHistory() (*IVectorViewOfToastNotification, error) {
-	var result *IVectorViewOfToastNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfToastNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetHistoryWithId dispatches through IToastNotificationHistory2's vtable slot 7.
@@ -2290,9 +2290,9 @@ func (self *IToastNotificationHistory2) GetHistoryWithId(applicationId string) (
 		return nil, err
 	}
 	defer hApplicationId.Close()
-	var result *IVectorViewOfToastNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfToastNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotificationHistoryChangedTriggerDetail is the WinRT interface Windows.UI.Notifications.IToastNotificationHistoryChangedTriggerDetail.
@@ -2307,9 +2307,9 @@ var IID_IToastNotificationHistoryChangedTriggerDetail = win32.GUID{Data1: 0xdb03
 
 // ChangeType (propget get_ChangeType) dispatches through IToastNotificationHistoryChangedTriggerDetail's vtable slot 6.
 func (self *IToastNotificationHistoryChangedTriggerDetail) ChangeType() (ToastHistoryChangedType, error) {
-	var result ToastHistoryChangedType
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ToastHistoryChangedType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotificationHistoryChangedTriggerDetail2 is the WinRT interface Windows.UI.Notifications.IToastNotificationHistoryChangedTriggerDetail2.
@@ -2324,12 +2324,12 @@ var IID_IToastNotificationHistoryChangedTriggerDetail2 = win32.GUID{Data1: 0x0b3
 
 // CollectionId (propget get_CollectionId) dispatches through IToastNotificationHistoryChangedTriggerDetail2's vtable slot 6.
 func (self *IToastNotificationHistoryChangedTriggerDetail2) CollectionId() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IToastNotificationManagerForUser is the WinRT interface Windows.UI.Notifications.IToastNotificationManagerForUser.
@@ -2344,9 +2344,9 @@ var IID_IToastNotificationManagerForUser = win32.GUID{Data1: 0x79ab57f6, Data2: 
 
 // CreateToastNotifier dispatches through IToastNotificationManagerForUser's vtable slot 6.
 func (self *IToastNotificationManagerForUser) CreateToastNotifier() (*IToastNotifier, error) {
-	var result *IToastNotifier
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastNotifier)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateToastNotifierWithId dispatches through IToastNotificationManagerForUser's vtable slot 7.
@@ -2356,23 +2356,23 @@ func (self *IToastNotificationManagerForUser) CreateToastNotifierWithId(applicat
 		return nil, err
 	}
 	defer hApplicationId.Close()
-	var result *IToastNotifier
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastNotifier)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // History (propget get_History) dispatches through IToastNotificationManagerForUser's vtable slot 8.
 func (self *IToastNotificationManagerForUser) History() (*IToastNotificationHistory, error) {
-	var result *IToastNotificationHistory
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastNotificationHistory)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // User (propget get_User) dispatches through IToastNotificationManagerForUser's vtable slot 9.
 func (self *IToastNotificationManagerForUser) User() (*system.IUser, error) {
-	var result *system.IUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*system.IUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotificationManagerForUser2 is the WinRT interface Windows.UI.Notifications.IToastNotificationManagerForUser2.
@@ -2392,9 +2392,9 @@ func (self *IToastNotificationManagerForUser2) GetToastNotifierForToastCollectio
 		return nil, err
 	}
 	defer hCollectionId.Close()
-	var result *IAsyncOperationOfToastNotifier
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hCollectionId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfToastNotifier)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hCollectionId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetHistoryForToastCollectionIdAsync dispatches through IToastNotificationManagerForUser2's vtable slot 7.
@@ -2404,16 +2404,16 @@ func (self *IToastNotificationManagerForUser2) GetHistoryForToastCollectionIdAsy
 		return nil, err
 	}
 	defer hCollectionId.Close()
-	var result *IAsyncOperationOfToastNotificationHistory
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hCollectionId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfToastNotificationHistory)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hCollectionId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetToastCollectionManager dispatches through IToastNotificationManagerForUser2's vtable slot 8.
 func (self *IToastNotificationManagerForUser2) GetToastCollectionManager() (*IToastCollectionManager, error) {
-	var result *IToastCollectionManager
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastCollectionManager)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetToastCollectionManagerWithAppId dispatches through IToastNotificationManagerForUser2's vtable slot 9.
@@ -2423,9 +2423,9 @@ func (self *IToastNotificationManagerForUser2) GetToastCollectionManagerWithAppI
 		return nil, err
 	}
 	defer hAppId.Close()
-	var result *IToastCollectionManager
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hAppId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastCollectionManager)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hAppId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotificationManagerForUser3 is the WinRT interface Windows.UI.Notifications.IToastNotificationManagerForUser3.
@@ -2440,18 +2440,18 @@ var IID_IToastNotificationManagerForUser3 = win32.GUID{Data1: 0x3efcb176, Data2:
 
 // NotificationMode (propget get_NotificationMode) dispatches through IToastNotificationManagerForUser3's vtable slot 6.
 func (self *IToastNotificationManagerForUser3) NotificationMode() (ToastNotificationMode, error) {
-	var result ToastNotificationMode
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ToastNotificationMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddNotificationModeChanged (event add add_NotificationModeChanged) dispatches through IToastNotificationManagerForUser3's vtable slot 7.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveNotificationModeChanged.
 func (self *IToastNotificationManagerForUser3) AddNotificationModeChanged(handler *TypedEventHandlerOfToastNotificationManagerForUserAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveNotificationModeChanged (event remove remove_NotificationModeChanged) dispatches through IToastNotificationManagerForUser3's vtable slot 8,
@@ -2473,9 +2473,9 @@ var IID_IToastNotificationManagerStatics = win32.GUID{Data1: 0x50ac103f, Data2: 
 
 // CreateToastNotifier dispatches through IToastNotificationManagerStatics's vtable slot 6.
 func (self *IToastNotificationManagerStatics) CreateToastNotifier() (*IToastNotifier, error) {
-	var result *IToastNotifier
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastNotifier)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateToastNotifierWithId dispatches through IToastNotificationManagerStatics's vtable slot 7.
@@ -2485,16 +2485,16 @@ func (self *IToastNotificationManagerStatics) CreateToastNotifierWithId(applicat
 		return nil, err
 	}
 	defer hApplicationId.Close()
-	var result *IToastNotifier
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastNotifier)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hApplicationId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetTemplateContent dispatches through IToastNotificationManagerStatics's vtable slot 8.
 func (self *IToastNotificationManagerStatics) GetTemplateContent(type_ ToastTemplateType) (*dataxmldom.IXmlDocument, error) {
-	var result *dataxmldom.IXmlDocument
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*dataxmldom.IXmlDocument)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotificationManagerStatics2 is the WinRT interface Windows.UI.Notifications.IToastNotificationManagerStatics2.
@@ -2509,9 +2509,9 @@ var IID_IToastNotificationManagerStatics2 = win32.GUID{Data1: 0x7ab93c52, Data2:
 
 // History (propget get_History) dispatches through IToastNotificationManagerStatics2's vtable slot 6.
 func (self *IToastNotificationManagerStatics2) History() (*IToastNotificationHistory, error) {
-	var result *IToastNotificationHistory
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastNotificationHistory)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotificationManagerStatics4 is the WinRT interface Windows.UI.Notifications.IToastNotificationManagerStatics4.
@@ -2526,9 +2526,9 @@ var IID_IToastNotificationManagerStatics4 = win32.GUID{Data1: 0x8f993fd3, Data2:
 
 // GetForUser dispatches through IToastNotificationManagerStatics4's vtable slot 6.
 func (self *IToastNotificationManagerStatics4) GetForUser(user *system.IUser) (*IToastNotificationManagerForUser, error) {
-	var result *IToastNotificationManagerForUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastNotificationManagerForUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(user)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ConfigureNotificationMirroring dispatches through IToastNotificationManagerStatics4's vtable slot 7.
@@ -2549,9 +2549,9 @@ var IID_IToastNotificationManagerStatics5 = win32.GUID{Data1: 0xd6f5f569, Data2:
 
 // GetDefault dispatches through IToastNotificationManagerStatics5's vtable slot 6.
 func (self *IToastNotificationManagerStatics5) GetDefault() (*IToastNotificationManagerForUser, error) {
-	var result *IToastNotificationManagerForUser
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IToastNotificationManagerForUser)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotifier is the WinRT interface Windows.UI.Notifications.IToastNotifier.
@@ -2578,9 +2578,9 @@ func (self *IToastNotifier) Hide(notification *IToastNotification) error {
 
 // Setting (propget get_Setting) dispatches through IToastNotifier's vtable slot 8.
 func (self *IToastNotifier) Setting() (NotificationSetting, error) {
-	var result NotificationSetting
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(NotificationSetting)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddToSchedule dispatches through IToastNotifier's vtable slot 9.
@@ -2597,9 +2597,9 @@ func (self *IToastNotifier) RemoveFromSchedule(scheduledToast *IScheduledToastNo
 
 // GetScheduledToastNotifications dispatches through IToastNotifier's vtable slot 11.
 func (self *IToastNotifier) GetScheduledToastNotifications() (*IVectorViewOfScheduledToastNotification, error) {
-	var result *IVectorViewOfScheduledToastNotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfScheduledToastNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotifier2 is the WinRT interface Windows.UI.Notifications.IToastNotifier2.
@@ -2624,9 +2624,9 @@ func (self *IToastNotifier2) UpdateWithTagAndGroup(data *INotificationData, tag 
 		return 0, err
 	}
 	defer hGroup.Close()
-	var result NotificationUpdateResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(data)), uintptr(hTag.Raw()), uintptr(hGroup.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(NotificationUpdateResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(data)), uintptr(hTag.Raw()), uintptr(hGroup.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // UpdateWithTag dispatches through IToastNotifier2's vtable slot 7.
@@ -2636,9 +2636,9 @@ func (self *IToastNotifier2) UpdateWithTag(data *INotificationData, tag string) 
 		return 0, err
 	}
 	defer hTag.Close()
-	var result NotificationUpdateResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(data)), uintptr(hTag.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(NotificationUpdateResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(data)), uintptr(hTag.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IToastNotifier3 is the WinRT interface Windows.UI.Notifications.IToastNotifier3.
@@ -2655,9 +2655,9 @@ var IID_IToastNotifier3 = win32.GUID{Data1: 0xae75a04a, Data2: 0x3b0c, Data3: 0x
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveScheduledToastNotificationShowing.
 func (self *IToastNotifier3) AddScheduledToastNotificationShowing(handler *TypedEventHandlerOfToastNotifierAndScheduledToastNotificationShowingEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveScheduledToastNotificationShowing (event remove remove_ScheduledToastNotificationShowing) dispatches through IToastNotifier3's vtable slot 7,
@@ -2679,30 +2679,30 @@ var IID_IUserNotification = win32.GUID{Data1: 0xadf7e52f, Data2: 0x4e53, Data3: 
 
 // Notification (propget get_Notification) dispatches through IUserNotification's vtable slot 6.
 func (self *IUserNotification) Notification() (*INotification, error) {
-	var result *INotification
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*INotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AppInfo (propget get_AppInfo) dispatches through IUserNotification's vtable slot 7.
 func (self *IUserNotification) AppInfo() (*applicationmodel.IAppInfo, error) {
-	var result *applicationmodel.IAppInfo
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*applicationmodel.IAppInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Id (propget get_Id) dispatches through IUserNotification's vtable slot 8.
 func (self *IUserNotification) Id() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreationTime (propget get_CreationTime) dispatches through IUserNotification's vtable slot 9.
 func (self *IUserNotification) CreationTime() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IUserNotificationChangedEventArgs is the WinRT interface Windows.UI.Notifications.IUserNotificationChangedEventArgs.
@@ -2717,14 +2717,14 @@ var IID_IUserNotificationChangedEventArgs = win32.GUID{Data1: 0xb6bd6839, Data2:
 
 // ChangeKind (propget get_ChangeKind) dispatches through IUserNotificationChangedEventArgs's vtable slot 6.
 func (self *IUserNotificationChangedEventArgs) ChangeKind() (UserNotificationChangedKind, error) {
-	var result UserNotificationChangedKind
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(UserNotificationChangedKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // UserNotificationId (propget get_UserNotificationId) dispatches through IUserNotificationChangedEventArgs's vtable slot 7.
 func (self *IUserNotificationChangedEventArgs) UserNotificationId() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }

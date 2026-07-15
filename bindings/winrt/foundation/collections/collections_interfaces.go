@@ -10,6 +10,7 @@ import (
 
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
 // IPropertySet is the WinRT interface Windows.Foundation.Collections.IPropertySet.
@@ -33,14 +34,14 @@ var IID_IVectorChangedEventArgs = win32.GUID{Data1: 0x575933df, Data2: 0x34fe, D
 
 // CollectionChange (propget get_CollectionChange) dispatches through IVectorChangedEventArgs's vtable slot 6.
 func (self *IVectorChangedEventArgs) CollectionChange() (CollectionChange, error) {
-	var result CollectionChange
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(CollectionChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Index (propget get_Index) dispatches through IVectorChangedEventArgs's vtable slot 7.
 func (self *IVectorChangedEventArgs) Index() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }

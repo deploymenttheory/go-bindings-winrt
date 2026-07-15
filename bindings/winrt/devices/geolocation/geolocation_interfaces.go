@@ -26,49 +26,49 @@ var IID_ICivicAddress = win32.GUID{Data1: 0xa8567a1a, Data2: 0x64f4, Data3: 0x4d
 
 // Country (propget get_Country) dispatches through ICivicAddress's vtable slot 6.
 func (self *ICivicAddress) Country() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // State (propget get_State) dispatches through ICivicAddress's vtable slot 7.
 func (self *ICivicAddress) State() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // City (propget get_City) dispatches through ICivicAddress's vtable slot 8.
 func (self *ICivicAddress) City() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // PostalCode (propget get_PostalCode) dispatches through ICivicAddress's vtable slot 9.
 func (self *ICivicAddress) PostalCode() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Timestamp (propget get_Timestamp) dispatches through ICivicAddress's vtable slot 10.
 func (self *ICivicAddress) Timestamp() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeoboundingBox is the WinRT interface Windows.Devices.Geolocation.IGeoboundingBox.
@@ -84,23 +84,23 @@ var IID_IGeoboundingBox = win32.GUID{Data1: 0x0896c80b, Data2: 0x274f, Data3: 0x
 
 // NorthwestCorner (propget get_NorthwestCorner) dispatches through IGeoboundingBox's vtable slot 6.
 func (self *IGeoboundingBox) NorthwestCorner() (BasicGeoposition, error) {
-	var result BasicGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(BasicGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SoutheastCorner (propget get_SoutheastCorner) dispatches through IGeoboundingBox's vtable slot 7.
 func (self *IGeoboundingBox) SoutheastCorner() (BasicGeoposition, error) {
-	var result BasicGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(BasicGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Center (propget get_Center) dispatches through IGeoboundingBox's vtable slot 8.
 func (self *IGeoboundingBox) Center() (BasicGeoposition, error) {
-	var result BasicGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(BasicGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: get_MinAltitude skipped: float64 return cannot cross SyscallN
@@ -135,23 +135,23 @@ var IID_IGeoboundingBoxStatics = win32.GUID{Data1: 0x67b80708, Data2: 0xe61a, Da
 
 // TryCompute dispatches through IGeoboundingBoxStatics's vtable slot 6.
 func (self *IGeoboundingBoxStatics) TryCompute(positions *IIterableOfBasicGeoposition) (*IGeoboundingBox, error) {
-	var result *IGeoboundingBox
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeoboundingBox)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TryComputeWithAltitudeReference dispatches through IGeoboundingBoxStatics's vtable slot 7.
 func (self *IGeoboundingBoxStatics) TryComputeWithAltitudeReference(positions *IIterableOfBasicGeoposition, altitudeRefSystem AltitudeReferenceSystem) (*IGeoboundingBox, error) {
-	var result *IGeoboundingBox
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(altitudeRefSystem), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeoboundingBox)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(altitudeRefSystem), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TryComputeWithAltitudeReferenceAndSpatialReference dispatches through IGeoboundingBoxStatics's vtable slot 8.
 func (self *IGeoboundingBoxStatics) TryComputeWithAltitudeReferenceAndSpatialReference(positions *IIterableOfBasicGeoposition, altitudeRefSystem AltitudeReferenceSystem, spatialReferenceId uint32) (*IGeoboundingBox, error) {
-	var result *IGeoboundingBox
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(altitudeRefSystem), uintptr(spatialReferenceId), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeoboundingBox)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(altitudeRefSystem), uintptr(spatialReferenceId), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeocircle is the WinRT interface Windows.Devices.Geolocation.IGeocircle.
@@ -167,9 +167,9 @@ var IID_IGeocircle = win32.GUID{Data1: 0x39e45843, Data2: 0xa7f9, Data3: 0x4e63,
 
 // Center (propget get_Center) dispatches through IGeocircle's vtable slot 6.
 func (self *IGeocircle) Center() (BasicGeoposition, error) {
-	var result BasicGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(BasicGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 7: get_Radius skipped: float64 return cannot cross SyscallN
@@ -206,39 +206,39 @@ var IID_IGeocoordinate = win32.GUID{Data1: 0xee21a3aa, Data2: 0x976a, Data3: 0x4
 
 // Altitude (propget get_Altitude) dispatches through IGeocoordinate's vtable slot 8.
 func (self *IGeocoordinate) Altitude() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: get_Accuracy skipped: float64 return cannot cross SyscallN
 
 // AltitudeAccuracy (propget get_AltitudeAccuracy) dispatches through IGeocoordinate's vtable slot 10.
 func (self *IGeocoordinate) AltitudeAccuracy() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Heading (propget get_Heading) dispatches through IGeocoordinate's vtable slot 11.
 func (self *IGeocoordinate) Heading() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Speed (propget get_Speed) dispatches through IGeocoordinate's vtable slot 12.
 func (self *IGeocoordinate) Speed() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Timestamp (propget get_Timestamp) dispatches through IGeocoordinate's vtable slot 13.
 func (self *IGeocoordinate) Timestamp() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeocoordinateSatelliteData is the WinRT interface Windows.Devices.Geolocation.IGeocoordinateSatelliteData.
@@ -253,23 +253,23 @@ var IID_IGeocoordinateSatelliteData = win32.GUID{Data1: 0xc32a74d9, Data2: 0x260
 
 // PositionDilutionOfPrecision (propget get_PositionDilutionOfPrecision) dispatches through IGeocoordinateSatelliteData's vtable slot 6.
 func (self *IGeocoordinateSatelliteData) PositionDilutionOfPrecision() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // HorizontalDilutionOfPrecision (propget get_HorizontalDilutionOfPrecision) dispatches through IGeocoordinateSatelliteData's vtable slot 7.
 func (self *IGeocoordinateSatelliteData) HorizontalDilutionOfPrecision() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // VerticalDilutionOfPrecision (propget get_VerticalDilutionOfPrecision) dispatches through IGeocoordinateSatelliteData's vtable slot 8.
 func (self *IGeocoordinateSatelliteData) VerticalDilutionOfPrecision() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeocoordinateSatelliteData2 is the WinRT interface Windows.Devices.Geolocation.IGeocoordinateSatelliteData2.
@@ -284,16 +284,16 @@ var IID_IGeocoordinateSatelliteData2 = win32.GUID{Data1: 0x761c8cfd, Data2: 0xa1
 
 // GeometricDilutionOfPrecision (propget get_GeometricDilutionOfPrecision) dispatches through IGeocoordinateSatelliteData2's vtable slot 6.
 func (self *IGeocoordinateSatelliteData2) GeometricDilutionOfPrecision() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TimeDilutionOfPrecision (propget get_TimeDilutionOfPrecision) dispatches through IGeocoordinateSatelliteData2's vtable slot 7.
 func (self *IGeocoordinateSatelliteData2) TimeDilutionOfPrecision() (*IReferenceOfDouble, error) {
-	var result *IReferenceOfDouble
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDouble)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeocoordinateWithPoint is the WinRT interface Windows.Devices.Geolocation.IGeocoordinateWithPoint.
@@ -308,9 +308,9 @@ var IID_IGeocoordinateWithPoint = win32.GUID{Data1: 0xfeea0525, Data2: 0xd22c, D
 
 // Point (propget get_Point) dispatches through IGeocoordinateWithPoint's vtable slot 6.
 func (self *IGeocoordinateWithPoint) Point() (*IGeopoint, error) {
-	var result *IGeopoint
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeopoint)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeocoordinateWithPositionData is the WinRT interface Windows.Devices.Geolocation.IGeocoordinateWithPositionData.
@@ -326,16 +326,16 @@ var IID_IGeocoordinateWithPositionData = win32.GUID{Data1: 0x95e634be, Data2: 0x
 
 // PositionSource (propget get_PositionSource) dispatches through IGeocoordinateWithPositionData's vtable slot 6.
 func (self *IGeocoordinateWithPositionData) PositionSource() (PositionSource, error) {
-	var result PositionSource
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(PositionSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SatelliteData (propget get_SatelliteData) dispatches through IGeocoordinateWithPositionData's vtable slot 7.
 func (self *IGeocoordinateWithPositionData) SatelliteData() (*IGeocoordinateSatelliteData, error) {
-	var result *IGeocoordinateSatelliteData
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeocoordinateSatelliteData)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeocoordinateWithPositionSourceTimestamp is the WinRT interface Windows.Devices.Geolocation.IGeocoordinateWithPositionSourceTimestamp.
@@ -350,9 +350,9 @@ var IID_IGeocoordinateWithPositionSourceTimestamp = win32.GUID{Data1: 0x8543fc02
 
 // PositionSourceTimestamp (propget get_PositionSourceTimestamp) dispatches through IGeocoordinateWithPositionSourceTimestamp's vtable slot 6.
 func (self *IGeocoordinateWithPositionSourceTimestamp) PositionSourceTimestamp() (*IReferenceOfDateTime, error) {
-	var result *IReferenceOfDateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfDateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeocoordinateWithRemoteSource is the WinRT interface Windows.Devices.Geolocation.IGeocoordinateWithRemoteSource.
@@ -367,9 +367,9 @@ var IID_IGeocoordinateWithRemoteSource = win32.GUID{Data1: 0x397cebd7, Data2: 0x
 
 // IsRemoteSource (propget get_IsRemoteSource) dispatches through IGeocoordinateWithRemoteSource's vtable slot 6.
 func (self *IGeocoordinateWithRemoteSource) IsRemoteSource() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeolocator is the WinRT interface Windows.Devices.Geolocation.IGeolocator.
@@ -384,9 +384,9 @@ var IID_IGeolocator = win32.GUID{Data1: 0xa9c3bf62, Data2: 0x4524, Data3: 0x4989
 
 // DesiredAccuracy (propget get_DesiredAccuracy) dispatches through IGeolocator's vtable slot 6.
 func (self *IGeolocator) DesiredAccuracy() (PositionAccuracy, error) {
-	var result PositionAccuracy
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(PositionAccuracy)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDesiredAccuracy (propput put_DesiredAccuracy) dispatches through IGeolocator's vtable slot 7.
@@ -401,9 +401,9 @@ func (self *IGeolocator) SetDesiredAccuracy(value PositionAccuracy) error {
 
 // ReportInterval (propget get_ReportInterval) dispatches through IGeolocator's vtable slot 10.
 func (self *IGeolocator) ReportInterval() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetReportInterval (propput put_ReportInterval) dispatches through IGeolocator's vtable slot 11.
@@ -414,32 +414,32 @@ func (self *IGeolocator) SetReportInterval(value uint32) error {
 
 // LocationStatus (propget get_LocationStatus) dispatches through IGeolocator's vtable slot 12.
 func (self *IGeolocator) LocationStatus() (PositionStatus, error) {
-	var result PositionStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(PositionStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetGeopositionAsync dispatches through IGeolocator's vtable slot 13.
 func (self *IGeolocator) GetGeopositionAsync() (*IAsyncOperationOfGeoposition, error) {
-	var result *IAsyncOperationOfGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetGeopositionAsyncWithAgeAndTimeout dispatches through IGeolocator's vtable slot 14.
 func (self *IGeolocator) GetGeopositionAsyncWithAgeAndTimeout(maximumAge foundation.TimeSpan, timeout foundation.TimeSpan) (*IAsyncOperationOfGeoposition, error) {
-	var result *IAsyncOperationOfGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(maximumAge.Duration), uintptr(timeout.Duration), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(maximumAge.Duration), uintptr(timeout.Duration), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddPositionChanged (event add add_PositionChanged) dispatches through IGeolocator's vtable slot 15.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemovePositionChanged.
 func (self *IGeolocator) AddPositionChanged(handler *TypedEventHandlerOfGeolocatorAndPositionChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemovePositionChanged (event remove remove_PositionChanged) dispatches through IGeolocator's vtable slot 16,
@@ -453,9 +453,9 @@ func (self *IGeolocator) RemovePositionChanged(token syswinrt.EventRegistrationT
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveStatusChanged.
 func (self *IGeolocator) AddStatusChanged(handler *TypedEventHandlerOfGeolocatorAndStatusChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveStatusChanged (event remove remove_StatusChanged) dispatches through IGeolocator's vtable slot 18,
@@ -493,23 +493,23 @@ var IID_IGeolocatorStatics = win32.GUID{Data1: 0x9a8e7571, Data2: 0x2df5, Data3:
 
 // RequestAccessAsync dispatches through IGeolocatorStatics's vtable slot 6.
 func (self *IGeolocatorStatics) RequestAccessAsync() (*IAsyncOperationOfGeolocationAccessStatus, error) {
-	var result *IAsyncOperationOfGeolocationAccessStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfGeolocationAccessStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetGeopositionHistoryAsync dispatches through IGeolocatorStatics's vtable slot 7.
 func (self *IGeolocatorStatics) GetGeopositionHistoryAsync(startTime foundation.DateTime) (*IAsyncOperationOfIVectorViewOfGeoposition, error) {
-	var result *IAsyncOperationOfIVectorViewOfGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(startTime.UniversalTime), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorViewOfGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(startTime.UniversalTime), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetGeopositionHistoryWithDurationAsync dispatches through IGeolocatorStatics's vtable slot 8.
 func (self *IGeolocatorStatics) GetGeopositionHistoryWithDurationAsync(startTime foundation.DateTime, duration foundation.TimeSpan) (*IAsyncOperationOfIVectorViewOfGeoposition, error) {
-	var result *IAsyncOperationOfIVectorViewOfGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(startTime.UniversalTime), uintptr(duration.Duration), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIVectorViewOfGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(startTime.UniversalTime), uintptr(duration.Duration), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeolocatorStatics2 is the WinRT interface Windows.Devices.Geolocation.IGeolocatorStatics2.
@@ -524,9 +524,9 @@ var IID_IGeolocatorStatics2 = win32.GUID{Data1: 0x993011a2, Data2: 0xfa1c, Data3
 
 // IsDefaultGeopositionRecommended (propget get_IsDefaultGeopositionRecommended) dispatches through IGeolocatorStatics2's vtable slot 6.
 func (self *IGeolocatorStatics2) IsDefaultGeopositionRecommended() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDefaultGeoposition (propput put_DefaultGeoposition) dispatches through IGeolocatorStatics2's vtable slot 7.
@@ -537,9 +537,9 @@ func (self *IGeolocatorStatics2) SetDefaultGeoposition(value *IReferenceOfBasicG
 
 // DefaultGeoposition (propget get_DefaultGeoposition) dispatches through IGeolocatorStatics2's vtable slot 8.
 func (self *IGeolocatorStatics2) DefaultGeoposition() (*IReferenceOfBasicGeoposition, error) {
-	var result *IReferenceOfBasicGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfBasicGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeolocatorWithScalarAccuracy is the WinRT interface Windows.Devices.Geolocation.IGeolocatorWithScalarAccuracy.
@@ -555,9 +555,9 @@ var IID_IGeolocatorWithScalarAccuracy = win32.GUID{Data1: 0x96f5d3c1, Data2: 0xb
 
 // DesiredAccuracyInMeters (propget get_DesiredAccuracyInMeters) dispatches through IGeolocatorWithScalarAccuracy's vtable slot 6.
 func (self *IGeolocatorWithScalarAccuracy) DesiredAccuracyInMeters() (*IReferenceOfUInt32, error) {
-	var result *IReferenceOfUInt32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IReferenceOfUInt32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDesiredAccuracyInMeters (propput put_DesiredAccuracyInMeters) dispatches through IGeolocatorWithScalarAccuracy's vtable slot 7.
@@ -579,9 +579,9 @@ var IID_IGeopath = win32.GUID{Data1: 0xe53fd7b9, Data2: 0x2da4, Data3: 0x4714, D
 
 // Positions (propget get_Positions) dispatches through IGeopath's vtable slot 6.
 func (self *IGeopath) Positions() (*IVectorViewOfBasicGeoposition, error) {
-	var result *IVectorViewOfBasicGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfBasicGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeopathFactory is the WinRT interface Windows.Devices.Geolocation.IGeopathFactory.
@@ -596,23 +596,23 @@ var IID_IGeopathFactory = win32.GUID{Data1: 0x27bea9c8, Data2: 0xc7e7, Data3: 0x
 
 // Create dispatches through IGeopathFactory's vtable slot 6.
 func (self *IGeopathFactory) Create(positions *IIterableOfBasicGeoposition) (*IGeopath, error) {
-	var result *IGeopath
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeopath)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWithAltitudeReference dispatches through IGeopathFactory's vtable slot 7.
 func (self *IGeopathFactory) CreateWithAltitudeReference(positions *IIterableOfBasicGeoposition, altitudeReferenceSystem AltitudeReferenceSystem) (*IGeopath, error) {
-	var result *IGeopath
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(altitudeReferenceSystem), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeopath)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(altitudeReferenceSystem), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWithAltitudeReferenceAndSpatialReference dispatches through IGeopathFactory's vtable slot 8.
 func (self *IGeopathFactory) CreateWithAltitudeReferenceAndSpatialReference(positions *IIterableOfBasicGeoposition, altitudeReferenceSystem AltitudeReferenceSystem, spatialReferenceId uint32) (*IGeopath, error) {
-	var result *IGeopath
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(altitudeReferenceSystem), uintptr(spatialReferenceId), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeopath)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(positions)), uintptr(altitudeReferenceSystem), uintptr(spatialReferenceId), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeopoint is the WinRT interface Windows.Devices.Geolocation.IGeopoint.
@@ -628,9 +628,9 @@ var IID_IGeopoint = win32.GUID{Data1: 0x6bfa00eb, Data2: 0xe56e, Data3: 0x49bb, 
 
 // Position (propget get_Position) dispatches through IGeopoint's vtable slot 6.
 func (self *IGeopoint) Position() (BasicGeoposition, error) {
-	var result BasicGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(BasicGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeopointFactory is the WinRT interface Windows.Devices.Geolocation.IGeopointFactory.
@@ -661,16 +661,16 @@ var IID_IGeoposition = win32.GUID{Data1: 0xc18d0454, Data2: 0x7d41, Data3: 0x4ff
 
 // Coordinate (propget get_Coordinate) dispatches through IGeoposition's vtable slot 6.
 func (self *IGeoposition) Coordinate() (*IGeocoordinate, error) {
-	var result *IGeocoordinate
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeocoordinate)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CivicAddress (propget get_CivicAddress) dispatches through IGeoposition's vtable slot 7.
 func (self *IGeoposition) CivicAddress() (*ICivicAddress, error) {
-	var result *ICivicAddress
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*ICivicAddress)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeoposition2 is the WinRT interface Windows.Devices.Geolocation.IGeoposition2.
@@ -686,9 +686,9 @@ var IID_IGeoposition2 = win32.GUID{Data1: 0x7f62f697, Data2: 0x8671, Data3: 0x4b
 
 // VenueData (propget get_VenueData) dispatches through IGeoposition2's vtable slot 6.
 func (self *IGeoposition2) VenueData() (*IVenueData, error) {
-	var result *IVenueData
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVenueData)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeoshape is the WinRT interface Windows.Devices.Geolocation.IGeoshape.
@@ -702,23 +702,23 @@ var IID_IGeoshape = win32.GUID{Data1: 0xc99ca2af, Data2: 0xc729, Data3: 0x43c1, 
 
 // GeoshapeType (propget get_GeoshapeType) dispatches through IGeoshape's vtable slot 6.
 func (self *IGeoshape) GeoshapeType() (GeoshapeType, error) {
-	var result GeoshapeType
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(GeoshapeType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SpatialReferenceId (propget get_SpatialReferenceId) dispatches through IGeoshape's vtable slot 7.
 func (self *IGeoshape) SpatialReferenceId() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AltitudeReferenceSystem (propget get_AltitudeReferenceSystem) dispatches through IGeoshape's vtable slot 8.
 func (self *IGeoshape) AltitudeReferenceSystem() (AltitudeReferenceSystem, error) {
-	var result AltitudeReferenceSystem
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(AltitudeReferenceSystem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeovisit is the WinRT interface Windows.Devices.Geolocation.IGeovisit.
@@ -733,23 +733,23 @@ var IID_IGeovisit = win32.GUID{Data1: 0xb1877a76, Data2: 0x9ef6, Data3: 0x41ab, 
 
 // Position (propget get_Position) dispatches through IGeovisit's vtable slot 6.
 func (self *IGeovisit) Position() (*IGeoposition, error) {
-	var result *IGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // StateChange (propget get_StateChange) dispatches through IGeovisit's vtable slot 7.
 func (self *IGeovisit) StateChange() (VisitStateChange, error) {
-	var result VisitStateChange
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(VisitStateChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Timestamp (propget get_Timestamp) dispatches through IGeovisit's vtable slot 8.
 func (self *IGeovisit) Timestamp() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeovisitMonitor is the WinRT interface Windows.Devices.Geolocation.IGeovisitMonitor.
@@ -764,9 +764,9 @@ var IID_IGeovisitMonitor = win32.GUID{Data1: 0x80118aaf, Data2: 0x5944, Data3: 0
 
 // MonitoringScope (propget get_MonitoringScope) dispatches through IGeovisitMonitor's vtable slot 6.
 func (self *IGeovisitMonitor) MonitoringScope() (VisitMonitoringScope, error) {
-	var result VisitMonitoringScope
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(VisitMonitoringScope)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Start dispatches through IGeovisitMonitor's vtable slot 7.
@@ -785,9 +785,9 @@ func (self *IGeovisitMonitor) Stop() error {
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveVisitStateChanged.
 func (self *IGeovisitMonitor) AddVisitStateChanged(handler *TypedEventHandlerOfGeovisitMonitorAndGeovisitStateChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveVisitStateChanged (event remove remove_VisitStateChanged) dispatches through IGeovisitMonitor's vtable slot 10,
@@ -809,9 +809,9 @@ var IID_IGeovisitMonitorStatics = win32.GUID{Data1: 0xbcf976a7, Data2: 0xbbf2, D
 
 // GetLastReportAsync dispatches through IGeovisitMonitorStatics's vtable slot 6.
 func (self *IGeovisitMonitorStatics) GetLastReportAsync() (*IAsyncOperationOfGeovisit, error) {
-	var result *IAsyncOperationOfGeovisit
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfGeovisit)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeovisitStateChangedEventArgs is the WinRT interface Windows.Devices.Geolocation.IGeovisitStateChangedEventArgs.
@@ -826,9 +826,9 @@ var IID_IGeovisitStateChangedEventArgs = win32.GUID{Data1: 0xceb4d1ff, Data2: 0x
 
 // Visit (propget get_Visit) dispatches through IGeovisitStateChangedEventArgs's vtable slot 6.
 func (self *IGeovisitStateChangedEventArgs) Visit() (*IGeovisit, error) {
-	var result *IGeovisit
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeovisit)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGeovisitTriggerDetails is the WinRT interface Windows.Devices.Geolocation.IGeovisitTriggerDetails.
@@ -843,9 +843,9 @@ var IID_IGeovisitTriggerDetails = win32.GUID{Data1: 0xea770d9e, Data2: 0xd1c9, D
 
 // ReadReports dispatches through IGeovisitTriggerDetails's vtable slot 6.
 func (self *IGeovisitTriggerDetails) ReadReports() (*IVectorViewOfGeovisit, error) {
-	var result *IVectorViewOfGeovisit
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfGeovisit)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IPositionChangedEventArgs is the WinRT interface Windows.Devices.Geolocation.IPositionChangedEventArgs.
@@ -860,9 +860,9 @@ var IID_IPositionChangedEventArgs = win32.GUID{Data1: 0x37859ce5, Data2: 0x9d1e,
 
 // Position (propget get_Position) dispatches through IPositionChangedEventArgs's vtable slot 6.
 func (self *IPositionChangedEventArgs) Position() (*IGeoposition, error) {
-	var result *IGeoposition
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IStatusChangedEventArgs is the WinRT interface Windows.Devices.Geolocation.IStatusChangedEventArgs.
@@ -877,9 +877,9 @@ var IID_IStatusChangedEventArgs = win32.GUID{Data1: 0x3453d2da, Data2: 0x8c93, D
 
 // Status (propget get_Status) dispatches through IStatusChangedEventArgs's vtable slot 6.
 func (self *IStatusChangedEventArgs) Status() (PositionStatus, error) {
-	var result PositionStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(PositionStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IVenueData is the WinRT interface Windows.Devices.Geolocation.IVenueData.
@@ -894,20 +894,20 @@ var IID_IVenueData = win32.GUID{Data1: 0x66f39187, Data2: 0x60e3, Data3: 0x4b2f,
 
 // Id (propget get_Id) dispatches through IVenueData's vtable slot 6.
 func (self *IVenueData) Id() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Level (propget get_Level) dispatches through IVenueData's vtable slot 7.
 func (self *IVenueData) Level() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }

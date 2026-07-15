@@ -70,6 +70,19 @@ var (
 // inspectableWorkMu doubles as process-wide serialization of Go-implemented
 // inspectable calls; the collection bodies are short and never call back
 // into native objects, so no reentrancy or lock-order cycle exists.
+//
+// The worker eliminates GROWTH-driven stack moves, but not SHRINK-driven
+// ones: while the callback goroutine is parked here waiting on the worker,
+// it has LEFT syscall state (cgocallback ran exitsyscall on reentry), so it
+// is an ordinary blocked goroutine and a concurrent GC may shrink — i.e.
+// move — its stack. The frames of the original Go caller sit on that same
+// stack, so any out-param address they passed to SyscallN would go stale
+// exactly as under a growth. The invariant that closes this hole lives on
+// the CALLER side: generated bindings and the hand-written runtime paths
+// heap-escape every native-written out-param (retvals, [out] parameters,
+// event tokens) via winrt.OutParam / heapNew — see outparam.go — so the
+// pointer the native side holds targets the non-moving heap and no stack
+// move, growth or shrink, can strand it.
 type inspectableWork struct {
 	fn         func(*inspectableWork) uintptr
 	this       *inspectable

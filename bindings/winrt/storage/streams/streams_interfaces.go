@@ -26,16 +26,16 @@ var IID_IBuffer = win32.GUID{Data1: 0x905a0fe0, Data2: 0xbc53, Data3: 0x11df, Da
 
 // Capacity (propget get_Capacity) dispatches through IBuffer's vtable slot 6.
 func (self *IBuffer) Capacity() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Length (propget get_Length) dispatches through IBuffer's vtable slot 7.
 func (self *IBuffer) Length() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetLength (propput put_Length) dispatches through IBuffer's vtable slot 8.
@@ -56,9 +56,9 @@ var IID_IBufferFactory = win32.GUID{Data1: 0x71af914d, Data2: 0xc10f, Data3: 0x4
 
 // Create dispatches through IBufferFactory's vtable slot 6.
 func (self *IBufferFactory) Create(capacity uint32) (*IBuffer, error) {
-	var result *IBuffer
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(capacity), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(capacity), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IBufferStatics is the WinRT interface Windows.Storage.Streams.IBufferStatics.
@@ -73,16 +73,16 @@ var IID_IBufferStatics = win32.GUID{Data1: 0xe901e65b, Data2: 0xd716, Data3: 0x4
 
 // CreateCopyFromMemoryBuffer dispatches through IBufferStatics's vtable slot 6.
 func (self *IBufferStatics) CreateCopyFromMemoryBuffer(input *foundation.IMemoryBuffer) (*IBuffer, error) {
-	var result *IBuffer
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(input)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(input)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateMemoryBufferOverIBuffer dispatches through IBufferStatics's vtable slot 7.
 func (self *IBufferStatics) CreateMemoryBufferOverIBuffer(input *IBuffer) (*foundation.IMemoryBuffer, error) {
-	var result *foundation.IMemoryBuffer
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(input)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IMemoryBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(input)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IContentTypeProvider is the WinRT interface Windows.Storage.Streams.IContentTypeProvider.
@@ -96,12 +96,12 @@ var IID_IContentTypeProvider = win32.GUID{Data1: 0x97d098a5, Data2: 0x3b99, Data
 
 // ContentType (propget get_ContentType) dispatches through IContentTypeProvider's vtable slot 6.
 func (self *IContentTypeProvider) ContentType() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IDataReader is the WinRT interface Windows.Storage.Streams.IDataReader.
@@ -115,16 +115,16 @@ var IID_IDataReader = win32.GUID{Data1: 0xe2b50029, Data2: 0xb4c1, Data3: 0x4314
 
 // UnconsumedBufferLength (propget get_UnconsumedBufferLength) dispatches through IDataReader's vtable slot 6.
 func (self *IDataReader) UnconsumedBufferLength() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // UnicodeEncoding (propget get_UnicodeEncoding) dispatches through IDataReader's vtable slot 7.
 func (self *IDataReader) UnicodeEncoding() (UnicodeEncoding, error) {
-	var result UnicodeEncoding
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(UnicodeEncoding)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetUnicodeEncoding (propput put_UnicodeEncoding) dispatches through IDataReader's vtable slot 8.
@@ -135,9 +135,9 @@ func (self *IDataReader) SetUnicodeEncoding(value UnicodeEncoding) error {
 
 // ByteOrder (propget get_ByteOrder) dispatches through IDataReader's vtable slot 9.
 func (self *IDataReader) ByteOrder() (ByteOrder, error) {
-	var result ByteOrder
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ByteOrder)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetByteOrder (propput put_ByteOrder) dispatches through IDataReader's vtable slot 10.
@@ -148,9 +148,9 @@ func (self *IDataReader) SetByteOrder(value ByteOrder) error {
 
 // InputStreamOptions (propget get_InputStreamOptions) dispatches through IDataReader's vtable slot 11.
 func (self *IDataReader) InputStreamOptions() (InputStreamOptions, error) {
-	var result InputStreamOptions
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(InputStreamOptions)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetInputStreamOptions (propput put_InputStreamOptions) dispatches through IDataReader's vtable slot 12.
@@ -161,74 +161,74 @@ func (self *IDataReader) SetInputStreamOptions(value InputStreamOptions) error {
 
 // ReadByte dispatches through IDataReader's vtable slot 13.
 func (self *IDataReader) ReadByte() (byte, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 14: ReadBytes skipped: conformant array
 
 // ReadBuffer dispatches through IDataReader's vtable slot 15.
 func (self *IDataReader) ReadBuffer(length uint32) (*IBuffer, error) {
-	var result *IBuffer
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(length), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(length), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ReadBoolean dispatches through IDataReader's vtable slot 16.
 func (self *IDataReader) ReadBoolean() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // ReadGuid dispatches through IDataReader's vtable slot 17.
 func (self *IDataReader) ReadGuid() (win32.GUID, error) {
-	var result win32.GUID
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(win32.GUID)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ReadInt16 dispatches through IDataReader's vtable slot 18.
 func (self *IDataReader) ReadInt16() (int16, error) {
-	var result int16
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(int16)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ReadInt32 dispatches through IDataReader's vtable slot 19.
 func (self *IDataReader) ReadInt32() (int32, error) {
-	var result int32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(int32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ReadInt64 dispatches through IDataReader's vtable slot 20.
 func (self *IDataReader) ReadInt64() (int64, error) {
-	var result int64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(int64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ReadUInt16 dispatches through IDataReader's vtable slot 21.
 func (self *IDataReader) ReadUInt16() (uint16, error) {
-	var result uint16
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint16)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ReadUInt32 dispatches through IDataReader's vtable slot 22.
 func (self *IDataReader) ReadUInt32() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ReadUInt64 dispatches through IDataReader's vtable slot 23.
 func (self *IDataReader) ReadUInt64() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 24: ReadSingle skipped: float32 return cannot cross SyscallN
@@ -237,48 +237,48 @@ func (self *IDataReader) ReadUInt64() (uint64, error) {
 
 // ReadString dispatches through IDataReader's vtable slot 26.
 func (self *IDataReader) ReadString(codeUnitCount uint32) (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(codeUnitCount), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(codeUnitCount), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // ReadDateTime dispatches through IDataReader's vtable slot 27.
 func (self *IDataReader) ReadDateTime() (foundation.DateTime, error) {
-	var result foundation.DateTime
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[27], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.DateTime)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[27], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ReadTimeSpan dispatches through IDataReader's vtable slot 28.
 func (self *IDataReader) ReadTimeSpan() (foundation.TimeSpan, error) {
-	var result foundation.TimeSpan
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(foundation.TimeSpan)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LoadAsync dispatches through IDataReader's vtable slot 29.
 // The return value's class Windows.Storage.Streams.DataReaderLoadOperation is projected as IInspectable (the class is not emitted this wave).
 func (self *IDataReader) LoadAsync(count uint32) (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(count), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(count), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DetachBuffer dispatches through IDataReader's vtable slot 30.
 func (self *IDataReader) DetachBuffer() (*IBuffer, error) {
-	var result *IBuffer
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[30], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[30], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DetachStream dispatches through IDataReader's vtable slot 31.
 func (self *IDataReader) DetachStream() (*IInputStream, error) {
-	var result *IInputStream
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[31], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IInputStream)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[31], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDataReaderFactory is the WinRT interface Windows.Storage.Streams.IDataReaderFactory.
@@ -293,9 +293,9 @@ var IID_IDataReaderFactory = win32.GUID{Data1: 0xd7527847, Data2: 0x57da, Data3:
 
 // CreateDataReader dispatches through IDataReaderFactory's vtable slot 6.
 func (self *IDataReaderFactory) CreateDataReader(inputStream *IInputStream) (*IDataReader, error) {
-	var result *IDataReader
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(inputStream)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDataReader)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(inputStream)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDataReaderStatics is the WinRT interface Windows.Storage.Streams.IDataReaderStatics.
@@ -310,9 +310,9 @@ var IID_IDataReaderStatics = win32.GUID{Data1: 0x11fcbfc8, Data2: 0xf93a, Data3:
 
 // FromBuffer dispatches through IDataReaderStatics's vtable slot 6.
 func (self *IDataReaderStatics) FromBuffer(buffer *IBuffer) (*IDataReader, error) {
-	var result *IDataReader
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(buffer)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDataReader)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(buffer)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDataWriter is the WinRT interface Windows.Storage.Streams.IDataWriter.
@@ -326,16 +326,16 @@ var IID_IDataWriter = win32.GUID{Data1: 0x64b89265, Data2: 0xd341, Data3: 0x4922
 
 // UnstoredBufferLength (propget get_UnstoredBufferLength) dispatches through IDataWriter's vtable slot 6.
 func (self *IDataWriter) UnstoredBufferLength() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // UnicodeEncoding (propget get_UnicodeEncoding) dispatches through IDataWriter's vtable slot 7.
 func (self *IDataWriter) UnicodeEncoding() (UnicodeEncoding, error) {
-	var result UnicodeEncoding
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(UnicodeEncoding)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetUnicodeEncoding (propput put_UnicodeEncoding) dispatches through IDataWriter's vtable slot 8.
@@ -346,9 +346,9 @@ func (self *IDataWriter) SetUnicodeEncoding(value UnicodeEncoding) error {
 
 // ByteOrder (propget get_ByteOrder) dispatches through IDataWriter's vtable slot 9.
 func (self *IDataWriter) ByteOrder() (ByteOrder, error) {
-	var result ByteOrder
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ByteOrder)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetByteOrder (propput put_ByteOrder) dispatches through IDataWriter's vtable slot 10.
@@ -448,9 +448,9 @@ func (self *IDataWriter) WriteString(value string) (uint32, error) {
 		return 0, err
 	}
 	defer hValue.Close()
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[27], uintptr(unsafe.Pointer(self)), uintptr(hValue.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[27], uintptr(unsafe.Pointer(self)), uintptr(hValue.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // MeasureString dispatches through IDataWriter's vtable slot 28.
@@ -460,38 +460,38 @@ func (self *IDataWriter) MeasureString(value string) (uint32, error) {
 		return 0, err
 	}
 	defer hValue.Close()
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(hValue.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(hValue.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // StoreAsync dispatches through IDataWriter's vtable slot 29.
 // The return value's class Windows.Storage.Streams.DataWriterStoreOperation is projected as IInspectable (the class is not emitted this wave).
 func (self *IDataWriter) StoreAsync() (*syswinrt.IInspectable, error) {
-	var result *syswinrt.IInspectable
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FlushAsync dispatches through IDataWriter's vtable slot 30.
 func (self *IDataWriter) FlushAsync() (*IAsyncOperationOfBool, error) {
-	var result *IAsyncOperationOfBool
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[30], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfBool)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[30], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DetachBuffer dispatches through IDataWriter's vtable slot 31.
 func (self *IDataWriter) DetachBuffer() (*IBuffer, error) {
-	var result *IBuffer
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[31], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[31], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DetachStream dispatches through IDataWriter's vtable slot 32.
 func (self *IDataWriter) DetachStream() (*IOutputStream, error) {
-	var result *IOutputStream
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[32], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IOutputStream)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[32], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDataWriterFactory is the WinRT interface Windows.Storage.Streams.IDataWriterFactory.
@@ -506,9 +506,9 @@ var IID_IDataWriterFactory = win32.GUID{Data1: 0x338c67c2, Data2: 0x8b84, Data3:
 
 // CreateDataWriter dispatches through IDataWriterFactory's vtable slot 6.
 func (self *IDataWriterFactory) CreateDataWriter(outputStream *IOutputStream) (*IDataWriter, error) {
-	var result *IDataWriter
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(outputStream)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDataWriter)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(outputStream)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IFileRandomAccessStreamStatics is the WinRT interface Windows.Storage.Streams.IFileRandomAccessStreamStatics.
@@ -532,9 +532,9 @@ func (self *IFileRandomAccessStreamStatics) OpenTransactedWriteAsync(filePath st
 		return nil, err
 	}
 	defer hFilePath.Close()
-	var result *IAsyncOperationOfStorageStreamTransaction
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hFilePath.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfStorageStreamTransaction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hFilePath.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: OpenTransactedWriteAsync skipped: reference to Windows.Storage.StorageOpenOptions crosses a severed import edge
@@ -559,9 +559,9 @@ var IID_IInputStream = win32.GUID{Data1: 0x905a0fe2, Data2: 0xbc53, Data3: 0x11d
 
 // ReadAsync dispatches through IInputStream's vtable slot 6.
 func (self *IInputStream) ReadAsync(buffer *IBuffer, count uint32, options InputStreamOptions) (*IAsyncOperationWithProgressOfIBufferAndUInt32, error) {
-	var result *IAsyncOperationWithProgressOfIBufferAndUInt32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(buffer)), uintptr(count), uintptr(options), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationWithProgressOfIBufferAndUInt32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(buffer)), uintptr(count), uintptr(options), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IInputStreamReference is the WinRT interface Windows.Storage.Streams.IInputStreamReference.
@@ -575,9 +575,9 @@ var IID_IInputStreamReference = win32.GUID{Data1: 0x43929d18, Data2: 0x5ec9, Dat
 
 // OpenSequentialReadAsync dispatches through IInputStreamReference's vtable slot 6.
 func (self *IInputStreamReference) OpenSequentialReadAsync() (*IAsyncOperationOfIInputStream, error) {
-	var result *IAsyncOperationOfIInputStream
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIInputStream)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IOutputStream is the WinRT interface Windows.Storage.Streams.IOutputStream.
@@ -592,16 +592,16 @@ var IID_IOutputStream = win32.GUID{Data1: 0x905a0fe6, Data2: 0xbc53, Data3: 0x11
 
 // WriteAsync dispatches through IOutputStream's vtable slot 6.
 func (self *IOutputStream) WriteAsync(buffer *IBuffer) (*IAsyncOperationWithProgressOfUInt32AndUInt32, error) {
-	var result *IAsyncOperationWithProgressOfUInt32AndUInt32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(buffer)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationWithProgressOfUInt32AndUInt32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(buffer)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FlushAsync dispatches through IOutputStream's vtable slot 7.
 func (self *IOutputStream) FlushAsync() (*IAsyncOperationOfBool, error) {
-	var result *IAsyncOperationOfBool
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfBool)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IPropertySetSerializer is the WinRT interface Windows.Storage.Streams.IPropertySetSerializer.
@@ -615,9 +615,9 @@ var IID_IPropertySetSerializer = win32.GUID{Data1: 0x6e8ebf1c, Data2: 0xef3d, Da
 
 // Serialize dispatches through IPropertySetSerializer's vtable slot 6.
 func (self *IPropertySetSerializer) Serialize(propertySet *foundationcollections.IPropertySet) (*IBuffer, error) {
-	var result *IBuffer
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(propertySet)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(propertySet)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Deserialize dispatches through IPropertySetSerializer's vtable slot 7.
@@ -638,9 +638,9 @@ var IID_IRandomAccessStream = win32.GUID{Data1: 0x905a0fe1, Data2: 0xbc53, Data3
 
 // Size (propget get_Size) dispatches through IRandomAccessStream's vtable slot 6.
 func (self *IRandomAccessStream) Size() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSize (propput put_Size) dispatches through IRandomAccessStream's vtable slot 7.
@@ -651,23 +651,23 @@ func (self *IRandomAccessStream) SetSize(value uint64) error {
 
 // GetInputStreamAt dispatches through IRandomAccessStream's vtable slot 8.
 func (self *IRandomAccessStream) GetInputStreamAt(position uint64) (*IInputStream, error) {
-	var result *IInputStream
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(position), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IInputStream)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(position), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetOutputStreamAt dispatches through IRandomAccessStream's vtable slot 9.
 func (self *IRandomAccessStream) GetOutputStreamAt(position uint64) (*IOutputStream, error) {
-	var result *IOutputStream
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(position), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IOutputStream)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(position), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Position (propget get_Position) dispatches through IRandomAccessStream's vtable slot 10.
 func (self *IRandomAccessStream) Position() (uint64, error) {
-	var result uint64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Seek dispatches through IRandomAccessStream's vtable slot 11.
@@ -678,23 +678,23 @@ func (self *IRandomAccessStream) Seek(position uint64) error {
 
 // CloneStream dispatches through IRandomAccessStream's vtable slot 12.
 func (self *IRandomAccessStream) CloneStream() (*IRandomAccessStream, error) {
-	var result *IRandomAccessStream
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IRandomAccessStream)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CanRead (propget get_CanRead) dispatches through IRandomAccessStream's vtable slot 13.
 func (self *IRandomAccessStream) CanRead() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // CanWrite (propget get_CanWrite) dispatches through IRandomAccessStream's vtable slot 14.
 func (self *IRandomAccessStream) CanWrite() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IRandomAccessStreamReference is the WinRT interface Windows.Storage.Streams.IRandomAccessStreamReference.
@@ -708,9 +708,9 @@ var IID_IRandomAccessStreamReference = win32.GUID{Data1: 0x33ee3134, Data2: 0x1d
 
 // OpenReadAsync dispatches through IRandomAccessStreamReference's vtable slot 6.
 func (self *IRandomAccessStreamReference) OpenReadAsync() (*IAsyncOperationOfIRandomAccessStreamWithContentType, error) {
-	var result *IAsyncOperationOfIRandomAccessStreamWithContentType
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfIRandomAccessStreamWithContentType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IRandomAccessStreamReferenceStatics is the WinRT interface Windows.Storage.Streams.IRandomAccessStreamReferenceStatics.
@@ -727,16 +727,16 @@ var IID_IRandomAccessStreamReferenceStatics = win32.GUID{Data1: 0x857309dc, Data
 
 // CreateFromUri dispatches through IRandomAccessStreamReferenceStatics's vtable slot 7.
 func (self *IRandomAccessStreamReferenceStatics) CreateFromUri(uri *foundation.IUriRuntimeClass) (*IRandomAccessStreamReference, error) {
-	var result *IRandomAccessStreamReference
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IRandomAccessStreamReference)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateFromStream dispatches through IRandomAccessStreamReferenceStatics's vtable slot 8.
 func (self *IRandomAccessStreamReferenceStatics) CreateFromStream(stream *IRandomAccessStream) (*IRandomAccessStreamReference, error) {
-	var result *IRandomAccessStreamReference
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(stream)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IRandomAccessStreamReference)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(stream)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IRandomAccessStreamStatics is the WinRT interface Windows.Storage.Streams.IRandomAccessStreamStatics.
@@ -751,23 +751,23 @@ var IID_IRandomAccessStreamStatics = win32.GUID{Data1: 0x524cedcf, Data2: 0x6e29
 
 // CopyAsync dispatches through IRandomAccessStreamStatics's vtable slot 6.
 func (self *IRandomAccessStreamStatics) CopyAsync(source *IInputStream, destination *IOutputStream) (*IAsyncOperationWithProgressOfUInt64AndUInt64, error) {
-	var result *IAsyncOperationWithProgressOfUInt64AndUInt64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(source)), uintptr(unsafe.Pointer(destination)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationWithProgressOfUInt64AndUInt64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(source)), uintptr(unsafe.Pointer(destination)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CopySizeAsync dispatches through IRandomAccessStreamStatics's vtable slot 7.
 func (self *IRandomAccessStreamStatics) CopySizeAsync(source *IInputStream, destination *IOutputStream, bytesToCopy uint64) (*IAsyncOperationWithProgressOfUInt64AndUInt64, error) {
-	var result *IAsyncOperationWithProgressOfUInt64AndUInt64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(source)), uintptr(unsafe.Pointer(destination)), uintptr(bytesToCopy), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationWithProgressOfUInt64AndUInt64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(source)), uintptr(unsafe.Pointer(destination)), uintptr(bytesToCopy), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CopyAndCloseAsync dispatches through IRandomAccessStreamStatics's vtable slot 8.
 func (self *IRandomAccessStreamStatics) CopyAndCloseAsync(source *IInputStream, destination *IOutputStream) (*IAsyncOperationWithProgressOfUInt64AndUInt64, error) {
-	var result *IAsyncOperationWithProgressOfUInt64AndUInt64
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(source)), uintptr(unsafe.Pointer(destination)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationWithProgressOfUInt64AndUInt64)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(source)), uintptr(unsafe.Pointer(destination)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IRandomAccessStreamWithContentType is the WinRT interface Windows.Storage.Streams.IRandomAccessStreamWithContentType.

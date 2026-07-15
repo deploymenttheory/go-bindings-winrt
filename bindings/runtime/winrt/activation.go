@@ -22,14 +22,17 @@ func ActivateInstance(className string) (*syswinrt.IInspectable, error) {
 		return nil, err
 	}
 	defer h.Close()
-	var instance *syswinrt.IInspectable
-	if err := syswinrt.RoActivateInstance(h.Raw(), &instance); err != nil {
+	// Heap-allocated out-param (the invariant from outparam.go).
+	// RoActivateInstance does not reenter Go today, but every native-written
+	// pointer is hardened identically rather than reasoning per call.
+	instance := heapNew[*syswinrt.IInspectable]()
+	if err := syswinrt.RoActivateInstance(h.Raw(), instance); err != nil {
 		return nil, fmt.Errorf("winrt: activating %s: %w", className, err)
 	}
-	if instance == nil {
+	if *instance == nil {
 		return nil, fmt.Errorf("winrt: activating %s: null instance", className)
 	}
-	return instance, nil
+	return *instance, nil
 }
 
 // GetActivationFactory returns the activation factory for a runtime class,
@@ -43,12 +46,16 @@ func GetActivationFactory(className string, iid *win32.GUID) (*win32.IUnknown, e
 		return nil, err
 	}
 	defer h.Close()
-	var factory *win32.IUnknown
-	if err := syswinrt.RoGetActivationFactory(h.Raw(), iid, &factory); err != nil {
+	// Heap-allocated out-param (the invariant from outparam.go).
+	// RoGetActivationFactory does not reenter Go today, but every
+	// native-written pointer is hardened identically rather than reasoning
+	// per call.
+	factory := heapNew[*win32.IUnknown]()
+	if err := syswinrt.RoGetActivationFactory(h.Raw(), iid, factory); err != nil {
 		return nil, fmt.Errorf("winrt: getting activation factory for %s: %w", className, err)
 	}
-	if factory == nil {
+	if *factory == nil {
 		return nil, fmt.Errorf("winrt: getting activation factory for %s: null factory", className)
 	}
-	return factory, nil
+	return *factory, nil
 }

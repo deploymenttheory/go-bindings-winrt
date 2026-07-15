@@ -19,12 +19,15 @@ func QueryInterface[T any](obj unsafe.Pointer, iid *win32.GUID) (*T, error) {
 		return nil, fmt.Errorf("winrt: QueryInterface on nil object")
 	}
 	unknown := (*win32.IUnknown)(obj)
-	var out *win32.IUnknown
-	if err := unknown.QueryInterface(iid, &out); err != nil {
+	// Heap-allocated out-param (the invariant from outparam.go): QI on a
+	// Go-implemented object reenters Go and parks this goroutine on the
+	// dispatch worker, where a GC stack shrink would strand a stack address.
+	out := heapNew[*win32.IUnknown]()
+	if err := unknown.QueryInterface(iid, out); err != nil {
 		return nil, err
 	}
-	if out == nil {
+	if *out == nil {
 		return nil, fmt.Errorf("winrt: QueryInterface returned null for %s", iid)
 	}
-	return (*T)(unsafe.Pointer(out)), nil
+	return (*T)(unsafe.Pointer(*out)), nil
 }

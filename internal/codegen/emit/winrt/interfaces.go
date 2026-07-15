@@ -192,8 +192,20 @@ func logicalReturnType(returnSig string) string {
 }
 
 // buildMethod lowers one logical method to its ABI dispatch shape:
-// SyscallN(LpVtbl[slot], self, lowered params..., &retval) →
+// SyscallN(LpVtbl[slot], self, lowered params..., retval out-pointer) →
 // win32.ErrIfFailed. A nil skip means the method is emitted.
+//
+// Out-param invariant: every pointer the native side WRITES through — the
+// trailing retval and any [out] parameter — must be heap-allocated, never a
+// stack address. A WinRT call can reenter Go on the same goroutine (any
+// interface-typed argument could be a Go-implemented object whose QI/AddRef
+// parks on the runtime's dispatch worker), at which point a concurrent GC
+// may shrink-move this goroutine's stack and strand the native side's raw
+// pointer (see bindings/runtime/winrt/outparam.go). Retval locals are
+// therefore declared `result := new(T)` and every out-pointer word crosses
+// through winrt.OutParam, which forces the pointee onto Go's non-moving
+// heap. Applied uniformly — one small allocation per out-param per call is
+// the accepted cost of never guessing which calls can reenter.
 func (g *Generator) buildMethod(meta *winrtmeta.NamespaceMeta, interfaceGoName string, method *winrtmeta.Method, slot int, imports typemap.ImportSet) (view.MethodModel, *skip) {
 	metadataName := method.Name
 	var goName, accessorNote string
@@ -239,32 +251,32 @@ func (g *Generator) buildMethod(meta *winrtmeta.NamespaceMeta, interfaceGoName s
 		case typemap.KindString:
 			model.ReturnKind = view.RetString
 			model.ReturnSig = "(string, error)"
-			model.ResultDecl = "var result syswinrt.HSTRING"
-			model.ResultExpr = "winrt.TakeHString(result)"
+			model.ResultDecl = "result := new(syswinrt.HSTRING)"
+			model.ResultExpr = "winrt.TakeHString(*result)"
 			model.ZeroReturn = `""`
 		case typemap.KindBool:
 			model.ReturnKind = view.RetValue
 			model.ReturnSig = "(bool, error)"
-			model.ResultDecl = "var result byte"
-			model.ResultExpr = "result != 0"
+			model.ResultDecl = "result := new(byte)"
+			model.ResultExpr = "*result != 0"
 			model.ZeroReturn = "false"
 		case typemap.KindScalar, typemap.KindEnum:
 			model.ReturnKind = view.RetValue
 			model.ReturnSig = "(" + resolved.GoType + ", error)"
-			model.ResultDecl = "var result " + resolved.GoType
-			model.ResultExpr = "result"
+			model.ResultDecl = "result := new(" + resolved.GoType + ")"
+			model.ResultExpr = "*result"
 			model.ZeroReturn = "0"
 		case typemap.KindGUID, typemap.KindStruct:
 			model.ReturnKind = view.RetValue
 			model.ReturnSig = "(" + resolved.GoType + ", error)"
-			model.ResultDecl = "var result " + resolved.GoType
-			model.ResultExpr = "result"
+			model.ResultDecl = "result := new(" + resolved.GoType + ")"
+			model.ResultExpr = "*result"
 			model.ZeroReturn = resolved.GoType + "{}"
 		case typemap.KindInterfacePtr, typemap.KindObjectPtr:
 			model.ReturnKind = view.RetValue
 			model.ReturnSig = "(" + resolved.GoType + ", error)"
-			model.ResultDecl = "var result " + resolved.GoType
-			model.ResultExpr = "result"
+			model.ResultDecl = "result := new(" + resolved.GoType + ")"
+			model.ResultExpr = "*result"
 			model.ZeroReturn = "nil"
 		default:
 			return view.MethodModel{}, &skip{key: "unsupported-return", detail: resolved.GoType}
@@ -319,7 +331,7 @@ func (g *Generator) buildMethod(meta *winrtmeta.NamespaceMeta, interfaceGoName s
 		model.ArgExprs = append(model.ArgExprs, arg)
 	}
 	if method.Return != nil {
-		model.ArgExprs = append(model.ArgExprs, "uintptr(unsafe.Pointer(&result))")
+		model.ArgExprs = append(model.ArgExprs, "uintptr(winrt.OutParam(unsafe.Pointer(result)))")
 	}
 	model.ParamStr = strings.Join(decls, ", ")
 
@@ -333,12 +345,15 @@ func (g *Generator) buildMethod(meta *winrtmeta.NamespaceMeta, interfaceGoName s
 
 // lowerOutParam lowers a non-retval [out] parameter to a Go pointer
 // parameter passed straight through — only shapes whose Go representation
-// is ABI-identical qualify.
+// is ABI-identical qualify. The word crosses through winrt.OutParam (the
+// out-param invariant, see buildMethod): the parameter thereby leaks in the
+// method's escape summary, so a caller's `&local` argument is itself moved
+// to the heap at the call site.
 func lowerOutParam(paramName string, resolved typemap.Resolved) (decl, arg string, skipped *skip) {
 	switch resolved.Kind {
 	case typemap.KindScalar, typemap.KindEnum, typemap.KindStruct, typemap.KindGUID,
 		typemap.KindInterfacePtr, typemap.KindObjectPtr:
-		return paramName + " *" + resolved.GoType, "uintptr(unsafe.Pointer(" + paramName + "))", nil
+		return paramName + " *" + resolved.GoType, "uintptr(winrt.OutParam(unsafe.Pointer(" + paramName + ")))", nil
 	case typemap.KindString, typemap.KindBool:
 		return "", "", &skip{key: "out-param-skipped", detail: fmt.Sprintf("%s out parameter %s is not lowered this wave", resolved.GoType, paramName)}
 	}

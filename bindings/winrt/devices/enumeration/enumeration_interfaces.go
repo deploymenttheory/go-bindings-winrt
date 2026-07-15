@@ -27,9 +27,9 @@ var IID_IDeviceAccessChangedEventArgs = win32.GUID{Data1: 0xdeda0bcc, Data2: 0x4
 
 // Status (propget get_Status) dispatches through IDeviceAccessChangedEventArgs's vtable slot 6.
 func (self *IDeviceAccessChangedEventArgs) Status() (DeviceAccessStatus, error) {
-	var result DeviceAccessStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DeviceAccessStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceAccessChangedEventArgs2 is the WinRT interface Windows.Devices.Enumeration.IDeviceAccessChangedEventArgs2.
@@ -45,12 +45,12 @@ var IID_IDeviceAccessChangedEventArgs2 = win32.GUID{Data1: 0x82523262, Data2: 0x
 
 // Id (propget get_Id) dispatches through IDeviceAccessChangedEventArgs2's vtable slot 6.
 func (self *IDeviceAccessChangedEventArgs2) Id() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IDeviceAccessChangedEventArgs3 is the WinRT interface Windows.Devices.Enumeration.IDeviceAccessChangedEventArgs3.
@@ -65,9 +65,9 @@ var IID_IDeviceAccessChangedEventArgs3 = win32.GUID{Data1: 0x7580a878, Data2: 0x
 
 // UserPromptRequired (propget get_UserPromptRequired) dispatches through IDeviceAccessChangedEventArgs3's vtable slot 6.
 func (self *IDeviceAccessChangedEventArgs3) UserPromptRequired() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceAccessInformation is the WinRT interface Windows.Devices.Enumeration.IDeviceAccessInformation.
@@ -84,9 +84,9 @@ var IID_IDeviceAccessInformation = win32.GUID{Data1: 0x0baa9a73, Data2: 0x6de5, 
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveAccessChanged.
 func (self *IDeviceAccessInformation) AddAccessChanged(handler *TypedEventHandlerOfDeviceAccessInformationAndDeviceAccessChangedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAccessChanged (event remove remove_AccessChanged) dispatches through IDeviceAccessInformation's vtable slot 7,
@@ -98,9 +98,9 @@ func (self *IDeviceAccessInformation) RemoveAccessChanged(token syswinrt.EventRe
 
 // CurrentStatus (propget get_CurrentStatus) dispatches through IDeviceAccessInformation's vtable slot 8.
 func (self *IDeviceAccessInformation) CurrentStatus() (DeviceAccessStatus, error) {
-	var result DeviceAccessStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DeviceAccessStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceAccessInformation2 is the WinRT interface Windows.Devices.Enumeration.IDeviceAccessInformation2.
@@ -115,9 +115,9 @@ var IID_IDeviceAccessInformation2 = win32.GUID{Data1: 0xe2b9dff6, Data2: 0xe88f,
 
 // UserPromptRequired (propget get_UserPromptRequired) dispatches through IDeviceAccessInformation2's vtable slot 6.
 func (self *IDeviceAccessInformation2) UserPromptRequired() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceAccessInformationStatics is the WinRT interface Windows.Devices.Enumeration.IDeviceAccessInformationStatics.
@@ -137,18 +137,18 @@ func (self *IDeviceAccessInformationStatics) CreateFromId(deviceId string) (*IDe
 		return nil, err
 	}
 	defer hDeviceId.Close()
-	var result *IDeviceAccessInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceAccessInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 7: CreateFromDeviceClassId skipped: by-value GUID parameter deviceClassId has divergent amd64/arm64 ABIs
 
 // CreateFromDeviceClass dispatches through IDeviceAccessInformationStatics's vtable slot 8.
 func (self *IDeviceAccessInformationStatics) CreateFromDeviceClass(deviceClass DeviceClass) (*IDeviceAccessInformation, error) {
-	var result *IDeviceAccessInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(deviceClass), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceAccessInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(deviceClass), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceConnectionChangeTriggerDetails is the WinRT interface Windows.Devices.Enumeration.IDeviceConnectionChangeTriggerDetails.
@@ -163,12 +163,12 @@ var IID_IDeviceConnectionChangeTriggerDetails = win32.GUID{Data1: 0xb8578c0c, Da
 
 // DeviceId (propget get_DeviceId) dispatches through IDeviceConnectionChangeTriggerDetails's vtable slot 6.
 func (self *IDeviceConnectionChangeTriggerDetails) DeviceId() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IDeviceDisconnectButtonClickedEventArgs is the WinRT interface Windows.Devices.Enumeration.IDeviceDisconnectButtonClickedEventArgs.
@@ -183,9 +183,9 @@ var IID_IDeviceDisconnectButtonClickedEventArgs = win32.GUID{Data1: 0x8e44b56d, 
 
 // Device (propget get_Device) dispatches through IDeviceDisconnectButtonClickedEventArgs's vtable slot 6.
 func (self *IDeviceDisconnectButtonClickedEventArgs) Device() (*IDeviceInformation, error) {
-	var result *IDeviceInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceEnumerationSettings is the WinRT interface Windows.Devices.Enumeration.IDeviceEnumerationSettings.
@@ -209,50 +209,50 @@ var IID_IDeviceInformation = win32.GUID{Data1: 0xaba0fb95, Data2: 0x4398, Data3:
 
 // Id (propget get_Id) dispatches through IDeviceInformation's vtable slot 6.
 func (self *IDeviceInformation) Id() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Name (propget get_Name) dispatches through IDeviceInformation's vtable slot 7.
 func (self *IDeviceInformation) Name() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // IsEnabled (propget get_IsEnabled) dispatches through IDeviceInformation's vtable slot 8.
 func (self *IDeviceInformation) IsEnabled() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IsDefault (propget get_IsDefault) dispatches through IDeviceInformation's vtable slot 9.
 func (self *IDeviceInformation) IsDefault() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // EnclosureLocation (propget get_EnclosureLocation) dispatches through IDeviceInformation's vtable slot 10.
 func (self *IDeviceInformation) EnclosureLocation() (*IEnclosureLocation, error) {
-	var result *IEnclosureLocation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IEnclosureLocation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Properties (propget get_Properties) dispatches through IDeviceInformation's vtable slot 11.
 func (self *IDeviceInformation) Properties() (*IMapViewOfStringAndObject, error) {
-	var result *IMapViewOfStringAndObject
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IMapViewOfStringAndObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Update dispatches through IDeviceInformation's vtable slot 12.
@@ -263,16 +263,16 @@ func (self *IDeviceInformation) Update(updateInfo *IDeviceInformationUpdate) err
 
 // GetThumbnailAsync dispatches through IDeviceInformation's vtable slot 13.
 func (self *IDeviceInformation) GetThumbnailAsync() (*IAsyncOperationOfDeviceThumbnail, error) {
-	var result *IAsyncOperationOfDeviceThumbnail
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceThumbnail)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetGlyphThumbnailAsync dispatches through IDeviceInformation's vtable slot 14.
 func (self *IDeviceInformation) GetGlyphThumbnailAsync() (*IAsyncOperationOfDeviceThumbnail, error) {
-	var result *IAsyncOperationOfDeviceThumbnail
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceThumbnail)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceInformation2 is the WinRT interface Windows.Devices.Enumeration.IDeviceInformation2.
@@ -287,16 +287,16 @@ var IID_IDeviceInformation2 = win32.GUID{Data1: 0xf156a638, Data2: 0x7997, Data3
 
 // Kind (propget get_Kind) dispatches through IDeviceInformation2's vtable slot 6.
 func (self *IDeviceInformation2) Kind() (DeviceInformationKind, error) {
-	var result DeviceInformationKind
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DeviceInformationKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Pairing (propget get_Pairing) dispatches through IDeviceInformation2's vtable slot 7.
 func (self *IDeviceInformation2) Pairing() (*IDeviceInformationPairing, error) {
-	var result *IDeviceInformationPairing
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceInformationPairing)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceInformationCustomPairing is the WinRT interface Windows.Devices.Enumeration.IDeviceInformationCustomPairing.
@@ -311,32 +311,32 @@ var IID_IDeviceInformationCustomPairing = win32.GUID{Data1: 0x85138c02, Data2: 0
 
 // PairAsync dispatches through IDeviceInformationCustomPairing's vtable slot 6.
 func (self *IDeviceInformationCustomPairing) PairAsync(pairingKindsSupported DevicePairingKinds) (*IAsyncOperationOfDevicePairingResult, error) {
-	var result *IAsyncOperationOfDevicePairingResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(pairingKindsSupported), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDevicePairingResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(pairingKindsSupported), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PairWithProtectionLevelAsync dispatches through IDeviceInformationCustomPairing's vtable slot 7.
 func (self *IDeviceInformationCustomPairing) PairWithProtectionLevelAsync(pairingKindsSupported DevicePairingKinds, minProtectionLevel DevicePairingProtectionLevel) (*IAsyncOperationOfDevicePairingResult, error) {
-	var result *IAsyncOperationOfDevicePairingResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(pairingKindsSupported), uintptr(minProtectionLevel), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDevicePairingResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(pairingKindsSupported), uintptr(minProtectionLevel), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PairWithProtectionLevelAndSettingsAsync dispatches through IDeviceInformationCustomPairing's vtable slot 8.
 func (self *IDeviceInformationCustomPairing) PairWithProtectionLevelAndSettingsAsync(pairingKindsSupported DevicePairingKinds, minProtectionLevel DevicePairingProtectionLevel, devicePairingSettings *IDevicePairingSettings) (*IAsyncOperationOfDevicePairingResult, error) {
-	var result *IAsyncOperationOfDevicePairingResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(pairingKindsSupported), uintptr(minProtectionLevel), uintptr(unsafe.Pointer(devicePairingSettings)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDevicePairingResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(pairingKindsSupported), uintptr(minProtectionLevel), uintptr(unsafe.Pointer(devicePairingSettings)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddPairingRequested (event add add_PairingRequested) dispatches through IDeviceInformationCustomPairing's vtable slot 9.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemovePairingRequested.
 func (self *IDeviceInformationCustomPairing) AddPairingRequested(handler *TypedEventHandlerOfDeviceInformationCustomPairingAndDevicePairingRequestedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemovePairingRequested (event remove remove_PairingRequested) dispatches through IDeviceInformationCustomPairing's vtable slot 10,
@@ -366,9 +366,9 @@ func (self *IDeviceInformationCustomPairing2) AddPairingSetMember(device *IDevic
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemovePairingSetMembersRequested.
 func (self *IDeviceInformationCustomPairing2) AddPairingSetMembersRequested(handler *TypedEventHandlerOfDeviceInformationCustomPairingAndDevicePairingSetMembersRequestedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemovePairingSetMembersRequested (event remove remove_PairingSetMembersRequested) dispatches through IDeviceInformationCustomPairing2's vtable slot 8,
@@ -390,30 +390,30 @@ var IID_IDeviceInformationPairing = win32.GUID{Data1: 0x2c4769f5, Data2: 0xf684,
 
 // IsPaired (propget get_IsPaired) dispatches through IDeviceInformationPairing's vtable slot 6.
 func (self *IDeviceInformationPairing) IsPaired() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // CanPair (propget get_CanPair) dispatches through IDeviceInformationPairing's vtable slot 7.
 func (self *IDeviceInformationPairing) CanPair() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // PairAsync dispatches through IDeviceInformationPairing's vtable slot 8.
 func (self *IDeviceInformationPairing) PairAsync() (*IAsyncOperationOfDevicePairingResult, error) {
-	var result *IAsyncOperationOfDevicePairingResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDevicePairingResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PairWithProtectionLevelAsync dispatches through IDeviceInformationPairing's vtable slot 9.
 func (self *IDeviceInformationPairing) PairWithProtectionLevelAsync(minProtectionLevel DevicePairingProtectionLevel) (*IAsyncOperationOfDevicePairingResult, error) {
-	var result *IAsyncOperationOfDevicePairingResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(minProtectionLevel), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDevicePairingResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(minProtectionLevel), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceInformationPairing2 is the WinRT interface Windows.Devices.Enumeration.IDeviceInformationPairing2.
@@ -428,30 +428,30 @@ var IID_IDeviceInformationPairing2 = win32.GUID{Data1: 0xf68612fd, Data2: 0x0aee
 
 // ProtectionLevel (propget get_ProtectionLevel) dispatches through IDeviceInformationPairing2's vtable slot 6.
 func (self *IDeviceInformationPairing2) ProtectionLevel() (DevicePairingProtectionLevel, error) {
-	var result DevicePairingProtectionLevel
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DevicePairingProtectionLevel)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Custom (propget get_Custom) dispatches through IDeviceInformationPairing2's vtable slot 7.
 func (self *IDeviceInformationPairing2) Custom() (*IDeviceInformationCustomPairing, error) {
-	var result *IDeviceInformationCustomPairing
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceInformationCustomPairing)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PairWithProtectionLevelAndSettingsAsync dispatches through IDeviceInformationPairing2's vtable slot 8.
 func (self *IDeviceInformationPairing2) PairWithProtectionLevelAndSettingsAsync(minProtectionLevel DevicePairingProtectionLevel, devicePairingSettings *IDevicePairingSettings) (*IAsyncOperationOfDevicePairingResult, error) {
-	var result *IAsyncOperationOfDevicePairingResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(minProtectionLevel), uintptr(unsafe.Pointer(devicePairingSettings)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDevicePairingResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(minProtectionLevel), uintptr(unsafe.Pointer(devicePairingSettings)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // UnpairAsync dispatches through IDeviceInformationPairing2's vtable slot 9.
 func (self *IDeviceInformationPairing2) UnpairAsync() (*IAsyncOperationOfDeviceUnpairingResult, error) {
-	var result *IAsyncOperationOfDeviceUnpairingResult
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceUnpairingResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceInformationPairingStatics is the WinRT interface Windows.Devices.Enumeration.IDeviceInformationPairingStatics.
@@ -466,9 +466,9 @@ var IID_IDeviceInformationPairingStatics = win32.GUID{Data1: 0xe915c408, Data2: 
 
 // TryRegisterForAllInboundPairingRequests dispatches through IDeviceInformationPairingStatics's vtable slot 6.
 func (self *IDeviceInformationPairingStatics) TryRegisterForAllInboundPairingRequests(pairingKindsSupported DevicePairingKinds) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(pairingKindsSupported), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(pairingKindsSupported), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceInformationPairingStatics2 is the WinRT interface Windows.Devices.Enumeration.IDeviceInformationPairingStatics2.
@@ -483,9 +483,9 @@ var IID_IDeviceInformationPairingStatics2 = win32.GUID{Data1: 0x04de5372, Data2:
 
 // TryRegisterForAllInboundPairingRequestsWithProtectionLevel dispatches through IDeviceInformationPairingStatics2's vtable slot 6.
 func (self *IDeviceInformationPairingStatics2) TryRegisterForAllInboundPairingRequestsWithProtectionLevel(pairingKindsSupported DevicePairingKinds, minProtectionLevel DevicePairingProtectionLevel) (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(pairingKindsSupported), uintptr(minProtectionLevel), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(pairingKindsSupported), uintptr(minProtectionLevel), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceInformationStatics is the WinRT interface Windows.Devices.Enumeration.IDeviceInformationStatics.
@@ -505,9 +505,9 @@ func (self *IDeviceInformationStatics) CreateFromIdAsync(deviceId string) (*IAsy
 		return nil, err
 	}
 	defer hDeviceId.Close()
-	var result *IAsyncOperationOfDeviceInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateFromIdAsyncAdditionalProperties dispatches through IDeviceInformationStatics's vtable slot 7.
@@ -517,23 +517,23 @@ func (self *IDeviceInformationStatics) CreateFromIdAsyncAdditionalProperties(dev
 		return nil, err
 	}
 	defer hDeviceId.Close()
-	var result *IAsyncOperationOfDeviceInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAllAsync dispatches through IDeviceInformationStatics's vtable slot 8.
 func (self *IDeviceInformationStatics) FindAllAsync() (*IAsyncOperationOfDeviceInformationCollection, error) {
-	var result *IAsyncOperationOfDeviceInformationCollection
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceInformationCollection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAllAsyncDeviceClass dispatches through IDeviceInformationStatics's vtable slot 9.
 func (self *IDeviceInformationStatics) FindAllAsyncDeviceClass(deviceClass DeviceClass) (*IAsyncOperationOfDeviceInformationCollection, error) {
-	var result *IAsyncOperationOfDeviceInformationCollection
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(deviceClass), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceInformationCollection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(deviceClass), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAllAsyncAqsFilter dispatches through IDeviceInformationStatics's vtable slot 10.
@@ -543,9 +543,9 @@ func (self *IDeviceInformationStatics) FindAllAsyncAqsFilter(aqsFilter string) (
 		return nil, err
 	}
 	defer hAqsFilter.Close()
-	var result *IAsyncOperationOfDeviceInformationCollection
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceInformationCollection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAllAsyncAqsFilterAndAdditionalProperties dispatches through IDeviceInformationStatics's vtable slot 11.
@@ -555,23 +555,23 @@ func (self *IDeviceInformationStatics) FindAllAsyncAqsFilterAndAdditionalPropert
 		return nil, err
 	}
 	defer hAqsFilter.Close()
-	var result *IAsyncOperationOfDeviceInformationCollection
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceInformationCollection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWatcher dispatches through IDeviceInformationStatics's vtable slot 12.
 func (self *IDeviceInformationStatics) CreateWatcher() (*IDeviceWatcher, error) {
-	var result *IDeviceWatcher
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceWatcher)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWatcherDeviceClass dispatches through IDeviceInformationStatics's vtable slot 13.
 func (self *IDeviceInformationStatics) CreateWatcherDeviceClass(deviceClass DeviceClass) (*IDeviceWatcher, error) {
-	var result *IDeviceWatcher
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(deviceClass), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceWatcher)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(deviceClass), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWatcherAqsFilter dispatches through IDeviceInformationStatics's vtable slot 14.
@@ -581,9 +581,9 @@ func (self *IDeviceInformationStatics) CreateWatcherAqsFilter(aqsFilter string) 
 		return nil, err
 	}
 	defer hAqsFilter.Close()
-	var result *IDeviceWatcher
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceWatcher)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWatcherAqsFilterAndAdditionalProperties dispatches through IDeviceInformationStatics's vtable slot 15.
@@ -593,9 +593,9 @@ func (self *IDeviceInformationStatics) CreateWatcherAqsFilterAndAdditionalProper
 		return nil, err
 	}
 	defer hAqsFilter.Close()
-	var result *IDeviceWatcher
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceWatcher)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceInformationStatics2 is the WinRT interface Windows.Devices.Enumeration.IDeviceInformationStatics2.
@@ -610,12 +610,12 @@ var IID_IDeviceInformationStatics2 = win32.GUID{Data1: 0x493b4f34, Data2: 0xa84f
 
 // GetAqsFilterFromDeviceClass dispatches through IDeviceInformationStatics2's vtable slot 6.
 func (self *IDeviceInformationStatics2) GetAqsFilterFromDeviceClass(deviceClass DeviceClass) (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(deviceClass), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(deviceClass), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // CreateFromIdAsyncWithKindAndAdditionalProperties dispatches through IDeviceInformationStatics2's vtable slot 7.
@@ -625,9 +625,9 @@ func (self *IDeviceInformationStatics2) CreateFromIdAsyncWithKindAndAdditionalPr
 		return nil, err
 	}
 	defer hDeviceId.Close()
-	var result *IAsyncOperationOfDeviceInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAllAsyncWithKindAqsFilterAndAdditionalProperties dispatches through IDeviceInformationStatics2's vtable slot 8.
@@ -637,9 +637,9 @@ func (self *IDeviceInformationStatics2) FindAllAsyncWithKindAqsFilterAndAddition
 		return nil, err
 	}
 	defer hAqsFilter.Close()
-	var result *IAsyncOperationOfDeviceInformationCollection
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceInformationCollection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWatcherWithKindAqsFilterAndAdditionalProperties dispatches through IDeviceInformationStatics2's vtable slot 9.
@@ -649,9 +649,9 @@ func (self *IDeviceInformationStatics2) CreateWatcherWithKindAqsFilterAndAdditio
 		return nil, err
 	}
 	defer hAqsFilter.Close()
-	var result *IDeviceWatcher
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceWatcher)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceInformationStatics3 is the WinRT interface Windows.Devices.Enumeration.IDeviceInformationStatics3.
@@ -671,9 +671,9 @@ func (self *IDeviceInformationStatics3) CreateFromIdAsyncWithAdditionalPropertie
 		return nil, err
 	}
 	defer hDeviceId.Close()
-	var result *IAsyncOperationOfDeviceInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(unsafe.Pointer(settings)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hDeviceId.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(unsafe.Pointer(settings)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindAllAsyncWithAqsFilterAdditionalPropertiesKindAndSettings dispatches through IDeviceInformationStatics3's vtable slot 7.
@@ -683,9 +683,9 @@ func (self *IDeviceInformationStatics3) FindAllAsyncWithAqsFilterAdditionalPrope
 		return nil, err
 	}
 	defer hAqsFilter.Close()
-	var result *IAsyncOperationOfDeviceInformationCollection
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(unsafe.Pointer(settings)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IAsyncOperationOfDeviceInformationCollection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(unsafe.Pointer(settings)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWatcherWithAqsFilterAdditionalPropertiesKindAndSettings dispatches through IDeviceInformationStatics3's vtable slot 8.
@@ -695,9 +695,9 @@ func (self *IDeviceInformationStatics3) CreateWatcherWithAqsFilterAdditionalProp
 		return nil, err
 	}
 	defer hAqsFilter.Close()
-	var result *IDeviceWatcher
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(unsafe.Pointer(settings)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceWatcher)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hAqsFilter.Raw()), uintptr(unsafe.Pointer(additionalProperties)), uintptr(kind), uintptr(unsafe.Pointer(settings)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceInformationUpdate is the WinRT interface Windows.Devices.Enumeration.IDeviceInformationUpdate.
@@ -712,19 +712,19 @@ var IID_IDeviceInformationUpdate = win32.GUID{Data1: 0x8f315305, Data2: 0xd972, 
 
 // Id (propget get_Id) dispatches through IDeviceInformationUpdate's vtable slot 6.
 func (self *IDeviceInformationUpdate) Id() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Properties (propget get_Properties) dispatches through IDeviceInformationUpdate's vtable slot 7.
 func (self *IDeviceInformationUpdate) Properties() (*IMapViewOfStringAndObject, error) {
-	var result *IMapViewOfStringAndObject
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IMapViewOfStringAndObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceInformationUpdate2 is the WinRT interface Windows.Devices.Enumeration.IDeviceInformationUpdate2.
@@ -739,9 +739,9 @@ var IID_IDeviceInformationUpdate2 = win32.GUID{Data1: 0x5d9d148c, Data2: 0xa873,
 
 // Kind (propget get_Kind) dispatches through IDeviceInformationUpdate2's vtable slot 6.
 func (self *IDeviceInformationUpdate2) Kind() (DeviceInformationKind, error) {
-	var result DeviceInformationKind
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DeviceInformationKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDevicePairingRequestedEventArgs is the WinRT interface Windows.Devices.Enumeration.IDevicePairingRequestedEventArgs.
@@ -756,26 +756,26 @@ var IID_IDevicePairingRequestedEventArgs = win32.GUID{Data1: 0xf717fc56, Data2: 
 
 // DeviceInformation (propget get_DeviceInformation) dispatches through IDevicePairingRequestedEventArgs's vtable slot 6.
 func (self *IDevicePairingRequestedEventArgs) DeviceInformation() (*IDeviceInformation, error) {
-	var result *IDeviceInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PairingKind (propget get_PairingKind) dispatches through IDevicePairingRequestedEventArgs's vtable slot 7.
 func (self *IDevicePairingRequestedEventArgs) PairingKind() (DevicePairingKinds, error) {
-	var result DevicePairingKinds
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DevicePairingKinds)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Pin (propget get_Pin) dispatches through IDevicePairingRequestedEventArgs's vtable slot 8.
 func (self *IDevicePairingRequestedEventArgs) Pin() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // Accept dispatches through IDevicePairingRequestedEventArgs's vtable slot 9.
@@ -797,9 +797,9 @@ func (self *IDevicePairingRequestedEventArgs) AcceptWithPin(pin string) error {
 
 // GetDeferral dispatches through IDevicePairingRequestedEventArgs's vtable slot 11.
 func (self *IDevicePairingRequestedEventArgs) GetDeferral() (*foundation.IDeferral, error) {
-	var result *foundation.IDeferral
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*foundation.IDeferral)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDevicePairingRequestedEventArgs2 is the WinRT interface Windows.Devices.Enumeration.IDevicePairingRequestedEventArgs2.
@@ -847,16 +847,16 @@ var IID_IDevicePairingResult = win32.GUID{Data1: 0x072b02bf, Data2: 0xdd95, Data
 
 // Status (propget get_Status) dispatches through IDevicePairingResult's vtable slot 6.
 func (self *IDevicePairingResult) Status() (DevicePairingResultStatus, error) {
-	var result DevicePairingResultStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DevicePairingResultStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ProtectionLevelUsed (propget get_ProtectionLevelUsed) dispatches through IDevicePairingResult's vtable slot 7.
 func (self *IDevicePairingResult) ProtectionLevelUsed() (DevicePairingProtectionLevel, error) {
-	var result DevicePairingProtectionLevel
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DevicePairingProtectionLevel)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDevicePairingSetMembersRequestedEventArgs is the WinRT interface Windows.Devices.Enumeration.IDevicePairingSetMembersRequestedEventArgs.
@@ -871,23 +871,23 @@ var IID_IDevicePairingSetMembersRequestedEventArgs = win32.GUID{Data1: 0x7fb42cf
 
 // Status (propget get_Status) dispatches through IDevicePairingSetMembersRequestedEventArgs's vtable slot 6.
 func (self *IDevicePairingSetMembersRequestedEventArgs) Status() (DevicePairingAddPairingSetMemberStatus, error) {
-	var result DevicePairingAddPairingSetMemberStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DevicePairingAddPairingSetMemberStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ParentDeviceInformation (propget get_ParentDeviceInformation) dispatches through IDevicePairingSetMembersRequestedEventArgs's vtable slot 7.
 func (self *IDevicePairingSetMembersRequestedEventArgs) ParentDeviceInformation() (*IDeviceInformation, error) {
-	var result *IDeviceInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // PairingSetMembers (propget get_PairingSetMembers) dispatches through IDevicePairingSetMembersRequestedEventArgs's vtable slot 8.
 func (self *IDevicePairingSetMembersRequestedEventArgs) PairingSetMembers() (*IVectorViewOfDeviceInformation, error) {
-	var result *IVectorViewOfDeviceInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDevicePairingSettings is the WinRT interface Windows.Devices.Enumeration.IDevicePairingSettings.
@@ -911,32 +911,32 @@ var IID_IDevicePicker = win32.GUID{Data1: 0x84997aa2, Data2: 0x034a, Data3: 0x44
 
 // Filter (propget get_Filter) dispatches through IDevicePicker's vtable slot 6.
 func (self *IDevicePicker) Filter() (*IDevicePickerFilter, error) {
-	var result *IDevicePickerFilter
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDevicePickerFilter)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Appearance (propget get_Appearance) dispatches through IDevicePicker's vtable slot 7.
 func (self *IDevicePicker) Appearance() (*IDevicePickerAppearance, error) {
-	var result *IDevicePickerAppearance
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDevicePickerAppearance)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RequestedProperties (propget get_RequestedProperties) dispatches through IDevicePicker's vtable slot 8.
 func (self *IDevicePicker) RequestedProperties() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AddDeviceSelected (event add add_DeviceSelected) dispatches through IDevicePicker's vtable slot 9.
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveDeviceSelected.
 func (self *IDevicePicker) AddDeviceSelected(handler *TypedEventHandlerOfDevicePickerAndDeviceSelectedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveDeviceSelected (event remove remove_DeviceSelected) dispatches through IDevicePicker's vtable slot 10,
@@ -950,9 +950,9 @@ func (self *IDevicePicker) RemoveDeviceSelected(token syswinrt.EventRegistration
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveDisconnectButtonClicked.
 func (self *IDevicePicker) AddDisconnectButtonClicked(handler *TypedEventHandlerOfDevicePickerAndDeviceDisconnectButtonClickedEventArgs) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveDisconnectButtonClicked (event remove remove_DisconnectButtonClicked) dispatches through IDevicePicker's vtable slot 12,
@@ -966,9 +966,9 @@ func (self *IDevicePicker) RemoveDisconnectButtonClicked(token syswinrt.EventReg
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveDevicePickerDismissed.
 func (self *IDevicePicker) AddDevicePickerDismissed(handler *TypedEventHandlerOfDevicePickerAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveDevicePickerDismissed (event remove remove_DevicePickerDismissed) dispatches through IDevicePicker's vtable slot 14,
@@ -1015,12 +1015,12 @@ var IID_IDevicePickerAppearance = win32.GUID{Data1: 0xe69a12c6, Data2: 0xe627, D
 
 // Title (propget get_Title) dispatches through IDevicePickerAppearance's vtable slot 6.
 func (self *IDevicePickerAppearance) Title() (string, error) {
-	var result syswinrt.HSTRING
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
 		return "", err
 	}
-	return winrt.TakeHString(result), nil
+	return winrt.TakeHString(*result), nil
 }
 
 // SetTitle (propput put_Title) dispatches through IDevicePickerAppearance's vtable slot 7.
@@ -1036,54 +1036,54 @@ func (self *IDevicePickerAppearance) SetTitle(value string) error {
 
 // ForegroundColor (propget get_ForegroundColor) dispatches through IDevicePickerAppearance's vtable slot 8.
 func (self *IDevicePickerAppearance) ForegroundColor() (ui.Color, error) {
-	var result ui.Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ui.Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: put_ForegroundColor skipped: by-value Windows.UI.Color parameter value does not flatten to one integer word
 
 // BackgroundColor (propget get_BackgroundColor) dispatches through IDevicePickerAppearance's vtable slot 10.
 func (self *IDevicePickerAppearance) BackgroundColor() (ui.Color, error) {
-	var result ui.Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ui.Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 11: put_BackgroundColor skipped: by-value Windows.UI.Color parameter value does not flatten to one integer word
 
 // AccentColor (propget get_AccentColor) dispatches through IDevicePickerAppearance's vtable slot 12.
 func (self *IDevicePickerAppearance) AccentColor() (ui.Color, error) {
-	var result ui.Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ui.Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 13: put_AccentColor skipped: by-value Windows.UI.Color parameter value does not flatten to one integer word
 
 // SelectedForegroundColor (propget get_SelectedForegroundColor) dispatches through IDevicePickerAppearance's vtable slot 14.
 func (self *IDevicePickerAppearance) SelectedForegroundColor() (ui.Color, error) {
-	var result ui.Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ui.Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 15: put_SelectedForegroundColor skipped: by-value Windows.UI.Color parameter value does not flatten to one integer word
 
 // SelectedBackgroundColor (propget get_SelectedBackgroundColor) dispatches through IDevicePickerAppearance's vtable slot 16.
 func (self *IDevicePickerAppearance) SelectedBackgroundColor() (ui.Color, error) {
-	var result ui.Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ui.Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 17: put_SelectedBackgroundColor skipped: by-value Windows.UI.Color parameter value does not flatten to one integer word
 
 // SelectedAccentColor (propget get_SelectedAccentColor) dispatches through IDevicePickerAppearance's vtable slot 18.
 func (self *IDevicePickerAppearance) SelectedAccentColor() (ui.Color, error) {
-	var result ui.Color
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(ui.Color)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 19: put_SelectedAccentColor skipped: by-value Windows.UI.Color parameter value does not flatten to one integer word
@@ -1100,16 +1100,16 @@ var IID_IDevicePickerFilter = win32.GUID{Data1: 0x91db92a2, Data2: 0x57cb, Data3
 
 // SupportedDeviceClasses (propget get_SupportedDeviceClasses) dispatches through IDevicePickerFilter's vtable slot 6.
 func (self *IDevicePickerFilter) SupportedDeviceClasses() (*IVectorOfDeviceClass, error) {
-	var result *IVectorOfDeviceClass
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfDeviceClass)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SupportedDeviceSelectors (propget get_SupportedDeviceSelectors) dispatches through IDevicePickerFilter's vtable slot 7.
 func (self *IDevicePickerFilter) SupportedDeviceSelectors() (*IVectorOfString, error) {
-	var result *IVectorOfString
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceSelectedEventArgs is the WinRT interface Windows.Devices.Enumeration.IDeviceSelectedEventArgs.
@@ -1124,9 +1124,9 @@ var IID_IDeviceSelectedEventArgs = win32.GUID{Data1: 0x269edade, Data2: 0x1d2f, 
 
 // SelectedDevice (propget get_SelectedDevice) dispatches through IDeviceSelectedEventArgs's vtable slot 6.
 func (self *IDeviceSelectedEventArgs) SelectedDevice() (*IDeviceInformation, error) {
-	var result *IDeviceInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceUnpairingResult is the WinRT interface Windows.Devices.Enumeration.IDeviceUnpairingResult.
@@ -1141,9 +1141,9 @@ var IID_IDeviceUnpairingResult = win32.GUID{Data1: 0x66f44ad3, Data2: 0x79d9, Da
 
 // Status (propget get_Status) dispatches through IDeviceUnpairingResult's vtable slot 6.
 func (self *IDeviceUnpairingResult) Status() (DeviceUnpairingResultStatus, error) {
-	var result DeviceUnpairingResultStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DeviceUnpairingResultStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceWatcher is the WinRT interface Windows.Devices.Enumeration.IDeviceWatcher.
@@ -1160,9 +1160,9 @@ var IID_IDeviceWatcher = win32.GUID{Data1: 0xc9eab97d, Data2: 0x8f6b, Data3: 0x4
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveAdded.
 func (self *IDeviceWatcher) AddAdded(handler *TypedEventHandlerOfDeviceWatcherAndDeviceInformation) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveAdded (event remove remove_Added) dispatches through IDeviceWatcher's vtable slot 7,
@@ -1176,9 +1176,9 @@ func (self *IDeviceWatcher) RemoveAdded(token syswinrt.EventRegistrationToken) e
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveUpdated.
 func (self *IDeviceWatcher) AddUpdated(handler *TypedEventHandlerOfDeviceWatcherAndDeviceInformationUpdate) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveUpdated (event remove remove_Updated) dispatches through IDeviceWatcher's vtable slot 9,
@@ -1192,9 +1192,9 @@ func (self *IDeviceWatcher) RemoveUpdated(token syswinrt.EventRegistrationToken)
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveRemoved.
 func (self *IDeviceWatcher) AddRemoved(handler *TypedEventHandlerOfDeviceWatcherAndDeviceInformationUpdate) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveRemoved (event remove remove_Removed) dispatches through IDeviceWatcher's vtable slot 11,
@@ -1208,9 +1208,9 @@ func (self *IDeviceWatcher) RemoveRemoved(token syswinrt.EventRegistrationToken)
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveEnumerationCompleted.
 func (self *IDeviceWatcher) AddEnumerationCompleted(handler *TypedEventHandlerOfDeviceWatcherAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveEnumerationCompleted (event remove remove_EnumerationCompleted) dispatches through IDeviceWatcher's vtable slot 13,
@@ -1224,9 +1224,9 @@ func (self *IDeviceWatcher) RemoveEnumerationCompleted(token syswinrt.EventRegis
 // The handler stays registered (and referenced by the runtime) until the
 // returned token is passed to RemoveStopped.
 func (self *IDeviceWatcher) AddStopped(handler *TypedEventHandlerOfDeviceWatcherAndObject) (syswinrt.EventRegistrationToken, error) {
-	var result syswinrt.EventRegistrationToken
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RemoveStopped (event remove remove_Stopped) dispatches through IDeviceWatcher's vtable slot 15,
@@ -1238,9 +1238,9 @@ func (self *IDeviceWatcher) RemoveStopped(token syswinrt.EventRegistrationToken)
 
 // Status (propget get_Status) dispatches through IDeviceWatcher's vtable slot 16.
 func (self *IDeviceWatcher) Status() (DeviceWatcherStatus, error) {
-	var result DeviceWatcherStatus
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DeviceWatcherStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Start dispatches through IDeviceWatcher's vtable slot 17.
@@ -1279,23 +1279,23 @@ var IID_IDeviceWatcherEvent = win32.GUID{Data1: 0x74aa9c0b, Data2: 0x1dbd, Data3
 
 // Kind (propget get_Kind) dispatches through IDeviceWatcherEvent's vtable slot 6.
 func (self *IDeviceWatcherEvent) Kind() (DeviceWatcherEventKind, error) {
-	var result DeviceWatcherEventKind
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(DeviceWatcherEventKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DeviceInformation (propget get_DeviceInformation) dispatches through IDeviceWatcherEvent's vtable slot 7.
 func (self *IDeviceWatcherEvent) DeviceInformation() (*IDeviceInformation, error) {
-	var result *IDeviceInformation
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // DeviceInformationUpdate (propget get_DeviceInformationUpdate) dispatches through IDeviceWatcherEvent's vtable slot 8.
 func (self *IDeviceWatcherEvent) DeviceInformationUpdate() (*IDeviceInformationUpdate, error) {
-	var result *IDeviceInformationUpdate
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IDeviceInformationUpdate)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IDeviceWatcherTriggerDetails is the WinRT interface Windows.Devices.Enumeration.IDeviceWatcherTriggerDetails.
@@ -1310,9 +1310,9 @@ var IID_IDeviceWatcherTriggerDetails = win32.GUID{Data1: 0x38808119, Data2: 0x4c
 
 // DeviceWatcherEvents (propget get_DeviceWatcherEvents) dispatches through IDeviceWatcherTriggerDetails's vtable slot 6.
 func (self *IDeviceWatcherTriggerDetails) DeviceWatcherEvents() (*IVectorViewOfDeviceWatcherEvent, error) {
-	var result *IVectorViewOfDeviceWatcherEvent
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(*IVectorViewOfDeviceWatcherEvent)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IEnclosureLocation is the WinRT interface Windows.Devices.Enumeration.IEnclosureLocation.
@@ -1327,23 +1327,23 @@ var IID_IEnclosureLocation = win32.GUID{Data1: 0x42340a27, Data2: 0x5810, Data3:
 
 // InDock (propget get_InDock) dispatches through IEnclosureLocation's vtable slot 6.
 func (self *IEnclosureLocation) InDock() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // InLid (propget get_InLid) dispatches through IEnclosureLocation's vtable slot 7.
 func (self *IEnclosureLocation) InLid() (bool, error) {
-	var result byte
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result != 0, win32.ErrIfFailed(int32(r1))
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // Panel (propget get_Panel) dispatches through IEnclosureLocation's vtable slot 8.
 func (self *IEnclosureLocation) Panel() (Panel, error) {
-	var result Panel
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(Panel)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IEnclosureLocation2 is the WinRT interface Windows.Devices.Enumeration.IEnclosureLocation2.
@@ -1359,7 +1359,7 @@ var IID_IEnclosureLocation2 = win32.GUID{Data1: 0x2885995b, Data2: 0xe07d, Data3
 
 // RotationAngleInDegreesClockwise (propget get_RotationAngleInDegreesClockwise) dispatches through IEnclosureLocation2's vtable slot 6.
 func (self *IEnclosureLocation2) RotationAngleInDegreesClockwise() (uint32, error) {
-	var result uint32
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
-	return result, win32.ErrIfFailed(int32(r1))
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
