@@ -70,6 +70,6 @@ consumers prove it), so they are pure additions:
 
 ## CI note
 
-The Go lint/build workflows are disabled (`.github/workflows/go-lint.yml.disabled`)
-until this repository has a `go.mod` and Go code. Re-enable them when the
-generator lands.
+The Go lint (`go-lint.yml`) and build/test (`ci.yml`) workflows are active.
+The regeneration-determinism CI job is added when the generator's emit
+stage lands.

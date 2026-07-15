@@ -1,23 +1,32 @@
 # go-bindings-winrt
 
-**Status: pre-work — no code yet.** This repository is the reserved home for
-idiomatic Go bindings for the **Windows Runtime** (`Windows.*` namespaces:
-toasts/notifications, Bluetooth LE, Windows Hello, geolocation, camera,
-`Windows.Management.*` MDM/provisioning, …), the third member of the
-deploymenttheory Windows bindings family:
+**Status: bootstrapping — runtime layer landed.** Idiomatic Go bindings for
+the **Windows Runtime** (`Windows.*` namespaces: toasts/notifications,
+Bluetooth LE, Windows Hello, geolocation, camera, `Windows.Management.*`
+MDM/provisioning, …), the fourth member of the deploymenttheory Windows
+bindings family:
 
 - [go-winmd](https://github.com/deploymenttheory/go-winmd) — the shared
-  ECMA-335 metadata reader
+  ECMA-335 metadata reader (generics + event/property tables landed)
 - [go-bindings-win32](https://github.com/deploymenttheory/go-bindings-win32) —
-  the flat Win32 + COM surface (shipping)
+  the flat Win32 + COM surface (shipping); supplies this repo's ABI
+  foundation (HSTRING, IInspectable, Ro* activation)
 - [go-bindings-wdk](https://github.com/deploymenttheory/go-bindings-wdk) —
   the WDK / user-mode Native API surface (shipping)
 
-WinRT is a substantially larger lift than Win32/WDK — parameterized types,
-events, activation factories, and a distinct calling convention — so this
-repo starts when the prerequisites in [docs/ROADMAP.md](docs/ROADMAP.md)
-land. The generator will be repo-specific (as in the sisters); only the
-reader work is shared via go-winmd.
+What works today: `bindings/runtime/winrt` — Windows Runtime
+initialization, HSTRING lifecycle, runtime-class activation, and interface
+querying, proven by live tests. The hand-written
+`Windows.Globalization.Calendar` vertical and the generator follow per
+[docs/ROADMAP.md](docs/ROADMAP.md).
+
+```go
+import winrt "github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+
+inspectable, err := winrt.ActivateInstance("Windows.Globalization.Calendar")
+// query to a typed interface with winrt.QueryInterface[T], call methods,
+// Release when done
+```
 
 ## Related projects
 
