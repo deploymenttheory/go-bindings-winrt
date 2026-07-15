@@ -1,4 +1,4 @@
-{{define "class"}}// {{.TypeName}} is the {{.FullName}} runtime class, surfaced through its
+{{define "class"}}{{if .TypeName}}// {{.TypeName}} is the {{.FullName}} runtime class, surfaced through its
 // default interface {{.DefaultInterface}}. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type {{.TypeName}} struct {
@@ -21,6 +21,37 @@ func {{.CtorName}}() (*{{.TypeName}}, error) {
 // The returned reference is owned by the caller.
 func (self *{{$.TypeName}}) {{.GoName}}() (*{{.InterfaceType}}, error) {
 	return winrt.QueryInterface[{{.InterfaceType}}](unsafe.Pointer(self), {{.IIDRef}})
+}
+
+{{end}}{{end -}}
+{{range .Statics}}// {{.FuncName}} returns the {{.InterfaceFullName}} statics of the
+// {{.ClassFullName}} runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func {{.FuncName}}() (*{{.InterfaceType}}, error) {
+	factory, err := winrt.GetActivationFactory("{{.ClassFullName}}", {{.IIDRef}})
+	if err != nil {
+		return nil, err
+	}
+	return (*{{.InterfaceType}})(unsafe.Pointer(factory)), nil
+}
+
+{{end -}}
+{{range .Factories}}// {{.FuncName}} constructs a {{$.FullName}} instance through
+// {{.FactoryFullName}}.{{.MethodName}}. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func {{.FuncName}}({{.ParamStr}}) (*{{$.TypeName}}, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("{{$.FullName}}", {{.FactoryIIDRef}})
+	if err != nil {
+		return nil, err
+	}
+	factory := (*{{.FactoryType}})(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.{{.MethodName}}({{join .ArgNames ", "}})
+	if err != nil {
+		return nil, err
+	}
+	return (*{{$.TypeName}})(unsafe.Pointer(instance)), nil
 }
 
 {{end}}{{end}}

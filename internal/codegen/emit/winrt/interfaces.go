@@ -17,6 +17,20 @@ type skip struct {
 	detail string
 }
 
+// emittedMethod records the Go surface of one emitted interface method so
+// package-level wrappers (factory constructors) can mirror the generated
+// method exactly. The zero value marks a skipped (or accessor) slot.
+type emittedMethod struct {
+	emitted  bool
+	goName   string
+	paramStr string
+	// paramNames are the declared Go parameter names in order — the
+	// pass-through arguments of a wrapper.
+	paramNames []string
+	// returnType is the logical Go return type ("" for none).
+	returnType string
+}
+
 // splitReason converts a typemap degradation Reason ("key: detail") into a
 // skip.
 func splitReason(reason string) skip {
@@ -96,12 +110,14 @@ func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, fullName, goNa
 	// Vtable methods in MethodDef order: slot = 6 + index. Skipped members
 	// NEVER renumber — they leave an audit comment at their slot instead.
 	methodNames := map[string]bool{}
+	records := make([]emittedMethod, len(definition.Methods))
 	for i := range definition.Methods {
 		method := &definition.Methods[i]
 		slot := 6 + i
 		memberPath := model.FullName + "." + method.Name
 		var methodModel view.MethodModel
 		var skipped *skip
+		plain := false
 		switch {
 		case strings.HasPrefix(method.Name, "add_"):
 			methodModel, skipped = g.buildAddAccessor(meta, goName, method, slot, addEvents[method.Name])
@@ -109,6 +125,7 @@ func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, fullName, goNa
 			methodModel, skipped = g.buildRemoveAccessor(meta, goName, method, slot, removeEvents[method.Name])
 		default:
 			methodModel, skipped = g.buildMethod(meta, goName, method, slot, imports)
+			plain = true
 		}
 		if skipped != nil {
 			g.diag(skipped.key, "%s (%s)", memberPath, skipped.detail)
@@ -122,8 +139,40 @@ func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, fullName, goNa
 		}
 		methodNames[methodModel.GoName] = true
 		model.Methods = append(model.Methods, methodModel)
+		if plain {
+			records[i] = emittedMethod{
+				emitted:    true,
+				goName:     methodModel.GoName,
+				paramStr:   methodModel.ParamStr,
+				paramNames: goParamNames(method),
+				returnType: logicalReturnType(methodModel.ReturnSig),
+			}
+		}
 	}
+	// Recorded under the display full name: exact metadata names for
+	// declared interfaces (what the factory gather looks up); instantiation
+	// display forms never collide with them.
+	g.ifaceMethods[fullName] = records
 	return model
+}
+
+// goParamNames lists a method's Go parameter names in declaration order —
+// exactly the names buildMethod declares, so wrappers can pass them through.
+func goParamNames(method *winrtmeta.Method) []string {
+	names := make([]string, len(method.Params))
+	for i := range method.Params {
+		names[i] = naming.ParamName(method.Params[i].Name)
+	}
+	return names
+}
+
+// logicalReturnType extracts the logical Go return type from a ReturnSig
+// buildMethod produced ("(*ICalendar, error)" → "*ICalendar"; "error" → "").
+func logicalReturnType(returnSig string) string {
+	if returnSig == "error" {
+		return ""
+	}
+	return strings.TrimSuffix(strings.TrimPrefix(returnSig, "("), ", error)")
 }
 
 // buildMethod lowers one logical method to its ABI dispatch shape:

@@ -23,6 +23,18 @@ func (self *Deferral) AsClosable() (*IClosable, error) {
 	return winrt.QueryInterface[IClosable](unsafe.Pointer(self), &IID_IClosable)
 }
 
+// GuidHelperStatics returns the Windows.Foundation.IGuidHelperStatics statics of the
+// Windows.Foundation.GuidHelper runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GuidHelperStatics() (*IGuidHelperStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Foundation.GuidHelper", &IID_IGuidHelperStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGuidHelperStatics)(unsafe.Pointer(factory)), nil
+}
+
 // MemoryBuffer is the Windows.Foundation.MemoryBuffer runtime class, surfaced through its
 // default interface IMemoryBuffer. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -34,6 +46,35 @@ type MemoryBuffer struct {
 // The returned reference is owned by the caller.
 func (self *MemoryBuffer) AsClosable() (*IClosable, error) {
 	return winrt.QueryInterface[IClosable](unsafe.Pointer(self), &IID_IClosable)
+}
+
+// Create constructs a Windows.Foundation.MemoryBuffer instance through
+// Windows.Foundation.IMemoryBufferFactory.Create. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func Create(capacity uint32) (*MemoryBuffer, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Foundation.MemoryBuffer", &IID_IMemoryBufferFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMemoryBufferFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.Create(capacity)
+	if err != nil {
+		return nil, err
+	}
+	return (*MemoryBuffer)(unsafe.Pointer(instance)), nil
+}
+
+// PropertyValueStatics returns the Windows.Foundation.IPropertyValueStatics statics of the
+// Windows.Foundation.PropertyValue runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PropertyValueStatics() (*IPropertyValueStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Foundation.PropertyValue", &IID_IPropertyValueStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPropertyValueStatics)(unsafe.Pointer(factory)), nil
 }
 
 // Uri is the Windows.Foundation.Uri runtime class, surfaced through its
@@ -55,6 +96,52 @@ func (self *Uri) AsStringable() (*IStringable, error) {
 	return winrt.QueryInterface[IStringable](unsafe.Pointer(self), &IID_IStringable)
 }
 
+// UriEscapeStatics returns the Windows.Foundation.IUriEscapeStatics statics of the
+// Windows.Foundation.Uri runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func UriEscapeStatics() (*IUriEscapeStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Foundation.Uri", &IID_IUriEscapeStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IUriEscapeStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CreateUri constructs a Windows.Foundation.Uri instance through
+// Windows.Foundation.IUriRuntimeClassFactory.CreateUri. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateUri(uri string) (*Uri, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Foundation.Uri", &IID_IUriRuntimeClassFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IUriRuntimeClassFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateUri(uri)
+	if err != nil {
+		return nil, err
+	}
+	return (*Uri)(unsafe.Pointer(instance)), nil
+}
+
+// CreateWithRelativeUri constructs a Windows.Foundation.Uri instance through
+// Windows.Foundation.IUriRuntimeClassFactory.CreateWithRelativeUri. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateWithRelativeUri(baseUri string, relativeUri string) (*Uri, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Foundation.Uri", &IID_IUriRuntimeClassFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IUriRuntimeClassFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateWithRelativeUri(baseUri, relativeUri)
+	if err != nil {
+		return nil, err
+	}
+	return (*Uri)(unsafe.Pointer(instance)), nil
+}
+
 // WwwFormUrlDecoder is the Windows.Foundation.WwwFormUrlDecoder runtime class, surfaced through its
 // default interface IWwwFormUrlDecoderRuntimeClass. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -72,6 +159,23 @@ func (self *WwwFormUrlDecoder) AsVectorViewOfIWwwFormUrlDecoderEntry() (*IVector
 // The returned reference is owned by the caller.
 func (self *WwwFormUrlDecoder) AsIterableOfIWwwFormUrlDecoderEntry() (*IIterableOfIWwwFormUrlDecoderEntry, error) {
 	return winrt.QueryInterface[IIterableOfIWwwFormUrlDecoderEntry](unsafe.Pointer(self), &IID_IIterableOfIWwwFormUrlDecoderEntry)
+}
+
+// CreateWwwFormUrlDecoder constructs a Windows.Foundation.WwwFormUrlDecoder instance through
+// Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory.CreateWwwFormUrlDecoder. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateWwwFormUrlDecoder(query string) (*WwwFormUrlDecoder, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Foundation.WwwFormUrlDecoder", &IID_IWwwFormUrlDecoderRuntimeClassFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IWwwFormUrlDecoderRuntimeClassFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateWwwFormUrlDecoder(query)
+	if err != nil {
+		return nil, err
+	}
+	return (*WwwFormUrlDecoder)(unsafe.Pointer(instance)), nil
 }
 
 // WwwFormUrlDecoderEntry is the Windows.Foundation.WwwFormUrlDecoderEntry runtime class, surfaced through its

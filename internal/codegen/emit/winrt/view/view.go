@@ -135,8 +135,12 @@ type DelegateModel struct {
 }
 
 // ClassModel is one non-composable runtime class: a struct embedding its
-// default interface by value.
+// default interface by value, plus the package-level statics accessors and
+// factory constructors surfaced from the class's activation factory. A
+// statics-only class emits with TypeName "" — no class type, only Statics.
 type ClassModel struct {
+	// TypeName is the emitted class type; "" when the class type itself is
+	// not emitted (statics-only classes) and only Statics render.
 	TypeName string
 	FullName string
 	// DefaultInterface is the embedded default interface's Go type name
@@ -151,6 +155,60 @@ type ClassModel struct {
 	// QueryMethods project the class's other non-generic instance
 	// interfaces through QueryInterface.
 	QueryMethods []QueryMethodModel
+	// Statics are the package-level accessors for the class's [Static]
+	// interfaces.
+	Statics []StaticsAccessorModel
+	// Factories are the package-level factory constructors projected from
+	// the class's [Activatable] factory interfaces.
+	Factories []FactoryFuncModel
+}
+
+// StaticsAccessorModel is one package-level statics accessor: a func
+// returning the class's statics interface fetched through its activation
+// factory (GetActivationFactory already queries the statics IID, so the
+// returned pointer IS the statics interface).
+type StaticsAccessorModel struct {
+	// FuncName is the accessor ("CalendarIdentifiersStatics" — the statics
+	// interface name with its I prefix stripped).
+	FuncName string
+	// InterfaceType is the statics interface's Go type name (possibly
+	// package-qualified).
+	InterfaceType string
+	// InterfaceFullName is the statics interface's full metadata name for
+	// the doc comment.
+	InterfaceFullName string
+	// IIDRef is the address expression of the statics interface's IID
+	// variable.
+	IIDRef string
+	// ClassFullName is the runtime class's activation name
+	// ("Windows.Globalization.CalendarIdentifiers").
+	ClassFullName string
+}
+
+// FactoryFuncModel is one package-level factory constructor: a func fetching
+// the class's activation factory, delegating to the generated factory
+// interface method, and wrapping the returned default-interface pointer as
+// the class type.
+type FactoryFuncModel struct {
+	// FuncName is the constructor (the factory method's projected name,
+	// e.g. "CreateCalendarWithTimeZone").
+	FuncName string
+	// FactoryType is the factory interface's Go type name ("ICalendarFactory").
+	FactoryType string
+	// FactoryFullName is the factory interface's full metadata name for the
+	// doc comment.
+	FactoryFullName string
+	// FactoryIIDRef is the address expression of the factory interface's
+	// IID variable.
+	FactoryIIDRef string
+	// MethodName is the generated factory-interface method the constructor
+	// delegates to.
+	MethodName string
+	// ParamStr is the parameter list, identical to the factory method's
+	// (already lowered by the interface emission).
+	ParamStr string
+	// ArgNames pass the parameters through to the factory method, in order.
+	ArgNames []string
 }
 
 // QueryMethodModel is one As<Interface> query method on a runtime class.

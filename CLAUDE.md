@@ -107,11 +107,22 @@ go run ./examples/calendar                # the vertical, end to end
   callback's duration, HSTRINGs read without consuming). Events whose
   delegate cannot be adapted (float/struct/array params, an Invoke return,
   or a param count outside 1–3) skip with `event-delegate-unloweable`.
-  Open generic types themselves, delegate-typed method PARAMS
+  Statics ARE emitted: each [Static] interface S on a class gets a
+  package-level accessor `<S-minus-leading-I>()` (`CalendarIdentifiersStatics()`)
+  that GetActivationFactory-fetches the class factory queried to S's IID and
+  re-types it (caller owns the reference); statics-ONLY classes emit just
+  their accessors (no class type). Factory ctors ARE emitted: each emitted
+  method of a non-generic [Activatable] factory interface whose return is the
+  class's default interface becomes a package-level func named after the
+  method's projected name (`CreateGeographicRegion(code string) (*GeographicRegion, error)`;
+  collisions take a factory-ordinal suffix) that fetches the factory,
+  delegates to the already-generated factory-interface method, and re-types
+  the result as the class — the factory interface itself stays emitted as a
+  plain interface. The factory is fetched per call (a cache is a future
+  optimization). Open generic types themselves, delegate-typed method PARAMS
   (delegate-param-skipped — async's Completed stays deferred with async
-  itself), delegate TypeDefs in their home namespace, statics, factory
-  ctors, arrays, and by-value structs wider than one integer word are still
-  skipped with diagnostics.
+  itself), delegate TypeDefs in their home namespace, arrays, and by-value
+  structs wider than one integer word are still skipped with diagnostics.
 - **Diagnostics ratchet**: `metadata/diagnostics-baseline.json` is the
   committed degradation set; `bindings --diagnostics-baseline` fails on any
   NEW diagnostic, and CI's regen job enforces byte-identical regeneration
@@ -142,5 +153,5 @@ go run ./examples/calendar                # the vertical, end to end
 - Conventional commits, release-please, SHA-pinned actions, LF-normalized
   text (`.gitattributes`), `*.winmd` binary.
 - See `docs/ROADMAP.md` for the wave plan and out-of-scope list
-  (composition, statics, async, delegate-typed method params; events and
-  their generic delegate instantiations are emitted).
+  (composition, async, delegate-typed method params; events, statics, and
+  factory constructors are emitted).
