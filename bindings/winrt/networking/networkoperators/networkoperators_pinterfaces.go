@@ -1223,6 +1223,45 @@ func (self *IAsyncOperationWithProgressOfESimOperationResultAndESimProfileInstal
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfESimOperationResultAndESimProfileInstallProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfESimOperationResultAndESimProfileInstallProgress) Await() (*IESimOperationResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfESimOperationResultAndESimProfileInstallProgress(func(_ *IAsyncOperationWithProgressOfESimOperationResultAndESimProfileInstallProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IIterableOfMobileBroadbandAntennaSar is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar>.
 // IID: fd66b9ac-40dc-5ac7-aaf1-2d3403e5fcbb
 type IIterableOfMobileBroadbandAntennaSar struct {

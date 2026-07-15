@@ -236,7 +236,9 @@ func (g *Generator) buildPinterfaceModels(meta *winrtmeta.NamespaceMeta, imports
 		definition := instantiateInterface(open, inst.Args)
 		definition.GUID = g.pinstIID[mangled]
 		model := g.buildInterface(meta, refDisplay(inst), mangled, definition, imports)
-		if inst.Namespace == "Windows.Foundation" && inst.Name == "IAsyncOperation`1" {
+		if inst.Namespace == "Windows.Foundation" &&
+			(inst.Name == "IAsyncOperation`1" || inst.Name == "IAsyncOperationWithProgress`2" ||
+				inst.Name == "IAsyncActionWithProgress`1") {
 			g.attachAwait(meta, &model, imports)
 		}
 		models = append(models, model)

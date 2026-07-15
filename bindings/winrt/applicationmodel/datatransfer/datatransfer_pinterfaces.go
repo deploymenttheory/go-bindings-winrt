@@ -675,6 +675,45 @@ func (self *IAsyncOperationWithProgressOfTransferTargetInvokeResultAndDouble) Ge
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfTransferTargetInvokeResultAndDouble reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfTransferTargetInvokeResultAndDouble) Await() (*ITransferTargetInvokeResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfTransferTargetInvokeResultAndDouble(func(_ *IAsyncOperationWithProgressOfTransferTargetInvokeResultAndDouble, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IIterableOfIKeyValuePairOfStringAndObject is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>.
 // IID: fe2f3d47-5d47-5499-8374-430c7cda0204
 type IIterableOfIKeyValuePairOfStringAndObject struct {

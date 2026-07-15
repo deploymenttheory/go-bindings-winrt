@@ -255,6 +255,45 @@ func (self *IAsyncOperationWithProgressOfPhotoImportDeleteImportedItemsFromSourc
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfPhotoImportDeleteImportedItemsFromSourceResultAndDouble reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfPhotoImportDeleteImportedItemsFromSourceResultAndDouble) Await() (*IPhotoImportDeleteImportedItemsFromSourceResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfPhotoImportDeleteImportedItemsFromSourceResultAndDouble(func(_ *IAsyncOperationWithProgressOfPhotoImportDeleteImportedItemsFromSourceResultAndDouble, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationWithProgressOfPhotoImportFindItemsResultAndUInt32 is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Media.Import.PhotoImportFindItemsResult, UInt32>.
 // IID: 6e6f9b4e-c6e1-5364-a650-11c35211bead
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -298,6 +337,45 @@ func (self *IAsyncOperationWithProgressOfPhotoImportFindItemsResultAndUInt32) Ge
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfPhotoImportFindItemsResultAndUInt32 reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfPhotoImportFindItemsResultAndUInt32) Await() (*IPhotoImportFindItemsResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfPhotoImportFindItemsResultAndUInt32(func(_ *IAsyncOperationWithProgressOfPhotoImportFindItemsResultAndUInt32, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationWithProgressOfPhotoImportImportItemsResultAndPhotoImportProgress is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Media.Import.PhotoImportImportItemsResult, Windows.Media.Import.PhotoImportProgress>.
 // IID: d874ec64-0951-5459-a0dd-0f8bf3917eb1
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -330,6 +408,45 @@ func (self *IAsyncOperationWithProgressOfPhotoImportImportItemsResultAndPhotoImp
 	result := new(*IPhotoImportImportItemsResult)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfPhotoImportImportItemsResultAndPhotoImportProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfPhotoImportImportItemsResultAndPhotoImportProgress) Await() (*IPhotoImportImportItemsResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfPhotoImportImportItemsResultAndPhotoImportProgress(func(_ *IAsyncOperationWithProgressOfPhotoImportImportItemsResultAndPhotoImportProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IReferenceOfBool is the WinRT interface Windows.Foundation.IReference`1<Bool>.

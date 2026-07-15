@@ -396,6 +396,45 @@ func (self *IAsyncOperationWithProgressOfTranscodeFailureReasonAndDouble) GetRes
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfTranscodeFailureReasonAndDouble reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfTranscodeFailureReasonAndDouble) Await() (mediatranscoding.TranscodeFailureReason, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfTranscodeFailureReasonAndDouble(func(_ *IAsyncOperationWithProgressOfTranscodeFailureReasonAndDouble, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return 0, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return 0, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return 0, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return 0, err
+		}
+		return 0, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IIterableOfTimeSpan is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.TimeSpan>.
 // IID: e9f78726-829a-5f67-8d19-95ef154b7742
 type IIterableOfTimeSpan struct {

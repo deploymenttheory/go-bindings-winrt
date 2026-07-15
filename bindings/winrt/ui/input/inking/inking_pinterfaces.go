@@ -56,6 +56,45 @@ func (self *IAsyncActionWithProgressOfUInt64) GetResults() error {
 	return win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncActionWithProgressOfUInt64 reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncActionWithProgressOfUInt64) Await() error {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncActionWithProgressCompletedHandlerOfUInt64(func(_ *IAsyncActionWithProgressOfUInt64, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return err
+		}
+		return winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationOfIVectorViewOfInkRecognitionResult is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkRecognitionResult>>.
 // IID: b1923f59-d674-5365-b99a-3f1e52268c7f
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -166,6 +205,45 @@ func (self *IAsyncOperationWithProgressOfUInt32AndUInt32) GetResults() (uint32, 
 	result := new(uint32)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfUInt32AndUInt32 reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfUInt32AndUInt32) Await() (uint32, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfUInt32AndUInt32(func(_ *IAsyncOperationWithProgressOfUInt32AndUInt32, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return 0, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return 0, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return 0, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return 0, err
+		}
+		return 0, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IIterableOfInkPoint is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkPoint>.

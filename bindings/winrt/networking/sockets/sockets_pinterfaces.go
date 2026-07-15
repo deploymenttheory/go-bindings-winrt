@@ -198,6 +198,45 @@ func (self *IAsyncOperationWithProgressOfUInt32AndUInt32) GetResults() (uint32, 
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfUInt32AndUInt32 reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfUInt32AndUInt32) Await() (uint32, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfUInt32AndUInt32(func(_ *IAsyncOperationWithProgressOfUInt32AndUInt32, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return 0, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return 0, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return 0, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return 0, err
+		}
+		return 0, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IMapViewOfStringAndSocketActivityInformation is the WinRT interface Windows.Foundation.Collections.IMapView`2<String, Windows.Networking.Sockets.SocketActivityInformation>.
 // IID: e6ac8bee-a31c-5af2-9227-5be2f9e80763
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Networking.Sockets.SocketActivityInformation>>.

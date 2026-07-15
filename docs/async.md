@@ -112,11 +112,30 @@ that sends the terminal status on a buffered channel, blocks, then calls
 failure. The handler's Invoke runs on a fresh goroutine, so a completed
 operation can never deadlock Await against the runtime's callback worker.
 
+## Progress (`IAsyncOperationWithProgress` / `IAsyncActionWithProgress`)
+
+WithProgress operations get the same generated `Await()`. To observe
+progress, register the generated handler BEFORE awaiting:
+
+```go
+readOp, _ := content.ReadAsBufferAsync() // IAsyncOperationWithProgress<IBuffer, UInt64>
+progress, _ := winhttp.NewAsyncOperationProgressHandlerOfIBufferAndUInt64(
+	func(op *winhttp.IAsyncOperationWithProgressOfIBufferAndUInt64, received uint64) {
+		fmt.Printf("received %d bytes\n", received)
+	})
+defer progress.Close()
+readOp.SetProgress(progress)
+buffer, err := readOp.Await()
+```
+
+Progress callbacks run on fresh goroutines (the delegate execution model)
+and only cover work performed after registration — a fast local operation
+may legitimately complete before any callback lands. Handlers whose
+progress type is a struct (e.g. `HttpProgress`) are not adaptable and are
+skipped with diagnostics; the corresponding operations still `Await()`.
+
 ## Not covered yet
 
-- **`IAsyncOperationWithProgress` / `IAsyncActionWithProgress`**: their
-  `SetCompleted`/`SetProgress` setters emit, but no Await is synthesized for
-  them — drive the handlers manually if you need progress.
 - **Context-aware Await** (`AwaitContext(ctx)`): future work; use the
   select idiom above.
 - Methods *returning* delegates (`get_Completed`) are skipped by the
