@@ -24,11 +24,10 @@ jobs:
       - name: Build
         run: go build ./...
 
-      # Everything is hand-written until the generator lands (M5); once
-      # generated syscall wrappers exist, restrict vet to the hand-written
-      # trees (they trip vet's unsafe.Pointer heuristic by design).
-      - name: Vet
-        run: go vet ./...
+      # Generated syscall wrappers trip vet's unsafe.Pointer heuristic by
+      # design; vet everything hand-written instead.
+      - name: Vet (non-generated packages)
+        run: go vet ./cmd/... ./internal/... ./acceptance/ ./bindings/runtime/...
 
       # amd64 and arm64 share the LLP64 layout, so the same bindings must
       # compile for both; 386 is deliberately excluded by build constraints.
@@ -40,3 +39,37 @@ jobs:
 
       - name: Runtime tests (live HSTRING/activation calls)
         run: go test ./bindings/runtime/...
+
+      - name: Slot/IID guard + generator tests (vs committed winmd)
+        run: go test ./internal/...
+
+      - name: Acceptance tests (live WinRT calls)
+        run: go test ./acceptance/
+
+  regen:
+    name: Regeneration determinism gate
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Ingest committed winmds
+        run: go run ./cmd/generate ingest
+
+      - name: Validate metadata
+        run: go run ./cmd/generate validate
+
+      # One command clears and re-emits the committed bindings tree (the
+      # Windows.Globalization closure) and enforces the diagnostics ratchet.
+      - name: Regenerate bindings with ratchet
+        run: go run ./cmd/generate bindings --namespace Windows.Globalization --diagnostics-baseline metadata/diagnostics-baseline.json
+
+      - name: Generated output must match the committed tree
+        shell: bash
+        run: |
+          git add -N bindings
+          git diff --exit-code --stat -- bindings
