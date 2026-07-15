@@ -51,6 +51,11 @@ func classesRegistry() *pipeline.Registry {
 						Return: refPtr(widgetClassRef)},
 					{Name: "MakeLabel", // slot 8: emitted, but not a constructor shape
 						Return: refPtr(nativeRef("HString"))},
+					{Name: "CreateWidgetWithOptions", // slot 9: cross-namespace param — the
+						// wrapper restates the signature in the classes file, whose import
+						// set must gain the parameter's namespace.
+						Params: []winrtmeta.Param{{Name: "options", Type: winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Other", Name: "IOptions", TargetKind: "Interface"}}},
+						Return: refPtr(widgetClassRef)},
 				},
 			},
 			"IWidgetFactory2": {
@@ -99,9 +104,16 @@ func classesRegistry() *pipeline.Registry {
 			},
 		},
 	}
+	// A second namespace: the home of a cross-namespace factory parameter.
+	other := &winrtmeta.NamespaceMeta{
+		Namespace: "Windows.Other",
+		Interfaces: map[string]winrtmeta.Interface{
+			"IOptions": {GUID: "71111111-2222-4333-8444-555555555555"},
+		},
+	}
 	registry := &pipeline.Registry{
-		Namespaces:     []*winrtmeta.NamespaceMeta{test},
-		ByNamespace:    map[string]*winrtmeta.NamespaceMeta{test.Namespace: test},
+		Namespaces:     []*winrtmeta.NamespaceMeta{test, other},
+		ByNamespace:    map[string]*winrtmeta.NamespaceMeta{test.Namespace: test, other.Namespace: other},
 		EnumIndex:      map[string]*winrtmeta.Enum{},
 		StructIndex:    map[string]*winrtmeta.Struct{},
 		InterfaceIndex: map[string]*winrtmeta.Interface{},
@@ -112,6 +124,10 @@ func classesRegistry() *pipeline.Registry {
 		definition := test.Interfaces[name]
 		registry.InterfaceIndex["Windows.Test."+name] = &definition
 	}
+	for name := range other.Interfaces {
+		definition := other.Interfaces[name]
+		registry.InterfaceIndex["Windows.Other."+name] = &definition
+	}
 	for name := range test.Classes {
 		definition := test.Classes[name]
 		registry.ClassIndex["Windows.Test."+name] = &definition
@@ -121,26 +137,30 @@ func classesRegistry() *pipeline.Registry {
 
 // buildClassesFixture runs the gather in emit order (interfaces first, so
 // the factory-method records exist) and indexes the class models by name.
-func buildClassesFixture(t *testing.T) (*Generator, map[string]view.ClassModel) {
+// The interfaces and classes files get SEPARATE import sets, exactly as
+// emitNamespace wires them — a wrapper restating an interface signature in
+// the classes file must register its own import edges.
+func buildClassesFixture(t *testing.T) (*Generator, map[string]view.ClassModel, typemap.ImportSet) {
 	t.Helper()
 	registry := classesRegistry()
 	generator := New(registry, "example.com/mod", t.TempDir())
 	meta := registry.ByNamespace["Windows.Test"]
 	generator.prepareNamespaceClaims(meta)
-	imports := typemap.ImportSet{}
-	generator.buildInterfaceModels(meta, imports)
+	interfaceImports := typemap.ImportSet{}
+	generator.buildInterfaceModels(meta, interfaceImports)
+	classImports := typemap.ImportSet{}
 	models := map[string]view.ClassModel{}
-	for _, model := range generator.buildClassModels(meta, imports) {
+	for _, model := range generator.buildClassModels(meta, classImports) {
 		models[model.FullName] = model
 	}
-	return generator, models
+	return generator, models, classImports
 }
 
 // TestStaticsAccessorEmission pins the statics projection: accessor naming,
 // statics-only classes emitting with no class type, and the per-interface
 // skip reasons (no IID, generic, unresolved).
 func TestStaticsAccessorEmission(t *testing.T) {
-	generator, models := buildClassesFixture(t)
+	generator, models, _ := buildClassesFixture(t)
 
 	widget, ok := models["Windows.Test.Widget"]
 	if !ok {
@@ -193,11 +213,11 @@ func TestStaticsAccessorEmission(t *testing.T) {
 // the factory ordinal, and the per-method skip reasons (method not emitted,
 // wrong return shape, generic factory).
 func TestFactoryConstructorEmission(t *testing.T) {
-	generator, models := buildClassesFixture(t)
+	generator, models, classImports := buildClassesFixture(t)
 
 	widget := models["Windows.Test.Widget"]
-	if len(widget.Factories) != 2 {
-		t.Fatalf("Widget factories = %+v, want CreateWidget + CreateWidget2", widget.Factories)
+	if len(widget.Factories) != 3 {
+		t.Fatalf("Widget factories = %+v, want CreateWidget + CreateWidgetWithOptions + CreateWidget2", widget.Factories)
 	}
 	first := widget.Factories[0]
 	if first.FuncName != "CreateWidget" || first.FactoryType != "IWidgetFactory" ||
@@ -205,9 +225,25 @@ func TestFactoryConstructorEmission(t *testing.T) {
 		first.ParamStr != "name string" || strings.Join(first.ArgNames, ",") != "name" {
 		t.Errorf("first factory constructor = %+v", first)
 	}
+	// A cross-namespace parameter: the wrapper restates the signature in the
+	// classes file, so the classes import set must gain the parameter's
+	// namespace even though the interfaces file registered it separately.
+	withOptions := widget.Factories[1]
+	if withOptions.FuncName != "CreateWidgetWithOptions" || !strings.Contains(withOptions.ParamStr, "other.IOptions") {
+		t.Errorf("cross-namespace factory constructor = %+v", withOptions)
+	}
+	foundOther := false
+	for _, entry := range classImports {
+		if entry.Namespace == "Windows.Other" {
+			foundOther = true
+		}
+	}
+	if !foundOther {
+		t.Errorf("classes import set is missing Windows.Other, needed by CreateWidgetWithOptions: %+v", classImports)
+	}
 	// The second factory's CreateWidget lost the name claim: 1-based ordinal
 	// suffix, deterministic.
-	second := widget.Factories[1]
+	second := widget.Factories[2]
 	if second.FuncName != "CreateWidget2" || second.FactoryType != "IWidgetFactory2" ||
 		second.ParamStr != "id int32" {
 		t.Errorf("second factory constructor = %+v", second)

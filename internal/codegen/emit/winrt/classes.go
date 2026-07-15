@@ -31,7 +31,7 @@ func (g *Generator) buildClassModels(meta *winrtmeta.NamespaceMeta, imports type
 		model, typeEmitted := g.buildClassType(meta, name, fullName, &class, imports)
 		model.Statics = g.buildStaticsAccessors(meta, fullName, &class, imports)
 		if typeEmitted {
-			model.Factories = g.buildFactoryFuncs(meta, fullName, &class, &model)
+			model.Factories = g.buildFactoryFuncs(meta, fullName, &class, &model, imports)
 		} else {
 			for _, factory := range class.ActivatableFactories {
 				g.diag("factory-skipped", "%s factory %s (class type not emitted)", fullName, factory)
@@ -195,8 +195,10 @@ func (g *Generator) buildStaticsAccessors(meta *winrtmeta.NamespaceMeta, fullNam
 // func that fetches the factory, delegates to the generated interface method
 // (so the parameter lowering is exactly the method's), and wraps the
 // returned default-interface pointer as the class type. The factory is
-// fetched per call — a factory cache is a future optimization.
-func (g *Generator) buildFactoryFuncs(meta *winrtmeta.NamespaceMeta, fullName string, class *winrtmeta.Class, model *view.ClassModel) []view.FactoryFuncModel {
+// fetched per call — a factory cache is a future optimization. Adopting a
+// method's signature adopts its import edges: the recorded per-method
+// imports merge into the classes file's set.
+func (g *Generator) buildFactoryFuncs(meta *winrtmeta.NamespaceMeta, fullName string, class *winrtmeta.Class, model *view.ClassModel, imports typemap.ImportSet) []view.FactoryFuncModel {
 	var models []view.FactoryFuncModel
 	for ordinal, factoryFullName := range class.ActivatableFactories {
 		ref, ok := interfaceRef(factoryFullName)
@@ -257,6 +259,7 @@ func (g *Generator) buildFactoryFuncs(meta *winrtmeta.NamespaceMeta, fullName st
 				}
 				funcName = suffixed
 			}
+			imports.Merge(record.imports)
 			models = append(models, view.FactoryFuncModel{
 				FuncName:        funcName,
 				FactoryType:     naming.Export(ref.Name),
