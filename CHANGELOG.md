@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.2.0](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.1.0...v0.2.0) (2026-07-15)
+
+
+### Features
+
+* async ([5a95388](https://github.com/deploymenttheory/go-bindings-winrt/commit/5a953880f8c1da5466b1b7ba32665de712a9755f))
+* async awaiting — delegate params on methods + generated Await() ([05f2d32](https://github.com/deploymenttheory/go-bindings-winrt/commit/05f2d32fee1d7f8b66548ab696679a75bf1be89d))
+* Bluetooth + Management namespaces; heap-escaped out-params kill the stack-move flake ([3ec54f4](https://github.com/deploymenttheory/go-bindings-winrt/commit/3ec54f434dae76a1fed97f0cd62bfd0bcf089738))
+* Bluetooth + Management namespaces; heap-escaped out-params kill… ([12f4957](https://github.com/deploymenttheory/go-bindings-winrt/commit/12f49571148dbc6d0cb8cf468456456620296ad1))
+* emit events with monomorphized typed Go handler constructors ([2dc23f3](https://github.com/deploymenttheory/go-bindings-winrt/commit/2dc23f399c3a090cbc7b333addf72471d4839b61))
+* emit events with monomorphized typed Go handler constructors ([bb4b7cc](https://github.com/deploymenttheory/go-bindings-winrt/commit/bb4b7cc9dbbcbe0783298fa9040517e8ceb2a522))
+* emit generic interface instantiations as monomorphized types ([e6f35a2](https://github.com/deploymenttheory/go-bindings-winrt/commit/e6f35a27f37454cfc50ee2deed29acb0f2c76e34))
+* emit generic interface instantiations as monomorphized types ([15f66aa](https://github.com/deploymenttheory/go-bindings-winrt/commit/15f66aaa0b3f54eb4a2823ada751f29d605714b3))
+* emit statics accessors and factory constructors ([6d21840](https://github.com/deploymenttheory/go-bindings-winrt/commit/6d218405bed4eee4055edf9265c52ee97f94b677))
+* emit statics accessors and factory constructors ([b764ab4](https://github.com/deploymenttheory/go-bindings-winrt/commit/b764ab4d5da3442c792f5b1d48c36ef0496b5d61))
+* emit the full WinRT surface — all 282 namespaces ([74d5e20](https://github.com/deploymenttheory/go-bindings-winrt/commit/74d5e20a8e1e122fa4372341914a2fb0b347cd7a))
+* emit the full WinRT surface — all 282 namespaces ([d0700c6](https://github.com/deploymenttheory/go-bindings-winrt/commit/d0700c6463af5bb95c985a86b3d5384824b56c48))
+* Go-implemented WinRT collections + stack-growth-safe callback dispatch ([e9b5cb4](https://github.com/deploymenttheory/go-bindings-winrt/commit/e9b5cb4c9c07a4a89536974f44222011d67a2a57))
+* land the wave-1 stack — Calendar vertical, generator (ingest + emit), delegate runtime ([e4778c1](https://github.com/deploymenttheory/go-bindings-winrt/commit/e4778c15e840562b163bb0d5052531b6cd752620))
+* pinterface IID engine — derived IIDs for parameterized-type instantiations ([7f4b918](https://github.com/deploymenttheory/go-bindings-winrt/commit/7f4b91895f39364ea57d58bcd0ace8cd7a81c850))
+* pinterface IID engine — derived IIDs for parameterized-type instantiations ([707da32](https://github.com/deploymenttheory/go-bindings-winrt/commit/707da324e731b034258010e69ef93e2b035b6c3a))
+* Windows.UI.Notifications vertical — the toast surface, generated ([cfe5a26](https://github.com/deploymenttheory/go-bindings-winrt/commit/cfe5a26ca08c3cb9e117f3a706e35601da7aca89))
+* Windows.UI.Notifications vertical — the toast surface, generated ([aff2509](https://github.com/deploymenttheory/go-bindings-winrt/commit/aff2509040955e84e3f9a750d210899cf394451d))
+
 ## 0.1.0 (2026-07-15)
 
 
