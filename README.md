@@ -1,12 +1,10 @@
 # go-bindings-winrt
 
-**Status: generator online — generated bindings for `Windows.Globalization`,
-`Windows.UI.Notifications` (toasts), `Windows.Devices.Bluetooth` (+
-`.GenericAttributeProfile`, `.Advertisement` — BLE), and
-`Windows.Management` (+ `.Deployment`, `.Policies`, `.Workplace` — MDM +
-package deployment), plus their closure (`Windows.Data.Xml.Dom`,
-`Windows.Foundation`, `Windows.System`, `Windows.Storage`,
-`Windows.Devices.Radios`, …) shipping.** Idiomatic Go bindings for the
+**Status: full surface shipping — every namespace in the ingested contract
+winmds (282 packages, from `Windows.ApplicationModel` to
+`Windows.Web.UI.Interop`) is generated, compiled, and committed;
+`metadata/emit-roots.txt` pins the complete list.** Idiomatic Go bindings
+for the
 **Windows Runtime** (`Windows.*` namespaces: toasts/notifications,
 Bluetooth LE, Windows Hello, geolocation, camera, `Windows.Management.*`
 MDM/provisioning, …), the fourth member of the deploymenttheory Windows
@@ -26,7 +24,7 @@ What works today:
   lifecycle, runtime-class activation, and interface querying, proven by
   live tests.
 - `bindings/winrt/...` — GENERATED from the pinned contract winmds
-  (`go run ./cmd/generate bindings`, roots pinned in
+  (`go run ./cmd/generate bindings`, the full namespace list pinned in
   `metadata/emit-roots.txt`): interfaces with
   absolute vtable-slot dispatch, non-composable runtime classes (with
   constructors, statics accessors, and factory constructors), enums, value
@@ -36,9 +34,10 @@ What works today:
   Live acceptance tests and the `examples/calendar` vertical run entirely
   over generated code, including the full toast pipeline (template XML →
   `XmlDocument` → `ToastNotification` → `ToastNotifier.Show`), a BLE
-  advertisement-watcher scan cycle, and `PackageManager` package queries.
+  advertisement-watcher scan cycle, `PackageManager` package queries, and
+  `SpeechSynthesizer` voice enumeration.
 
-Wider namespace coverage and composition follow per
+Composition (composable classes) follows per
 [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ```go
@@ -67,7 +66,7 @@ Part of the deploymenttheory Windows bindings family:
 - [go-bindings-win32](https://github.com/deploymenttheory/go-bindings-win32) — the Win32 API surface — functions, structs, enums, COM
 - [go-bindings-wdk](https://github.com/deploymenttheory/go-bindings-wdk) — the Windows Driver Kit / user-mode Native API surface
 - [go-bindings-wmi](https://github.com/deploymenttheory/go-bindings-wmi) — typed WMI/CIM classes
-- **go-bindings-winrt** — WinRT bindings (in progress) *(this repo)*
+- **go-bindings-winrt** — the WinRT API surface (shipping) *(this repo)*
 
 ## License
 

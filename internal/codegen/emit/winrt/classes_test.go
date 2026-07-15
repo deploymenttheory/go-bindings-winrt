@@ -75,6 +75,32 @@ func classesRegistry() *pipeline.Registry {
 					{Name: "get_Ready", Return: refPtr(nativeRef("Bool"))}, // slot 6
 				},
 			},
+			// Statics-only class named exactly like its accessor: the class
+			// name must not hold a type claim (no type is ever emitted), or
+			// the Toolbox() accessor would lose to it.
+			"IToolbox": {
+				GUID: "81111111-2222-4333-8444-555555555555", ExclusiveTo: "Windows.Test.Toolbox",
+				Methods: []winrtmeta.Method{
+					{Name: "get_Ready", Return: refPtr(nativeRef("Bool"))}, // slot 6
+				},
+			},
+			// Two classes whose factories share the bare name Create: the
+			// first claims it, the second falls back to the class-qualified
+			// CreateBeta (not skipped, not the within-class ordinal form).
+			"IAlpha": {GUID: "91111111-2222-4333-8444-555555555555"},
+			"IAlphaFactory": {
+				GUID: "a1111111-2222-4333-8444-555555555555", ExclusiveTo: "Windows.Test.Alpha",
+				Methods: []winrtmeta.Method{
+					{Name: "Create", Return: refPtr(winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "Alpha", TargetKind: "Class"})}, // slot 6
+				},
+			},
+			"IBeta": {GUID: "b1111111-2222-4333-8444-555555555555"},
+			"IBetaFactory": {
+				GUID: "c1111111-2222-4333-8444-555555555555", ExclusiveTo: "Windows.Test.Beta",
+				Methods: []winrtmeta.Method{
+					{Name: "Create", Return: refPtr(winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "Beta", TargetKind: "Class"})}, // slot 6
+				},
+			},
 		},
 		Classes: map[string]winrtmeta.Class{
 			"Widget": {
@@ -101,6 +127,19 @@ func classesRegistry() *pipeline.Registry {
 			"Gen": {
 				DefaultInterface:     refPtr(widgetRef),
 				ActivatableFactories: []string{"Windows.Test.IGenFactory"},
+			},
+			// Statics-only, accessor name == class name (see IToolbox).
+			"Toolbox": {
+				StaticInterfaces: []string{"Windows.Test.IToolbox"},
+			},
+			// Cross-class factory-name collision pair (see IAlphaFactory).
+			"Alpha": {
+				DefaultInterface:     refPtr(winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "IAlpha", TargetKind: "Interface"}),
+				ActivatableFactories: []string{"Windows.Test.IAlphaFactory"},
+			},
+			"Beta": {
+				DefaultInterface:     refPtr(winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "IBeta", TargetKind: "Interface"}),
+				ActivatableFactories: []string{"Windows.Test.IBetaFactory"},
 			},
 		},
 	}
@@ -193,6 +232,17 @@ func TestStaticsAccessorEmission(t *testing.T) {
 		t.Error("Orphan emitted a model despite having no emittable statics")
 	}
 
+	// A statics-only class named exactly like its accessor: the class name
+	// holds no type claim (no type is ever emitted), so Toolbox() wins
+	// (CurrentApp, SystemProperties, PlayReadyStatics in the real surface).
+	toolbox, ok := models["Windows.Test.Toolbox"]
+	if !ok {
+		t.Fatal("Toolbox model not built")
+	}
+	if toolbox.TypeName != "" || len(toolbox.Statics) != 1 || toolbox.Statics[0].FuncName != "Toolbox" {
+		t.Errorf("Toolbox model = %+v, want a bare Toolbox() accessor and no class type", toolbox)
+	}
+
 	diagnostics := strings.Join(generator.Diagnostics, "\n")
 	for _, want := range []string{
 		"statics-skipped: Windows.Test.Widget (Windows.Test.IWidgetStatics2 has no IID)",
@@ -241,12 +291,23 @@ func TestFactoryConstructorEmission(t *testing.T) {
 	if !foundOther {
 		t.Errorf("classes import set is missing Windows.Other, needed by CreateWidgetWithOptions: %+v", classImports)
 	}
-	// The second factory's CreateWidget lost the name claim: 1-based ordinal
-	// suffix, deterministic.
+	// The second factory's CreateWidget lost the name claim: the name already
+	// carries the class name, so within-class disambiguation is the 1-based
+	// ordinal suffix, deterministic.
 	second := widget.Factories[2]
 	if second.FuncName != "CreateWidget2" || second.FactoryType != "IWidgetFactory2" ||
 		second.ParamStr != "id int32" {
 		t.Errorf("second factory constructor = %+v", second)
+	}
+
+	// A CROSS-class collision on a bare factory name (Create is everywhere in
+	// dense packages): the loser gains its class name instead of skipping.
+	alpha, beta := models["Windows.Test.Alpha"], models["Windows.Test.Beta"]
+	if len(alpha.Factories) != 1 || alpha.Factories[0].FuncName != "Create" {
+		t.Errorf("Alpha factories = %+v, want the bare Create", alpha.Factories)
+	}
+	if len(beta.Factories) != 1 || beta.Factories[0].FuncName != "CreateBeta" {
+		t.Errorf("Beta factories = %+v, want the class-qualified CreateBeta", beta.Factories)
 	}
 
 	diagnostics := strings.Join(generator.Diagnostics, "\n")

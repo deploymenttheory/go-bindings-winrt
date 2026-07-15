@@ -82,10 +82,10 @@ func NewBluetoothLEAdvertisementDataSection() (*BluetoothLEAdvertisementDataSect
 	return winrt.QueryInterface[BluetoothLEAdvertisementDataSection](unsafe.Pointer(instance), &IID_IBluetoothLEAdvertisementDataSection)
 }
 
-// Create1 constructs a Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection instance through
+// CreateBluetoothLEAdvertisementDataSection constructs a Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection instance through
 // Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSectionFactory.Create. The activation factory is fetched
 // per call (a factory cache is a future optimization).
-func Create1(dataType byte, data *storagestreams.IBuffer) (*BluetoothLEAdvertisementDataSection, error) {
+func CreateBluetoothLEAdvertisementDataSection(dataType byte, data *storagestreams.IBuffer) (*BluetoothLEAdvertisementDataSection, error) {
 	factoryUnknown, err := winrt.GetActivationFactory("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection", &IID_IBluetoothLEAdvertisementDataSectionFactory)
 	if err != nil {
 		return nil, err
@@ -157,6 +157,23 @@ func (self *BluetoothLEAdvertisementPublisher) AsBluetoothLEAdvertisementPublish
 // The returned reference is owned by the caller.
 func (self *BluetoothLEAdvertisementPublisher) AsBluetoothLEAdvertisementPublisher3() (*IBluetoothLEAdvertisementPublisher3, error) {
 	return winrt.QueryInterface[IBluetoothLEAdvertisementPublisher3](unsafe.Pointer(self), &IID_IBluetoothLEAdvertisementPublisher3)
+}
+
+// CreateBluetoothLEAdvertisementPublisher constructs a Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher instance through
+// Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherFactory.Create. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateBluetoothLEAdvertisementPublisher(advertisement *IBluetoothLEAdvertisement) (*BluetoothLEAdvertisementPublisher, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher", &IID_IBluetoothLEAdvertisementPublisherFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBluetoothLEAdvertisementPublisherFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.Create(advertisement)
+	if err != nil {
+		return nil, err
+	}
+	return (*BluetoothLEAdvertisementPublisher)(unsafe.Pointer(instance)), nil
 }
 
 // BluetoothLEAdvertisementPublisherStatusChangedEventArgs is the Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs runtime class, surfaced through its
@@ -240,6 +257,23 @@ func (self *BluetoothLEAdvertisementWatcher) AsBluetoothLEAdvertisementWatcher3(
 	return winrt.QueryInterface[IBluetoothLEAdvertisementWatcher3](unsafe.Pointer(self), &IID_IBluetoothLEAdvertisementWatcher3)
 }
 
+// CreateBluetoothLEAdvertisementWatcher constructs a Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher instance through
+// Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcherFactory.Create. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateBluetoothLEAdvertisementWatcher(advertisementFilter *IBluetoothLEAdvertisementFilter) (*BluetoothLEAdvertisementWatcher, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher", &IID_IBluetoothLEAdvertisementWatcherFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBluetoothLEAdvertisementWatcherFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.Create(advertisementFilter)
+	if err != nil {
+		return nil, err
+	}
+	return (*BluetoothLEAdvertisementWatcher)(unsafe.Pointer(instance)), nil
+}
+
 // BluetoothLEAdvertisementWatcherStoppedEventArgs is the Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs runtime class, surfaced through its
 // default interface IBluetoothLEAdvertisementWatcherStoppedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -263,4 +297,21 @@ func NewBluetoothLEManufacturerData() (*BluetoothLEManufacturerData, error) {
 	}
 	defer instance.Release()
 	return winrt.QueryInterface[BluetoothLEManufacturerData](unsafe.Pointer(instance), &IID_IBluetoothLEManufacturerData)
+}
+
+// CreateBluetoothLEManufacturerData constructs a Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData instance through
+// Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerDataFactory.Create. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateBluetoothLEManufacturerData(companyId uint16, data *storagestreams.IBuffer) (*BluetoothLEManufacturerData, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData", &IID_IBluetoothLEManufacturerDataFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBluetoothLEManufacturerDataFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.Create(companyId, data)
+	if err != nil {
+		return nil, err
+	}
+	return (*BluetoothLEManufacturerData)(unsafe.Pointer(instance)), nil
 }

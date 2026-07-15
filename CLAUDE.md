@@ -177,12 +177,11 @@ go run ./examples/calendar                # the vertical, end to end
   of the committed tree — the closure of the root namespaces pinned in
   `metadata/emit-roots.txt` (read when `--namespace` is absent; `--namespace`
   takes a comma-separated root list as an ad-hoc override). The roots are
-  {Windows.Globalization, Windows.UI.Notifications, Windows.Devices.Bluetooth
-  (+ .GenericAttributeProfile, .Advertisement), Windows.Management
-  (+ .Deployment, .Policies, .Workplace)}; the emit chases every namespace
-  the roots' emitted members reference, currently 25 packages including
-  Windows.Data.Xml.Dom, Windows.System, Windows.Storage,
-  Windows.ApplicationModel, Windows.Devices.Radios, and Windows.Networking.
+  the FULL surface: every namespace in the ingested IR, listed explicitly
+  (282 packages, ~571k generated lines) — regenerate the list after an
+  ingest with the one-liner in the file's header. Go-keyword namespace
+  leaves escape with a trailing underscore (Windows.Media.Import →
+  package import_ in media/import_).
 - **Never redeclare the ABI**: HSTRING, IInspectable, IActivationFactory,
   EventRegistrationToken, TrustLevel, and every Ro*/Windows* function come
   from `go-bindings-win32/bindings/win32/system/winrt` (import alias

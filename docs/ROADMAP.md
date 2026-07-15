@@ -135,9 +135,9 @@ consumers prove it), so they are pure additions:
      current-user package queries (iterating the monomorphized
      `IIterable<Package>`) and the `MdmAllowPolicy` statics are live-tested
      in `acceptance/bluetooth_management_test.go`. (`.Core`, `.Setup`, and
-     `.Update` are deliberately NOT roots — they are provisioning-agent /
-     OS-update surfaces outside the MDM-enrollment intent; add them as
-     roots in `metadata/emit-roots.txt` if that changes.)
+     `.Update` were deliberately excluded from the first-wave roots as
+     provisioning-agent / OS-update surfaces; the full-surface milestone
+     below emits them along with everything else.)
    - `Windows.Devices.Bluetooth` (+ `.GenericAttributeProfile`,
      `.Advertisement`): `BluetoothAdapter.GetDefaultAsync().Await()`, radio
      state via the pulled-in `Windows.Devices.Radios`, and a full
@@ -148,10 +148,25 @@ consumers prove it), so they are pure additions:
      surface via the closure where emittable.)
 
    The committed tree is the closure of the roots pinned in
-   `metadata/emit-roots.txt` (25 packages), which also pulls in
-   `Windows.Data.Xml.Dom`, `Windows.System`, `Windows.Storage`,
-   `Windows.ApplicationModel`, `Windows.Devices.Radios`, and
-   `Windows.Networking`.
+   `metadata/emit-roots.txt`.
+
+5. **Full-surface coverage — landed.** The emit roots now pin EVERY
+   namespace in the ingested IR (282 packages, ~571k generated lines), so
+   the committed tree is the complete emittable contract surface, not a
+   curated subset — matching go-bindings-win32's whole-surface doctrine
+   (~1.09M lines, 324 packages). No namespace needed exclusion. Scale
+   fixes that landed with it: Go-keyword package names escape with a
+   trailing underscore (`Windows.Media.Import` → `media/import_`), bare
+   factory-constructor names that collide across classes in a package
+   gain the class name (`Create` → `CreateSystemTrigger`), and
+   statics-only / composable classes no longer hold type-name claims
+   (freeing accessors like `storage.SystemProperties()` and
+   `store.CurrentApp()`). A previously-unemitted namespace is
+   live-proven in `acceptance/speechsynthesis_test.go`
+   (`SpeechSynthesizer` activation + installed-voice enumeration).
+   Remaining coverage gaps are per-member degradations tracked by the
+   diagnostics ratchet (arrays, float ABI, composable classes, …), not
+   missing namespaces.
 
 ## CI note
 

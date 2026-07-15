@@ -417,6 +417,14 @@ func (g *Generator) prepareNamespaceClaims(meta *winrtmeta.NamespaceMeta) {
 		claimType(name)
 	}
 	for _, name := range sortedKeys(meta.Classes) {
+		// Classes that can never emit a type — composable (skipped outright)
+		// and statics-only (no default interface: the accessors are the whole
+		// projection) — must not hold a name claim: a statics-only class
+		// named X with statics interface IX would otherwise block its own
+		// X() accessor (CurrentApp, SystemProperties, PlayReadyStatics…).
+		if class := meta.Classes[name]; class.Composable || class.DefaultInterface == nil {
+			continue
+		}
 		claimType(name)
 	}
 }

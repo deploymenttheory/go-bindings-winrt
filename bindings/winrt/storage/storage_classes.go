@@ -690,6 +690,18 @@ type SystemPhotoProperties struct {
 	ISystemPhotoProperties
 }
 
+// SystemProperties returns the Windows.Storage.ISystemProperties statics of the
+// Windows.Storage.SystemProperties runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SystemProperties() (*ISystemProperties, error) {
+	factory, err := winrt.GetActivationFactory("Windows.Storage.SystemProperties", &IID_ISystemProperties)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISystemProperties)(unsafe.Pointer(factory)), nil
+}
+
 // SystemVideoProperties is the Windows.Storage.SystemVideoProperties runtime class, surfaced through its
 // default interface ISystemVideoProperties. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
