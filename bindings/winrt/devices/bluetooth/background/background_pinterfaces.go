@@ -15,6 +15,140 @@ import (
 	devicesbluetoothgenericattributeprofile "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/devices/bluetooth/genericattributeprofile"
 )
 
+// IIterableOfBluetoothLEAdvertisementReceivedEventArgs is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs>.
+// IID: 34f6412f-8314-5205-967c-db357c9a42a7
+type IIterableOfBluetoothLEAdvertisementReceivedEventArgs struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfBluetoothLEAdvertisementReceivedEventArgs is the interface identifier for IIterableOfBluetoothLEAdvertisementReceivedEventArgs.
+var IID_IIterableOfBluetoothLEAdvertisementReceivedEventArgs = win32.GUID{Data1: 0x34f6412f, Data2: 0x8314, Data3: 0x5205, Data4: [8]byte{0x96, 0x7c, 0xdb, 0x35, 0x7c, 0x9a, 0x42, 0xa7}}
+
+// First dispatches through IIterableOfBluetoothLEAdvertisementReceivedEventArgs's vtable slot 6.
+func (self *IIterableOfBluetoothLEAdvertisementReceivedEventArgs) First() (*IIteratorOfBluetoothLEAdvertisementReceivedEventArgs, error) {
+	result := new(*IIteratorOfBluetoothLEAdvertisementReceivedEventArgs)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfBluetoothLEAdvertisementReceivedEventArgs creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfBluetoothLEAdvertisementReceivedEventArgs(items []*devicesbluetoothadvertisement.IBluetoothLEAdvertisementReceivedEventArgs) *IIterableOfBluetoothLEAdvertisementReceivedEventArgs {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBluetoothLEAdvertisementReceivedEventArgs, Iterator: IID_IIteratorOfBluetoothLEAdvertisementReceivedEventArgs}, winrt.CodecInterface, boxed)
+	return (*IIterableOfBluetoothLEAdvertisementReceivedEventArgs)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGattValueChangedEventArgs is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs>.
+// IID: 526a63df-8827-51b9-9e2c-9d65021a79d7
+type IIterableOfGattValueChangedEventArgs struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGattValueChangedEventArgs is the interface identifier for IIterableOfGattValueChangedEventArgs.
+var IID_IIterableOfGattValueChangedEventArgs = win32.GUID{Data1: 0x526a63df, Data2: 0x8827, Data3: 0x51b9, Data4: [8]byte{0x9e, 0x2c, 0x9d, 0x65, 0x02, 0x1a, 0x79, 0xd7}}
+
+// First dispatches through IIterableOfGattValueChangedEventArgs's vtable slot 6.
+func (self *IIterableOfGattValueChangedEventArgs) First() (*IIteratorOfGattValueChangedEventArgs, error) {
+	result := new(*IIteratorOfGattValueChangedEventArgs)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGattValueChangedEventArgs creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGattValueChangedEventArgs(items []*devicesbluetoothgenericattributeprofile.IGattValueChangedEventArgs) *IIterableOfGattValueChangedEventArgs {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattValueChangedEventArgs, Iterator: IID_IIteratorOfGattValueChangedEventArgs}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGattValueChangedEventArgs)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfBluetoothLEAdvertisementReceivedEventArgs is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs>.
+// IID: 096edbb8-ecef-5724-be62-240dcff6aca9
+type IIteratorOfBluetoothLEAdvertisementReceivedEventArgs struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfBluetoothLEAdvertisementReceivedEventArgs is the interface identifier for IIteratorOfBluetoothLEAdvertisementReceivedEventArgs.
+var IID_IIteratorOfBluetoothLEAdvertisementReceivedEventArgs = win32.GUID{Data1: 0x096edbb8, Data2: 0xecef, Data3: 0x5724, Data4: [8]byte{0xbe, 0x62, 0x24, 0x0d, 0xcf, 0xf6, 0xac, 0xa9}}
+
+// Current (propget get_Current) dispatches through IIteratorOfBluetoothLEAdvertisementReceivedEventArgs's vtable slot 6.
+func (self *IIteratorOfBluetoothLEAdvertisementReceivedEventArgs) Current() (*devicesbluetoothadvertisement.IBluetoothLEAdvertisementReceivedEventArgs, error) {
+	result := new(*devicesbluetoothadvertisement.IBluetoothLEAdvertisementReceivedEventArgs)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfBluetoothLEAdvertisementReceivedEventArgs's vtable slot 7.
+func (self *IIteratorOfBluetoothLEAdvertisementReceivedEventArgs) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfBluetoothLEAdvertisementReceivedEventArgs's vtable slot 8.
+func (self *IIteratorOfBluetoothLEAdvertisementReceivedEventArgs) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGattValueChangedEventArgs is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs>.
+// IID: cd20a796-aa22-521d-8e0f-fc6d4a18e287
+type IIteratorOfGattValueChangedEventArgs struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGattValueChangedEventArgs is the interface identifier for IIteratorOfGattValueChangedEventArgs.
+var IID_IIteratorOfGattValueChangedEventArgs = win32.GUID{Data1: 0xcd20a796, Data2: 0xaa22, Data3: 0x521d, Data4: [8]byte{0x8e, 0x0f, 0xfc, 0x6d, 0x4a, 0x18, 0xe2, 0x87}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGattValueChangedEventArgs's vtable slot 6.
+func (self *IIteratorOfGattValueChangedEventArgs) Current() (*devicesbluetoothgenericattributeprofile.IGattValueChangedEventArgs, error) {
+	result := new(*devicesbluetoothgenericattributeprofile.IGattValueChangedEventArgs)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGattValueChangedEventArgs's vtable slot 7.
+func (self *IIteratorOfGattValueChangedEventArgs) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGattValueChangedEventArgs's vtable slot 8.
+func (self *IIteratorOfGattValueChangedEventArgs) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IMapViewOfStringAndGattServiceProviderConnection is the WinRT interface Windows.Foundation.Collections.IMapView`2<String, Windows.Devices.Bluetooth.Background.GattServiceProviderConnection>.
 // IID: 94eccb06-19ad-5e4f-953e-12c4aec054e9
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Devices.Bluetooth.Background.GattServiceProviderConnection>>.
@@ -112,6 +246,25 @@ func (self *IVectorViewOfBluetoothLEAdvertisementReceivedEventArgs) IndexOf(valu
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfBluetoothLEAdvertisementReceivedEventArgs creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfBluetoothLEAdvertisementReceivedEventArgs(items []*devicesbluetoothadvertisement.IBluetoothLEAdvertisementReceivedEventArgs) *IVectorViewOfBluetoothLEAdvertisementReceivedEventArgs {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBluetoothLEAdvertisementReceivedEventArgs, Iterator: IID_IIteratorOfBluetoothLEAdvertisementReceivedEventArgs, VectorView: IID_IVectorViewOfBluetoothLEAdvertisementReceivedEventArgs}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfBluetoothLEAdvertisementReceivedEventArgs)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGattValueChangedEventArgs is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs>.
 // IID: 3f96e85f-ca51-5303-bd1b-acec7773baf6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs>.
@@ -144,3 +297,22 @@ func (self *IVectorViewOfGattValueChangedEventArgs) IndexOf(value *devicesblueto
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfGattValueChangedEventArgs creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGattValueChangedEventArgs(items []*devicesbluetoothgenericattributeprofile.IGattValueChangedEventArgs) *IVectorViewOfGattValueChangedEventArgs {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattValueChangedEventArgs, Iterator: IID_IIteratorOfGattValueChangedEventArgs, VectorView: IID_IVectorViewOfGattValueChangedEventArgs}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGattValueChangedEventArgs)(unsafe.Pointer(obj))
+}

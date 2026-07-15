@@ -13,6 +13,73 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
+// IIterableOfRemoteDesktopInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>.
+// IID: 1c98fa56-a539-5a93-b3b2-c7fefacc2e38
+type IIterableOfRemoteDesktopInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfRemoteDesktopInfo is the interface identifier for IIterableOfRemoteDesktopInfo.
+var IID_IIterableOfRemoteDesktopInfo = win32.GUID{Data1: 0x1c98fa56, Data2: 0xa539, Data3: 0x5a93, Data4: [8]byte{0xb3, 0xb2, 0xc7, 0xfe, 0xfa, 0xcc, 0x2e, 0x38}}
+
+// First dispatches through IIterableOfRemoteDesktopInfo's vtable slot 6.
+func (self *IIterableOfRemoteDesktopInfo) First() (*IIteratorOfRemoteDesktopInfo, error) {
+	result := new(*IIteratorOfRemoteDesktopInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfRemoteDesktopInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfRemoteDesktopInfo(items []*IRemoteDesktopInfo) *IIterableOfRemoteDesktopInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRemoteDesktopInfo, Iterator: IID_IIteratorOfRemoteDesktopInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfRemoteDesktopInfo)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfRemoteDesktopInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>.
+// IID: a7175897-18db-5546-bf4f-b5fa4ce8ed85
+type IIteratorOfRemoteDesktopInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfRemoteDesktopInfo is the interface identifier for IIteratorOfRemoteDesktopInfo.
+var IID_IIteratorOfRemoteDesktopInfo = win32.GUID{Data1: 0xa7175897, Data2: 0x18db, Data3: 0x5546, Data4: [8]byte{0xbf, 0x4f, 0xb5, 0xfa, 0x4c, 0xe8, 0xed, 0x85}}
+
+// Current (propget get_Current) dispatches through IIteratorOfRemoteDesktopInfo's vtable slot 6.
+func (self *IIteratorOfRemoteDesktopInfo) Current() (*IRemoteDesktopInfo, error) {
+	result := new(*IRemoteDesktopInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfRemoteDesktopInfo's vtable slot 7.
+func (self *IIteratorOfRemoteDesktopInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfRemoteDesktopInfo's vtable slot 8.
+func (self *IIteratorOfRemoteDesktopInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfRemoteDesktopInfo is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>.
 // IID: 0d009032-ec6b-5789-9a69-eb769e0a1644
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>.
@@ -91,6 +158,28 @@ func (self *IVectorOfRemoteDesktopInfo) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfRemoteDesktopInfo creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfRemoteDesktopInfo(items []*IRemoteDesktopInfo) *IVectorOfRemoteDesktopInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRemoteDesktopInfo, Iterator: IID_IIteratorOfRemoteDesktopInfo, VectorView: IID_IVectorViewOfRemoteDesktopInfo, Vector: IID_IVectorOfRemoteDesktopInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorOfRemoteDesktopInfo)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfRemoteDesktopInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>.
 // IID: 06ef3e49-753e-57de-a409-c3852f347c90
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>.
@@ -123,3 +212,22 @@ func (self *IVectorViewOfRemoteDesktopInfo) IndexOf(value *IRemoteDesktopInfo, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfRemoteDesktopInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfRemoteDesktopInfo(items []*IRemoteDesktopInfo) *IVectorViewOfRemoteDesktopInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRemoteDesktopInfo, Iterator: IID_IIteratorOfRemoteDesktopInfo, VectorView: IID_IVectorViewOfRemoteDesktopInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfRemoteDesktopInfo)(unsafe.Pointer(obj))
+}

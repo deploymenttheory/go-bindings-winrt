@@ -83,6 +83,73 @@ func (self *IAsyncOperationOfWorkflowPrintTicketValidationResult) Await() (*IWor
 	return self.GetResults()
 }
 
+// IIterableOfPrintTicketOption is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Printing.PrintTicket.PrintTicketOption>.
+// IID: 5c7e6676-9046-5b6a-9eb0-c6a954e8226b
+type IIterableOfPrintTicketOption struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPrintTicketOption is the interface identifier for IIterableOfPrintTicketOption.
+var IID_IIterableOfPrintTicketOption = win32.GUID{Data1: 0x5c7e6676, Data2: 0x9046, Data3: 0x5b6a, Data4: [8]byte{0x9e, 0xb0, 0xc6, 0xa9, 0x54, 0xe8, 0x22, 0x6b}}
+
+// First dispatches through IIterableOfPrintTicketOption's vtable slot 6.
+func (self *IIterableOfPrintTicketOption) First() (*IIteratorOfPrintTicketOption, error) {
+	result := new(*IIteratorOfPrintTicketOption)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPrintTicketOption creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Printing.PrintTicket.PrintTicketOption>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPrintTicketOption(items []*IPrintTicketOption) *IIterableOfPrintTicketOption {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Printing.PrintTicket.PrintTicketOption>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPrintTicketOption, Iterator: IID_IIteratorOfPrintTicketOption}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPrintTicketOption)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfPrintTicketOption is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Printing.PrintTicket.PrintTicketOption>.
+// IID: c92a35e2-829d-5adf-874e-4d745b4ef0aa
+type IIteratorOfPrintTicketOption struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPrintTicketOption is the interface identifier for IIteratorOfPrintTicketOption.
+var IID_IIteratorOfPrintTicketOption = win32.GUID{Data1: 0xc92a35e2, Data2: 0x829d, Data3: 0x5adf, Data4: [8]byte{0x87, 0x4e, 0x4d, 0x74, 0x5b, 0x4e, 0xf0, 0xaa}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPrintTicketOption's vtable slot 6.
+func (self *IIteratorOfPrintTicketOption) Current() (*IPrintTicketOption, error) {
+	result := new(*IPrintTicketOption)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPrintTicketOption's vtable slot 7.
+func (self *IIteratorOfPrintTicketOption) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPrintTicketOption's vtable slot 8.
+func (self *IIteratorOfPrintTicketOption) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfPrintTicketOption is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Printing.PrintTicket.PrintTicketOption>.
 // IID: c80b48ef-2a4c-5685-b7a4-88cc796ca274
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Printing.PrintTicket.PrintTicketOption>.
@@ -115,3 +182,22 @@ func (self *IVectorViewOfPrintTicketOption) IndexOf(value *IPrintTicketOption, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPrintTicketOption creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Printing.PrintTicket.PrintTicketOption>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPrintTicketOption(items []*IPrintTicketOption) *IVectorViewOfPrintTicketOption {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Printing.PrintTicket.PrintTicketOption>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPrintTicketOption, Iterator: IID_IIteratorOfPrintTicketOption, VectorView: IID_IVectorViewOfPrintTicketOption}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPrintTicketOption)(unsafe.Pointer(obj))
+}

@@ -15,6 +15,73 @@ import (
 	uiviewmanagement "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/viewmanagement"
 )
 
+// IIterableOfCoreTextCompositionSegment is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Text.Core.CoreTextCompositionSegment>.
+// IID: 38372bd2-d3fe-5ad2-9d39-d166b68e78e7
+type IIterableOfCoreTextCompositionSegment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCoreTextCompositionSegment is the interface identifier for IIterableOfCoreTextCompositionSegment.
+var IID_IIterableOfCoreTextCompositionSegment = win32.GUID{Data1: 0x38372bd2, Data2: 0xd3fe, Data3: 0x5ad2, Data4: [8]byte{0x9d, 0x39, 0xd1, 0x66, 0xb6, 0x8e, 0x78, 0xe7}}
+
+// First dispatches through IIterableOfCoreTextCompositionSegment's vtable slot 6.
+func (self *IIterableOfCoreTextCompositionSegment) First() (*IIteratorOfCoreTextCompositionSegment, error) {
+	result := new(*IIteratorOfCoreTextCompositionSegment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCoreTextCompositionSegment creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Text.Core.CoreTextCompositionSegment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCoreTextCompositionSegment(items []*ICoreTextCompositionSegment) *IIterableOfCoreTextCompositionSegment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Text.Core.CoreTextCompositionSegment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCoreTextCompositionSegment, Iterator: IID_IIteratorOfCoreTextCompositionSegment}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCoreTextCompositionSegment)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfCoreTextCompositionSegment is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Text.Core.CoreTextCompositionSegment>.
+// IID: 39b4528d-2370-57fa-b5d4-b5a2079a7cea
+type IIteratorOfCoreTextCompositionSegment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCoreTextCompositionSegment is the interface identifier for IIteratorOfCoreTextCompositionSegment.
+var IID_IIteratorOfCoreTextCompositionSegment = win32.GUID{Data1: 0x39b4528d, Data2: 0x2370, Data3: 0x57fa, Data4: [8]byte{0xb5, 0xd4, 0xb5, 0xa2, 0x07, 0x9a, 0x7c, 0xea}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCoreTextCompositionSegment's vtable slot 6.
+func (self *IIteratorOfCoreTextCompositionSegment) Current() (*ICoreTextCompositionSegment, error) {
+	result := new(*ICoreTextCompositionSegment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCoreTextCompositionSegment's vtable slot 7.
+func (self *IIteratorOfCoreTextCompositionSegment) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCoreTextCompositionSegment's vtable slot 8.
+func (self *IIteratorOfCoreTextCompositionSegment) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfUIElementType is the WinRT interface Windows.Foundation.IReference`1<Windows.UI.ViewManagement.UIElementType>.
 // IID: e17e08c9-7deb-51d1-8487-334eb3fe4691
 // Requires: Windows.Foundation.IPropertyValue.
@@ -81,3 +148,22 @@ func (self *IVectorViewOfCoreTextCompositionSegment) IndexOf(value *ICoreTextCom
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfCoreTextCompositionSegment creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Text.Core.CoreTextCompositionSegment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCoreTextCompositionSegment(items []*ICoreTextCompositionSegment) *IVectorViewOfCoreTextCompositionSegment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Text.Core.CoreTextCompositionSegment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCoreTextCompositionSegment, Iterator: IID_IIteratorOfCoreTextCompositionSegment, VectorView: IID_IVectorViewOfCoreTextCompositionSegment}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCoreTextCompositionSegment)(unsafe.Pointer(obj))
+}

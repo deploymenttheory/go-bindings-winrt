@@ -221,6 +221,73 @@ func (self *IAsyncOperationOfRadioAccessStatus) Await() (RadioAccessStatus, erro
 	return self.GetResults()
 }
 
+// IIterableOfRadio is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Radios.Radio>.
+// IID: e82500af-1f53-504e-b8be-dac4fbb69084
+type IIterableOfRadio struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfRadio is the interface identifier for IIterableOfRadio.
+var IID_IIterableOfRadio = win32.GUID{Data1: 0xe82500af, Data2: 0x1f53, Data3: 0x504e, Data4: [8]byte{0xb8, 0xbe, 0xda, 0xc4, 0xfb, 0xb6, 0x90, 0x84}}
+
+// First dispatches through IIterableOfRadio's vtable slot 6.
+func (self *IIterableOfRadio) First() (*IIteratorOfRadio, error) {
+	result := new(*IIteratorOfRadio)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfRadio creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Radios.Radio>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfRadio(items []*IRadio) *IIterableOfRadio {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Radios.Radio>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRadio, Iterator: IID_IIteratorOfRadio}, winrt.CodecInterface, boxed)
+	return (*IIterableOfRadio)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfRadio is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Radios.Radio>.
+// IID: cf37ede7-eaec-5b8f-ad31-4d51abd9db05
+type IIteratorOfRadio struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfRadio is the interface identifier for IIteratorOfRadio.
+var IID_IIteratorOfRadio = win32.GUID{Data1: 0xcf37ede7, Data2: 0xeaec, Data3: 0x5b8f, Data4: [8]byte{0xad, 0x31, 0x4d, 0x51, 0xab, 0xd9, 0xdb, 0x05}}
+
+// Current (propget get_Current) dispatches through IIteratorOfRadio's vtable slot 6.
+func (self *IIteratorOfRadio) Current() (*IRadio, error) {
+	result := new(*IRadio)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfRadio's vtable slot 7.
+func (self *IIteratorOfRadio) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfRadio's vtable slot 8.
+func (self *IIteratorOfRadio) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfRadio is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Radios.Radio>.
 // IID: 65066c36-090b-5466-b8e5-e7565dc34175
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Radios.Radio>.
@@ -253,3 +320,22 @@ func (self *IVectorViewOfRadio) IndexOf(value *IRadio, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfRadio creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Radios.Radio>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfRadio(items []*IRadio) *IVectorViewOfRadio {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Radios.Radio>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRadio, Iterator: IID_IIteratorOfRadio, VectorView: IID_IVectorViewOfRadio}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfRadio)(unsafe.Pointer(obj))
+}

@@ -152,6 +152,73 @@ func (self *IAsyncOperationOfBool) Await() (bool, error) {
 	return self.GetResults()
 }
 
+// IIterableOfCoreApplicationView is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Core.CoreApplicationView>.
+// IID: 32bc12d1-2653-5a41-a55e-88a12af2026a
+type IIterableOfCoreApplicationView struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCoreApplicationView is the interface identifier for IIterableOfCoreApplicationView.
+var IID_IIterableOfCoreApplicationView = win32.GUID{Data1: 0x32bc12d1, Data2: 0x2653, Data3: 0x5a41, Data4: [8]byte{0xa5, 0x5e, 0x88, 0xa1, 0x2a, 0xf2, 0x02, 0x6a}}
+
+// First dispatches through IIterableOfCoreApplicationView's vtable slot 6.
+func (self *IIterableOfCoreApplicationView) First() (*IIteratorOfCoreApplicationView, error) {
+	result := new(*IIteratorOfCoreApplicationView)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCoreApplicationView creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Core.CoreApplicationView>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCoreApplicationView(items []*ICoreApplicationView) *IIterableOfCoreApplicationView {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Core.CoreApplicationView>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCoreApplicationView, Iterator: IID_IIteratorOfCoreApplicationView}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCoreApplicationView)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfCoreApplicationView is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Core.CoreApplicationView>.
+// IID: 4f5f6944-264b-5868-809e-c7ac1ac5edad
+type IIteratorOfCoreApplicationView struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCoreApplicationView is the interface identifier for IIteratorOfCoreApplicationView.
+var IID_IIteratorOfCoreApplicationView = win32.GUID{Data1: 0x4f5f6944, Data2: 0x264b, Data3: 0x5868, Data4: [8]byte{0x80, 0x9e, 0xc7, 0xac, 0x1a, 0xc5, 0xed, 0xad}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCoreApplicationView's vtable slot 6.
+func (self *IIteratorOfCoreApplicationView) Current() (*ICoreApplicationView, error) {
+	result := new(*ICoreApplicationView)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCoreApplicationView's vtable slot 7.
+func (self *IIteratorOfCoreApplicationView) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCoreApplicationView's vtable slot 8.
+func (self *IIteratorOfCoreApplicationView) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfCoreApplicationView is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Core.CoreApplicationView>.
 // IID: de9e16c4-1b7c-5126-b1d8-7cd04f13bd08
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Core.CoreApplicationView>.
@@ -184,3 +251,22 @@ func (self *IVectorViewOfCoreApplicationView) IndexOf(value *ICoreApplicationVie
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfCoreApplicationView creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Core.CoreApplicationView>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCoreApplicationView(items []*ICoreApplicationView) *IVectorViewOfCoreApplicationView {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Core.CoreApplicationView>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCoreApplicationView, Iterator: IID_IIteratorOfCoreApplicationView, VectorView: IID_IVectorViewOfCoreApplicationView}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCoreApplicationView)(unsafe.Pointer(obj))
+}

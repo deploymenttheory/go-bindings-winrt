@@ -31,6 +31,25 @@ func (self *IIterableOfHttpChallengeHeaderValue) First() (*IIteratorOfHttpChalle
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfHttpChallengeHeaderValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpChallengeHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpChallengeHeaderValue(items []*IHttpChallengeHeaderValue) *IIterableOfHttpChallengeHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpChallengeHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpChallengeHeaderValue, Iterator: IID_IIteratorOfHttpChallengeHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpChallengeHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IIterableOfHttpConnectionOptionHeaderValue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue>.
 // IID: 1afc512f-dfa2-5528-8aef-6e6a37789b3c
 type IIterableOfHttpConnectionOptionHeaderValue struct {
@@ -45,6 +64,25 @@ func (self *IIterableOfHttpConnectionOptionHeaderValue) First() (*IIteratorOfHtt
 	result := new(*IIteratorOfHttpConnectionOptionHeaderValue)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHttpConnectionOptionHeaderValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpConnectionOptionHeaderValue(items []*IHttpConnectionOptionHeaderValue) *IIterableOfHttpConnectionOptionHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpConnectionOptionHeaderValue, Iterator: IID_IIteratorOfHttpConnectionOptionHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpConnectionOptionHeaderValue)(unsafe.Pointer(obj))
 }
 
 // IIterableOfHttpContentCodingHeaderValue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpContentCodingHeaderValue>.
@@ -63,6 +101,25 @@ func (self *IIterableOfHttpContentCodingHeaderValue) First() (*IIteratorOfHttpCo
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfHttpContentCodingHeaderValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpContentCodingHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpContentCodingHeaderValue(items []*IHttpContentCodingHeaderValue) *IIterableOfHttpContentCodingHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpContentCodingHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpContentCodingHeaderValue, Iterator: IID_IIteratorOfHttpContentCodingHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpContentCodingHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IIterableOfHttpContentCodingWithQualityHeaderValue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue>.
 // IID: 916e6271-cef6-53b8-b93f-dc8dca559e50
 type IIterableOfHttpContentCodingWithQualityHeaderValue struct {
@@ -77,6 +134,25 @@ func (self *IIterableOfHttpContentCodingWithQualityHeaderValue) First() (*IItera
 	result := new(*IIteratorOfHttpContentCodingWithQualityHeaderValue)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHttpContentCodingWithQualityHeaderValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpContentCodingWithQualityHeaderValue(items []*IHttpContentCodingWithQualityHeaderValue) *IIterableOfHttpContentCodingWithQualityHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpContentCodingWithQualityHeaderValue, Iterator: IID_IIteratorOfHttpContentCodingWithQualityHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpContentCodingWithQualityHeaderValue)(unsafe.Pointer(obj))
 }
 
 // IIterableOfHttpCookiePairHeaderValue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpCookiePairHeaderValue>.
@@ -95,6 +171,25 @@ func (self *IIterableOfHttpCookiePairHeaderValue) First() (*IIteratorOfHttpCooki
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfHttpCookiePairHeaderValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpCookiePairHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpCookiePairHeaderValue(items []*IHttpCookiePairHeaderValue) *IIterableOfHttpCookiePairHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpCookiePairHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpCookiePairHeaderValue, Iterator: IID_IIteratorOfHttpCookiePairHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpCookiePairHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IIterableOfHttpExpectationHeaderValue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpExpectationHeaderValue>.
 // IID: 0a391c2b-13c3-59b8-8662-13affb9d1754
 type IIterableOfHttpExpectationHeaderValue struct {
@@ -109,6 +204,25 @@ func (self *IIterableOfHttpExpectationHeaderValue) First() (*IIteratorOfHttpExpe
 	result := new(*IIteratorOfHttpExpectationHeaderValue)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHttpExpectationHeaderValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpExpectationHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpExpectationHeaderValue(items []*IHttpExpectationHeaderValue) *IIterableOfHttpExpectationHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpExpectationHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpExpectationHeaderValue, Iterator: IID_IIteratorOfHttpExpectationHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpExpectationHeaderValue)(unsafe.Pointer(obj))
 }
 
 // IIterableOfHttpLanguageRangeWithQualityHeaderValue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue>.
@@ -127,6 +241,25 @@ func (self *IIterableOfHttpLanguageRangeWithQualityHeaderValue) First() (*IItera
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfHttpLanguageRangeWithQualityHeaderValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpLanguageRangeWithQualityHeaderValue(items []*IHttpLanguageRangeWithQualityHeaderValue) *IIterableOfHttpLanguageRangeWithQualityHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpLanguageRangeWithQualityHeaderValue, Iterator: IID_IIteratorOfHttpLanguageRangeWithQualityHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpLanguageRangeWithQualityHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IIterableOfHttpMediaTypeWithQualityHeaderValue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue>.
 // IID: ffc7dfde-58b8-51e9-b33b-65a5d6a4e24c
 type IIterableOfHttpMediaTypeWithQualityHeaderValue struct {
@@ -141,6 +274,25 @@ func (self *IIterableOfHttpMediaTypeWithQualityHeaderValue) First() (*IIteratorO
 	result := new(*IIteratorOfHttpMediaTypeWithQualityHeaderValue)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHttpMediaTypeWithQualityHeaderValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpMediaTypeWithQualityHeaderValue(items []*IHttpMediaTypeWithQualityHeaderValue) *IIterableOfHttpMediaTypeWithQualityHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpMediaTypeWithQualityHeaderValue, Iterator: IID_IIteratorOfHttpMediaTypeWithQualityHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpMediaTypeWithQualityHeaderValue)(unsafe.Pointer(obj))
 }
 
 // IIterableOfHttpMethod is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.HttpMethod>.
@@ -175,6 +327,25 @@ func (self *IIterableOfHttpNameValueHeaderValue) First() (*IIteratorOfHttpNameVa
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfHttpNameValueHeaderValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpNameValueHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpNameValueHeaderValue(items []*IHttpNameValueHeaderValue) *IIterableOfHttpNameValueHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpNameValueHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpNameValueHeaderValue, Iterator: IID_IIteratorOfHttpNameValueHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpNameValueHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IIterableOfHttpProductInfoHeaderValue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpProductInfoHeaderValue>.
 // IID: bf97cf99-e614-5765-bad7-161ae3a93ae9
 type IIterableOfHttpProductInfoHeaderValue struct {
@@ -189,6 +360,25 @@ func (self *IIterableOfHttpProductInfoHeaderValue) First() (*IIteratorOfHttpProd
 	result := new(*IIteratorOfHttpProductInfoHeaderValue)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHttpProductInfoHeaderValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpProductInfoHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpProductInfoHeaderValue(items []*IHttpProductInfoHeaderValue) *IIterableOfHttpProductInfoHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpProductInfoHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpProductInfoHeaderValue, Iterator: IID_IIteratorOfHttpProductInfoHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpProductInfoHeaderValue)(unsafe.Pointer(obj))
 }
 
 // IIterableOfHttpTransferCodingHeaderValue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpTransferCodingHeaderValue>.
@@ -207,6 +397,25 @@ func (self *IIterableOfHttpTransferCodingHeaderValue) First() (*IIteratorOfHttpT
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfHttpTransferCodingHeaderValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpTransferCodingHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpTransferCodingHeaderValue(items []*IHttpTransferCodingHeaderValue) *IIterableOfHttpTransferCodingHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpTransferCodingHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpTransferCodingHeaderValue, Iterator: IID_IIteratorOfHttpTransferCodingHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpTransferCodingHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IIterableOfIKeyValuePairOfStringAndString is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>.
 // IID: e9bdaaf0-cbf6-5c72-be90-29cbf3a1319b
 type IIterableOfIKeyValuePairOfStringAndString struct {
@@ -223,6 +432,25 @@ func (self *IIterableOfIKeyValuePairOfStringAndString) First() (*IIteratorOfIKey
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfIKeyValuePairOfStringAndString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIKeyValuePairOfStringAndString(items []*IKeyValuePairOfStringAndString) *IIterableOfIKeyValuePairOfStringAndString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIKeyValuePairOfStringAndString, Iterator: IID_IIteratorOfIKeyValuePairOfStringAndString}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIKeyValuePairOfStringAndString)(unsafe.Pointer(obj))
+}
+
 // IIterableOfLanguage is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Language>.
 // IID: 48409a10-61b6-5db1-a69d-8abc46ac608a
 type IIterableOfLanguage struct {
@@ -237,6 +465,25 @@ func (self *IIterableOfLanguage) First() (*IIteratorOfLanguage, error) {
 	result := new(*IIteratorOfLanguage)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfLanguage creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Language>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfLanguage(items []*globalization.ILanguage) *IIterableOfLanguage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Language>", winrt.CollectionIIDs{Iterable: IID_IIterableOfLanguage, Iterator: IID_IIteratorOfLanguage}, winrt.CodecInterface, boxed)
+	return (*IIterableOfLanguage)(unsafe.Pointer(obj))
 }
 
 // IIteratorOfHttpChallengeHeaderValue is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.Http.Headers.HttpChallengeHeaderValue>.
@@ -1004,6 +1251,28 @@ func (self *IVectorOfHttpChallengeHeaderValue) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfHttpChallengeHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpChallengeHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpChallengeHeaderValue(items []*IHttpChallengeHeaderValue) *IVectorOfHttpChallengeHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpChallengeHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpChallengeHeaderValue, Iterator: IID_IIteratorOfHttpChallengeHeaderValue, VectorView: IID_IVectorViewOfHttpChallengeHeaderValue, Vector: IID_IVectorOfHttpChallengeHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpChallengeHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorOfHttpConnectionOptionHeaderValue is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue>.
 // IID: c312da8d-c82f-51c9-b705-5a26d52fbee6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue>.
@@ -1081,6 +1350,28 @@ func (self *IVectorOfHttpConnectionOptionHeaderValue) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfHttpConnectionOptionHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpConnectionOptionHeaderValue(items []*IHttpConnectionOptionHeaderValue) *IVectorOfHttpConnectionOptionHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpConnectionOptionHeaderValue, Iterator: IID_IIteratorOfHttpConnectionOptionHeaderValue, VectorView: IID_IVectorViewOfHttpConnectionOptionHeaderValue, Vector: IID_IVectorOfHttpConnectionOptionHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpConnectionOptionHeaderValue)(unsafe.Pointer(obj))
+}
 
 // IVectorOfHttpContentCodingHeaderValue is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpContentCodingHeaderValue>.
 // IID: b94e539f-44b6-54c6-9ad4-e2844b3e0be1
@@ -1160,6 +1451,28 @@ func (self *IVectorOfHttpContentCodingHeaderValue) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfHttpContentCodingHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpContentCodingHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpContentCodingHeaderValue(items []*IHttpContentCodingHeaderValue) *IVectorOfHttpContentCodingHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpContentCodingHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpContentCodingHeaderValue, Iterator: IID_IIteratorOfHttpContentCodingHeaderValue, VectorView: IID_IVectorViewOfHttpContentCodingHeaderValue, Vector: IID_IVectorOfHttpContentCodingHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpContentCodingHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorOfHttpContentCodingWithQualityHeaderValue is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue>.
 // IID: 33f9653d-0eed-5368-a51e-98385191f86f
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue>.
@@ -1237,6 +1550,28 @@ func (self *IVectorOfHttpContentCodingWithQualityHeaderValue) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfHttpContentCodingWithQualityHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpContentCodingWithQualityHeaderValue(items []*IHttpContentCodingWithQualityHeaderValue) *IVectorOfHttpContentCodingWithQualityHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpContentCodingWithQualityHeaderValue, Iterator: IID_IIteratorOfHttpContentCodingWithQualityHeaderValue, VectorView: IID_IVectorViewOfHttpContentCodingWithQualityHeaderValue, Vector: IID_IVectorOfHttpContentCodingWithQualityHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpContentCodingWithQualityHeaderValue)(unsafe.Pointer(obj))
+}
 
 // IVectorOfHttpCookiePairHeaderValue is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpCookiePairHeaderValue>.
 // IID: bc196ace-8a56-5fd0-9878-c807edd8645a
@@ -1316,6 +1651,28 @@ func (self *IVectorOfHttpCookiePairHeaderValue) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfHttpCookiePairHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpCookiePairHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpCookiePairHeaderValue(items []*IHttpCookiePairHeaderValue) *IVectorOfHttpCookiePairHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpCookiePairHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpCookiePairHeaderValue, Iterator: IID_IIteratorOfHttpCookiePairHeaderValue, VectorView: IID_IVectorViewOfHttpCookiePairHeaderValue, Vector: IID_IVectorOfHttpCookiePairHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpCookiePairHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorOfHttpExpectationHeaderValue is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpExpectationHeaderValue>.
 // IID: 18e138ee-fec7-527d-8693-deebca4f3dcd
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpExpectationHeaderValue>.
@@ -1393,6 +1750,28 @@ func (self *IVectorOfHttpExpectationHeaderValue) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfHttpExpectationHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpExpectationHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpExpectationHeaderValue(items []*IHttpExpectationHeaderValue) *IVectorOfHttpExpectationHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpExpectationHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpExpectationHeaderValue, Iterator: IID_IIteratorOfHttpExpectationHeaderValue, VectorView: IID_IVectorViewOfHttpExpectationHeaderValue, Vector: IID_IVectorOfHttpExpectationHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpExpectationHeaderValue)(unsafe.Pointer(obj))
+}
 
 // IVectorOfHttpLanguageRangeWithQualityHeaderValue is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue>.
 // IID: b6df6da2-8d92-5270-9584-d6a9a931586d
@@ -1472,6 +1851,28 @@ func (self *IVectorOfHttpLanguageRangeWithQualityHeaderValue) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfHttpLanguageRangeWithQualityHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpLanguageRangeWithQualityHeaderValue(items []*IHttpLanguageRangeWithQualityHeaderValue) *IVectorOfHttpLanguageRangeWithQualityHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpLanguageRangeWithQualityHeaderValue, Iterator: IID_IIteratorOfHttpLanguageRangeWithQualityHeaderValue, VectorView: IID_IVectorViewOfHttpLanguageRangeWithQualityHeaderValue, Vector: IID_IVectorOfHttpLanguageRangeWithQualityHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpLanguageRangeWithQualityHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorOfHttpMediaTypeWithQualityHeaderValue is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue>.
 // IID: c18538f7-c256-5666-8868-2225af3574b6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue>.
@@ -1549,6 +1950,28 @@ func (self *IVectorOfHttpMediaTypeWithQualityHeaderValue) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfHttpMediaTypeWithQualityHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpMediaTypeWithQualityHeaderValue(items []*IHttpMediaTypeWithQualityHeaderValue) *IVectorOfHttpMediaTypeWithQualityHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpMediaTypeWithQualityHeaderValue, Iterator: IID_IIteratorOfHttpMediaTypeWithQualityHeaderValue, VectorView: IID_IVectorViewOfHttpMediaTypeWithQualityHeaderValue, Vector: IID_IVectorOfHttpMediaTypeWithQualityHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpMediaTypeWithQualityHeaderValue)(unsafe.Pointer(obj))
+}
 
 // IVectorOfHttpMethod is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Http.HttpMethod>.
 // IID: 228a73a2-a509-5a78-bd7f-db94ba0bef21
@@ -1684,6 +2107,28 @@ func (self *IVectorOfHttpNameValueHeaderValue) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfHttpNameValueHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpNameValueHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpNameValueHeaderValue(items []*IHttpNameValueHeaderValue) *IVectorOfHttpNameValueHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpNameValueHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpNameValueHeaderValue, Iterator: IID_IIteratorOfHttpNameValueHeaderValue, VectorView: IID_IVectorViewOfHttpNameValueHeaderValue, Vector: IID_IVectorOfHttpNameValueHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpNameValueHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorOfHttpProductInfoHeaderValue is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpProductInfoHeaderValue>.
 // IID: 69392060-6c0f-5de6-8ced-f14fc1b83376
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpProductInfoHeaderValue>.
@@ -1761,6 +2206,28 @@ func (self *IVectorOfHttpProductInfoHeaderValue) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfHttpProductInfoHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpProductInfoHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpProductInfoHeaderValue(items []*IHttpProductInfoHeaderValue) *IVectorOfHttpProductInfoHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpProductInfoHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpProductInfoHeaderValue, Iterator: IID_IIteratorOfHttpProductInfoHeaderValue, VectorView: IID_IVectorViewOfHttpProductInfoHeaderValue, Vector: IID_IVectorOfHttpProductInfoHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpProductInfoHeaderValue)(unsafe.Pointer(obj))
+}
 
 // IVectorOfHttpTransferCodingHeaderValue is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpTransferCodingHeaderValue>.
 // IID: 38e72562-e17c-5d68-aad1-8e8a860b8969
@@ -1840,6 +2307,28 @@ func (self *IVectorOfHttpTransferCodingHeaderValue) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfHttpTransferCodingHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpTransferCodingHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpTransferCodingHeaderValue(items []*IHttpTransferCodingHeaderValue) *IVectorOfHttpTransferCodingHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.Headers.HttpTransferCodingHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpTransferCodingHeaderValue, Iterator: IID_IIteratorOfHttpTransferCodingHeaderValue, VectorView: IID_IVectorViewOfHttpTransferCodingHeaderValue, Vector: IID_IVectorOfHttpTransferCodingHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpTransferCodingHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorOfLanguage is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Globalization.Language>.
 // IID: dcf2525a-42c0-501d-9fcb-471fae060396
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Language>.
@@ -1918,6 +2407,28 @@ func (self *IVectorOfLanguage) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfLanguage creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Globalization.Language>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfLanguage(items []*globalization.ILanguage) *IVectorOfLanguage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Globalization.Language>", winrt.CollectionIIDs{Iterable: IID_IIterableOfLanguage, Iterator: IID_IIteratorOfLanguage, VectorView: IID_IVectorViewOfLanguage, Vector: IID_IVectorOfLanguage}, winrt.CodecInterface, boxed)
+	return (*IVectorOfLanguage)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHttpChallengeHeaderValue is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpChallengeHeaderValue>.
 // IID: 8b79423f-b4a3-501d-bac2-b88e78e13a21
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpChallengeHeaderValue>.
@@ -1950,6 +2461,25 @@ func (self *IVectorViewOfHttpChallengeHeaderValue) IndexOf(value *IHttpChallenge
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHttpChallengeHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpChallengeHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpChallengeHeaderValue(items []*IHttpChallengeHeaderValue) *IVectorViewOfHttpChallengeHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpChallengeHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpChallengeHeaderValue, Iterator: IID_IIteratorOfHttpChallengeHeaderValue, VectorView: IID_IVectorViewOfHttpChallengeHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpChallengeHeaderValue)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfHttpConnectionOptionHeaderValue is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue>.
 // IID: 1beae481-9d30-5ac8-942c-49a5f8737adf
@@ -1984,6 +2514,25 @@ func (self *IVectorViewOfHttpConnectionOptionHeaderValue) IndexOf(value *IHttpCo
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfHttpConnectionOptionHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpConnectionOptionHeaderValue(items []*IHttpConnectionOptionHeaderValue) *IVectorViewOfHttpConnectionOptionHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpConnectionOptionHeaderValue, Iterator: IID_IIteratorOfHttpConnectionOptionHeaderValue, VectorView: IID_IVectorViewOfHttpConnectionOptionHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpConnectionOptionHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHttpContentCodingHeaderValue is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpContentCodingHeaderValue>.
 // IID: dcdf2620-b6d0-5835-8bec-d3b946a50f55
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpContentCodingHeaderValue>.
@@ -2016,6 +2565,25 @@ func (self *IVectorViewOfHttpContentCodingHeaderValue) IndexOf(value *IHttpConte
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHttpContentCodingHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpContentCodingHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpContentCodingHeaderValue(items []*IHttpContentCodingHeaderValue) *IVectorViewOfHttpContentCodingHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpContentCodingHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpContentCodingHeaderValue, Iterator: IID_IIteratorOfHttpContentCodingHeaderValue, VectorView: IID_IVectorViewOfHttpContentCodingHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpContentCodingHeaderValue)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfHttpContentCodingWithQualityHeaderValue is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue>.
 // IID: eb18569b-a7ab-58bb-8880-dd022f755b51
@@ -2050,6 +2618,25 @@ func (self *IVectorViewOfHttpContentCodingWithQualityHeaderValue) IndexOf(value 
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfHttpContentCodingWithQualityHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpContentCodingWithQualityHeaderValue(items []*IHttpContentCodingWithQualityHeaderValue) *IVectorViewOfHttpContentCodingWithQualityHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpContentCodingWithQualityHeaderValue, Iterator: IID_IIteratorOfHttpContentCodingWithQualityHeaderValue, VectorView: IID_IVectorViewOfHttpContentCodingWithQualityHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpContentCodingWithQualityHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHttpCookiePairHeaderValue is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpCookiePairHeaderValue>.
 // IID: ad89192d-6ef8-56b5-a4dc-e48d0e85d569
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpCookiePairHeaderValue>.
@@ -2082,6 +2669,25 @@ func (self *IVectorViewOfHttpCookiePairHeaderValue) IndexOf(value *IHttpCookiePa
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHttpCookiePairHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpCookiePairHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpCookiePairHeaderValue(items []*IHttpCookiePairHeaderValue) *IVectorViewOfHttpCookiePairHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpCookiePairHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpCookiePairHeaderValue, Iterator: IID_IIteratorOfHttpCookiePairHeaderValue, VectorView: IID_IVectorViewOfHttpCookiePairHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpCookiePairHeaderValue)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfHttpExpectationHeaderValue is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpExpectationHeaderValue>.
 // IID: 71a22f32-a3c0-574b-87b4-127199cc7d5e
@@ -2116,6 +2722,25 @@ func (self *IVectorViewOfHttpExpectationHeaderValue) IndexOf(value *IHttpExpecta
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfHttpExpectationHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpExpectationHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpExpectationHeaderValue(items []*IHttpExpectationHeaderValue) *IVectorViewOfHttpExpectationHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpExpectationHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpExpectationHeaderValue, Iterator: IID_IIteratorOfHttpExpectationHeaderValue, VectorView: IID_IVectorViewOfHttpExpectationHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpExpectationHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHttpLanguageRangeWithQualityHeaderValue is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue>.
 // IID: 551fb7fb-ce42-5ffd-a2e0-2a6ce1698070
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue>.
@@ -2149,6 +2774,25 @@ func (self *IVectorViewOfHttpLanguageRangeWithQualityHeaderValue) IndexOf(value 
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfHttpLanguageRangeWithQualityHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpLanguageRangeWithQualityHeaderValue(items []*IHttpLanguageRangeWithQualityHeaderValue) *IVectorViewOfHttpLanguageRangeWithQualityHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpLanguageRangeWithQualityHeaderValue, Iterator: IID_IIteratorOfHttpLanguageRangeWithQualityHeaderValue, VectorView: IID_IVectorViewOfHttpLanguageRangeWithQualityHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpLanguageRangeWithQualityHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHttpMediaTypeWithQualityHeaderValue is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue>.
 // IID: f1c1e9bd-01a6-5bd3-af7b-c14220a645c0
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue>.
@@ -2181,6 +2825,25 @@ func (self *IVectorViewOfHttpMediaTypeWithQualityHeaderValue) IndexOf(value *IHt
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHttpMediaTypeWithQualityHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpMediaTypeWithQualityHeaderValue(items []*IHttpMediaTypeWithQualityHeaderValue) *IVectorViewOfHttpMediaTypeWithQualityHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpMediaTypeWithQualityHeaderValue, Iterator: IID_IIteratorOfHttpMediaTypeWithQualityHeaderValue, VectorView: IID_IVectorViewOfHttpMediaTypeWithQualityHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpMediaTypeWithQualityHeaderValue)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfHttpMethod is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.HttpMethod>.
 // IID: ef132fb7-d286-5327-b38a-be7d008328fe
@@ -2238,6 +2901,25 @@ func (self *IVectorViewOfHttpNameValueHeaderValue) IndexOf(value *IHttpNameValue
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfHttpNameValueHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpNameValueHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpNameValueHeaderValue(items []*IHttpNameValueHeaderValue) *IVectorViewOfHttpNameValueHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpNameValueHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpNameValueHeaderValue, Iterator: IID_IIteratorOfHttpNameValueHeaderValue, VectorView: IID_IVectorViewOfHttpNameValueHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpNameValueHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHttpProductInfoHeaderValue is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpProductInfoHeaderValue>.
 // IID: 82fef9f0-e283-5279-aa50-f0b3e5726a86
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.Headers.HttpProductInfoHeaderValue>.
@@ -2270,6 +2952,25 @@ func (self *IVectorViewOfHttpProductInfoHeaderValue) IndexOf(value *IHttpProduct
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHttpProductInfoHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpProductInfoHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpProductInfoHeaderValue(items []*IHttpProductInfoHeaderValue) *IVectorViewOfHttpProductInfoHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpProductInfoHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpProductInfoHeaderValue, Iterator: IID_IIteratorOfHttpProductInfoHeaderValue, VectorView: IID_IVectorViewOfHttpProductInfoHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpProductInfoHeaderValue)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfHttpTransferCodingHeaderValue is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpTransferCodingHeaderValue>.
 // IID: 25c1a8d6-229b-5421-b3b3-b7ef078fad7f
@@ -2304,6 +3005,25 @@ func (self *IVectorViewOfHttpTransferCodingHeaderValue) IndexOf(value *IHttpTran
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfHttpTransferCodingHeaderValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpTransferCodingHeaderValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpTransferCodingHeaderValue(items []*IHttpTransferCodingHeaderValue) *IVectorViewOfHttpTransferCodingHeaderValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.Headers.HttpTransferCodingHeaderValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpTransferCodingHeaderValue, Iterator: IID_IIteratorOfHttpTransferCodingHeaderValue, VectorView: IID_IVectorViewOfHttpTransferCodingHeaderValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpTransferCodingHeaderValue)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfLanguage is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Globalization.Language>.
 // IID: 144b0f3d-2d59-5dd2-b012-908ec3e06435
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Language>.
@@ -2336,3 +3056,22 @@ func (self *IVectorViewOfLanguage) IndexOf(value *globalization.ILanguage, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfLanguage creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Globalization.Language>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfLanguage(items []*globalization.ILanguage) *IVectorViewOfLanguage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Globalization.Language>", winrt.CollectionIIDs{Iterable: IID_IIterableOfLanguage, Iterator: IID_IIteratorOfLanguage, VectorView: IID_IVectorViewOfLanguage}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfLanguage)(unsafe.Pointer(obj))
+}

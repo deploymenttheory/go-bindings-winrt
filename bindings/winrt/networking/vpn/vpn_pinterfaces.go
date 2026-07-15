@@ -238,6 +238,130 @@ func (self *IIterableOfHostName) First() (*IIteratorOfHostName, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfHostName creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.HostName>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHostName(items []*networking.IHostName) *IIterableOfHostName {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.HostName>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHostName, Iterator: IID_IIteratorOfHostName}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHostName)(unsafe.Pointer(obj))
+}
+
+// IIterableOfIVpnCustomPrompt is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.IVpnCustomPrompt>.
+// IID: 8bac695c-70cb-54d6-8606-af6e3a25e3a1
+type IIterableOfIVpnCustomPrompt struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIVpnCustomPrompt is the interface identifier for IIterableOfIVpnCustomPrompt.
+var IID_IIterableOfIVpnCustomPrompt = win32.GUID{Data1: 0x8bac695c, Data2: 0x70cb, Data3: 0x54d6, Data4: [8]byte{0x86, 0x06, 0xaf, 0x6e, 0x3a, 0x25, 0xe3, 0xa1}}
+
+// First dispatches through IIterableOfIVpnCustomPrompt's vtable slot 6.
+func (self *IIterableOfIVpnCustomPrompt) First() (*IIteratorOfIVpnCustomPrompt, error) {
+	result := new(*IIteratorOfIVpnCustomPrompt)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIVpnCustomPrompt creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.IVpnCustomPrompt>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIVpnCustomPrompt(items []*IVpnCustomPrompt) *IIterableOfIVpnCustomPrompt {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.IVpnCustomPrompt>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIVpnCustomPrompt, Iterator: IID_IIteratorOfIVpnCustomPrompt}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIVpnCustomPrompt)(unsafe.Pointer(obj))
+}
+
+// IIterableOfIVpnCustomPromptElement is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.IVpnCustomPromptElement>.
+// IID: 437d3693-00c4-50b4-989a-938f1016a230
+type IIterableOfIVpnCustomPromptElement struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIVpnCustomPromptElement is the interface identifier for IIterableOfIVpnCustomPromptElement.
+var IID_IIterableOfIVpnCustomPromptElement = win32.GUID{Data1: 0x437d3693, Data2: 0x00c4, Data3: 0x50b4, Data4: [8]byte{0x98, 0x9a, 0x93, 0x8f, 0x10, 0x16, 0xa2, 0x30}}
+
+// First dispatches through IIterableOfIVpnCustomPromptElement's vtable slot 6.
+func (self *IIterableOfIVpnCustomPromptElement) First() (*IIteratorOfIVpnCustomPromptElement, error) {
+	result := new(*IIteratorOfIVpnCustomPromptElement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIVpnCustomPromptElement creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.IVpnCustomPromptElement>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIVpnCustomPromptElement(items []*IVpnCustomPromptElement) *IIterableOfIVpnCustomPromptElement {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.IVpnCustomPromptElement>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIVpnCustomPromptElement, Iterator: IID_IIteratorOfIVpnCustomPromptElement}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIVpnCustomPromptElement)(unsafe.Pointer(obj))
+}
+
+// IIterableOfIVpnProfile is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.IVpnProfile>.
+// IID: db35f6b1-f266-5c87-8862-9dd87d9df18f
+type IIterableOfIVpnProfile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIVpnProfile is the interface identifier for IIterableOfIVpnProfile.
+var IID_IIterableOfIVpnProfile = win32.GUID{Data1: 0xdb35f6b1, Data2: 0xf266, Data3: 0x5c87, Data4: [8]byte{0x88, 0x62, 0x9d, 0xd8, 0x7d, 0x9d, 0xf1, 0x8f}}
+
+// First dispatches through IIterableOfIVpnProfile's vtable slot 6.
+func (self *IIterableOfIVpnProfile) First() (*IIteratorOfIVpnProfile, error) {
+	result := new(*IIteratorOfIVpnProfile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIVpnProfile creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.IVpnProfile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIVpnProfile(items []*IVpnProfile) *IIterableOfIVpnProfile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.IVpnProfile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIVpnProfile, Iterator: IID_IIteratorOfIVpnProfile}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIVpnProfile)(unsafe.Pointer(obj))
+}
+
 // IIterableOfObject is the WinRT interface Windows.Foundation.Collections.IIterable`1<Object>.
 // IID: 092b849b-60b1-52be-a44a-6fe8e933cbe4
 type IIterableOfObject struct {
@@ -254,6 +378,197 @@ func (self *IIterableOfObject) First() (*IIteratorOfObject, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfObject creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Object>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfObject(items []*syswinrt.IInspectable) *IIterableOfObject {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Object>", winrt.CollectionIIDs{Iterable: IID_IIterableOfObject, Iterator: IID_IIteratorOfObject}, winrt.CodecInterface, boxed)
+	return (*IIterableOfObject)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUri is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>.
+// IID: b0d63b78-78ad-5e31-b6d8-e32a0e16c447
+type IIterableOfUri struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUri is the interface identifier for IIterableOfUri.
+var IID_IIterableOfUri = win32.GUID{Data1: 0xb0d63b78, Data2: 0x78ad, Data3: 0x5e31, Data4: [8]byte{0xb6, 0xd8, 0xe3, 0x2a, 0x0e, 0x16, 0xc4, 0x47}}
+
+// First dispatches through IIterableOfUri's vtable slot 6.
+func (self *IIterableOfUri) First() (*IIteratorOfUri, error) {
+	result := new(*IIteratorOfUri)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUri creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUri(items []*foundation.IUriRuntimeClass) *IIterableOfUri {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUri, Iterator: IID_IIteratorOfUri}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUri)(unsafe.Pointer(obj))
+}
+
+// IIterableOfVpnAppId is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnAppId>.
+// IID: 0e1e00aa-f93d-5dc7-9912-e07d1fa6bd67
+type IIterableOfVpnAppId struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfVpnAppId is the interface identifier for IIterableOfVpnAppId.
+var IID_IIterableOfVpnAppId = win32.GUID{Data1: 0x0e1e00aa, Data2: 0xf93d, Data3: 0x5dc7, Data4: [8]byte{0x99, 0x12, 0xe0, 0x7d, 0x1f, 0xa6, 0xbd, 0x67}}
+
+// First dispatches through IIterableOfVpnAppId's vtable slot 6.
+func (self *IIterableOfVpnAppId) First() (*IIteratorOfVpnAppId, error) {
+	result := new(*IIteratorOfVpnAppId)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVpnAppId creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnAppId>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfVpnAppId(items []*IVpnAppId) *IIterableOfVpnAppId {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnAppId>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnAppId, Iterator: IID_IIteratorOfVpnAppId}, winrt.CodecInterface, boxed)
+	return (*IIterableOfVpnAppId)(unsafe.Pointer(obj))
+}
+
+// IIterableOfVpnDomainNameInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnDomainNameInfo>.
+// IID: 33abe488-be1a-558a-a9cf-b5330ab49f50
+type IIterableOfVpnDomainNameInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfVpnDomainNameInfo is the interface identifier for IIterableOfVpnDomainNameInfo.
+var IID_IIterableOfVpnDomainNameInfo = win32.GUID{Data1: 0x33abe488, Data2: 0xbe1a, Data3: 0x558a, Data4: [8]byte{0xa9, 0xcf, 0xb5, 0x33, 0x0a, 0xb4, 0x9f, 0x50}}
+
+// First dispatches through IIterableOfVpnDomainNameInfo's vtable slot 6.
+func (self *IIterableOfVpnDomainNameInfo) First() (*IIteratorOfVpnDomainNameInfo, error) {
+	result := new(*IIteratorOfVpnDomainNameInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVpnDomainNameInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnDomainNameInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfVpnDomainNameInfo(items []*IVpnDomainNameInfo) *IIterableOfVpnDomainNameInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnDomainNameInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnDomainNameInfo, Iterator: IID_IIteratorOfVpnDomainNameInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfVpnDomainNameInfo)(unsafe.Pointer(obj))
+}
+
+// IIterableOfVpnNamespaceInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnNamespaceInfo>.
+// IID: 17781d03-ddcf-553f-aba8-d2e8155cb6b8
+type IIterableOfVpnNamespaceInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfVpnNamespaceInfo is the interface identifier for IIterableOfVpnNamespaceInfo.
+var IID_IIterableOfVpnNamespaceInfo = win32.GUID{Data1: 0x17781d03, Data2: 0xddcf, Data3: 0x553f, Data4: [8]byte{0xab, 0xa8, 0xd2, 0xe8, 0x15, 0x5c, 0xb6, 0xb8}}
+
+// First dispatches through IIterableOfVpnNamespaceInfo's vtable slot 6.
+func (self *IIterableOfVpnNamespaceInfo) First() (*IIteratorOfVpnNamespaceInfo, error) {
+	result := new(*IIteratorOfVpnNamespaceInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVpnNamespaceInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnNamespaceInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfVpnNamespaceInfo(items []*IVpnNamespaceInfo) *IIterableOfVpnNamespaceInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnNamespaceInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnNamespaceInfo, Iterator: IID_IIteratorOfVpnNamespaceInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfVpnNamespaceInfo)(unsafe.Pointer(obj))
+}
+
 // IIterableOfVpnPacketBuffer is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnPacketBuffer>.
 // IID: fa954f6e-30d7-50e0-9d43-dadb6c53e196
 type IIterableOfVpnPacketBuffer struct {
@@ -268,6 +583,95 @@ func (self *IIterableOfVpnPacketBuffer) First() (*IIteratorOfVpnPacketBuffer, er
 	result := new(*IIteratorOfVpnPacketBuffer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVpnPacketBuffer creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnPacketBuffer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfVpnPacketBuffer(items []*IVpnPacketBuffer) *IIterableOfVpnPacketBuffer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnPacketBuffer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnPacketBuffer, Iterator: IID_IIteratorOfVpnPacketBuffer}, winrt.CodecInterface, boxed)
+	return (*IIterableOfVpnPacketBuffer)(unsafe.Pointer(obj))
+}
+
+// IIterableOfVpnRoute is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnRoute>.
+// IID: bbf498d5-b9ef-55f1-97b1-77a06639e4e2
+type IIterableOfVpnRoute struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfVpnRoute is the interface identifier for IIterableOfVpnRoute.
+var IID_IIterableOfVpnRoute = win32.GUID{Data1: 0xbbf498d5, Data2: 0xb9ef, Data3: 0x55f1, Data4: [8]byte{0x97, 0xb1, 0x77, 0xa0, 0x66, 0x39, 0xe4, 0xe2}}
+
+// First dispatches through IIterableOfVpnRoute's vtable slot 6.
+func (self *IIterableOfVpnRoute) First() (*IIteratorOfVpnRoute, error) {
+	result := new(*IIteratorOfVpnRoute)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVpnRoute creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnRoute>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfVpnRoute(items []*IVpnRoute) *IIterableOfVpnRoute {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnRoute>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnRoute, Iterator: IID_IIteratorOfVpnRoute}, winrt.CodecInterface, boxed)
+	return (*IIterableOfVpnRoute)(unsafe.Pointer(obj))
+}
+
+// IIterableOfVpnTrafficFilter is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnTrafficFilter>.
+// IID: b6d4c853-77c9-52ca-9ce9-853add4554cf
+type IIterableOfVpnTrafficFilter struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfVpnTrafficFilter is the interface identifier for IIterableOfVpnTrafficFilter.
+var IID_IIterableOfVpnTrafficFilter = win32.GUID{Data1: 0xb6d4c853, Data2: 0x77c9, Data3: 0x52ca, Data4: [8]byte{0x9c, 0xe9, 0x85, 0x3a, 0xdd, 0x45, 0x54, 0xcf}}
+
+// First dispatches through IIterableOfVpnTrafficFilter's vtable slot 6.
+func (self *IIterableOfVpnTrafficFilter) First() (*IIteratorOfVpnTrafficFilter, error) {
+	result := new(*IIteratorOfVpnTrafficFilter)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVpnTrafficFilter creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnTrafficFilter>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfVpnTrafficFilter(items []*IVpnTrafficFilter) *IIterableOfVpnTrafficFilter {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnTrafficFilter>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnTrafficFilter, Iterator: IID_IIteratorOfVpnTrafficFilter}, winrt.CodecInterface, boxed)
+	return (*IIterableOfVpnTrafficFilter)(unsafe.Pointer(obj))
 }
 
 // IIteratorOfHostName is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.HostName>.
@@ -295,6 +699,102 @@ func (self *IIteratorOfHostName) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfHostName's vtable slot 8.
 func (self *IIteratorOfHostName) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfIVpnCustomPrompt is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.Vpn.IVpnCustomPrompt>.
+// IID: 6fc7cfe8-1882-5ba1-8e5e-4c5e3a4fa86d
+type IIteratorOfIVpnCustomPrompt struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIVpnCustomPrompt is the interface identifier for IIteratorOfIVpnCustomPrompt.
+var IID_IIteratorOfIVpnCustomPrompt = win32.GUID{Data1: 0x6fc7cfe8, Data2: 0x1882, Data3: 0x5ba1, Data4: [8]byte{0x8e, 0x5e, 0x4c, 0x5e, 0x3a, 0x4f, 0xa8, 0x6d}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIVpnCustomPrompt's vtable slot 6.
+func (self *IIteratorOfIVpnCustomPrompt) Current() (*IVpnCustomPrompt, error) {
+	result := new(*IVpnCustomPrompt)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIVpnCustomPrompt's vtable slot 7.
+func (self *IIteratorOfIVpnCustomPrompt) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIVpnCustomPrompt's vtable slot 8.
+func (self *IIteratorOfIVpnCustomPrompt) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfIVpnCustomPromptElement is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.Vpn.IVpnCustomPromptElement>.
+// IID: ee23ff21-51ba-5cc4-9856-625c79c28080
+type IIteratorOfIVpnCustomPromptElement struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIVpnCustomPromptElement is the interface identifier for IIteratorOfIVpnCustomPromptElement.
+var IID_IIteratorOfIVpnCustomPromptElement = win32.GUID{Data1: 0xee23ff21, Data2: 0x51ba, Data3: 0x5cc4, Data4: [8]byte{0x98, 0x56, 0x62, 0x5c, 0x79, 0xc2, 0x80, 0x80}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIVpnCustomPromptElement's vtable slot 6.
+func (self *IIteratorOfIVpnCustomPromptElement) Current() (*IVpnCustomPromptElement, error) {
+	result := new(*IVpnCustomPromptElement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIVpnCustomPromptElement's vtable slot 7.
+func (self *IIteratorOfIVpnCustomPromptElement) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIVpnCustomPromptElement's vtable slot 8.
+func (self *IIteratorOfIVpnCustomPromptElement) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfIVpnProfile is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.Vpn.IVpnProfile>.
+// IID: 91ccb492-ec28-530b-b45e-c431744ca9b5
+type IIteratorOfIVpnProfile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIVpnProfile is the interface identifier for IIteratorOfIVpnProfile.
+var IID_IIteratorOfIVpnProfile = win32.GUID{Data1: 0x91ccb492, Data2: 0xec28, Data3: 0x530b, Data4: [8]byte{0xb4, 0x5e, 0xc4, 0x31, 0x74, 0x4c, 0xa9, 0xb5}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIVpnProfile's vtable slot 6.
+func (self *IIteratorOfIVpnProfile) Current() (*IVpnProfile, error) {
+	result := new(*IVpnProfile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIVpnProfile's vtable slot 7.
+func (self *IIteratorOfIVpnProfile) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIVpnProfile's vtable slot 8.
+func (self *IIteratorOfIVpnProfile) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -334,6 +834,169 @@ func (self *IIteratorOfObject) MoveNext() (bool, error) {
 
 // slot 9: GetMany skipped: conformant array
 
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUri is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Uri>.
+// IID: 1c157d0f-5efe-5cec-bbd6-0c6ce9af07a5
+type IIteratorOfUri struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUri is the interface identifier for IIteratorOfUri.
+var IID_IIteratorOfUri = win32.GUID{Data1: 0x1c157d0f, Data2: 0x5efe, Data3: 0x5cec, Data4: [8]byte{0xbb, 0xd6, 0x0c, 0x6c, 0xe9, 0xaf, 0x07, 0xa5}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUri's vtable slot 6.
+func (self *IIteratorOfUri) Current() (*foundation.IUriRuntimeClass, error) {
+	result := new(*foundation.IUriRuntimeClass)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUri's vtable slot 7.
+func (self *IIteratorOfUri) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUri's vtable slot 8.
+func (self *IIteratorOfUri) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfVpnAppId is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.Vpn.VpnAppId>.
+// IID: ec9298b0-8ca2-549c-bbe2-252823e70eef
+type IIteratorOfVpnAppId struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfVpnAppId is the interface identifier for IIteratorOfVpnAppId.
+var IID_IIteratorOfVpnAppId = win32.GUID{Data1: 0xec9298b0, Data2: 0x8ca2, Data3: 0x549c, Data4: [8]byte{0xbb, 0xe2, 0x25, 0x28, 0x23, 0xe7, 0x0e, 0xef}}
+
+// Current (propget get_Current) dispatches through IIteratorOfVpnAppId's vtable slot 6.
+func (self *IIteratorOfVpnAppId) Current() (*IVpnAppId, error) {
+	result := new(*IVpnAppId)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfVpnAppId's vtable slot 7.
+func (self *IIteratorOfVpnAppId) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfVpnAppId's vtable slot 8.
+func (self *IIteratorOfVpnAppId) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfVpnDomainNameInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.Vpn.VpnDomainNameInfo>.
+// IID: 29f9008e-3e81-5c58-8a78-6be91abcc17d
+type IIteratorOfVpnDomainNameInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfVpnDomainNameInfo is the interface identifier for IIteratorOfVpnDomainNameInfo.
+var IID_IIteratorOfVpnDomainNameInfo = win32.GUID{Data1: 0x29f9008e, Data2: 0x3e81, Data3: 0x5c58, Data4: [8]byte{0x8a, 0x78, 0x6b, 0xe9, 0x1a, 0xbc, 0xc1, 0x7d}}
+
+// Current (propget get_Current) dispatches through IIteratorOfVpnDomainNameInfo's vtable slot 6.
+func (self *IIteratorOfVpnDomainNameInfo) Current() (*IVpnDomainNameInfo, error) {
+	result := new(*IVpnDomainNameInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfVpnDomainNameInfo's vtable slot 7.
+func (self *IIteratorOfVpnDomainNameInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfVpnDomainNameInfo's vtable slot 8.
+func (self *IIteratorOfVpnDomainNameInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfVpnNamespaceInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.Vpn.VpnNamespaceInfo>.
+// IID: 91e28244-7555-594d-b54d-9c87095e79a2
+type IIteratorOfVpnNamespaceInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfVpnNamespaceInfo is the interface identifier for IIteratorOfVpnNamespaceInfo.
+var IID_IIteratorOfVpnNamespaceInfo = win32.GUID{Data1: 0x91e28244, Data2: 0x7555, Data3: 0x594d, Data4: [8]byte{0xb5, 0x4d, 0x9c, 0x87, 0x09, 0x5e, 0x79, 0xa2}}
+
+// Current (propget get_Current) dispatches through IIteratorOfVpnNamespaceInfo's vtable slot 6.
+func (self *IIteratorOfVpnNamespaceInfo) Current() (*IVpnNamespaceInfo, error) {
+	result := new(*IVpnNamespaceInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfVpnNamespaceInfo's vtable slot 7.
+func (self *IIteratorOfVpnNamespaceInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfVpnNamespaceInfo's vtable slot 8.
+func (self *IIteratorOfVpnNamespaceInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IIteratorOfVpnPacketBuffer is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.Vpn.VpnPacketBuffer>.
 // IID: 04c88ba5-05e9-53b2-8524-df458d2a9179
 type IIteratorOfVpnPacketBuffer struct {
@@ -359,6 +1022,70 @@ func (self *IIteratorOfVpnPacketBuffer) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfVpnPacketBuffer's vtable slot 8.
 func (self *IIteratorOfVpnPacketBuffer) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfVpnRoute is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.Vpn.VpnRoute>.
+// IID: 44f813ac-052f-514b-a776-aad37a64fdc6
+type IIteratorOfVpnRoute struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfVpnRoute is the interface identifier for IIteratorOfVpnRoute.
+var IID_IIteratorOfVpnRoute = win32.GUID{Data1: 0x44f813ac, Data2: 0x052f, Data3: 0x514b, Data4: [8]byte{0xa7, 0x76, 0xaa, 0xd3, 0x7a, 0x64, 0xfd, 0xc6}}
+
+// Current (propget get_Current) dispatches through IIteratorOfVpnRoute's vtable slot 6.
+func (self *IIteratorOfVpnRoute) Current() (*IVpnRoute, error) {
+	result := new(*IVpnRoute)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfVpnRoute's vtable slot 7.
+func (self *IIteratorOfVpnRoute) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfVpnRoute's vtable slot 8.
+func (self *IIteratorOfVpnRoute) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfVpnTrafficFilter is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.Vpn.VpnTrafficFilter>.
+// IID: 8f37d5a0-5905-55bf-9c18-b9b3b544648b
+type IIteratorOfVpnTrafficFilter struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfVpnTrafficFilter is the interface identifier for IIteratorOfVpnTrafficFilter.
+var IID_IIteratorOfVpnTrafficFilter = win32.GUID{Data1: 0x8f37d5a0, Data2: 0x5905, Data3: 0x55bf, Data4: [8]byte{0x9c, 0x18, 0xb9, 0xb3, 0xb5, 0x44, 0x64, 0x8b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfVpnTrafficFilter's vtable slot 6.
+func (self *IIteratorOfVpnTrafficFilter) Current() (*IVpnTrafficFilter, error) {
+	result := new(*IVpnTrafficFilter)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfVpnTrafficFilter's vtable slot 7.
+func (self *IIteratorOfVpnTrafficFilter) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfVpnTrafficFilter's vtable slot 8.
+func (self *IIteratorOfVpnTrafficFilter) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -443,6 +1170,28 @@ func (self *IVectorOfHostName) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfHostName creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Networking.HostName>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHostName(items []*networking.IHostName) *IVectorOfHostName {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Networking.HostName>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHostName, Iterator: IID_IIteratorOfHostName, VectorView: IID_IVectorViewOfHostName, Vector: IID_IVectorOfHostName}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHostName)(unsafe.Pointer(obj))
+}
 
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
@@ -545,6 +1294,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorOfUri is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Foundation.Uri>.
 // IID: 0d82bd8d-fe62-5d67-a7b9-7886dd75bc4e
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>.
@@ -622,6 +1390,28 @@ func (self *IVectorOfUri) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfUri creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Foundation.Uri>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfUri(items []*foundation.IUriRuntimeClass) *IVectorOfUri {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Foundation.Uri>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUri, Iterator: IID_IIteratorOfUri, VectorView: IID_IVectorViewOfUri, Vector: IID_IVectorOfUri}, winrt.CodecInterface, boxed)
+	return (*IVectorOfUri)(unsafe.Pointer(obj))
+}
 
 // IVectorOfVpnAppId is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnAppId>.
 // IID: 89097d58-edb8-5ad4-abc5-603f21dd4b15
@@ -701,6 +1491,28 @@ func (self *IVectorOfVpnAppId) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfVpnAppId creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnAppId>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfVpnAppId(items []*IVpnAppId) *IVectorOfVpnAppId {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnAppId>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnAppId, Iterator: IID_IIteratorOfVpnAppId, VectorView: IID_IVectorViewOfVpnAppId, Vector: IID_IVectorOfVpnAppId}, winrt.CodecInterface, boxed)
+	return (*IVectorOfVpnAppId)(unsafe.Pointer(obj))
+}
+
 // IVectorOfVpnDomainNameInfo is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnDomainNameInfo>.
 // IID: 8179b6f2-7273-5ca3-a81b-53e902ca209b
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnDomainNameInfo>.
@@ -778,6 +1590,28 @@ func (self *IVectorOfVpnDomainNameInfo) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfVpnDomainNameInfo creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnDomainNameInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfVpnDomainNameInfo(items []*IVpnDomainNameInfo) *IVectorOfVpnDomainNameInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnDomainNameInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnDomainNameInfo, Iterator: IID_IIteratorOfVpnDomainNameInfo, VectorView: IID_IVectorViewOfVpnDomainNameInfo, Vector: IID_IVectorOfVpnDomainNameInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorOfVpnDomainNameInfo)(unsafe.Pointer(obj))
+}
 
 // IVectorOfVpnNamespaceInfo is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnNamespaceInfo>.
 // IID: 056bddf2-135d-542e-a322-36aa4ca0e60d
@@ -857,6 +1691,28 @@ func (self *IVectorOfVpnNamespaceInfo) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfVpnNamespaceInfo creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnNamespaceInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfVpnNamespaceInfo(items []*IVpnNamespaceInfo) *IVectorOfVpnNamespaceInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnNamespaceInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnNamespaceInfo, Iterator: IID_IIteratorOfVpnNamespaceInfo, VectorView: IID_IVectorViewOfVpnNamespaceInfo, Vector: IID_IVectorOfVpnNamespaceInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorOfVpnNamespaceInfo)(unsafe.Pointer(obj))
+}
+
 // IVectorOfVpnRoute is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnRoute>.
 // IID: 5b026bd8-2cc5-5570-bde5-0db7c4331279
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnRoute>.
@@ -934,6 +1790,28 @@ func (self *IVectorOfVpnRoute) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfVpnRoute creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnRoute>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfVpnRoute(items []*IVpnRoute) *IVectorOfVpnRoute {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnRoute>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnRoute, Iterator: IID_IIteratorOfVpnRoute, VectorView: IID_IVectorViewOfVpnRoute, Vector: IID_IVectorOfVpnRoute}, winrt.CodecInterface, boxed)
+	return (*IVectorOfVpnRoute)(unsafe.Pointer(obj))
+}
 
 // IVectorOfVpnTrafficFilter is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnTrafficFilter>.
 // IID: 2a5b9ad8-f005-5f69-ad81-300642e7c667
@@ -1013,6 +1891,28 @@ func (self *IVectorOfVpnTrafficFilter) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfVpnTrafficFilter creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnTrafficFilter>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfVpnTrafficFilter(items []*IVpnTrafficFilter) *IVectorOfVpnTrafficFilter {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Networking.Vpn.VpnTrafficFilter>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnTrafficFilter, Iterator: IID_IIteratorOfVpnTrafficFilter, VectorView: IID_IVectorViewOfVpnTrafficFilter, Vector: IID_IVectorOfVpnTrafficFilter}, winrt.CodecInterface, boxed)
+	return (*IVectorOfVpnTrafficFilter)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHostName is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.HostName>.
 // IID: f4706ab1-55a3-5270-afb2-732988fe8227
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.HostName>.
@@ -1045,6 +1945,25 @@ func (self *IVectorViewOfHostName) IndexOf(value *networking.IHostName, index *u
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHostName creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.HostName>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHostName(items []*networking.IHostName) *IVectorViewOfHostName {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.HostName>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHostName, Iterator: IID_IIteratorOfHostName, VectorView: IID_IVectorViewOfHostName}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHostName)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfIVpnCustomPrompt is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.IVpnCustomPrompt>.
 // IID: 804449c2-3bc1-5cfe-8468-3bbece4a5cd7
@@ -1079,6 +1998,25 @@ func (self *IVectorViewOfIVpnCustomPrompt) IndexOf(value *IVpnCustomPrompt, inde
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfIVpnCustomPrompt creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.IVpnCustomPrompt>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIVpnCustomPrompt(items []*IVpnCustomPrompt) *IVectorViewOfIVpnCustomPrompt {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.IVpnCustomPrompt>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIVpnCustomPrompt, Iterator: IID_IIteratorOfIVpnCustomPrompt, VectorView: IID_IVectorViewOfIVpnCustomPrompt}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIVpnCustomPrompt)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfIVpnCustomPromptElement is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.IVpnCustomPromptElement>.
 // IID: 25eaf5eb-2f39-5b4d-bb6e-e652c7d00f6a
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.IVpnCustomPromptElement>.
@@ -1112,6 +2050,25 @@ func (self *IVectorViewOfIVpnCustomPromptElement) IndexOf(value *IVpnCustomPromp
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfIVpnCustomPromptElement creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.IVpnCustomPromptElement>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIVpnCustomPromptElement(items []*IVpnCustomPromptElement) *IVectorViewOfIVpnCustomPromptElement {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.IVpnCustomPromptElement>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIVpnCustomPromptElement, Iterator: IID_IIteratorOfIVpnCustomPromptElement, VectorView: IID_IVectorViewOfIVpnCustomPromptElement}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIVpnCustomPromptElement)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfIVpnProfile is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.IVpnProfile>.
 // IID: f1dc8f7d-ca33-53fd-9d4c-40c51b5873ec
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.IVpnProfile>.
@@ -1144,6 +2101,25 @@ func (self *IVectorViewOfIVpnProfile) IndexOf(value *IVpnProfile, index *uint32)
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfIVpnProfile creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.IVpnProfile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIVpnProfile(items []*IVpnProfile) *IVectorViewOfIVpnProfile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.IVpnProfile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIVpnProfile, Iterator: IID_IIteratorOfIVpnProfile, VectorView: IID_IVectorViewOfIVpnProfile}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIVpnProfile)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -1186,6 +2162,22 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUri is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.Uri>.
 // IID: 4b8385bd-a2cd-5ff1-bf74-7ea580423e50
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>.
@@ -1218,6 +2210,25 @@ func (self *IVectorViewOfUri) IndexOf(value *foundation.IUriRuntimeClass, index 
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUri creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.Uri>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUri(items []*foundation.IUriRuntimeClass) *IVectorViewOfUri {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.Uri>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUri, Iterator: IID_IIteratorOfUri, VectorView: IID_IVectorViewOfUri}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUri)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfVpnAppId is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnAppId>.
 // IID: faecbc50-da9a-5102-8229-1dd24e873d1f
@@ -1252,6 +2263,25 @@ func (self *IVectorViewOfVpnAppId) IndexOf(value *IVpnAppId, index *uint32) (boo
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfVpnAppId creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnAppId>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfVpnAppId(items []*IVpnAppId) *IVectorViewOfVpnAppId {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnAppId>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnAppId, Iterator: IID_IIteratorOfVpnAppId, VectorView: IID_IVectorViewOfVpnAppId}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfVpnAppId)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfVpnDomainNameInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnDomainNameInfo>.
 // IID: d4772f57-2328-5c25-9a11-246da17e39d5
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnDomainNameInfo>.
@@ -1284,6 +2314,25 @@ func (self *IVectorViewOfVpnDomainNameInfo) IndexOf(value *IVpnDomainNameInfo, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfVpnDomainNameInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnDomainNameInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfVpnDomainNameInfo(items []*IVpnDomainNameInfo) *IVectorViewOfVpnDomainNameInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnDomainNameInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnDomainNameInfo, Iterator: IID_IIteratorOfVpnDomainNameInfo, VectorView: IID_IVectorViewOfVpnDomainNameInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfVpnDomainNameInfo)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfVpnNamespaceInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnNamespaceInfo>.
 // IID: c6ed05a9-4dc7-507d-9c92-7c78c2ef4786
@@ -1318,6 +2367,25 @@ func (self *IVectorViewOfVpnNamespaceInfo) IndexOf(value *IVpnNamespaceInfo, ind
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfVpnNamespaceInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnNamespaceInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfVpnNamespaceInfo(items []*IVpnNamespaceInfo) *IVectorViewOfVpnNamespaceInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnNamespaceInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnNamespaceInfo, Iterator: IID_IIteratorOfVpnNamespaceInfo, VectorView: IID_IVectorViewOfVpnNamespaceInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfVpnNamespaceInfo)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfVpnRoute is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnRoute>.
 // IID: 43701a74-e497-5559-a71b-11d0156fa839
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnRoute>.
@@ -1351,6 +2419,25 @@ func (self *IVectorViewOfVpnRoute) IndexOf(value *IVpnRoute, index *uint32) (boo
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfVpnRoute creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnRoute>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfVpnRoute(items []*IVpnRoute) *IVectorViewOfVpnRoute {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnRoute>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnRoute, Iterator: IID_IIteratorOfVpnRoute, VectorView: IID_IVectorViewOfVpnRoute}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfVpnRoute)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfVpnTrafficFilter is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnTrafficFilter>.
 // IID: 75de1766-ee22-56e9-be99-2714065349e5
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.Vpn.VpnTrafficFilter>.
@@ -1383,3 +2470,22 @@ func (self *IVectorViewOfVpnTrafficFilter) IndexOf(value *IVpnTrafficFilter, ind
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfVpnTrafficFilter creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnTrafficFilter>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfVpnTrafficFilter(items []*IVpnTrafficFilter) *IVectorViewOfVpnTrafficFilter {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Vpn.VpnTrafficFilter>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVpnTrafficFilter, Iterator: IID_IIteratorOfVpnTrafficFilter, VectorView: IID_IVectorViewOfVpnTrafficFilter}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfVpnTrafficFilter)(unsafe.Pointer(obj))
+}

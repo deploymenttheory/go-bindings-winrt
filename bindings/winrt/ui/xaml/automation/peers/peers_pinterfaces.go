@@ -29,6 +29,60 @@ func (self *IIterableOfAutomationPeer) First() (*IIteratorOfAutomationPeer, erro
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfAutomationPeer creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.Peers.AutomationPeer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAutomationPeer(items []*syswinrt.IInspectable) *IIterableOfAutomationPeer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.Peers.AutomationPeer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAutomationPeer, Iterator: IID_IIteratorOfAutomationPeer}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAutomationPeer)(unsafe.Pointer(obj))
+}
+
+// IIterableOfAutomationPeerAnnotation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>.
+// IID: dd28ff94-d11e-5ae7-b819-6177c1599313
+type IIterableOfAutomationPeerAnnotation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAutomationPeerAnnotation is the interface identifier for IIterableOfAutomationPeerAnnotation.
+var IID_IIterableOfAutomationPeerAnnotation = win32.GUID{Data1: 0xdd28ff94, Data2: 0xd11e, Data3: 0x5ae7, Data4: [8]byte{0xb8, 0x19, 0x61, 0x77, 0xc1, 0x59, 0x93, 0x13}}
+
+// First dispatches through IIterableOfAutomationPeerAnnotation's vtable slot 6.
+func (self *IIterableOfAutomationPeerAnnotation) First() (*IIteratorOfAutomationPeerAnnotation, error) {
+	result := new(*IIteratorOfAutomationPeerAnnotation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAutomationPeerAnnotation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAutomationPeerAnnotation(items []*syswinrt.IInspectable) *IIterableOfAutomationPeerAnnotation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAutomationPeerAnnotation, Iterator: IID_IIteratorOfAutomationPeerAnnotation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAutomationPeerAnnotation)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfAutomationPeer is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Automation.Peers.AutomationPeer>.
 // IID: 1f93cd7a-8075-5ba9-bc3e-b04a94e14bc0
 type IIteratorOfAutomationPeer struct {
@@ -55,6 +109,39 @@ func (self *IIteratorOfAutomationPeer) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfAutomationPeer's vtable slot 8.
 func (self *IIteratorOfAutomationPeer) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfAutomationPeerAnnotation is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>.
+// IID: 3b415733-48f2-58b0-9884-6f0d0e35dc1a
+type IIteratorOfAutomationPeerAnnotation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAutomationPeerAnnotation is the interface identifier for IIteratorOfAutomationPeerAnnotation.
+var IID_IIteratorOfAutomationPeerAnnotation = win32.GUID{Data1: 0x3b415733, Data2: 0x48f2, Data3: 0x58b0, Data4: [8]byte{0x98, 0x84, 0x6f, 0x0d, 0x0e, 0x35, 0xdc, 0x1a}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAutomationPeerAnnotation's vtable slot 6.
+// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation is projected as IInspectable (the class is not emitted this wave).
+func (self *IIteratorOfAutomationPeerAnnotation) Current() (*syswinrt.IInspectable, error) {
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAutomationPeerAnnotation's vtable slot 7.
+func (self *IIteratorOfAutomationPeerAnnotation) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAutomationPeerAnnotation's vtable slot 8.
+func (self *IIteratorOfAutomationPeerAnnotation) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -145,6 +232,28 @@ func (self *IVectorOfAutomationPeer) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfAutomationPeer creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Automation.Peers.AutomationPeer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfAutomationPeer(items []*syswinrt.IInspectable) *IVectorOfAutomationPeer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Automation.Peers.AutomationPeer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAutomationPeer, Iterator: IID_IIteratorOfAutomationPeer, VectorView: IID_IVectorViewOfAutomationPeer, Vector: IID_IVectorOfAutomationPeer}, winrt.CodecInterface, boxed)
+	return (*IVectorOfAutomationPeer)(unsafe.Pointer(obj))
+}
+
 // IVectorOfAutomationPeerAnnotation is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>.
 // IID: d353f885-4bf0-5dc2-878e-ec7a394ee880
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>.
@@ -228,6 +337,28 @@ func (self *IVectorOfAutomationPeerAnnotation) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfAutomationPeerAnnotation creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfAutomationPeerAnnotation(items []*syswinrt.IInspectable) *IVectorOfAutomationPeerAnnotation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAutomationPeerAnnotation, Iterator: IID_IIteratorOfAutomationPeerAnnotation, VectorView: IID_IVectorViewOfAutomationPeerAnnotation, Vector: IID_IVectorOfAutomationPeerAnnotation}, winrt.CodecInterface, boxed)
+	return (*IVectorOfAutomationPeerAnnotation)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfAutomationPeer is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Automation.Peers.AutomationPeer>.
 // IID: b56a6076-19e2-50c1-930f-825bfc39635c
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.Peers.AutomationPeer>.
@@ -263,6 +394,25 @@ func (self *IVectorViewOfAutomationPeer) IndexOf(value *syswinrt.IInspectable, i
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfAutomationPeer creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Automation.Peers.AutomationPeer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAutomationPeer(items []*syswinrt.IInspectable) *IVectorViewOfAutomationPeer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Automation.Peers.AutomationPeer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAutomationPeer, Iterator: IID_IIteratorOfAutomationPeer, VectorView: IID_IVectorViewOfAutomationPeer}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAutomationPeer)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfAutomationPeerAnnotation is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>.
 // IID: 00775c79-589b-5c36-ae72-2e7aab0270c6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>.
@@ -297,3 +447,22 @@ func (self *IVectorViewOfAutomationPeerAnnotation) IndexOf(value *syswinrt.IInsp
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfAutomationPeerAnnotation creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAutomationPeerAnnotation(items []*syswinrt.IInspectable) *IVectorViewOfAutomationPeerAnnotation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAutomationPeerAnnotation, Iterator: IID_IIteratorOfAutomationPeerAnnotation, VectorView: IID_IVectorViewOfAutomationPeerAnnotation}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAutomationPeerAnnotation)(unsafe.Pointer(obj))
+}

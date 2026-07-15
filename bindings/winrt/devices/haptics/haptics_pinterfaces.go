@@ -221,6 +221,140 @@ func (self *IAsyncOperationOfVibrationDevice) Await() (*IVibrationDevice, error)
 	return self.GetResults()
 }
 
+// IIterableOfSimpleHapticsControllerFeedback is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.SimpleHapticsControllerFeedback>.
+// IID: 8894a0df-33b0-57b0-aa1a-9255eee72dd5
+type IIterableOfSimpleHapticsControllerFeedback struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSimpleHapticsControllerFeedback is the interface identifier for IIterableOfSimpleHapticsControllerFeedback.
+var IID_IIterableOfSimpleHapticsControllerFeedback = win32.GUID{Data1: 0x8894a0df, Data2: 0x33b0, Data3: 0x57b0, Data4: [8]byte{0xaa, 0x1a, 0x92, 0x55, 0xee, 0xe7, 0x2d, 0xd5}}
+
+// First dispatches through IIterableOfSimpleHapticsControllerFeedback's vtable slot 6.
+func (self *IIterableOfSimpleHapticsControllerFeedback) First() (*IIteratorOfSimpleHapticsControllerFeedback, error) {
+	result := new(*IIteratorOfSimpleHapticsControllerFeedback)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSimpleHapticsControllerFeedback creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.SimpleHapticsControllerFeedback>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSimpleHapticsControllerFeedback(items []*ISimpleHapticsControllerFeedback) *IIterableOfSimpleHapticsControllerFeedback {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.SimpleHapticsControllerFeedback>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSimpleHapticsControllerFeedback, Iterator: IID_IIteratorOfSimpleHapticsControllerFeedback}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSimpleHapticsControllerFeedback)(unsafe.Pointer(obj))
+}
+
+// IIterableOfVibrationDevice is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.VibrationDevice>.
+// IID: 1a40c994-8810-5688-9362-c4bb51018552
+type IIterableOfVibrationDevice struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfVibrationDevice is the interface identifier for IIterableOfVibrationDevice.
+var IID_IIterableOfVibrationDevice = win32.GUID{Data1: 0x1a40c994, Data2: 0x8810, Data3: 0x5688, Data4: [8]byte{0x93, 0x62, 0xc4, 0xbb, 0x51, 0x01, 0x85, 0x52}}
+
+// First dispatches through IIterableOfVibrationDevice's vtable slot 6.
+func (self *IIterableOfVibrationDevice) First() (*IIteratorOfVibrationDevice, error) {
+	result := new(*IIteratorOfVibrationDevice)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVibrationDevice creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.VibrationDevice>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfVibrationDevice(items []*IVibrationDevice) *IIterableOfVibrationDevice {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.VibrationDevice>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVibrationDevice, Iterator: IID_IIteratorOfVibrationDevice}, winrt.CodecInterface, boxed)
+	return (*IIterableOfVibrationDevice)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfSimpleHapticsControllerFeedback is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Haptics.SimpleHapticsControllerFeedback>.
+// IID: b7d297d6-9666-5c9e-9dcc-5c382eae6750
+type IIteratorOfSimpleHapticsControllerFeedback struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSimpleHapticsControllerFeedback is the interface identifier for IIteratorOfSimpleHapticsControllerFeedback.
+var IID_IIteratorOfSimpleHapticsControllerFeedback = win32.GUID{Data1: 0xb7d297d6, Data2: 0x9666, Data3: 0x5c9e, Data4: [8]byte{0x9d, 0xcc, 0x5c, 0x38, 0x2e, 0xae, 0x67, 0x50}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSimpleHapticsControllerFeedback's vtable slot 6.
+func (self *IIteratorOfSimpleHapticsControllerFeedback) Current() (*ISimpleHapticsControllerFeedback, error) {
+	result := new(*ISimpleHapticsControllerFeedback)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSimpleHapticsControllerFeedback's vtable slot 7.
+func (self *IIteratorOfSimpleHapticsControllerFeedback) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSimpleHapticsControllerFeedback's vtable slot 8.
+func (self *IIteratorOfSimpleHapticsControllerFeedback) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfVibrationDevice is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Haptics.VibrationDevice>.
+// IID: 24e9b323-eef1-533f-ad38-de8fc8ca5692
+type IIteratorOfVibrationDevice struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfVibrationDevice is the interface identifier for IIteratorOfVibrationDevice.
+var IID_IIteratorOfVibrationDevice = win32.GUID{Data1: 0x24e9b323, Data2: 0xeef1, Data3: 0x533f, Data4: [8]byte{0xad, 0x38, 0xde, 0x8f, 0xc8, 0xca, 0x56, 0x92}}
+
+// Current (propget get_Current) dispatches through IIteratorOfVibrationDevice's vtable slot 6.
+func (self *IIteratorOfVibrationDevice) Current() (*IVibrationDevice, error) {
+	result := new(*IVibrationDevice)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfVibrationDevice's vtable slot 7.
+func (self *IIteratorOfVibrationDevice) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfVibrationDevice's vtable slot 8.
+func (self *IIteratorOfVibrationDevice) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfSimpleHapticsControllerFeedback is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Haptics.SimpleHapticsControllerFeedback>.
 // IID: 51f54b04-bb9d-5c7b-8f5f-67f8caf4b003
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.SimpleHapticsControllerFeedback>.
@@ -254,6 +388,25 @@ func (self *IVectorViewOfSimpleHapticsControllerFeedback) IndexOf(value *ISimple
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfSimpleHapticsControllerFeedback creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Haptics.SimpleHapticsControllerFeedback>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSimpleHapticsControllerFeedback(items []*ISimpleHapticsControllerFeedback) *IVectorViewOfSimpleHapticsControllerFeedback {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Haptics.SimpleHapticsControllerFeedback>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSimpleHapticsControllerFeedback, Iterator: IID_IIteratorOfSimpleHapticsControllerFeedback, VectorView: IID_IVectorViewOfSimpleHapticsControllerFeedback}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSimpleHapticsControllerFeedback)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfVibrationDevice is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Haptics.VibrationDevice>.
 // IID: 485aa8a6-2d29-5d34-b8d9-b0c961c17f7f
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.VibrationDevice>.
@@ -286,3 +439,22 @@ func (self *IVectorViewOfVibrationDevice) IndexOf(value *IVibrationDevice, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfVibrationDevice creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Haptics.VibrationDevice>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfVibrationDevice(items []*IVibrationDevice) *IVectorViewOfVibrationDevice {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Haptics.VibrationDevice>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVibrationDevice, Iterator: IID_IIteratorOfVibrationDevice, VectorView: IID_IVectorViewOfVibrationDevice}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfVibrationDevice)(unsafe.Pointer(obj))
+}

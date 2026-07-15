@@ -227,6 +227,177 @@ func (self *IAsyncOperationWithProgressOfLowLightFusionResultAndDouble) Await() 
 	return self.GetResults()
 }
 
+// IIterableOfBitmapPixelFormat is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.BitmapPixelFormat>.
+// IID: e924d9ed-a13e-5bdb-9ed8-65a1474dc274
+type IIterableOfBitmapPixelFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfBitmapPixelFormat is the interface identifier for IIterableOfBitmapPixelFormat.
+var IID_IIterableOfBitmapPixelFormat = win32.GUID{Data1: 0xe924d9ed, Data2: 0xa13e, Data3: 0x5bdb, Data4: [8]byte{0x9e, 0xd8, 0x65, 0xa1, 0x47, 0x4d, 0xc2, 0x74}}
+
+// First dispatches through IIterableOfBitmapPixelFormat's vtable slot 6.
+func (self *IIterableOfBitmapPixelFormat) First() (*IIteratorOfBitmapPixelFormat, error) {
+	result := new(*IIteratorOfBitmapPixelFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfBitmapPixelFormat creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.BitmapPixelFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfBitmapPixelFormat(items []graphicsimaging.BitmapPixelFormat) *IIterableOfBitmapPixelFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.BitmapPixelFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBitmapPixelFormat, Iterator: IID_IIteratorOfBitmapPixelFormat}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfBitmapPixelFormat)(unsafe.Pointer(obj))
+}
+
+// IIterableOfCodecInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.CodecInfo>.
+// IID: 552f7709-3bc3-59fb-93e6-1ebd28d3c008
+type IIterableOfCodecInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCodecInfo is the interface identifier for IIterableOfCodecInfo.
+var IID_IIterableOfCodecInfo = win32.GUID{Data1: 0x552f7709, Data2: 0x3bc3, Data3: 0x59fb, Data4: [8]byte{0x93, 0xe6, 0x1e, 0xbd, 0x28, 0xd3, 0xc0, 0x08}}
+
+// First dispatches through IIterableOfCodecInfo's vtable slot 6.
+func (self *IIterableOfCodecInfo) First() (*IIteratorOfCodecInfo, error) {
+	result := new(*IIteratorOfCodecInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCodecInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.CodecInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCodecInfo(items []*ICodecInfo) *IIterableOfCodecInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.CodecInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCodecInfo, Iterator: IID_IIteratorOfCodecInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCodecInfo)(unsafe.Pointer(obj))
+}
+
+// IIterableOfDetectedFace is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.FaceAnalysis.DetectedFace>.
+// IID: 25347323-3556-5cbb-9855-2b5856437f4d
+type IIterableOfDetectedFace struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDetectedFace is the interface identifier for IIterableOfDetectedFace.
+var IID_IIterableOfDetectedFace = win32.GUID{Data1: 0x25347323, Data2: 0x3556, Data3: 0x5cbb, Data4: [8]byte{0x98, 0x55, 0x2b, 0x58, 0x56, 0x43, 0x7f, 0x4d}}
+
+// First dispatches through IIterableOfDetectedFace's vtable slot 6.
+func (self *IIterableOfDetectedFace) First() (*IIteratorOfDetectedFace, error) {
+	result := new(*IIteratorOfDetectedFace)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDetectedFace creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.FaceAnalysis.DetectedFace>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDetectedFace(items []*mediafaceanalysis.IDetectedFace) *IIterableOfDetectedFace {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.FaceAnalysis.DetectedFace>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDetectedFace, Iterator: IID_IIteratorOfDetectedFace}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDetectedFace)(unsafe.Pointer(obj))
+}
+
+// IIterableOfIMediaCue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.IMediaCue>.
+// IID: 737a2098-41bf-5d9f-a1d2-2f171c578b3c
+type IIterableOfIMediaCue struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIMediaCue is the interface identifier for IIterableOfIMediaCue.
+var IID_IIterableOfIMediaCue = win32.GUID{Data1: 0x737a2098, Data2: 0x41bf, Data3: 0x5d9f, Data4: [8]byte{0xa1, 0xd2, 0x2f, 0x17, 0x1c, 0x57, 0x8b, 0x3c}}
+
+// First dispatches through IIterableOfIMediaCue's vtable slot 6.
+func (self *IIterableOfIMediaCue) First() (*IIteratorOfIMediaCue, error) {
+	result := new(*IIteratorOfIMediaCue)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIMediaCue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.IMediaCue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIMediaCue(items []*IMediaCue) *IIterableOfIMediaCue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.IMediaCue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIMediaCue, Iterator: IID_IIteratorOfIMediaCue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIMediaCue)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMseSourceBuffer is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.MseSourceBuffer>.
+// IID: 5ca0da86-6307-558a-865f-3a1ef9fe56b3
+type IIterableOfMseSourceBuffer struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMseSourceBuffer is the interface identifier for IIterableOfMseSourceBuffer.
+var IID_IIterableOfMseSourceBuffer = win32.GUID{Data1: 0x5ca0da86, Data2: 0x6307, Data3: 0x558a, Data4: [8]byte{0x86, 0x5f, 0x3a, 0x1e, 0xf9, 0xfe, 0x56, 0xb3}}
+
+// First dispatches through IIterableOfMseSourceBuffer's vtable slot 6.
+func (self *IIterableOfMseSourceBuffer) First() (*IIteratorOfMseSourceBuffer, error) {
+	result := new(*IIteratorOfMseSourceBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMseSourceBuffer creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.MseSourceBuffer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMseSourceBuffer(items []*IMseSourceBuffer) *IIterableOfMseSourceBuffer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.MseSourceBuffer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMseSourceBuffer, Iterator: IID_IIteratorOfMseSourceBuffer}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMseSourceBuffer)(unsafe.Pointer(obj))
+}
+
 // IIterableOfSoftwareBitmap is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.SoftwareBitmap>.
 // IID: 22d3a30f-0898-5e94-99a3-afa5951dfcd4
 type IIterableOfSoftwareBitmap struct {
@@ -242,6 +413,322 @@ func (self *IIterableOfSoftwareBitmap) First() (*IIteratorOfSoftwareBitmap, erro
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfSoftwareBitmap creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.SoftwareBitmap>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSoftwareBitmap(items []*graphicsimaging.ISoftwareBitmap) *IIterableOfSoftwareBitmap {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.SoftwareBitmap>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSoftwareBitmap, Iterator: IID_IIteratorOfSoftwareBitmap}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSoftwareBitmap)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIterableOfTimedMetadataTrack is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedMetadataTrack>.
+// IID: 150a4454-03bb-5dd1-8153-6a600e851f71
+type IIterableOfTimedMetadataTrack struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfTimedMetadataTrack is the interface identifier for IIterableOfTimedMetadataTrack.
+var IID_IIterableOfTimedMetadataTrack = win32.GUID{Data1: 0x150a4454, Data2: 0x03bb, Data3: 0x5dd1, Data4: [8]byte{0x81, 0x53, 0x6a, 0x60, 0x0e, 0x85, 0x1f, 0x71}}
+
+// First dispatches through IIterableOfTimedMetadataTrack's vtable slot 6.
+func (self *IIterableOfTimedMetadataTrack) First() (*IIteratorOfTimedMetadataTrack, error) {
+	result := new(*IIteratorOfTimedMetadataTrack)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfTimedMetadataTrack creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedMetadataTrack>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfTimedMetadataTrack(items []*ITimedMetadataTrack) *IIterableOfTimedMetadataTrack {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedMetadataTrack>", winrt.CollectionIIDs{Iterable: IID_IIterableOfTimedMetadataTrack, Iterator: IID_IIteratorOfTimedMetadataTrack}, winrt.CodecInterface, boxed)
+	return (*IIterableOfTimedMetadataTrack)(unsafe.Pointer(obj))
+}
+
+// IIterableOfTimedTextLine is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedTextLine>.
+// IID: aec710ad-3bd8-5a59-ae77-e7fc46fb105b
+type IIterableOfTimedTextLine struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfTimedTextLine is the interface identifier for IIterableOfTimedTextLine.
+var IID_IIterableOfTimedTextLine = win32.GUID{Data1: 0xaec710ad, Data2: 0x3bd8, Data3: 0x5a59, Data4: [8]byte{0xae, 0x77, 0xe7, 0xfc, 0x46, 0xfb, 0x10, 0x5b}}
+
+// First dispatches through IIterableOfTimedTextLine's vtable slot 6.
+func (self *IIterableOfTimedTextLine) First() (*IIteratorOfTimedTextLine, error) {
+	result := new(*IIteratorOfTimedTextLine)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfTimedTextLine creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedTextLine>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfTimedTextLine(items []*ITimedTextLine) *IIterableOfTimedTextLine {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedTextLine>", winrt.CollectionIIDs{Iterable: IID_IIterableOfTimedTextLine, Iterator: IID_IIteratorOfTimedTextLine}, winrt.CodecInterface, boxed)
+	return (*IIterableOfTimedTextLine)(unsafe.Pointer(obj))
+}
+
+// IIterableOfTimedTextSubformat is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedTextSubformat>.
+// IID: cee3ae43-c93c-56f7-8c55-9024ded72c76
+type IIterableOfTimedTextSubformat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfTimedTextSubformat is the interface identifier for IIterableOfTimedTextSubformat.
+var IID_IIterableOfTimedTextSubformat = win32.GUID{Data1: 0xcee3ae43, Data2: 0xc93c, Data3: 0x56f7, Data4: [8]byte{0x8c, 0x55, 0x90, 0x24, 0xde, 0xd7, 0x2c, 0x76}}
+
+// First dispatches through IIterableOfTimedTextSubformat's vtable slot 6.
+func (self *IIterableOfTimedTextSubformat) First() (*IIteratorOfTimedTextSubformat, error) {
+	result := new(*IIteratorOfTimedTextSubformat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfTimedTextSubformat creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedTextSubformat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfTimedTextSubformat(items []*ITimedTextSubformat) *IIterableOfTimedTextSubformat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedTextSubformat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfTimedTextSubformat, Iterator: IID_IIteratorOfTimedTextSubformat}, winrt.CodecInterface, boxed)
+	return (*IIterableOfTimedTextSubformat)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfBitmapPixelFormat is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Imaging.BitmapPixelFormat>.
+// IID: 7fc2e293-1084-5d45-b8b8-93e10692bcc8
+type IIteratorOfBitmapPixelFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfBitmapPixelFormat is the interface identifier for IIteratorOfBitmapPixelFormat.
+var IID_IIteratorOfBitmapPixelFormat = win32.GUID{Data1: 0x7fc2e293, Data2: 0x1084, Data3: 0x5d45, Data4: [8]byte{0xb8, 0xb8, 0x93, 0xe1, 0x06, 0x92, 0xbc, 0xc8}}
+
+// Current (propget get_Current) dispatches through IIteratorOfBitmapPixelFormat's vtable slot 6.
+func (self *IIteratorOfBitmapPixelFormat) Current() (graphicsimaging.BitmapPixelFormat, error) {
+	result := new(graphicsimaging.BitmapPixelFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfBitmapPixelFormat's vtable slot 7.
+func (self *IIteratorOfBitmapPixelFormat) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfBitmapPixelFormat's vtable slot 8.
+func (self *IIteratorOfBitmapPixelFormat) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfCodecInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Core.CodecInfo>.
+// IID: d4141d5b-23f6-564b-b85c-5d4609f81863
+type IIteratorOfCodecInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCodecInfo is the interface identifier for IIteratorOfCodecInfo.
+var IID_IIteratorOfCodecInfo = win32.GUID{Data1: 0xd4141d5b, Data2: 0x23f6, Data3: 0x564b, Data4: [8]byte{0xb8, 0x5c, 0x5d, 0x46, 0x09, 0xf8, 0x18, 0x63}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCodecInfo's vtable slot 6.
+func (self *IIteratorOfCodecInfo) Current() (*ICodecInfo, error) {
+	result := new(*ICodecInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCodecInfo's vtable slot 7.
+func (self *IIteratorOfCodecInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCodecInfo's vtable slot 8.
+func (self *IIteratorOfCodecInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfDetectedFace is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.FaceAnalysis.DetectedFace>.
+// IID: a0cf090e-0340-531f-898b-c21eafb9f4ae
+type IIteratorOfDetectedFace struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDetectedFace is the interface identifier for IIteratorOfDetectedFace.
+var IID_IIteratorOfDetectedFace = win32.GUID{Data1: 0xa0cf090e, Data2: 0x0340, Data3: 0x531f, Data4: [8]byte{0x89, 0x8b, 0xc2, 0x1e, 0xaf, 0xb9, 0xf4, 0xae}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDetectedFace's vtable slot 6.
+func (self *IIteratorOfDetectedFace) Current() (*mediafaceanalysis.IDetectedFace, error) {
+	result := new(*mediafaceanalysis.IDetectedFace)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDetectedFace's vtable slot 7.
+func (self *IIteratorOfDetectedFace) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDetectedFace's vtable slot 8.
+func (self *IIteratorOfDetectedFace) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfIMediaCue is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Core.IMediaCue>.
+// IID: 1a594dc8-a64b-55ed-9b34-7b274e1d5c70
+type IIteratorOfIMediaCue struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIMediaCue is the interface identifier for IIteratorOfIMediaCue.
+var IID_IIteratorOfIMediaCue = win32.GUID{Data1: 0x1a594dc8, Data2: 0xa64b, Data3: 0x55ed, Data4: [8]byte{0x9b, 0x34, 0x7b, 0x27, 0x4e, 0x1d, 0x5c, 0x70}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIMediaCue's vtable slot 6.
+func (self *IIteratorOfIMediaCue) Current() (*IMediaCue, error) {
+	result := new(*IMediaCue)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIMediaCue's vtable slot 7.
+func (self *IIteratorOfIMediaCue) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIMediaCue's vtable slot 8.
+func (self *IIteratorOfIMediaCue) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMseSourceBuffer is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Core.MseSourceBuffer>.
+// IID: 53076581-01a9-51b9-98cc-5265504cd352
+type IIteratorOfMseSourceBuffer struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMseSourceBuffer is the interface identifier for IIteratorOfMseSourceBuffer.
+var IID_IIteratorOfMseSourceBuffer = win32.GUID{Data1: 0x53076581, Data2: 0x01a9, Data3: 0x51b9, Data4: [8]byte{0x98, 0xcc, 0x52, 0x65, 0x50, 0x4c, 0xd3, 0x52}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMseSourceBuffer's vtable slot 6.
+func (self *IIteratorOfMseSourceBuffer) Current() (*IMseSourceBuffer, error) {
+	result := new(*IMseSourceBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMseSourceBuffer's vtable slot 7.
+func (self *IIteratorOfMseSourceBuffer) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMseSourceBuffer's vtable slot 8.
+func (self *IIteratorOfMseSourceBuffer) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfSoftwareBitmap is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Imaging.SoftwareBitmap>.
 // IID: cd12e4c3-8ca8-5be6-b64b-204a014fc620
@@ -268,6 +755,137 @@ func (self *IIteratorOfSoftwareBitmap) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfSoftwareBitmap's vtable slot 8.
 func (self *IIteratorOfSoftwareBitmap) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfTimedMetadataTrack is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Core.TimedMetadataTrack>.
+// IID: 859354e5-077b-5d53-b297-1a07b97f09c3
+type IIteratorOfTimedMetadataTrack struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfTimedMetadataTrack is the interface identifier for IIteratorOfTimedMetadataTrack.
+var IID_IIteratorOfTimedMetadataTrack = win32.GUID{Data1: 0x859354e5, Data2: 0x077b, Data3: 0x5d53, Data4: [8]byte{0xb2, 0x97, 0x1a, 0x07, 0xb9, 0x7f, 0x09, 0xc3}}
+
+// Current (propget get_Current) dispatches through IIteratorOfTimedMetadataTrack's vtable slot 6.
+func (self *IIteratorOfTimedMetadataTrack) Current() (*ITimedMetadataTrack, error) {
+	result := new(*ITimedMetadataTrack)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfTimedMetadataTrack's vtable slot 7.
+func (self *IIteratorOfTimedMetadataTrack) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfTimedMetadataTrack's vtable slot 8.
+func (self *IIteratorOfTimedMetadataTrack) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfTimedTextLine is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Core.TimedTextLine>.
+// IID: 84c4fcac-86d8-5c74-a138-d9bf37b749ec
+type IIteratorOfTimedTextLine struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfTimedTextLine is the interface identifier for IIteratorOfTimedTextLine.
+var IID_IIteratorOfTimedTextLine = win32.GUID{Data1: 0x84c4fcac, Data2: 0x86d8, Data3: 0x5c74, Data4: [8]byte{0xa1, 0x38, 0xd9, 0xbf, 0x37, 0xb7, 0x49, 0xec}}
+
+// Current (propget get_Current) dispatches through IIteratorOfTimedTextLine's vtable slot 6.
+func (self *IIteratorOfTimedTextLine) Current() (*ITimedTextLine, error) {
+	result := new(*ITimedTextLine)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfTimedTextLine's vtable slot 7.
+func (self *IIteratorOfTimedTextLine) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfTimedTextLine's vtable slot 8.
+func (self *IIteratorOfTimedTextLine) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfTimedTextSubformat is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Core.TimedTextSubformat>.
+// IID: 65105e50-865c-591d-9bf4-96237de2533f
+type IIteratorOfTimedTextSubformat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfTimedTextSubformat is the interface identifier for IIteratorOfTimedTextSubformat.
+var IID_IIteratorOfTimedTextSubformat = win32.GUID{Data1: 0x65105e50, Data2: 0x865c, Data3: 0x591d, Data4: [8]byte{0x9b, 0xf4, 0x96, 0x23, 0x7d, 0xe2, 0x53, 0x3f}}
+
+// Current (propget get_Current) dispatches through IIteratorOfTimedTextSubformat's vtable slot 6.
+func (self *IIteratorOfTimedTextSubformat) Current() (*ITimedTextSubformat, error) {
+	result := new(*ITimedTextSubformat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfTimedTextSubformat's vtable slot 7.
+func (self *IIteratorOfTimedTextSubformat) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfTimedTextSubformat's vtable slot 8.
+func (self *IIteratorOfTimedTextSubformat) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -485,6 +1103,28 @@ func (self *IVectorOfTimedTextLine) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfTimedTextLine creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Media.Core.TimedTextLine>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfTimedTextLine(items []*ITimedTextLine) *IVectorOfTimedTextLine {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Media.Core.TimedTextLine>", winrt.CollectionIIDs{Iterable: IID_IIterableOfTimedTextLine, Iterator: IID_IIteratorOfTimedTextLine, VectorView: IID_IVectorViewOfTimedTextLine, Vector: IID_IVectorOfTimedTextLine}, winrt.CodecInterface, boxed)
+	return (*IVectorOfTimedTextLine)(unsafe.Pointer(obj))
+}
+
 // IVectorOfTimedTextSubformat is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Media.Core.TimedTextSubformat>.
 // IID: 8786f392-f369-57ea-a16e-75870246a8c9
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedTextSubformat>.
@@ -563,6 +1203,28 @@ func (self *IVectorOfTimedTextSubformat) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfTimedTextSubformat creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Media.Core.TimedTextSubformat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfTimedTextSubformat(items []*ITimedTextSubformat) *IVectorOfTimedTextSubformat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Media.Core.TimedTextSubformat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfTimedTextSubformat, Iterator: IID_IIteratorOfTimedTextSubformat, VectorView: IID_IVectorViewOfTimedTextSubformat, Vector: IID_IVectorOfTimedTextSubformat}, winrt.CodecInterface, boxed)
+	return (*IVectorOfTimedTextSubformat)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfBitmapPixelFormat is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Imaging.BitmapPixelFormat>.
 // IID: 76ac4bc2-c19c-559c-b287-1694c0dc3a0d
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.BitmapPixelFormat>.
@@ -595,6 +1257,21 @@ func (self *IVectorViewOfBitmapPixelFormat) IndexOf(value graphicsimaging.Bitmap
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfBitmapPixelFormat creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Imaging.BitmapPixelFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfBitmapPixelFormat(items []graphicsimaging.BitmapPixelFormat) *IVectorViewOfBitmapPixelFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Imaging.BitmapPixelFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBitmapPixelFormat, Iterator: IID_IIteratorOfBitmapPixelFormat, VectorView: IID_IVectorViewOfBitmapPixelFormat}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfBitmapPixelFormat)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfCodecInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.CodecInfo>.
 // IID: 1fd24a93-c3da-513d-b216-0c4c7f412b88
@@ -629,6 +1306,25 @@ func (self *IVectorViewOfCodecInfo) IndexOf(value *ICodecInfo, index *uint32) (b
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfCodecInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.CodecInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCodecInfo(items []*ICodecInfo) *IVectorViewOfCodecInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.CodecInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCodecInfo, Iterator: IID_IIteratorOfCodecInfo, VectorView: IID_IVectorViewOfCodecInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCodecInfo)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfDetectedFace is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.FaceAnalysis.DetectedFace>.
 // IID: 39ef4411-0618-5b8d-8ea2-81c637f823f8
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.FaceAnalysis.DetectedFace>.
@@ -661,6 +1357,25 @@ func (self *IVectorViewOfDetectedFace) IndexOf(value *mediafaceanalysis.IDetecte
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfDetectedFace creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.FaceAnalysis.DetectedFace>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDetectedFace(items []*mediafaceanalysis.IDetectedFace) *IVectorViewOfDetectedFace {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.FaceAnalysis.DetectedFace>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDetectedFace, Iterator: IID_IIteratorOfDetectedFace, VectorView: IID_IVectorViewOfDetectedFace}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDetectedFace)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfFrameController is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.Core.FrameController>.
 // IID: fcd6a2a3-b6ff-5572-912b-99ebaf95165d
@@ -718,6 +1433,25 @@ func (self *IVectorViewOfIMediaCue) IndexOf(value *IMediaCue, index *uint32) (bo
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfIMediaCue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.IMediaCue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIMediaCue(items []*IMediaCue) *IVectorViewOfIMediaCue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.IMediaCue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIMediaCue, Iterator: IID_IIteratorOfIMediaCue, VectorView: IID_IVectorViewOfIMediaCue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIMediaCue)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMseSourceBuffer is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.MseSourceBuffer>.
 // IID: 85318263-1360-5c78-b0ad-52d6b45b19f3
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.MseSourceBuffer>.
@@ -750,6 +1484,25 @@ func (self *IVectorViewOfMseSourceBuffer) IndexOf(value *IMseSourceBuffer, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMseSourceBuffer creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.MseSourceBuffer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMseSourceBuffer(items []*IMseSourceBuffer) *IVectorViewOfMseSourceBuffer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.MseSourceBuffer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMseSourceBuffer, Iterator: IID_IIteratorOfMseSourceBuffer, VectorView: IID_IVectorViewOfMseSourceBuffer}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMseSourceBuffer)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfMseTimeRange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.MseTimeRange>.
 // IID: 87ff1dd1-7ec3-5bc5-b558-0425d806bf4b
@@ -820,6 +1573,22 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfTimedMetadataTrack is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.TimedMetadataTrack>.
 // IID: 0313ae7a-2803-5d45-b5a1-a0fc5cd55e7c
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedMetadataTrack>.
@@ -852,6 +1621,25 @@ func (self *IVectorViewOfTimedMetadataTrack) IndexOf(value *ITimedMetadataTrack,
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfTimedMetadataTrack creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.TimedMetadataTrack>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfTimedMetadataTrack(items []*ITimedMetadataTrack) *IVectorViewOfTimedMetadataTrack {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.TimedMetadataTrack>", winrt.CollectionIIDs{Iterable: IID_IIterableOfTimedMetadataTrack, Iterator: IID_IIteratorOfTimedMetadataTrack, VectorView: IID_IVectorViewOfTimedMetadataTrack}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfTimedMetadataTrack)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfTimedTextLine is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.TimedTextLine>.
 // IID: 9532b5cc-73fc-5e3a-8531-794c30d7a1ae
@@ -886,6 +1674,25 @@ func (self *IVectorViewOfTimedTextLine) IndexOf(value *ITimedTextLine, index *ui
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfTimedTextLine creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.TimedTextLine>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfTimedTextLine(items []*ITimedTextLine) *IVectorViewOfTimedTextLine {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.TimedTextLine>", winrt.CollectionIIDs{Iterable: IID_IIterableOfTimedTextLine, Iterator: IID_IIteratorOfTimedTextLine, VectorView: IID_IVectorViewOfTimedTextLine}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfTimedTextLine)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfTimedTextSubformat is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.TimedTextSubformat>.
 // IID: 411a0e26-42e2-5e65-b9c4-980c4c3f31f7
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.TimedTextSubformat>.
@@ -918,3 +1725,22 @@ func (self *IVectorViewOfTimedTextSubformat) IndexOf(value *ITimedTextSubformat,
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfTimedTextSubformat creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.TimedTextSubformat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfTimedTextSubformat(items []*ITimedTextSubformat) *IVectorViewOfTimedTextSubformat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.TimedTextSubformat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfTimedTextSubformat, Iterator: IID_IIteratorOfTimedTextSubformat, VectorView: IID_IVectorViewOfTimedTextSubformat}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfTimedTextSubformat)(unsafe.Pointer(obj))
+}

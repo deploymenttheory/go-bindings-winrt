@@ -29,6 +29,25 @@ func (self *IIterableOfUIElement) First() (*IIteratorOfUIElement, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfUIElement creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.UIElement>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUIElement(items []*syswinrt.IInspectable) *IIterableOfUIElement {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.UIElement>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUIElement, Iterator: IID_IIteratorOfUIElement}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUIElement)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfUIElement is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.UIElement>.
 // IID: 1d1f9d60-d53b-57f7-b144-8f7c487846e8
 type IIteratorOfUIElement struct {

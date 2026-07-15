@@ -83,6 +83,73 @@ func (self *IAsyncOperationOfIUICommand) Await() (*IUICommand, error) {
 	return self.GetResults()
 }
 
+// IIterableOfIUICommand is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Popups.IUICommand>.
+// IID: e63de42b-53c3-5e07-90d3-98172d545412
+type IIterableOfIUICommand struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIUICommand is the interface identifier for IIterableOfIUICommand.
+var IID_IIterableOfIUICommand = win32.GUID{Data1: 0xe63de42b, Data2: 0x53c3, Data3: 0x5e07, Data4: [8]byte{0x90, 0xd3, 0x98, 0x17, 0x2d, 0x54, 0x54, 0x12}}
+
+// First dispatches through IIterableOfIUICommand's vtable slot 6.
+func (self *IIterableOfIUICommand) First() (*IIteratorOfIUICommand, error) {
+	result := new(*IIteratorOfIUICommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIUICommand creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Popups.IUICommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIUICommand(items []*IUICommand) *IIterableOfIUICommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Popups.IUICommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIUICommand, Iterator: IID_IIteratorOfIUICommand}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIUICommand)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfIUICommand is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Popups.IUICommand>.
+// IID: f45db3d3-7299-57ce-a73e-297cf0af3083
+type IIteratorOfIUICommand struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIUICommand is the interface identifier for IIteratorOfIUICommand.
+var IID_IIteratorOfIUICommand = win32.GUID{Data1: 0xf45db3d3, Data2: 0x7299, Data3: 0x57ce, Data4: [8]byte{0xa7, 0x3e, 0x29, 0x7c, 0xf0, 0xaf, 0x30, 0x83}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIUICommand's vtable slot 6.
+func (self *IIteratorOfIUICommand) Current() (*IUICommand, error) {
+	result := new(*IUICommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIUICommand's vtable slot 7.
+func (self *IIteratorOfIUICommand) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIUICommand's vtable slot 8.
+func (self *IIteratorOfIUICommand) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfIUICommand is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Popups.IUICommand>.
 // IID: 105139a1-dcb8-5f65-97ef-cb1bf0b75f9d
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Popups.IUICommand>.
@@ -161,6 +228,28 @@ func (self *IVectorOfIUICommand) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfIUICommand creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Popups.IUICommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfIUICommand(items []*IUICommand) *IVectorOfIUICommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Popups.IUICommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIUICommand, Iterator: IID_IIteratorOfIUICommand, VectorView: IID_IVectorViewOfIUICommand, Vector: IID_IVectorOfIUICommand}, winrt.CodecInterface, boxed)
+	return (*IVectorOfIUICommand)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfIUICommand is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Popups.IUICommand>.
 // IID: ed1165e6-f377-5b00-8172-93c1bd04deb4
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Popups.IUICommand>.
@@ -193,3 +282,22 @@ func (self *IVectorViewOfIUICommand) IndexOf(value *IUICommand, index *uint32) (
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfIUICommand creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Popups.IUICommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIUICommand(items []*IUICommand) *IVectorViewOfIUICommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Popups.IUICommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIUICommand, Iterator: IID_IIteratorOfIUICommand, VectorView: IID_IVectorViewOfIUICommand}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIUICommand)(unsafe.Pointer(obj))
+}

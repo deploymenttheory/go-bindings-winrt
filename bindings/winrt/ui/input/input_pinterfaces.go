@@ -13,6 +13,76 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
+// IIterableOfPointerPoint is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.PointerPoint>.
+// IID: f6f2cba6-7076-5b59-9631-f6ac32b57695
+type IIterableOfPointerPoint struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPointerPoint is the interface identifier for IIterableOfPointerPoint.
+var IID_IIterableOfPointerPoint = win32.GUID{Data1: 0xf6f2cba6, Data2: 0x7076, Data3: 0x5b59, Data4: [8]byte{0x96, 0x31, 0xf6, 0xac, 0x32, 0xb5, 0x76, 0x95}}
+
+// First dispatches through IIterableOfPointerPoint's vtable slot 6.
+func (self *IIterableOfPointerPoint) First() (*IIteratorOfPointerPoint, error) {
+	result := new(*IIteratorOfPointerPoint)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPointerPoint creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.PointerPoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPointerPoint(items []*IPointerPoint) *IIterableOfPointerPoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.PointerPoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPointerPoint, Iterator: IID_IIteratorOfPointerPoint}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPointerPoint)(unsafe.Pointer(obj))
+}
+
+// IIterableOfRadialControllerMenuItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.RadialControllerMenuItem>.
+// IID: 1aa752b3-dc11-5bce-b2b9-cd1bf8f235be
+type IIterableOfRadialControllerMenuItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfRadialControllerMenuItem is the interface identifier for IIterableOfRadialControllerMenuItem.
+var IID_IIterableOfRadialControllerMenuItem = win32.GUID{Data1: 0x1aa752b3, Data2: 0xdc11, Data3: 0x5bce, Data4: [8]byte{0xb2, 0xb9, 0xcd, 0x1b, 0xf8, 0xf2, 0x35, 0xbe}}
+
+// First dispatches through IIterableOfRadialControllerMenuItem's vtable slot 6.
+func (self *IIterableOfRadialControllerMenuItem) First() (*IIteratorOfRadialControllerMenuItem, error) {
+	result := new(*IIteratorOfRadialControllerMenuItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfRadialControllerMenuItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.RadialControllerMenuItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfRadialControllerMenuItem(items []*IRadialControllerMenuItem) *IIterableOfRadialControllerMenuItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.RadialControllerMenuItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRadialControllerMenuItem, Iterator: IID_IIteratorOfRadialControllerMenuItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfRadialControllerMenuItem)(unsafe.Pointer(obj))
+}
+
 // IIterableOfRadialControllerSystemMenuItemKind is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.RadialControllerSystemMenuItemKind>.
 // IID: 4516010f-fd98-5e1d-bf3f-aeaf79f1f3da
 type IIterableOfRadialControllerSystemMenuItemKind struct {
@@ -28,6 +98,85 @@ func (self *IIterableOfRadialControllerSystemMenuItemKind) First() (*IIteratorOf
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfRadialControllerSystemMenuItemKind creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.RadialControllerSystemMenuItemKind>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfRadialControllerSystemMenuItemKind(items []RadialControllerSystemMenuItemKind) *IIterableOfRadialControllerSystemMenuItemKind {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.RadialControllerSystemMenuItemKind>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRadialControllerSystemMenuItemKind, Iterator: IID_IIteratorOfRadialControllerSystemMenuItemKind}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfRadialControllerSystemMenuItemKind)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfPointerPoint is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.PointerPoint>.
+// IID: 721fe01c-5ad4-5262-b078-3ab345105db8
+type IIteratorOfPointerPoint struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPointerPoint is the interface identifier for IIteratorOfPointerPoint.
+var IID_IIteratorOfPointerPoint = win32.GUID{Data1: 0x721fe01c, Data2: 0x5ad4, Data3: 0x5262, Data4: [8]byte{0xb0, 0x78, 0x3a, 0xb3, 0x45, 0x10, 0x5d, 0xb8}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPointerPoint's vtable slot 6.
+func (self *IIteratorOfPointerPoint) Current() (*IPointerPoint, error) {
+	result := new(*IPointerPoint)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPointerPoint's vtable slot 7.
+func (self *IIteratorOfPointerPoint) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPointerPoint's vtable slot 8.
+func (self *IIteratorOfPointerPoint) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfRadialControllerMenuItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.RadialControllerMenuItem>.
+// IID: 5a773e24-d968-535e-969a-76ce3602a637
+type IIteratorOfRadialControllerMenuItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfRadialControllerMenuItem is the interface identifier for IIteratorOfRadialControllerMenuItem.
+var IID_IIteratorOfRadialControllerMenuItem = win32.GUID{Data1: 0x5a773e24, Data2: 0xd968, Data3: 0x535e, Data4: [8]byte{0x96, 0x9a, 0x76, 0xce, 0x36, 0x02, 0xa6, 0x37}}
+
+// Current (propget get_Current) dispatches through IIteratorOfRadialControllerMenuItem's vtable slot 6.
+func (self *IIteratorOfRadialControllerMenuItem) Current() (*IRadialControllerMenuItem, error) {
+	result := new(*IRadialControllerMenuItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfRadialControllerMenuItem's vtable slot 7.
+func (self *IIteratorOfRadialControllerMenuItem) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfRadialControllerMenuItem's vtable slot 8.
+func (self *IIteratorOfRadialControllerMenuItem) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfRadialControllerSystemMenuItemKind is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.RadialControllerSystemMenuItemKind>.
 // IID: 3fbc1858-a43e-54dc-b0e2-8b098bddacf6
@@ -151,6 +300,28 @@ func (self *IVectorOfPointerPoint) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfPointerPoint creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Input.PointerPoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfPointerPoint(items []*IPointerPoint) *IVectorOfPointerPoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Input.PointerPoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPointerPoint, Iterator: IID_IIteratorOfPointerPoint, VectorView: IID_IVectorViewOfPointerPoint, Vector: IID_IVectorOfPointerPoint}, winrt.CodecInterface, boxed)
+	return (*IVectorOfPointerPoint)(unsafe.Pointer(obj))
+}
+
 // IVectorOfRadialControllerMenuItem is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Input.RadialControllerMenuItem>.
 // IID: bfde94e7-70f8-5cc0-98e2-8c0f8ce524ab
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.RadialControllerMenuItem>.
@@ -229,6 +400,28 @@ func (self *IVectorOfRadialControllerMenuItem) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfRadialControllerMenuItem creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Input.RadialControllerMenuItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfRadialControllerMenuItem(items []*IRadialControllerMenuItem) *IVectorOfRadialControllerMenuItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Input.RadialControllerMenuItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRadialControllerMenuItem, Iterator: IID_IIteratorOfRadialControllerMenuItem, VectorView: IID_IVectorViewOfRadialControllerMenuItem, Vector: IID_IVectorOfRadialControllerMenuItem}, winrt.CodecInterface, boxed)
+	return (*IVectorOfRadialControllerMenuItem)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfPointerPoint is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.PointerPoint>.
 // IID: f0f57411-7786-5174-8752-4c5e834b6da2
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.PointerPoint>.
@@ -262,6 +455,25 @@ func (self *IVectorViewOfPointerPoint) IndexOf(value *IPointerPoint, index *uint
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfPointerPoint creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.PointerPoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPointerPoint(items []*IPointerPoint) *IVectorViewOfPointerPoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.PointerPoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPointerPoint, Iterator: IID_IIteratorOfPointerPoint, VectorView: IID_IVectorViewOfPointerPoint}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPointerPoint)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfRadialControllerMenuItem is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.RadialControllerMenuItem>.
 // IID: b91a7342-3fcb-512b-aef1-fda4712e5817
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.RadialControllerMenuItem>.
@@ -294,3 +506,22 @@ func (self *IVectorViewOfRadialControllerMenuItem) IndexOf(value *IRadialControl
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfRadialControllerMenuItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.RadialControllerMenuItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfRadialControllerMenuItem(items []*IRadialControllerMenuItem) *IVectorViewOfRadialControllerMenuItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.RadialControllerMenuItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRadialControllerMenuItem, Iterator: IID_IIteratorOfRadialControllerMenuItem, VectorView: IID_IVectorViewOfRadialControllerMenuItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfRadialControllerMenuItem)(unsafe.Pointer(obj))
+}

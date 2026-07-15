@@ -85,12 +85,88 @@ element-wise via `GetAt` or the iterator. (The Go-*implemented* collections
 below do implement GetMany on their native-facing vtables, so OS code
 consuming them can bulk-read; only the Go-consumer direction is missing.)
 
-## Go-implemented collections (strings only today)
+## Go-implemented collections (element-generic)
 
 Some WinRT APIs *take* a collection — the Calendar factory constructors
-require an `IIterable<String>` of language tags and reject null with
-E_POINTER. The runtime layer implements real, OS-callable collection objects
-over Go slices:
+require an `IIterable<String>` of language tags,
+`DataPackage.SetStorageItems` an `IIterable<IStorageItem>`, the Ipp
+attribute factories `IIterable<Int32>`/`IIterable<Uri>`. The runtime layer
+implements real, OS-callable collection objects over Go slices, and the
+generator emits a **typed constructor for every monomorphized
+`IIterable<X>` / `IVectorView<X>` / `IVector<X>`** whose element it can
+marshal:
+
+```go
+// In the package that declared the instantiation (<pkg>_pinterfaces.go):
+iterable := printers.NewIIterableOfUri([]*foundation.IUriRuntimeClass{u1, u2})
+value, err := statics.CreateUriArray(iterable)
+iterable.Release() // the OS copied the elements; ours was the last reference
+
+items := datatransfer.NewIIterableOfIStorageItem([]*storage.IStorageItem{a, b})
+err = pkg.SetStorageItems(items, true)
+items.Release()
+
+vector := globalization.NewIVectorOfString([]string{"one", "two"}) // writable!
+```
+
+The constructor returns the package-local consumer type directly — no cast
+needed — and the object starts with one caller-owned reference (`Release()`
+returns the remaining count; after the OS finishes it drains to zero, which
+the acceptance tests use to prove the OS leaks nothing).
+
+Element coverage (the runtime "codec" set):
+
+| Element kind | Payload semantics |
+|---|---|
+| `String` | copied Go strings; `IndexOf` is string-value equality |
+| interface / class / `Object` pointers | the collection **AddRefs** each element and releases it when displaced, removed, or when the collection dies |
+| enums and integer scalars | copied values |
+| `Guid` | copied values |
+
+Elements outside the set (bool, floats, structs, delegates) get no
+constructor — the instantiation type still emits, and the skip is recorded
+under the `collection-ctor-skipped` diagnostic key.
+
+**Identity-equality caveat (interface elements).** `IndexOf` on a
+Go-implemented collection compares COM identity *words* only — no
+`QueryInterface(IUnknown)` is issued from collection bodies. An element
+matches only the exact interface pointer the collection holds; a different
+interface pointer onto the same COM object does not.
+
+### Writable vectors
+
+`New<IVectorOfX>` builds a real `IVector<T>`: all twelve methods (GetAt,
+get_Size, GetView, IndexOf, SetAt, InsertAt, RemoveAt, Append, RemoveAtEnd,
+Clear, GetMany, ReplaceAll) are implemented on the native-facing vtable with
+the standard contracts — E_BOUNDS on bad indices, ReplaceAll all-or-nothing,
+GetMany partial reads with unwind on failure. Two semantics are deliberate
+and documented:
+
+- **`GetView` returns a snapshot**: an immutable copy of the contents at
+  call time (re-retained for interface elements). Later vector mutation does
+  not appear in the view — permissible under the WinRT contract, and it
+  needs zero invalidation machinery.
+- **Iterators snapshot too**: `First` hands out an iterator over its own
+  retained copy, so mutating (or releasing) the source never invalidates it.
+
+Mutation happens only through the WinRT ABI — the Go side exposes no
+mutation API — and every ABI entry is serialized by the runtime's dispatch
+worker, so no extra locking exists or is needed.
+
+### The runtime core
+
+The generated constructors sit on three exported runtime constructors —
+`winrt.NewIterableObject`, `winrt.NewVectorViewObject`,
+`winrt.NewVectorObject`, each taking the runtime class name, a
+`winrt.CollectionIIDs` set, an element codec (`winrt.CodecString`,
+`winrt.CodecInterface`, `winrt.CodecScalar(n)`, `winrt.CodecGuid`), and the
+boxed `[]any` payload. The element type is *not* a Go type parameter: IIDs
+are derivation-time knowledge and `syscall.NewCallback` slots are
+process-permanent, so one shared trampoline per interface shape/slot
+dispatches through the codec — a fixed callback budget no matter how many
+element types instantiate.
+
+The pre-generic string wrappers remain, unchanged in API and semantics:
 
 | Constructor | Implements |
 |---|---|
@@ -98,23 +174,6 @@ over Go slices:
 | `winrt.NewStringVectorView(items)` | `IVectorView<String>` + an `IIterable<String>` tear-off facet |
 | `winrt.NewStringIterator(items)` | `IIterator<String>` (rarely needed directly — `First` creates them) |
 
-Each copies the slice, starts with one caller-owned reference, and is driven
-by native code through Go vtables (QueryInterface, First, MoveNext, …). To
-pass one into a generated binding, cast to the package-local consumer type —
-sound because both layouts are a single vtable-pointer word:
-
-```go
-languages := winrt.NewStringIterable([]string{"de-DE", "en-GB"})
-calendar, err := globalization.CreateCalendarDefaultCalendarAndClock(
-	(*globalization.IIterableOfString)(unsafe.Pointer(languages)))
-languages.Release() // the factory has consumed it; ours was the last reference
-```
-
-`Release()` returns the remaining count — after the OS finishes with the
-object it drains to zero, which the acceptance tests use to prove the OS
-leaks nothing.
-
-Only the `String` instantiations exist today. Writable collections
-(`IVector<T>`) and non-string element types are deferred; their IIDs are
-pinned against the pinterface derivation by `internal/verify`, so extending
-the set is mechanical rather than risky.
+Their hard-coded IIDs are pinned against the pinterface derivation by
+`internal/verify`. `IMap`/`IMapView` implementations remain deferred (no
+emittable member consumes one today).

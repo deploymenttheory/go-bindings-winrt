@@ -14,6 +14,73 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 )
 
+// IIterableOfFrameController is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.Core.FrameController>.
+// IID: bd8eeadc-2dd9-5ad8-ac5d-f3b13b94b9c2
+type IIterableOfFrameController struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfFrameController is the interface identifier for IIterableOfFrameController.
+var IID_IIterableOfFrameController = win32.GUID{Data1: 0xbd8eeadc, Data2: 0x2dd9, Data3: 0x5ad8, Data4: [8]byte{0xac, 0x5d, 0xf3, 0xb1, 0x3b, 0x94, 0xb9, 0xc2}}
+
+// First dispatches through IIterableOfFrameController's vtable slot 6.
+func (self *IIterableOfFrameController) First() (*IIteratorOfFrameController, error) {
+	result := new(*IIteratorOfFrameController)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfFrameController creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.Core.FrameController>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfFrameController(items []*IFrameController) *IIterableOfFrameController {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.Core.FrameController>", winrt.CollectionIIDs{Iterable: IID_IIterableOfFrameController, Iterator: IID_IIteratorOfFrameController}, winrt.CodecInterface, boxed)
+	return (*IIterableOfFrameController)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfFrameController is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.Core.FrameController>.
+// IID: 1440dc88-63ff-5a01-bb93-390c76742488
+type IIteratorOfFrameController struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfFrameController is the interface identifier for IIteratorOfFrameController.
+var IID_IIteratorOfFrameController = win32.GUID{Data1: 0x1440dc88, Data2: 0x63ff, Data3: 0x5a01, Data4: [8]byte{0xbb, 0x93, 0x39, 0x0c, 0x76, 0x74, 0x24, 0x88}}
+
+// Current (propget get_Current) dispatches through IIteratorOfFrameController's vtable slot 6.
+func (self *IIteratorOfFrameController) Current() (*IFrameController, error) {
+	result := new(*IFrameController)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfFrameController's vtable slot 7.
+func (self *IIteratorOfFrameController) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfFrameController's vtable slot 8.
+func (self *IIteratorOfFrameController) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfBool is the WinRT interface Windows.Foundation.IReference`1<Bool>.
 // IID: 3c00fd60-2950-5939-a21a-2d12c5a01b8a
 // Requires: Windows.Foundation.IPropertyValue.
@@ -155,6 +222,28 @@ func (self *IVectorOfFrameController) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfFrameController creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Media.Devices.Core.FrameController>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfFrameController(items []*IFrameController) *IVectorOfFrameController {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Media.Devices.Core.FrameController>", winrt.CollectionIIDs{Iterable: IID_IIterableOfFrameController, Iterator: IID_IIteratorOfFrameController, VectorView: IID_IVectorViewOfFrameController, Vector: IID_IVectorOfFrameController}, winrt.CodecInterface, boxed)
+	return (*IVectorOfFrameController)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfFrameController is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.Core.FrameController>.
 // IID: fcd6a2a3-b6ff-5572-912b-99ebaf95165d
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.Core.FrameController>.
@@ -187,3 +276,22 @@ func (self *IVectorViewOfFrameController) IndexOf(value *IFrameController, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfFrameController creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.Core.FrameController>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfFrameController(items []*IFrameController) *IVectorViewOfFrameController {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.Core.FrameController>", winrt.CollectionIIDs{Iterable: IID_IIterableOfFrameController, Iterator: IID_IIteratorOfFrameController, VectorView: IID_IVectorViewOfFrameController}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfFrameController)(unsafe.Pointer(obj))
+}

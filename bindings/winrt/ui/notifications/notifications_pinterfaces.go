@@ -290,6 +290,41 @@ func (self *IAsyncOperationOfToastNotifier) Await() (*IToastNotifier, error) {
 	return self.GetResults()
 }
 
+// IIterableOfAdaptiveNotificationText is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.AdaptiveNotificationText>.
+// IID: 0343e8f2-ca4c-5f40-b8d1-3ff47047ce43
+type IIterableOfAdaptiveNotificationText struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAdaptiveNotificationText is the interface identifier for IIterableOfAdaptiveNotificationText.
+var IID_IIterableOfAdaptiveNotificationText = win32.GUID{Data1: 0x0343e8f2, Data2: 0xca4c, Data3: 0x5f40, Data4: [8]byte{0xb8, 0xd1, 0x3f, 0xf4, 0x70, 0x47, 0xce, 0x43}}
+
+// First dispatches through IIterableOfAdaptiveNotificationText's vtable slot 6.
+func (self *IIterableOfAdaptiveNotificationText) First() (*IIteratorOfAdaptiveNotificationText, error) {
+	result := new(*IIteratorOfAdaptiveNotificationText)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAdaptiveNotificationText creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.AdaptiveNotificationText>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAdaptiveNotificationText(items []*IAdaptiveNotificationText) *IIterableOfAdaptiveNotificationText {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.AdaptiveNotificationText>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAdaptiveNotificationText, Iterator: IID_IIteratorOfAdaptiveNotificationText}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAdaptiveNotificationText)(unsafe.Pointer(obj))
+}
+
 // IIterableOfIKeyValuePairOfStringAndString is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>.
 // IID: e9bdaaf0-cbf6-5c72-be90-29cbf3a1319b
 type IIterableOfIKeyValuePairOfStringAndString struct {
@@ -304,6 +339,200 @@ func (self *IIterableOfIKeyValuePairOfStringAndString) First() (*IIteratorOfIKey
 	result := new(*IIteratorOfIKeyValuePairOfStringAndString)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIKeyValuePairOfStringAndString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIKeyValuePairOfStringAndString(items []*IKeyValuePairOfStringAndString) *IIterableOfIKeyValuePairOfStringAndString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIKeyValuePairOfStringAndString, Iterator: IID_IIteratorOfIKeyValuePairOfStringAndString}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIKeyValuePairOfStringAndString)(unsafe.Pointer(obj))
+}
+
+// IIterableOfNotificationBinding is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.NotificationBinding>.
+// IID: e8d9489c-635e-5153-8ab7-389f2ee9faca
+type IIterableOfNotificationBinding struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfNotificationBinding is the interface identifier for IIterableOfNotificationBinding.
+var IID_IIterableOfNotificationBinding = win32.GUID{Data1: 0xe8d9489c, Data2: 0x635e, Data3: 0x5153, Data4: [8]byte{0x8a, 0xb7, 0x38, 0x9f, 0x2e, 0xe9, 0xfa, 0xca}}
+
+// First dispatches through IIterableOfNotificationBinding's vtable slot 6.
+func (self *IIterableOfNotificationBinding) First() (*IIteratorOfNotificationBinding, error) {
+	result := new(*IIteratorOfNotificationBinding)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfNotificationBinding creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.NotificationBinding>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfNotificationBinding(items []*INotificationBinding) *IIterableOfNotificationBinding {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.NotificationBinding>", winrt.CollectionIIDs{Iterable: IID_IIterableOfNotificationBinding, Iterator: IID_IIteratorOfNotificationBinding}, winrt.CodecInterface, boxed)
+	return (*IIterableOfNotificationBinding)(unsafe.Pointer(obj))
+}
+
+// IIterableOfScheduledTileNotification is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ScheduledTileNotification>.
+// IID: 4b60d1e5-52ae-5766-9720-be4ad086f952
+type IIterableOfScheduledTileNotification struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfScheduledTileNotification is the interface identifier for IIterableOfScheduledTileNotification.
+var IID_IIterableOfScheduledTileNotification = win32.GUID{Data1: 0x4b60d1e5, Data2: 0x52ae, Data3: 0x5766, Data4: [8]byte{0x97, 0x20, 0xbe, 0x4a, 0xd0, 0x86, 0xf9, 0x52}}
+
+// First dispatches through IIterableOfScheduledTileNotification's vtable slot 6.
+func (self *IIterableOfScheduledTileNotification) First() (*IIteratorOfScheduledTileNotification, error) {
+	result := new(*IIteratorOfScheduledTileNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfScheduledTileNotification creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ScheduledTileNotification>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfScheduledTileNotification(items []*IScheduledTileNotification) *IIterableOfScheduledTileNotification {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ScheduledTileNotification>", winrt.CollectionIIDs{Iterable: IID_IIterableOfScheduledTileNotification, Iterator: IID_IIteratorOfScheduledTileNotification}, winrt.CodecInterface, boxed)
+	return (*IIterableOfScheduledTileNotification)(unsafe.Pointer(obj))
+}
+
+// IIterableOfScheduledToastNotification is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ScheduledToastNotification>.
+// IID: 7a7b2a51-c182-5846-a861-4f9c036f24ad
+type IIterableOfScheduledToastNotification struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfScheduledToastNotification is the interface identifier for IIterableOfScheduledToastNotification.
+var IID_IIterableOfScheduledToastNotification = win32.GUID{Data1: 0x7a7b2a51, Data2: 0xc182, Data3: 0x5846, Data4: [8]byte{0xa8, 0x61, 0x4f, 0x9c, 0x03, 0x6f, 0x24, 0xad}}
+
+// First dispatches through IIterableOfScheduledToastNotification's vtable slot 6.
+func (self *IIterableOfScheduledToastNotification) First() (*IIteratorOfScheduledToastNotification, error) {
+	result := new(*IIteratorOfScheduledToastNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfScheduledToastNotification creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ScheduledToastNotification>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfScheduledToastNotification(items []*IScheduledToastNotification) *IIterableOfScheduledToastNotification {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ScheduledToastNotification>", winrt.CollectionIIDs{Iterable: IID_IIterableOfScheduledToastNotification, Iterator: IID_IIteratorOfScheduledToastNotification}, winrt.CodecInterface, boxed)
+	return (*IIterableOfScheduledToastNotification)(unsafe.Pointer(obj))
+}
+
+// IIterableOfToastCollection is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ToastCollection>.
+// IID: 8928d527-db5d-5a10-ae9b-430fa0906e74
+type IIterableOfToastCollection struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfToastCollection is the interface identifier for IIterableOfToastCollection.
+var IID_IIterableOfToastCollection = win32.GUID{Data1: 0x8928d527, Data2: 0xdb5d, Data3: 0x5a10, Data4: [8]byte{0xae, 0x9b, 0x43, 0x0f, 0xa0, 0x90, 0x6e, 0x74}}
+
+// First dispatches through IIterableOfToastCollection's vtable slot 6.
+func (self *IIterableOfToastCollection) First() (*IIteratorOfToastCollection, error) {
+	result := new(*IIteratorOfToastCollection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfToastCollection creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ToastCollection>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfToastCollection(items []*IToastCollection) *IIterableOfToastCollection {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ToastCollection>", winrt.CollectionIIDs{Iterable: IID_IIterableOfToastCollection, Iterator: IID_IIteratorOfToastCollection}, winrt.CodecInterface, boxed)
+	return (*IIterableOfToastCollection)(unsafe.Pointer(obj))
+}
+
+// IIterableOfToastNotification is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ToastNotification>.
+// IID: 52c9428b-d37a-554d-bf55-b8685d5f552d
+type IIterableOfToastNotification struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfToastNotification is the interface identifier for IIterableOfToastNotification.
+var IID_IIterableOfToastNotification = win32.GUID{Data1: 0x52c9428b, Data2: 0xd37a, Data3: 0x554d, Data4: [8]byte{0xbf, 0x55, 0xb8, 0x68, 0x5d, 0x5f, 0x55, 0x2d}}
+
+// First dispatches through IIterableOfToastNotification's vtable slot 6.
+func (self *IIterableOfToastNotification) First() (*IIteratorOfToastNotification, error) {
+	result := new(*IIteratorOfToastNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfToastNotification creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ToastNotification>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfToastNotification(items []*IToastNotification) *IIterableOfToastNotification {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ToastNotification>", winrt.CollectionIIDs{Iterable: IID_IIterableOfToastNotification, Iterator: IID_IIteratorOfToastNotification}, winrt.CodecInterface, boxed)
+	return (*IIterableOfToastNotification)(unsafe.Pointer(obj))
 }
 
 // IIterableOfUri is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>.
@@ -321,6 +550,57 @@ func (self *IIterableOfUri) First() (*IIteratorOfUri, error) {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfUri creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUri(items []*foundation.IUriRuntimeClass) *IIterableOfUri {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUri, Iterator: IID_IIteratorOfUri}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUri)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfAdaptiveNotificationText is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Notifications.AdaptiveNotificationText>.
+// IID: 18015daa-cbc3-5a51-9f4b-3c069135b0e0
+type IIteratorOfAdaptiveNotificationText struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAdaptiveNotificationText is the interface identifier for IIteratorOfAdaptiveNotificationText.
+var IID_IIteratorOfAdaptiveNotificationText = win32.GUID{Data1: 0x18015daa, Data2: 0xcbc3, Data3: 0x5a51, Data4: [8]byte{0x9f, 0x4b, 0x3c, 0x06, 0x91, 0x35, 0xb0, 0xe0}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAdaptiveNotificationText's vtable slot 6.
+func (self *IIteratorOfAdaptiveNotificationText) Current() (*IAdaptiveNotificationText, error) {
+	result := new(*IAdaptiveNotificationText)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAdaptiveNotificationText's vtable slot 7.
+func (self *IIteratorOfAdaptiveNotificationText) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAdaptiveNotificationText's vtable slot 8.
+func (self *IIteratorOfAdaptiveNotificationText) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfIKeyValuePairOfStringAndString is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>.
 // IID: 05eb86f1-7140-5517-b88d-cbaebe57e6b1
@@ -347,6 +627,166 @@ func (self *IIteratorOfIKeyValuePairOfStringAndString) HasCurrent() (bool, error
 
 // MoveNext dispatches through IIteratorOfIKeyValuePairOfStringAndString's vtable slot 8.
 func (self *IIteratorOfIKeyValuePairOfStringAndString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfNotificationBinding is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Notifications.NotificationBinding>.
+// IID: 66187f56-9ee1-5c48-82da-6cb9ddf879e7
+type IIteratorOfNotificationBinding struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfNotificationBinding is the interface identifier for IIteratorOfNotificationBinding.
+var IID_IIteratorOfNotificationBinding = win32.GUID{Data1: 0x66187f56, Data2: 0x9ee1, Data3: 0x5c48, Data4: [8]byte{0x82, 0xda, 0x6c, 0xb9, 0xdd, 0xf8, 0x79, 0xe7}}
+
+// Current (propget get_Current) dispatches through IIteratorOfNotificationBinding's vtable slot 6.
+func (self *IIteratorOfNotificationBinding) Current() (*INotificationBinding, error) {
+	result := new(*INotificationBinding)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfNotificationBinding's vtable slot 7.
+func (self *IIteratorOfNotificationBinding) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfNotificationBinding's vtable slot 8.
+func (self *IIteratorOfNotificationBinding) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfScheduledTileNotification is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Notifications.ScheduledTileNotification>.
+// IID: 5665e491-6543-5036-935f-b5157950b359
+type IIteratorOfScheduledTileNotification struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfScheduledTileNotification is the interface identifier for IIteratorOfScheduledTileNotification.
+var IID_IIteratorOfScheduledTileNotification = win32.GUID{Data1: 0x5665e491, Data2: 0x6543, Data3: 0x5036, Data4: [8]byte{0x93, 0x5f, 0xb5, 0x15, 0x79, 0x50, 0xb3, 0x59}}
+
+// Current (propget get_Current) dispatches through IIteratorOfScheduledTileNotification's vtable slot 6.
+func (self *IIteratorOfScheduledTileNotification) Current() (*IScheduledTileNotification, error) {
+	result := new(*IScheduledTileNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfScheduledTileNotification's vtable slot 7.
+func (self *IIteratorOfScheduledTileNotification) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfScheduledTileNotification's vtable slot 8.
+func (self *IIteratorOfScheduledTileNotification) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfScheduledToastNotification is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Notifications.ScheduledToastNotification>.
+// IID: 304238b6-888a-5dd2-96cd-bfca8927483b
+type IIteratorOfScheduledToastNotification struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfScheduledToastNotification is the interface identifier for IIteratorOfScheduledToastNotification.
+var IID_IIteratorOfScheduledToastNotification = win32.GUID{Data1: 0x304238b6, Data2: 0x888a, Data3: 0x5dd2, Data4: [8]byte{0x96, 0xcd, 0xbf, 0xca, 0x89, 0x27, 0x48, 0x3b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfScheduledToastNotification's vtable slot 6.
+func (self *IIteratorOfScheduledToastNotification) Current() (*IScheduledToastNotification, error) {
+	result := new(*IScheduledToastNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfScheduledToastNotification's vtable slot 7.
+func (self *IIteratorOfScheduledToastNotification) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfScheduledToastNotification's vtable slot 8.
+func (self *IIteratorOfScheduledToastNotification) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfToastCollection is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Notifications.ToastCollection>.
+// IID: 1512ed75-8c74-5520-ac88-134a1403f7ad
+type IIteratorOfToastCollection struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfToastCollection is the interface identifier for IIteratorOfToastCollection.
+var IID_IIteratorOfToastCollection = win32.GUID{Data1: 0x1512ed75, Data2: 0x8c74, Data3: 0x5520, Data4: [8]byte{0xac, 0x88, 0x13, 0x4a, 0x14, 0x03, 0xf7, 0xad}}
+
+// Current (propget get_Current) dispatches through IIteratorOfToastCollection's vtable slot 6.
+func (self *IIteratorOfToastCollection) Current() (*IToastCollection, error) {
+	result := new(*IToastCollection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfToastCollection's vtable slot 7.
+func (self *IIteratorOfToastCollection) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfToastCollection's vtable slot 8.
+func (self *IIteratorOfToastCollection) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfToastNotification is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Notifications.ToastNotification>.
+// IID: fe1e726a-3aa9-5d98-b19b-97e3e17eec7b
+type IIteratorOfToastNotification struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfToastNotification is the interface identifier for IIteratorOfToastNotification.
+var IID_IIteratorOfToastNotification = win32.GUID{Data1: 0xfe1e726a, Data2: 0x3aa9, Data3: 0x5d98, Data4: [8]byte{0xb1, 0x9b, 0x97, 0xe3, 0xe1, 0x7e, 0xec, 0x7b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfToastNotification's vtable slot 6.
+func (self *IIteratorOfToastNotification) Current() (*IToastNotification, error) {
+	result := new(*IToastNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfToastNotification's vtable slot 7.
+func (self *IIteratorOfToastNotification) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfToastNotification's vtable slot 8.
+func (self *IIteratorOfToastNotification) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -662,6 +1102,28 @@ func (self *IVectorOfNotificationBinding) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfNotificationBinding creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Notifications.NotificationBinding>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfNotificationBinding(items []*INotificationBinding) *IVectorOfNotificationBinding {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Notifications.NotificationBinding>", winrt.CollectionIIDs{Iterable: IID_IIterableOfNotificationBinding, Iterator: IID_IIteratorOfNotificationBinding, VectorView: IID_IVectorViewOfNotificationBinding, Vector: IID_IVectorOfNotificationBinding}, winrt.CodecInterface, boxed)
+	return (*IVectorOfNotificationBinding)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfAdaptiveNotificationText is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.AdaptiveNotificationText>.
 // IID: b60de92b-4e12-55af-b42f-afe2d70ba278
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.AdaptiveNotificationText>.
@@ -694,6 +1156,25 @@ func (self *IVectorViewOfAdaptiveNotificationText) IndexOf(value *IAdaptiveNotif
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfAdaptiveNotificationText creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.AdaptiveNotificationText>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAdaptiveNotificationText(items []*IAdaptiveNotificationText) *IVectorViewOfAdaptiveNotificationText {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.AdaptiveNotificationText>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAdaptiveNotificationText, Iterator: IID_IIteratorOfAdaptiveNotificationText, VectorView: IID_IVectorViewOfAdaptiveNotificationText}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAdaptiveNotificationText)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfNotificationBinding is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.NotificationBinding>.
 // IID: 9e4d0240-6d5c-582a-a29d-734e84750738
@@ -728,6 +1209,25 @@ func (self *IVectorViewOfNotificationBinding) IndexOf(value *INotificationBindin
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfNotificationBinding creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.NotificationBinding>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfNotificationBinding(items []*INotificationBinding) *IVectorViewOfNotificationBinding {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.NotificationBinding>", winrt.CollectionIIDs{Iterable: IID_IIterableOfNotificationBinding, Iterator: IID_IIteratorOfNotificationBinding, VectorView: IID_IVectorViewOfNotificationBinding}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfNotificationBinding)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfScheduledTileNotification is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ScheduledTileNotification>.
 // IID: 4f729c64-a213-52e9-af8b-58adca3e597f
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ScheduledTileNotification>.
@@ -760,6 +1260,25 @@ func (self *IVectorViewOfScheduledTileNotification) IndexOf(value *IScheduledTil
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfScheduledTileNotification creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ScheduledTileNotification>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfScheduledTileNotification(items []*IScheduledTileNotification) *IVectorViewOfScheduledTileNotification {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ScheduledTileNotification>", winrt.CollectionIIDs{Iterable: IID_IIterableOfScheduledTileNotification, Iterator: IID_IIteratorOfScheduledTileNotification, VectorView: IID_IVectorViewOfScheduledTileNotification}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfScheduledTileNotification)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfScheduledToastNotification is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ScheduledToastNotification>.
 // IID: ba0aff1f-6a8a-5a7e-a9f7-505b6266a436
@@ -794,6 +1313,25 @@ func (self *IVectorViewOfScheduledToastNotification) IndexOf(value *IScheduledTo
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfScheduledToastNotification creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ScheduledToastNotification>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfScheduledToastNotification(items []*IScheduledToastNotification) *IVectorViewOfScheduledToastNotification {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ScheduledToastNotification>", winrt.CollectionIIDs{Iterable: IID_IIterableOfScheduledToastNotification, Iterator: IID_IIteratorOfScheduledToastNotification, VectorView: IID_IVectorViewOfScheduledToastNotification}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfScheduledToastNotification)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfToastCollection is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ToastCollection>.
 // IID: e09d090a-12e2-569b-ad29-fb0dfb98a1da
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ToastCollection>.
@@ -827,6 +1365,25 @@ func (self *IVectorViewOfToastCollection) IndexOf(value *IToastCollection, index
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfToastCollection creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ToastCollection>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfToastCollection(items []*IToastCollection) *IVectorViewOfToastCollection {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ToastCollection>", winrt.CollectionIIDs{Iterable: IID_IIterableOfToastCollection, Iterator: IID_IIteratorOfToastCollection, VectorView: IID_IVectorViewOfToastCollection}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfToastCollection)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfToastNotification is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ToastNotification>.
 // IID: a819f3de-60aa-5159-8407-f0a7fb1f6832
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ToastNotification>.
@@ -859,3 +1416,22 @@ func (self *IVectorViewOfToastNotification) IndexOf(value *IToastNotification, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfToastNotification creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ToastNotification>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfToastNotification(items []*IToastNotification) *IVectorViewOfToastNotification {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ToastNotification>", winrt.CollectionIIDs{Iterable: IID_IIterableOfToastNotification, Iterator: IID_IIteratorOfToastNotification, VectorView: IID_IVectorViewOfToastNotification}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfToastNotification)(unsafe.Pointer(obj))
+}

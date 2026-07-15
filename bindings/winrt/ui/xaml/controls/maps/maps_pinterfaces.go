@@ -225,6 +225,76 @@ func (self *IAsyncOperationOfStreetsidePanorama) Await() (*syswinrt.IInspectable
 	return self.GetResults()
 }
 
+// IIterableOfDependencyObject is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.DependencyObject>.
+// IID: f66c6bd3-55b4-5bbb-b82a-6d9ce383091a
+type IIterableOfDependencyObject struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDependencyObject is the interface identifier for IIterableOfDependencyObject.
+var IID_IIterableOfDependencyObject = win32.GUID{Data1: 0xf66c6bd3, Data2: 0x55b4, Data3: 0x5bbb, Data4: [8]byte{0xb8, 0x2a, 0x6d, 0x9c, 0xe3, 0x83, 0x09, 0x1a}}
+
+// First dispatches through IIterableOfDependencyObject's vtable slot 6.
+func (self *IIterableOfDependencyObject) First() (*IIteratorOfDependencyObject, error) {
+	result := new(*IIteratorOfDependencyObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDependencyObject creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.DependencyObject>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDependencyObject(items []*uixaml.IDependencyObject) *IIterableOfDependencyObject {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.DependencyObject>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDependencyObject, Iterator: IID_IIteratorOfDependencyObject}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDependencyObject)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGeopath is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geopath>.
+// IID: 246fcfbd-a881-5e8e-9908-c1b9ebdfec78
+type IIterableOfGeopath struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGeopath is the interface identifier for IIterableOfGeopath.
+var IID_IIterableOfGeopath = win32.GUID{Data1: 0x246fcfbd, Data2: 0xa881, Data3: 0x5e8e, Data4: [8]byte{0x99, 0x08, 0xc1, 0xb9, 0xeb, 0xdf, 0xec, 0x78}}
+
+// First dispatches through IIterableOfGeopath's vtable slot 6.
+func (self *IIterableOfGeopath) First() (*IIteratorOfGeopath, error) {
+	result := new(*IIteratorOfGeopath)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGeopath creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geopath>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGeopath(items []*devicesgeolocation.IGeopath) *IIterableOfGeopath {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geopath>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeopath, Iterator: IID_IIteratorOfGeopath}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGeopath)(unsafe.Pointer(obj))
+}
+
 // IIterableOfGeopoint is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geopoint>.
 // IID: e7617fc9-2cc7-5bd1-bc5a-f47260834ed8
 type IIterableOfGeopoint struct {
@@ -239,6 +309,130 @@ func (self *IIterableOfGeopoint) First() (*IIteratorOfGeopoint, error) {
 	result := new(*IIteratorOfGeopoint)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGeopoint creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geopoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGeopoint(items []*devicesgeolocation.IGeopoint) *IIterableOfGeopoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geopoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeopoint, Iterator: IID_IIteratorOfGeopoint}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGeopoint)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMapElement is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapElement>.
+// IID: 81d25c25-a4b3-5d0d-92ab-26360c2a7fac
+type IIterableOfMapElement struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMapElement is the interface identifier for IIterableOfMapElement.
+var IID_IIterableOfMapElement = win32.GUID{Data1: 0x81d25c25, Data2: 0xa4b3, Data3: 0x5d0d, Data4: [8]byte{0x92, 0xab, 0x26, 0x36, 0x0c, 0x2a, 0x7f, 0xac}}
+
+// First dispatches through IIterableOfMapElement's vtable slot 6.
+func (self *IIterableOfMapElement) First() (*IIteratorOfMapElement, error) {
+	result := new(*IIteratorOfMapElement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMapElement creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapElement>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMapElement(items []*syswinrt.IInspectable) *IIterableOfMapElement {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapElement>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapElement, Iterator: IID_IIteratorOfMapElement}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMapElement)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMapLayer is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapLayer>.
+// IID: 508e2ce9-1984-5fc8-a491-62e8889539f4
+type IIterableOfMapLayer struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMapLayer is the interface identifier for IIterableOfMapLayer.
+var IID_IIterableOfMapLayer = win32.GUID{Data1: 0x508e2ce9, Data2: 0x1984, Data3: 0x5fc8, Data4: [8]byte{0xa4, 0x91, 0x62, 0xe8, 0x88, 0x95, 0x39, 0xf4}}
+
+// First dispatches through IIterableOfMapLayer's vtable slot 6.
+func (self *IIterableOfMapLayer) First() (*IIteratorOfMapLayer, error) {
+	result := new(*IIteratorOfMapLayer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMapLayer creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapLayer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMapLayer(items []*syswinrt.IInspectable) *IIterableOfMapLayer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapLayer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapLayer, Iterator: IID_IIteratorOfMapLayer}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMapLayer)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMapRouteView is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapRouteView>.
+// IID: 090ad4b3-8fce-502d-8665-18650c51bea9
+type IIterableOfMapRouteView struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMapRouteView is the interface identifier for IIterableOfMapRouteView.
+var IID_IIterableOfMapRouteView = win32.GUID{Data1: 0x090ad4b3, Data2: 0x8fce, Data3: 0x502d, Data4: [8]byte{0x86, 0x65, 0x18, 0x65, 0x0c, 0x51, 0xbe, 0xa9}}
+
+// First dispatches through IIterableOfMapRouteView's vtable slot 6.
+func (self *IIterableOfMapRouteView) First() (*IIteratorOfMapRouteView, error) {
+	result := new(*IIteratorOfMapRouteView)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMapRouteView creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapRouteView>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMapRouteView(items []*syswinrt.IInspectable) *IIterableOfMapRouteView {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapRouteView>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapRouteView, Iterator: IID_IIteratorOfMapRouteView}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMapRouteView)(unsafe.Pointer(obj))
 }
 
 // IIterableOfMapStyleSheet is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapStyleSheet>.
@@ -256,6 +450,124 @@ func (self *IIterableOfMapStyleSheet) First() (*IIteratorOfMapStyleSheet, error)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfMapStyleSheet creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapStyleSheet>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMapStyleSheet(items []*syswinrt.IInspectable) *IIterableOfMapStyleSheet {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapStyleSheet>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapStyleSheet, Iterator: IID_IIteratorOfMapStyleSheet}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMapStyleSheet)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMapTileSource is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>.
+// IID: 6d8a73f7-abd7-56c4-99a7-06c1fa77dcd2
+type IIterableOfMapTileSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMapTileSource is the interface identifier for IIterableOfMapTileSource.
+var IID_IIterableOfMapTileSource = win32.GUID{Data1: 0x6d8a73f7, Data2: 0xabd7, Data3: 0x56c4, Data4: [8]byte{0x99, 0xa7, 0x06, 0xc1, 0xfa, 0x77, 0xdc, 0xd2}}
+
+// First dispatches through IIterableOfMapTileSource's vtable slot 6.
+func (self *IIterableOfMapTileSource) First() (*IIteratorOfMapTileSource, error) {
+	result := new(*IIteratorOfMapTileSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMapTileSource creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMapTileSource(items []*syswinrt.IInspectable) *IIterableOfMapTileSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapTileSource, Iterator: IID_IIteratorOfMapTileSource}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMapTileSource)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfDependencyObject is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.DependencyObject>.
+// IID: 29f8d454-905d-587e-b9d8-bfd418805a65
+type IIteratorOfDependencyObject struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDependencyObject is the interface identifier for IIteratorOfDependencyObject.
+var IID_IIteratorOfDependencyObject = win32.GUID{Data1: 0x29f8d454, Data2: 0x905d, Data3: 0x587e, Data4: [8]byte{0xb9, 0xd8, 0xbf, 0xd4, 0x18, 0x80, 0x5a, 0x65}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDependencyObject's vtable slot 6.
+func (self *IIteratorOfDependencyObject) Current() (*uixaml.IDependencyObject, error) {
+	result := new(*uixaml.IDependencyObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDependencyObject's vtable slot 7.
+func (self *IIteratorOfDependencyObject) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDependencyObject's vtable slot 8.
+func (self *IIteratorOfDependencyObject) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGeopath is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Geolocation.Geopath>.
+// IID: cf1d4402-4754-57e7-aae0-69ca42cbd8f2
+type IIteratorOfGeopath struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGeopath is the interface identifier for IIteratorOfGeopath.
+var IID_IIteratorOfGeopath = win32.GUID{Data1: 0xcf1d4402, Data2: 0x4754, Data3: 0x57e7, Data4: [8]byte{0xaa, 0xe0, 0x69, 0xca, 0x42, 0xcb, 0xd8, 0xf2}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGeopath's vtable slot 6.
+func (self *IIteratorOfGeopath) Current() (*devicesgeolocation.IGeopath, error) {
+	result := new(*devicesgeolocation.IGeopath)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGeopath's vtable slot 7.
+func (self *IIteratorOfGeopath) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGeopath's vtable slot 8.
+func (self *IIteratorOfGeopath) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfGeopoint is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Geolocation.Geopoint>.
 // IID: 88225b39-8be9-5c03-9714-8f1642d8a43f
@@ -289,6 +601,105 @@ func (self *IIteratorOfGeopoint) MoveNext() (bool, error) {
 
 // slot 9: GetMany skipped: conformant array
 
+// IIteratorOfMapElement is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Controls.Maps.MapElement>.
+// IID: f916b428-3b74-5ad4-9d97-1b0a387aecb5
+type IIteratorOfMapElement struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMapElement is the interface identifier for IIteratorOfMapElement.
+var IID_IIteratorOfMapElement = win32.GUID{Data1: 0xf916b428, Data2: 0x3b74, Data3: 0x5ad4, Data4: [8]byte{0x9d, 0x97, 0x1b, 0x0a, 0x38, 0x7a, 0xec, 0xb5}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMapElement's vtable slot 6.
+// The return value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
+func (self *IIteratorOfMapElement) Current() (*syswinrt.IInspectable, error) {
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMapElement's vtable slot 7.
+func (self *IIteratorOfMapElement) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMapElement's vtable slot 8.
+func (self *IIteratorOfMapElement) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMapLayer is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Controls.Maps.MapLayer>.
+// IID: af2283ff-250e-56d1-96d4-9f78e164cbc6
+type IIteratorOfMapLayer struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMapLayer is the interface identifier for IIteratorOfMapLayer.
+var IID_IIteratorOfMapLayer = win32.GUID{Data1: 0xaf2283ff, Data2: 0x250e, Data3: 0x56d1, Data4: [8]byte{0x96, 0xd4, 0x9f, 0x78, 0xe1, 0x64, 0xcb, 0xc6}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMapLayer's vtable slot 6.
+// The return value's class Windows.UI.Xaml.Controls.Maps.MapLayer is projected as IInspectable (the class is not emitted this wave).
+func (self *IIteratorOfMapLayer) Current() (*syswinrt.IInspectable, error) {
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMapLayer's vtable slot 7.
+func (self *IIteratorOfMapLayer) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMapLayer's vtable slot 8.
+func (self *IIteratorOfMapLayer) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMapRouteView is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Controls.Maps.MapRouteView>.
+// IID: af256095-4144-55a7-9139-89843b572db7
+type IIteratorOfMapRouteView struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMapRouteView is the interface identifier for IIteratorOfMapRouteView.
+var IID_IIteratorOfMapRouteView = win32.GUID{Data1: 0xaf256095, Data2: 0x4144, Data3: 0x55a7, Data4: [8]byte{0x91, 0x39, 0x89, 0x84, 0x3b, 0x57, 0x2d, 0xb7}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMapRouteView's vtable slot 6.
+// The return value's class Windows.UI.Xaml.Controls.Maps.MapRouteView is projected as IInspectable (the class is not emitted this wave).
+func (self *IIteratorOfMapRouteView) Current() (*syswinrt.IInspectable, error) {
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMapRouteView's vtable slot 7.
+func (self *IIteratorOfMapRouteView) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMapRouteView's vtable slot 8.
+func (self *IIteratorOfMapRouteView) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IIteratorOfMapStyleSheet is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Controls.Maps.MapStyleSheet>.
 // IID: e6c727e5-6a18-5333-aa6a-266e8c8bdd51
 type IIteratorOfMapStyleSheet struct {
@@ -315,6 +726,39 @@ func (self *IIteratorOfMapStyleSheet) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfMapStyleSheet's vtable slot 8.
 func (self *IIteratorOfMapStyleSheet) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMapTileSource is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>.
+// IID: e5c7eba6-7c75-50bc-8b36-2d8ca1fa538b
+type IIteratorOfMapTileSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMapTileSource is the interface identifier for IIteratorOfMapTileSource.
+var IID_IIteratorOfMapTileSource = win32.GUID{Data1: 0xe5c7eba6, Data2: 0x7c75, Data3: 0x50bc, Data4: [8]byte{0x8b, 0x36, 0x2d, 0x8c, 0xa1, 0xfa, 0x53, 0x8b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMapTileSource's vtable slot 6.
+// The return value's class Windows.UI.Xaml.Controls.Maps.MapTileSource is projected as IInspectable (the class is not emitted this wave).
+func (self *IIteratorOfMapTileSource) Current() (*syswinrt.IInspectable, error) {
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMapTileSource's vtable slot 7.
+func (self *IIteratorOfMapTileSource) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMapTileSource's vtable slot 8.
+func (self *IIteratorOfMapTileSource) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -564,6 +1008,28 @@ func (self *IVectorOfDependencyObject) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfDependencyObject creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.DependencyObject>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfDependencyObject(items []*uixaml.IDependencyObject) *IVectorOfDependencyObject {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.DependencyObject>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDependencyObject, Iterator: IID_IIteratorOfDependencyObject, VectorView: IID_IVectorViewOfDependencyObject, Vector: IID_IVectorOfDependencyObject}, winrt.CodecInterface, boxed)
+	return (*IVectorOfDependencyObject)(unsafe.Pointer(obj))
+}
+
 // IVectorOfGeopath is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Devices.Geolocation.Geopath>.
 // IID: 7ca97e6d-6893-5672-a0c7-625c5090381e
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geopath>.
@@ -641,6 +1107,28 @@ func (self *IVectorOfGeopath) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfGeopath creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Geolocation.Geopath>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfGeopath(items []*devicesgeolocation.IGeopath) *IVectorOfGeopath {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Geolocation.Geopath>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeopath, Iterator: IID_IIteratorOfGeopath, VectorView: IID_IVectorViewOfGeopath, Vector: IID_IVectorOfGeopath}, winrt.CodecInterface, boxed)
+	return (*IVectorOfGeopath)(unsafe.Pointer(obj))
+}
 
 // IVectorOfMapElement is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapElement>.
 // IID: 02773f2d-bb17-56fd-96cc-89f1c47f9e11
@@ -725,6 +1213,28 @@ func (self *IVectorOfMapElement) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfMapElement creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapElement>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfMapElement(items []*syswinrt.IInspectable) *IVectorOfMapElement {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapElement>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapElement, Iterator: IID_IIteratorOfMapElement, VectorView: IID_IVectorViewOfMapElement, Vector: IID_IVectorOfMapElement}, winrt.CodecInterface, boxed)
+	return (*IVectorOfMapElement)(unsafe.Pointer(obj))
+}
+
 // IVectorOfMapLayer is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapLayer>.
 // IID: 62782500-a9cc-57f1-b81b-6ebcc9212245
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapLayer>.
@@ -807,6 +1317,28 @@ func (self *IVectorOfMapLayer) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfMapLayer creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapLayer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfMapLayer(items []*syswinrt.IInspectable) *IVectorOfMapLayer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapLayer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapLayer, Iterator: IID_IIteratorOfMapLayer, VectorView: IID_IVectorViewOfMapLayer, Vector: IID_IVectorOfMapLayer}, winrt.CodecInterface, boxed)
+	return (*IVectorOfMapLayer)(unsafe.Pointer(obj))
+}
 
 // IVectorOfMapRouteView is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapRouteView>.
 // IID: 8ce513b4-0a7d-5553-b735-79cd5a7fee3f
@@ -891,6 +1423,28 @@ func (self *IVectorOfMapRouteView) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfMapRouteView creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapRouteView>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfMapRouteView(items []*syswinrt.IInspectable) *IVectorOfMapRouteView {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapRouteView>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapRouteView, Iterator: IID_IIteratorOfMapRouteView, VectorView: IID_IVectorViewOfMapRouteView, Vector: IID_IVectorOfMapRouteView}, winrt.CodecInterface, boxed)
+	return (*IVectorOfMapRouteView)(unsafe.Pointer(obj))
+}
+
 // IVectorOfMapTileSource is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>.
 // IID: 19f78a46-2c65-5f94-bf5b-963347a0a318
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>.
@@ -974,6 +1528,28 @@ func (self *IVectorOfMapTileSource) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfMapTileSource creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfMapTileSource(items []*syswinrt.IInspectable) *IVectorOfMapTileSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapTileSource, Iterator: IID_IIteratorOfMapTileSource, VectorView: IID_IVectorViewOfMapTileSource, Vector: IID_IVectorOfMapTileSource}, winrt.CodecInterface, boxed)
+	return (*IVectorOfMapTileSource)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfDependencyObject is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.DependencyObject>.
 // IID: fe750d77-1307-5df2-a021-1c7a8d6b80ad
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.DependencyObject>.
@@ -1007,6 +1583,25 @@ func (self *IVectorViewOfDependencyObject) IndexOf(value *uixaml.IDependencyObje
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfDependencyObject creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.DependencyObject>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDependencyObject(items []*uixaml.IDependencyObject) *IVectorViewOfDependencyObject {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.DependencyObject>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDependencyObject, Iterator: IID_IIteratorOfDependencyObject, VectorView: IID_IVectorViewOfDependencyObject}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDependencyObject)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGeopath is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geopath>.
 // IID: a83321cb-1b54-5f68-9234-4a824d33e371
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geopath>.
@@ -1039,6 +1634,25 @@ func (self *IVectorViewOfGeopath) IndexOf(value *devicesgeolocation.IGeopath, in
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfGeopath creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geopath>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGeopath(items []*devicesgeolocation.IGeopath) *IVectorViewOfGeopath {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geopath>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeopath, Iterator: IID_IIteratorOfGeopath, VectorView: IID_IVectorViewOfGeopath}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGeopath)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfMapElement is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapElement>.
 // IID: cec120d8-ea73-5aa3-914a-37dd2554f686
@@ -1075,6 +1689,25 @@ func (self *IVectorViewOfMapElement) IndexOf(value *syswinrt.IInspectable, index
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMapElement creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapElement>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMapElement(items []*syswinrt.IInspectable) *IVectorViewOfMapElement {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapElement>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapElement, Iterator: IID_IIteratorOfMapElement, VectorView: IID_IVectorViewOfMapElement}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMapElement)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMapLayer is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapLayer>.
 // IID: 963326b9-6770-52f1-b6c6-519441f873c3
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapLayer>.
@@ -1109,6 +1742,25 @@ func (self *IVectorViewOfMapLayer) IndexOf(value *syswinrt.IInspectable, index *
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMapLayer creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapLayer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMapLayer(items []*syswinrt.IInspectable) *IVectorViewOfMapLayer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapLayer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapLayer, Iterator: IID_IIteratorOfMapLayer, VectorView: IID_IVectorViewOfMapLayer}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMapLayer)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfMapRouteView is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapRouteView>.
 // IID: bdbb45ea-0c73-56bc-a375-3f2a7beb6f2e
@@ -1145,6 +1797,25 @@ func (self *IVectorViewOfMapRouteView) IndexOf(value *syswinrt.IInspectable, ind
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMapRouteView creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapRouteView>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMapRouteView(items []*syswinrt.IInspectable) *IVectorViewOfMapRouteView {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapRouteView>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapRouteView, Iterator: IID_IIteratorOfMapRouteView, VectorView: IID_IVectorViewOfMapRouteView}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMapRouteView)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMapTileSource is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>.
 // IID: de7aa182-8e17-5565-9a9d-94a4ff25364a
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>.
@@ -1179,3 +1850,22 @@ func (self *IVectorViewOfMapTileSource) IndexOf(value *syswinrt.IInspectable, in
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMapTileSource creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMapTileSource(items []*syswinrt.IInspectable) *IVectorViewOfMapTileSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Controls.Maps.MapTileSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMapTileSource, Iterator: IID_IIteratorOfMapTileSource, VectorView: IID_IVectorViewOfMapTileSource}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMapTileSource)(unsafe.Pointer(obj))
+}

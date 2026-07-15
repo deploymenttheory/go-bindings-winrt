@@ -222,6 +222,140 @@ func (self *IAsyncOperationOfGlobalSystemMediaTransportControlsSessionMediaPrope
 	return self.GetResults()
 }
 
+// IIterableOfGlobalSystemMediaTransportControlsSession is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Control.GlobalSystemMediaTransportControlsSession>.
+// IID: 6c594bfe-b3dd-5f1d-a78f-3a2d9e937ca3
+type IIterableOfGlobalSystemMediaTransportControlsSession struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGlobalSystemMediaTransportControlsSession is the interface identifier for IIterableOfGlobalSystemMediaTransportControlsSession.
+var IID_IIterableOfGlobalSystemMediaTransportControlsSession = win32.GUID{Data1: 0x6c594bfe, Data2: 0xb3dd, Data3: 0x5f1d, Data4: [8]byte{0xa7, 0x8f, 0x3a, 0x2d, 0x9e, 0x93, 0x7c, 0xa3}}
+
+// First dispatches through IIterableOfGlobalSystemMediaTransportControlsSession's vtable slot 6.
+func (self *IIterableOfGlobalSystemMediaTransportControlsSession) First() (*IIteratorOfGlobalSystemMediaTransportControlsSession, error) {
+	result := new(*IIteratorOfGlobalSystemMediaTransportControlsSession)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGlobalSystemMediaTransportControlsSession creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Control.GlobalSystemMediaTransportControlsSession>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGlobalSystemMediaTransportControlsSession(items []*IGlobalSystemMediaTransportControlsSession) *IIterableOfGlobalSystemMediaTransportControlsSession {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Control.GlobalSystemMediaTransportControlsSession>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGlobalSystemMediaTransportControlsSession, Iterator: IID_IIteratorOfGlobalSystemMediaTransportControlsSession}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGlobalSystemMediaTransportControlsSession)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfGlobalSystemMediaTransportControlsSession is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Control.GlobalSystemMediaTransportControlsSession>.
+// IID: ec2e1c43-67db-5985-b2fa-91fd6a9c1ebf
+type IIteratorOfGlobalSystemMediaTransportControlsSession struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGlobalSystemMediaTransportControlsSession is the interface identifier for IIteratorOfGlobalSystemMediaTransportControlsSession.
+var IID_IIteratorOfGlobalSystemMediaTransportControlsSession = win32.GUID{Data1: 0xec2e1c43, Data2: 0x67db, Data3: 0x5985, Data4: [8]byte{0xb2, 0xfa, 0x91, 0xfd, 0x6a, 0x9c, 0x1e, 0xbf}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGlobalSystemMediaTransportControlsSession's vtable slot 6.
+func (self *IIteratorOfGlobalSystemMediaTransportControlsSession) Current() (*IGlobalSystemMediaTransportControlsSession, error) {
+	result := new(*IGlobalSystemMediaTransportControlsSession)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGlobalSystemMediaTransportControlsSession's vtable slot 7.
+func (self *IIteratorOfGlobalSystemMediaTransportControlsSession) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGlobalSystemMediaTransportControlsSession's vtable slot 8.
+func (self *IIteratorOfGlobalSystemMediaTransportControlsSession) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfBool is the WinRT interface Windows.Foundation.IReference`1<Bool>.
 // IID: 3c00fd60-2950-5939-a21a-2d12c5a01b8a
 // Requires: Windows.Foundation.IPropertyValue.
@@ -318,6 +452,25 @@ func (self *IVectorViewOfGlobalSystemMediaTransportControlsSession) IndexOf(valu
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfGlobalSystemMediaTransportControlsSession creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Control.GlobalSystemMediaTransportControlsSession>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGlobalSystemMediaTransportControlsSession(items []*IGlobalSystemMediaTransportControlsSession) *IVectorViewOfGlobalSystemMediaTransportControlsSession {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Control.GlobalSystemMediaTransportControlsSession>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGlobalSystemMediaTransportControlsSession, Iterator: IID_IIteratorOfGlobalSystemMediaTransportControlsSession, VectorView: IID_IVectorViewOfGlobalSystemMediaTransportControlsSession}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGlobalSystemMediaTransportControlsSession)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
 // Requires: Windows.Foundation.Collections.IIterable`1<String>.
@@ -358,3 +511,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

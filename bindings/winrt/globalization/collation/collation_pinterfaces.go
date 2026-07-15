@@ -29,6 +29,25 @@ func (self *IIterableOfCharacterGrouping) First() (*IIteratorOfCharacterGrouping
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfCharacterGrouping creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Collation.CharacterGrouping>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCharacterGrouping(items []*ICharacterGrouping) *IIterableOfCharacterGrouping {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Collation.CharacterGrouping>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCharacterGrouping, Iterator: IID_IIteratorOfCharacterGrouping}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCharacterGrouping)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfCharacterGrouping is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Globalization.Collation.CharacterGrouping>.
 // IID: 57e89bbc-9220-5df2-844b-ddfe6605db5f
 type IIteratorOfCharacterGrouping struct {
@@ -93,3 +112,22 @@ func (self *IVectorViewOfCharacterGrouping) IndexOf(value *ICharacterGrouping, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfCharacterGrouping creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Globalization.Collation.CharacterGrouping>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCharacterGrouping(items []*ICharacterGrouping) *IVectorViewOfCharacterGrouping {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Globalization.Collation.CharacterGrouping>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCharacterGrouping, Iterator: IID_IIteratorOfCharacterGrouping, VectorView: IID_IVectorViewOfCharacterGrouping}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCharacterGrouping)(unsafe.Pointer(obj))
+}

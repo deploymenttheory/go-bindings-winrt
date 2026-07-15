@@ -306,6 +306,76 @@ func (self *IIterableOfBasicGeoposition) First() (*IIteratorOfBasicGeoposition, 
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// IIterableOfGeoposition is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geoposition>.
+// IID: 135ed72d-75b1-5881-be41-6ffeaa202044
+type IIterableOfGeoposition struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGeoposition is the interface identifier for IIterableOfGeoposition.
+var IID_IIterableOfGeoposition = win32.GUID{Data1: 0x135ed72d, Data2: 0x75b1, Data3: 0x5881, Data4: [8]byte{0xbe, 0x41, 0x6f, 0xfe, 0xaa, 0x20, 0x20, 0x44}}
+
+// First dispatches through IIterableOfGeoposition's vtable slot 6.
+func (self *IIterableOfGeoposition) First() (*IIteratorOfGeoposition, error) {
+	result := new(*IIteratorOfGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGeoposition creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geoposition>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGeoposition(items []*IGeoposition) *IIterableOfGeoposition {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geoposition>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeoposition, Iterator: IID_IIteratorOfGeoposition}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGeoposition)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGeovisit is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geovisit>.
+// IID: d5800189-0f3f-54a0-a749-6000c1e12e58
+type IIterableOfGeovisit struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGeovisit is the interface identifier for IIterableOfGeovisit.
+var IID_IIterableOfGeovisit = win32.GUID{Data1: 0xd5800189, Data2: 0x0f3f, Data3: 0x54a0, Data4: [8]byte{0xa7, 0x49, 0x60, 0x00, 0xc1, 0xe1, 0x2e, 0x58}}
+
+// First dispatches through IIterableOfGeovisit's vtable slot 6.
+func (self *IIterableOfGeovisit) First() (*IIteratorOfGeovisit, error) {
+	result := new(*IIteratorOfGeovisit)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGeovisit creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geovisit>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGeovisit(items []*IGeovisit) *IIterableOfGeovisit {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geovisit>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeovisit, Iterator: IID_IIteratorOfGeovisit}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGeovisit)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfBasicGeoposition is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Geolocation.BasicGeoposition>.
 // IID: 1b4e26a1-88e4-5872-bb2d-4f31700828b2
 type IIteratorOfBasicGeoposition struct {
@@ -331,6 +401,70 @@ func (self *IIteratorOfBasicGeoposition) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfBasicGeoposition's vtable slot 8.
 func (self *IIteratorOfBasicGeoposition) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGeoposition is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Geolocation.Geoposition>.
+// IID: a99b4206-263e-5308-82f2-31315c65135c
+type IIteratorOfGeoposition struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGeoposition is the interface identifier for IIteratorOfGeoposition.
+var IID_IIteratorOfGeoposition = win32.GUID{Data1: 0xa99b4206, Data2: 0x263e, Data3: 0x5308, Data4: [8]byte{0x82, 0xf2, 0x31, 0x31, 0x5c, 0x65, 0x13, 0x5c}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGeoposition's vtable slot 6.
+func (self *IIteratorOfGeoposition) Current() (*IGeoposition, error) {
+	result := new(*IGeoposition)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGeoposition's vtable slot 7.
+func (self *IIteratorOfGeoposition) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGeoposition's vtable slot 8.
+func (self *IIteratorOfGeoposition) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGeovisit is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Geolocation.Geovisit>.
+// IID: f525fc34-b058-5345-8e28-3e69e5f59070
+type IIteratorOfGeovisit struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGeovisit is the interface identifier for IIteratorOfGeovisit.
+var IID_IIteratorOfGeovisit = win32.GUID{Data1: 0xf525fc34, Data2: 0xb058, Data3: 0x5345, Data4: [8]byte{0x8e, 0x28, 0x3e, 0x69, 0xe5, 0xf5, 0x90, 0x70}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGeovisit's vtable slot 6.
+func (self *IIteratorOfGeovisit) Current() (*IGeovisit, error) {
+	result := new(*IGeovisit)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGeovisit's vtable slot 7.
+func (self *IIteratorOfGeovisit) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGeovisit's vtable slot 8.
+func (self *IIteratorOfGeovisit) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -462,6 +596,25 @@ func (self *IVectorViewOfGeoposition) IndexOf(value *IGeoposition, index *uint32
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfGeoposition creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geoposition>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGeoposition(items []*IGeoposition) *IVectorViewOfGeoposition {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geoposition>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeoposition, Iterator: IID_IIteratorOfGeoposition, VectorView: IID_IVectorViewOfGeoposition}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGeoposition)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGeovisit is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geovisit>.
 // IID: 90ad35e9-f1de-5ba7-abbf-04a21976d362
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geovisit>.
@@ -494,3 +647,22 @@ func (self *IVectorViewOfGeovisit) IndexOf(value *IGeovisit, index *uint32) (boo
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfGeovisit creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geovisit>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGeovisit(items []*IGeovisit) *IVectorViewOfGeovisit {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geovisit>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeovisit, Iterator: IID_IIteratorOfGeovisit, VectorView: IID_IVectorViewOfGeovisit}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGeovisit)(unsafe.Pointer(obj))
+}

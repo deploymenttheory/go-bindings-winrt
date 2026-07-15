@@ -377,6 +377,60 @@ func (self *IIterableOfIKeyValuePairOfStringAndObject) First() (*IIteratorOfIKey
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfIKeyValuePairOfStringAndObject creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIKeyValuePairOfStringAndObject(items []*IKeyValuePairOfStringAndObject) *IIterableOfIKeyValuePairOfStringAndObject {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIKeyValuePairOfStringAndObject, Iterator: IID_IIteratorOfIKeyValuePairOfStringAndObject}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIKeyValuePairOfStringAndObject)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPasswordCredential is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Credentials.PasswordCredential>.
+// IID: 0d224a66-bad5-5ad5-9ade-1e9f5a60fe73
+type IIterableOfPasswordCredential struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPasswordCredential is the interface identifier for IIterableOfPasswordCredential.
+var IID_IIterableOfPasswordCredential = win32.GUID{Data1: 0x0d224a66, Data2: 0xbad5, Data3: 0x5ad5, Data4: [8]byte{0x9a, 0xde, 0x1e, 0x9f, 0x5a, 0x60, 0xfe, 0x73}}
+
+// First dispatches through IIterableOfPasswordCredential's vtable slot 6.
+func (self *IIterableOfPasswordCredential) First() (*IIteratorOfPasswordCredential, error) {
+	result := new(*IIteratorOfPasswordCredential)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPasswordCredential creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Credentials.PasswordCredential>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPasswordCredential(items []*IPasswordCredential) *IIterableOfPasswordCredential {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Credentials.PasswordCredential>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPasswordCredential, Iterator: IID_IIteratorOfPasswordCredential}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPasswordCredential)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfIKeyValuePairOfStringAndObject is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>.
 // IID: 5db5fa32-707c-5849-a06b-91c8eb9d10e8
 type IIteratorOfIKeyValuePairOfStringAndObject struct {
@@ -402,6 +456,38 @@ func (self *IIteratorOfIKeyValuePairOfStringAndObject) HasCurrent() (bool, error
 
 // MoveNext dispatches through IIteratorOfIKeyValuePairOfStringAndObject's vtable slot 8.
 func (self *IIteratorOfIKeyValuePairOfStringAndObject) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPasswordCredential is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Credentials.PasswordCredential>.
+// IID: b01093d8-4f52-50f0-9aa4-e22639111162
+type IIteratorOfPasswordCredential struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPasswordCredential is the interface identifier for IIteratorOfPasswordCredential.
+var IID_IIteratorOfPasswordCredential = win32.GUID{Data1: 0xb01093d8, Data2: 0x4f52, Data3: 0x50f0, Data4: [8]byte{0x9a, 0xa4, 0xe2, 0x26, 0x39, 0x11, 0x11, 0x62}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPasswordCredential's vtable slot 6.
+func (self *IIteratorOfPasswordCredential) Current() (*IPasswordCredential, error) {
+	result := new(*IPasswordCredential)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPasswordCredential's vtable slot 7.
+func (self *IIteratorOfPasswordCredential) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPasswordCredential's vtable slot 8.
+func (self *IIteratorOfPasswordCredential) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -693,3 +779,22 @@ func (self *IVectorViewOfPasswordCredential) IndexOf(value *IPasswordCredential,
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPasswordCredential creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Credentials.PasswordCredential>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPasswordCredential(items []*IPasswordCredential) *IVectorViewOfPasswordCredential {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Credentials.PasswordCredential>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPasswordCredential, Iterator: IID_IIteratorOfPasswordCredential, VectorView: IID_IVectorViewOfPasswordCredential}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPasswordCredential)(unsafe.Pointer(obj))
+}

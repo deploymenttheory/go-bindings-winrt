@@ -428,6 +428,140 @@ func (self *IAsyncOperationOfMiracastReceiverVideoStreamSettings) Await() (*IMir
 	return self.GetResults()
 }
 
+// IIterableOfMiracastReceiverConnection is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Miracast.MiracastReceiverConnection>.
+// IID: e989eb90-1f6f-5084-9bfb-1a5decca4f23
+type IIterableOfMiracastReceiverConnection struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMiracastReceiverConnection is the interface identifier for IIterableOfMiracastReceiverConnection.
+var IID_IIterableOfMiracastReceiverConnection = win32.GUID{Data1: 0xe989eb90, Data2: 0x1f6f, Data3: 0x5084, Data4: [8]byte{0x9b, 0xfb, 0x1a, 0x5d, 0xec, 0xca, 0x4f, 0x23}}
+
+// First dispatches through IIterableOfMiracastReceiverConnection's vtable slot 6.
+func (self *IIterableOfMiracastReceiverConnection) First() (*IIteratorOfMiracastReceiverConnection, error) {
+	result := new(*IIteratorOfMiracastReceiverConnection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMiracastReceiverConnection creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Miracast.MiracastReceiverConnection>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMiracastReceiverConnection(items []*IMiracastReceiverConnection) *IIterableOfMiracastReceiverConnection {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Miracast.MiracastReceiverConnection>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMiracastReceiverConnection, Iterator: IID_IIteratorOfMiracastReceiverConnection}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMiracastReceiverConnection)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMiracastTransmitter is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Miracast.MiracastTransmitter>.
+// IID: 5a3f4149-9b6b-5ff0-85a0-fea37b0990eb
+type IIterableOfMiracastTransmitter struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMiracastTransmitter is the interface identifier for IIterableOfMiracastTransmitter.
+var IID_IIterableOfMiracastTransmitter = win32.GUID{Data1: 0x5a3f4149, Data2: 0x9b6b, Data3: 0x5ff0, Data4: [8]byte{0x85, 0xa0, 0xfe, 0xa3, 0x7b, 0x09, 0x90, 0xeb}}
+
+// First dispatches through IIterableOfMiracastTransmitter's vtable slot 6.
+func (self *IIterableOfMiracastTransmitter) First() (*IIteratorOfMiracastTransmitter, error) {
+	result := new(*IIteratorOfMiracastTransmitter)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMiracastTransmitter creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Miracast.MiracastTransmitter>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMiracastTransmitter(items []*IMiracastTransmitter) *IIterableOfMiracastTransmitter {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Miracast.MiracastTransmitter>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMiracastTransmitter, Iterator: IID_IIteratorOfMiracastTransmitter}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMiracastTransmitter)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfMiracastReceiverConnection is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Miracast.MiracastReceiverConnection>.
+// IID: 618a96b9-8b3b-5dbb-acf6-b015ff651785
+type IIteratorOfMiracastReceiverConnection struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMiracastReceiverConnection is the interface identifier for IIteratorOfMiracastReceiverConnection.
+var IID_IIteratorOfMiracastReceiverConnection = win32.GUID{Data1: 0x618a96b9, Data2: 0x8b3b, Data3: 0x5dbb, Data4: [8]byte{0xac, 0xf6, 0xb0, 0x15, 0xff, 0x65, 0x17, 0x85}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMiracastReceiverConnection's vtable slot 6.
+func (self *IIteratorOfMiracastReceiverConnection) Current() (*IMiracastReceiverConnection, error) {
+	result := new(*IMiracastReceiverConnection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMiracastReceiverConnection's vtable slot 7.
+func (self *IIteratorOfMiracastReceiverConnection) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMiracastReceiverConnection's vtable slot 8.
+func (self *IIteratorOfMiracastReceiverConnection) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMiracastTransmitter is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Miracast.MiracastTransmitter>.
+// IID: f903966b-1c85-5726-af5b-afc28a3b3cf4
+type IIteratorOfMiracastTransmitter struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMiracastTransmitter is the interface identifier for IIteratorOfMiracastTransmitter.
+var IID_IIteratorOfMiracastTransmitter = win32.GUID{Data1: 0xf903966b, Data2: 0x1c85, Data3: 0x5726, Data4: [8]byte{0xaf, 0x5b, 0xaf, 0xc2, 0x8a, 0x3b, 0x3c, 0xf4}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMiracastTransmitter's vtable slot 6.
+func (self *IIteratorOfMiracastTransmitter) Current() (*IMiracastTransmitter, error) {
+	result := new(*IMiracastTransmitter)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMiracastTransmitter's vtable slot 7.
+func (self *IIteratorOfMiracastTransmitter) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMiracastTransmitter's vtable slot 8.
+func (self *IIteratorOfMiracastTransmitter) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfMiracastReceiverConnection is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Miracast.MiracastReceiverConnection>.
 // IID: 98ac8f8c-2322-54cf-b2c6-7a56a9d2220b
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Miracast.MiracastReceiverConnection>.
@@ -461,6 +595,25 @@ func (self *IVectorViewOfMiracastReceiverConnection) IndexOf(value *IMiracastRec
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMiracastReceiverConnection creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Miracast.MiracastReceiverConnection>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMiracastReceiverConnection(items []*IMiracastReceiverConnection) *IVectorViewOfMiracastReceiverConnection {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Miracast.MiracastReceiverConnection>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMiracastReceiverConnection, Iterator: IID_IIteratorOfMiracastReceiverConnection, VectorView: IID_IVectorViewOfMiracastReceiverConnection}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMiracastReceiverConnection)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMiracastTransmitter is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Miracast.MiracastTransmitter>.
 // IID: 4e1bf46c-49f6-5892-bcf7-80564ea2b606
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Miracast.MiracastTransmitter>.
@@ -493,3 +646,22 @@ func (self *IVectorViewOfMiracastTransmitter) IndexOf(value *IMiracastTransmitte
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMiracastTransmitter creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Miracast.MiracastTransmitter>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMiracastTransmitter(items []*IMiracastTransmitter) *IVectorViewOfMiracastTransmitter {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Miracast.MiracastTransmitter>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMiracastTransmitter, Iterator: IID_IIteratorOfMiracastTransmitter, VectorView: IID_IVectorViewOfMiracastTransmitter}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMiracastTransmitter)(unsafe.Pointer(obj))
+}

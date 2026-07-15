@@ -59,6 +59,41 @@ type InterfaceModel struct {
 	// an async interface (a monomorphized IAsyncOperation<T> or the plain
 	// IAsyncAction).
 	Await *AwaitModel
+	// CollectionCtor, when non-nil, renders the synthesized Go-implemented
+	// collection constructor on a monomorphized IIterable`1 / IVectorView`1 /
+	// IVector`1 whose element grounds to a runtime element codec.
+	CollectionCtor *CollectionCtorModel
+}
+
+// CollectionCtorModel renders the package-level constructor that builds a
+// Go-implemented collection object (backed by the runtime's generic
+// collection core) and returns it as the package-local consumer type. Every
+// decision — the codec selection, the element boxing expression, the sibling
+// IID wiring — is precomputed by the gather layer; the template only
+// interpolates.
+type CollectionCtorModel struct {
+	CommentLines []string
+	// CtorName is the constructor ("NewIIterableOfUri").
+	CtorName string
+	// ElemType is the element's Go type in the constructor signature
+	// ("string", "*foundation.IUriRuntimeClass", "int32", "win32.GUID").
+	ElemType string
+	// BoxExpr converts one `item` of ElemType into the runtime payload
+	// representation ("item", "uintptr(unsafe.Pointer(item))",
+	// "uint64(item)").
+	BoxExpr string
+	// RuntimeCtor is the runtime core constructor ("NewIterableObject",
+	// "NewVectorViewObject", "NewVectorObject").
+	RuntimeCtor string
+	// Class is the WinRT runtime class display name the object reports
+	// ("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>").
+	Class string
+	// IIDs is the complete winrt.CollectionIIDs composite literal wiring the
+	// package-local derived IID vars.
+	IIDs string
+	// Codec is the runtime codec expression ("winrt.CodecString",
+	// "winrt.CodecInterface", "winrt.CodecScalar(4)", "winrt.CodecGuid").
+	Codec string
 }
 
 // AwaitModel renders the synthesized Await method: register a Completed

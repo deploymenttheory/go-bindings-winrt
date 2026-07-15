@@ -428,6 +428,207 @@ func (self *IAsyncOperationOfMultiSourceMediaFrameReaderStartStatus) Await() (Mu
 	return self.GetResults()
 }
 
+// IIterableOfMediaFrameFormat is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Capture.Frames.MediaFrameFormat>.
+// IID: 1f029a27-1123-538a-9261-8a380e12bac6
+type IIterableOfMediaFrameFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMediaFrameFormat is the interface identifier for IIterableOfMediaFrameFormat.
+var IID_IIterableOfMediaFrameFormat = win32.GUID{Data1: 0x1f029a27, Data2: 0x1123, Data3: 0x538a, Data4: [8]byte{0x92, 0x61, 0x8a, 0x38, 0x0e, 0x12, 0xba, 0xc6}}
+
+// First dispatches through IIterableOfMediaFrameFormat's vtable slot 6.
+func (self *IIterableOfMediaFrameFormat) First() (*IIteratorOfMediaFrameFormat, error) {
+	result := new(*IIteratorOfMediaFrameFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMediaFrameFormat creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Capture.Frames.MediaFrameFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMediaFrameFormat(items []*IMediaFrameFormat) *IIterableOfMediaFrameFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Capture.Frames.MediaFrameFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMediaFrameFormat, Iterator: IID_IIteratorOfMediaFrameFormat}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMediaFrameFormat)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMediaFrameSourceGroup is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Capture.Frames.MediaFrameSourceGroup>.
+// IID: d0b71deb-76e8-5833-9623-2b1e1a8e1b72
+type IIterableOfMediaFrameSourceGroup struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMediaFrameSourceGroup is the interface identifier for IIterableOfMediaFrameSourceGroup.
+var IID_IIterableOfMediaFrameSourceGroup = win32.GUID{Data1: 0xd0b71deb, Data2: 0x76e8, Data3: 0x5833, Data4: [8]byte{0x96, 0x23, 0x2b, 0x1e, 0x1a, 0x8e, 0x1b, 0x72}}
+
+// First dispatches through IIterableOfMediaFrameSourceGroup's vtable slot 6.
+func (self *IIterableOfMediaFrameSourceGroup) First() (*IIteratorOfMediaFrameSourceGroup, error) {
+	result := new(*IIteratorOfMediaFrameSourceGroup)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMediaFrameSourceGroup creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Capture.Frames.MediaFrameSourceGroup>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMediaFrameSourceGroup(items []*IMediaFrameSourceGroup) *IIterableOfMediaFrameSourceGroup {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Capture.Frames.MediaFrameSourceGroup>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMediaFrameSourceGroup, Iterator: IID_IIteratorOfMediaFrameSourceGroup}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMediaFrameSourceGroup)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMediaFrameSourceInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Capture.Frames.MediaFrameSourceInfo>.
+// IID: 2e29c5b0-6aa9-50f2-91a4-5b67a5598f2e
+type IIterableOfMediaFrameSourceInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMediaFrameSourceInfo is the interface identifier for IIterableOfMediaFrameSourceInfo.
+var IID_IIterableOfMediaFrameSourceInfo = win32.GUID{Data1: 0x2e29c5b0, Data2: 0x6aa9, Data3: 0x50f2, Data4: [8]byte{0x91, 0xa4, 0x5b, 0x67, 0xa5, 0x59, 0x8f, 0x2e}}
+
+// First dispatches through IIterableOfMediaFrameSourceInfo's vtable slot 6.
+func (self *IIterableOfMediaFrameSourceInfo) First() (*IIteratorOfMediaFrameSourceInfo, error) {
+	result := new(*IIteratorOfMediaFrameSourceInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMediaFrameSourceInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Capture.Frames.MediaFrameSourceInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMediaFrameSourceInfo(items []*IMediaFrameSourceInfo) *IIterableOfMediaFrameSourceInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Capture.Frames.MediaFrameSourceInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMediaFrameSourceInfo, Iterator: IID_IIteratorOfMediaFrameSourceInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMediaFrameSourceInfo)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfMediaFrameFormat is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Capture.Frames.MediaFrameFormat>.
+// IID: 83a0cfaa-6546-5a63-8cd7-f62152a75d27
+type IIteratorOfMediaFrameFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMediaFrameFormat is the interface identifier for IIteratorOfMediaFrameFormat.
+var IID_IIteratorOfMediaFrameFormat = win32.GUID{Data1: 0x83a0cfaa, Data2: 0x6546, Data3: 0x5a63, Data4: [8]byte{0x8c, 0xd7, 0xf6, 0x21, 0x52, 0xa7, 0x5d, 0x27}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMediaFrameFormat's vtable slot 6.
+func (self *IIteratorOfMediaFrameFormat) Current() (*IMediaFrameFormat, error) {
+	result := new(*IMediaFrameFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMediaFrameFormat's vtable slot 7.
+func (self *IIteratorOfMediaFrameFormat) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMediaFrameFormat's vtable slot 8.
+func (self *IIteratorOfMediaFrameFormat) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMediaFrameSourceGroup is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Capture.Frames.MediaFrameSourceGroup>.
+// IID: dc0c1f9a-b748-5cfa-9b42-a3a8fe37281a
+type IIteratorOfMediaFrameSourceGroup struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMediaFrameSourceGroup is the interface identifier for IIteratorOfMediaFrameSourceGroup.
+var IID_IIteratorOfMediaFrameSourceGroup = win32.GUID{Data1: 0xdc0c1f9a, Data2: 0xb748, Data3: 0x5cfa, Data4: [8]byte{0x9b, 0x42, 0xa3, 0xa8, 0xfe, 0x37, 0x28, 0x1a}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMediaFrameSourceGroup's vtable slot 6.
+func (self *IIteratorOfMediaFrameSourceGroup) Current() (*IMediaFrameSourceGroup, error) {
+	result := new(*IMediaFrameSourceGroup)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMediaFrameSourceGroup's vtable slot 7.
+func (self *IIteratorOfMediaFrameSourceGroup) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMediaFrameSourceGroup's vtable slot 8.
+func (self *IIteratorOfMediaFrameSourceGroup) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMediaFrameSourceInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Capture.Frames.MediaFrameSourceInfo>.
+// IID: 443c60d8-208e-5399-bc44-edc6fef02293
+type IIteratorOfMediaFrameSourceInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMediaFrameSourceInfo is the interface identifier for IIteratorOfMediaFrameSourceInfo.
+var IID_IIteratorOfMediaFrameSourceInfo = win32.GUID{Data1: 0x443c60d8, Data2: 0x208e, Data3: 0x5399, Data4: [8]byte{0xbc, 0x44, 0xed, 0xc6, 0xfe, 0xf0, 0x22, 0x93}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMediaFrameSourceInfo's vtable slot 6.
+func (self *IIteratorOfMediaFrameSourceInfo) Current() (*IMediaFrameSourceInfo, error) {
+	result := new(*IMediaFrameSourceInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMediaFrameSourceInfo's vtable slot 7.
+func (self *IIteratorOfMediaFrameSourceInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMediaFrameSourceInfo's vtable slot 8.
+func (self *IIteratorOfMediaFrameSourceInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IMapViewOfGuidAndObject is the WinRT interface Windows.Foundation.Collections.IMapView`2<Guid, Object>.
 // IID: e4d2c732-bbc1-5ef4-869f-5007ceb55f6e
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<Guid, Object>>.
@@ -528,6 +729,25 @@ func (self *IVectorViewOfMediaFrameFormat) IndexOf(value *IMediaFrameFormat, ind
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMediaFrameFormat creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Capture.Frames.MediaFrameFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMediaFrameFormat(items []*IMediaFrameFormat) *IVectorViewOfMediaFrameFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Capture.Frames.MediaFrameFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMediaFrameFormat, Iterator: IID_IIteratorOfMediaFrameFormat, VectorView: IID_IVectorViewOfMediaFrameFormat}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMediaFrameFormat)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMediaFrameSourceGroup is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Capture.Frames.MediaFrameSourceGroup>.
 // IID: d01148ae-cccd-56eb-b2b4-a7d2acce14ec
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Capture.Frames.MediaFrameSourceGroup>.
@@ -561,6 +781,25 @@ func (self *IVectorViewOfMediaFrameSourceGroup) IndexOf(value *IMediaFrameSource
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMediaFrameSourceGroup creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Capture.Frames.MediaFrameSourceGroup>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMediaFrameSourceGroup(items []*IMediaFrameSourceGroup) *IVectorViewOfMediaFrameSourceGroup {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Capture.Frames.MediaFrameSourceGroup>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMediaFrameSourceGroup, Iterator: IID_IIteratorOfMediaFrameSourceGroup, VectorView: IID_IVectorViewOfMediaFrameSourceGroup}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMediaFrameSourceGroup)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMediaFrameSourceInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Capture.Frames.MediaFrameSourceInfo>.
 // IID: dbdb7946-9b30-51d0-9c8c-c7105af690e0
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Capture.Frames.MediaFrameSourceInfo>.
@@ -593,3 +832,22 @@ func (self *IVectorViewOfMediaFrameSourceInfo) IndexOf(value *IMediaFrameSourceI
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMediaFrameSourceInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Capture.Frames.MediaFrameSourceInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMediaFrameSourceInfo(items []*IMediaFrameSourceInfo) *IVectorViewOfMediaFrameSourceInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Capture.Frames.MediaFrameSourceInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMediaFrameSourceInfo, Iterator: IID_IIteratorOfMediaFrameSourceInfo, VectorView: IID_IVectorViewOfMediaFrameSourceInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMediaFrameSourceInfo)(unsafe.Pointer(obj))
+}

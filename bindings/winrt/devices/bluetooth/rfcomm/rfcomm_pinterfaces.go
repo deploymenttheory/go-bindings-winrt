@@ -292,6 +292,73 @@ func (self *IAsyncOperationOfRfcommServiceProvider) Await() (*IRfcommServiceProv
 	return self.GetResults()
 }
 
+// IIterableOfRfcommDeviceService is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService>.
+// IID: 3378e9a6-f6e2-50ea-bfee-b8109631feca
+type IIterableOfRfcommDeviceService struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfRfcommDeviceService is the interface identifier for IIterableOfRfcommDeviceService.
+var IID_IIterableOfRfcommDeviceService = win32.GUID{Data1: 0x3378e9a6, Data2: 0xf6e2, Data3: 0x50ea, Data4: [8]byte{0xbf, 0xee, 0xb8, 0x10, 0x96, 0x31, 0xfe, 0xca}}
+
+// First dispatches through IIterableOfRfcommDeviceService's vtable slot 6.
+func (self *IIterableOfRfcommDeviceService) First() (*IIteratorOfRfcommDeviceService, error) {
+	result := new(*IIteratorOfRfcommDeviceService)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfRfcommDeviceService creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfRfcommDeviceService(items []*IRfcommDeviceService) *IIterableOfRfcommDeviceService {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRfcommDeviceService, Iterator: IID_IIteratorOfRfcommDeviceService}, winrt.CodecInterface, boxed)
+	return (*IIterableOfRfcommDeviceService)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfRfcommDeviceService is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService>.
+// IID: 64ab0132-c64c-5a87-8113-613ef356924c
+type IIteratorOfRfcommDeviceService struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfRfcommDeviceService is the interface identifier for IIteratorOfRfcommDeviceService.
+var IID_IIteratorOfRfcommDeviceService = win32.GUID{Data1: 0x64ab0132, Data2: 0xc64c, Data3: 0x5a87, Data4: [8]byte{0x81, 0x13, 0x61, 0x3e, 0xf3, 0x56, 0x92, 0x4c}}
+
+// Current (propget get_Current) dispatches through IIteratorOfRfcommDeviceService's vtable slot 6.
+func (self *IIteratorOfRfcommDeviceService) Current() (*IRfcommDeviceService, error) {
+	result := new(*IRfcommDeviceService)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfRfcommDeviceService's vtable slot 7.
+func (self *IIteratorOfRfcommDeviceService) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfRfcommDeviceService's vtable slot 8.
+func (self *IIteratorOfRfcommDeviceService) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IMapOfUInt32AndIBuffer is the WinRT interface Windows.Foundation.Collections.IMap`2<UInt32, Windows.Storage.Streams.IBuffer>.
 // IID: 5d2591df-48c5-5734-9ef1-bd639b032007
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<UInt32, Windows.Storage.Streams.IBuffer>>.
@@ -418,3 +485,22 @@ func (self *IVectorViewOfRfcommDeviceService) IndexOf(value *IRfcommDeviceServic
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfRfcommDeviceService creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfRfcommDeviceService(items []*IRfcommDeviceService) *IVectorViewOfRfcommDeviceService {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRfcommDeviceService, Iterator: IID_IIteratorOfRfcommDeviceService, VectorView: IID_IVectorViewOfRfcommDeviceService}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfRfcommDeviceService)(unsafe.Pointer(obj))
+}

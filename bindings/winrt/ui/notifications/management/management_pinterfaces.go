@@ -153,6 +153,73 @@ func (self *IAsyncOperationOfUserNotificationListenerAccessStatus) Await() (User
 	return self.GetResults()
 }
 
+// IIterableOfUserNotification is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.UserNotification>.
+// IID: 18170480-1bd8-5cd0-bb32-67e71d5b4d7c
+type IIterableOfUserNotification struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUserNotification is the interface identifier for IIterableOfUserNotification.
+var IID_IIterableOfUserNotification = win32.GUID{Data1: 0x18170480, Data2: 0x1bd8, Data3: 0x5cd0, Data4: [8]byte{0xbb, 0x32, 0x67, 0xe7, 0x1d, 0x5b, 0x4d, 0x7c}}
+
+// First dispatches through IIterableOfUserNotification's vtable slot 6.
+func (self *IIterableOfUserNotification) First() (*IIteratorOfUserNotification, error) {
+	result := new(*IIteratorOfUserNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUserNotification creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.UserNotification>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUserNotification(items []*uinotifications.IUserNotification) *IIterableOfUserNotification {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.UserNotification>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserNotification, Iterator: IID_IIteratorOfUserNotification}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUserNotification)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfUserNotification is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Notifications.UserNotification>.
+// IID: 6ee1200d-dd13-5050-88cb-5352af113fd1
+type IIteratorOfUserNotification struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUserNotification is the interface identifier for IIteratorOfUserNotification.
+var IID_IIteratorOfUserNotification = win32.GUID{Data1: 0x6ee1200d, Data2: 0xdd13, Data3: 0x5050, Data4: [8]byte{0x88, 0xcb, 0x53, 0x52, 0xaf, 0x11, 0x3f, 0xd1}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUserNotification's vtable slot 6.
+func (self *IIteratorOfUserNotification) Current() (*uinotifications.IUserNotification, error) {
+	result := new(*uinotifications.IUserNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUserNotification's vtable slot 7.
+func (self *IIteratorOfUserNotification) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUserNotification's vtable slot 8.
+func (self *IIteratorOfUserNotification) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfUserNotification is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.UserNotification>.
 // IID: 5a08f98c-8e45-5705-af54-f5418e598392
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.UserNotification>.
@@ -185,3 +252,22 @@ func (self *IVectorViewOfUserNotification) IndexOf(value *uinotifications.IUserN
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUserNotification creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.UserNotification>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUserNotification(items []*uinotifications.IUserNotification) *IVectorViewOfUserNotification {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.UserNotification>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserNotification, Iterator: IID_IIteratorOfUserNotification, VectorView: IID_IVectorViewOfUserNotification}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUserNotification)(unsafe.Pointer(obj))
+}

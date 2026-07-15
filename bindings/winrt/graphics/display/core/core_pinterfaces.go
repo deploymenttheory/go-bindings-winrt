@@ -83,6 +83,73 @@ func (self *IAsyncOperationOfBool) Await() (bool, error) {
 	return self.GetResults()
 }
 
+// IIterableOfHdmiDisplayMode is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Display.Core.HdmiDisplayMode>.
+// IID: 497e3d51-0ea1-5be0-8dba-8f7f4ce4fb33
+type IIterableOfHdmiDisplayMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHdmiDisplayMode is the interface identifier for IIterableOfHdmiDisplayMode.
+var IID_IIterableOfHdmiDisplayMode = win32.GUID{Data1: 0x497e3d51, Data2: 0x0ea1, Data3: 0x5be0, Data4: [8]byte{0x8d, 0xba, 0x8f, 0x7f, 0x4c, 0xe4, 0xfb, 0x33}}
+
+// First dispatches through IIterableOfHdmiDisplayMode's vtable slot 6.
+func (self *IIterableOfHdmiDisplayMode) First() (*IIteratorOfHdmiDisplayMode, error) {
+	result := new(*IIteratorOfHdmiDisplayMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHdmiDisplayMode creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Display.Core.HdmiDisplayMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHdmiDisplayMode(items []*IHdmiDisplayMode) *IIterableOfHdmiDisplayMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Display.Core.HdmiDisplayMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHdmiDisplayMode, Iterator: IID_IIteratorOfHdmiDisplayMode}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHdmiDisplayMode)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfHdmiDisplayMode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Display.Core.HdmiDisplayMode>.
+// IID: d66eb831-e22c-5ee3-af45-e1c03de4bc62
+type IIteratorOfHdmiDisplayMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHdmiDisplayMode is the interface identifier for IIteratorOfHdmiDisplayMode.
+var IID_IIteratorOfHdmiDisplayMode = win32.GUID{Data1: 0xd66eb831, Data2: 0xe22c, Data3: 0x5ee3, Data4: [8]byte{0xaf, 0x45, 0xe1, 0xc0, 0x3d, 0xe4, 0xbc, 0x62}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHdmiDisplayMode's vtable slot 6.
+func (self *IIteratorOfHdmiDisplayMode) Current() (*IHdmiDisplayMode, error) {
+	result := new(*IHdmiDisplayMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHdmiDisplayMode's vtable slot 7.
+func (self *IIteratorOfHdmiDisplayMode) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHdmiDisplayMode's vtable slot 8.
+func (self *IIteratorOfHdmiDisplayMode) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfHdmiDisplayMode is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Display.Core.HdmiDisplayMode>.
 // IID: 7d0e7c64-df0e-539a-ab5f-3c260026c5ce
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Display.Core.HdmiDisplayMode>.
@@ -115,3 +182,22 @@ func (self *IVectorViewOfHdmiDisplayMode) IndexOf(value *IHdmiDisplayMode, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHdmiDisplayMode creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Display.Core.HdmiDisplayMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHdmiDisplayMode(items []*IHdmiDisplayMode) *IVectorViewOfHdmiDisplayMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Display.Core.HdmiDisplayMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHdmiDisplayMode, Iterator: IID_IIteratorOfHdmiDisplayMode, VectorView: IID_IVectorViewOfHdmiDisplayMode}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHdmiDisplayMode)(unsafe.Pointer(obj))
+}

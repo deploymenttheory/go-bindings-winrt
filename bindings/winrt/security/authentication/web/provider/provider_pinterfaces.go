@@ -432,6 +432,274 @@ func (self *IAsyncOperationOfWebAccount) Await() (*securitycredentials.IWebAccou
 	return self.GetResults()
 }
 
+// IIterableOfHttpCookie is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.HttpCookie>.
+// IID: 0eb9fa36-88de-590d-8ea0-b613d0ab015f
+type IIterableOfHttpCookie struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHttpCookie is the interface identifier for IIterableOfHttpCookie.
+var IID_IIterableOfHttpCookie = win32.GUID{Data1: 0x0eb9fa36, Data2: 0x88de, Data3: 0x590d, Data4: [8]byte{0x8e, 0xa0, 0xb6, 0x13, 0xd0, 0xab, 0x01, 0x5f}}
+
+// First dispatches through IIterableOfHttpCookie's vtable slot 6.
+func (self *IIterableOfHttpCookie) First() (*IIteratorOfHttpCookie, error) {
+	result := new(*IIteratorOfHttpCookie)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHttpCookie creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.HttpCookie>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHttpCookie(items []*webhttp.IHttpCookie) *IIterableOfHttpCookie {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.HttpCookie>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpCookie, Iterator: IID_IIteratorOfHttpCookie}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHttpCookie)(unsafe.Pointer(obj))
+}
+
+// IIterableOfWebAccount is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Credentials.WebAccount>.
+// IID: cb15d439-a910-542a-89ed-7cfe67848a83
+type IIterableOfWebAccount struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfWebAccount is the interface identifier for IIterableOfWebAccount.
+var IID_IIterableOfWebAccount = win32.GUID{Data1: 0xcb15d439, Data2: 0xa910, Data3: 0x542a, Data4: [8]byte{0x89, 0xed, 0x7c, 0xfe, 0x67, 0x84, 0x8a, 0x83}}
+
+// First dispatches through IIterableOfWebAccount's vtable slot 6.
+func (self *IIterableOfWebAccount) First() (*IIteratorOfWebAccount, error) {
+	result := new(*IIteratorOfWebAccount)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfWebAccount creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Credentials.WebAccount>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfWebAccount(items []*securitycredentials.IWebAccount) *IIterableOfWebAccount {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Credentials.WebAccount>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebAccount, Iterator: IID_IIteratorOfWebAccount}, winrt.CodecInterface, boxed)
+	return (*IIterableOfWebAccount)(unsafe.Pointer(obj))
+}
+
+// IIterableOfWebAccountClientView is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Web.Provider.WebAccountClientView>.
+// IID: 610e0f9d-aae4-54e1-bb0b-1aca14110abf
+type IIterableOfWebAccountClientView struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfWebAccountClientView is the interface identifier for IIterableOfWebAccountClientView.
+var IID_IIterableOfWebAccountClientView = win32.GUID{Data1: 0x610e0f9d, Data2: 0xaae4, Data3: 0x54e1, Data4: [8]byte{0xbb, 0x0b, 0x1a, 0xca, 0x14, 0x11, 0x0a, 0xbf}}
+
+// First dispatches through IIterableOfWebAccountClientView's vtable slot 6.
+func (self *IIterableOfWebAccountClientView) First() (*IIteratorOfWebAccountClientView, error) {
+	result := new(*IIteratorOfWebAccountClientView)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfWebAccountClientView creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Web.Provider.WebAccountClientView>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfWebAccountClientView(items []*IWebAccountClientView) *IIterableOfWebAccountClientView {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Web.Provider.WebAccountClientView>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebAccountClientView, Iterator: IID_IIteratorOfWebAccountClientView}, winrt.CodecInterface, boxed)
+	return (*IIterableOfWebAccountClientView)(unsafe.Pointer(obj))
+}
+
+// IIterableOfWebProviderTokenResponse is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>.
+// IID: e9bac236-c077-553a-b4ae-b58fb0b89918
+type IIterableOfWebProviderTokenResponse struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfWebProviderTokenResponse is the interface identifier for IIterableOfWebProviderTokenResponse.
+var IID_IIterableOfWebProviderTokenResponse = win32.GUID{Data1: 0xe9bac236, Data2: 0xc077, Data3: 0x553a, Data4: [8]byte{0xb4, 0xae, 0xb5, 0x8f, 0xb0, 0xb8, 0x99, 0x18}}
+
+// First dispatches through IIterableOfWebProviderTokenResponse's vtable slot 6.
+func (self *IIterableOfWebProviderTokenResponse) First() (*IIteratorOfWebProviderTokenResponse, error) {
+	result := new(*IIteratorOfWebProviderTokenResponse)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfWebProviderTokenResponse creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfWebProviderTokenResponse(items []*IWebProviderTokenResponse) *IIterableOfWebProviderTokenResponse {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebProviderTokenResponse, Iterator: IID_IIteratorOfWebProviderTokenResponse}, winrt.CodecInterface, boxed)
+	return (*IIterableOfWebProviderTokenResponse)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfHttpCookie is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.Http.HttpCookie>.
+// IID: 626bc177-8403-5030-a88c-7485cc89d730
+type IIteratorOfHttpCookie struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHttpCookie is the interface identifier for IIteratorOfHttpCookie.
+var IID_IIteratorOfHttpCookie = win32.GUID{Data1: 0x626bc177, Data2: 0x8403, Data3: 0x5030, Data4: [8]byte{0xa8, 0x8c, 0x74, 0x85, 0xcc, 0x89, 0xd7, 0x30}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHttpCookie's vtable slot 6.
+func (self *IIteratorOfHttpCookie) Current() (*webhttp.IHttpCookie, error) {
+	result := new(*webhttp.IHttpCookie)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHttpCookie's vtable slot 7.
+func (self *IIteratorOfHttpCookie) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHttpCookie's vtable slot 8.
+func (self *IIteratorOfHttpCookie) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfWebAccount is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Credentials.WebAccount>.
+// IID: bfb82cca-aebc-567c-95d9-eba25c365faa
+type IIteratorOfWebAccount struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfWebAccount is the interface identifier for IIteratorOfWebAccount.
+var IID_IIteratorOfWebAccount = win32.GUID{Data1: 0xbfb82cca, Data2: 0xaebc, Data3: 0x567c, Data4: [8]byte{0x95, 0xd9, 0xeb, 0xa2, 0x5c, 0x36, 0x5f, 0xaa}}
+
+// Current (propget get_Current) dispatches through IIteratorOfWebAccount's vtable slot 6.
+func (self *IIteratorOfWebAccount) Current() (*securitycredentials.IWebAccount, error) {
+	result := new(*securitycredentials.IWebAccount)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfWebAccount's vtable slot 7.
+func (self *IIteratorOfWebAccount) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfWebAccount's vtable slot 8.
+func (self *IIteratorOfWebAccount) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfWebAccountClientView is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Authentication.Web.Provider.WebAccountClientView>.
+// IID: a5984607-661d-5e9c-a0ba-5c7d5f41af1c
+type IIteratorOfWebAccountClientView struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfWebAccountClientView is the interface identifier for IIteratorOfWebAccountClientView.
+var IID_IIteratorOfWebAccountClientView = win32.GUID{Data1: 0xa5984607, Data2: 0x661d, Data3: 0x5e9c, Data4: [8]byte{0xa0, 0xba, 0x5c, 0x7d, 0x5f, 0x41, 0xaf, 0x1c}}
+
+// Current (propget get_Current) dispatches through IIteratorOfWebAccountClientView's vtable slot 6.
+func (self *IIteratorOfWebAccountClientView) Current() (*IWebAccountClientView, error) {
+	result := new(*IWebAccountClientView)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfWebAccountClientView's vtable slot 7.
+func (self *IIteratorOfWebAccountClientView) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfWebAccountClientView's vtable slot 8.
+func (self *IIteratorOfWebAccountClientView) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfWebProviderTokenResponse is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>.
+// IID: eb57825d-5ad6-5ee0-8dc6-a53c1e82e3ab
+type IIteratorOfWebProviderTokenResponse struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfWebProviderTokenResponse is the interface identifier for IIteratorOfWebProviderTokenResponse.
+var IID_IIteratorOfWebProviderTokenResponse = win32.GUID{Data1: 0xeb57825d, Data2: 0x5ad6, Data3: 0x5ee0, Data4: [8]byte{0x8d, 0xc6, 0xa5, 0x3c, 0x1e, 0x82, 0xe3, 0xab}}
+
+// Current (propget get_Current) dispatches through IIteratorOfWebProviderTokenResponse's vtable slot 6.
+func (self *IIteratorOfWebProviderTokenResponse) Current() (*IWebProviderTokenResponse, error) {
+	result := new(*IWebProviderTokenResponse)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfWebProviderTokenResponse's vtable slot 7.
+func (self *IIteratorOfWebProviderTokenResponse) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfWebProviderTokenResponse's vtable slot 8.
+func (self *IIteratorOfWebProviderTokenResponse) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IMapViewOfStringAndString is the WinRT interface Windows.Foundation.Collections.IMapView`2<String, String>.
 // IID: ac7f26f2-feb7-5b2a-8ac4-345bc62caede
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>.
@@ -560,6 +828,28 @@ func (self *IVectorOfHttpCookie) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfHttpCookie creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Http.HttpCookie>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHttpCookie(items []*webhttp.IHttpCookie) *IVectorOfHttpCookie {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Http.HttpCookie>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpCookie, Iterator: IID_IIteratorOfHttpCookie, VectorView: IID_IVectorViewOfHttpCookie, Vector: IID_IVectorOfHttpCookie}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHttpCookie)(unsafe.Pointer(obj))
+}
+
 // IVectorOfWebProviderTokenResponse is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>.
 // IID: 4e7ad5cf-390f-5ecd-b714-3c654b84cbba
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>.
@@ -638,6 +928,28 @@ func (self *IVectorOfWebProviderTokenResponse) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfWebProviderTokenResponse creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfWebProviderTokenResponse(items []*IWebProviderTokenResponse) *IVectorOfWebProviderTokenResponse {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebProviderTokenResponse, Iterator: IID_IIteratorOfWebProviderTokenResponse, VectorView: IID_IVectorViewOfWebProviderTokenResponse, Vector: IID_IVectorOfWebProviderTokenResponse}, winrt.CodecInterface, boxed)
+	return (*IVectorOfWebProviderTokenResponse)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHttpCookie is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.HttpCookie>.
 // IID: 0064c4f6-3fca-5823-9d92-86c40b28adbc
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.HttpCookie>.
@@ -670,6 +982,25 @@ func (self *IVectorViewOfHttpCookie) IndexOf(value *webhttp.IHttpCookie, index *
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHttpCookie creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.HttpCookie>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHttpCookie(items []*webhttp.IHttpCookie) *IVectorViewOfHttpCookie {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Http.HttpCookie>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHttpCookie, Iterator: IID_IIteratorOfHttpCookie, VectorView: IID_IVectorViewOfHttpCookie}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHttpCookie)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfWebAccount is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Security.Credentials.WebAccount>.
 // IID: e0798d3d-2b4a-589a-ab12-02dccc158afc
@@ -704,6 +1035,25 @@ func (self *IVectorViewOfWebAccount) IndexOf(value *securitycredentials.IWebAcco
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfWebAccount creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Credentials.WebAccount>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfWebAccount(items []*securitycredentials.IWebAccount) *IVectorViewOfWebAccount {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Credentials.WebAccount>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebAccount, Iterator: IID_IIteratorOfWebAccount, VectorView: IID_IVectorViewOfWebAccount}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfWebAccount)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfWebAccountClientView is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Web.Provider.WebAccountClientView>.
 // IID: 3dfd5eff-8fa4-5e9d-8d1c-0f18d542be35
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Web.Provider.WebAccountClientView>.
@@ -737,6 +1087,25 @@ func (self *IVectorViewOfWebAccountClientView) IndexOf(value *IWebAccountClientV
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfWebAccountClientView creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Web.Provider.WebAccountClientView>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfWebAccountClientView(items []*IWebAccountClientView) *IVectorViewOfWebAccountClientView {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Web.Provider.WebAccountClientView>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebAccountClientView, Iterator: IID_IIteratorOfWebAccountClientView, VectorView: IID_IVectorViewOfWebAccountClientView}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfWebAccountClientView)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfWebProviderTokenResponse is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>.
 // IID: 1ae644b7-9839-585b-8792-ecd5050b88bb
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>.
@@ -769,3 +1138,22 @@ func (self *IVectorViewOfWebProviderTokenResponse) IndexOf(value *IWebProviderTo
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfWebProviderTokenResponse creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfWebProviderTokenResponse(items []*IWebProviderTokenResponse) *IVectorViewOfWebProviderTokenResponse {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebProviderTokenResponse, Iterator: IID_IIteratorOfWebProviderTokenResponse, VectorView: IID_IVectorViewOfWebProviderTokenResponse}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfWebProviderTokenResponse)(unsafe.Pointer(obj))
+}

@@ -72,4 +72,15 @@ func (self *{{$.TypeName}}) Await() {{.ReturnSig}} {
 	return self.GetResults()
 }
 
+{{end}}{{with .CollectionCtor}}{{range .CommentLines}}// {{.}}
+{{end -}}
+func {{.CtorName}}(items []{{.ElemType}}) *{{$.TypeName}} {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = {{.BoxExpr}}
+	}
+	obj := winrt.{{.RuntimeCtor}}({{printf "%q" .Class}}, {{.IIDs}}, {{.Codec}}, boxed)
+	return (*{{$.TypeName}})(unsafe.Pointer(obj))
+}
+
 {{end}}{{end}}

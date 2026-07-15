@@ -241,6 +241,12 @@ func (g *Generator) buildPinterfaceModels(meta *winrtmeta.NamespaceMeta, imports
 				inst.Name == "IAsyncActionWithProgress`1") {
 			g.attachAwait(meta, &model, imports)
 		}
+		// Collection instantiations gain a Go-implemented constructor when
+		// their element grounds to a runtime codec; the attach may request
+		// sibling instantiations, which the fixed-point loop then drains.
+		if inst.Namespace == "Windows.Foundation.Collections" {
+			g.attachCollectionCtor(meta, &model, inst, imports)
+		}
 		models = append(models, model)
 	}
 	sort.Slice(models, func(i, j int) bool { return models[i].TypeName < models[j].TypeName })

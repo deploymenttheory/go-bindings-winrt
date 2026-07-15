@@ -1325,6 +1325,467 @@ func (self *IAsyncOperationOfSimpleOrientationSensor) Await() (*ISimpleOrientati
 	return self.GetResults()
 }
 
+// IIterableOfActivitySensorReading is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivitySensorReading>.
+// IID: 9a34ce03-8c6d-5994-907f-d5c2d19148cb
+type IIterableOfActivitySensorReading struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfActivitySensorReading is the interface identifier for IIterableOfActivitySensorReading.
+var IID_IIterableOfActivitySensorReading = win32.GUID{Data1: 0x9a34ce03, Data2: 0x8c6d, Data3: 0x5994, Data4: [8]byte{0x90, 0x7f, 0xd5, 0xc2, 0xd1, 0x91, 0x48, 0xcb}}
+
+// First dispatches through IIterableOfActivitySensorReading's vtable slot 6.
+func (self *IIterableOfActivitySensorReading) First() (*IIteratorOfActivitySensorReading, error) {
+	result := new(*IIteratorOfActivitySensorReading)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfActivitySensorReading creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivitySensorReading>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfActivitySensorReading(items []*IActivitySensorReading) *IIterableOfActivitySensorReading {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivitySensorReading>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivitySensorReading, Iterator: IID_IIteratorOfActivitySensorReading}, winrt.CodecInterface, boxed)
+	return (*IIterableOfActivitySensorReading)(unsafe.Pointer(obj))
+}
+
+// IIterableOfActivitySensorReadingChangeReport is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivitySensorReadingChangeReport>.
+// IID: 551a4962-9e96-5e6b-8b8a-65ee3d0046f3
+type IIterableOfActivitySensorReadingChangeReport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfActivitySensorReadingChangeReport is the interface identifier for IIterableOfActivitySensorReadingChangeReport.
+var IID_IIterableOfActivitySensorReadingChangeReport = win32.GUID{Data1: 0x551a4962, Data2: 0x9e96, Data3: 0x5e6b, Data4: [8]byte{0x8b, 0x8a, 0x65, 0xee, 0x3d, 0x00, 0x46, 0xf3}}
+
+// First dispatches through IIterableOfActivitySensorReadingChangeReport's vtable slot 6.
+func (self *IIterableOfActivitySensorReadingChangeReport) First() (*IIteratorOfActivitySensorReadingChangeReport, error) {
+	result := new(*IIteratorOfActivitySensorReadingChangeReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfActivitySensorReadingChangeReport creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivitySensorReadingChangeReport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfActivitySensorReadingChangeReport(items []*IActivitySensorReadingChangeReport) *IIterableOfActivitySensorReadingChangeReport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivitySensorReadingChangeReport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivitySensorReadingChangeReport, Iterator: IID_IIteratorOfActivitySensorReadingChangeReport}, winrt.CodecInterface, boxed)
+	return (*IIterableOfActivitySensorReadingChangeReport)(unsafe.Pointer(obj))
+}
+
+// IIterableOfActivityType is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivityType>.
+// IID: 2a04cdfa-5dfd-5178-8731-ade998e4a7f6
+type IIterableOfActivityType struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfActivityType is the interface identifier for IIterableOfActivityType.
+var IID_IIterableOfActivityType = win32.GUID{Data1: 0x2a04cdfa, Data2: 0x5dfd, Data3: 0x5178, Data4: [8]byte{0x87, 0x31, 0xad, 0xe9, 0x98, 0xe4, 0xa7, 0xf6}}
+
+// First dispatches through IIterableOfActivityType's vtable slot 6.
+func (self *IIterableOfActivityType) First() (*IIteratorOfActivityType, error) {
+	result := new(*IIteratorOfActivityType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfActivityType creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivityType>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfActivityType(items []ActivityType) *IIterableOfActivityType {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivityType>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivityType, Iterator: IID_IIteratorOfActivityType}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfActivityType)(unsafe.Pointer(obj))
+}
+
+// IIterableOfDetectedPerson is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.DetectedPerson>.
+// IID: d14fdfaf-79f0-50bc-9ce4-1ed76c937c22
+type IIterableOfDetectedPerson struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDetectedPerson is the interface identifier for IIterableOfDetectedPerson.
+var IID_IIterableOfDetectedPerson = win32.GUID{Data1: 0xd14fdfaf, Data2: 0x79f0, Data3: 0x50bc, Data4: [8]byte{0x9c, 0xe4, 0x1e, 0xd7, 0x6c, 0x93, 0x7c, 0x22}}
+
+// First dispatches through IIterableOfDetectedPerson's vtable slot 6.
+func (self *IIterableOfDetectedPerson) First() (*IIteratorOfDetectedPerson, error) {
+	result := new(*IIteratorOfDetectedPerson)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDetectedPerson creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.DetectedPerson>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDetectedPerson(items []*IDetectedPerson) *IIterableOfDetectedPerson {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.DetectedPerson>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDetectedPerson, Iterator: IID_IIteratorOfDetectedPerson}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDetectedPerson)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPedometerReading is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.PedometerReading>.
+// IID: bbb61a5c-98c3-5718-88fe-5392a7451e2d
+type IIterableOfPedometerReading struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPedometerReading is the interface identifier for IIterableOfPedometerReading.
+var IID_IIterableOfPedometerReading = win32.GUID{Data1: 0xbbb61a5c, Data2: 0x98c3, Data3: 0x5718, Data4: [8]byte{0x88, 0xfe, 0x53, 0x92, 0xa7, 0x45, 0x1e, 0x2d}}
+
+// First dispatches through IIterableOfPedometerReading's vtable slot 6.
+func (self *IIterableOfPedometerReading) First() (*IIteratorOfPedometerReading, error) {
+	result := new(*IIteratorOfPedometerReading)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPedometerReading creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.PedometerReading>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPedometerReading(items []*IPedometerReading) *IIterableOfPedometerReading {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.PedometerReading>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPedometerReading, Iterator: IID_IIteratorOfPedometerReading}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPedometerReading)(unsafe.Pointer(obj))
+}
+
+// IIterableOfProximitySensorReading is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ProximitySensorReading>.
+// IID: 301ebccf-11ab-5e90-98ee-bd99c0e3bb76
+type IIterableOfProximitySensorReading struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfProximitySensorReading is the interface identifier for IIterableOfProximitySensorReading.
+var IID_IIterableOfProximitySensorReading = win32.GUID{Data1: 0x301ebccf, Data2: 0x11ab, Data3: 0x5e90, Data4: [8]byte{0x98, 0xee, 0xbd, 0x99, 0xc0, 0xe3, 0xbb, 0x76}}
+
+// First dispatches through IIterableOfProximitySensorReading's vtable slot 6.
+func (self *IIterableOfProximitySensorReading) First() (*IIteratorOfProximitySensorReading, error) {
+	result := new(*IIteratorOfProximitySensorReading)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfProximitySensorReading creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ProximitySensorReading>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfProximitySensorReading(items []*IProximitySensorReading) *IIterableOfProximitySensorReading {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ProximitySensorReading>", winrt.CollectionIIDs{Iterable: IID_IIterableOfProximitySensorReading, Iterator: IID_IIteratorOfProximitySensorReading}, winrt.CodecInterface, boxed)
+	return (*IIterableOfProximitySensorReading)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUInt32 is the WinRT interface Windows.Foundation.Collections.IIterable`1<UInt32>.
+// IID: 421d4b91-b13b-5f37-ae54-b5249bd80539
+type IIterableOfUInt32 struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUInt32 is the interface identifier for IIterableOfUInt32.
+var IID_IIterableOfUInt32 = win32.GUID{Data1: 0x421d4b91, Data2: 0xb13b, Data3: 0x5f37, Data4: [8]byte{0xae, 0x54, 0xb5, 0x24, 0x9b, 0xd8, 0x05, 0x39}}
+
+// First dispatches through IIterableOfUInt32's vtable slot 6.
+func (self *IIterableOfUInt32) First() (*IIteratorOfUInt32, error) {
+	result := new(*IIteratorOfUInt32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUInt32 creates a Go-implemented Windows.Foundation.Collections.IIterable`1<UInt32>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfUInt32(items []uint32) *IIterableOfUInt32 {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<UInt32>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUInt32, Iterator: IID_IIteratorOfUInt32}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfUInt32)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfActivitySensorReading is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Sensors.ActivitySensorReading>.
+// IID: d2dab535-0c94-547e-afe3-5527bcbeb9cc
+type IIteratorOfActivitySensorReading struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfActivitySensorReading is the interface identifier for IIteratorOfActivitySensorReading.
+var IID_IIteratorOfActivitySensorReading = win32.GUID{Data1: 0xd2dab535, Data2: 0x0c94, Data3: 0x547e, Data4: [8]byte{0xaf, 0xe3, 0x55, 0x27, 0xbc, 0xbe, 0xb9, 0xcc}}
+
+// Current (propget get_Current) dispatches through IIteratorOfActivitySensorReading's vtable slot 6.
+func (self *IIteratorOfActivitySensorReading) Current() (*IActivitySensorReading, error) {
+	result := new(*IActivitySensorReading)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfActivitySensorReading's vtable slot 7.
+func (self *IIteratorOfActivitySensorReading) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfActivitySensorReading's vtable slot 8.
+func (self *IIteratorOfActivitySensorReading) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfActivitySensorReadingChangeReport is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Sensors.ActivitySensorReadingChangeReport>.
+// IID: 9c07034e-8333-59d5-8d60-0e3f0438ac12
+type IIteratorOfActivitySensorReadingChangeReport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfActivitySensorReadingChangeReport is the interface identifier for IIteratorOfActivitySensorReadingChangeReport.
+var IID_IIteratorOfActivitySensorReadingChangeReport = win32.GUID{Data1: 0x9c07034e, Data2: 0x8333, Data3: 0x59d5, Data4: [8]byte{0x8d, 0x60, 0x0e, 0x3f, 0x04, 0x38, 0xac, 0x12}}
+
+// Current (propget get_Current) dispatches through IIteratorOfActivitySensorReadingChangeReport's vtable slot 6.
+func (self *IIteratorOfActivitySensorReadingChangeReport) Current() (*IActivitySensorReadingChangeReport, error) {
+	result := new(*IActivitySensorReadingChangeReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfActivitySensorReadingChangeReport's vtable slot 7.
+func (self *IIteratorOfActivitySensorReadingChangeReport) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfActivitySensorReadingChangeReport's vtable slot 8.
+func (self *IIteratorOfActivitySensorReadingChangeReport) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfActivityType is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Sensors.ActivityType>.
+// IID: 40524281-a7c6-50b1-b6f5-0baa95d902c2
+type IIteratorOfActivityType struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfActivityType is the interface identifier for IIteratorOfActivityType.
+var IID_IIteratorOfActivityType = win32.GUID{Data1: 0x40524281, Data2: 0xa7c6, Data3: 0x50b1, Data4: [8]byte{0xb6, 0xf5, 0x0b, 0xaa, 0x95, 0xd9, 0x02, 0xc2}}
+
+// Current (propget get_Current) dispatches through IIteratorOfActivityType's vtable slot 6.
+func (self *IIteratorOfActivityType) Current() (ActivityType, error) {
+	result := new(ActivityType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfActivityType's vtable slot 7.
+func (self *IIteratorOfActivityType) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfActivityType's vtable slot 8.
+func (self *IIteratorOfActivityType) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfDetectedPerson is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Sensors.DetectedPerson>.
+// IID: 5fe9e61c-ee82-5698-bffd-5f1ca33f4e85
+type IIteratorOfDetectedPerson struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDetectedPerson is the interface identifier for IIteratorOfDetectedPerson.
+var IID_IIteratorOfDetectedPerson = win32.GUID{Data1: 0x5fe9e61c, Data2: 0xee82, Data3: 0x5698, Data4: [8]byte{0xbf, 0xfd, 0x5f, 0x1c, 0xa3, 0x3f, 0x4e, 0x85}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDetectedPerson's vtable slot 6.
+func (self *IIteratorOfDetectedPerson) Current() (*IDetectedPerson, error) {
+	result := new(*IDetectedPerson)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDetectedPerson's vtable slot 7.
+func (self *IIteratorOfDetectedPerson) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDetectedPerson's vtable slot 8.
+func (self *IIteratorOfDetectedPerson) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPedometerReading is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Sensors.PedometerReading>.
+// IID: 0ac70ed3-8553-5ef3-92f8-438609623087
+type IIteratorOfPedometerReading struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPedometerReading is the interface identifier for IIteratorOfPedometerReading.
+var IID_IIteratorOfPedometerReading = win32.GUID{Data1: 0x0ac70ed3, Data2: 0x8553, Data3: 0x5ef3, Data4: [8]byte{0x92, 0xf8, 0x43, 0x86, 0x09, 0x62, 0x30, 0x87}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPedometerReading's vtable slot 6.
+func (self *IIteratorOfPedometerReading) Current() (*IPedometerReading, error) {
+	result := new(*IPedometerReading)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPedometerReading's vtable slot 7.
+func (self *IIteratorOfPedometerReading) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPedometerReading's vtable slot 8.
+func (self *IIteratorOfPedometerReading) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfProximitySensorReading is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Sensors.ProximitySensorReading>.
+// IID: 1d4f08df-7f49-573b-936a-6d4d4e610930
+type IIteratorOfProximitySensorReading struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfProximitySensorReading is the interface identifier for IIteratorOfProximitySensorReading.
+var IID_IIteratorOfProximitySensorReading = win32.GUID{Data1: 0x1d4f08df, Data2: 0x7f49, Data3: 0x573b, Data4: [8]byte{0x93, 0x6a, 0x6d, 0x4d, 0x4e, 0x61, 0x09, 0x30}}
+
+// Current (propget get_Current) dispatches through IIteratorOfProximitySensorReading's vtable slot 6.
+func (self *IIteratorOfProximitySensorReading) Current() (*IProximitySensorReading, error) {
+	result := new(*IProximitySensorReading)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfProximitySensorReading's vtable slot 7.
+func (self *IIteratorOfProximitySensorReading) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfProximitySensorReading's vtable slot 8.
+func (self *IIteratorOfProximitySensorReading) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUInt32 is the WinRT interface Windows.Foundation.Collections.IIterator`1<UInt32>.
+// IID: f06a2739-9443-5ef0-b284-dc5aff3e7d10
+type IIteratorOfUInt32 struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUInt32 is the interface identifier for IIteratorOfUInt32.
+var IID_IIteratorOfUInt32 = win32.GUID{Data1: 0xf06a2739, Data2: 0x9443, Data3: 0x5ef0, Data4: [8]byte{0xb2, 0x84, 0xdc, 0x5a, 0xff, 0x3e, 0x7d, 0x10}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUInt32's vtable slot 6.
+func (self *IIteratorOfUInt32) Current() (uint32, error) {
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUInt32's vtable slot 7.
+func (self *IIteratorOfUInt32) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUInt32's vtable slot 8.
+func (self *IIteratorOfUInt32) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IMapViewOfPedometerStepKindAndPedometerReading is the WinRT interface Windows.Foundation.Collections.IMapView`2<Windows.Devices.Sensors.PedometerStepKind, Windows.Devices.Sensors.PedometerReading>.
 // IID: 64f0c54c-4865-56bd-ac98-64a98451e362
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<Windows.Devices.Sensors.PedometerStepKind, Windows.Devices.Sensors.PedometerReading>>.
@@ -1601,6 +2062,24 @@ func (self *IVectorOfActivityType) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfActivityType creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Sensors.ActivityType>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfActivityType(items []ActivityType) *IVectorOfActivityType {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Sensors.ActivityType>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivityType, Iterator: IID_IIteratorOfActivityType, VectorView: IID_IVectorViewOfActivityType, Vector: IID_IVectorOfActivityType}, winrt.CodecScalar(4), boxed)
+	return (*IVectorOfActivityType)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfActivitySensorReading is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivitySensorReading>.
 // IID: 726234a9-7137-55c4-a444-352dcdc30d77
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivitySensorReading>.
@@ -1633,6 +2112,25 @@ func (self *IVectorViewOfActivitySensorReading) IndexOf(value *IActivitySensorRe
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfActivitySensorReading creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivitySensorReading>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfActivitySensorReading(items []*IActivitySensorReading) *IVectorViewOfActivitySensorReading {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivitySensorReading>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivitySensorReading, Iterator: IID_IIteratorOfActivitySensorReading, VectorView: IID_IVectorViewOfActivitySensorReading}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfActivitySensorReading)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfActivitySensorReadingChangeReport is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivitySensorReadingChangeReport>.
 // IID: 10e48a80-dd6a-5704-8f3d-3d46111f391e
@@ -1667,6 +2165,25 @@ func (self *IVectorViewOfActivitySensorReadingChangeReport) IndexOf(value *IActi
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfActivitySensorReadingChangeReport creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivitySensorReadingChangeReport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfActivitySensorReadingChangeReport(items []*IActivitySensorReadingChangeReport) *IVectorViewOfActivitySensorReadingChangeReport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivitySensorReadingChangeReport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivitySensorReadingChangeReport, Iterator: IID_IIteratorOfActivitySensorReadingChangeReport, VectorView: IID_IVectorViewOfActivitySensorReadingChangeReport}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfActivitySensorReadingChangeReport)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfActivityType is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivityType>.
 // IID: fc7a0488-2803-505c-9e62-9200afe416c6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivityType>.
@@ -1699,6 +2216,21 @@ func (self *IVectorViewOfActivityType) IndexOf(value ActivityType, index *uint32
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfActivityType creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivityType>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfActivityType(items []ActivityType) *IVectorViewOfActivityType {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivityType>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivityType, Iterator: IID_IIteratorOfActivityType, VectorView: IID_IVectorViewOfActivityType}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfActivityType)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfDetectedPerson is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.DetectedPerson>.
 // IID: 1de993d5-739b-5f05-9985-c36376df9f39
@@ -1733,6 +2265,25 @@ func (self *IVectorViewOfDetectedPerson) IndexOf(value *IDetectedPerson, index *
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfDetectedPerson creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.DetectedPerson>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDetectedPerson(items []*IDetectedPerson) *IVectorViewOfDetectedPerson {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.DetectedPerson>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDetectedPerson, Iterator: IID_IIteratorOfDetectedPerson, VectorView: IID_IVectorViewOfDetectedPerson}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDetectedPerson)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfPedometerReading is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.PedometerReading>.
 // IID: 52076f5c-7838-54d9-9517-5511eb627952
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.PedometerReading>.
@@ -1766,6 +2317,25 @@ func (self *IVectorViewOfPedometerReading) IndexOf(value *IPedometerReading, ind
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfPedometerReading creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.PedometerReading>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPedometerReading(items []*IPedometerReading) *IVectorViewOfPedometerReading {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.PedometerReading>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPedometerReading, Iterator: IID_IIteratorOfPedometerReading, VectorView: IID_IVectorViewOfPedometerReading}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPedometerReading)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfProximitySensorReading is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ProximitySensorReading>.
 // IID: 7a09d76c-8ced-5e30-b7fe-1ff74d4d9814
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ProximitySensorReading>.
@@ -1798,6 +2368,25 @@ func (self *IVectorViewOfProximitySensorReading) IndexOf(value *IProximitySensor
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfProximitySensorReading creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ProximitySensorReading>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfProximitySensorReading(items []*IProximitySensorReading) *IVectorViewOfProximitySensorReading {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ProximitySensorReading>", winrt.CollectionIIDs{Iterable: IID_IIterableOfProximitySensorReading, Iterator: IID_IIteratorOfProximitySensorReading, VectorView: IID_IVectorViewOfProximitySensorReading}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfProximitySensorReading)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfTimeSpan is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.TimeSpan>.
 // IID: 6b5828d7-6b8d-58c4-ba3a-9f796710f53c
@@ -1864,3 +2453,18 @@ func (self *IVectorViewOfUInt32) IndexOf(value uint32, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUInt32 creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<UInt32>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfUInt32(items []uint32) *IVectorViewOfUInt32 {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<UInt32>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUInt32, Iterator: IID_IIteratorOfUInt32, VectorView: IID_IVectorViewOfUInt32}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfUInt32)(unsafe.Pointer(obj))
+}

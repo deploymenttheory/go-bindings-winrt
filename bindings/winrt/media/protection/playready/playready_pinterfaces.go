@@ -222,6 +222,207 @@ func (self *IAsyncOperationOfINDStartResult) Await() (*INDStartResult, error) {
 	return self.GetResults()
 }
 
+// IIterableOfAudioStreamDescriptor is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.AudioStreamDescriptor>.
+// IID: a3e2c972-a171-5b94-8389-e983ebc3f3b9
+type IIterableOfAudioStreamDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAudioStreamDescriptor is the interface identifier for IIterableOfAudioStreamDescriptor.
+var IID_IIterableOfAudioStreamDescriptor = win32.GUID{Data1: 0xa3e2c972, Data2: 0xa171, Data3: 0x5b94, Data4: [8]byte{0x83, 0x89, 0xe9, 0x83, 0xeb, 0xc3, 0xf3, 0xb9}}
+
+// First dispatches through IIterableOfAudioStreamDescriptor's vtable slot 6.
+func (self *IIterableOfAudioStreamDescriptor) First() (*IIteratorOfAudioStreamDescriptor, error) {
+	result := new(*IIteratorOfAudioStreamDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAudioStreamDescriptor creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.AudioStreamDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAudioStreamDescriptor(items []*mediacore.IAudioStreamDescriptor) *IIterableOfAudioStreamDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.AudioStreamDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAudioStreamDescriptor, Iterator: IID_IIteratorOfAudioStreamDescriptor}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAudioStreamDescriptor)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIterableOfVideoStreamDescriptor is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.VideoStreamDescriptor>.
+// IID: 3acbf03c-0a79-5823-aaa9-d88bc3f8f594
+type IIterableOfVideoStreamDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfVideoStreamDescriptor is the interface identifier for IIterableOfVideoStreamDescriptor.
+var IID_IIterableOfVideoStreamDescriptor = win32.GUID{Data1: 0x3acbf03c, Data2: 0x0a79, Data3: 0x5823, Data4: [8]byte{0xaa, 0xa9, 0xd8, 0x8b, 0xc3, 0xf8, 0xf5, 0x94}}
+
+// First dispatches through IIterableOfVideoStreamDescriptor's vtable slot 6.
+func (self *IIterableOfVideoStreamDescriptor) First() (*IIteratorOfVideoStreamDescriptor, error) {
+	result := new(*IIteratorOfVideoStreamDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVideoStreamDescriptor creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.VideoStreamDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfVideoStreamDescriptor(items []*mediacore.IVideoStreamDescriptor) *IIterableOfVideoStreamDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.VideoStreamDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVideoStreamDescriptor, Iterator: IID_IIteratorOfVideoStreamDescriptor}, winrt.CodecInterface, boxed)
+	return (*IIterableOfVideoStreamDescriptor)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfAudioStreamDescriptor is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Core.AudioStreamDescriptor>.
+// IID: a61a11cd-b32e-518b-a6a7-5472cbe00e83
+type IIteratorOfAudioStreamDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAudioStreamDescriptor is the interface identifier for IIteratorOfAudioStreamDescriptor.
+var IID_IIteratorOfAudioStreamDescriptor = win32.GUID{Data1: 0xa61a11cd, Data2: 0xb32e, Data3: 0x518b, Data4: [8]byte{0xa6, 0xa7, 0x54, 0x72, 0xcb, 0xe0, 0x0e, 0x83}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAudioStreamDescriptor's vtable slot 6.
+func (self *IIteratorOfAudioStreamDescriptor) Current() (*mediacore.IAudioStreamDescriptor, error) {
+	result := new(*mediacore.IAudioStreamDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAudioStreamDescriptor's vtable slot 7.
+func (self *IIteratorOfAudioStreamDescriptor) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAudioStreamDescriptor's vtable slot 8.
+func (self *IIteratorOfAudioStreamDescriptor) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfVideoStreamDescriptor is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Core.VideoStreamDescriptor>.
+// IID: da51ab3c-3c64-545c-a3f4-f9b055aaf7d9
+type IIteratorOfVideoStreamDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfVideoStreamDescriptor is the interface identifier for IIteratorOfVideoStreamDescriptor.
+var IID_IIteratorOfVideoStreamDescriptor = win32.GUID{Data1: 0xda51ab3c, Data2: 0x3c64, Data3: 0x545c, Data4: [8]byte{0xa3, 0xf4, 0xf9, 0xb0, 0x55, 0xaa, 0xf7, 0xd9}}
+
+// Current (propget get_Current) dispatches through IIteratorOfVideoStreamDescriptor's vtable slot 6.
+func (self *IIteratorOfVideoStreamDescriptor) Current() (*mediacore.IVideoStreamDescriptor, error) {
+	result := new(*mediacore.IVideoStreamDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfVideoStreamDescriptor's vtable slot 7.
+func (self *IIteratorOfVideoStreamDescriptor) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfVideoStreamDescriptor's vtable slot 8.
+func (self *IIteratorOfVideoStreamDescriptor) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfDateTime is the WinRT interface Windows.Foundation.IReference`1<Windows.Foundation.DateTime>.
 // IID: 5541d8a7-497c-5aa4-86fc-7713adbf2a2c
 // Requires: Windows.Foundation.IPropertyValue.
@@ -316,6 +517,28 @@ func (self *IVectorOfAudioStreamDescriptor) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfAudioStreamDescriptor creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Media.Core.AudioStreamDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfAudioStreamDescriptor(items []*mediacore.IAudioStreamDescriptor) *IVectorOfAudioStreamDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Media.Core.AudioStreamDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAudioStreamDescriptor, Iterator: IID_IIteratorOfAudioStreamDescriptor, VectorView: IID_IVectorViewOfAudioStreamDescriptor, Vector: IID_IVectorOfAudioStreamDescriptor}, winrt.CodecInterface, boxed)
+	return (*IVectorOfAudioStreamDescriptor)(unsafe.Pointer(obj))
+}
 
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
@@ -418,6 +641,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorOfVideoStreamDescriptor is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Media.Core.VideoStreamDescriptor>.
 // IID: 1fb064b3-636c-5988-9c97-02a9b76150f6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.VideoStreamDescriptor>.
@@ -496,6 +738,28 @@ func (self *IVectorOfVideoStreamDescriptor) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfVideoStreamDescriptor creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Media.Core.VideoStreamDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfVideoStreamDescriptor(items []*mediacore.IVideoStreamDescriptor) *IVectorOfVideoStreamDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Media.Core.VideoStreamDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVideoStreamDescriptor, Iterator: IID_IIteratorOfVideoStreamDescriptor, VectorView: IID_IVectorViewOfVideoStreamDescriptor, Vector: IID_IVectorOfVideoStreamDescriptor}, winrt.CodecInterface, boxed)
+	return (*IVectorOfVideoStreamDescriptor)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfAudioStreamDescriptor is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.AudioStreamDescriptor>.
 // IID: 340f4fed-1288-5b89-be7c-c355fe1ce4d9
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.AudioStreamDescriptor>.
@@ -528,6 +792,25 @@ func (self *IVectorViewOfAudioStreamDescriptor) IndexOf(value *mediacore.IAudioS
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfAudioStreamDescriptor creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.AudioStreamDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAudioStreamDescriptor(items []*mediacore.IAudioStreamDescriptor) *IVectorViewOfAudioStreamDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.AudioStreamDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAudioStreamDescriptor, Iterator: IID_IIteratorOfAudioStreamDescriptor, VectorView: IID_IVectorViewOfAudioStreamDescriptor}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAudioStreamDescriptor)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -570,6 +853,22 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfVideoStreamDescriptor is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.VideoStreamDescriptor>.
 // IID: e965c8af-d211-52f0-838b-4637469da7af
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Core.VideoStreamDescriptor>.
@@ -602,3 +901,22 @@ func (self *IVectorViewOfVideoStreamDescriptor) IndexOf(value *mediacore.IVideoS
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfVideoStreamDescriptor creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.VideoStreamDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfVideoStreamDescriptor(items []*mediacore.IVideoStreamDescriptor) *IVectorViewOfVideoStreamDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Core.VideoStreamDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVideoStreamDescriptor, Iterator: IID_IIteratorOfVideoStreamDescriptor, VectorView: IID_IVectorViewOfVideoStreamDescriptor}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfVideoStreamDescriptor)(unsafe.Pointer(obj))
+}

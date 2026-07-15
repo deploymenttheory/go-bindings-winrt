@@ -3,6 +3,7 @@
 package winrt
 
 import (
+	"runtime"
 	"slices"
 	"sync"
 	"sync/atomic"
@@ -12,6 +13,7 @@ import (
 
 	win32 "github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	systemcom "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/com"
+	systemthreading "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/threading"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 )
 
@@ -42,6 +44,12 @@ type inspectable struct {
 	iids []win32.GUID
 	// class (identity only) is the GetRuntimeClassName answer.
 	class string
+	// destroy (identity only, optional) runs exactly once when the reference
+	// count reaches zero, after the facets are unregistered. Collections use
+	// it to release the element references they retain; it executes on the
+	// worker (or inline on the worker thread — see dispatchInspectable) and
+	// may itself reenter Go-implemented objects (an element's Release).
+	destroy func()
 }
 
 const (
@@ -69,8 +77,20 @@ var (
 // pendingInspectableWork and park — allocation-free, small bounded stack —
 // while the worker, whose stack may grow harmlessly, executes the body.
 // inspectableWorkMu doubles as process-wide serialization of Go-implemented
-// inspectable calls; the collection bodies are short and never call back
-// into native objects, so no reentrancy or lock-order cycle exists.
+// inspectable calls.
+//
+// Since the generic-collection wave, bodies MAY call back into native
+// objects: an element codec AddRefs/Releases interface elements
+// (collections_core.go). When such an element is itself Go-implemented (a
+// delegate, another collection), that nested call reenters Go ON THE WORKER
+// THREAD — parking it on the worker would self-deadlock, so
+// dispatchInspectable detects that case (the worker is thread-locked and
+// publishes its OS thread id) and runs the nested body INLINE instead. The
+// inline body's frames sit on the worker's stack, whose growth is harmless
+// as long as no in-flight native frame beneath holds a pointer INTO that
+// stack — which is why worker-side bodies must never pass a stack address
+// as an out-pointer to a native call that can reenter Go (the codec calls
+// are AddRef/Release only: no out-pointers).
 //
 // The worker eliminates GROWTH-driven stack moves, but not SHRINK-driven
 // ones: while the callback goroutine is parked here waiting on the worker,
@@ -98,9 +118,20 @@ var (
 	inspectableWorkReady   = make(chan struct{})
 	inspectableWorkDone    = make(chan struct{})
 	inspectableWorkerOnce  sync.Once
+	// inspectableWorkerTID is the worker's OS thread id (0 until the worker
+	// has locked its thread and published it). dispatchInspectable compares
+	// it against the calling thread to detect worker-side reentrancy.
+	inspectableWorkerTID atomic.Uint32
 )
 
 func inspectableWorker() {
+	// Pin the worker to one OS thread and publish its id: a callback that
+	// arrives ON this thread can only be a nested reentry from a body the
+	// worker is already running (a codec AddRef/Release on a Go-implemented
+	// element), and dispatchInspectable must run it inline rather than park.
+	// LockOSThread makes the id stable for the goroutine's lifetime.
+	runtime.LockOSThread()
+	inspectableWorkerTID.Store(systemthreading.GetCurrentThreadId())
 	for range inspectableWorkReady {
 		pendingInspectableWork.result = pendingInspectableWork.fn(&pendingInspectableWork)
 		inspectableWorkDone <- struct{}{}
@@ -128,7 +159,21 @@ func startInspectableWorker() {
 
 // dispatchInspectable hands one staged call to the worker and waits for its
 // result. Runs on the callback goroutine: no allocations, minimal frames.
+//
+// When the call arrives ON the worker's own thread it is a nested reentry —
+// a body the worker is executing called a native AddRef/Release that landed
+// back in a Go-implemented object's trampoline. Parking would self-deadlock
+// (the worker cannot pick up new work while it waits for itself), so the
+// body runs INLINE on the worker thread. That is safe: the outer body and
+// the nested one run sequentially on one thread (the serialization the
+// worker exists to provide still holds), pendingInspectableWork is not
+// touched, and stack growth here moves only the WORKER's stack — harmless
+// because worker-side bodies never hand native code a pointer into it (see
+// the invariant above).
 func dispatchInspectable(work inspectableWork) uintptr {
+	if tid := inspectableWorkerTID.Load(); tid != 0 && tid == systemthreading.GetCurrentThreadId() {
+		return work.fn(&work)
+	}
 	inspectableWorkMu.Lock()
 	pendingInspectableWork = work
 	inspectableWorkReady <- struct{}{}
@@ -241,6 +286,13 @@ func inspectableReleaseBody(w *inspectableWork) uintptr {
 			delete(inspectableRegistry, uintptr(unsafe.Pointer(facet)))
 		}
 		inspectableMu.Unlock()
+		// Run the destructor after unregistration (a reentrant call into the
+		// dead object now fails cleanly) and outside inspectableMu (releasing
+		// a retained element may reenter registeredInspectable).
+		if destroy := identity.destroy; destroy != nil {
+			identity.destroy = nil
+			destroy()
+		}
 	}
 	return uintptr(remaining)
 }

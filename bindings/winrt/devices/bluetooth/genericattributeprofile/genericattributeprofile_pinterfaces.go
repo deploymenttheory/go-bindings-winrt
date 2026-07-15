@@ -1257,6 +1257,542 @@ func (self *IAsyncOperationOfIVectorViewOfGattClientNotificationResult) Await() 
 	return self.GetResults()
 }
 
+// IIterableOfGattCharacteristic is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic>.
+// IID: e3c56728-7f2d-5a0d-ad38-030d39c60f9f
+type IIterableOfGattCharacteristic struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGattCharacteristic is the interface identifier for IIterableOfGattCharacteristic.
+var IID_IIterableOfGattCharacteristic = win32.GUID{Data1: 0xe3c56728, Data2: 0x7f2d, Data3: 0x5a0d, Data4: [8]byte{0xad, 0x38, 0x03, 0x0d, 0x39, 0xc6, 0x0f, 0x9f}}
+
+// First dispatches through IIterableOfGattCharacteristic's vtable slot 6.
+func (self *IIterableOfGattCharacteristic) First() (*IIteratorOfGattCharacteristic, error) {
+	result := new(*IIteratorOfGattCharacteristic)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGattCharacteristic creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGattCharacteristic(items []*IGattCharacteristic) *IIterableOfGattCharacteristic {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattCharacteristic, Iterator: IID_IIteratorOfGattCharacteristic}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGattCharacteristic)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGattClientNotificationResult is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult>.
+// IID: d3f4b8ad-251f-5bbb-ada2-ea47434e74d6
+type IIterableOfGattClientNotificationResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGattClientNotificationResult is the interface identifier for IIterableOfGattClientNotificationResult.
+var IID_IIterableOfGattClientNotificationResult = win32.GUID{Data1: 0xd3f4b8ad, Data2: 0x251f, Data3: 0x5bbb, Data4: [8]byte{0xad, 0xa2, 0xea, 0x47, 0x43, 0x4e, 0x74, 0xd6}}
+
+// First dispatches through IIterableOfGattClientNotificationResult's vtable slot 6.
+func (self *IIterableOfGattClientNotificationResult) First() (*IIteratorOfGattClientNotificationResult, error) {
+	result := new(*IIteratorOfGattClientNotificationResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGattClientNotificationResult creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGattClientNotificationResult(items []*IGattClientNotificationResult) *IIterableOfGattClientNotificationResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattClientNotificationResult, Iterator: IID_IIteratorOfGattClientNotificationResult}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGattClientNotificationResult)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGattDescriptor is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor>.
+// IID: 30e2ffc4-3aa3-5219-9a18-ca2d0b6562e8
+type IIterableOfGattDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGattDescriptor is the interface identifier for IIterableOfGattDescriptor.
+var IID_IIterableOfGattDescriptor = win32.GUID{Data1: 0x30e2ffc4, Data2: 0x3aa3, Data3: 0x5219, Data4: [8]byte{0x9a, 0x18, 0xca, 0x2d, 0x0b, 0x65, 0x62, 0xe8}}
+
+// First dispatches through IIterableOfGattDescriptor's vtable slot 6.
+func (self *IIterableOfGattDescriptor) First() (*IIteratorOfGattDescriptor, error) {
+	result := new(*IIteratorOfGattDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGattDescriptor creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGattDescriptor(items []*IGattDescriptor) *IIterableOfGattDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattDescriptor, Iterator: IID_IIteratorOfGattDescriptor}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGattDescriptor)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGattDeviceService is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService>.
+// IID: 4b192e23-4893-56b2-8eff-439c3ab7fd1f
+type IIterableOfGattDeviceService struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGattDeviceService is the interface identifier for IIterableOfGattDeviceService.
+var IID_IIterableOfGattDeviceService = win32.GUID{Data1: 0x4b192e23, Data2: 0x4893, Data3: 0x56b2, Data4: [8]byte{0x8e, 0xff, 0x43, 0x9c, 0x3a, 0xb7, 0xfd, 0x1f}}
+
+// First dispatches through IIterableOfGattDeviceService's vtable slot 6.
+func (self *IIterableOfGattDeviceService) First() (*IIteratorOfGattDeviceService, error) {
+	result := new(*IIteratorOfGattDeviceService)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGattDeviceService creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGattDeviceService(items []*IGattDeviceService) *IIterableOfGattDeviceService {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattDeviceService, Iterator: IID_IIteratorOfGattDeviceService}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGattDeviceService)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGattLocalCharacteristic is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic>.
+// IID: 7082ed53-37f6-5262-8d09-939bea9edbd5
+type IIterableOfGattLocalCharacteristic struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGattLocalCharacteristic is the interface identifier for IIterableOfGattLocalCharacteristic.
+var IID_IIterableOfGattLocalCharacteristic = win32.GUID{Data1: 0x7082ed53, Data2: 0x37f6, Data3: 0x5262, Data4: [8]byte{0x8d, 0x09, 0x93, 0x9b, 0xea, 0x9e, 0xdb, 0xd5}}
+
+// First dispatches through IIterableOfGattLocalCharacteristic's vtable slot 6.
+func (self *IIterableOfGattLocalCharacteristic) First() (*IIteratorOfGattLocalCharacteristic, error) {
+	result := new(*IIteratorOfGattLocalCharacteristic)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGattLocalCharacteristic creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGattLocalCharacteristic(items []*IGattLocalCharacteristic) *IIterableOfGattLocalCharacteristic {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattLocalCharacteristic, Iterator: IID_IIteratorOfGattLocalCharacteristic}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGattLocalCharacteristic)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGattLocalDescriptor is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor>.
+// IID: 9016e9a2-c9f7-5d09-b0ae-552fa67796ae
+type IIterableOfGattLocalDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGattLocalDescriptor is the interface identifier for IIterableOfGattLocalDescriptor.
+var IID_IIterableOfGattLocalDescriptor = win32.GUID{Data1: 0x9016e9a2, Data2: 0xc9f7, Data3: 0x5d09, Data4: [8]byte{0xb0, 0xae, 0x55, 0x2f, 0xa6, 0x77, 0x96, 0xae}}
+
+// First dispatches through IIterableOfGattLocalDescriptor's vtable slot 6.
+func (self *IIterableOfGattLocalDescriptor) First() (*IIteratorOfGattLocalDescriptor, error) {
+	result := new(*IIteratorOfGattLocalDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGattLocalDescriptor creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGattLocalDescriptor(items []*IGattLocalDescriptor) *IIterableOfGattLocalDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattLocalDescriptor, Iterator: IID_IIteratorOfGattLocalDescriptor}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGattLocalDescriptor)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGattPresentationFormat is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat>.
+// IID: d75fcef1-c10e-5b7b-b130-f5a00314d35d
+type IIterableOfGattPresentationFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGattPresentationFormat is the interface identifier for IIterableOfGattPresentationFormat.
+var IID_IIterableOfGattPresentationFormat = win32.GUID{Data1: 0xd75fcef1, Data2: 0xc10e, Data3: 0x5b7b, Data4: [8]byte{0xb1, 0x30, 0xf5, 0xa0, 0x03, 0x14, 0xd3, 0x5d}}
+
+// First dispatches through IIterableOfGattPresentationFormat's vtable slot 6.
+func (self *IIterableOfGattPresentationFormat) First() (*IIteratorOfGattPresentationFormat, error) {
+	result := new(*IIteratorOfGattPresentationFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGattPresentationFormat creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGattPresentationFormat(items []*IGattPresentationFormat) *IIterableOfGattPresentationFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattPresentationFormat, Iterator: IID_IIteratorOfGattPresentationFormat}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGattPresentationFormat)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGattSubscribedClient is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient>.
+// IID: b19864e4-f2b1-50de-8c11-fff9eca934e9
+type IIterableOfGattSubscribedClient struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGattSubscribedClient is the interface identifier for IIterableOfGattSubscribedClient.
+var IID_IIterableOfGattSubscribedClient = win32.GUID{Data1: 0xb19864e4, Data2: 0xf2b1, Data3: 0x50de, Data4: [8]byte{0x8c, 0x11, 0xff, 0xf9, 0xec, 0xa9, 0x34, 0xe9}}
+
+// First dispatches through IIterableOfGattSubscribedClient's vtable slot 6.
+func (self *IIterableOfGattSubscribedClient) First() (*IIteratorOfGattSubscribedClient, error) {
+	result := new(*IIteratorOfGattSubscribedClient)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGattSubscribedClient creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGattSubscribedClient(items []*IGattSubscribedClient) *IIterableOfGattSubscribedClient {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattSubscribedClient, Iterator: IID_IIteratorOfGattSubscribedClient}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGattSubscribedClient)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfGattCharacteristic is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic>.
+// IID: 1ffc4777-4346-5564-b7a5-59eae385f4f6
+type IIteratorOfGattCharacteristic struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGattCharacteristic is the interface identifier for IIteratorOfGattCharacteristic.
+var IID_IIteratorOfGattCharacteristic = win32.GUID{Data1: 0x1ffc4777, Data2: 0x4346, Data3: 0x5564, Data4: [8]byte{0xb7, 0xa5, 0x59, 0xea, 0xe3, 0x85, 0xf4, 0xf6}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGattCharacteristic's vtable slot 6.
+func (self *IIteratorOfGattCharacteristic) Current() (*IGattCharacteristic, error) {
+	result := new(*IGattCharacteristic)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGattCharacteristic's vtable slot 7.
+func (self *IIteratorOfGattCharacteristic) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGattCharacteristic's vtable slot 8.
+func (self *IIteratorOfGattCharacteristic) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGattClientNotificationResult is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult>.
+// IID: fca87386-a3ab-55e2-a83e-21f5bfab4049
+type IIteratorOfGattClientNotificationResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGattClientNotificationResult is the interface identifier for IIteratorOfGattClientNotificationResult.
+var IID_IIteratorOfGattClientNotificationResult = win32.GUID{Data1: 0xfca87386, Data2: 0xa3ab, Data3: 0x55e2, Data4: [8]byte{0xa8, 0x3e, 0x21, 0xf5, 0xbf, 0xab, 0x40, 0x49}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGattClientNotificationResult's vtable slot 6.
+func (self *IIteratorOfGattClientNotificationResult) Current() (*IGattClientNotificationResult, error) {
+	result := new(*IGattClientNotificationResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGattClientNotificationResult's vtable slot 7.
+func (self *IIteratorOfGattClientNotificationResult) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGattClientNotificationResult's vtable slot 8.
+func (self *IIteratorOfGattClientNotificationResult) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGattDescriptor is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor>.
+// IID: 3d8df436-cefb-5ffb-858c-4882ce1da079
+type IIteratorOfGattDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGattDescriptor is the interface identifier for IIteratorOfGattDescriptor.
+var IID_IIteratorOfGattDescriptor = win32.GUID{Data1: 0x3d8df436, Data2: 0xcefb, Data3: 0x5ffb, Data4: [8]byte{0x85, 0x8c, 0x48, 0x82, 0xce, 0x1d, 0xa0, 0x79}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGattDescriptor's vtable slot 6.
+func (self *IIteratorOfGattDescriptor) Current() (*IGattDescriptor, error) {
+	result := new(*IGattDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGattDescriptor's vtable slot 7.
+func (self *IIteratorOfGattDescriptor) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGattDescriptor's vtable slot 8.
+func (self *IIteratorOfGattDescriptor) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGattDeviceService is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService>.
+// IID: 8beb3a26-73ca-50f3-a1d3-418c60a9f3b2
+type IIteratorOfGattDeviceService struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGattDeviceService is the interface identifier for IIteratorOfGattDeviceService.
+var IID_IIteratorOfGattDeviceService = win32.GUID{Data1: 0x8beb3a26, Data2: 0x73ca, Data3: 0x50f3, Data4: [8]byte{0xa1, 0xd3, 0x41, 0x8c, 0x60, 0xa9, 0xf3, 0xb2}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGattDeviceService's vtable slot 6.
+func (self *IIteratorOfGattDeviceService) Current() (*IGattDeviceService, error) {
+	result := new(*IGattDeviceService)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGattDeviceService's vtable slot 7.
+func (self *IIteratorOfGattDeviceService) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGattDeviceService's vtable slot 8.
+func (self *IIteratorOfGattDeviceService) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGattLocalCharacteristic is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic>.
+// IID: edd74875-8e85-546f-83b8-1e00aa896419
+type IIteratorOfGattLocalCharacteristic struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGattLocalCharacteristic is the interface identifier for IIteratorOfGattLocalCharacteristic.
+var IID_IIteratorOfGattLocalCharacteristic = win32.GUID{Data1: 0xedd74875, Data2: 0x8e85, Data3: 0x546f, Data4: [8]byte{0x83, 0xb8, 0x1e, 0x00, 0xaa, 0x89, 0x64, 0x19}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGattLocalCharacteristic's vtable slot 6.
+func (self *IIteratorOfGattLocalCharacteristic) Current() (*IGattLocalCharacteristic, error) {
+	result := new(*IGattLocalCharacteristic)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGattLocalCharacteristic's vtable slot 7.
+func (self *IIteratorOfGattLocalCharacteristic) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGattLocalCharacteristic's vtable slot 8.
+func (self *IIteratorOfGattLocalCharacteristic) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGattLocalDescriptor is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor>.
+// IID: 08023045-5f5c-59cc-abd3-bbcfe6fa7030
+type IIteratorOfGattLocalDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGattLocalDescriptor is the interface identifier for IIteratorOfGattLocalDescriptor.
+var IID_IIteratorOfGattLocalDescriptor = win32.GUID{Data1: 0x08023045, Data2: 0x5f5c, Data3: 0x59cc, Data4: [8]byte{0xab, 0xd3, 0xbb, 0xcf, 0xe6, 0xfa, 0x70, 0x30}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGattLocalDescriptor's vtable slot 6.
+func (self *IIteratorOfGattLocalDescriptor) Current() (*IGattLocalDescriptor, error) {
+	result := new(*IGattLocalDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGattLocalDescriptor's vtable slot 7.
+func (self *IIteratorOfGattLocalDescriptor) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGattLocalDescriptor's vtable slot 8.
+func (self *IIteratorOfGattLocalDescriptor) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGattPresentationFormat is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat>.
+// IID: 20006c53-5dda-5319-91b1-c6f28fe65933
+type IIteratorOfGattPresentationFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGattPresentationFormat is the interface identifier for IIteratorOfGattPresentationFormat.
+var IID_IIteratorOfGattPresentationFormat = win32.GUID{Data1: 0x20006c53, Data2: 0x5dda, Data3: 0x5319, Data4: [8]byte{0x91, 0xb1, 0xc6, 0xf2, 0x8f, 0xe6, 0x59, 0x33}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGattPresentationFormat's vtable slot 6.
+func (self *IIteratorOfGattPresentationFormat) Current() (*IGattPresentationFormat, error) {
+	result := new(*IGattPresentationFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGattPresentationFormat's vtable slot 7.
+func (self *IIteratorOfGattPresentationFormat) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGattPresentationFormat's vtable slot 8.
+func (self *IIteratorOfGattPresentationFormat) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGattSubscribedClient is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient>.
+// IID: df039115-a5ff-5d5a-b07b-20b42e078765
+type IIteratorOfGattSubscribedClient struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGattSubscribedClient is the interface identifier for IIteratorOfGattSubscribedClient.
+var IID_IIteratorOfGattSubscribedClient = win32.GUID{Data1: 0xdf039115, Data2: 0xa5ff, Data3: 0x5d5a, Data4: [8]byte{0xb0, 0x7b, 0x20, 0xb4, 0x2e, 0x07, 0x87, 0x65}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGattSubscribedClient's vtable slot 6.
+func (self *IIteratorOfGattSubscribedClient) Current() (*IGattSubscribedClient, error) {
+	result := new(*IGattSubscribedClient)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGattSubscribedClient's vtable slot 7.
+func (self *IIteratorOfGattSubscribedClient) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGattSubscribedClient's vtable slot 8.
+func (self *IIteratorOfGattSubscribedClient) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfUInt8 is the WinRT interface Windows.Foundation.IReference`1<UInt8>.
 // IID: e5198cc8-2873-55f5-b0a1-84ff9e4aad62
 // Requires: Windows.Foundation.IPropertyValue.
@@ -1352,6 +1888,28 @@ func (self *IVectorOfGattPresentationFormat) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfGattPresentationFormat creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfGattPresentationFormat(items []*IGattPresentationFormat) *IVectorOfGattPresentationFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattPresentationFormat, Iterator: IID_IIteratorOfGattPresentationFormat, VectorView: IID_IVectorViewOfGattPresentationFormat, Vector: IID_IVectorOfGattPresentationFormat}, winrt.CodecInterface, boxed)
+	return (*IVectorOfGattPresentationFormat)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGattCharacteristic is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic>.
 // IID: cb3ab3ae-b561-504f-a808-599deceb2df4
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic>.
@@ -1384,6 +1942,25 @@ func (self *IVectorViewOfGattCharacteristic) IndexOf(value *IGattCharacteristic,
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfGattCharacteristic creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGattCharacteristic(items []*IGattCharacteristic) *IVectorViewOfGattCharacteristic {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattCharacteristic, Iterator: IID_IIteratorOfGattCharacteristic, VectorView: IID_IVectorViewOfGattCharacteristic}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGattCharacteristic)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfGattClientNotificationResult is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult>.
 // IID: c886eb62-ec71-586b-a158-66dc62a378b7
@@ -1418,6 +1995,25 @@ func (self *IVectorViewOfGattClientNotificationResult) IndexOf(value *IGattClien
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfGattClientNotificationResult creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGattClientNotificationResult(items []*IGattClientNotificationResult) *IVectorViewOfGattClientNotificationResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattClientNotificationResult, Iterator: IID_IIteratorOfGattClientNotificationResult, VectorView: IID_IVectorViewOfGattClientNotificationResult}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGattClientNotificationResult)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGattDescriptor is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor>.
 // IID: 19605ea8-73d6-5760-849b-fe5f8a2bd05c
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor>.
@@ -1450,6 +2046,25 @@ func (self *IVectorViewOfGattDescriptor) IndexOf(value *IGattDescriptor, index *
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfGattDescriptor creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGattDescriptor(items []*IGattDescriptor) *IVectorViewOfGattDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattDescriptor, Iterator: IID_IIteratorOfGattDescriptor, VectorView: IID_IVectorViewOfGattDescriptor}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGattDescriptor)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfGattDeviceService is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService>.
 // IID: 7c8e7fdd-a1a1-528a-81d1-296769227a08
@@ -1484,6 +2099,25 @@ func (self *IVectorViewOfGattDeviceService) IndexOf(value *IGattDeviceService, i
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfGattDeviceService creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGattDeviceService(items []*IGattDeviceService) *IVectorViewOfGattDeviceService {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattDeviceService, Iterator: IID_IIteratorOfGattDeviceService, VectorView: IID_IVectorViewOfGattDeviceService}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGattDeviceService)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGattLocalCharacteristic is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic>.
 // IID: e4865eba-6de3-5a99-9a75-7efd8e3cb096
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic>.
@@ -1516,6 +2150,25 @@ func (self *IVectorViewOfGattLocalCharacteristic) IndexOf(value *IGattLocalChara
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfGattLocalCharacteristic creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGattLocalCharacteristic(items []*IGattLocalCharacteristic) *IVectorViewOfGattLocalCharacteristic {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattLocalCharacteristic, Iterator: IID_IIteratorOfGattLocalCharacteristic, VectorView: IID_IVectorViewOfGattLocalCharacteristic}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGattLocalCharacteristic)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfGattLocalDescriptor is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor>.
 // IID: 7f4688cc-0bbc-5070-8974-19fcb1acbf6c
@@ -1550,6 +2203,25 @@ func (self *IVectorViewOfGattLocalDescriptor) IndexOf(value *IGattLocalDescripto
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfGattLocalDescriptor creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGattLocalDescriptor(items []*IGattLocalDescriptor) *IVectorViewOfGattLocalDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattLocalDescriptor, Iterator: IID_IIteratorOfGattLocalDescriptor, VectorView: IID_IVectorViewOfGattLocalDescriptor}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGattLocalDescriptor)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGattPresentationFormat is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat>.
 // IID: 0ea2c154-22b8-5c8e-925d-d47e1aad31bb
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat>.
@@ -1583,6 +2255,25 @@ func (self *IVectorViewOfGattPresentationFormat) IndexOf(value *IGattPresentatio
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfGattPresentationFormat creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGattPresentationFormat(items []*IGattPresentationFormat) *IVectorViewOfGattPresentationFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattPresentationFormat, Iterator: IID_IIteratorOfGattPresentationFormat, VectorView: IID_IVectorViewOfGattPresentationFormat}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGattPresentationFormat)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGattSubscribedClient is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient>.
 // IID: 63391d79-4ba7-5f45-9681-3a683089353b
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient>.
@@ -1615,3 +2306,22 @@ func (self *IVectorViewOfGattSubscribedClient) IndexOf(value *IGattSubscribedCli
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfGattSubscribedClient creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGattSubscribedClient(items []*IGattSubscribedClient) *IVectorViewOfGattSubscribedClient {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGattSubscribedClient, Iterator: IID_IIteratorOfGattSubscribedClient, VectorView: IID_IVectorViewOfGattSubscribedClient}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGattSubscribedClient)(unsafe.Pointer(obj))
+}

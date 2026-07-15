@@ -83,6 +83,41 @@ func (self *IAsyncOperationOfOnlineIdSystemTicketResult) Await() (*IOnlineIdSyst
 	return self.GetResults()
 }
 
+// IIterableOfOnlineIdServiceTicket is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket>.
+// IID: 809d1314-97ab-5544-9891-ddcdfadd1dbb
+type IIterableOfOnlineIdServiceTicket struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfOnlineIdServiceTicket is the interface identifier for IIterableOfOnlineIdServiceTicket.
+var IID_IIterableOfOnlineIdServiceTicket = win32.GUID{Data1: 0x809d1314, Data2: 0x97ab, Data3: 0x5544, Data4: [8]byte{0x98, 0x91, 0xdd, 0xcd, 0xfa, 0xdd, 0x1d, 0xbb}}
+
+// First dispatches through IIterableOfOnlineIdServiceTicket's vtable slot 6.
+func (self *IIterableOfOnlineIdServiceTicket) First() (*IIteratorOfOnlineIdServiceTicket, error) {
+	result := new(*IIteratorOfOnlineIdServiceTicket)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfOnlineIdServiceTicket creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfOnlineIdServiceTicket(items []*IOnlineIdServiceTicket) *IIterableOfOnlineIdServiceTicket {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket>", winrt.CollectionIIDs{Iterable: IID_IIterableOfOnlineIdServiceTicket, Iterator: IID_IIteratorOfOnlineIdServiceTicket}, winrt.CodecInterface, boxed)
+	return (*IIterableOfOnlineIdServiceTicket)(unsafe.Pointer(obj))
+}
+
 // IIterableOfOnlineIdServiceTicketRequest is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest>.
 // IID: cb72d686-9516-520d-a274-fa4cd1762cb2
 type IIterableOfOnlineIdServiceTicketRequest struct {
@@ -98,6 +133,57 @@ func (self *IIterableOfOnlineIdServiceTicketRequest) First() (*IIteratorOfOnline
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfOnlineIdServiceTicketRequest creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfOnlineIdServiceTicketRequest(items []*IOnlineIdServiceTicketRequest) *IIterableOfOnlineIdServiceTicketRequest {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest>", winrt.CollectionIIDs{Iterable: IID_IIterableOfOnlineIdServiceTicketRequest, Iterator: IID_IIteratorOfOnlineIdServiceTicketRequest}, winrt.CodecInterface, boxed)
+	return (*IIterableOfOnlineIdServiceTicketRequest)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfOnlineIdServiceTicket is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket>.
+// IID: 039feee7-0882-50e2-bc3f-4fac7e8c2769
+type IIteratorOfOnlineIdServiceTicket struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfOnlineIdServiceTicket is the interface identifier for IIteratorOfOnlineIdServiceTicket.
+var IID_IIteratorOfOnlineIdServiceTicket = win32.GUID{Data1: 0x039feee7, Data2: 0x0882, Data3: 0x50e2, Data4: [8]byte{0xbc, 0x3f, 0x4f, 0xac, 0x7e, 0x8c, 0x27, 0x69}}
+
+// Current (propget get_Current) dispatches through IIteratorOfOnlineIdServiceTicket's vtable slot 6.
+func (self *IIteratorOfOnlineIdServiceTicket) Current() (*IOnlineIdServiceTicket, error) {
+	result := new(*IOnlineIdServiceTicket)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfOnlineIdServiceTicket's vtable slot 7.
+func (self *IIteratorOfOnlineIdServiceTicket) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfOnlineIdServiceTicket's vtable slot 8.
+func (self *IIteratorOfOnlineIdServiceTicket) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfOnlineIdServiceTicketRequest is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest>.
 // IID: b6a5c8e4-6e3c-5c37-92cf-cf9f1c383335
@@ -163,3 +249,22 @@ func (self *IVectorViewOfOnlineIdServiceTicket) IndexOf(value *IOnlineIdServiceT
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfOnlineIdServiceTicket creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfOnlineIdServiceTicket(items []*IOnlineIdServiceTicket) *IVectorViewOfOnlineIdServiceTicket {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket>", winrt.CollectionIIDs{Iterable: IID_IIterableOfOnlineIdServiceTicket, Iterator: IID_IIteratorOfOnlineIdServiceTicket, VectorView: IID_IVectorViewOfOnlineIdServiceTicket}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfOnlineIdServiceTicket)(unsafe.Pointer(obj))
+}

@@ -30,6 +30,25 @@ func (self *IIterableOfInkPoint) First() (*IIteratorOfInkPoint, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfInkPoint creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkPoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInkPoint(items []*uiinputinking.IInkPoint) *IIterableOfInkPoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkPoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkPoint, Iterator: IID_IIteratorOfInkPoint}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInkPoint)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfInkPoint is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.Inking.InkPoint>.
 // IID: 47415452-db79-567e-84d5-e9912330f944
 type IIteratorOfInkPoint struct {
@@ -140,6 +159,28 @@ func (self *IVectorOfInkPoint) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfInkPoint creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Input.Inking.InkPoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfInkPoint(items []*uiinputinking.IInkPoint) *IVectorOfInkPoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Input.Inking.InkPoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkPoint, Iterator: IID_IIteratorOfInkPoint, VectorView: IID_IVectorViewOfInkPoint, Vector: IID_IVectorOfInkPoint}, winrt.CodecInterface, boxed)
+	return (*IVectorOfInkPoint)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfInkPoint is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkPoint>.
 // IID: d1ac414b-c87d-540f-8ab1-4e0d09d9d283
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkPoint>.
@@ -172,3 +213,22 @@ func (self *IVectorViewOfInkPoint) IndexOf(value *uiinputinking.IInkPoint, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfInkPoint creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkPoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfInkPoint(items []*uiinputinking.IInkPoint) *IVectorViewOfInkPoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkPoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkPoint, Iterator: IID_IIteratorOfInkPoint, VectorView: IID_IVectorViewOfInkPoint}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfInkPoint)(unsafe.Pointer(obj))
+}

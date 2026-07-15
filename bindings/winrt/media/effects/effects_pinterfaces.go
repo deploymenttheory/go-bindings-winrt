@@ -15,6 +15,274 @@ import (
 	mediamediaproperties "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/media/mediaproperties"
 )
 
+// IIterableOfAudioEffect is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Effects.AudioEffect>.
+// IID: 07af9afd-25b8-579d-be7e-8acc03418d0b
+type IIterableOfAudioEffect struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAudioEffect is the interface identifier for IIterableOfAudioEffect.
+var IID_IIterableOfAudioEffect = win32.GUID{Data1: 0x07af9afd, Data2: 0x25b8, Data3: 0x579d, Data4: [8]byte{0xbe, 0x7e, 0x8a, 0xcc, 0x03, 0x41, 0x8d, 0x0b}}
+
+// First dispatches through IIterableOfAudioEffect's vtable slot 6.
+func (self *IIterableOfAudioEffect) First() (*IIteratorOfAudioEffect, error) {
+	result := new(*IIteratorOfAudioEffect)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAudioEffect creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Effects.AudioEffect>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAudioEffect(items []*IAudioEffect) *IIterableOfAudioEffect {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Effects.AudioEffect>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAudioEffect, Iterator: IID_IIteratorOfAudioEffect}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAudioEffect)(unsafe.Pointer(obj))
+}
+
+// IIterableOfAudioEncodingProperties is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.MediaProperties.AudioEncodingProperties>.
+// IID: 00939468-25d8-533f-854e-4f20f36c51dc
+type IIterableOfAudioEncodingProperties struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAudioEncodingProperties is the interface identifier for IIterableOfAudioEncodingProperties.
+var IID_IIterableOfAudioEncodingProperties = win32.GUID{Data1: 0x00939468, Data2: 0x25d8, Data3: 0x533f, Data4: [8]byte{0x85, 0x4e, 0x4f, 0x20, 0xf3, 0x6c, 0x51, 0xdc}}
+
+// First dispatches through IIterableOfAudioEncodingProperties's vtable slot 6.
+func (self *IIterableOfAudioEncodingProperties) First() (*IIteratorOfAudioEncodingProperties, error) {
+	result := new(*IIteratorOfAudioEncodingProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAudioEncodingProperties creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.MediaProperties.AudioEncodingProperties>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAudioEncodingProperties(items []*mediamediaproperties.IAudioEncodingProperties) *IIterableOfAudioEncodingProperties {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.MediaProperties.AudioEncodingProperties>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAudioEncodingProperties, Iterator: IID_IIteratorOfAudioEncodingProperties}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAudioEncodingProperties)(unsafe.Pointer(obj))
+}
+
+// IIterableOfIDirect3DSurface is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface>.
+// IID: cc63bf9c-e16a-5a75-a5aa-2b53f975b0b0
+type IIterableOfIDirect3DSurface struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIDirect3DSurface is the interface identifier for IIterableOfIDirect3DSurface.
+var IID_IIterableOfIDirect3DSurface = win32.GUID{Data1: 0xcc63bf9c, Data2: 0xe16a, Data3: 0x5a75, Data4: [8]byte{0xa5, 0xaa, 0x2b, 0x53, 0xf9, 0x75, 0xb0, 0xb0}}
+
+// First dispatches through IIterableOfIDirect3DSurface's vtable slot 6.
+func (self *IIterableOfIDirect3DSurface) First() (*IIteratorOfIDirect3DSurface, error) {
+	result := new(*IIteratorOfIDirect3DSurface)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIDirect3DSurface creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIDirect3DSurface(items []*graphicsdirectxdirect3d11.IDirect3DSurface) *IIterableOfIDirect3DSurface {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIDirect3DSurface, Iterator: IID_IIteratorOfIDirect3DSurface}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIDirect3DSurface)(unsafe.Pointer(obj))
+}
+
+// IIterableOfVideoEncodingProperties is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.MediaProperties.VideoEncodingProperties>.
+// IID: 73c7317c-8682-5f81-84a2-30c425fa2d24
+type IIterableOfVideoEncodingProperties struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfVideoEncodingProperties is the interface identifier for IIterableOfVideoEncodingProperties.
+var IID_IIterableOfVideoEncodingProperties = win32.GUID{Data1: 0x73c7317c, Data2: 0x8682, Data3: 0x5f81, Data4: [8]byte{0x84, 0xa2, 0x30, 0xc4, 0x25, 0xfa, 0x2d, 0x24}}
+
+// First dispatches through IIterableOfVideoEncodingProperties's vtable slot 6.
+func (self *IIterableOfVideoEncodingProperties) First() (*IIteratorOfVideoEncodingProperties, error) {
+	result := new(*IIteratorOfVideoEncodingProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVideoEncodingProperties creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.MediaProperties.VideoEncodingProperties>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfVideoEncodingProperties(items []*mediamediaproperties.IVideoEncodingProperties) *IIterableOfVideoEncodingProperties {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.MediaProperties.VideoEncodingProperties>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVideoEncodingProperties, Iterator: IID_IIteratorOfVideoEncodingProperties}, winrt.CodecInterface, boxed)
+	return (*IIterableOfVideoEncodingProperties)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfAudioEffect is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Effects.AudioEffect>.
+// IID: 673ce717-a3cf-5d68-a80b-5ed3e7b93fed
+type IIteratorOfAudioEffect struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAudioEffect is the interface identifier for IIteratorOfAudioEffect.
+var IID_IIteratorOfAudioEffect = win32.GUID{Data1: 0x673ce717, Data2: 0xa3cf, Data3: 0x5d68, Data4: [8]byte{0xa8, 0x0b, 0x5e, 0xd3, 0xe7, 0xb9, 0x3f, 0xed}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAudioEffect's vtable slot 6.
+func (self *IIteratorOfAudioEffect) Current() (*IAudioEffect, error) {
+	result := new(*IAudioEffect)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAudioEffect's vtable slot 7.
+func (self *IIteratorOfAudioEffect) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAudioEffect's vtable slot 8.
+func (self *IIteratorOfAudioEffect) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfAudioEncodingProperties is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.MediaProperties.AudioEncodingProperties>.
+// IID: 064b6aef-3bd0-5463-8450-72c6169af5d4
+type IIteratorOfAudioEncodingProperties struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAudioEncodingProperties is the interface identifier for IIteratorOfAudioEncodingProperties.
+var IID_IIteratorOfAudioEncodingProperties = win32.GUID{Data1: 0x064b6aef, Data2: 0x3bd0, Data3: 0x5463, Data4: [8]byte{0x84, 0x50, 0x72, 0xc6, 0x16, 0x9a, 0xf5, 0xd4}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAudioEncodingProperties's vtable slot 6.
+func (self *IIteratorOfAudioEncodingProperties) Current() (*mediamediaproperties.IAudioEncodingProperties, error) {
+	result := new(*mediamediaproperties.IAudioEncodingProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAudioEncodingProperties's vtable slot 7.
+func (self *IIteratorOfAudioEncodingProperties) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAudioEncodingProperties's vtable slot 8.
+func (self *IIteratorOfAudioEncodingProperties) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfIDirect3DSurface is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface>.
+// IID: bdfb6d0b-e785-5d5a-abd2-fe1b18c43257
+type IIteratorOfIDirect3DSurface struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIDirect3DSurface is the interface identifier for IIteratorOfIDirect3DSurface.
+var IID_IIteratorOfIDirect3DSurface = win32.GUID{Data1: 0xbdfb6d0b, Data2: 0xe785, Data3: 0x5d5a, Data4: [8]byte{0xab, 0xd2, 0xfe, 0x1b, 0x18, 0xc4, 0x32, 0x57}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIDirect3DSurface's vtable slot 6.
+func (self *IIteratorOfIDirect3DSurface) Current() (*graphicsdirectxdirect3d11.IDirect3DSurface, error) {
+	result := new(*graphicsdirectxdirect3d11.IDirect3DSurface)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIDirect3DSurface's vtable slot 7.
+func (self *IIteratorOfIDirect3DSurface) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIDirect3DSurface's vtable slot 8.
+func (self *IIteratorOfIDirect3DSurface) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfVideoEncodingProperties is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.MediaProperties.VideoEncodingProperties>.
+// IID: 094166ef-ae5f-5315-a3bf-fe54e8c35fcd
+type IIteratorOfVideoEncodingProperties struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfVideoEncodingProperties is the interface identifier for IIteratorOfVideoEncodingProperties.
+var IID_IIteratorOfVideoEncodingProperties = win32.GUID{Data1: 0x094166ef, Data2: 0xae5f, Data3: 0x5315, Data4: [8]byte{0xa3, 0xbf, 0xfe, 0x54, 0xe8, 0xc3, 0x5f, 0xcd}}
+
+// Current (propget get_Current) dispatches through IIteratorOfVideoEncodingProperties's vtable slot 6.
+func (self *IIteratorOfVideoEncodingProperties) Current() (*mediamediaproperties.IVideoEncodingProperties, error) {
+	result := new(*mediamediaproperties.IVideoEncodingProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfVideoEncodingProperties's vtable slot 7.
+func (self *IIteratorOfVideoEncodingProperties) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfVideoEncodingProperties's vtable slot 8.
+func (self *IIteratorOfVideoEncodingProperties) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfAudioEffect is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Effects.AudioEffect>.
 // IID: cdcbc9e7-53d8-5e66-9e45-31d5a23fd01d
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Effects.AudioEffect>.
@@ -47,6 +315,25 @@ func (self *IVectorViewOfAudioEffect) IndexOf(value *IAudioEffect, index *uint32
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfAudioEffect creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Effects.AudioEffect>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAudioEffect(items []*IAudioEffect) *IVectorViewOfAudioEffect {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Effects.AudioEffect>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAudioEffect, Iterator: IID_IIteratorOfAudioEffect, VectorView: IID_IVectorViewOfAudioEffect}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAudioEffect)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfAudioEncodingProperties is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.MediaProperties.AudioEncodingProperties>.
 // IID: 64ac506c-ccd0-56cb-b088-b1a36e8755df
@@ -81,6 +368,25 @@ func (self *IVectorViewOfAudioEncodingProperties) IndexOf(value *mediamediaprope
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfAudioEncodingProperties creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.MediaProperties.AudioEncodingProperties>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAudioEncodingProperties(items []*mediamediaproperties.IAudioEncodingProperties) *IVectorViewOfAudioEncodingProperties {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.MediaProperties.AudioEncodingProperties>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAudioEncodingProperties, Iterator: IID_IIteratorOfAudioEncodingProperties, VectorView: IID_IVectorViewOfAudioEncodingProperties}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAudioEncodingProperties)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfIDirect3DSurface is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface>.
 // IID: 1a81ec3e-5afb-5e10-92bb-c843fec70887
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface>.
@@ -114,6 +420,25 @@ func (self *IVectorViewOfIDirect3DSurface) IndexOf(value *graphicsdirectxdirect3
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfIDirect3DSurface creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIDirect3DSurface(items []*graphicsdirectxdirect3d11.IDirect3DSurface) *IVectorViewOfIDirect3DSurface {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.DirectX.Direct3D11.IDirect3DSurface>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIDirect3DSurface, Iterator: IID_IIteratorOfIDirect3DSurface, VectorView: IID_IVectorViewOfIDirect3DSurface}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIDirect3DSurface)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfVideoEncodingProperties is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.MediaProperties.VideoEncodingProperties>.
 // IID: 04c7baba-04d7-51db-a4e3-5147963ec5ff
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.MediaProperties.VideoEncodingProperties>.
@@ -146,3 +471,22 @@ func (self *IVectorViewOfVideoEncodingProperties) IndexOf(value *mediamediaprope
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfVideoEncodingProperties creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.MediaProperties.VideoEncodingProperties>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfVideoEncodingProperties(items []*mediamediaproperties.IVideoEncodingProperties) *IVectorViewOfVideoEncodingProperties {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.MediaProperties.VideoEncodingProperties>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVideoEncodingProperties, Iterator: IID_IIteratorOfVideoEncodingProperties, VectorView: IID_IVectorViewOfVideoEncodingProperties}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfVideoEncodingProperties)(unsafe.Pointer(obj))
+}

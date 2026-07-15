@@ -16,6 +16,207 @@ import (
 	uinotifications "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/notifications"
 )
 
+// IIterableOfIStorageItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Storage.IStorageItem>.
+// IID: bb8b8418-65d1-544b-b083-6d172f568c73
+type IIterableOfIStorageItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIStorageItem is the interface identifier for IIterableOfIStorageItem.
+var IID_IIterableOfIStorageItem = win32.GUID{Data1: 0xbb8b8418, Data2: 0x65d1, Data3: 0x544b, Data4: [8]byte{0xb0, 0x83, 0x6d, 0x17, 0x2f, 0x56, 0x8c, 0x73}}
+
+// First dispatches through IIterableOfIStorageItem's vtable slot 6.
+func (self *IIterableOfIStorageItem) First() (*IIteratorOfIStorageItem, error) {
+	result := new(*IIteratorOfIStorageItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIStorageItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Storage.IStorageItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIStorageItem(items []*storage.IStorageItem) *IIterableOfIStorageItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Storage.IStorageItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIStorageItem, Iterator: IID_IIteratorOfIStorageItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIStorageItem)(unsafe.Pointer(obj))
+}
+
+// IIterableOfShownTileNotification is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ShownTileNotification>.
+// IID: 1863baee-44f1-5e51-bcdf-a3cdab826a15
+type IIterableOfShownTileNotification struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfShownTileNotification is the interface identifier for IIterableOfShownTileNotification.
+var IID_IIterableOfShownTileNotification = win32.GUID{Data1: 0x1863baee, Data2: 0x44f1, Data3: 0x5e51, Data4: [8]byte{0xbc, 0xdf, 0xa3, 0xcd, 0xab, 0x82, 0x6a, 0x15}}
+
+// First dispatches through IIterableOfShownTileNotification's vtable slot 6.
+func (self *IIterableOfShownTileNotification) First() (*IIteratorOfShownTileNotification, error) {
+	result := new(*IIteratorOfShownTileNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfShownTileNotification creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ShownTileNotification>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfShownTileNotification(items []*uinotifications.IShownTileNotification) *IIterableOfShownTileNotification {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ShownTileNotification>", winrt.CollectionIIDs{Iterable: IID_IIterableOfShownTileNotification, Iterator: IID_IIteratorOfShownTileNotification}, winrt.CodecInterface, boxed)
+	return (*IIterableOfShownTileNotification)(unsafe.Pointer(obj))
+}
+
+// IIterableOfStorageFile is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Storage.StorageFile>.
+// IID: 9ac00304-83ea-5688-87b6-ae38aab65d0b
+type IIterableOfStorageFile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfStorageFile is the interface identifier for IIterableOfStorageFile.
+var IID_IIterableOfStorageFile = win32.GUID{Data1: 0x9ac00304, Data2: 0x83ea, Data3: 0x5688, Data4: [8]byte{0x87, 0xb6, 0xae, 0x38, 0xaa, 0xb6, 0x5d, 0x0b}}
+
+// First dispatches through IIterableOfStorageFile's vtable slot 6.
+func (self *IIterableOfStorageFile) First() (*IIteratorOfStorageFile, error) {
+	result := new(*IIteratorOfStorageFile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfStorageFile creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Storage.StorageFile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfStorageFile(items []*storage.IStorageFile) *IIterableOfStorageFile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Storage.StorageFile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStorageFile, Iterator: IID_IIteratorOfStorageFile}, winrt.CodecInterface, boxed)
+	return (*IIterableOfStorageFile)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfIStorageItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Storage.IStorageItem>.
+// IID: 05b487c2-3830-5d3c-98da-25fa11542dbd
+type IIteratorOfIStorageItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIStorageItem is the interface identifier for IIteratorOfIStorageItem.
+var IID_IIteratorOfIStorageItem = win32.GUID{Data1: 0x05b487c2, Data2: 0x3830, Data3: 0x5d3c, Data4: [8]byte{0x98, 0xda, 0x25, 0xfa, 0x11, 0x54, 0x2d, 0xbd}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIStorageItem's vtable slot 6.
+func (self *IIteratorOfIStorageItem) Current() (*storage.IStorageItem, error) {
+	result := new(*storage.IStorageItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIStorageItem's vtable slot 7.
+func (self *IIteratorOfIStorageItem) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIStorageItem's vtable slot 8.
+func (self *IIteratorOfIStorageItem) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfShownTileNotification is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Notifications.ShownTileNotification>.
+// IID: 04d8d70b-7c15-5f60-9894-b21366b427c2
+type IIteratorOfShownTileNotification struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfShownTileNotification is the interface identifier for IIteratorOfShownTileNotification.
+var IID_IIteratorOfShownTileNotification = win32.GUID{Data1: 0x04d8d70b, Data2: 0x7c15, Data3: 0x5f60, Data4: [8]byte{0x98, 0x94, 0xb2, 0x13, 0x66, 0xb4, 0x27, 0xc2}}
+
+// Current (propget get_Current) dispatches through IIteratorOfShownTileNotification's vtable slot 6.
+func (self *IIteratorOfShownTileNotification) Current() (*uinotifications.IShownTileNotification, error) {
+	result := new(*uinotifications.IShownTileNotification)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfShownTileNotification's vtable slot 7.
+func (self *IIteratorOfShownTileNotification) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfShownTileNotification's vtable slot 8.
+func (self *IIteratorOfShownTileNotification) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfStorageFile is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Storage.StorageFile>.
+// IID: 43e29f53-0298-55aa-a6c8-4edd323d9598
+type IIteratorOfStorageFile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfStorageFile is the interface identifier for IIteratorOfStorageFile.
+var IID_IIteratorOfStorageFile = win32.GUID{Data1: 0x43e29f53, Data2: 0x0298, Data3: 0x55aa, Data4: [8]byte{0xa6, 0xc8, 0x4e, 0xdd, 0x32, 0x3d, 0x95, 0x98}}
+
+// Current (propget get_Current) dispatches through IIteratorOfStorageFile's vtable slot 6.
+func (self *IIteratorOfStorageFile) Current() (*storage.IStorageFile, error) {
+	result := new(*storage.IStorageFile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfStorageFile's vtable slot 7.
+func (self *IIteratorOfStorageFile) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfStorageFile's vtable slot 8.
+func (self *IIteratorOfStorageFile) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfDateTime is the WinRT interface Windows.Foundation.IReference`1<Windows.Foundation.DateTime>.
 // IID: 5541d8a7-497c-5aa4-86fc-7713adbf2a2c
 // Requires: Windows.Foundation.IPropertyValue.
@@ -66,6 +267,25 @@ func (self *IVectorViewOfIStorageItem) IndexOf(value *storage.IStorageItem, inde
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfIStorageItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Storage.IStorageItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIStorageItem(items []*storage.IStorageItem) *IVectorViewOfIStorageItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Storage.IStorageItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIStorageItem, Iterator: IID_IIteratorOfIStorageItem, VectorView: IID_IVectorViewOfIStorageItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIStorageItem)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfShownTileNotification is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ShownTileNotification>.
 // IID: 2b23baa9-1d54-5440-bd32-86ed70f15c9e
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Notifications.ShownTileNotification>.
@@ -99,6 +319,25 @@ func (self *IVectorViewOfShownTileNotification) IndexOf(value *uinotifications.I
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfShownTileNotification creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ShownTileNotification>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfShownTileNotification(items []*uinotifications.IShownTileNotification) *IVectorViewOfShownTileNotification {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ShownTileNotification>", winrt.CollectionIIDs{Iterable: IID_IIterableOfShownTileNotification, Iterator: IID_IIteratorOfShownTileNotification, VectorView: IID_IVectorViewOfShownTileNotification}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfShownTileNotification)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfStorageFile is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Storage.StorageFile>.
 // IID: 80646519-5e2a-595d-a8cd-2a24b4067f1b
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Storage.StorageFile>.
@@ -131,3 +370,22 @@ func (self *IVectorViewOfStorageFile) IndexOf(value *storage.IStorageFile, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfStorageFile creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Storage.StorageFile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfStorageFile(items []*storage.IStorageFile) *IVectorViewOfStorageFile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Storage.StorageFile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStorageFile, Iterator: IID_IIteratorOfStorageFile, VectorView: IID_IVectorViewOfStorageFile}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfStorageFile)(unsafe.Pointer(obj))
+}

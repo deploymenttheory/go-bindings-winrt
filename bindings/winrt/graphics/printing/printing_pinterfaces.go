@@ -83,6 +83,140 @@ func (self *IAsyncOperationOfBool) Await() (bool, error) {
 	return self.GetResults()
 }
 
+// IIterableOfPrintPageRange is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Printing.PrintPageRange>.
+// IID: ed6ddf38-34cf-5a2f-b9ac-413dffce7f81
+type IIterableOfPrintPageRange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPrintPageRange is the interface identifier for IIterableOfPrintPageRange.
+var IID_IIterableOfPrintPageRange = win32.GUID{Data1: 0xed6ddf38, Data2: 0x34cf, Data3: 0x5a2f, Data4: [8]byte{0xb9, 0xac, 0x41, 0x3d, 0xff, 0xce, 0x7f, 0x81}}
+
+// First dispatches through IIterableOfPrintPageRange's vtable slot 6.
+func (self *IIterableOfPrintPageRange) First() (*IIteratorOfPrintPageRange, error) {
+	result := new(*IIteratorOfPrintPageRange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPrintPageRange creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Printing.PrintPageRange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPrintPageRange(items []*IPrintPageRange) *IIterableOfPrintPageRange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Printing.PrintPageRange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPrintPageRange, Iterator: IID_IIteratorOfPrintPageRange}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPrintPageRange)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfPrintPageRange is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Printing.PrintPageRange>.
+// IID: 38f75665-fb40-53e2-a916-15ba754a6a9e
+type IIteratorOfPrintPageRange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPrintPageRange is the interface identifier for IIteratorOfPrintPageRange.
+var IID_IIteratorOfPrintPageRange = win32.GUID{Data1: 0x38f75665, Data2: 0xfb40, Data3: 0x53e2, Data4: [8]byte{0xa9, 0x16, 0x15, 0xba, 0x75, 0x4a, 0x6a, 0x9e}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPrintPageRange's vtable slot 6.
+func (self *IIteratorOfPrintPageRange) Current() (*IPrintPageRange, error) {
+	result := new(*IPrintPageRange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPrintPageRange's vtable slot 7.
+func (self *IIteratorOfPrintPageRange) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPrintPageRange's vtable slot 8.
+func (self *IIteratorOfPrintPageRange) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfPrintPageRange is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Graphics.Printing.PrintPageRange>.
 // IID: 1d314a18-2a16-542f-a986-1b7841b878aa
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Printing.PrintPageRange>.
@@ -160,6 +294,28 @@ func (self *IVectorOfPrintPageRange) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfPrintPageRange creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Graphics.Printing.PrintPageRange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfPrintPageRange(items []*IPrintPageRange) *IVectorOfPrintPageRange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Graphics.Printing.PrintPageRange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPrintPageRange, Iterator: IID_IIteratorOfPrintPageRange, VectorView: IID_IVectorViewOfPrintPageRange, Vector: IID_IVectorOfPrintPageRange}, winrt.CodecInterface, boxed)
+	return (*IVectorOfPrintPageRange)(unsafe.Pointer(obj))
+}
 
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
@@ -262,6 +418,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfPrintPageRange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Printing.PrintPageRange>.
 // IID: 0063b11e-2098-5eff-9652-08a3516c99a6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Printing.PrintPageRange>.
@@ -294,6 +469,25 @@ func (self *IVectorViewOfPrintPageRange) IndexOf(value *IPrintPageRange, index *
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPrintPageRange creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Printing.PrintPageRange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPrintPageRange(items []*IPrintPageRange) *IVectorViewOfPrintPageRange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Printing.PrintPageRange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPrintPageRange, Iterator: IID_IIteratorOfPrintPageRange, VectorView: IID_IVectorViewOfPrintPageRange}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPrintPageRange)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -335,3 +529,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

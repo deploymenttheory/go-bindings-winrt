@@ -85,6 +85,73 @@ func (self *IAsyncOperationOfBool) Await() (bool, error) {
 	return self.GetResults()
 }
 
+// IIterableOfDisplayRegion is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.WindowManagement.DisplayRegion>.
+// IID: 026730ab-250d-503c-a876-43bbb754ad44
+type IIterableOfDisplayRegion struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDisplayRegion is the interface identifier for IIterableOfDisplayRegion.
+var IID_IIterableOfDisplayRegion = win32.GUID{Data1: 0x026730ab, Data2: 0x250d, Data3: 0x503c, Data4: [8]byte{0xa8, 0x76, 0x43, 0xbb, 0xb7, 0x54, 0xad, 0x44}}
+
+// First dispatches through IIterableOfDisplayRegion's vtable slot 6.
+func (self *IIterableOfDisplayRegion) First() (*IIteratorOfDisplayRegion, error) {
+	result := new(*IIteratorOfDisplayRegion)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDisplayRegion creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.WindowManagement.DisplayRegion>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDisplayRegion(items []*uiwindowmanagement.IDisplayRegion) *IIterableOfDisplayRegion {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.WindowManagement.DisplayRegion>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayRegion, Iterator: IID_IIteratorOfDisplayRegion}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDisplayRegion)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfDisplayRegion is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.WindowManagement.DisplayRegion>.
+// IID: 110d4d7e-2f29-51b8-9691-8b206ad1d73b
+type IIteratorOfDisplayRegion struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDisplayRegion is the interface identifier for IIteratorOfDisplayRegion.
+var IID_IIteratorOfDisplayRegion = win32.GUID{Data1: 0x110d4d7e, Data2: 0x2f29, Data3: 0x51b8, Data4: [8]byte{0x96, 0x91, 0x8b, 0x20, 0x6a, 0xd1, 0xd7, 0x3b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDisplayRegion's vtable slot 6.
+func (self *IIteratorOfDisplayRegion) Current() (*uiwindowmanagement.IDisplayRegion, error) {
+	result := new(*uiwindowmanagement.IDisplayRegion)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDisplayRegion's vtable slot 7.
+func (self *IIteratorOfDisplayRegion) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDisplayRegion's vtable slot 8.
+func (self *IIteratorOfDisplayRegion) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfColor is the WinRT interface Windows.Foundation.IReference`1<Windows.UI.Color>.
 // IID: ab8e5d11-b0c1-5a21-95ae-f16bf3a37624
 // Requires: Windows.Foundation.IPropertyValue.
@@ -134,3 +201,22 @@ func (self *IVectorViewOfDisplayRegion) IndexOf(value *uiwindowmanagement.IDispl
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfDisplayRegion creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.WindowManagement.DisplayRegion>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDisplayRegion(items []*uiwindowmanagement.IDisplayRegion) *IVectorViewOfDisplayRegion {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.WindowManagement.DisplayRegion>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayRegion, Iterator: IID_IIteratorOfDisplayRegion, VectorView: IID_IVectorViewOfDisplayRegion}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDisplayRegion)(unsafe.Pointer(obj))
+}

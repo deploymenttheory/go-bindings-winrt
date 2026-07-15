@@ -83,6 +83,73 @@ func (self *IAsyncOperationOfIVectorViewOfInstalledDesktopApp) Await() (*IVector
 	return self.GetResults()
 }
 
+// IIterableOfInstalledDesktopApp is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.System.Inventory.InstalledDesktopApp>.
+// IID: b64037f2-dc1a-57de-8b03-18a16f9ddbdf
+type IIterableOfInstalledDesktopApp struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfInstalledDesktopApp is the interface identifier for IIterableOfInstalledDesktopApp.
+var IID_IIterableOfInstalledDesktopApp = win32.GUID{Data1: 0xb64037f2, Data2: 0xdc1a, Data3: 0x57de, Data4: [8]byte{0x8b, 0x03, 0x18, 0xa1, 0x6f, 0x9d, 0xdb, 0xdf}}
+
+// First dispatches through IIterableOfInstalledDesktopApp's vtable slot 6.
+func (self *IIterableOfInstalledDesktopApp) First() (*IIteratorOfInstalledDesktopApp, error) {
+	result := new(*IIteratorOfInstalledDesktopApp)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfInstalledDesktopApp creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.System.Inventory.InstalledDesktopApp>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInstalledDesktopApp(items []*IInstalledDesktopApp) *IIterableOfInstalledDesktopApp {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.System.Inventory.InstalledDesktopApp>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInstalledDesktopApp, Iterator: IID_IIteratorOfInstalledDesktopApp}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInstalledDesktopApp)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfInstalledDesktopApp is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.System.Inventory.InstalledDesktopApp>.
+// IID: af3da06d-0a82-5213-9cb5-f8d2da12fbe9
+type IIteratorOfInstalledDesktopApp struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfInstalledDesktopApp is the interface identifier for IIteratorOfInstalledDesktopApp.
+var IID_IIteratorOfInstalledDesktopApp = win32.GUID{Data1: 0xaf3da06d, Data2: 0x0a82, Data3: 0x5213, Data4: [8]byte{0x9c, 0xb5, 0xf8, 0xd2, 0xda, 0x12, 0xfb, 0xe9}}
+
+// Current (propget get_Current) dispatches through IIteratorOfInstalledDesktopApp's vtable slot 6.
+func (self *IIteratorOfInstalledDesktopApp) Current() (*IInstalledDesktopApp, error) {
+	result := new(*IInstalledDesktopApp)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfInstalledDesktopApp's vtable slot 7.
+func (self *IIteratorOfInstalledDesktopApp) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfInstalledDesktopApp's vtable slot 8.
+func (self *IIteratorOfInstalledDesktopApp) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfInstalledDesktopApp is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.System.Inventory.InstalledDesktopApp>.
 // IID: ba3a2146-42dd-5fa8-a7f0-36b6973803b5
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.System.Inventory.InstalledDesktopApp>.
@@ -115,3 +182,22 @@ func (self *IVectorViewOfInstalledDesktopApp) IndexOf(value *IInstalledDesktopAp
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfInstalledDesktopApp creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.System.Inventory.InstalledDesktopApp>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfInstalledDesktopApp(items []*IInstalledDesktopApp) *IVectorViewOfInstalledDesktopApp {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.System.Inventory.InstalledDesktopApp>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInstalledDesktopApp, Iterator: IID_IIteratorOfInstalledDesktopApp, VectorView: IID_IVectorViewOfInstalledDesktopApp}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfInstalledDesktopApp)(unsafe.Pointer(obj))
+}

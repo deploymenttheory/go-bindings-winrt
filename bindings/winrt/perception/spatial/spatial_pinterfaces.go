@@ -445,6 +445,25 @@ func (self *IIterableOfIKeyValuePairOfStringAndSpatialAnchor) First() (*IIterato
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfIKeyValuePairOfStringAndSpatialAnchor creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Perception.Spatial.SpatialAnchor>>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIKeyValuePairOfStringAndSpatialAnchor(items []*IKeyValuePairOfStringAndSpatialAnchor) *IIterableOfIKeyValuePairOfStringAndSpatialAnchor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Perception.Spatial.SpatialAnchor>>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIKeyValuePairOfStringAndSpatialAnchor, Iterator: IID_IIteratorOfIKeyValuePairOfStringAndSpatialAnchor}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIKeyValuePairOfStringAndSpatialAnchor)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfIKeyValuePairOfStringAndSpatialAnchor is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Perception.Spatial.SpatialAnchor>>.
 // IID: 67a5f318-0232-5900-ac7e-5c647d731cbc
 type IIteratorOfIKeyValuePairOfStringAndSpatialAnchor struct {

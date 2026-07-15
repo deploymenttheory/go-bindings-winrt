@@ -30,6 +30,25 @@ func (self *IIterableOfCompositionConditionalValue) First() (*IIteratorOfComposi
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfCompositionConditionalValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.Interactions.CompositionConditionalValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCompositionConditionalValue(items []*syswinrt.IInspectable) *IIterableOfCompositionConditionalValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.Interactions.CompositionConditionalValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCompositionConditionalValue, Iterator: IID_IIteratorOfCompositionConditionalValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCompositionConditionalValue)(unsafe.Pointer(obj))
+}
+
 // IIterableOfInteractionTrackerInertiaModifier is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier>.
 // IID: 9a245c40-aae6-59fb-87f5-4bb05599f0b1
 type IIterableOfInteractionTrackerInertiaModifier struct {
@@ -46,6 +65,25 @@ func (self *IIterableOfInteractionTrackerInertiaModifier) First() (*IIteratorOfI
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfInteractionTrackerInertiaModifier creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInteractionTrackerInertiaModifier(items []*syswinrt.IInspectable) *IIterableOfInteractionTrackerInertiaModifier {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInteractionTrackerInertiaModifier, Iterator: IID_IIteratorOfInteractionTrackerInertiaModifier}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInteractionTrackerInertiaModifier)(unsafe.Pointer(obj))
+}
+
 // IIterableOfInteractionTrackerVector2InertiaModifier is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier>.
 // IID: 3aeacfd8-c7f1-580c-a23b-99666e42e62b
 type IIterableOfInteractionTrackerVector2InertiaModifier struct {
@@ -60,6 +98,25 @@ func (self *IIterableOfInteractionTrackerVector2InertiaModifier) First() (*IIter
 	result := new(*IIteratorOfInteractionTrackerVector2InertiaModifier)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfInteractionTrackerVector2InertiaModifier creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInteractionTrackerVector2InertiaModifier(items []*syswinrt.IInspectable) *IIterableOfInteractionTrackerVector2InertiaModifier {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInteractionTrackerVector2InertiaModifier, Iterator: IID_IIteratorOfInteractionTrackerVector2InertiaModifier}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInteractionTrackerVector2InertiaModifier)(unsafe.Pointer(obj))
 }
 
 // IIteratorOfCompositionConditionalValue is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Composition.Interactions.CompositionConditionalValue>.

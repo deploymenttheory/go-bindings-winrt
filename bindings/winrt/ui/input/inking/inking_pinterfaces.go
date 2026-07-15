@@ -262,6 +262,95 @@ func (self *IIterableOfInkPoint) First() (*IIteratorOfInkPoint, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfInkPoint creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkPoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInkPoint(items []*IInkPoint) *IIterableOfInkPoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkPoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkPoint, Iterator: IID_IIteratorOfInkPoint}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInkPoint)(unsafe.Pointer(obj))
+}
+
+// IIterableOfInkRecognitionResult is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkRecognitionResult>.
+// IID: e29b658b-7cc1-561c-9912-001dbca86651
+type IIterableOfInkRecognitionResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfInkRecognitionResult is the interface identifier for IIterableOfInkRecognitionResult.
+var IID_IIterableOfInkRecognitionResult = win32.GUID{Data1: 0xe29b658b, Data2: 0x7cc1, Data3: 0x561c, Data4: [8]byte{0x99, 0x12, 0x00, 0x1d, 0xbc, 0xa8, 0x66, 0x51}}
+
+// First dispatches through IIterableOfInkRecognitionResult's vtable slot 6.
+func (self *IIterableOfInkRecognitionResult) First() (*IIteratorOfInkRecognitionResult, error) {
+	result := new(*IIteratorOfInkRecognitionResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfInkRecognitionResult creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkRecognitionResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInkRecognitionResult(items []*IInkRecognitionResult) *IIterableOfInkRecognitionResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkRecognitionResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkRecognitionResult, Iterator: IID_IIteratorOfInkRecognitionResult}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInkRecognitionResult)(unsafe.Pointer(obj))
+}
+
+// IIterableOfInkRecognizer is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkRecognizer>.
+// IID: 611b7e84-a803-5071-aaea-4f2ce0151052
+type IIterableOfInkRecognizer struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfInkRecognizer is the interface identifier for IIterableOfInkRecognizer.
+var IID_IIterableOfInkRecognizer = win32.GUID{Data1: 0x611b7e84, Data2: 0xa803, Data3: 0x5071, Data4: [8]byte{0xaa, 0xea, 0x4f, 0x2c, 0xe0, 0x15, 0x10, 0x52}}
+
+// First dispatches through IIterableOfInkRecognizer's vtable slot 6.
+func (self *IIterableOfInkRecognizer) First() (*IIteratorOfInkRecognizer, error) {
+	result := new(*IIteratorOfInkRecognizer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfInkRecognizer creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkRecognizer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInkRecognizer(items []*IInkRecognizer) *IIterableOfInkRecognizer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkRecognizer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkRecognizer, Iterator: IID_IIteratorOfInkRecognizer}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInkRecognizer)(unsafe.Pointer(obj))
+}
+
 // IIterableOfInkStroke is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkStroke>.
 // IID: bbc11401-89d0-5305-a3b3-36c887714b9b
 type IIterableOfInkStroke struct {
@@ -278,6 +367,60 @@ func (self *IIterableOfInkStroke) First() (*IIteratorOfInkStroke, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfInkStroke creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkStroke>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInkStroke(items []*IInkStroke) *IIterableOfInkStroke {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkStroke>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkStroke, Iterator: IID_IIteratorOfInkStroke}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInkStroke)(unsafe.Pointer(obj))
+}
+
+// IIterableOfInkStrokeRenderingSegment is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkStrokeRenderingSegment>.
+// IID: 27000f47-2885-5da9-8923-16a3a58b7a55
+type IIterableOfInkStrokeRenderingSegment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfInkStrokeRenderingSegment is the interface identifier for IIterableOfInkStrokeRenderingSegment.
+var IID_IIterableOfInkStrokeRenderingSegment = win32.GUID{Data1: 0x27000f47, Data2: 0x2885, Data3: 0x5da9, Data4: [8]byte{0x89, 0x23, 0x16, 0xa3, 0xa5, 0x8b, 0x7a, 0x55}}
+
+// First dispatches through IIterableOfInkStrokeRenderingSegment's vtable slot 6.
+func (self *IIterableOfInkStrokeRenderingSegment) First() (*IIteratorOfInkStrokeRenderingSegment, error) {
+	result := new(*IIteratorOfInkStrokeRenderingSegment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfInkStrokeRenderingSegment creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkStrokeRenderingSegment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInkStrokeRenderingSegment(items []*IInkStrokeRenderingSegment) *IIterableOfInkStrokeRenderingSegment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkStrokeRenderingSegment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkStrokeRenderingSegment, Iterator: IID_IIteratorOfInkStrokeRenderingSegment}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInkStrokeRenderingSegment)(unsafe.Pointer(obj))
+}
+
 // IIterableOfPoint is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Point>.
 // IID: c192280d-3a09-5423-9dc5-67b83ebde41d
 type IIterableOfPoint struct {
@@ -292,6 +435,38 @@ func (self *IIterableOfPoint) First() (*IIteratorOfPoint, error) {
 	result := new(*IIteratorOfPoint)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
 }
 
 // IIteratorOfInkPoint is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.Inking.InkPoint>.
@@ -319,6 +494,70 @@ func (self *IIteratorOfInkPoint) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfInkPoint's vtable slot 8.
 func (self *IIteratorOfInkPoint) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfInkRecognitionResult is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.Inking.InkRecognitionResult>.
+// IID: 9abc247f-0223-5f44-8fa1-0d6d691bf9af
+type IIteratorOfInkRecognitionResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfInkRecognitionResult is the interface identifier for IIteratorOfInkRecognitionResult.
+var IID_IIteratorOfInkRecognitionResult = win32.GUID{Data1: 0x9abc247f, Data2: 0x0223, Data3: 0x5f44, Data4: [8]byte{0x8f, 0xa1, 0x0d, 0x6d, 0x69, 0x1b, 0xf9, 0xaf}}
+
+// Current (propget get_Current) dispatches through IIteratorOfInkRecognitionResult's vtable slot 6.
+func (self *IIteratorOfInkRecognitionResult) Current() (*IInkRecognitionResult, error) {
+	result := new(*IInkRecognitionResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfInkRecognitionResult's vtable slot 7.
+func (self *IIteratorOfInkRecognitionResult) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfInkRecognitionResult's vtable slot 8.
+func (self *IIteratorOfInkRecognitionResult) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfInkRecognizer is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.Inking.InkRecognizer>.
+// IID: f8bd3097-5262-5e7a-a19d-13c029d2d7e5
+type IIteratorOfInkRecognizer struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfInkRecognizer is the interface identifier for IIteratorOfInkRecognizer.
+var IID_IIteratorOfInkRecognizer = win32.GUID{Data1: 0xf8bd3097, Data2: 0x5262, Data3: 0x5e7a, Data4: [8]byte{0xa1, 0x9d, 0x13, 0xc0, 0x29, 0xd2, 0xd7, 0xe5}}
+
+// Current (propget get_Current) dispatches through IIteratorOfInkRecognizer's vtable slot 6.
+func (self *IIteratorOfInkRecognizer) Current() (*IInkRecognizer, error) {
+	result := new(*IInkRecognizer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfInkRecognizer's vtable slot 7.
+func (self *IIteratorOfInkRecognizer) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfInkRecognizer's vtable slot 8.
+func (self *IIteratorOfInkRecognizer) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -358,6 +597,38 @@ func (self *IIteratorOfInkStroke) MoveNext() (bool, error) {
 
 // slot 9: GetMany skipped: conformant array
 
+// IIteratorOfInkStrokeRenderingSegment is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.Inking.InkStrokeRenderingSegment>.
+// IID: d7d8c317-6f3f-5192-9210-65a263baf8d1
+type IIteratorOfInkStrokeRenderingSegment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfInkStrokeRenderingSegment is the interface identifier for IIteratorOfInkStrokeRenderingSegment.
+var IID_IIteratorOfInkStrokeRenderingSegment = win32.GUID{Data1: 0xd7d8c317, Data2: 0x6f3f, Data3: 0x5192, Data4: [8]byte{0x92, 0x10, 0x65, 0xa2, 0x63, 0xba, 0xf8, 0xd1}}
+
+// Current (propget get_Current) dispatches through IIteratorOfInkStrokeRenderingSegment's vtable slot 6.
+func (self *IIteratorOfInkStrokeRenderingSegment) Current() (*IInkStrokeRenderingSegment, error) {
+	result := new(*IInkStrokeRenderingSegment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfInkStrokeRenderingSegment's vtable slot 7.
+func (self *IIteratorOfInkStrokeRenderingSegment) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfInkStrokeRenderingSegment's vtable slot 8.
+func (self *IIteratorOfInkStrokeRenderingSegment) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IIteratorOfPoint is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Point>.
 // IID: c602b59e-0a8e-5e99-b478-2b564585278d
 type IIteratorOfPoint struct {
@@ -383,6 +654,41 @@ func (self *IIteratorOfPoint) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfPoint's vtable slot 8.
 func (self *IIteratorOfPoint) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -457,6 +763,25 @@ func (self *IVectorViewOfInkPoint) IndexOf(value *IInkPoint, index *uint32) (boo
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfInkPoint creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkPoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfInkPoint(items []*IInkPoint) *IVectorViewOfInkPoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkPoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkPoint, Iterator: IID_IIteratorOfInkPoint, VectorView: IID_IVectorViewOfInkPoint}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfInkPoint)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfInkRecognitionResult is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkRecognitionResult>.
 // IID: ecfc4f0b-112c-5cd3-acf0-d746d6bdfeb5
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkRecognitionResult>.
@@ -489,6 +814,25 @@ func (self *IVectorViewOfInkRecognitionResult) IndexOf(value *IInkRecognitionRes
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfInkRecognitionResult creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkRecognitionResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfInkRecognitionResult(items []*IInkRecognitionResult) *IVectorViewOfInkRecognitionResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkRecognitionResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkRecognitionResult, Iterator: IID_IIteratorOfInkRecognitionResult, VectorView: IID_IVectorViewOfInkRecognitionResult}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfInkRecognitionResult)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfInkRecognizer is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkRecognizer>.
 // IID: 8eadfa4f-27ef-5a5d-b0b8-7fd5c0ce6b39
@@ -523,6 +867,25 @@ func (self *IVectorViewOfInkRecognizer) IndexOf(value *IInkRecognizer, index *ui
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfInkRecognizer creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkRecognizer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfInkRecognizer(items []*IInkRecognizer) *IVectorViewOfInkRecognizer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkRecognizer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkRecognizer, Iterator: IID_IIteratorOfInkRecognizer, VectorView: IID_IVectorViewOfInkRecognizer}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfInkRecognizer)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfInkStroke is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkStroke>.
 // IID: 6744f458-b242-5767-a643-996e01dff0e4
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkStroke>.
@@ -556,6 +919,25 @@ func (self *IVectorViewOfInkStroke) IndexOf(value *IInkStroke, index *uint32) (b
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfInkStroke creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkStroke>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfInkStroke(items []*IInkStroke) *IVectorViewOfInkStroke {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkStroke>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkStroke, Iterator: IID_IIteratorOfInkStroke, VectorView: IID_IVectorViewOfInkStroke}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfInkStroke)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfInkStrokeRenderingSegment is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkStrokeRenderingSegment>.
 // IID: f39ea41d-4714-5d80-87de-973dd26da269
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Inking.InkStrokeRenderingSegment>.
@@ -588,6 +970,25 @@ func (self *IVectorViewOfInkStrokeRenderingSegment) IndexOf(value *IInkStrokeRen
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfInkStrokeRenderingSegment creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkStrokeRenderingSegment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfInkStrokeRenderingSegment(items []*IInkStrokeRenderingSegment) *IVectorViewOfInkStrokeRenderingSegment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Inking.InkStrokeRenderingSegment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInkStrokeRenderingSegment, Iterator: IID_IIteratorOfInkStrokeRenderingSegment, VectorView: IID_IVectorViewOfInkStrokeRenderingSegment}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfInkStrokeRenderingSegment)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -629,3 +1030,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

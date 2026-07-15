@@ -776,6 +776,111 @@ func (self *IAsyncOperationOfString) Await() (string, error) {
 	return self.GetResults()
 }
 
+// IIterableOfAppointment is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.Appointment>.
+// IID: b9802bba-ff53-5d37-8cd7-e56162f12156
+type IIterableOfAppointment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAppointment is the interface identifier for IIterableOfAppointment.
+var IID_IIterableOfAppointment = win32.GUID{Data1: 0xb9802bba, Data2: 0xff53, Data3: 0x5d37, Data4: [8]byte{0x8c, 0xd7, 0xe5, 0x61, 0x62, 0xf1, 0x21, 0x56}}
+
+// First dispatches through IIterableOfAppointment's vtable slot 6.
+func (self *IIterableOfAppointment) First() (*IIteratorOfAppointment, error) {
+	result := new(*IIteratorOfAppointment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAppointment creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.Appointment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAppointment(items []*IAppointment) *IIterableOfAppointment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.Appointment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppointment, Iterator: IID_IIteratorOfAppointment}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAppointment)(unsafe.Pointer(obj))
+}
+
+// IIterableOfAppointmentCalendar is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentCalendar>.
+// IID: d3fb010b-b692-5130-9d16-2cfdabcb6dec
+type IIterableOfAppointmentCalendar struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAppointmentCalendar is the interface identifier for IIterableOfAppointmentCalendar.
+var IID_IIterableOfAppointmentCalendar = win32.GUID{Data1: 0xd3fb010b, Data2: 0xb692, Data3: 0x5130, Data4: [8]byte{0x9d, 0x16, 0x2c, 0xfd, 0xab, 0xcb, 0x6d, 0xec}}
+
+// First dispatches through IIterableOfAppointmentCalendar's vtable slot 6.
+func (self *IIterableOfAppointmentCalendar) First() (*IIteratorOfAppointmentCalendar, error) {
+	result := new(*IIteratorOfAppointmentCalendar)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAppointmentCalendar creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentCalendar>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAppointmentCalendar(items []*IAppointmentCalendar) *IIterableOfAppointmentCalendar {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentCalendar>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppointmentCalendar, Iterator: IID_IIteratorOfAppointmentCalendar}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAppointmentCalendar)(unsafe.Pointer(obj))
+}
+
+// IIterableOfAppointmentException is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentException>.
+// IID: caac41d6-6c65-5fd8-b783-eb9d9a4272b8
+type IIterableOfAppointmentException struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAppointmentException is the interface identifier for IIterableOfAppointmentException.
+var IID_IIterableOfAppointmentException = win32.GUID{Data1: 0xcaac41d6, Data2: 0x6c65, Data3: 0x5fd8, Data4: [8]byte{0xb7, 0x83, 0xeb, 0x9d, 0x9a, 0x42, 0x72, 0xb8}}
+
+// First dispatches through IIterableOfAppointmentException's vtable slot 6.
+func (self *IIterableOfAppointmentException) First() (*IIteratorOfAppointmentException, error) {
+	result := new(*IIteratorOfAppointmentException)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAppointmentException creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentException>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAppointmentException(items []*IAppointmentException) *IIterableOfAppointmentException {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentException>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppointmentException, Iterator: IID_IIteratorOfAppointmentException}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAppointmentException)(unsafe.Pointer(obj))
+}
+
 // IIterableOfAppointmentInvitee is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentInvitee>.
 // IID: fb9718a9-f059-52b0-a904-1a65e4281e40
 type IIterableOfAppointmentInvitee struct {
@@ -791,6 +896,188 @@ func (self *IIterableOfAppointmentInvitee) First() (*IIteratorOfAppointmentInvit
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfAppointmentInvitee creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentInvitee>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAppointmentInvitee(items []*IAppointmentInvitee) *IIterableOfAppointmentInvitee {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentInvitee>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppointmentInvitee, Iterator: IID_IIteratorOfAppointmentInvitee}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAppointmentInvitee)(unsafe.Pointer(obj))
+}
+
+// IIterableOfAppointmentStoreChange is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentStoreChange>.
+// IID: 7b657ca2-e02e-5026-a032-9905e49682fd
+type IIterableOfAppointmentStoreChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAppointmentStoreChange is the interface identifier for IIterableOfAppointmentStoreChange.
+var IID_IIterableOfAppointmentStoreChange = win32.GUID{Data1: 0x7b657ca2, Data2: 0xe02e, Data3: 0x5026, Data4: [8]byte{0xa0, 0x32, 0x99, 0x05, 0xe4, 0x96, 0x82, 0xfd}}
+
+// First dispatches through IIterableOfAppointmentStoreChange's vtable slot 6.
+func (self *IIterableOfAppointmentStoreChange) First() (*IIteratorOfAppointmentStoreChange, error) {
+	result := new(*IIteratorOfAppointmentStoreChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAppointmentStoreChange creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentStoreChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAppointmentStoreChange(items []*IAppointmentStoreChange) *IIterableOfAppointmentStoreChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentStoreChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppointmentStoreChange, Iterator: IID_IIteratorOfAppointmentStoreChange}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAppointmentStoreChange)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfAppointment is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Appointments.Appointment>.
+// IID: 386a5922-49fc-53b6-8bed-4c9ff9fe6e01
+type IIteratorOfAppointment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAppointment is the interface identifier for IIteratorOfAppointment.
+var IID_IIteratorOfAppointment = win32.GUID{Data1: 0x386a5922, Data2: 0x49fc, Data3: 0x53b6, Data4: [8]byte{0x8b, 0xed, 0x4c, 0x9f, 0xf9, 0xfe, 0x6e, 0x01}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAppointment's vtable slot 6.
+func (self *IIteratorOfAppointment) Current() (*IAppointment, error) {
+	result := new(*IAppointment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAppointment's vtable slot 7.
+func (self *IIteratorOfAppointment) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAppointment's vtable slot 8.
+func (self *IIteratorOfAppointment) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfAppointmentCalendar is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Appointments.AppointmentCalendar>.
+// IID: f40a879d-b6b7-5f92-beb1-6a8e7ce54120
+type IIteratorOfAppointmentCalendar struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAppointmentCalendar is the interface identifier for IIteratorOfAppointmentCalendar.
+var IID_IIteratorOfAppointmentCalendar = win32.GUID{Data1: 0xf40a879d, Data2: 0xb6b7, Data3: 0x5f92, Data4: [8]byte{0xbe, 0xb1, 0x6a, 0x8e, 0x7c, 0xe5, 0x41, 0x20}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAppointmentCalendar's vtable slot 6.
+func (self *IIteratorOfAppointmentCalendar) Current() (*IAppointmentCalendar, error) {
+	result := new(*IAppointmentCalendar)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAppointmentCalendar's vtable slot 7.
+func (self *IIteratorOfAppointmentCalendar) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAppointmentCalendar's vtable slot 8.
+func (self *IIteratorOfAppointmentCalendar) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfAppointmentException is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Appointments.AppointmentException>.
+// IID: e58c63db-d9d5-5fa5-8790-29846de54fa4
+type IIteratorOfAppointmentException struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAppointmentException is the interface identifier for IIteratorOfAppointmentException.
+var IID_IIteratorOfAppointmentException = win32.GUID{Data1: 0xe58c63db, Data2: 0xd9d5, Data3: 0x5fa5, Data4: [8]byte{0x87, 0x90, 0x29, 0x84, 0x6d, 0xe5, 0x4f, 0xa4}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAppointmentException's vtable slot 6.
+func (self *IIteratorOfAppointmentException) Current() (*IAppointmentException, error) {
+	result := new(*IAppointmentException)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAppointmentException's vtable slot 7.
+func (self *IIteratorOfAppointmentException) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAppointmentException's vtable slot 8.
+func (self *IIteratorOfAppointmentException) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfAppointmentInvitee is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Appointments.AppointmentInvitee>.
 // IID: 57e35198-1b41-54da-adaf-50ef1e93fded
@@ -817,6 +1104,73 @@ func (self *IIteratorOfAppointmentInvitee) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfAppointmentInvitee's vtable slot 8.
 func (self *IIteratorOfAppointmentInvitee) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfAppointmentStoreChange is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Appointments.AppointmentStoreChange>.
+// IID: 16a427bf-e5b0-5662-9279-caa8ed8481a6
+type IIteratorOfAppointmentStoreChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAppointmentStoreChange is the interface identifier for IIteratorOfAppointmentStoreChange.
+var IID_IIteratorOfAppointmentStoreChange = win32.GUID{Data1: 0x16a427bf, Data2: 0xe5b0, Data3: 0x5662, Data4: [8]byte{0x92, 0x79, 0xca, 0xa8, 0xed, 0x84, 0x81, 0xa6}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAppointmentStoreChange's vtable slot 6.
+func (self *IIteratorOfAppointmentStoreChange) Current() (*IAppointmentStoreChange, error) {
+	result := new(*IAppointmentStoreChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAppointmentStoreChange's vtable slot 7.
+func (self *IIteratorOfAppointmentStoreChange) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAppointmentStoreChange's vtable slot 8.
+func (self *IIteratorOfAppointmentStoreChange) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -953,6 +1307,28 @@ func (self *IVectorOfAppointmentInvitee) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfAppointmentInvitee creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Appointments.AppointmentInvitee>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfAppointmentInvitee(items []*IAppointmentInvitee) *IVectorOfAppointmentInvitee {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Appointments.AppointmentInvitee>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppointmentInvitee, Iterator: IID_IIteratorOfAppointmentInvitee, VectorView: IID_IVectorViewOfAppointmentInvitee, Vector: IID_IVectorOfAppointmentInvitee}, winrt.CodecInterface, boxed)
+	return (*IVectorOfAppointmentInvitee)(unsafe.Pointer(obj))
+}
+
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
 // Requires: Windows.Foundation.Collections.IIterable`1<String>.
@@ -1054,6 +1430,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfAppointment is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.Appointment>.
 // IID: 61021758-9e37-5a86-a832-aab31f32692b
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.Appointment>.
@@ -1086,6 +1481,25 @@ func (self *IVectorViewOfAppointment) IndexOf(value *IAppointment, index *uint32
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfAppointment creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.Appointment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAppointment(items []*IAppointment) *IVectorViewOfAppointment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.Appointment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppointment, Iterator: IID_IIteratorOfAppointment, VectorView: IID_IVectorViewOfAppointment}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAppointment)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfAppointmentCalendar is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentCalendar>.
 // IID: 774512d3-a564-5f8d-b104-3ec8f2a1104f
@@ -1120,6 +1534,25 @@ func (self *IVectorViewOfAppointmentCalendar) IndexOf(value *IAppointmentCalenda
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfAppointmentCalendar creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentCalendar>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAppointmentCalendar(items []*IAppointmentCalendar) *IVectorViewOfAppointmentCalendar {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentCalendar>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppointmentCalendar, Iterator: IID_IIteratorOfAppointmentCalendar, VectorView: IID_IVectorViewOfAppointmentCalendar}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAppointmentCalendar)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfAppointmentException is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentException>.
 // IID: e5030866-08d8-56be-a21b-c5bf80d70360
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentException>.
@@ -1152,6 +1585,25 @@ func (self *IVectorViewOfAppointmentException) IndexOf(value *IAppointmentExcept
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfAppointmentException creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentException>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAppointmentException(items []*IAppointmentException) *IVectorViewOfAppointmentException {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentException>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppointmentException, Iterator: IID_IIteratorOfAppointmentException, VectorView: IID_IVectorViewOfAppointmentException}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAppointmentException)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfAppointmentInvitee is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentInvitee>.
 // IID: ba2f633a-5182-5eda-8e2e-a66e55b320ce
@@ -1186,6 +1638,25 @@ func (self *IVectorViewOfAppointmentInvitee) IndexOf(value *IAppointmentInvitee,
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfAppointmentInvitee creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentInvitee>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAppointmentInvitee(items []*IAppointmentInvitee) *IVectorViewOfAppointmentInvitee {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentInvitee>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppointmentInvitee, Iterator: IID_IIteratorOfAppointmentInvitee, VectorView: IID_IVectorViewOfAppointmentInvitee}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAppointmentInvitee)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfAppointmentStoreChange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentStoreChange>.
 // IID: 4f9dd4e5-c3ae-5269-aff5-fe35cd50c3bb
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Appointments.AppointmentStoreChange>.
@@ -1218,6 +1689,25 @@ func (self *IVectorViewOfAppointmentStoreChange) IndexOf(value *IAppointmentStor
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfAppointmentStoreChange creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentStoreChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAppointmentStoreChange(items []*IAppointmentStoreChange) *IVectorViewOfAppointmentStoreChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Appointments.AppointmentStoreChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppointmentStoreChange, Iterator: IID_IIteratorOfAppointmentStoreChange, VectorView: IID_IVectorViewOfAppointmentStoreChange}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAppointmentStoreChange)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -1259,3 +1749,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

@@ -290,6 +290,73 @@ func (self *IAsyncOperationOfIVectorViewOfAppInstallItem) Await() (*IVectorViewO
 	return self.GetResults()
 }
 
+// IIterableOfAppInstallItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem>.
+// IID: 93e1cdc8-503f-55b1-915b-c0dc7888ce31
+type IIterableOfAppInstallItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAppInstallItem is the interface identifier for IIterableOfAppInstallItem.
+var IID_IIterableOfAppInstallItem = win32.GUID{Data1: 0x93e1cdc8, Data2: 0x503f, Data3: 0x55b1, Data4: [8]byte{0x91, 0x5b, 0xc0, 0xdc, 0x78, 0x88, 0xce, 0x31}}
+
+// First dispatches through IIterableOfAppInstallItem's vtable slot 6.
+func (self *IIterableOfAppInstallItem) First() (*IIteratorOfAppInstallItem, error) {
+	result := new(*IIteratorOfAppInstallItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAppInstallItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAppInstallItem(items []*IAppInstallItem) *IIterableOfAppInstallItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppInstallItem, Iterator: IID_IIteratorOfAppInstallItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAppInstallItem)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfAppInstallItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem>.
+// IID: ccaca81b-6cf7-56f0-b7ff-8ac5191e79bf
+type IIteratorOfAppInstallItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAppInstallItem is the interface identifier for IIteratorOfAppInstallItem.
+var IID_IIteratorOfAppInstallItem = win32.GUID{Data1: 0xccaca81b, Data2: 0x6cf7, Data3: 0x56f0, Data4: [8]byte{0xb7, 0xff, 0x8a, 0xc5, 0x19, 0x1e, 0x79, 0xbf}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAppInstallItem's vtable slot 6.
+func (self *IIteratorOfAppInstallItem) Current() (*IAppInstallItem, error) {
+	result := new(*IAppInstallItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAppInstallItem's vtable slot 7.
+func (self *IIteratorOfAppInstallItem) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAppInstallItem's vtable slot 8.
+func (self *IIteratorOfAppInstallItem) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfAppInstallItem is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem>.
 // IID: 48d7f874-a83c-55db-b2e6-940be9569869
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem>.
@@ -322,3 +389,22 @@ func (self *IVectorViewOfAppInstallItem) IndexOf(value *IAppInstallItem, index *
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfAppInstallItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAppInstallItem(items []*IAppInstallItem) *IVectorViewOfAppInstallItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppInstallItem, Iterator: IID_IIteratorOfAppInstallItem, VectorView: IID_IVectorViewOfAppInstallItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAppInstallItem)(unsafe.Pointer(obj))
+}

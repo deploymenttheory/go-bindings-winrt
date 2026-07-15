@@ -84,6 +84,73 @@ func (self *IAsyncOperationOfWebViewControl) Await() (*webui.IWebViewControl, er
 	return self.GetResults()
 }
 
+// IIterableOfWebViewControl is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.UI.Interop.WebViewControl>.
+// IID: f1028969-d7aa-59d8-8826-4e02a8064515
+type IIterableOfWebViewControl struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfWebViewControl is the interface identifier for IIterableOfWebViewControl.
+var IID_IIterableOfWebViewControl = win32.GUID{Data1: 0xf1028969, Data2: 0xd7aa, Data3: 0x59d8, Data4: [8]byte{0x88, 0x26, 0x4e, 0x02, 0xa8, 0x06, 0x45, 0x15}}
+
+// First dispatches through IIterableOfWebViewControl's vtable slot 6.
+func (self *IIterableOfWebViewControl) First() (*IIteratorOfWebViewControl, error) {
+	result := new(*IIteratorOfWebViewControl)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfWebViewControl creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.UI.Interop.WebViewControl>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfWebViewControl(items []*webui.IWebViewControl) *IIterableOfWebViewControl {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.UI.Interop.WebViewControl>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebViewControl, Iterator: IID_IIteratorOfWebViewControl}, winrt.CodecInterface, boxed)
+	return (*IIterableOfWebViewControl)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfWebViewControl is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.UI.Interop.WebViewControl>.
+// IID: 3e183be4-37d8-5239-b1f0-c06c76296a16
+type IIteratorOfWebViewControl struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfWebViewControl is the interface identifier for IIteratorOfWebViewControl.
+var IID_IIteratorOfWebViewControl = win32.GUID{Data1: 0x3e183be4, Data2: 0x37d8, Data3: 0x5239, Data4: [8]byte{0xb1, 0xf0, 0xc0, 0x6c, 0x76, 0x29, 0x6a, 0x16}}
+
+// Current (propget get_Current) dispatches through IIteratorOfWebViewControl's vtable slot 6.
+func (self *IIteratorOfWebViewControl) Current() (*webui.IWebViewControl, error) {
+	result := new(*webui.IWebViewControl)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfWebViewControl's vtable slot 7.
+func (self *IIteratorOfWebViewControl) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfWebViewControl's vtable slot 8.
+func (self *IIteratorOfWebViewControl) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfWebViewControl is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.UI.Interop.WebViewControl>.
 // IID: 5ecbd5c0-8282-5fe1-ad39-374cde70e0cd
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.UI.Interop.WebViewControl>.
@@ -116,3 +183,22 @@ func (self *IVectorViewOfWebViewControl) IndexOf(value *webui.IWebViewControl, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfWebViewControl creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.UI.Interop.WebViewControl>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfWebViewControl(items []*webui.IWebViewControl) *IVectorViewOfWebViewControl {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.UI.Interop.WebViewControl>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebViewControl, Iterator: IID_IIteratorOfWebViewControl, VectorView: IID_IVectorViewOfWebViewControl}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfWebViewControl)(unsafe.Pointer(obj))
+}

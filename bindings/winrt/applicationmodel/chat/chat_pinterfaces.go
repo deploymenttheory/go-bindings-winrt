@@ -1121,6 +1121,321 @@ func (self *IAsyncOperationOfString) Await() (string, error) {
 	return self.GetResults()
 }
 
+// IIterableOfChatConversation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatConversation>.
+// IID: af43c676-a512-5388-9f69-0308953d719b
+type IIterableOfChatConversation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfChatConversation is the interface identifier for IIterableOfChatConversation.
+var IID_IIterableOfChatConversation = win32.GUID{Data1: 0xaf43c676, Data2: 0xa512, Data3: 0x5388, Data4: [8]byte{0x9f, 0x69, 0x03, 0x08, 0x95, 0x3d, 0x71, 0x9b}}
+
+// First dispatches through IIterableOfChatConversation's vtable slot 6.
+func (self *IIterableOfChatConversation) First() (*IIteratorOfChatConversation, error) {
+	result := new(*IIteratorOfChatConversation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfChatConversation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatConversation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfChatConversation(items []*IChatConversation) *IIterableOfChatConversation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatConversation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatConversation, Iterator: IID_IIteratorOfChatConversation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfChatConversation)(unsafe.Pointer(obj))
+}
+
+// IIterableOfChatMessage is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessage>.
+// IID: 647bf12c-f621-5fd8-af39-c72b16baf07e
+type IIterableOfChatMessage struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfChatMessage is the interface identifier for IIterableOfChatMessage.
+var IID_IIterableOfChatMessage = win32.GUID{Data1: 0x647bf12c, Data2: 0xf621, Data3: 0x5fd8, Data4: [8]byte{0xaf, 0x39, 0xc7, 0x2b, 0x16, 0xba, 0xf0, 0x7e}}
+
+// First dispatches through IIterableOfChatMessage's vtable slot 6.
+func (self *IIterableOfChatMessage) First() (*IIteratorOfChatMessage, error) {
+	result := new(*IIteratorOfChatMessage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfChatMessage creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessage>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfChatMessage(items []*IChatMessage) *IIterableOfChatMessage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessage>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatMessage, Iterator: IID_IIteratorOfChatMessage}, winrt.CodecInterface, boxed)
+	return (*IIterableOfChatMessage)(unsafe.Pointer(obj))
+}
+
+// IIterableOfChatMessageAttachment is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessageAttachment>.
+// IID: 8a1e36ac-13b6-577c-9b43-3d24a453f866
+type IIterableOfChatMessageAttachment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfChatMessageAttachment is the interface identifier for IIterableOfChatMessageAttachment.
+var IID_IIterableOfChatMessageAttachment = win32.GUID{Data1: 0x8a1e36ac, Data2: 0x13b6, Data3: 0x577c, Data4: [8]byte{0x9b, 0x43, 0x3d, 0x24, 0xa4, 0x53, 0xf8, 0x66}}
+
+// First dispatches through IIterableOfChatMessageAttachment's vtable slot 6.
+func (self *IIterableOfChatMessageAttachment) First() (*IIteratorOfChatMessageAttachment, error) {
+	result := new(*IIteratorOfChatMessageAttachment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfChatMessageAttachment creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessageAttachment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfChatMessageAttachment(items []*IChatMessageAttachment) *IIterableOfChatMessageAttachment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessageAttachment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatMessageAttachment, Iterator: IID_IIteratorOfChatMessageAttachment}, winrt.CodecInterface, boxed)
+	return (*IIterableOfChatMessageAttachment)(unsafe.Pointer(obj))
+}
+
+// IIterableOfChatMessageChange is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessageChange>.
+// IID: 0df896df-354c-5d35-b7ac-6b2e1d70c8eb
+type IIterableOfChatMessageChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfChatMessageChange is the interface identifier for IIterableOfChatMessageChange.
+var IID_IIterableOfChatMessageChange = win32.GUID{Data1: 0x0df896df, Data2: 0x354c, Data3: 0x5d35, Data4: [8]byte{0xb7, 0xac, 0x6b, 0x2e, 0x1d, 0x70, 0xc8, 0xeb}}
+
+// First dispatches through IIterableOfChatMessageChange's vtable slot 6.
+func (self *IIterableOfChatMessageChange) First() (*IIteratorOfChatMessageChange, error) {
+	result := new(*IIteratorOfChatMessageChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfChatMessageChange creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessageChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfChatMessageChange(items []*IChatMessageChange) *IIterableOfChatMessageChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessageChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatMessageChange, Iterator: IID_IIteratorOfChatMessageChange}, winrt.CodecInterface, boxed)
+	return (*IIterableOfChatMessageChange)(unsafe.Pointer(obj))
+}
+
+// IIterableOfChatMessageTransport is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessageTransport>.
+// IID: aae32f12-ed85-528c-8bad-6362d876ef8b
+type IIterableOfChatMessageTransport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfChatMessageTransport is the interface identifier for IIterableOfChatMessageTransport.
+var IID_IIterableOfChatMessageTransport = win32.GUID{Data1: 0xaae32f12, Data2: 0xed85, Data3: 0x528c, Data4: [8]byte{0x8b, 0xad, 0x63, 0x62, 0xd8, 0x76, 0xef, 0x8b}}
+
+// First dispatches through IIterableOfChatMessageTransport's vtable slot 6.
+func (self *IIterableOfChatMessageTransport) First() (*IIteratorOfChatMessageTransport, error) {
+	result := new(*IIteratorOfChatMessageTransport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfChatMessageTransport creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessageTransport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfChatMessageTransport(items []*IChatMessageTransport) *IIterableOfChatMessageTransport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessageTransport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatMessageTransport, Iterator: IID_IIteratorOfChatMessageTransport}, winrt.CodecInterface, boxed)
+	return (*IIterableOfChatMessageTransport)(unsafe.Pointer(obj))
+}
+
+// IIterableOfChatRecipientDeliveryInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo>.
+// IID: e3d7b44c-4829-561b-a15e-a745e5adf6d1
+type IIterableOfChatRecipientDeliveryInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfChatRecipientDeliveryInfo is the interface identifier for IIterableOfChatRecipientDeliveryInfo.
+var IID_IIterableOfChatRecipientDeliveryInfo = win32.GUID{Data1: 0xe3d7b44c, Data2: 0x4829, Data3: 0x561b, Data4: [8]byte{0xa1, 0x5e, 0xa7, 0x45, 0xe5, 0xad, 0xf6, 0xd1}}
+
+// First dispatches through IIterableOfChatRecipientDeliveryInfo's vtable slot 6.
+func (self *IIterableOfChatRecipientDeliveryInfo) First() (*IIteratorOfChatRecipientDeliveryInfo, error) {
+	result := new(*IIteratorOfChatRecipientDeliveryInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfChatRecipientDeliveryInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfChatRecipientDeliveryInfo(items []*IChatRecipientDeliveryInfo) *IIterableOfChatRecipientDeliveryInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatRecipientDeliveryInfo, Iterator: IID_IIteratorOfChatRecipientDeliveryInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfChatRecipientDeliveryInfo)(unsafe.Pointer(obj))
+}
+
+// IIterableOfIChatItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.IChatItem>.
+// IID: ea8e3309-099a-592e-9e28-441b151fe061
+type IIterableOfIChatItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIChatItem is the interface identifier for IIterableOfIChatItem.
+var IID_IIterableOfIChatItem = win32.GUID{Data1: 0xea8e3309, Data2: 0x099a, Data3: 0x592e, Data4: [8]byte{0x9e, 0x28, 0x44, 0x1b, 0x15, 0x1f, 0xe0, 0x61}}
+
+// First dispatches through IIterableOfIChatItem's vtable slot 6.
+func (self *IIterableOfIChatItem) First() (*IIteratorOfIChatItem, error) {
+	result := new(*IIteratorOfIChatItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIChatItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.IChatItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIChatItem(items []*IChatItem) *IIterableOfIChatItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.IChatItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIChatItem, Iterator: IID_IIteratorOfIChatItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIChatItem)(unsafe.Pointer(obj))
+}
+
+// IIterableOfRcsEndUserMessageAction is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.RcsEndUserMessageAction>.
+// IID: b6d21a55-471e-5a25-acdd-7784f7b4d7ba
+type IIterableOfRcsEndUserMessageAction struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfRcsEndUserMessageAction is the interface identifier for IIterableOfRcsEndUserMessageAction.
+var IID_IIterableOfRcsEndUserMessageAction = win32.GUID{Data1: 0xb6d21a55, Data2: 0x471e, Data3: 0x5a25, Data4: [8]byte{0xac, 0xdd, 0x77, 0x84, 0xf7, 0xb4, 0xd7, 0xba}}
+
+// First dispatches through IIterableOfRcsEndUserMessageAction's vtable slot 6.
+func (self *IIterableOfRcsEndUserMessageAction) First() (*IIteratorOfRcsEndUserMessageAction, error) {
+	result := new(*IIteratorOfRcsEndUserMessageAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfRcsEndUserMessageAction creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.RcsEndUserMessageAction>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfRcsEndUserMessageAction(items []*IRcsEndUserMessageAction) *IIterableOfRcsEndUserMessageAction {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.RcsEndUserMessageAction>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRcsEndUserMessageAction, Iterator: IID_IIteratorOfRcsEndUserMessageAction}, winrt.CodecInterface, boxed)
+	return (*IIterableOfRcsEndUserMessageAction)(unsafe.Pointer(obj))
+}
+
+// IIterableOfRcsTransport is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.RcsTransport>.
+// IID: 184c2264-65fd-5ad4-b22f-cb34e8eaec63
+type IIterableOfRcsTransport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfRcsTransport is the interface identifier for IIterableOfRcsTransport.
+var IID_IIterableOfRcsTransport = win32.GUID{Data1: 0x184c2264, Data2: 0x65fd, Data3: 0x5ad4, Data4: [8]byte{0xb2, 0x2f, 0xcb, 0x34, 0xe8, 0xea, 0xec, 0x63}}
+
+// First dispatches through IIterableOfRcsTransport's vtable slot 6.
+func (self *IIterableOfRcsTransport) First() (*IIteratorOfRcsTransport, error) {
+	result := new(*IIteratorOfRcsTransport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfRcsTransport creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.RcsTransport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfRcsTransport(items []*IRcsTransport) *IIterableOfRcsTransport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.RcsTransport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRcsTransport, Iterator: IID_IIteratorOfRcsTransport}, winrt.CodecInterface, boxed)
+	return (*IIterableOfRcsTransport)(unsafe.Pointer(obj))
+}
+
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
 // IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
 type IIterableOfString struct {
@@ -1136,6 +1451,310 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfChatConversation is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Chat.ChatConversation>.
+// IID: 7007a155-47ca-59c8-bf1e-960b82159907
+type IIteratorOfChatConversation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfChatConversation is the interface identifier for IIteratorOfChatConversation.
+var IID_IIteratorOfChatConversation = win32.GUID{Data1: 0x7007a155, Data2: 0x47ca, Data3: 0x59c8, Data4: [8]byte{0xbf, 0x1e, 0x96, 0x0b, 0x82, 0x15, 0x99, 0x07}}
+
+// Current (propget get_Current) dispatches through IIteratorOfChatConversation's vtable slot 6.
+func (self *IIteratorOfChatConversation) Current() (*IChatConversation, error) {
+	result := new(*IChatConversation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfChatConversation's vtable slot 7.
+func (self *IIteratorOfChatConversation) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfChatConversation's vtable slot 8.
+func (self *IIteratorOfChatConversation) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfChatMessage is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Chat.ChatMessage>.
+// IID: cd3c8682-2366-5646-9af5-bcb9c3be9ebe
+type IIteratorOfChatMessage struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfChatMessage is the interface identifier for IIteratorOfChatMessage.
+var IID_IIteratorOfChatMessage = win32.GUID{Data1: 0xcd3c8682, Data2: 0x2366, Data3: 0x5646, Data4: [8]byte{0x9a, 0xf5, 0xbc, 0xb9, 0xc3, 0xbe, 0x9e, 0xbe}}
+
+// Current (propget get_Current) dispatches through IIteratorOfChatMessage's vtable slot 6.
+func (self *IIteratorOfChatMessage) Current() (*IChatMessage, error) {
+	result := new(*IChatMessage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfChatMessage's vtable slot 7.
+func (self *IIteratorOfChatMessage) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfChatMessage's vtable slot 8.
+func (self *IIteratorOfChatMessage) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfChatMessageAttachment is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Chat.ChatMessageAttachment>.
+// IID: bc37f8a5-cd61-5054-a897-6d402b56b58b
+type IIteratorOfChatMessageAttachment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfChatMessageAttachment is the interface identifier for IIteratorOfChatMessageAttachment.
+var IID_IIteratorOfChatMessageAttachment = win32.GUID{Data1: 0xbc37f8a5, Data2: 0xcd61, Data3: 0x5054, Data4: [8]byte{0xa8, 0x97, 0x6d, 0x40, 0x2b, 0x56, 0xb5, 0x8b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfChatMessageAttachment's vtable slot 6.
+func (self *IIteratorOfChatMessageAttachment) Current() (*IChatMessageAttachment, error) {
+	result := new(*IChatMessageAttachment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfChatMessageAttachment's vtable slot 7.
+func (self *IIteratorOfChatMessageAttachment) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfChatMessageAttachment's vtable slot 8.
+func (self *IIteratorOfChatMessageAttachment) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfChatMessageChange is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Chat.ChatMessageChange>.
+// IID: df6e6b4f-3e45-52cd-aade-3316896abad0
+type IIteratorOfChatMessageChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfChatMessageChange is the interface identifier for IIteratorOfChatMessageChange.
+var IID_IIteratorOfChatMessageChange = win32.GUID{Data1: 0xdf6e6b4f, Data2: 0x3e45, Data3: 0x52cd, Data4: [8]byte{0xaa, 0xde, 0x33, 0x16, 0x89, 0x6a, 0xba, 0xd0}}
+
+// Current (propget get_Current) dispatches through IIteratorOfChatMessageChange's vtable slot 6.
+func (self *IIteratorOfChatMessageChange) Current() (*IChatMessageChange, error) {
+	result := new(*IChatMessageChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfChatMessageChange's vtable slot 7.
+func (self *IIteratorOfChatMessageChange) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfChatMessageChange's vtable slot 8.
+func (self *IIteratorOfChatMessageChange) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfChatMessageTransport is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Chat.ChatMessageTransport>.
+// IID: 98ebffc3-ef5f-58ac-9695-047a96c3f0b0
+type IIteratorOfChatMessageTransport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfChatMessageTransport is the interface identifier for IIteratorOfChatMessageTransport.
+var IID_IIteratorOfChatMessageTransport = win32.GUID{Data1: 0x98ebffc3, Data2: 0xef5f, Data3: 0x58ac, Data4: [8]byte{0x96, 0x95, 0x04, 0x7a, 0x96, 0xc3, 0xf0, 0xb0}}
+
+// Current (propget get_Current) dispatches through IIteratorOfChatMessageTransport's vtable slot 6.
+func (self *IIteratorOfChatMessageTransport) Current() (*IChatMessageTransport, error) {
+	result := new(*IChatMessageTransport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfChatMessageTransport's vtable slot 7.
+func (self *IIteratorOfChatMessageTransport) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfChatMessageTransport's vtable slot 8.
+func (self *IIteratorOfChatMessageTransport) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfChatRecipientDeliveryInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo>.
+// IID: 3a7b0f38-ecd7-55f8-a5c5-e03d43a3978e
+type IIteratorOfChatRecipientDeliveryInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfChatRecipientDeliveryInfo is the interface identifier for IIteratorOfChatRecipientDeliveryInfo.
+var IID_IIteratorOfChatRecipientDeliveryInfo = win32.GUID{Data1: 0x3a7b0f38, Data2: 0xecd7, Data3: 0x55f8, Data4: [8]byte{0xa5, 0xc5, 0xe0, 0x3d, 0x43, 0xa3, 0x97, 0x8e}}
+
+// Current (propget get_Current) dispatches through IIteratorOfChatRecipientDeliveryInfo's vtable slot 6.
+func (self *IIteratorOfChatRecipientDeliveryInfo) Current() (*IChatRecipientDeliveryInfo, error) {
+	result := new(*IChatRecipientDeliveryInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfChatRecipientDeliveryInfo's vtable slot 7.
+func (self *IIteratorOfChatRecipientDeliveryInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfChatRecipientDeliveryInfo's vtable slot 8.
+func (self *IIteratorOfChatRecipientDeliveryInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfIChatItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Chat.IChatItem>.
+// IID: 5d2c1b3f-9bc7-5126-93cd-f52326494de1
+type IIteratorOfIChatItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIChatItem is the interface identifier for IIteratorOfIChatItem.
+var IID_IIteratorOfIChatItem = win32.GUID{Data1: 0x5d2c1b3f, Data2: 0x9bc7, Data3: 0x5126, Data4: [8]byte{0x93, 0xcd, 0xf5, 0x23, 0x26, 0x49, 0x4d, 0xe1}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIChatItem's vtable slot 6.
+func (self *IIteratorOfIChatItem) Current() (*IChatItem, error) {
+	result := new(*IChatItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIChatItem's vtable slot 7.
+func (self *IIteratorOfIChatItem) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIChatItem's vtable slot 8.
+func (self *IIteratorOfIChatItem) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfRcsEndUserMessageAction is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Chat.RcsEndUserMessageAction>.
+// IID: 75a37f34-d87d-555c-8e64-a1ea48a3dd20
+type IIteratorOfRcsEndUserMessageAction struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfRcsEndUserMessageAction is the interface identifier for IIteratorOfRcsEndUserMessageAction.
+var IID_IIteratorOfRcsEndUserMessageAction = win32.GUID{Data1: 0x75a37f34, Data2: 0xd87d, Data3: 0x555c, Data4: [8]byte{0x8e, 0x64, 0xa1, 0xea, 0x48, 0xa3, 0xdd, 0x20}}
+
+// Current (propget get_Current) dispatches through IIteratorOfRcsEndUserMessageAction's vtable slot 6.
+func (self *IIteratorOfRcsEndUserMessageAction) Current() (*IRcsEndUserMessageAction, error) {
+	result := new(*IRcsEndUserMessageAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfRcsEndUserMessageAction's vtable slot 7.
+func (self *IIteratorOfRcsEndUserMessageAction) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfRcsEndUserMessageAction's vtable slot 8.
+func (self *IIteratorOfRcsEndUserMessageAction) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfRcsTransport is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Chat.RcsTransport>.
+// IID: a4eda5fb-fb99-56a7-8948-95c668a3ed3c
+type IIteratorOfRcsTransport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfRcsTransport is the interface identifier for IIteratorOfRcsTransport.
+var IID_IIteratorOfRcsTransport = win32.GUID{Data1: 0xa4eda5fb, Data2: 0xfb99, Data3: 0x56a7, Data4: [8]byte{0x89, 0x48, 0x95, 0xc6, 0x68, 0xa3, 0xed, 0x3c}}
+
+// Current (propget get_Current) dispatches through IIteratorOfRcsTransport's vtable slot 6.
+func (self *IIteratorOfRcsTransport) Current() (*IRcsTransport, error) {
+	result := new(*IRcsTransport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfRcsTransport's vtable slot 7.
+func (self *IIteratorOfRcsTransport) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfRcsTransport's vtable slot 8.
+func (self *IIteratorOfRcsTransport) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
 // IID: 8c304ebb-6615-50a4-8829-879ecd443236
@@ -1378,6 +1997,28 @@ func (self *IVectorOfChatMessageAttachment) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfChatMessageAttachment creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Chat.ChatMessageAttachment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfChatMessageAttachment(items []*IChatMessageAttachment) *IVectorOfChatMessageAttachment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Chat.ChatMessageAttachment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatMessageAttachment, Iterator: IID_IIteratorOfChatMessageAttachment, VectorView: IID_IVectorViewOfChatMessageAttachment, Vector: IID_IVectorOfChatMessageAttachment}, winrt.CodecInterface, boxed)
+	return (*IVectorOfChatMessageAttachment)(unsafe.Pointer(obj))
+}
+
 // IVectorOfChatRecipientDeliveryInfo is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo>.
 // IID: 14640361-3f8d-5606-8fcb-973208b76d72
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo>.
@@ -1455,6 +2096,28 @@ func (self *IVectorOfChatRecipientDeliveryInfo) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfChatRecipientDeliveryInfo creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfChatRecipientDeliveryInfo(items []*IChatRecipientDeliveryInfo) *IVectorOfChatRecipientDeliveryInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatRecipientDeliveryInfo, Iterator: IID_IIteratorOfChatRecipientDeliveryInfo, VectorView: IID_IVectorViewOfChatRecipientDeliveryInfo, Vector: IID_IVectorOfChatRecipientDeliveryInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorOfChatRecipientDeliveryInfo)(unsafe.Pointer(obj))
+}
 
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
@@ -1557,6 +2220,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfChatConversation is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatConversation>.
 // IID: 8d4e5cf4-610b-5a29-b66a-2649700f5245
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatConversation>.
@@ -1589,6 +2271,25 @@ func (self *IVectorViewOfChatConversation) IndexOf(value *IChatConversation, ind
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfChatConversation creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatConversation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfChatConversation(items []*IChatConversation) *IVectorViewOfChatConversation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatConversation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatConversation, Iterator: IID_IIteratorOfChatConversation, VectorView: IID_IVectorViewOfChatConversation}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfChatConversation)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfChatMessage is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessage>.
 // IID: ac612e87-63fd-5c05-999a-0dae0d8ec7a3
@@ -1623,6 +2324,25 @@ func (self *IVectorViewOfChatMessage) IndexOf(value *IChatMessage, index *uint32
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfChatMessage creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessage>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfChatMessage(items []*IChatMessage) *IVectorViewOfChatMessage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessage>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatMessage, Iterator: IID_IIteratorOfChatMessage, VectorView: IID_IVectorViewOfChatMessage}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfChatMessage)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfChatMessageAttachment is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessageAttachment>.
 // IID: 50f5c38b-749f-5bf6-9560-11a9876f20d1
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessageAttachment>.
@@ -1655,6 +2375,25 @@ func (self *IVectorViewOfChatMessageAttachment) IndexOf(value *IChatMessageAttac
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfChatMessageAttachment creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessageAttachment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfChatMessageAttachment(items []*IChatMessageAttachment) *IVectorViewOfChatMessageAttachment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessageAttachment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatMessageAttachment, Iterator: IID_IIteratorOfChatMessageAttachment, VectorView: IID_IVectorViewOfChatMessageAttachment}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfChatMessageAttachment)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfChatMessageChange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessageChange>.
 // IID: 447a59fc-e729-5846-91da-b650fdeca785
@@ -1689,6 +2428,25 @@ func (self *IVectorViewOfChatMessageChange) IndexOf(value *IChatMessageChange, i
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfChatMessageChange creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessageChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfChatMessageChange(items []*IChatMessageChange) *IVectorViewOfChatMessageChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessageChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatMessageChange, Iterator: IID_IIteratorOfChatMessageChange, VectorView: IID_IVectorViewOfChatMessageChange}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfChatMessageChange)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfChatMessageTransport is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessageTransport>.
 // IID: c7b1733f-6e87-5a65-8542-cf36a4521695
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.ChatMessageTransport>.
@@ -1721,6 +2479,25 @@ func (self *IVectorViewOfChatMessageTransport) IndexOf(value *IChatMessageTransp
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfChatMessageTransport creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessageTransport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfChatMessageTransport(items []*IChatMessageTransport) *IVectorViewOfChatMessageTransport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatMessageTransport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatMessageTransport, Iterator: IID_IIteratorOfChatMessageTransport, VectorView: IID_IVectorViewOfChatMessageTransport}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfChatMessageTransport)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfChatRecipientDeliveryInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo>.
 // IID: 7897ffd3-7d86-5c89-bbe2-ca708d1a3398
@@ -1755,6 +2532,25 @@ func (self *IVectorViewOfChatRecipientDeliveryInfo) IndexOf(value *IChatRecipien
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfChatRecipientDeliveryInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfChatRecipientDeliveryInfo(items []*IChatRecipientDeliveryInfo) *IVectorViewOfChatRecipientDeliveryInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChatRecipientDeliveryInfo, Iterator: IID_IIteratorOfChatRecipientDeliveryInfo, VectorView: IID_IVectorViewOfChatRecipientDeliveryInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfChatRecipientDeliveryInfo)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfIChatItem is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.IChatItem>.
 // IID: 4e46b3db-f003-5bfc-9eeb-f702f0801949
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.IChatItem>.
@@ -1787,6 +2583,25 @@ func (self *IVectorViewOfIChatItem) IndexOf(value *IChatItem, index *uint32) (bo
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfIChatItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.IChatItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIChatItem(items []*IChatItem) *IVectorViewOfIChatItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.IChatItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIChatItem, Iterator: IID_IIteratorOfIChatItem, VectorView: IID_IVectorViewOfIChatItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIChatItem)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfRcsEndUserMessageAction is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.RcsEndUserMessageAction>.
 // IID: 9607e377-e873-5091-9e32-8695e8f50e7a
@@ -1821,6 +2636,25 @@ func (self *IVectorViewOfRcsEndUserMessageAction) IndexOf(value *IRcsEndUserMess
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfRcsEndUserMessageAction creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.RcsEndUserMessageAction>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfRcsEndUserMessageAction(items []*IRcsEndUserMessageAction) *IVectorViewOfRcsEndUserMessageAction {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.RcsEndUserMessageAction>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRcsEndUserMessageAction, Iterator: IID_IIteratorOfRcsEndUserMessageAction, VectorView: IID_IVectorViewOfRcsEndUserMessageAction}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfRcsEndUserMessageAction)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfRcsTransport is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.RcsTransport>.
 // IID: 0627ce33-6cf1-5bc9-9508-938d67a494ed
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Chat.RcsTransport>.
@@ -1853,6 +2687,25 @@ func (self *IVectorViewOfRcsTransport) IndexOf(value *IRcsTransport, index *uint
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfRcsTransport creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.RcsTransport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfRcsTransport(items []*IRcsTransport) *IVectorViewOfRcsTransport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Chat.RcsTransport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRcsTransport, Iterator: IID_IIteratorOfRcsTransport, VectorView: IID_IVectorViewOfRcsTransport}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfRcsTransport)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -1894,3 +2747,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

@@ -29,6 +29,25 @@ func (self *IIterableOfILampArrayEffect) First() (*IIteratorOfILampArrayEffect, 
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfILampArrayEffect creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Lights.Effects.ILampArrayEffect>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfILampArrayEffect(items []*ILampArrayEffect) *IIterableOfILampArrayEffect {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Lights.Effects.ILampArrayEffect>", winrt.CollectionIIDs{Iterable: IID_IIterableOfILampArrayEffect, Iterator: IID_IIteratorOfILampArrayEffect}, winrt.CodecInterface, boxed)
+	return (*IIterableOfILampArrayEffect)(unsafe.Pointer(obj))
+}
+
 // IIterableOfLampArrayEffectPlaylist is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Lights.Effects.LampArrayEffectPlaylist>.
 // IID: 2314acda-c5df-5051-977d-94d79d1312fb
 type IIterableOfLampArrayEffectPlaylist struct {
@@ -43,6 +62,25 @@ func (self *IIterableOfLampArrayEffectPlaylist) First() (*IIteratorOfLampArrayEf
 	result := new(*IIteratorOfLampArrayEffectPlaylist)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfLampArrayEffectPlaylist creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Lights.Effects.LampArrayEffectPlaylist>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfLampArrayEffectPlaylist(items []*ILampArrayEffectPlaylist) *IIterableOfLampArrayEffectPlaylist {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Lights.Effects.LampArrayEffectPlaylist>", winrt.CollectionIIDs{Iterable: IID_IIterableOfLampArrayEffectPlaylist, Iterator: IID_IIteratorOfLampArrayEffectPlaylist}, winrt.CodecInterface, boxed)
+	return (*IIterableOfLampArrayEffectPlaylist)(unsafe.Pointer(obj))
 }
 
 // IIteratorOfILampArrayEffect is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Lights.Effects.ILampArrayEffect>.
@@ -141,3 +179,22 @@ func (self *IVectorViewOfILampArrayEffect) IndexOf(value *ILampArrayEffect, inde
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfILampArrayEffect creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Lights.Effects.ILampArrayEffect>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfILampArrayEffect(items []*ILampArrayEffect) *IVectorViewOfILampArrayEffect {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Lights.Effects.ILampArrayEffect>", winrt.CollectionIIDs{Iterable: IID_IIterableOfILampArrayEffect, Iterator: IID_IIteratorOfILampArrayEffect, VectorView: IID_IVectorViewOfILampArrayEffect}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfILampArrayEffect)(unsafe.Pointer(obj))
+}

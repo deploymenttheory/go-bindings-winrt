@@ -29,6 +29,25 @@ func (self *IIterableOfIJsonValue) First() (*IIteratorOfIJsonValue, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfIJsonValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Data.Json.IJsonValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIJsonValue(items []*IJsonValue) *IIterableOfIJsonValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Data.Json.IJsonValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIJsonValue, Iterator: IID_IIteratorOfIJsonValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIJsonValue)(unsafe.Pointer(obj))
+}
+
 // IIterableOfIKeyValuePairOfStringAndIJsonValue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Data.Json.IJsonValue>>.
 // IID: dfabb6e1-0411-5a8f-aa87-354e7110f099
 type IIterableOfIKeyValuePairOfStringAndIJsonValue struct {
@@ -43,6 +62,25 @@ func (self *IIterableOfIKeyValuePairOfStringAndIJsonValue) First() (*IIteratorOf
 	result := new(*IIteratorOfIKeyValuePairOfStringAndIJsonValue)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIKeyValuePairOfStringAndIJsonValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Data.Json.IJsonValue>>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIKeyValuePairOfStringAndIJsonValue(items []*IKeyValuePairOfStringAndIJsonValue) *IIterableOfIKeyValuePairOfStringAndIJsonValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Data.Json.IJsonValue>>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIKeyValuePairOfStringAndIJsonValue, Iterator: IID_IIteratorOfIKeyValuePairOfStringAndIJsonValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIKeyValuePairOfStringAndIJsonValue)(unsafe.Pointer(obj))
 }
 
 // IIteratorOfIJsonValue is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Data.Json.IJsonValue>.
@@ -337,6 +375,28 @@ func (self *IVectorOfIJsonValue) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfIJsonValue creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Data.Json.IJsonValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfIJsonValue(items []*IJsonValue) *IVectorOfIJsonValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Data.Json.IJsonValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIJsonValue, Iterator: IID_IIteratorOfIJsonValue, VectorView: IID_IVectorViewOfIJsonValue, Vector: IID_IVectorOfIJsonValue}, winrt.CodecInterface, boxed)
+	return (*IVectorOfIJsonValue)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfIJsonValue is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Data.Json.IJsonValue>.
 // IID: cffabb0f-6bc4-5ff6-9b9e-7a9df6c687c8
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Data.Json.IJsonValue>.
@@ -369,3 +429,22 @@ func (self *IVectorViewOfIJsonValue) IndexOf(value *IJsonValue, index *uint32) (
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfIJsonValue creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Data.Json.IJsonValue>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIJsonValue(items []*IJsonValue) *IVectorViewOfIJsonValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Data.Json.IJsonValue>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIJsonValue, Iterator: IID_IIteratorOfIJsonValue, VectorView: IID_IVectorViewOfIJsonValue}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIJsonValue)(unsafe.Pointer(obj))
+}

@@ -291,6 +291,73 @@ func (self *IAsyncOperationOfWalletItemStore) Await() (*IWalletItemStore, error)
 	return self.GetResults()
 }
 
+// IIterableOfWalletItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Wallet.WalletItem>.
+// IID: ac174c8c-0fdd-5cff-a29f-4e8ce1c8bc81
+type IIterableOfWalletItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfWalletItem is the interface identifier for IIterableOfWalletItem.
+var IID_IIterableOfWalletItem = win32.GUID{Data1: 0xac174c8c, Data2: 0x0fdd, Data3: 0x5cff, Data4: [8]byte{0xa2, 0x9f, 0x4e, 0x8c, 0xe1, 0xc8, 0xbc, 0x81}}
+
+// First dispatches through IIterableOfWalletItem's vtable slot 6.
+func (self *IIterableOfWalletItem) First() (*IIteratorOfWalletItem, error) {
+	result := new(*IIteratorOfWalletItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfWalletItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Wallet.WalletItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfWalletItem(items []*IWalletItem) *IIterableOfWalletItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Wallet.WalletItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWalletItem, Iterator: IID_IIteratorOfWalletItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfWalletItem)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfWalletItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Wallet.WalletItem>.
+// IID: e3ceb002-c2dd-5e63-913c-d7d577561e73
+type IIteratorOfWalletItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfWalletItem is the interface identifier for IIteratorOfWalletItem.
+var IID_IIteratorOfWalletItem = win32.GUID{Data1: 0xe3ceb002, Data2: 0xc2dd, Data3: 0x5e63, Data4: [8]byte{0x91, 0x3c, 0xd7, 0xd5, 0x77, 0x56, 0x1e, 0x73}}
+
+// Current (propget get_Current) dispatches through IIteratorOfWalletItem's vtable slot 6.
+func (self *IIteratorOfWalletItem) Current() (*IWalletItem, error) {
+	result := new(*IWalletItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfWalletItem's vtable slot 7.
+func (self *IIteratorOfWalletItem) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfWalletItem's vtable slot 8.
+func (self *IIteratorOfWalletItem) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IMapOfStringAndWalletItemCustomProperty is the WinRT interface Windows.Foundation.Collections.IMap`2<String, Windows.ApplicationModel.Wallet.WalletItemCustomProperty>.
 // IID: 5cc135b0-29f3-5113-a097-25e41a32e473
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.ApplicationModel.Wallet.WalletItemCustomProperty>>.
@@ -836,3 +903,22 @@ func (self *IVectorViewOfWalletItem) IndexOf(value *IWalletItem, index *uint32) 
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfWalletItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Wallet.WalletItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfWalletItem(items []*IWalletItem) *IVectorViewOfWalletItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Wallet.WalletItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWalletItem, Iterator: IID_IIteratorOfWalletItem, VectorView: IID_IVectorViewOfWalletItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfWalletItem)(unsafe.Pointer(obj))
+}

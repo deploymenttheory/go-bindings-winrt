@@ -29,6 +29,25 @@ func (self *IIterableOfContentLinkProvider) First() (*IIteratorOfContentLinkProv
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfContentLinkProvider creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Documents.ContentLinkProvider>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfContentLinkProvider(items []*syswinrt.IInspectable) *IIterableOfContentLinkProvider {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Documents.ContentLinkProvider>", winrt.CollectionIIDs{Iterable: IID_IIterableOfContentLinkProvider, Iterator: IID_IIteratorOfContentLinkProvider}, winrt.CodecInterface, boxed)
+	return (*IIterableOfContentLinkProvider)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfContentLinkProvider is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Documents.ContentLinkProvider>.
 // IID: 63e9b404-2fc1-59b1-ab76-cdb9a4530c0d
 type IIteratorOfContentLinkProvider struct {
@@ -145,6 +164,28 @@ func (self *IVectorOfContentLinkProvider) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfContentLinkProvider creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Documents.ContentLinkProvider>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfContentLinkProvider(items []*syswinrt.IInspectable) *IVectorOfContentLinkProvider {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Documents.ContentLinkProvider>", winrt.CollectionIIDs{Iterable: IID_IIterableOfContentLinkProvider, Iterator: IID_IIteratorOfContentLinkProvider, VectorView: IID_IVectorViewOfContentLinkProvider, Vector: IID_IVectorOfContentLinkProvider}, winrt.CodecInterface, boxed)
+	return (*IVectorOfContentLinkProvider)(unsafe.Pointer(obj))
+}
+
 // IVectorOfTextRange is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Documents.TextRange>.
 // IID: ee9d4cda-0750-5c1f-93aa-59add8c1421b
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Documents.TextRange>.
@@ -240,6 +281,25 @@ func (self *IVectorViewOfContentLinkProvider) IndexOf(value *syswinrt.IInspectab
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfContentLinkProvider creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Documents.ContentLinkProvider>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfContentLinkProvider(items []*syswinrt.IInspectable) *IVectorViewOfContentLinkProvider {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Documents.ContentLinkProvider>", winrt.CollectionIIDs{Iterable: IID_IIterableOfContentLinkProvider, Iterator: IID_IIteratorOfContentLinkProvider, VectorView: IID_IVectorViewOfContentLinkProvider}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfContentLinkProvider)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfTextRange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Documents.TextRange>.
 // IID: c824d1d0-771a-5123-90cc-52281f0f287a

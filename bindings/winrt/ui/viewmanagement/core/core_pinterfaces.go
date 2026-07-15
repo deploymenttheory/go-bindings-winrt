@@ -83,6 +83,73 @@ func (self *IAsyncOperationOfUISettingsController) Await() (*IUISettingsControll
 	return self.GetResults()
 }
 
+// IIterableOfCoreInputViewOcclusion is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.ViewManagement.Core.CoreInputViewOcclusion>.
+// IID: 0a11958b-63da-5566-913a-180550dad26a
+type IIterableOfCoreInputViewOcclusion struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCoreInputViewOcclusion is the interface identifier for IIterableOfCoreInputViewOcclusion.
+var IID_IIterableOfCoreInputViewOcclusion = win32.GUID{Data1: 0x0a11958b, Data2: 0x63da, Data3: 0x5566, Data4: [8]byte{0x91, 0x3a, 0x18, 0x05, 0x50, 0xda, 0xd2, 0x6a}}
+
+// First dispatches through IIterableOfCoreInputViewOcclusion's vtable slot 6.
+func (self *IIterableOfCoreInputViewOcclusion) First() (*IIteratorOfCoreInputViewOcclusion, error) {
+	result := new(*IIteratorOfCoreInputViewOcclusion)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCoreInputViewOcclusion creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.ViewManagement.Core.CoreInputViewOcclusion>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCoreInputViewOcclusion(items []*ICoreInputViewOcclusion) *IIterableOfCoreInputViewOcclusion {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.ViewManagement.Core.CoreInputViewOcclusion>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCoreInputViewOcclusion, Iterator: IID_IIteratorOfCoreInputViewOcclusion}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCoreInputViewOcclusion)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfCoreInputViewOcclusion is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.ViewManagement.Core.CoreInputViewOcclusion>.
+// IID: 5bb57354-4f40-5ef3-a5d1-6a6049f905a1
+type IIteratorOfCoreInputViewOcclusion struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCoreInputViewOcclusion is the interface identifier for IIteratorOfCoreInputViewOcclusion.
+var IID_IIteratorOfCoreInputViewOcclusion = win32.GUID{Data1: 0x5bb57354, Data2: 0x4f40, Data3: 0x5ef3, Data4: [8]byte{0xa5, 0xd1, 0x6a, 0x60, 0x49, 0xf9, 0x05, 0xa1}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCoreInputViewOcclusion's vtable slot 6.
+func (self *IIteratorOfCoreInputViewOcclusion) Current() (*ICoreInputViewOcclusion, error) {
+	result := new(*ICoreInputViewOcclusion)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCoreInputViewOcclusion's vtable slot 7.
+func (self *IIteratorOfCoreInputViewOcclusion) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCoreInputViewOcclusion's vtable slot 8.
+func (self *IIteratorOfCoreInputViewOcclusion) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfCoreInputViewOcclusion is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.ViewManagement.Core.CoreInputViewOcclusion>.
 // IID: e0963578-a246-5680-86d1-27519423e212
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.ViewManagement.Core.CoreInputViewOcclusion>.
@@ -115,3 +182,22 @@ func (self *IVectorViewOfCoreInputViewOcclusion) IndexOf(value *ICoreInputViewOc
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfCoreInputViewOcclusion creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.ViewManagement.Core.CoreInputViewOcclusion>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCoreInputViewOcclusion(items []*ICoreInputViewOcclusion) *IVectorViewOfCoreInputViewOcclusion {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.ViewManagement.Core.CoreInputViewOcclusion>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCoreInputViewOcclusion, Iterator: IID_IIteratorOfCoreInputViewOcclusion, VectorView: IID_IVectorViewOfCoreInputViewOcclusion}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCoreInputViewOcclusion)(unsafe.Pointer(obj))
+}

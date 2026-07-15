@@ -222,6 +222,203 @@ func (self *IAsyncOperationOfWiFiDirectServiceSession) Await() (*IWiFiDirectServ
 	return self.GetResults()
 }
 
+// IIterableOfEndpointPair is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.EndpointPair>.
+// IID: d7ec83c4-a17b-51bf-8997-aa33b9102dc9
+type IIterableOfEndpointPair struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfEndpointPair is the interface identifier for IIterableOfEndpointPair.
+var IID_IIterableOfEndpointPair = win32.GUID{Data1: 0xd7ec83c4, Data2: 0xa17b, Data3: 0x51bf, Data4: [8]byte{0x89, 0x97, 0xaa, 0x33, 0xb9, 0x10, 0x2d, 0xc9}}
+
+// First dispatches through IIterableOfEndpointPair's vtable slot 6.
+func (self *IIterableOfEndpointPair) First() (*IIteratorOfEndpointPair, error) {
+	result := new(*IIteratorOfEndpointPair)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfEndpointPair creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.EndpointPair>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfEndpointPair(items []*networking.IEndpointPair) *IIterableOfEndpointPair {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.EndpointPair>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEndpointPair, Iterator: IID_IIteratorOfEndpointPair}, winrt.CodecInterface, boxed)
+	return (*IIterableOfEndpointPair)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIterableOfWiFiDirectServiceConfigurationMethod is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>.
+// IID: d9773b1a-a148-58bf-9c4b-afeac9be3ab4
+type IIterableOfWiFiDirectServiceConfigurationMethod struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfWiFiDirectServiceConfigurationMethod is the interface identifier for IIterableOfWiFiDirectServiceConfigurationMethod.
+var IID_IIterableOfWiFiDirectServiceConfigurationMethod = win32.GUID{Data1: 0xd9773b1a, Data2: 0xa148, Data3: 0x58bf, Data4: [8]byte{0x9c, 0x4b, 0xaf, 0xea, 0xc9, 0xbe, 0x3a, 0xb4}}
+
+// First dispatches through IIterableOfWiFiDirectServiceConfigurationMethod's vtable slot 6.
+func (self *IIterableOfWiFiDirectServiceConfigurationMethod) First() (*IIteratorOfWiFiDirectServiceConfigurationMethod, error) {
+	result := new(*IIteratorOfWiFiDirectServiceConfigurationMethod)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfWiFiDirectServiceConfigurationMethod creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfWiFiDirectServiceConfigurationMethod(items []WiFiDirectServiceConfigurationMethod) *IIterableOfWiFiDirectServiceConfigurationMethod {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWiFiDirectServiceConfigurationMethod, Iterator: IID_IIteratorOfWiFiDirectServiceConfigurationMethod}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfWiFiDirectServiceConfigurationMethod)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfEndpointPair is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.EndpointPair>.
+// IID: c899ff9f-e6f5-5673-810c-04e2ff98704f
+type IIteratorOfEndpointPair struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfEndpointPair is the interface identifier for IIteratorOfEndpointPair.
+var IID_IIteratorOfEndpointPair = win32.GUID{Data1: 0xc899ff9f, Data2: 0xe6f5, Data3: 0x5673, Data4: [8]byte{0x81, 0x0c, 0x04, 0xe2, 0xff, 0x98, 0x70, 0x4f}}
+
+// Current (propget get_Current) dispatches through IIteratorOfEndpointPair's vtable slot 6.
+func (self *IIteratorOfEndpointPair) Current() (*networking.IEndpointPair, error) {
+	result := new(*networking.IEndpointPair)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfEndpointPair's vtable slot 7.
+func (self *IIteratorOfEndpointPair) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfEndpointPair's vtable slot 8.
+func (self *IIteratorOfEndpointPair) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfWiFiDirectServiceConfigurationMethod is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>.
+// IID: 19889f5e-49ae-5e31-b059-083f9f1532c3
+type IIteratorOfWiFiDirectServiceConfigurationMethod struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfWiFiDirectServiceConfigurationMethod is the interface identifier for IIteratorOfWiFiDirectServiceConfigurationMethod.
+var IID_IIteratorOfWiFiDirectServiceConfigurationMethod = win32.GUID{Data1: 0x19889f5e, Data2: 0x49ae, Data3: 0x5e31, Data4: [8]byte{0xb0, 0x59, 0x08, 0x3f, 0x9f, 0x15, 0x32, 0xc3}}
+
+// Current (propget get_Current) dispatches through IIteratorOfWiFiDirectServiceConfigurationMethod's vtable slot 6.
+func (self *IIteratorOfWiFiDirectServiceConfigurationMethod) Current() (WiFiDirectServiceConfigurationMethod, error) {
+	result := new(WiFiDirectServiceConfigurationMethod)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfWiFiDirectServiceConfigurationMethod's vtable slot 7.
+func (self *IIteratorOfWiFiDirectServiceConfigurationMethod) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfWiFiDirectServiceConfigurationMethod's vtable slot 8.
+func (self *IIteratorOfWiFiDirectServiceConfigurationMethod) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
 // Requires: Windows.Foundation.Collections.IIterable`1<String>.
@@ -323,6 +520,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorOfWiFiDirectServiceConfigurationMethod is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>.
 // IID: f6a6f91c-0579-565d-be07-4538a55690be
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>.
@@ -401,6 +617,24 @@ func (self *IVectorOfWiFiDirectServiceConfigurationMethod) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfWiFiDirectServiceConfigurationMethod creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfWiFiDirectServiceConfigurationMethod(items []WiFiDirectServiceConfigurationMethod) *IVectorOfWiFiDirectServiceConfigurationMethod {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWiFiDirectServiceConfigurationMethod, Iterator: IID_IIteratorOfWiFiDirectServiceConfigurationMethod, VectorView: IID_IVectorViewOfWiFiDirectServiceConfigurationMethod, Vector: IID_IVectorOfWiFiDirectServiceConfigurationMethod}, winrt.CodecScalar(4), boxed)
+	return (*IVectorOfWiFiDirectServiceConfigurationMethod)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfEndpointPair is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.EndpointPair>.
 // IID: 8780a851-6d48-5006-9288-81f3d7045a96
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.EndpointPair>.
@@ -433,6 +667,25 @@ func (self *IVectorViewOfEndpointPair) IndexOf(value *networking.IEndpointPair, 
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfEndpointPair creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.EndpointPair>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfEndpointPair(items []*networking.IEndpointPair) *IVectorViewOfEndpointPair {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.EndpointPair>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEndpointPair, Iterator: IID_IIteratorOfEndpointPair, VectorView: IID_IVectorViewOfEndpointPair}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfEndpointPair)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -475,6 +728,22 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfWiFiDirectServiceConfigurationMethod is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>.
 // IID: dc710fe1-7f04-515b-8ac1-1c5d3c0d2b28
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>.
@@ -507,3 +776,18 @@ func (self *IVectorViewOfWiFiDirectServiceConfigurationMethod) IndexOf(value WiF
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfWiFiDirectServiceConfigurationMethod creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfWiFiDirectServiceConfigurationMethod(items []WiFiDirectServiceConfigurationMethod) *IVectorViewOfWiFiDirectServiceConfigurationMethod {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWiFiDirectServiceConfigurationMethod, Iterator: IID_IIteratorOfWiFiDirectServiceConfigurationMethod, VectorView: IID_IVectorViewOfWiFiDirectServiceConfigurationMethod}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfWiFiDirectServiceConfigurationMethod)(unsafe.Pointer(obj))
+}

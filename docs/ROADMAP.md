@@ -50,8 +50,10 @@ renumbers) — not missing namespaces:
   design today; bound it with the select idiom in [async.md](async.md).
   Related sharp edge, also documented there: a fully-parked quiet process can
   trip Go's deadlock detector while a native completion is in flight.
-- **Writable / non-string Go-implemented collections**: `IVector<T>`,
-  non-`String` element types for `NewStringIterable` et al.
+- **Go-implemented maps** (`IMap<K,V>`/`IMapView<K,V>`): no emittable member
+  consumes one today. (Element-generic iterables/views and writable
+  `IVector<T>` landed with the generated `New<IIterableOfX>`-style
+  constructors; see [collections.md](collections.md).)
 - **Delegate-returning methods** (`get_Completed`) and delegate TypeDefs in
   their home namespaces.
 - **Arrays** (conformant arrays — includes `GetMany` on generated consumer

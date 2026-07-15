@@ -29,6 +29,25 @@ func (self *IIterableOfIWwwFormUrlDecoderEntry) First() (*IIteratorOfIWwwFormUrl
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfIWwwFormUrlDecoderEntry creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.IWwwFormUrlDecoderEntry>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIWwwFormUrlDecoderEntry(items []*IWwwFormUrlDecoderEntry) *IIterableOfIWwwFormUrlDecoderEntry {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.IWwwFormUrlDecoderEntry>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIWwwFormUrlDecoderEntry, Iterator: IID_IIteratorOfIWwwFormUrlDecoderEntry}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIWwwFormUrlDecoderEntry)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfIWwwFormUrlDecoderEntry is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Foundation.IWwwFormUrlDecoderEntry>.
 // IID: 32e54295-373c-50cb-80a1-468a990ca780
 type IIteratorOfIWwwFormUrlDecoderEntry struct {
@@ -93,3 +112,22 @@ func (self *IVectorViewOfIWwwFormUrlDecoderEntry) IndexOf(value *IWwwFormUrlDeco
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfIWwwFormUrlDecoderEntry creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.IWwwFormUrlDecoderEntry>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIWwwFormUrlDecoderEntry(items []*IWwwFormUrlDecoderEntry) *IVectorViewOfIWwwFormUrlDecoderEntry {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.IWwwFormUrlDecoderEntry>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIWwwFormUrlDecoderEntry, Iterator: IID_IIteratorOfIWwwFormUrlDecoderEntry, VectorView: IID_IVectorViewOfIWwwFormUrlDecoderEntry}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIWwwFormUrlDecoderEntry)(unsafe.Pointer(obj))
+}

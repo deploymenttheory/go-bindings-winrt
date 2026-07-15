@@ -154,6 +154,37 @@ func (self *IAsyncOperationOfSpatialSurfaceMesh) Await() (*ISpatialSurfaceMesh, 
 	return self.GetResults()
 }
 
+// IIterableOfDirectXPixelFormat is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.DirectX.DirectXPixelFormat>.
+// IID: 3908f2c6-1aee-5129-b9a6-2a6e01d9507e
+type IIterableOfDirectXPixelFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDirectXPixelFormat is the interface identifier for IIterableOfDirectXPixelFormat.
+var IID_IIterableOfDirectXPixelFormat = win32.GUID{Data1: 0x3908f2c6, Data2: 0x1aee, Data3: 0x5129, Data4: [8]byte{0xb9, 0xa6, 0x2a, 0x6e, 0x01, 0xd9, 0x50, 0x7e}}
+
+// First dispatches through IIterableOfDirectXPixelFormat's vtable slot 6.
+func (self *IIterableOfDirectXPixelFormat) First() (*IIteratorOfDirectXPixelFormat, error) {
+	result := new(*IIteratorOfDirectXPixelFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDirectXPixelFormat creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.DirectX.DirectXPixelFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfDirectXPixelFormat(items []graphicsdirectx.DirectXPixelFormat) *IIterableOfDirectXPixelFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.DirectX.DirectXPixelFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDirectXPixelFormat, Iterator: IID_IIteratorOfDirectXPixelFormat}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfDirectXPixelFormat)(unsafe.Pointer(obj))
+}
+
 // IIterableOfSpatialBoundingVolume is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Perception.Spatial.SpatialBoundingVolume>.
 // IID: 89e8f1ee-3a2a-5b69-a786-cddcf7456a3a
 type IIterableOfSpatialBoundingVolume struct {
@@ -169,6 +200,57 @@ func (self *IIterableOfSpatialBoundingVolume) First() (*IIteratorOfSpatialBoundi
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfSpatialBoundingVolume creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Perception.Spatial.SpatialBoundingVolume>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSpatialBoundingVolume(items []*perceptionspatial.ISpatialBoundingVolume) *IIterableOfSpatialBoundingVolume {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Perception.Spatial.SpatialBoundingVolume>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSpatialBoundingVolume, Iterator: IID_IIteratorOfSpatialBoundingVolume}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSpatialBoundingVolume)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfDirectXPixelFormat is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.DirectX.DirectXPixelFormat>.
+// IID: ea016190-ac80-5840-8f58-ff434c7b2907
+type IIteratorOfDirectXPixelFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDirectXPixelFormat is the interface identifier for IIteratorOfDirectXPixelFormat.
+var IID_IIteratorOfDirectXPixelFormat = win32.GUID{Data1: 0xea016190, Data2: 0xac80, Data3: 0x5840, Data4: [8]byte{0x8f, 0x58, 0xff, 0x43, 0x4c, 0x7b, 0x29, 0x07}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDirectXPixelFormat's vtable slot 6.
+func (self *IIteratorOfDirectXPixelFormat) Current() (graphicsdirectx.DirectXPixelFormat, error) {
+	result := new(graphicsdirectx.DirectXPixelFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDirectXPixelFormat's vtable slot 7.
+func (self *IIteratorOfDirectXPixelFormat) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDirectXPixelFormat's vtable slot 8.
+func (self *IIteratorOfDirectXPixelFormat) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfSpatialBoundingVolume is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Perception.Spatial.SpatialBoundingVolume>.
 // IID: eb8385c5-0775-5415-8f76-327e6e388ac5
@@ -278,3 +360,18 @@ func (self *IVectorViewOfDirectXPixelFormat) IndexOf(value graphicsdirectx.Direc
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfDirectXPixelFormat creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.DirectX.DirectXPixelFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfDirectXPixelFormat(items []graphicsdirectx.DirectXPixelFormat) *IVectorViewOfDirectXPixelFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.DirectX.DirectXPixelFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDirectXPixelFormat, Iterator: IID_IIteratorOfDirectXPixelFormat, VectorView: IID_IVectorViewOfDirectXPixelFormat}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfDirectXPixelFormat)(unsafe.Pointer(obj))
+}

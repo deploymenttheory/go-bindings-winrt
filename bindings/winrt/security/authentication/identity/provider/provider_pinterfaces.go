@@ -428,6 +428,73 @@ func (self *IAsyncOperationOfSecondaryAuthenticationFactorRegistrationResult) Aw
 	return self.GetResults()
 }
 
+// IIterableOfSecondaryAuthenticationFactorInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo>.
+// IID: 43b7bbe4-f096-53dd-8c16-1faa4b468c86
+type IIterableOfSecondaryAuthenticationFactorInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSecondaryAuthenticationFactorInfo is the interface identifier for IIterableOfSecondaryAuthenticationFactorInfo.
+var IID_IIterableOfSecondaryAuthenticationFactorInfo = win32.GUID{Data1: 0x43b7bbe4, Data2: 0xf096, Data3: 0x53dd, Data4: [8]byte{0x8c, 0x16, 0x1f, 0xaa, 0x4b, 0x46, 0x8c, 0x86}}
+
+// First dispatches through IIterableOfSecondaryAuthenticationFactorInfo's vtable slot 6.
+func (self *IIterableOfSecondaryAuthenticationFactorInfo) First() (*IIteratorOfSecondaryAuthenticationFactorInfo, error) {
+	result := new(*IIteratorOfSecondaryAuthenticationFactorInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSecondaryAuthenticationFactorInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSecondaryAuthenticationFactorInfo(items []*ISecondaryAuthenticationFactorInfo) *IIterableOfSecondaryAuthenticationFactorInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSecondaryAuthenticationFactorInfo, Iterator: IID_IIteratorOfSecondaryAuthenticationFactorInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSecondaryAuthenticationFactorInfo)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfSecondaryAuthenticationFactorInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo>.
+// IID: 0eedbda6-2de0-50af-abc4-46073245fb2d
+type IIteratorOfSecondaryAuthenticationFactorInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSecondaryAuthenticationFactorInfo is the interface identifier for IIteratorOfSecondaryAuthenticationFactorInfo.
+var IID_IIteratorOfSecondaryAuthenticationFactorInfo = win32.GUID{Data1: 0x0eedbda6, Data2: 0x2de0, Data3: 0x50af, Data4: [8]byte{0xab, 0xc4, 0x46, 0x07, 0x32, 0x45, 0xfb, 0x2d}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSecondaryAuthenticationFactorInfo's vtable slot 6.
+func (self *IIteratorOfSecondaryAuthenticationFactorInfo) Current() (*ISecondaryAuthenticationFactorInfo, error) {
+	result := new(*ISecondaryAuthenticationFactorInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSecondaryAuthenticationFactorInfo's vtable slot 7.
+func (self *IIteratorOfSecondaryAuthenticationFactorInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSecondaryAuthenticationFactorInfo's vtable slot 8.
+func (self *IIteratorOfSecondaryAuthenticationFactorInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfSecondaryAuthenticationFactorInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo>.
 // IID: 63c2e57e-3b00-5752-8fa7-cb9cbe8fe088
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo>.
@@ -460,3 +527,22 @@ func (self *IVectorViewOfSecondaryAuthenticationFactorInfo) IndexOf(value *ISeco
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfSecondaryAuthenticationFactorInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSecondaryAuthenticationFactorInfo(items []*ISecondaryAuthenticationFactorInfo) *IVectorViewOfSecondaryAuthenticationFactorInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSecondaryAuthenticationFactorInfo, Iterator: IID_IIteratorOfSecondaryAuthenticationFactorInfo, VectorView: IID_IVectorViewOfSecondaryAuthenticationFactorInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSecondaryAuthenticationFactorInfo)(unsafe.Pointer(obj))
+}

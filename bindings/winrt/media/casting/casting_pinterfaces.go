@@ -362,6 +362,73 @@ func (self *IAsyncOperationOfString) Await() (string, error) {
 	return self.GetResults()
 }
 
+// IIterableOfCastingSource is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Casting.CastingSource>.
+// IID: 1abb2cc9-46a2-58b1-91aa-28699d66d1ab
+type IIterableOfCastingSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCastingSource is the interface identifier for IIterableOfCastingSource.
+var IID_IIterableOfCastingSource = win32.GUID{Data1: 0x1abb2cc9, Data2: 0x46a2, Data3: 0x58b1, Data4: [8]byte{0x91, 0xaa, 0x28, 0x69, 0x9d, 0x66, 0xd1, 0xab}}
+
+// First dispatches through IIterableOfCastingSource's vtable slot 6.
+func (self *IIterableOfCastingSource) First() (*IIteratorOfCastingSource, error) {
+	result := new(*IIteratorOfCastingSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCastingSource creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Casting.CastingSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCastingSource(items []*ICastingSource) *IIterableOfCastingSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Casting.CastingSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCastingSource, Iterator: IID_IIteratorOfCastingSource}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCastingSource)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfCastingSource is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Casting.CastingSource>.
+// IID: 3f6c93e9-cc77-5ef4-b2b7-25cfcfc09720
+type IIteratorOfCastingSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCastingSource is the interface identifier for IIteratorOfCastingSource.
+var IID_IIteratorOfCastingSource = win32.GUID{Data1: 0x3f6c93e9, Data2: 0xcc77, Data3: 0x5ef4, Data4: [8]byte{0xb2, 0xb7, 0x25, 0xcf, 0xcf, 0xc0, 0x97, 0x20}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCastingSource's vtable slot 6.
+func (self *IIteratorOfCastingSource) Current() (*ICastingSource, error) {
+	result := new(*ICastingSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCastingSource's vtable slot 7.
+func (self *IIteratorOfCastingSource) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCastingSource's vtable slot 8.
+func (self *IIteratorOfCastingSource) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfCastingSource is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Media.Casting.CastingSource>.
 // IID: c2e3dea8-92e0-50af-9c93-83b3e86b73b4
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Casting.CastingSource>.
@@ -440,6 +507,28 @@ func (self *IVectorOfCastingSource) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfCastingSource creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Media.Casting.CastingSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfCastingSource(items []*ICastingSource) *IVectorOfCastingSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Media.Casting.CastingSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCastingSource, Iterator: IID_IIteratorOfCastingSource, VectorView: IID_IVectorViewOfCastingSource, Vector: IID_IVectorOfCastingSource}, winrt.CodecInterface, boxed)
+	return (*IVectorOfCastingSource)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfCastingSource is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Casting.CastingSource>.
 // IID: 7828da61-dea4-5485-b27a-8f78e0472402
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Casting.CastingSource>.
@@ -472,3 +561,22 @@ func (self *IVectorViewOfCastingSource) IndexOf(value *ICastingSource, index *ui
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfCastingSource creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Casting.CastingSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCastingSource(items []*ICastingSource) *IVectorViewOfCastingSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Casting.CastingSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCastingSource, Iterator: IID_IIteratorOfCastingSource, VectorView: IID_IVectorViewOfCastingSource}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCastingSource)(unsafe.Pointer(obj))
+}

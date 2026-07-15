@@ -222,6 +222,207 @@ func (self *IAsyncOperationOfJumpList) Await() (*IJumpList, error) {
 	return self.GetResults()
 }
 
+// IIterableOfJumpListItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.JumpListItem>.
+// IID: 130a7274-1afb-5c10-abea-61d81692a496
+type IIterableOfJumpListItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfJumpListItem is the interface identifier for IIterableOfJumpListItem.
+var IID_IIterableOfJumpListItem = win32.GUID{Data1: 0x130a7274, Data2: 0x1afb, Data3: 0x5c10, Data4: [8]byte{0xab, 0xea, 0x61, 0xd8, 0x16, 0x92, 0xa4, 0x96}}
+
+// First dispatches through IIterableOfJumpListItem's vtable slot 6.
+func (self *IIterableOfJumpListItem) First() (*IIteratorOfJumpListItem, error) {
+	result := new(*IIteratorOfJumpListItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfJumpListItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.JumpListItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfJumpListItem(items []*IJumpListItem) *IIterableOfJumpListItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.JumpListItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfJumpListItem, Iterator: IID_IIteratorOfJumpListItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfJumpListItem)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSecondaryTile is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.SecondaryTile>.
+// IID: 75651af0-014a-5593-bc48-836ba3d1d5d4
+type IIterableOfSecondaryTile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSecondaryTile is the interface identifier for IIterableOfSecondaryTile.
+var IID_IIterableOfSecondaryTile = win32.GUID{Data1: 0x75651af0, Data2: 0x014a, Data3: 0x5593, Data4: [8]byte{0xbc, 0x48, 0x83, 0x6b, 0xa3, 0xd1, 0xd5, 0xd4}}
+
+// First dispatches through IIterableOfSecondaryTile's vtable slot 6.
+func (self *IIterableOfSecondaryTile) First() (*IIteratorOfSecondaryTile, error) {
+	result := new(*IIteratorOfSecondaryTile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSecondaryTile creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.SecondaryTile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSecondaryTile(items []*ISecondaryTile) *IIterableOfSecondaryTile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.SecondaryTile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSecondaryTile, Iterator: IID_IIteratorOfSecondaryTile}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSecondaryTile)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSecondaryTileVisualElements is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.SecondaryTileVisualElements>.
+// IID: 6ef7c354-f153-5b53-99c2-e045c78cce08
+type IIterableOfSecondaryTileVisualElements struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSecondaryTileVisualElements is the interface identifier for IIterableOfSecondaryTileVisualElements.
+var IID_IIterableOfSecondaryTileVisualElements = win32.GUID{Data1: 0x6ef7c354, Data2: 0xf153, Data3: 0x5b53, Data4: [8]byte{0x99, 0xc2, 0xe0, 0x45, 0xc7, 0x8c, 0xce, 0x08}}
+
+// First dispatches through IIterableOfSecondaryTileVisualElements's vtable slot 6.
+func (self *IIterableOfSecondaryTileVisualElements) First() (*IIteratorOfSecondaryTileVisualElements, error) {
+	result := new(*IIteratorOfSecondaryTileVisualElements)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSecondaryTileVisualElements creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.SecondaryTileVisualElements>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSecondaryTileVisualElements(items []*ISecondaryTileVisualElements) *IIterableOfSecondaryTileVisualElements {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.SecondaryTileVisualElements>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSecondaryTileVisualElements, Iterator: IID_IIteratorOfSecondaryTileVisualElements}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSecondaryTileVisualElements)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfJumpListItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.StartScreen.JumpListItem>.
+// IID: f69f5cc4-004f-53eb-89e6-786e460588a4
+type IIteratorOfJumpListItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfJumpListItem is the interface identifier for IIteratorOfJumpListItem.
+var IID_IIteratorOfJumpListItem = win32.GUID{Data1: 0xf69f5cc4, Data2: 0x004f, Data3: 0x53eb, Data4: [8]byte{0x89, 0xe6, 0x78, 0x6e, 0x46, 0x05, 0x88, 0xa4}}
+
+// Current (propget get_Current) dispatches through IIteratorOfJumpListItem's vtable slot 6.
+func (self *IIteratorOfJumpListItem) Current() (*IJumpListItem, error) {
+	result := new(*IJumpListItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfJumpListItem's vtable slot 7.
+func (self *IIteratorOfJumpListItem) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfJumpListItem's vtable slot 8.
+func (self *IIteratorOfJumpListItem) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSecondaryTile is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.StartScreen.SecondaryTile>.
+// IID: 391f7579-a90e-5352-9d01-fda995d7912f
+type IIteratorOfSecondaryTile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSecondaryTile is the interface identifier for IIteratorOfSecondaryTile.
+var IID_IIteratorOfSecondaryTile = win32.GUID{Data1: 0x391f7579, Data2: 0xa90e, Data3: 0x5352, Data4: [8]byte{0x9d, 0x01, 0xfd, 0xa9, 0x95, 0xd7, 0x91, 0x2f}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSecondaryTile's vtable slot 6.
+func (self *IIteratorOfSecondaryTile) Current() (*ISecondaryTile, error) {
+	result := new(*ISecondaryTile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSecondaryTile's vtable slot 7.
+func (self *IIteratorOfSecondaryTile) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSecondaryTile's vtable slot 8.
+func (self *IIteratorOfSecondaryTile) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSecondaryTileVisualElements is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.StartScreen.SecondaryTileVisualElements>.
+// IID: bbc6e16c-cace-5230-8804-2298375168ac
+type IIteratorOfSecondaryTileVisualElements struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSecondaryTileVisualElements is the interface identifier for IIteratorOfSecondaryTileVisualElements.
+var IID_IIteratorOfSecondaryTileVisualElements = win32.GUID{Data1: 0xbbc6e16c, Data2: 0xcace, Data3: 0x5230, Data4: [8]byte{0x88, 0x04, 0x22, 0x98, 0x37, 0x51, 0x68, 0xac}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSecondaryTileVisualElements's vtable slot 6.
+func (self *IIteratorOfSecondaryTileVisualElements) Current() (*ISecondaryTileVisualElements, error) {
+	result := new(*ISecondaryTileVisualElements)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSecondaryTileVisualElements's vtable slot 7.
+func (self *IIteratorOfSecondaryTileVisualElements) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSecondaryTileVisualElements's vtable slot 8.
+func (self *IIteratorOfSecondaryTileVisualElements) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfSpatialBoundingBox is the WinRT interface Windows.Foundation.IReference`1<Windows.Perception.Spatial.SpatialBoundingBox>.
 // IID: ab3274d9-9b82-5396-bb00-d70c539796b3
 // Requires: Windows.Foundation.IPropertyValue.
@@ -317,6 +518,28 @@ func (self *IVectorOfJumpListItem) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfJumpListItem creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.StartScreen.JumpListItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfJumpListItem(items []*IJumpListItem) *IVectorOfJumpListItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.StartScreen.JumpListItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfJumpListItem, Iterator: IID_IIteratorOfJumpListItem, VectorView: IID_IVectorViewOfJumpListItem, Vector: IID_IVectorOfJumpListItem}, winrt.CodecInterface, boxed)
+	return (*IVectorOfJumpListItem)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfJumpListItem is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.JumpListItem>.
 // IID: be418be9-ab72-56b0-b6d3-ec70ef11f663
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.JumpListItem>.
@@ -349,6 +572,25 @@ func (self *IVectorViewOfJumpListItem) IndexOf(value *IJumpListItem, index *uint
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfJumpListItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.JumpListItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfJumpListItem(items []*IJumpListItem) *IVectorViewOfJumpListItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.JumpListItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfJumpListItem, Iterator: IID_IIteratorOfJumpListItem, VectorView: IID_IVectorViewOfJumpListItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfJumpListItem)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfSecondaryTile is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.SecondaryTile>.
 // IID: 16f89727-d811-5051-9ab5-0cb86a0f0ac3
@@ -383,6 +625,25 @@ func (self *IVectorViewOfSecondaryTile) IndexOf(value *ISecondaryTile, index *ui
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfSecondaryTile creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.SecondaryTile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSecondaryTile(items []*ISecondaryTile) *IVectorViewOfSecondaryTile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.SecondaryTile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSecondaryTile, Iterator: IID_IIteratorOfSecondaryTile, VectorView: IID_IVectorViewOfSecondaryTile}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSecondaryTile)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfSecondaryTileVisualElements is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.SecondaryTileVisualElements>.
 // IID: 1cd2cc9b-a41c-5dc7-9d95-4cef69a293f4
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.StartScreen.SecondaryTileVisualElements>.
@@ -415,3 +676,22 @@ func (self *IVectorViewOfSecondaryTileVisualElements) IndexOf(value *ISecondaryT
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfSecondaryTileVisualElements creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.SecondaryTileVisualElements>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSecondaryTileVisualElements(items []*ISecondaryTileVisualElements) *IVectorViewOfSecondaryTileVisualElements {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.StartScreen.SecondaryTileVisualElements>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSecondaryTileVisualElements, Iterator: IID_IIteratorOfSecondaryTileVisualElements, VectorView: IID_IVectorViewOfSecondaryTileVisualElements}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSecondaryTileVisualElements)(unsafe.Pointer(obj))
+}

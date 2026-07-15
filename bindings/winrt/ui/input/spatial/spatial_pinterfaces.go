@@ -155,6 +155,73 @@ func (self *IAsyncOperationOfIRandomAccessStreamWithContentType) Await() (*stora
 	return self.GetResults()
 }
 
+// IIterableOfSpatialInteractionSourceState is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Spatial.SpatialInteractionSourceState>.
+// IID: 7ecce0f5-0874-506f-8d42-4c9519156407
+type IIterableOfSpatialInteractionSourceState struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSpatialInteractionSourceState is the interface identifier for IIterableOfSpatialInteractionSourceState.
+var IID_IIterableOfSpatialInteractionSourceState = win32.GUID{Data1: 0x7ecce0f5, Data2: 0x0874, Data3: 0x506f, Data4: [8]byte{0x8d, 0x42, 0x4c, 0x95, 0x19, 0x15, 0x64, 0x07}}
+
+// First dispatches through IIterableOfSpatialInteractionSourceState's vtable slot 6.
+func (self *IIterableOfSpatialInteractionSourceState) First() (*IIteratorOfSpatialInteractionSourceState, error) {
+	result := new(*IIteratorOfSpatialInteractionSourceState)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSpatialInteractionSourceState creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Spatial.SpatialInteractionSourceState>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSpatialInteractionSourceState(items []*ISpatialInteractionSourceState) *IIterableOfSpatialInteractionSourceState {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Spatial.SpatialInteractionSourceState>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSpatialInteractionSourceState, Iterator: IID_IIteratorOfSpatialInteractionSourceState}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSpatialInteractionSourceState)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfSpatialInteractionSourceState is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.Spatial.SpatialInteractionSourceState>.
+// IID: 23f50032-907e-5d73-bbdc-f7563de655c4
+type IIteratorOfSpatialInteractionSourceState struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSpatialInteractionSourceState is the interface identifier for IIteratorOfSpatialInteractionSourceState.
+var IID_IIteratorOfSpatialInteractionSourceState = win32.GUID{Data1: 0x23f50032, Data2: 0x907e, Data3: 0x5d73, Data4: [8]byte{0xbb, 0xdc, 0xf7, 0x56, 0x3d, 0xe6, 0x55, 0xc4}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSpatialInteractionSourceState's vtable slot 6.
+func (self *IIteratorOfSpatialInteractionSourceState) Current() (*ISpatialInteractionSourceState, error) {
+	result := new(*ISpatialInteractionSourceState)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSpatialInteractionSourceState's vtable slot 7.
+func (self *IIteratorOfSpatialInteractionSourceState) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSpatialInteractionSourceState's vtable slot 8.
+func (self *IIteratorOfSpatialInteractionSourceState) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfQuaternion is the WinRT interface Windows.Foundation.IReference`1<Windows.Foundation.Numerics.Quaternion>.
 // IID: b27004bb-c014-5dce-9a21-799c5a3c1461
 // Requires: Windows.Foundation.IPropertyValue.
@@ -221,3 +288,22 @@ func (self *IVectorViewOfSpatialInteractionSourceState) IndexOf(value *ISpatialI
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfSpatialInteractionSourceState creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Spatial.SpatialInteractionSourceState>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSpatialInteractionSourceState(items []*ISpatialInteractionSourceState) *IVectorViewOfSpatialInteractionSourceState {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.Spatial.SpatialInteractionSourceState>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSpatialInteractionSourceState, Iterator: IID_IIteratorOfSpatialInteractionSourceState, VectorView: IID_IVectorViewOfSpatialInteractionSourceState}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSpatialInteractionSourceState)(unsafe.Pointer(obj))
+}

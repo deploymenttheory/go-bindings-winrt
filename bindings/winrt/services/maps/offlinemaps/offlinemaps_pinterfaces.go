@@ -152,6 +152,73 @@ func (self *IAsyncOperationOfOfflineMapPackageStartDownloadResult) Await() (*IOf
 	return self.GetResults()
 }
 
+// IIterableOfOfflineMapPackage is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Services.Maps.OfflineMaps.OfflineMapPackage>.
+// IID: 7522287c-0af2-586c-bb3f-457c07984a6f
+type IIterableOfOfflineMapPackage struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfOfflineMapPackage is the interface identifier for IIterableOfOfflineMapPackage.
+var IID_IIterableOfOfflineMapPackage = win32.GUID{Data1: 0x7522287c, Data2: 0x0af2, Data3: 0x586c, Data4: [8]byte{0xbb, 0x3f, 0x45, 0x7c, 0x07, 0x98, 0x4a, 0x6f}}
+
+// First dispatches through IIterableOfOfflineMapPackage's vtable slot 6.
+func (self *IIterableOfOfflineMapPackage) First() (*IIteratorOfOfflineMapPackage, error) {
+	result := new(*IIteratorOfOfflineMapPackage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfOfflineMapPackage creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Services.Maps.OfflineMaps.OfflineMapPackage>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfOfflineMapPackage(items []*IOfflineMapPackage) *IIterableOfOfflineMapPackage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Services.Maps.OfflineMaps.OfflineMapPackage>", winrt.CollectionIIDs{Iterable: IID_IIterableOfOfflineMapPackage, Iterator: IID_IIteratorOfOfflineMapPackage}, winrt.CodecInterface, boxed)
+	return (*IIterableOfOfflineMapPackage)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfOfflineMapPackage is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Services.Maps.OfflineMaps.OfflineMapPackage>.
+// IID: 750f4d37-3766-5842-a425-ccd9b8d80786
+type IIteratorOfOfflineMapPackage struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfOfflineMapPackage is the interface identifier for IIteratorOfOfflineMapPackage.
+var IID_IIteratorOfOfflineMapPackage = win32.GUID{Data1: 0x750f4d37, Data2: 0x3766, Data3: 0x5842, Data4: [8]byte{0xa4, 0x25, 0xcc, 0xd9, 0xb8, 0xd8, 0x07, 0x86}}
+
+// Current (propget get_Current) dispatches through IIteratorOfOfflineMapPackage's vtable slot 6.
+func (self *IIteratorOfOfflineMapPackage) Current() (*IOfflineMapPackage, error) {
+	result := new(*IOfflineMapPackage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfOfflineMapPackage's vtable slot 7.
+func (self *IIteratorOfOfflineMapPackage) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfOfflineMapPackage's vtable slot 8.
+func (self *IIteratorOfOfflineMapPackage) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfOfflineMapPackage is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Services.Maps.OfflineMaps.OfflineMapPackage>.
 // IID: 2522ebc2-bd9f-551b-b90e-6c28152958a0
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Services.Maps.OfflineMaps.OfflineMapPackage>.
@@ -184,3 +251,22 @@ func (self *IVectorViewOfOfflineMapPackage) IndexOf(value *IOfflineMapPackage, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfOfflineMapPackage creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Services.Maps.OfflineMaps.OfflineMapPackage>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfOfflineMapPackage(items []*IOfflineMapPackage) *IVectorViewOfOfflineMapPackage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Services.Maps.OfflineMaps.OfflineMapPackage>", winrt.CollectionIIDs{Iterable: IID_IIterableOfOfflineMapPackage, Iterator: IID_IIteratorOfOfflineMapPackage, VectorView: IID_IVectorViewOfOfflineMapPackage}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfOfflineMapPackage)(unsafe.Pointer(obj))
+}

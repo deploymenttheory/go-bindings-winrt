@@ -100,6 +100,25 @@ func (self *IIterableOfCompositionColorGradientStop) First() (*IIteratorOfCompos
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfCompositionColorGradientStop creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionColorGradientStop>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCompositionColorGradientStop(items []*syswinrt.IInspectable) *IIterableOfCompositionColorGradientStop {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionColorGradientStop>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCompositionColorGradientStop, Iterator: IID_IIteratorOfCompositionColorGradientStop}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCompositionColorGradientStop)(unsafe.Pointer(obj))
+}
+
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
 // IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
 type IIterableOfString struct {
@@ -114,6 +133,22 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	result := new(*IIteratorOfString)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
 }
 
 // IIteratorOfCompositionColorGradientStop is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Composition.CompositionColorGradientStop>.
@@ -313,6 +348,28 @@ func (self *IVectorOfCompositionColorGradientStop) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfCompositionColorGradientStop creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Composition.CompositionColorGradientStop>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfCompositionColorGradientStop(items []*syswinrt.IInspectable) *IVectorOfCompositionColorGradientStop {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Composition.CompositionColorGradientStop>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCompositionColorGradientStop, Iterator: IID_IIteratorOfCompositionColorGradientStop, VectorView: IID_IVectorViewOfCompositionColorGradientStop, Vector: IID_IVectorOfCompositionColorGradientStop}, winrt.CodecInterface, boxed)
+	return (*IVectorOfCompositionColorGradientStop)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfCompositionColorGradientStop is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Composition.CompositionColorGradientStop>.
 // IID: 801d95c7-7ce2-55d7-a62f-2ff94c544034
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionColorGradientStop>.
@@ -347,3 +404,22 @@ func (self *IVectorViewOfCompositionColorGradientStop) IndexOf(value *syswinrt.I
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfCompositionColorGradientStop creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Composition.CompositionColorGradientStop>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCompositionColorGradientStop(items []*syswinrt.IInspectable) *IVectorViewOfCompositionColorGradientStop {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Composition.CompositionColorGradientStop>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCompositionColorGradientStop, Iterator: IID_IIteratorOfCompositionColorGradientStop, VectorView: IID_IVectorViewOfCompositionColorGradientStop}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCompositionColorGradientStop)(unsafe.Pointer(obj))
+}

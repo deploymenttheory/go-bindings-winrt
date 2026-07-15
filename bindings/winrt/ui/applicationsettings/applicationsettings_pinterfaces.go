@@ -14,6 +14,274 @@ import (
 	uipopups "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/popups"
 )
 
+// IIterableOfCredentialCommand is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.CredentialCommand>.
+// IID: 883ed18d-4dbb-58f2-8fd2-e4b018509553
+type IIterableOfCredentialCommand struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCredentialCommand is the interface identifier for IIterableOfCredentialCommand.
+var IID_IIterableOfCredentialCommand = win32.GUID{Data1: 0x883ed18d, Data2: 0x4dbb, Data3: 0x58f2, Data4: [8]byte{0x8f, 0xd2, 0xe4, 0xb0, 0x18, 0x50, 0x95, 0x53}}
+
+// First dispatches through IIterableOfCredentialCommand's vtable slot 6.
+func (self *IIterableOfCredentialCommand) First() (*IIteratorOfCredentialCommand, error) {
+	result := new(*IIteratorOfCredentialCommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCredentialCommand creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.CredentialCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCredentialCommand(items []*ICredentialCommand) *IIterableOfCredentialCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.CredentialCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCredentialCommand, Iterator: IID_IIteratorOfCredentialCommand}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCredentialCommand)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSettingsCommand is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.SettingsCommand>.
+// IID: 6308e7e8-cb85-5339-a3e9-9a7500d19c68
+type IIterableOfSettingsCommand struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSettingsCommand is the interface identifier for IIterableOfSettingsCommand.
+var IID_IIterableOfSettingsCommand = win32.GUID{Data1: 0x6308e7e8, Data2: 0xcb85, Data3: 0x5339, Data4: [8]byte{0xa3, 0xe9, 0x9a, 0x75, 0x00, 0xd1, 0x9c, 0x68}}
+
+// First dispatches through IIterableOfSettingsCommand's vtable slot 6.
+func (self *IIterableOfSettingsCommand) First() (*IIteratorOfSettingsCommand, error) {
+	result := new(*IIteratorOfSettingsCommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSettingsCommand creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.SettingsCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSettingsCommand(items []*uipopups.IUICommand) *IIterableOfSettingsCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.SettingsCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSettingsCommand, Iterator: IID_IIteratorOfSettingsCommand}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSettingsCommand)(unsafe.Pointer(obj))
+}
+
+// IIterableOfWebAccountCommand is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.WebAccountCommand>.
+// IID: bd0d999c-b2ba-51b2-bcc0-d4a5cd821555
+type IIterableOfWebAccountCommand struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfWebAccountCommand is the interface identifier for IIterableOfWebAccountCommand.
+var IID_IIterableOfWebAccountCommand = win32.GUID{Data1: 0xbd0d999c, Data2: 0xb2ba, Data3: 0x51b2, Data4: [8]byte{0xbc, 0xc0, 0xd4, 0xa5, 0xcd, 0x82, 0x15, 0x55}}
+
+// First dispatches through IIterableOfWebAccountCommand's vtable slot 6.
+func (self *IIterableOfWebAccountCommand) First() (*IIteratorOfWebAccountCommand, error) {
+	result := new(*IIteratorOfWebAccountCommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfWebAccountCommand creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.WebAccountCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfWebAccountCommand(items []*IWebAccountCommand) *IIterableOfWebAccountCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.WebAccountCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebAccountCommand, Iterator: IID_IIteratorOfWebAccountCommand}, winrt.CodecInterface, boxed)
+	return (*IIterableOfWebAccountCommand)(unsafe.Pointer(obj))
+}
+
+// IIterableOfWebAccountProviderCommand is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.WebAccountProviderCommand>.
+// IID: 15165367-2e93-59a6-b5c7-16d3b58fd2e7
+type IIterableOfWebAccountProviderCommand struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfWebAccountProviderCommand is the interface identifier for IIterableOfWebAccountProviderCommand.
+var IID_IIterableOfWebAccountProviderCommand = win32.GUID{Data1: 0x15165367, Data2: 0x2e93, Data3: 0x59a6, Data4: [8]byte{0xb5, 0xc7, 0x16, 0xd3, 0xb5, 0x8f, 0xd2, 0xe7}}
+
+// First dispatches through IIterableOfWebAccountProviderCommand's vtable slot 6.
+func (self *IIterableOfWebAccountProviderCommand) First() (*IIteratorOfWebAccountProviderCommand, error) {
+	result := new(*IIteratorOfWebAccountProviderCommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfWebAccountProviderCommand creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.WebAccountProviderCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfWebAccountProviderCommand(items []*IWebAccountProviderCommand) *IIterableOfWebAccountProviderCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.WebAccountProviderCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebAccountProviderCommand, Iterator: IID_IIteratorOfWebAccountProviderCommand}, winrt.CodecInterface, boxed)
+	return (*IIterableOfWebAccountProviderCommand)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfCredentialCommand is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.ApplicationSettings.CredentialCommand>.
+// IID: 9f1177f1-85bb-5cd0-9b08-a0b47a764c75
+type IIteratorOfCredentialCommand struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCredentialCommand is the interface identifier for IIteratorOfCredentialCommand.
+var IID_IIteratorOfCredentialCommand = win32.GUID{Data1: 0x9f1177f1, Data2: 0x85bb, Data3: 0x5cd0, Data4: [8]byte{0x9b, 0x08, 0xa0, 0xb4, 0x7a, 0x76, 0x4c, 0x75}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCredentialCommand's vtable slot 6.
+func (self *IIteratorOfCredentialCommand) Current() (*ICredentialCommand, error) {
+	result := new(*ICredentialCommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCredentialCommand's vtable slot 7.
+func (self *IIteratorOfCredentialCommand) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCredentialCommand's vtable slot 8.
+func (self *IIteratorOfCredentialCommand) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSettingsCommand is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.ApplicationSettings.SettingsCommand>.
+// IID: 2f071c24-4a58-5a00-a294-c7162e98c2a0
+type IIteratorOfSettingsCommand struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSettingsCommand is the interface identifier for IIteratorOfSettingsCommand.
+var IID_IIteratorOfSettingsCommand = win32.GUID{Data1: 0x2f071c24, Data2: 0x4a58, Data3: 0x5a00, Data4: [8]byte{0xa2, 0x94, 0xc7, 0x16, 0x2e, 0x98, 0xc2, 0xa0}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSettingsCommand's vtable slot 6.
+func (self *IIteratorOfSettingsCommand) Current() (*uipopups.IUICommand, error) {
+	result := new(*uipopups.IUICommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSettingsCommand's vtable slot 7.
+func (self *IIteratorOfSettingsCommand) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSettingsCommand's vtable slot 8.
+func (self *IIteratorOfSettingsCommand) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfWebAccountCommand is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.ApplicationSettings.WebAccountCommand>.
+// IID: 8cbb62b6-bd9c-5486-9d14-9cc4627b32d4
+type IIteratorOfWebAccountCommand struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfWebAccountCommand is the interface identifier for IIteratorOfWebAccountCommand.
+var IID_IIteratorOfWebAccountCommand = win32.GUID{Data1: 0x8cbb62b6, Data2: 0xbd9c, Data3: 0x5486, Data4: [8]byte{0x9d, 0x14, 0x9c, 0xc4, 0x62, 0x7b, 0x32, 0xd4}}
+
+// Current (propget get_Current) dispatches through IIteratorOfWebAccountCommand's vtable slot 6.
+func (self *IIteratorOfWebAccountCommand) Current() (*IWebAccountCommand, error) {
+	result := new(*IWebAccountCommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfWebAccountCommand's vtable slot 7.
+func (self *IIteratorOfWebAccountCommand) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfWebAccountCommand's vtable slot 8.
+func (self *IIteratorOfWebAccountCommand) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfWebAccountProviderCommand is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.ApplicationSettings.WebAccountProviderCommand>.
+// IID: 82d7cd74-8e33-5f06-92fc-915138aacbde
+type IIteratorOfWebAccountProviderCommand struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfWebAccountProviderCommand is the interface identifier for IIteratorOfWebAccountProviderCommand.
+var IID_IIteratorOfWebAccountProviderCommand = win32.GUID{Data1: 0x82d7cd74, Data2: 0x8e33, Data3: 0x5f06, Data4: [8]byte{0x92, 0xfc, 0x91, 0x51, 0x38, 0xaa, 0xcb, 0xde}}
+
+// Current (propget get_Current) dispatches through IIteratorOfWebAccountProviderCommand's vtable slot 6.
+func (self *IIteratorOfWebAccountProviderCommand) Current() (*IWebAccountProviderCommand, error) {
+	result := new(*IWebAccountProviderCommand)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfWebAccountProviderCommand's vtable slot 7.
+func (self *IIteratorOfWebAccountProviderCommand) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfWebAccountProviderCommand's vtable slot 8.
+func (self *IIteratorOfWebAccountProviderCommand) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfCredentialCommand is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.CredentialCommand>.
 // IID: b6af1cb5-f60e-5b08-b312-2eb51135cfc6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.CredentialCommand>.
@@ -91,6 +359,28 @@ func (self *IVectorOfCredentialCommand) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfCredentialCommand creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.CredentialCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfCredentialCommand(items []*ICredentialCommand) *IVectorOfCredentialCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.CredentialCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCredentialCommand, Iterator: IID_IIteratorOfCredentialCommand, VectorView: IID_IVectorViewOfCredentialCommand, Vector: IID_IVectorOfCredentialCommand}, winrt.CodecInterface, boxed)
+	return (*IVectorOfCredentialCommand)(unsafe.Pointer(obj))
+}
 
 // IVectorOfSettingsCommand is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.SettingsCommand>.
 // IID: 10bd9cdd-3767-5e96-9022-f00f9cbd6241
@@ -170,6 +460,28 @@ func (self *IVectorOfSettingsCommand) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfSettingsCommand creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.SettingsCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfSettingsCommand(items []*uipopups.IUICommand) *IVectorOfSettingsCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.SettingsCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSettingsCommand, Iterator: IID_IIteratorOfSettingsCommand, VectorView: IID_IVectorViewOfSettingsCommand, Vector: IID_IVectorOfSettingsCommand}, winrt.CodecInterface, boxed)
+	return (*IVectorOfSettingsCommand)(unsafe.Pointer(obj))
+}
+
 // IVectorOfWebAccountCommand is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.WebAccountCommand>.
 // IID: 64e864c8-7fef-5df5-a624-50b577f48554
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.WebAccountCommand>.
@@ -247,6 +559,28 @@ func (self *IVectorOfWebAccountCommand) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfWebAccountCommand creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.WebAccountCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfWebAccountCommand(items []*IWebAccountCommand) *IVectorOfWebAccountCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.WebAccountCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebAccountCommand, Iterator: IID_IIteratorOfWebAccountCommand, VectorView: IID_IVectorViewOfWebAccountCommand, Vector: IID_IVectorOfWebAccountCommand}, winrt.CodecInterface, boxed)
+	return (*IVectorOfWebAccountCommand)(unsafe.Pointer(obj))
+}
 
 // IVectorOfWebAccountProviderCommand is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.WebAccountProviderCommand>.
 // IID: d376abf3-f0c1-5233-9f42-de531884963e
@@ -326,6 +660,28 @@ func (self *IVectorOfWebAccountProviderCommand) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfWebAccountProviderCommand creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.WebAccountProviderCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfWebAccountProviderCommand(items []*IWebAccountProviderCommand) *IVectorOfWebAccountProviderCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.ApplicationSettings.WebAccountProviderCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebAccountProviderCommand, Iterator: IID_IIteratorOfWebAccountProviderCommand, VectorView: IID_IVectorViewOfWebAccountProviderCommand, Vector: IID_IVectorOfWebAccountProviderCommand}, winrt.CodecInterface, boxed)
+	return (*IVectorOfWebAccountProviderCommand)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfCredentialCommand is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.CredentialCommand>.
 // IID: 95cc1bba-c279-5ee5-a524-78012b7fe17e
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.CredentialCommand>.
@@ -358,6 +714,25 @@ func (self *IVectorViewOfCredentialCommand) IndexOf(value *ICredentialCommand, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfCredentialCommand creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.CredentialCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCredentialCommand(items []*ICredentialCommand) *IVectorViewOfCredentialCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.CredentialCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCredentialCommand, Iterator: IID_IIteratorOfCredentialCommand, VectorView: IID_IVectorViewOfCredentialCommand}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCredentialCommand)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfSettingsCommand is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.SettingsCommand>.
 // IID: 67b64d17-4245-5d7c-bfb4-6b68dd525877
@@ -392,6 +767,25 @@ func (self *IVectorViewOfSettingsCommand) IndexOf(value *uipopups.IUICommand, in
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfSettingsCommand creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.SettingsCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSettingsCommand(items []*uipopups.IUICommand) *IVectorViewOfSettingsCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.SettingsCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSettingsCommand, Iterator: IID_IIteratorOfSettingsCommand, VectorView: IID_IVectorViewOfSettingsCommand}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSettingsCommand)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfWebAccountCommand is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.WebAccountCommand>.
 // IID: 207eaa3e-5ec9-5bd4-a1d2-73179a8128a8
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.WebAccountCommand>.
@@ -425,6 +819,25 @@ func (self *IVectorViewOfWebAccountCommand) IndexOf(value *IWebAccountCommand, i
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfWebAccountCommand creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.WebAccountCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfWebAccountCommand(items []*IWebAccountCommand) *IVectorViewOfWebAccountCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.WebAccountCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebAccountCommand, Iterator: IID_IIteratorOfWebAccountCommand, VectorView: IID_IVectorViewOfWebAccountCommand}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfWebAccountCommand)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfWebAccountProviderCommand is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.WebAccountProviderCommand>.
 // IID: b2d19260-1827-5d88-b948-9688cfcd63ae
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.ApplicationSettings.WebAccountProviderCommand>.
@@ -457,3 +870,22 @@ func (self *IVectorViewOfWebAccountProviderCommand) IndexOf(value *IWebAccountPr
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfWebAccountProviderCommand creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.WebAccountProviderCommand>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfWebAccountProviderCommand(items []*IWebAccountProviderCommand) *IVectorViewOfWebAccountProviderCommand {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.ApplicationSettings.WebAccountProviderCommand>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebAccountProviderCommand, Iterator: IID_IIteratorOfWebAccountProviderCommand, VectorView: IID_IVectorViewOfWebAccountProviderCommand}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfWebAccountProviderCommand)(unsafe.Pointer(obj))
+}

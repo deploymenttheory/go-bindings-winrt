@@ -361,6 +361,76 @@ func (self *IAsyncOperationOfWebTokenRequestResult) Await() (*securityauthentica
 	return self.GetResults()
 }
 
+// IIterableOfStorePreviewProductInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo>.
+// IID: a9cb4860-67d1-53c2-a621-3074b0344d49
+type IIterableOfStorePreviewProductInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfStorePreviewProductInfo is the interface identifier for IIterableOfStorePreviewProductInfo.
+var IID_IIterableOfStorePreviewProductInfo = win32.GUID{Data1: 0xa9cb4860, Data2: 0x67d1, Data3: 0x53c2, Data4: [8]byte{0xa6, 0x21, 0x30, 0x74, 0xb0, 0x34, 0x4d, 0x49}}
+
+// First dispatches through IIterableOfStorePreviewProductInfo's vtable slot 6.
+func (self *IIterableOfStorePreviewProductInfo) First() (*IIteratorOfStorePreviewProductInfo, error) {
+	result := new(*IIteratorOfStorePreviewProductInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfStorePreviewProductInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfStorePreviewProductInfo(items []*IStorePreviewProductInfo) *IIterableOfStorePreviewProductInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStorePreviewProductInfo, Iterator: IID_IIteratorOfStorePreviewProductInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfStorePreviewProductInfo)(unsafe.Pointer(obj))
+}
+
+// IIterableOfStorePreviewSkuInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo>.
+// IID: 2c0d85d9-0df7-5de6-962e-bc8f149faf19
+type IIterableOfStorePreviewSkuInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfStorePreviewSkuInfo is the interface identifier for IIterableOfStorePreviewSkuInfo.
+var IID_IIterableOfStorePreviewSkuInfo = win32.GUID{Data1: 0x2c0d85d9, Data2: 0x0df7, Data3: 0x5de6, Data4: [8]byte{0x96, 0x2e, 0xbc, 0x8f, 0x14, 0x9f, 0xaf, 0x19}}
+
+// First dispatches through IIterableOfStorePreviewSkuInfo's vtable slot 6.
+func (self *IIterableOfStorePreviewSkuInfo) First() (*IIteratorOfStorePreviewSkuInfo, error) {
+	result := new(*IIteratorOfStorePreviewSkuInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfStorePreviewSkuInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfStorePreviewSkuInfo(items []*IStorePreviewSkuInfo) *IIterableOfStorePreviewSkuInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStorePreviewSkuInfo, Iterator: IID_IIteratorOfStorePreviewSkuInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfStorePreviewSkuInfo)(unsafe.Pointer(obj))
+}
+
 // IIterableOfStoreSystemFeature is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.StoreSystemFeature>.
 // IID: 98a8577a-b128-5400-8d3d-58654eaaf957
 type IIterableOfStoreSystemFeature struct {
@@ -376,6 +446,85 @@ func (self *IIterableOfStoreSystemFeature) First() (*IIteratorOfStoreSystemFeatu
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfStoreSystemFeature creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.StoreSystemFeature>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfStoreSystemFeature(items []StoreSystemFeature) *IIterableOfStoreSystemFeature {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.StoreSystemFeature>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStoreSystemFeature, Iterator: IID_IIteratorOfStoreSystemFeature}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfStoreSystemFeature)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfStorePreviewProductInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo>.
+// IID: 3fb16dec-73f1-5cfa-80e6-67fa232d1bef
+type IIteratorOfStorePreviewProductInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfStorePreviewProductInfo is the interface identifier for IIteratorOfStorePreviewProductInfo.
+var IID_IIteratorOfStorePreviewProductInfo = win32.GUID{Data1: 0x3fb16dec, Data2: 0x73f1, Data3: 0x5cfa, Data4: [8]byte{0x80, 0xe6, 0x67, 0xfa, 0x23, 0x2d, 0x1b, 0xef}}
+
+// Current (propget get_Current) dispatches through IIteratorOfStorePreviewProductInfo's vtable slot 6.
+func (self *IIteratorOfStorePreviewProductInfo) Current() (*IStorePreviewProductInfo, error) {
+	result := new(*IStorePreviewProductInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfStorePreviewProductInfo's vtable slot 7.
+func (self *IIteratorOfStorePreviewProductInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfStorePreviewProductInfo's vtable slot 8.
+func (self *IIteratorOfStorePreviewProductInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfStorePreviewSkuInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo>.
+// IID: b6f9b421-7f54-5d26-9c37-9f9d7ac893eb
+type IIteratorOfStorePreviewSkuInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfStorePreviewSkuInfo is the interface identifier for IIteratorOfStorePreviewSkuInfo.
+var IID_IIteratorOfStorePreviewSkuInfo = win32.GUID{Data1: 0xb6f9b421, Data2: 0x7f54, Data3: 0x5d26, Data4: [8]byte{0x9c, 0x37, 0x9f, 0x9d, 0x7a, 0xc8, 0x93, 0xeb}}
+
+// Current (propget get_Current) dispatches through IIteratorOfStorePreviewSkuInfo's vtable slot 6.
+func (self *IIteratorOfStorePreviewSkuInfo) Current() (*IStorePreviewSkuInfo, error) {
+	result := new(*IStorePreviewSkuInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfStorePreviewSkuInfo's vtable slot 7.
+func (self *IIteratorOfStorePreviewSkuInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfStorePreviewSkuInfo's vtable slot 8.
+func (self *IIteratorOfStorePreviewSkuInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfStoreSystemFeature is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Store.Preview.StoreSystemFeature>.
 // IID: d0455b2d-d8aa-557e-89a3-63c33e8cee99
@@ -459,6 +608,25 @@ func (self *IVectorViewOfStorePreviewProductInfo) IndexOf(value *IStorePreviewPr
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfStorePreviewProductInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfStorePreviewProductInfo(items []*IStorePreviewProductInfo) *IVectorViewOfStorePreviewProductInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStorePreviewProductInfo, Iterator: IID_IIteratorOfStorePreviewProductInfo, VectorView: IID_IVectorViewOfStorePreviewProductInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfStorePreviewProductInfo)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfStorePreviewSkuInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo>.
 // IID: 47418723-a671-5fdc-8647-68f7d8c31416
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo>.
@@ -492,6 +660,25 @@ func (self *IVectorViewOfStorePreviewSkuInfo) IndexOf(value *IStorePreviewSkuInf
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfStorePreviewSkuInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfStorePreviewSkuInfo(items []*IStorePreviewSkuInfo) *IVectorViewOfStorePreviewSkuInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStorePreviewSkuInfo, Iterator: IID_IIteratorOfStorePreviewSkuInfo, VectorView: IID_IVectorViewOfStorePreviewSkuInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfStorePreviewSkuInfo)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfStoreSystemFeature is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.Preview.StoreSystemFeature>.
 // IID: c8f90757-ebcf-5f2c-b918-6487105b0ca1
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.Preview.StoreSystemFeature>.
@@ -524,3 +711,18 @@ func (self *IVectorViewOfStoreSystemFeature) IndexOf(value StoreSystemFeature, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfStoreSystemFeature creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.Preview.StoreSystemFeature>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfStoreSystemFeature(items []StoreSystemFeature) *IVectorViewOfStoreSystemFeature {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.Preview.StoreSystemFeature>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStoreSystemFeature, Iterator: IID_IIteratorOfStoreSystemFeature, VectorView: IID_IVectorViewOfStoreSystemFeature}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfStoreSystemFeature)(unsafe.Pointer(obj))
+}

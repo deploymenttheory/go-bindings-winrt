@@ -84,6 +84,207 @@ func (self *IAsyncOperationOfOcrResult) Await() (*IOcrResult, error) {
 	return self.GetResults()
 }
 
+// IIterableOfLanguage is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Language>.
+// IID: 48409a10-61b6-5db1-a69d-8abc46ac608a
+type IIterableOfLanguage struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfLanguage is the interface identifier for IIterableOfLanguage.
+var IID_IIterableOfLanguage = win32.GUID{Data1: 0x48409a10, Data2: 0x61b6, Data3: 0x5db1, Data4: [8]byte{0xa6, 0x9d, 0x8a, 0xbc, 0x46, 0xac, 0x60, 0x8a}}
+
+// First dispatches through IIterableOfLanguage's vtable slot 6.
+func (self *IIterableOfLanguage) First() (*IIteratorOfLanguage, error) {
+	result := new(*IIteratorOfLanguage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfLanguage creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Language>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfLanguage(items []*globalization.ILanguage) *IIterableOfLanguage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Language>", winrt.CollectionIIDs{Iterable: IID_IIterableOfLanguage, Iterator: IID_IIteratorOfLanguage}, winrt.CodecInterface, boxed)
+	return (*IIterableOfLanguage)(unsafe.Pointer(obj))
+}
+
+// IIterableOfOcrLine is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Ocr.OcrLine>.
+// IID: 6afa94a2-60d7-5dbe-942d-81aa3929c85e
+type IIterableOfOcrLine struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfOcrLine is the interface identifier for IIterableOfOcrLine.
+var IID_IIterableOfOcrLine = win32.GUID{Data1: 0x6afa94a2, Data2: 0x60d7, Data3: 0x5dbe, Data4: [8]byte{0x94, 0x2d, 0x81, 0xaa, 0x39, 0x29, 0xc8, 0x5e}}
+
+// First dispatches through IIterableOfOcrLine's vtable slot 6.
+func (self *IIterableOfOcrLine) First() (*IIteratorOfOcrLine, error) {
+	result := new(*IIteratorOfOcrLine)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfOcrLine creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Ocr.OcrLine>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfOcrLine(items []*IOcrLine) *IIterableOfOcrLine {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Ocr.OcrLine>", winrt.CollectionIIDs{Iterable: IID_IIterableOfOcrLine, Iterator: IID_IIteratorOfOcrLine}, winrt.CodecInterface, boxed)
+	return (*IIterableOfOcrLine)(unsafe.Pointer(obj))
+}
+
+// IIterableOfOcrWord is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Ocr.OcrWord>.
+// IID: a0ce663a-46d0-55e5-928e-251eb67a1e99
+type IIterableOfOcrWord struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfOcrWord is the interface identifier for IIterableOfOcrWord.
+var IID_IIterableOfOcrWord = win32.GUID{Data1: 0xa0ce663a, Data2: 0x46d0, Data3: 0x55e5, Data4: [8]byte{0x92, 0x8e, 0x25, 0x1e, 0xb6, 0x7a, 0x1e, 0x99}}
+
+// First dispatches through IIterableOfOcrWord's vtable slot 6.
+func (self *IIterableOfOcrWord) First() (*IIteratorOfOcrWord, error) {
+	result := new(*IIteratorOfOcrWord)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfOcrWord creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Ocr.OcrWord>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfOcrWord(items []*IOcrWord) *IIterableOfOcrWord {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Ocr.OcrWord>", winrt.CollectionIIDs{Iterable: IID_IIterableOfOcrWord, Iterator: IID_IIteratorOfOcrWord}, winrt.CodecInterface, boxed)
+	return (*IIterableOfOcrWord)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfLanguage is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Globalization.Language>.
+// IID: 30e99ae6-f414-5243-8db2-aab38ea3f1f1
+type IIteratorOfLanguage struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfLanguage is the interface identifier for IIteratorOfLanguage.
+var IID_IIteratorOfLanguage = win32.GUID{Data1: 0x30e99ae6, Data2: 0xf414, Data3: 0x5243, Data4: [8]byte{0x8d, 0xb2, 0xaa, 0xb3, 0x8e, 0xa3, 0xf1, 0xf1}}
+
+// Current (propget get_Current) dispatches through IIteratorOfLanguage's vtable slot 6.
+func (self *IIteratorOfLanguage) Current() (*globalization.ILanguage, error) {
+	result := new(*globalization.ILanguage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfLanguage's vtable slot 7.
+func (self *IIteratorOfLanguage) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfLanguage's vtable slot 8.
+func (self *IIteratorOfLanguage) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfOcrLine is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Ocr.OcrLine>.
+// IID: 52ca0f8a-5788-5695-b905-46b8d8171d88
+type IIteratorOfOcrLine struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfOcrLine is the interface identifier for IIteratorOfOcrLine.
+var IID_IIteratorOfOcrLine = win32.GUID{Data1: 0x52ca0f8a, Data2: 0x5788, Data3: 0x5695, Data4: [8]byte{0xb9, 0x05, 0x46, 0xb8, 0xd8, 0x17, 0x1d, 0x88}}
+
+// Current (propget get_Current) dispatches through IIteratorOfOcrLine's vtable slot 6.
+func (self *IIteratorOfOcrLine) Current() (*IOcrLine, error) {
+	result := new(*IOcrLine)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfOcrLine's vtable slot 7.
+func (self *IIteratorOfOcrLine) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfOcrLine's vtable slot 8.
+func (self *IIteratorOfOcrLine) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfOcrWord is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Ocr.OcrWord>.
+// IID: 0ed4317a-9964-51c6-acbe-02512a069082
+type IIteratorOfOcrWord struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfOcrWord is the interface identifier for IIteratorOfOcrWord.
+var IID_IIteratorOfOcrWord = win32.GUID{Data1: 0x0ed4317a, Data2: 0x9964, Data3: 0x51c6, Data4: [8]byte{0xac, 0xbe, 0x02, 0x51, 0x2a, 0x06, 0x90, 0x82}}
+
+// Current (propget get_Current) dispatches through IIteratorOfOcrWord's vtable slot 6.
+func (self *IIteratorOfOcrWord) Current() (*IOcrWord, error) {
+	result := new(*IOcrWord)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfOcrWord's vtable slot 7.
+func (self *IIteratorOfOcrWord) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfOcrWord's vtable slot 8.
+func (self *IIteratorOfOcrWord) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfDouble is the WinRT interface Windows.Foundation.IReference`1<Double>.
 // IID: 2f2d6c29-5473-5f3e-92e7-96572bb990e2
 // Requires: Windows.Foundation.IPropertyValue.
@@ -129,6 +330,25 @@ func (self *IVectorViewOfLanguage) IndexOf(value *globalization.ILanguage, index
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfLanguage creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Globalization.Language>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfLanguage(items []*globalization.ILanguage) *IVectorViewOfLanguage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Globalization.Language>", winrt.CollectionIIDs{Iterable: IID_IIterableOfLanguage, Iterator: IID_IIteratorOfLanguage, VectorView: IID_IVectorViewOfLanguage}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfLanguage)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfOcrLine is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Ocr.OcrLine>.
 // IID: 60c76eac-8875-5ddb-a19b-65a3936279ea
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Ocr.OcrLine>.
@@ -162,6 +382,25 @@ func (self *IVectorViewOfOcrLine) IndexOf(value *IOcrLine, index *uint32) (bool,
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfOcrLine creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Ocr.OcrLine>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfOcrLine(items []*IOcrLine) *IVectorViewOfOcrLine {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Ocr.OcrLine>", winrt.CollectionIIDs{Iterable: IID_IIterableOfOcrLine, Iterator: IID_IIteratorOfOcrLine, VectorView: IID_IVectorViewOfOcrLine}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfOcrLine)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfOcrWord is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Ocr.OcrWord>.
 // IID: 805a60c7-df4f-527c-86b2-e29e439a83d2
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Ocr.OcrWord>.
@@ -194,3 +433,22 @@ func (self *IVectorViewOfOcrWord) IndexOf(value *IOcrWord, index *uint32) (bool,
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfOcrWord creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Ocr.OcrWord>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfOcrWord(items []*IOcrWord) *IVectorViewOfOcrWord {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Ocr.OcrWord>", winrt.CollectionIIDs{Iterable: IID_IIterableOfOcrWord, Iterator: IID_IIteratorOfOcrWord, VectorView: IID_IVectorViewOfOcrWord}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfOcrWord)(unsafe.Pointer(obj))
+}

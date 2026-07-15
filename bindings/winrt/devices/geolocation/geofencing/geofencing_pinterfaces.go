@@ -13,6 +13,140 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
+// IIterableOfGeofence is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geofencing.Geofence>.
+// IID: ce697733-595c-51c0-ad5f-324af5cdf2dd
+type IIterableOfGeofence struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGeofence is the interface identifier for IIterableOfGeofence.
+var IID_IIterableOfGeofence = win32.GUID{Data1: 0xce697733, Data2: 0x595c, Data3: 0x51c0, Data4: [8]byte{0xad, 0x5f, 0x32, 0x4a, 0xf5, 0xcd, 0xf2, 0xdd}}
+
+// First dispatches through IIterableOfGeofence's vtable slot 6.
+func (self *IIterableOfGeofence) First() (*IIteratorOfGeofence, error) {
+	result := new(*IIteratorOfGeofence)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGeofence creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geofencing.Geofence>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGeofence(items []*IGeofence) *IIterableOfGeofence {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geofencing.Geofence>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeofence, Iterator: IID_IIteratorOfGeofence}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGeofence)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGeofenceStateChangeReport is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport>.
+// IID: 76f50b4e-7aa7-565b-aada-b0c1cc144ed0
+type IIterableOfGeofenceStateChangeReport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGeofenceStateChangeReport is the interface identifier for IIterableOfGeofenceStateChangeReport.
+var IID_IIterableOfGeofenceStateChangeReport = win32.GUID{Data1: 0x76f50b4e, Data2: 0x7aa7, Data3: 0x565b, Data4: [8]byte{0xaa, 0xda, 0xb0, 0xc1, 0xcc, 0x14, 0x4e, 0xd0}}
+
+// First dispatches through IIterableOfGeofenceStateChangeReport's vtable slot 6.
+func (self *IIterableOfGeofenceStateChangeReport) First() (*IIteratorOfGeofenceStateChangeReport, error) {
+	result := new(*IIteratorOfGeofenceStateChangeReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGeofenceStateChangeReport creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGeofenceStateChangeReport(items []*IGeofenceStateChangeReport) *IIterableOfGeofenceStateChangeReport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeofenceStateChangeReport, Iterator: IID_IIteratorOfGeofenceStateChangeReport}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGeofenceStateChangeReport)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfGeofence is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Geolocation.Geofencing.Geofence>.
+// IID: e7a9e144-202d-5708-a9bd-e3dc0e14df46
+type IIteratorOfGeofence struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGeofence is the interface identifier for IIteratorOfGeofence.
+var IID_IIteratorOfGeofence = win32.GUID{Data1: 0xe7a9e144, Data2: 0x202d, Data3: 0x5708, Data4: [8]byte{0xa9, 0xbd, 0xe3, 0xdc, 0x0e, 0x14, 0xdf, 0x46}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGeofence's vtable slot 6.
+func (self *IIteratorOfGeofence) Current() (*IGeofence, error) {
+	result := new(*IGeofence)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGeofence's vtable slot 7.
+func (self *IIteratorOfGeofence) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGeofence's vtable slot 8.
+func (self *IIteratorOfGeofence) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGeofenceStateChangeReport is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport>.
+// IID: eaff2de4-6650-544a-b7ac-6d5b819d4698
+type IIteratorOfGeofenceStateChangeReport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGeofenceStateChangeReport is the interface identifier for IIteratorOfGeofenceStateChangeReport.
+var IID_IIteratorOfGeofenceStateChangeReport = win32.GUID{Data1: 0xeaff2de4, Data2: 0x6650, Data3: 0x544a, Data4: [8]byte{0xb7, 0xac, 0x6d, 0x5b, 0x81, 0x9d, 0x46, 0x98}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGeofenceStateChangeReport's vtable slot 6.
+func (self *IIteratorOfGeofenceStateChangeReport) Current() (*IGeofenceStateChangeReport, error) {
+	result := new(*IGeofenceStateChangeReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGeofenceStateChangeReport's vtable slot 7.
+func (self *IIteratorOfGeofenceStateChangeReport) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGeofenceStateChangeReport's vtable slot 8.
+func (self *IIteratorOfGeofenceStateChangeReport) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfGeofence is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Devices.Geolocation.Geofencing.Geofence>.
 // IID: 096dc936-5f66-5c6e-95ce-ef5541fbf4c4
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geofencing.Geofence>.
@@ -91,6 +225,28 @@ func (self *IVectorOfGeofence) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfGeofence creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Geolocation.Geofencing.Geofence>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfGeofence(items []*IGeofence) *IVectorOfGeofence {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Geolocation.Geofencing.Geofence>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeofence, Iterator: IID_IIteratorOfGeofence, VectorView: IID_IVectorViewOfGeofence, Vector: IID_IVectorOfGeofence}, winrt.CodecInterface, boxed)
+	return (*IVectorOfGeofence)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGeofence is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geofencing.Geofence>.
 // IID: d8039aca-1a45-5d13-8cfd-4900c22b8ef1
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geofencing.Geofence>.
@@ -124,6 +280,25 @@ func (self *IVectorViewOfGeofence) IndexOf(value *IGeofence, index *uint32) (boo
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfGeofence creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geofencing.Geofence>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGeofence(items []*IGeofence) *IVectorViewOfGeofence {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geofencing.Geofence>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeofence, Iterator: IID_IIteratorOfGeofence, VectorView: IID_IVectorViewOfGeofence}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGeofence)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGeofenceStateChangeReport is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport>.
 // IID: ea91593d-ecf4-5041-86f2-837a282c4d94
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport>.
@@ -156,3 +331,22 @@ func (self *IVectorViewOfGeofenceStateChangeReport) IndexOf(value *IGeofenceStat
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfGeofenceStateChangeReport creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGeofenceStateChangeReport(items []*IGeofenceStateChangeReport) *IVectorViewOfGeofenceStateChangeReport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGeofenceStateChangeReport, Iterator: IID_IIteratorOfGeofenceStateChangeReport, VectorView: IID_IVectorViewOfGeofenceStateChangeReport}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGeofenceStateChangeReport)(unsafe.Pointer(obj))
+}
