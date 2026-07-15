@@ -113,6 +113,7 @@ func TestICalendarSlots(t *testing.T) {
 		"GetDateTime":           16,
 		"SetDateTime":           17,
 		"SetToNow":              18,
+		"get_Languages":         9,
 		"get_Year":              30,
 		"put_Year":              31,
 		"AddYears":              32,

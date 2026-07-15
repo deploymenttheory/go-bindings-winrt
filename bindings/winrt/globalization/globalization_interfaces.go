@@ -45,9 +45,19 @@ func (self *IApplicationLanguagesStatics) SetPrimaryLanguageOverride(value strin
 	return win32.ErrIfFailed(int32(r1))
 }
 
-// slot 8: get_Languages skipped: parameterized type Windows.Foundation.Collections.IVectorView`1
+// Languages (propget get_Languages) dispatches through IApplicationLanguagesStatics's vtable slot 8.
+func (self *IApplicationLanguagesStatics) Languages() (*IVectorViewOfString, error) {
+	var result *IVectorViewOfString
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
-// slot 9: get_ManifestLanguages skipped: parameterized type Windows.Foundation.Collections.IVectorView`1
+// ManifestLanguages (propget get_ManifestLanguages) dispatches through IApplicationLanguagesStatics's vtable slot 9.
+func (self *IApplicationLanguagesStatics) ManifestLanguages() (*IVectorViewOfString, error) {
+	var result *IVectorViewOfString
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
 // IApplicationLanguagesStatics2 is the WinRT interface Windows.Globalization.IApplicationLanguagesStatics2.
 // IID: 1df0de4f-072b-4d7b-8f06-cb2db40f2bb5
@@ -59,7 +69,7 @@ type IApplicationLanguagesStatics2 struct {
 // IID_IApplicationLanguagesStatics2 is the interface identifier for IApplicationLanguagesStatics2.
 var IID_IApplicationLanguagesStatics2 = win32.GUID{Data1: 0x1df0de4f, Data2: 0x072b, Data3: 0x4d7b, Data4: [8]byte{0x8f, 0x06, 0xcb, 0x2d, 0xb4, 0x0f, 0x2b, 0xb5}}
 
-// slot 6: GetLanguagesForUser skipped: parameterized type Windows.Foundation.Collections.IVectorView`1
+// slot 6: GetLanguagesForUser skipped: reference to Windows.System.User crosses a severed import edge
 
 // ICalendar is the WinRT interface Windows.Globalization.ICalendar.
 // IID: ca30221d-86d9-40fb-a26b-d44eb7cf08ea
@@ -90,7 +100,12 @@ func (self *ICalendar) SetToMax() error {
 	return win32.ErrIfFailed(int32(r1))
 }
 
-// slot 9: get_Languages skipped: parameterized type Windows.Foundation.Collections.IVectorView`1
+// Languages (propget get_Languages) dispatches through ICalendar's vtable slot 9.
+func (self *ICalendar) Languages() (*IVectorViewOfString, error) {
+	var result *IVectorViewOfString
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
 // NumeralSystem (propget get_NumeralSystem) dispatches through ICalendar's vtable slot 10.
 func (self *ICalendar) NumeralSystem() (string, error) {
@@ -843,9 +858,29 @@ type ICalendarFactory struct {
 // IID_ICalendarFactory is the interface identifier for ICalendarFactory.
 var IID_ICalendarFactory = win32.GUID{Data1: 0x83f58412, Data2: 0xe56b, Data3: 0x4c75, Data4: [8]byte{0xa6, 0x6e, 0x0f, 0x63, 0xd5, 0x77, 0x58, 0xa6}}
 
-// slot 6: CreateCalendarDefaultCalendarAndClock skipped: parameterized type Windows.Foundation.Collections.IIterable`1
+// CreateCalendarDefaultCalendarAndClock dispatches through ICalendarFactory's vtable slot 6.
+func (self *ICalendarFactory) CreateCalendarDefaultCalendarAndClock(languages *IIterableOfString) (*ICalendar, error) {
+	var result *ICalendar
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(languages)), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
-// slot 7: CreateCalendar skipped: parameterized type Windows.Foundation.Collections.IIterable`1
+// CreateCalendar dispatches through ICalendarFactory's vtable slot 7.
+func (self *ICalendarFactory) CreateCalendar(languages *IIterableOfString, calendar string, clock string) (*ICalendar, error) {
+	hCalendar, err := winrt.NewHString(calendar)
+	if err != nil {
+		return nil, err
+	}
+	defer hCalendar.Close()
+	hClock, err := winrt.NewHString(clock)
+	if err != nil {
+		return nil, err
+	}
+	defer hClock.Close()
+	var result *ICalendar
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(languages)), uintptr(hCalendar.Raw()), uintptr(hClock.Raw()), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
 // ICalendarFactory2 is the WinRT interface Windows.Globalization.ICalendarFactory2.
 // IID: b44b378c-ca7e-4590-9e72-ea2bec1a5115
@@ -857,7 +892,27 @@ type ICalendarFactory2 struct {
 // IID_ICalendarFactory2 is the interface identifier for ICalendarFactory2.
 var IID_ICalendarFactory2 = win32.GUID{Data1: 0xb44b378c, Data2: 0xca7e, Data3: 0x4590, Data4: [8]byte{0x9e, 0x72, 0xea, 0x2b, 0xec, 0x1a, 0x51, 0x15}}
 
-// slot 6: CreateCalendarWithTimeZone skipped: parameterized type Windows.Foundation.Collections.IIterable`1
+// CreateCalendarWithTimeZone dispatches through ICalendarFactory2's vtable slot 6.
+func (self *ICalendarFactory2) CreateCalendarWithTimeZone(languages *IIterableOfString, calendar string, clock string, timeZoneId string) (*ICalendar, error) {
+	hCalendar, err := winrt.NewHString(calendar)
+	if err != nil {
+		return nil, err
+	}
+	defer hCalendar.Close()
+	hClock, err := winrt.NewHString(clock)
+	if err != nil {
+		return nil, err
+	}
+	defer hClock.Close()
+	hTimeZoneId, err := winrt.NewHString(timeZoneId)
+	if err != nil {
+		return nil, err
+	}
+	defer hTimeZoneId.Close()
+	var result *ICalendar
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(languages)), uintptr(hCalendar.Raw()), uintptr(hClock.Raw()), uintptr(hTimeZoneId.Raw()), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
 // ICalendarIdentifiersStatics is the WinRT interface Windows.Globalization.ICalendarIdentifiersStatics.
 // IID: 80653f68-2cb2-4c1f-b590-f0f52bf4fd1a
@@ -2846,7 +2901,12 @@ func (self *IGeographicRegion) NativeName() (string, error) {
 	return winrt.TakeHString(result), nil
 }
 
-// slot 12: get_CurrenciesInUse skipped: parameterized type Windows.Foundation.Collections.IVectorView`1
+// CurrenciesInUse (propget get_CurrenciesInUse) dispatches through IGeographicRegion's vtable slot 12.
+func (self *IGeographicRegion) CurrenciesInUse() (*IVectorViewOfString, error) {
+	var result *IVectorViewOfString
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
 // IGeographicRegionFactory is the WinRT interface Windows.Globalization.IGeographicRegionFactory.
 // IID: 53425270-77b4-426b-859f-81e19d512546
@@ -2989,7 +3049,17 @@ type ILanguageExtensionSubtags struct {
 // IID_ILanguageExtensionSubtags is the interface identifier for ILanguageExtensionSubtags.
 var IID_ILanguageExtensionSubtags = win32.GUID{Data1: 0x7d7daf45, Data2: 0x368d, Data3: 0x4364, Data4: [8]byte{0x85, 0x2b, 0xde, 0xc9, 0x27, 0x03, 0x7b, 0x85}}
 
-// slot 6: GetExtensionSubtags skipped: parameterized type Windows.Foundation.Collections.IVectorView`1
+// GetExtensionSubtags dispatches through ILanguageExtensionSubtags's vtable slot 6.
+func (self *ILanguageExtensionSubtags) GetExtensionSubtags(singleton string) (*IVectorViewOfString, error) {
+	hSingleton, err := winrt.NewHString(singleton)
+	if err != nil {
+		return nil, err
+	}
+	defer hSingleton.Close()
+	var result *IVectorViewOfString
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hSingleton.Raw()), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
 // ILanguageFactory is the WinRT interface Windows.Globalization.ILanguageFactory.
 // IID: 9b0252ac-0c27-44f8-b792-9793fb66c63e
@@ -3077,7 +3147,12 @@ type ILanguageStatics3 struct {
 // IID_ILanguageStatics3 is the interface identifier for ILanguageStatics3.
 var IID_ILanguageStatics3 = win32.GUID{Data1: 0xd15ecb5a, Data2: 0x71de, Data3: 0x5752, Data4: [8]byte{0x95, 0x42, 0xfa, 0xc5, 0xb4, 0xf2, 0x72, 0x61}}
 
-// slot 6: GetMuiCompatibleLanguageListFromLanguageTags skipped: parameterized type Windows.Foundation.Collections.IVector`1
+// GetMuiCompatibleLanguageListFromLanguageTags dispatches through ILanguageStatics3's vtable slot 6.
+func (self *ILanguageStatics3) GetMuiCompatibleLanguageListFromLanguageTags(languageTags *IIterableOfString) (*IVectorOfString, error) {
+	var result *IVectorOfString
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(languageTags)), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
 // INumeralSystemIdentifiersStatics is the WinRT interface Windows.Globalization.INumeralSystemIdentifiersStatics.
 // IID: a5c662c3-68c9-4d3d-b765-972029e21dec

@@ -64,11 +64,15 @@ consumers prove it), so they are pure additions:
   *Status: the Go-implemented delegate runtime
   (`bindings/runtime/winrt/delegate.go` — shared NewCallback vtables, pin
   registry, IAgileObject-answering QI) is landed and live-tested against
-  `MediaProtectionManager.RebootNeeded`. Generator **emission** of events
-  and delegate types is deferred: the committed surface's only event uses
-  `TypedEventHandler`2` — generic, blocked on pinterface IID computation
-  (next wave); ~142 non-generic-delegate events exist across the wider
-  surface and light up when their namespaces are emitted.*
+  `MediaProtectionManager.RebootNeeded`. The pinterface IID engine
+  (`internal/codegen/pinterface`) and generic INTERFACE instantiation
+  emission are landed: closed instantiations referenced by emittable
+  members monomorphize into the consuming package's `<pkg>_pinterfaces.go`
+  with derived IIDs (`Calendar.Languages()` → `IVectorViewOfString`,
+  live-tested). Generator **emission** of events and delegate types —
+  including generic delegate instantiations like `TypedEventHandler`2` —
+  is the next milestone; ~142 non-generic-delegate events exist across the
+  wider surface and light up when their namespaces are emitted.*
 - **mscorlib marker types** (`System.Object`, `System.Guid`, `System.Enum`,
   `System.ValueType`, `System.MulticastDelegate`, `System.Attribute`) are
   type-system signals only — never resolve them as real types.

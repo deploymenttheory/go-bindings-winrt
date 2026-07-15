@@ -37,6 +37,14 @@ type Generator struct {
 	// enum member or IID var can never steal a name a type needs.
 	typeNames map[string]bool
 
+	// Per-namespace generic-instantiation state (reset alongside the name
+	// claims): pinstByName maps the mangled name to the grounded
+	// instantiation, pinstIID to its derived pinterface IID, and pinstQueue
+	// is the worklist buildPinterfaceModels drains to a fixed point.
+	pinstByName map[string]*winrtmeta.TypeRef
+	pinstIID    map[string]string
+	pinstQueue  []string
+
 	// writtenFiles records every path this run produced, so stale generated
 	// files from earlier runs can be pruned afterwards.
 	writtenFiles map[string]bool
@@ -170,7 +178,8 @@ func (g *Generator) pruneStale(fullSweep bool) error {
 }
 
 // emitNamespace writes one namespace's package: doc.go plus the per-construct
-// files (enums, structs, interfaces, classes), only when non-empty.
+// files (enums, structs, interfaces, classes, pinterfaces), only when
+// non-empty.
 func (g *Generator) emitNamespace(meta *winrtmeta.NamespaceMeta) error {
 	g.prepareNamespaceClaims(meta)
 	packageName := naming.PackageName(meta.Namespace)
@@ -219,6 +228,20 @@ func (g *Generator) emitNamespace(meta *winrtmeta.NamespaceMeta) error {
 		}
 	}
 	if err := g.writeFile(packageDir, packageName+"_classes.go", packageName, classImports, classBody.String()); err != nil {
+		return err
+	}
+
+	// Generic instantiations requested by the members built above (plus the
+	// transitive instantiations their synthesized methods surfaced) — the
+	// worklist is drained only after every requester has run.
+	pinterfaceImports := typemap.ImportSet{}
+	var pinterfaceBody strings.Builder
+	for _, model := range g.buildPinterfaceModels(meta, pinterfaceImports) {
+		if err := renderInto(&pinterfaceBody, render.Interface, model); err != nil {
+			return err
+		}
+	}
+	if err := g.writeFile(packageDir, packageName+"_pinterfaces.go", packageName, pinterfaceImports, pinterfaceBody.String()); err != nil {
 		return err
 	}
 
@@ -339,6 +362,9 @@ func writeRawFile(path string, content []byte) error {
 func (g *Generator) prepareNamespaceClaims(meta *winrtmeta.NamespaceMeta) {
 	g.claimedNames = map[string]bool{}
 	g.typeNames = map[string]bool{}
+	g.pinstByName = map[string]*winrtmeta.TypeRef{}
+	g.pinstIID = map[string]string{}
+	g.pinstQueue = nil
 	claimType := func(name string) {
 		exported := naming.Export(name)
 		if !g.claimedNames[exported] {
@@ -378,6 +404,12 @@ func (g *Generator) claimName(name string) bool {
 	}
 	g.claimedNames[name] = true
 	return true
+}
+
+// resolveContext builds the typemap context for the namespace being
+// emitted, wiring the demand-driven instantiation-request seam.
+func (g *Generator) resolveContext(namespace string) typemap.Context {
+	return typemap.Context{Namespace: namespace, RequestInstantiation: g.requestInstantiation}
 }
 
 // diag records one "key: detail" diagnostic.
