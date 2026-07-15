@@ -7,6 +7,7 @@ import (
 	"sync"
 	"sync/atomic"
 	"syscall"
+	"time"
 	"unsafe"
 
 	win32 "github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
@@ -106,6 +107,25 @@ func inspectableWorker() {
 	}
 }
 
+// startInspectableWorker launches the worker plus a keepalive goroutine.
+//
+// The keepalive defuses a runtime false positive: a program whose only
+// pending wake-up is a WinRT callback (e.g. blocked in a generated Await
+// with no other runnable goroutines or timers) trips Go's deadlock detector
+// — checkdead cannot see native threadpool threads, so it declares
+// "all goroutines are asleep" and kills the process. A goroutine parked in
+// time.Sleep keeps a runtime timer registered at all times, which is
+// exactly the signal checkdead accepts as "someone can still be woken".
+// Cost: one goroutine waking hourly.
+func startInspectableWorker() {
+	go inspectableWorker()
+	go func() {
+		for {
+			time.Sleep(time.Hour)
+		}
+	}()
+}
+
 // dispatchInspectable hands one staged call to the worker and waits for its
 // result. Runs on the callback goroutine: no allocations, minimal frames.
 func dispatchInspectable(work inspectableWork) uintptr {
@@ -137,7 +157,7 @@ var (
 // iids. The object starts with one reference owned by the Go caller (which
 // a constructor may hand to native code, e.g. through an out-param).
 func initInspectable(class string, facets ...*inspectable) {
-	inspectableWorkerOnce.Do(func() { go inspectableWorker() })
+	inspectableWorkerOnce.Do(startInspectableWorker)
 	identity := facets[0]
 	identity.facets = facets
 	identity.class = class

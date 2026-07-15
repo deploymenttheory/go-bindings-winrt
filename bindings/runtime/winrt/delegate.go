@@ -111,8 +111,9 @@ func NewDelegate(iid win32.GUID, paramCount int, invoke func(args []uintptr) uin
 		return nil, fmt.Errorf("winrt: delegate with %d params unsupported (1-3)", paramCount)
 	}
 	// The delegate's QI/AddRef/Release trampolines stage onto the shared
-	// worker (see inspectable.go); make sure it is running.
-	inspectableWorkerOnce.Do(func() { go inspectableWorker() })
+	// worker (see inspectable.go); make sure it — and the deadlock-detector
+	// keepalive — is running.
+	inspectableWorkerOnce.Do(startInspectableWorker)
 	d := &Delegate{lpVtbl: &delegateVtbls[paramCount], iid: iid, invoke: invoke}
 	d.refs.Store(1)
 	delegateMu.Lock()

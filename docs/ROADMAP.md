@@ -1,175 +1,72 @@
-# go-bindings-winrt — roadmap and prerequisites
+# go-bindings-winrt — state
 
-Research snapshot (2026-07). Sources: the WinMD file format reference
-(learn.microsoft.com/uwp/winrt-cref/winmd-files), windows-rs's metadata
-handling, CsWinRT.
+What is landed and what is deliberately deferred. The original build-out plan
+completed with the full-surface milestone (v0.2.0); this document replaces it
+as the record. For pipeline mechanics see [generator.md](generator.md); for
+the emit rulebook see [CLAUDE.md](../CLAUDE.md).
 
-## Metadata source
+## Landed
 
-- **Consume per-contract winmds from `Microsoft.Windows.SDK.Contracts`**
-  (pinned in `metadata/winmd/PROVENANCE.json`, fetched by
-  `go run ./cmd/generate fetch-metadata`):
-  `ref/netstandard2.0/Windows.Foundation.FoundationContract.winmd` +
-  `ref/netstandard2.0/Windows.Foundation.UniversalApiContract.winmd`.
-  *(Correction to the original plan: there is **no** pre-merged
-  `Windows.winmd` on NuGet — the Contracts package ships ~94 per-contract
-  files and its `Windows.WinMD` entry is a type-forwarder facade;
-  windows-rs's merged file is GitHub-only with its own filtering policy.
-  UniversalApiContract carries the entire roadmap target surface. If ingest
-  ever hits a TypeRef into a third contract, pin that file as an additional
-  PROVENANCE record.)*
-- Same ECMA-335 physical format as win32metadata, with WinRT-specific rules:
-  version string `WindowsRuntime 1.4` (in the 26100 contracts),
-  `tdWindowsRuntime` flag on every public type, and **TypeRef indirection
-  everywhere** (system winmds never reference TypeDefs directly, even
-  same-file — required for projection substitutions like `IVector<T>` →
-  `IList<T>`).
-- **Overloads**: overloaded methods share their MethodDef *name* (two
-  `MonthAsString` rows); the `[Overload]` attribute carries the unique name
-  (`MonthAsFullString`). Projected Go names use the unique overload name.
-- Scale: thousands of types across ~50+ `Windows.*` namespaces.
+All 2026-07, in dependency order:
 
-## Reader prerequisites (land in go-winmd, versioned + additive)
+| Milestone | PR |
+|---|---|
+| Hand-written runtime layer: `Initialize`, HSTRING lifecycle, activation, `QueryInterface` | #11 |
+| Hand-written `Windows.Globalization.Calendar` vertical + pinned contract winmds (`Microsoft.Windows.SDK.Contracts`: FoundationContract + UniversalApiContract; no pre-merged `Windows.winmd` exists on NuGet — the Contracts package ships per-contract files) | #12 |
+| Generator ingest stage: winmds → committed per-namespace IR, diagnostics pipeline | #13 |
+| Generator emit stage: interfaces (absolute vtable-slot dispatch), non-composable runtime classes, enums, value structs | #14, #16 |
+| Go-implemented delegate runtime (shared `NewCallback` vtables, pin registry, IAgileObject-answering QI) | #15 |
+| Committed-IR regen tracking in CI (determinism gate + diagnostics ratchet) | #18 |
+| Pinterface IID engine — derived IIDs for parameterized-type instantiations | #19 |
+| Generic interface instantiations emitted as monomorphized per-package types (`IVectorViewOfString`) | #20 |
+| Event emission: `Add`/`Remove` accessors + typed Go handler constructors | #21 |
+| Statics accessors + factory constructors as package-level functions | #22 |
+| `Windows.UI.Notifications` vertical: the full toast pipeline, live-tested | #23 |
+| Go-implemented WinRT collections (`NewStringIterable`/`NewStringIterator`/`NewStringVectorView`) + stack-growth-safe callback dispatch (the inspectable worker) | #24 |
+| Async awaiting: delegate-typed method params (`SetCompleted`) + synthesized blocking `Await()`, live-tested incl. already-completed and failure paths | #25 |
+| Bluetooth + Management namespaces; the heap-escaped out-param invariant (`winrt.OutParam`) killing the GC stack-move flake | #26 |
+| **Full surface: all 282 namespaces in the ingested IR emitted** (~571k lines), keyword-escaping packages (`media/import_`), collision-suffixed factory names, statics-only/composable name-claim fixes; `SpeechSynthesis` live-proven as a never-before-emitted namespace | #27 |
+| v0.2.0 release | #17 |
 
-The Win32/WDK metadata contains none of these (tripwire tests in go-winmd's
-consumers prove it), so they are pure additions:
+Coverage is enforced structurally: the emit roots pin every IR namespace
+explicitly, CI regenerates byte-identically, `internal/verify` pins slots and
+IIDs against the committed winmd, and the live acceptance suite
+(`acceptance/`) drives toasts, async, events, collections, Bluetooth,
+`PackageManager`, MDM policy, and speech on real Windows.
 
-1. **Generics engine** — decode `ELEMENT_TYPE_GENERICINST` / `VAR` / `MVAR`
-   in signature blobs (§II.23.2.12), materialize the `GenericParam`
-   (§II.22.20) and `TypeSpec` (§II.23.2.14) tables, handle arity-backtick
-   names (`IVector`1`).
-2. **Event/property tables** — materialize `Event`/`EventMap`,
-   `Property`/`PropertyMap`, `MethodSemantics` (`add_`/`remove_`,
-   `get_`/`put_` pairing).
-3. **PropertySig** decoding (0x08 marker).
-4. `InterfaceImpl` targets that are TypeSpecs (generic instantiations).
+## Deferred
 
-## Generator/runtime prerequisites (this repo, repo-specific)
+Remaining gaps are **per-member degradations** tracked by the committed
+diagnostics baseline (skipped members keep their slot comments; nothing
+renumbers) — not missing namespaces:
 
-- **Calling convention**: WinRT methods return HRESULT implicitly — the
-  metadata signature's return is the `[out, retval]` param; the emitter must
-  synthesize HRESULT + trailing out-param at the ABI layer.
-- **HSTRING** — `ELEMENT_TYPE_STRING` means HSTRING; runtime needs
-  create/delete/read helpers (`WindowsCreateString` et al., available via
-  go-bindings-win32's `system/winrt` surface).
-- **IInspectable** root (GetIids/GetRuntimeClassName/GetTrustLevel) atop
-  IUnknown; `RoInitialize`/`RoGetActivationFactory` bootstrap.
-- **Runtime class model** driven by attributes: `[Activatable]` (direct or
-  factory), `[Static]` (static interfaces surfaced on the class),
-  `[Composable]` (inheritance; hidden controlling-IInspectable factory
-  params), `[Default]` interface per class, `[ExclusiveTo]`,
-  `[Overload]`/`[DefaultOverload]`.
-  *Status: statics and factory constructors are landed. `[Static]`
-  interfaces project as package-level accessors
-  (`CalendarIdentifiersStatics()` — the activation factory queried to the
-  statics IID; statics-only classes emit just their accessors, no class
-  type), and each emitted method of a non-generic `[Activatable]` factory
-  interface returning the class default interface projects as a
-  package-level constructor (`CreateGeographicRegion("US")`, live-tested;
-  the factory is fetched per call — a cache is a future optimization).
-  Calendar's factory ctors emit too; their `IIterable<String>` argument
-  (which the OS rejects as null with E_POINTER, verified live) is now
-  constructible — Go-implemented WinRT collections landed in
-  `bindings/runtime/winrt` (`inspectable.go` + `collections.go`:
-  `NewStringIterable`/`NewStringIterator`/`NewStringVectorView` over the
-  shared IInspectable trampoline core, IIDs pinned to the pinterface
-  derivation), and `CreateCalendarDefaultCalendarAndClock`/
-  `CreateCalendarWithTimeZone` are live-tested consuming a Go-backed
-  iterable in `acceptance/collections_test.go` — finding resolved.
-  `[Composable]` classes stay skipped.*
-- **Delegates** (TypeDef extending `System.MulticastDelegate`, `Invoke`
-  method, `[Guid]`), **events** returning `EventRegistrationToken`.
-  *Status: the Go-implemented delegate runtime
-  (`bindings/runtime/winrt/delegate.go` — shared NewCallback vtables, pin
-  registry, IAgileObject-answering QI) is landed and live-tested against
-  `MediaProtectionManager.RebootNeeded`. The pinterface IID engine
-  (`internal/codegen/pinterface`) and generic INTERFACE instantiation
-  emission are landed: closed instantiations referenced by emittable
-  members monomorphize into the consuming package's `<pkg>_pinterfaces.go`
-  with derived IIDs (`Calendar.Languages()` → `IVectorViewOfString`,
-  live-tested). Generator **event emission** is landed: add_/remove_
-  accessors project as `Add<Event>`/`Remove<Event>`, and each event's
-  delegate — a generic instantiation like
-  `TypedEventHandler`2<IMemoryBufferReference, Object>` (IID
-  pinterface-derived) or a non-generic delegate (declared IID) — grounds
-  into a package-local typed handler in `<pkg>_delegates.go` wrapping the
-  delegate runtime (live-tested: `IMemoryBufferReference.Closed` fires
-  through generated code). Delegate-typed method PARAMETERS are landed:
-  the same grounding (and adaptability rules) serves method params via the
-  typemap's `RequestDelegate` seam, so `put_Completed` emits as
-  `SetCompleted(handler *<Handler>)` (nil passes NULL) — which unlocked
-  **async awaiting**: every monomorphized `IAsyncOperationOf<X>` whose
-  `SetCompleted` and `GetResults` both emitted, plus the plain
-  `IAsyncAction`, gains a synthesized blocking `Await()` returning
-  `GetResults()` on completion or a `winrt.AsyncError` (AsyncStatus + the
-  IAsyncInfo error code as a `win32.HRESULT`) otherwise. Live-tested in
-  `acceptance/async_test.go`: `StorageFile.GetFileFromPathAsync` awaited
-  end to end, including the already-completed (immediate handler invoke)
-  and failure (0x80070002 file-not-found surfaced through `errors.As`)
-  paths. Methods RETURNING delegates (`get_Completed`), delegate TypeDefs
-  in their home namespaces, and Await on `IAsyncOperationWithProgress`
-  (its Completed/Progress handler setters emit; the Await synthesis
-  targets only `IAsyncOperation`1`/`IAsyncAction`) stay deferred, as does
-  a context-aware Await variant; the ~142 non-generic-delegate events
-  across the wider surface light up when their namespaces are emitted.*
-- **mscorlib marker types** (`System.Object`, `System.Guid`, `System.Enum`,
-  `System.ValueType`, `System.MulticastDelegate`, `System.Attribute`) are
-  type-system signals only — never resolve them as real types.
-- Enums are Int32/UInt32 only (`[Flags]` on UInt32).
+- **Composable classes** (`[Composable]` — XAML-style inheritance with
+  controlling-IInspectable factory params): skipped entirely. The largest
+  single gap; unlocks much of `Windows.UI.Xaml`.
+- **`IAsyncOperationWithProgress`/`IAsyncActionWithProgress` Await**: the
+  Completed/Progress handler setters emit, but Await synthesis targets only
+  `IAsyncOperation<T>` and `IAsyncAction`.
+- **Context-aware Await** (`AwaitContext(ctx)`): Await blocks indefinitely by
+  design today; bound it with the select idiom in [async.md](async.md).
+  Related sharp edge, also documented there: a fully-parked quiet process can
+  trip Go's deadlock detector while a native completion is in flight.
+- **Writable / non-string Go-implemented collections**: `IVector<T>`,
+  non-`String` element types for `NewStringIterable` et al.
+- **Delegate-returning methods** (`get_Completed`) and delegate TypeDefs in
+  their home namespaces.
+- **Arrays** (conformant arrays — includes `GetMany` on generated consumer
+  types), **float parameters at the delegate ABI**, and **by-value structs
+  wider than one integer word** in delegate signatures: the affected members
+  skip; ~142 non-generic-delegate events across the surface light up as
+  delegate adaptability grows.
+- **Activation-factory caching**: factory constructors and statics accessors
+  fetch the factory per call.
+- **Informational success codes / event-ordering guarantees** beyond what
+  WinRT contracts give: nothing curated yet.
 
-## Suggested sequencing
+## CI
 
-1. go-winmd generics + event/property tables (with brute-force tests over a
-   pinned `Windows.winmd`).
-2. Minimal runtime: HSTRING, IInspectable, activation, one hand-written
-   vertical (e.g. `Windows.Globalization.Calendar` — the canonical sample).
-3. Generator for interfaces + runtime classes without composition; events;
-   statics + factory constructors (landed); then composition.
-4. First namespace targets, chosen for product value — **all three landed**:
-   - `Windows.UI.Notifications` (toasts): the toast pipeline — template XML
-     → `XmlDocument` → `ToastNotification` → `ToastNotifier.Show`/`Hide` —
-     is live-tested end to end in `acceptance/toast_test.go`.
-   - `Windows.Management.*` (MDM enrollment/provisioning): the
-     `Windows.Management`, `.Deployment`, `.Policies`, and `.Workplace`
-     roots are in the committed tree; `PackageManager` activation +
-     current-user package queries (iterating the monomorphized
-     `IIterable<Package>`) and the `MdmAllowPolicy` statics are live-tested
-     in `acceptance/bluetooth_management_test.go`. (`.Core`, `.Setup`, and
-     `.Update` were deliberately excluded from the first-wave roots as
-     provisioning-agent / OS-update surfaces; the full-surface milestone
-     below emits them along with everything else.)
-   - `Windows.Devices.Bluetooth` (+ `.GenericAttributeProfile`,
-     `.Advertisement`): `BluetoothAdapter.GetDefaultAsync().Await()`, radio
-     state via the pulled-in `Windows.Devices.Radios`, and a full
-     `BluetoothLEAdvertisementWatcher` scan cycle (Start needs a Received
-     subscription — E_ILLEGAL_METHOD_CALL otherwise, verified live) are
-     hardware-guarded live tests in the same file. (`.Rfcomm` and
-     `.Background` are not roots; Rfcomm types referenced from Bluetooth
-     surface via the closure where emittable.)
-
-   The committed tree is the closure of the roots pinned in
-   `metadata/emit-roots.txt`.
-
-5. **Full-surface coverage — landed.** The emit roots now pin EVERY
-   namespace in the ingested IR (282 packages, ~571k generated lines), so
-   the committed tree is the complete emittable contract surface, not a
-   curated subset — matching go-bindings-win32's whole-surface doctrine
-   (~1.09M lines, 324 packages). No namespace needed exclusion. Scale
-   fixes that landed with it: Go-keyword package names escape with a
-   trailing underscore (`Windows.Media.Import` → `media/import_`), bare
-   factory-constructor names that collide across classes in a package
-   gain the class name (`Create` → `CreateSystemTrigger`), and
-   statics-only / composable classes no longer hold type-name claims
-   (freeing accessors like `storage.SystemProperties()` and
-   `store.CurrentApp()`). A previously-unemitted namespace is
-   live-proven in `acceptance/speechsynthesis_test.go`
-   (`SpeechSynthesizer` activation + installed-voice enumeration).
-   Remaining coverage gaps are per-member degradations tracked by the
-   diagnostics ratchet (arrays, float ABI, composable classes, …), not
-   missing namespaces.
-
-## CI note
-
-The Go lint (`go-lint.yml`) and build/test (`ci.yml`) workflows are active.
-The regeneration-determinism CI job is added when the generator's emit
-stage lands.
+`ci.yml` (build/test + the regeneration determinism gate with the
+diagnostics ratchet), `go-lint.yml`, `linter.yml` (markdown among others),
+`winmd-update.yml` (automated metadata refresh PRs), release-please with
+conventional commits.
