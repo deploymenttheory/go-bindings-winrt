@@ -23,7 +23,16 @@ type IAsyncAction struct {
 // IID_IAsyncAction is the interface identifier for IAsyncAction.
 var IID_IAsyncAction = win32.GUID{Data1: 0x5a648006, Data2: 0x843a, Data3: 0x4da9, Data4: [8]byte{0x86, 0x5b, 0x9d, 0x26, 0xe5, 0xdf, 0xad, 0x7b}}
 
-// slot 6: put_Completed skipped: delegate Windows.Foundation.AsyncActionCompletedHandler
+// SetCompleted (propput put_Completed) dispatches through IAsyncAction's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncAction) SetCompleted(handler *AsyncActionCompletedHandler) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: delegate Windows.Foundation.AsyncActionCompletedHandler
 
@@ -31,6 +40,45 @@ var IID_IAsyncAction = win32.GUID{Data1: 0x5a648006, Data2: 0x843a, Data3: 0x4da
 func (self *IAsyncAction) GetResults() error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)))
 	return win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncAction reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncAction) Await() error {
+	completion := make(chan AsyncStatus, 1)
+	handler, err := NewAsyncActionCompletedHandler(func(_ *IAsyncAction, asyncStatus AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return err
+	}
+	status := <-completion
+	if status != AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[IAsyncInfo](unsafe.Pointer(self), &IID_IAsyncInfo)
+		if err != nil {
+			return err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return err
+		}
+		return winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncInfo is the WinRT interface Windows.Foundation.IAsyncInfo.

@@ -42,4 +42,34 @@ func (self *{{$.TypeName}}) {{.GoName}}({{.ParamStr}}) {{.ReturnSig}} {
 {{- end}}
 }
 
-{{end}}{{end}}{{end}}
+{{end}}{{end}}{{with .Await}}{{range .CommentLines}}// {{.}}
+{{end -}}
+func (self *{{$.TypeName}}) Await() {{.ReturnSig}} {
+	completion := make(chan {{.StatusType}}, 1)
+	handler, err := {{.HandlerCtor}}(func(_ *{{$.TypeName}}, asyncStatus {{.StatusType}}) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return {{.ErrPrefix}}err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return {{.ErrPrefix}}err
+	}
+	status := <-completion
+	if status != {{.StatusCompleted}} {
+		info, err := winrt.QueryInterface[{{.InfoType}}](unsafe.Pointer(self), {{.InfoIIDRef}})
+		if err != nil {
+			return {{.ErrPrefix}}err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return {{.ErrPrefix}}err
+		}
+		return {{.ErrPrefix}}winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
+{{end}}{{end}}

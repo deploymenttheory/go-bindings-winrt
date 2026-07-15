@@ -9,7 +9,152 @@ import (
 
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 )
+
+// AsyncOperationCompletedHandlerOfGeolocationAccessStatus is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Geolocation.GeolocationAccessStatus>.
+// IID: f3524c93-e5c7-5b88-bedb-d3e637cff271
+type AsyncOperationCompletedHandlerOfGeolocationAccessStatus struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfGeolocationAccessStatus is the delegate identifier for AsyncOperationCompletedHandlerOfGeolocationAccessStatus.
+var IID_AsyncOperationCompletedHandlerOfGeolocationAccessStatus = win32.GUID{Data1: 0xf3524c93, Data2: 0xe5c7, Data3: 0x5b88, Data4: [8]byte{0xbe, 0xdb, 0xd3, 0xe6, 0x37, 0xcf, 0xf2, 0x71}}
+
+// NewAsyncOperationCompletedHandlerOfGeolocationAccessStatus wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Geolocation.GeolocationAccessStatus>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfGeolocationAccessStatus(fn func(asyncInfo *IAsyncOperationOfGeolocationAccessStatus, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfGeolocationAccessStatus, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfGeolocationAccessStatus, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfGeolocationAccessStatus)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfGeolocationAccessStatus{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfGeolocationAccessStatus) Ptr() uintptr {
+	return h.delegate.Ptr()
+}
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfGeolocationAccessStatus) Close() { h.delegate.Release() }
+
+// AsyncOperationCompletedHandlerOfGeoposition is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Geolocation.Geoposition>.
+// IID: 7668a704-244e-5e12-8dcb-92a3299eba26
+type AsyncOperationCompletedHandlerOfGeoposition struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfGeoposition is the delegate identifier for AsyncOperationCompletedHandlerOfGeoposition.
+var IID_AsyncOperationCompletedHandlerOfGeoposition = win32.GUID{Data1: 0x7668a704, Data2: 0x244e, Data3: 0x5e12, Data4: [8]byte{0x8d, 0xcb, 0x92, 0xa3, 0x29, 0x9e, 0xba, 0x26}}
+
+// NewAsyncOperationCompletedHandlerOfGeoposition wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Geolocation.Geoposition>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfGeoposition(fn func(asyncInfo *IAsyncOperationOfGeoposition, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfGeoposition, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfGeoposition, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfGeoposition)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfGeoposition{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfGeoposition) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfGeoposition) Close() { h.delegate.Release() }
+
+// AsyncOperationCompletedHandlerOfGeovisit is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Geolocation.Geovisit>.
+// IID: b9bce8cb-2e04-5269-9b03-1614d0c00b01
+type AsyncOperationCompletedHandlerOfGeovisit struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfGeovisit is the delegate identifier for AsyncOperationCompletedHandlerOfGeovisit.
+var IID_AsyncOperationCompletedHandlerOfGeovisit = win32.GUID{Data1: 0xb9bce8cb, Data2: 0x2e04, Data3: 0x5269, Data4: [8]byte{0x9b, 0x03, 0x16, 0x14, 0xd0, 0xc0, 0x0b, 0x01}}
+
+// NewAsyncOperationCompletedHandlerOfGeovisit wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Geolocation.Geovisit>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfGeovisit(fn func(asyncInfo *IAsyncOperationOfGeovisit, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfGeovisit, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfGeovisit, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfGeovisit)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfGeovisit{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfGeovisit) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfGeovisit) Close() { h.delegate.Release() }
+
+// AsyncOperationCompletedHandlerOfIVectorViewOfGeoposition is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geoposition>>.
+// IID: 6c67a1d1-9441-5aee-b625-e3c1b5676a6d
+type AsyncOperationCompletedHandlerOfIVectorViewOfGeoposition struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfIVectorViewOfGeoposition is the delegate identifier for AsyncOperationCompletedHandlerOfIVectorViewOfGeoposition.
+var IID_AsyncOperationCompletedHandlerOfIVectorViewOfGeoposition = win32.GUID{Data1: 0x6c67a1d1, Data2: 0x9441, Data3: 0x5aee, Data4: [8]byte{0xb6, 0x25, 0xe3, 0xc1, 0xb5, 0x67, 0x6a, 0x6d}}
+
+// NewAsyncOperationCompletedHandlerOfIVectorViewOfGeoposition wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Geolocation.Geoposition>>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfIVectorViewOfGeoposition(fn func(asyncInfo *IAsyncOperationOfIVectorViewOfGeoposition, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfIVectorViewOfGeoposition, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfIVectorViewOfGeoposition, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfIVectorViewOfGeoposition)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfIVectorViewOfGeoposition{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfIVectorViewOfGeoposition) Ptr() uintptr {
+	return h.delegate.Ptr()
+}
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfIVectorViewOfGeoposition) Close() { h.delegate.Release() }
 
 // TypedEventHandlerOfGeolocatorAndPositionChangedEventArgs is a Go-implemented handler for the WinRT delegate
 // Windows.Foundation.TypedEventHandler`2<Windows.Devices.Geolocation.Geolocator, Windows.Devices.Geolocation.PositionChangedEventArgs>.

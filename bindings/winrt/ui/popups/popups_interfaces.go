@@ -212,7 +212,16 @@ func (self *IUICommand) SetLabel(value string) error {
 
 // slot 8: get_Invoked skipped: delegate Windows.UI.Popups.UICommandInvokedHandler
 
-// slot 9: put_Invoked skipped: delegate Windows.UI.Popups.UICommandInvokedHandler
+// SetInvoked (propput put_Invoked) dispatches through IUICommand's vtable slot 9.
+// A nil value passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IUICommand) SetInvoked(value *UICommandInvokedHandler) error {
+	_value := uintptr(0)
+	if value != nil {
+		_value = value.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), _value)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // Id (propget get_Id) dispatches through IUICommand's vtable slot 10.
 func (self *IUICommand) Id() (*syswinrt.IInspectable, error) {
@@ -249,6 +258,36 @@ func (self *IUICommandFactory) Create(label string) (*IUICommand, error) {
 	return result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 7: CreateWithHandler skipped: delegate Windows.UI.Popups.UICommandInvokedHandler
+// CreateWithHandler dispatches through IUICommandFactory's vtable slot 7.
+// A nil action passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IUICommandFactory) CreateWithHandler(label string, action *UICommandInvokedHandler) (*IUICommand, error) {
+	hLabel, err := winrt.NewHString(label)
+	if err != nil {
+		return nil, err
+	}
+	defer hLabel.Close()
+	_action := uintptr(0)
+	if action != nil {
+		_action = action.Ptr()
+	}
+	var result *IUICommand
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hLabel.Raw()), _action, uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
-// slot 8: CreateWithHandlerAndId skipped: delegate Windows.UI.Popups.UICommandInvokedHandler
+// CreateWithHandlerAndId dispatches through IUICommandFactory's vtable slot 8.
+// A nil action passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IUICommandFactory) CreateWithHandlerAndId(label string, action *UICommandInvokedHandler, commandId *syswinrt.IInspectable) (*IUICommand, error) {
+	hLabel, err := winrt.NewHString(label)
+	if err != nil {
+		return nil, err
+	}
+	defer hLabel.Close()
+	_action := uintptr(0)
+	if action != nil {
+		_action = action.Ptr()
+	}
+	var result *IUICommand
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hLabel.Raw()), _action, uintptr(unsafe.Pointer(commandId)), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}

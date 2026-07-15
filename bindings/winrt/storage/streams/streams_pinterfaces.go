@@ -10,6 +10,8 @@ import (
 
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 )
 
 // IAsyncOperationOfBool is the WinRT interface Windows.Foundation.IAsyncOperation`1<Bool>.
@@ -22,7 +24,16 @@ type IAsyncOperationOfBool struct {
 // IID_IAsyncOperationOfBool is the interface identifier for IAsyncOperationOfBool.
 var IID_IAsyncOperationOfBool = win32.GUID{Data1: 0xcdb5efb3, Data2: 0x5788, Data3: 0x509d, Data4: [8]byte{0x9b, 0xe1, 0x71, 0xcc, 0xb8, 0xa3, 0x36, 0x2a}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfBool's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfBool) SetCompleted(handler *AsyncOperationCompletedHandlerOfBool) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -31,6 +42,45 @@ func (self *IAsyncOperationOfBool) GetResults() (bool, error) {
 	var result byte
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfBool reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfBool) Await() (bool, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfBool(func(_ *IAsyncOperationOfBool, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return false, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return false, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return false, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return false, err
+		}
+		return false, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfIInputStream is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Storage.Streams.IInputStream>.
@@ -43,7 +93,16 @@ type IAsyncOperationOfIInputStream struct {
 // IID_IAsyncOperationOfIInputStream is the interface identifier for IAsyncOperationOfIInputStream.
 var IID_IAsyncOperationOfIInputStream = win32.GUID{Data1: 0xa8fe0732, Data2: 0x556d, Data3: 0x5841, Data4: [8]byte{0xb7, 0xee, 0xb3, 0x45, 0x0f, 0xb5, 0x26, 0x66}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfIInputStream's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfIInputStream) SetCompleted(handler *AsyncOperationCompletedHandlerOfIInputStream) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -52,6 +111,45 @@ func (self *IAsyncOperationOfIInputStream) GetResults() (*IInputStream, error) {
 	var result *IInputStream
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfIInputStream reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfIInputStream) Await() (*IInputStream, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfIInputStream(func(_ *IAsyncOperationOfIInputStream, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfIRandomAccessStream is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Storage.Streams.IRandomAccessStream>.
@@ -64,7 +162,16 @@ type IAsyncOperationOfIRandomAccessStream struct {
 // IID_IAsyncOperationOfIRandomAccessStream is the interface identifier for IAsyncOperationOfIRandomAccessStream.
 var IID_IAsyncOperationOfIRandomAccessStream = win32.GUID{Data1: 0x430ecece, Data2: 0x1418, Data3: 0x5d19, Data4: [8]byte{0x81, 0xb2, 0x5d, 0xdb, 0x38, 0x16, 0x03, 0xcc}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfIRandomAccessStream's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfIRandomAccessStream) SetCompleted(handler *AsyncOperationCompletedHandlerOfIRandomAccessStream) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -73,6 +180,45 @@ func (self *IAsyncOperationOfIRandomAccessStream) GetResults() (*IRandomAccessSt
 	var result *IRandomAccessStream
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfIRandomAccessStream reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfIRandomAccessStream) Await() (*IRandomAccessStream, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfIRandomAccessStream(func(_ *IAsyncOperationOfIRandomAccessStream, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfIRandomAccessStreamWithContentType is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Storage.Streams.IRandomAccessStreamWithContentType>.
@@ -85,7 +231,16 @@ type IAsyncOperationOfIRandomAccessStreamWithContentType struct {
 // IID_IAsyncOperationOfIRandomAccessStreamWithContentType is the interface identifier for IAsyncOperationOfIRandomAccessStreamWithContentType.
 var IID_IAsyncOperationOfIRandomAccessStreamWithContentType = win32.GUID{Data1: 0xc4a57c5e, Data2: 0x32b0, Data3: 0x55b3, Data4: [8]byte{0xad, 0x13, 0xce, 0x1c, 0x23, 0x04, 0x1e, 0xd6}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfIRandomAccessStreamWithContentType's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfIRandomAccessStreamWithContentType) SetCompleted(handler *AsyncOperationCompletedHandlerOfIRandomAccessStreamWithContentType) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -94,6 +249,45 @@ func (self *IAsyncOperationOfIRandomAccessStreamWithContentType) GetResults() (*
 	var result *IRandomAccessStreamWithContentType
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfIRandomAccessStreamWithContentType reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfIRandomAccessStreamWithContentType) Await() (*IRandomAccessStreamWithContentType, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfIRandomAccessStreamWithContentType(func(_ *IAsyncOperationOfIRandomAccessStreamWithContentType, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfStorageStreamTransaction is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Storage.StorageStreamTransaction>.
@@ -106,7 +300,16 @@ type IAsyncOperationOfStorageStreamTransaction struct {
 // IID_IAsyncOperationOfStorageStreamTransaction is the interface identifier for IAsyncOperationOfStorageStreamTransaction.
 var IID_IAsyncOperationOfStorageStreamTransaction = win32.GUID{Data1: 0x0d81405a, Data2: 0x9bd3, Data3: 0x5e87, Data4: [8]byte{0x82, 0xf4, 0x9b, 0x41, 0x28, 0xa8, 0x87, 0xeb}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfStorageStreamTransaction's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfStorageStreamTransaction) SetCompleted(handler *AsyncOperationCompletedHandlerOfStorageStreamTransaction) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -122,11 +325,29 @@ type IAsyncOperationWithProgressOfIBufferAndUInt32 struct {
 // IID_IAsyncOperationWithProgressOfIBufferAndUInt32 is the interface identifier for IAsyncOperationWithProgressOfIBufferAndUInt32.
 var IID_IAsyncOperationWithProgressOfIBufferAndUInt32 = win32.GUID{Data1: 0xd26b2819, Data2: 0x897f, Data3: 0x5c7d, Data4: [8]byte{0x84, 0xd6, 0x56, 0xd7, 0x96, 0x56, 0x14, 0x31}}
 
-// slot 6: put_Progress skipped: parameterized type Windows.Foundation.AsyncOperationProgressHandler`2
+// SetProgress (propput put_Progress) dispatches through IAsyncOperationWithProgressOfIBufferAndUInt32's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationWithProgressOfIBufferAndUInt32) SetProgress(handler *AsyncOperationProgressHandlerOfIBufferAndUInt32) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Progress skipped: parameterized type Windows.Foundation.AsyncOperationProgressHandler`2
 
-// slot 8: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationWithProgressCompletedHandler`2
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationWithProgressOfIBufferAndUInt32's vtable slot 8.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationWithProgressOfIBufferAndUInt32) SetCompleted(handler *AsyncOperationWithProgressCompletedHandlerOfIBufferAndUInt32) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 9: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationWithProgressCompletedHandler`2
 
@@ -147,11 +368,29 @@ type IAsyncOperationWithProgressOfUInt32AndUInt32 struct {
 // IID_IAsyncOperationWithProgressOfUInt32AndUInt32 is the interface identifier for IAsyncOperationWithProgressOfUInt32AndUInt32.
 var IID_IAsyncOperationWithProgressOfUInt32AndUInt32 = win32.GUID{Data1: 0xeccb574a, Data2: 0xc684, Data3: 0x5572, Data4: [8]byte{0xa6, 0x79, 0x6b, 0x08, 0x42, 0xcf, 0xb5, 0x7f}}
 
-// slot 6: put_Progress skipped: parameterized type Windows.Foundation.AsyncOperationProgressHandler`2
+// SetProgress (propput put_Progress) dispatches through IAsyncOperationWithProgressOfUInt32AndUInt32's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationWithProgressOfUInt32AndUInt32) SetProgress(handler *AsyncOperationProgressHandlerOfUInt32AndUInt32) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Progress skipped: parameterized type Windows.Foundation.AsyncOperationProgressHandler`2
 
-// slot 8: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationWithProgressCompletedHandler`2
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationWithProgressOfUInt32AndUInt32's vtable slot 8.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationWithProgressOfUInt32AndUInt32) SetCompleted(handler *AsyncOperationWithProgressCompletedHandlerOfUInt32AndUInt32) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 9: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationWithProgressCompletedHandler`2
 
@@ -172,11 +411,29 @@ type IAsyncOperationWithProgressOfUInt64AndUInt64 struct {
 // IID_IAsyncOperationWithProgressOfUInt64AndUInt64 is the interface identifier for IAsyncOperationWithProgressOfUInt64AndUInt64.
 var IID_IAsyncOperationWithProgressOfUInt64AndUInt64 = win32.GUID{Data1: 0x8f1db6e3, Data2: 0x6556, Data3: 0x5516, Data4: [8]byte{0x82, 0x5c, 0x10, 0x21, 0xee, 0x27, 0xcd, 0x0c}}
 
-// slot 6: put_Progress skipped: parameterized type Windows.Foundation.AsyncOperationProgressHandler`2
+// SetProgress (propput put_Progress) dispatches through IAsyncOperationWithProgressOfUInt64AndUInt64's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationWithProgressOfUInt64AndUInt64) SetProgress(handler *AsyncOperationProgressHandlerOfUInt64AndUInt64) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Progress skipped: parameterized type Windows.Foundation.AsyncOperationProgressHandler`2
 
-// slot 8: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationWithProgressCompletedHandler`2
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationWithProgressOfUInt64AndUInt64's vtable slot 8.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationWithProgressOfUInt64AndUInt64) SetCompleted(handler *AsyncOperationWithProgressCompletedHandlerOfUInt64AndUInt64) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 9: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationWithProgressCompletedHandler`2
 

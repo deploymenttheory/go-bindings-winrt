@@ -9,12 +9,16 @@ package emitwinrt
 // runtime's Go-implemented Delegate whose constructor adapts the raw Invoke
 // ABI words to typed callback arguments.
 //
-// Delegates are grounded ONLY when an event requests them this milestone:
-// generic delegate instantiations in method parameters keep degrading with
-// today's diagnostics (delegate-param-skipped / generic-member-skipped), and
-// delegate TypeDefs are still not emitted into their home namespaces. Like
-// pinterfaces, two packages consuming the same event delegate each get their
-// own handler copy: distinct Go types, identical ABI (same IID).
+// Delegates ground when an EVENT requests them — and, since the async wave,
+// when a method PARAMETER references one (put_Completed above all): the
+// typemap's RequestDelegate seam routes adaptable delegate parameters
+// through the same grounding below, so they lower to `handler *<Handler>`
+// instead of degrading. Un-adaptable delegate parameters keep today's
+// diagnostics (delegate-param-skipped / generic-member-skipped), methods
+// RETURNING delegates (get_Completed) keep degrading, and delegate TypeDefs
+// are still not emitted into their home namespaces. Like pinterfaces, two
+// packages consuming the same delegate each get their own handler copy:
+// distinct Go types, identical ABI (same IID).
 //
 // An event whose delegate cannot be adapted (Invoke with a return value,
 // [out] or float/struct/array parameters, or an arity outside the delegate
@@ -102,10 +106,27 @@ func (g *Generator) buildRemoveAccessor(meta *winrtmeta.NamespaceMeta, interface
 	}, nil
 }
 
-// requestEventDelegate grounds an event's delegate type — a closed generic
+// delegateRequester adapts requestEventDelegate as the typemap's
+// RequestDelegate seam for method parameters: a grounded delegate returns
+// its handler type name; any grounding failure degrades the parameter (the
+// skip's event-delegate-unloweable framing is discarded — the mapper reports
+// the parameter under today's delegate keys).
+func (g *Generator) delegateRequester(meta *winrtmeta.NamespaceMeta) func(ref *winrtmeta.TypeRef) (string, bool) {
+	return func(ref *winrtmeta.TypeRef) (string, bool) {
+		name, skipped := g.requestEventDelegate(meta, ref)
+		if skipped != nil {
+			return "", false
+		}
+		return name, true
+	}
+}
+
+// requestEventDelegate grounds a delegate type — a closed generic
 // instantiation (TypedEventHandler`2<A, B>) or a non-generic delegate
 // reference — into a package-local handler type, deduped by name, and
-// returns the handler's Go type name. A non-nil skip degrades the accessor.
+// returns the handler's Go type name. Events and method parameters share
+// this seam (and its adaptability rules). A non-nil skip degrades the
+// requesting member.
 func (g *Generator) requestEventDelegate(meta *winrtmeta.NamespaceMeta, ref *winrtmeta.TypeRef) (string, *skip) {
 	var handlerName, iid string
 	var invoke winrtmeta.Method

@@ -10,7 +10,152 @@ import (
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 )
+
+// AsyncOperationCompletedHandlerOfIVectorViewOfToastCollection is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ToastCollection>>.
+// IID: 4650e069-3052-530e-bc38-93c411773b77
+type AsyncOperationCompletedHandlerOfIVectorViewOfToastCollection struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfIVectorViewOfToastCollection is the delegate identifier for AsyncOperationCompletedHandlerOfIVectorViewOfToastCollection.
+var IID_AsyncOperationCompletedHandlerOfIVectorViewOfToastCollection = win32.GUID{Data1: 0x4650e069, Data2: 0x3052, Data3: 0x530e, Data4: [8]byte{0xbc, 0x38, 0x93, 0xc4, 0x11, 0x77, 0x3b, 0x77}}
+
+// NewAsyncOperationCompletedHandlerOfIVectorViewOfToastCollection wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Foundation.Collections.IVectorView`1<Windows.UI.Notifications.ToastCollection>>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfIVectorViewOfToastCollection(fn func(asyncInfo *IAsyncOperationOfIVectorViewOfToastCollection, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfIVectorViewOfToastCollection, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfIVectorViewOfToastCollection, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfIVectorViewOfToastCollection)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfIVectorViewOfToastCollection{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfIVectorViewOfToastCollection) Ptr() uintptr {
+	return h.delegate.Ptr()
+}
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfIVectorViewOfToastCollection) Close() { h.delegate.Release() }
+
+// AsyncOperationCompletedHandlerOfToastCollection is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.UI.Notifications.ToastCollection>.
+// IID: 8d44ca1e-15d7-5bcb-b002-384c87171c74
+type AsyncOperationCompletedHandlerOfToastCollection struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfToastCollection is the delegate identifier for AsyncOperationCompletedHandlerOfToastCollection.
+var IID_AsyncOperationCompletedHandlerOfToastCollection = win32.GUID{Data1: 0x8d44ca1e, Data2: 0x15d7, Data3: 0x5bcb, Data4: [8]byte{0xb0, 0x02, 0x38, 0x4c, 0x87, 0x17, 0x1c, 0x74}}
+
+// NewAsyncOperationCompletedHandlerOfToastCollection wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.UI.Notifications.ToastCollection>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfToastCollection(fn func(asyncInfo *IAsyncOperationOfToastCollection, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfToastCollection, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfToastCollection, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfToastCollection)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfToastCollection{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfToastCollection) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfToastCollection) Close() { h.delegate.Release() }
+
+// AsyncOperationCompletedHandlerOfToastNotificationHistory is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.UI.Notifications.ToastNotificationHistory>.
+// IID: c661d5da-6762-5d93-9138-e7dacd571056
+type AsyncOperationCompletedHandlerOfToastNotificationHistory struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfToastNotificationHistory is the delegate identifier for AsyncOperationCompletedHandlerOfToastNotificationHistory.
+var IID_AsyncOperationCompletedHandlerOfToastNotificationHistory = win32.GUID{Data1: 0xc661d5da, Data2: 0x6762, Data3: 0x5d93, Data4: [8]byte{0x91, 0x38, 0xe7, 0xda, 0xcd, 0x57, 0x10, 0x56}}
+
+// NewAsyncOperationCompletedHandlerOfToastNotificationHistory wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.UI.Notifications.ToastNotificationHistory>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfToastNotificationHistory(fn func(asyncInfo *IAsyncOperationOfToastNotificationHistory, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfToastNotificationHistory, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfToastNotificationHistory, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfToastNotificationHistory)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfToastNotificationHistory{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfToastNotificationHistory) Ptr() uintptr {
+	return h.delegate.Ptr()
+}
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfToastNotificationHistory) Close() { h.delegate.Release() }
+
+// AsyncOperationCompletedHandlerOfToastNotifier is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.UI.Notifications.ToastNotifier>.
+// IID: fde26ed7-bc37-5a7c-b3da-3e41ac97bba4
+type AsyncOperationCompletedHandlerOfToastNotifier struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfToastNotifier is the delegate identifier for AsyncOperationCompletedHandlerOfToastNotifier.
+var IID_AsyncOperationCompletedHandlerOfToastNotifier = win32.GUID{Data1: 0xfde26ed7, Data2: 0xbc37, Data3: 0x5a7c, Data4: [8]byte{0xb3, 0xda, 0x3e, 0x41, 0xac, 0x97, 0xbb, 0xa4}}
+
+// NewAsyncOperationCompletedHandlerOfToastNotifier wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.UI.Notifications.ToastNotifier>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfToastNotifier(fn func(asyncInfo *IAsyncOperationOfToastNotifier, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfToastNotifier, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfToastNotifier, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfToastNotifier)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfToastNotifier{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfToastNotifier) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfToastNotifier) Close() { h.delegate.Release() }
 
 // TypedEventHandlerOfToastNotificationAndObject is a Go-implemented handler for the WinRT delegate
 // Windows.Foundation.TypedEventHandler`2<Windows.UI.Notifications.ToastNotification, Object>.

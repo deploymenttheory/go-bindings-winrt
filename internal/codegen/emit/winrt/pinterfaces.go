@@ -19,8 +19,10 @@ package emitwinrt
 // arguments into an open interface's methods may surface further
 // instantiations (IIterable<T>.First → IIterator<T>; IVector<T>.GetView →
 // IVectorView<T>), which are queued and emitted into the same package until
-// a fixed point. Generic DELEGATE instantiations ground only when an EVENT
-// requests them (see events.go); as method parameters they still degrade.
+// a fixed point. Generic DELEGATE instantiations ground when an event or an
+// adaptable method PARAMETER requests them (see events.go); in return
+// position they still degrade. Monomorphized IAsyncOperation`1 instances
+// additionally gain a synthesized blocking Await (see async.go).
 
 import (
 	"fmt"
@@ -233,7 +235,11 @@ func (g *Generator) buildPinterfaceModels(meta *winrtmeta.NamespaceMeta, imports
 		open := g.registry.Interface(inst.Namespace, inst.Name)
 		definition := instantiateInterface(open, inst.Args)
 		definition.GUID = g.pinstIID[mangled]
-		models = append(models, g.buildInterface(meta, refDisplay(inst), mangled, definition, imports))
+		model := g.buildInterface(meta, refDisplay(inst), mangled, definition, imports)
+		if inst.Namespace == "Windows.Foundation" && inst.Name == "IAsyncOperation`1" {
+			g.attachAwait(meta, &model, imports)
+		}
+		models = append(models, model)
 	}
 	sort.Slice(models, func(i, j int) bool { return models[i].TypeName < models[j].TypeName })
 	return models

@@ -7,6 +7,7 @@ package popups
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
@@ -98,6 +99,40 @@ func Create1(label string) (*UICommand, error) {
 	factory := (*IUICommandFactory)(unsafe.Pointer(factoryUnknown))
 	defer factory.Release()
 	instance, err := factory.Create(label)
+	if err != nil {
+		return nil, err
+	}
+	return (*UICommand)(unsafe.Pointer(instance)), nil
+}
+
+// CreateWithHandler constructs a Windows.UI.Popups.UICommand instance through
+// Windows.UI.Popups.IUICommandFactory.CreateWithHandler. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateWithHandler(label string, action *UICommandInvokedHandler) (*UICommand, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Popups.UICommand", &IID_IUICommandFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IUICommandFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateWithHandler(label, action)
+	if err != nil {
+		return nil, err
+	}
+	return (*UICommand)(unsafe.Pointer(instance)), nil
+}
+
+// CreateWithHandlerAndId constructs a Windows.UI.Popups.UICommand instance through
+// Windows.UI.Popups.IUICommandFactory.CreateWithHandlerAndId. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateWithHandlerAndId(label string, action *UICommandInvokedHandler, commandId *syswinrt.IInspectable) (*UICommand, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Popups.UICommand", &IID_IUICommandFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IUICommandFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateWithHandlerAndId(label, action, commandId)
 	if err != nil {
 		return nil, err
 	}

@@ -10,7 +10,78 @@ import (
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 )
+
+// AsyncOperationCompletedHandlerOfAppWindow is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.UI.WindowManagement.AppWindow>.
+// IID: 3bbea3e6-34b8-5ef0-a093-9cc71fa40b6e
+type AsyncOperationCompletedHandlerOfAppWindow struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfAppWindow is the delegate identifier for AsyncOperationCompletedHandlerOfAppWindow.
+var IID_AsyncOperationCompletedHandlerOfAppWindow = win32.GUID{Data1: 0x3bbea3e6, Data2: 0x34b8, Data3: 0x5ef0, Data4: [8]byte{0xa0, 0x93, 0x9c, 0xc7, 0x1f, 0xa4, 0x0b, 0x6e}}
+
+// NewAsyncOperationCompletedHandlerOfAppWindow wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.UI.WindowManagement.AppWindow>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfAppWindow(fn func(asyncInfo *IAsyncOperationOfAppWindow, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfAppWindow, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfAppWindow, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfAppWindow)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfAppWindow{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfAppWindow) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfAppWindow) Close() { h.delegate.Release() }
+
+// AsyncOperationCompletedHandlerOfBool is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Bool>.
+// IID: c1d3d1a2-ae17-5a5f-b5a2-bdcc8844889a
+type AsyncOperationCompletedHandlerOfBool struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfBool is the delegate identifier for AsyncOperationCompletedHandlerOfBool.
+var IID_AsyncOperationCompletedHandlerOfBool = win32.GUID{Data1: 0xc1d3d1a2, Data2: 0xae17, Data3: 0x5a5f, Data4: [8]byte{0xb5, 0xa2, 0xbd, 0xcc, 0x88, 0x44, 0x88, 0x9a}}
+
+// NewAsyncOperationCompletedHandlerOfBool wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Bool>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfBool(fn func(asyncInfo *IAsyncOperationOfBool, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfBool, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfBool, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfBool)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfBool{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfBool) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfBool) Close() { h.delegate.Release() }
 
 // TypedEventHandlerOfAppWindowAndAppWindowChangedEventArgs is a Go-implemented handler for the WinRT delegate
 // Windows.Foundation.TypedEventHandler`2<Windows.UI.WindowManagement.AppWindow, Windows.UI.WindowManagement.AppWindowChangedEventArgs>.

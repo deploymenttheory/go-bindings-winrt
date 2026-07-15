@@ -55,6 +55,42 @@ type InterfaceModel struct {
 	// Methods holds emitted methods and skipped-slot comments, interleaved
 	// in absolute slot order so the vtable layout stays auditable.
 	Methods []MethodModel
+	// Await, when non-nil, renders the synthesized blocking Await method on
+	// an async interface (a monomorphized IAsyncOperation<T> or the plain
+	// IAsyncAction).
+	Await *AwaitModel
+}
+
+// AwaitModel renders the synthesized Await method: register a Completed
+// handler, block on its completion signal, surface a non-Completed terminal
+// status through winrt.AsyncError (with the IAsyncInfo error code), and
+// return GetResults(). Present only when SetCompleted and GetResults both
+// emitted, the Completed handler grounded, and the IAsyncInfo/AsyncStatus
+// references resolved.
+type AwaitModel struct {
+	CommentLines []string
+	// ReturnSig mirrors GetResults's return signature
+	// ("(*IStorageFile, error)"; "error" for IAsyncAction).
+	ReturnSig string
+	// StatusType is the AsyncStatus Go type, package-qualified as needed
+	// ("foundation.AsyncStatus").
+	StatusType string
+	// StatusCompleted is the Completed constant expression
+	// ("foundation.AsyncStatusCompleted").
+	StatusCompleted string
+	// HandlerCtor is the grounded Completed-handler constructor
+	// ("NewAsyncOperationCompletedHandlerOfStorageFile").
+	HandlerCtor string
+	// InfoType is the IAsyncInfo Go type without the leading *
+	// ("foundation.IAsyncInfo").
+	InfoType string
+	// InfoIIDRef is the address expression of IAsyncInfo's IID variable
+	// ("&foundation.IID_IAsyncInfo").
+	InfoIIDRef string
+	// ErrPrefix precedes err/AsyncError in return statements: "" when Await
+	// returns only an error, otherwise the zero value plus ", "
+	// ("nil, ", `"", `).
+	ErrPrefix string
 }
 
 // Return-shape discriminants for MethodModel.ReturnKind. The template

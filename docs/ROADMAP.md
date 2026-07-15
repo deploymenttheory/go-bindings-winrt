@@ -67,10 +67,16 @@ consumers prove it), so they are pure additions:
   interface returning the class default interface projects as a
   package-level constructor (`CreateGeographicRegion("US")`, live-tested;
   the factory is fetched per call — a cache is a future optimization).
-  Calendar's factory ctors emit too, but all take an `IIterable<String>`
-  the OS rejects as null (E_POINTER, verified live) — they become fully
-  usable once Go-implemented WinRT collections land. `[Composable]`
-  classes stay skipped.*
+  Calendar's factory ctors emit too; their `IIterable<String>` argument
+  (which the OS rejects as null with E_POINTER, verified live) is now
+  constructible — Go-implemented WinRT collections landed in
+  `bindings/runtime/winrt` (`inspectable.go` + `collections.go`:
+  `NewStringIterable`/`NewStringIterator`/`NewStringVectorView` over the
+  shared IInspectable trampoline core, IIDs pinned to the pinterface
+  derivation), and `CreateCalendarDefaultCalendarAndClock`/
+  `CreateCalendarWithTimeZone` are live-tested consuming a Go-backed
+  iterable in `acceptance/collections_test.go` — finding resolved.
+  `[Composable]` classes stay skipped.*
 - **Delegates** (TypeDef extending `System.MulticastDelegate`, `Invoke`
   method, `[Guid]`), **events** returning `EventRegistrationToken`.
   *Status: the Go-implemented delegate runtime
@@ -88,10 +94,24 @@ consumers prove it), so they are pure additions:
   pinterface-derived) or a non-generic delegate (declared IID) — grounds
   into a package-local typed handler in `<pkg>_delegates.go` wrapping the
   delegate runtime (live-tested: `IMemoryBufferReference.Closed` fires
-  through generated code). Delegate-typed method PARAMETERS (async's
-  `Completed` et al.) and delegate TypeDefs in their home namespaces stay
-  deferred; the ~142 non-generic-delegate events across the wider surface
-  light up when their namespaces are emitted.*
+  through generated code). Delegate-typed method PARAMETERS are landed:
+  the same grounding (and adaptability rules) serves method params via the
+  typemap's `RequestDelegate` seam, so `put_Completed` emits as
+  `SetCompleted(handler *<Handler>)` (nil passes NULL) — which unlocked
+  **async awaiting**: every monomorphized `IAsyncOperationOf<X>` whose
+  `SetCompleted` and `GetResults` both emitted, plus the plain
+  `IAsyncAction`, gains a synthesized blocking `Await()` returning
+  `GetResults()` on completion or a `winrt.AsyncError` (AsyncStatus + the
+  IAsyncInfo error code as a `win32.HRESULT`) otherwise. Live-tested in
+  `acceptance/async_test.go`: `StorageFile.GetFileFromPathAsync` awaited
+  end to end, including the already-completed (immediate handler invoke)
+  and failure (0x80070002 file-not-found surfaced through `errors.As`)
+  paths. Methods RETURNING delegates (`get_Completed`), delegate TypeDefs
+  in their home namespaces, and Await on `IAsyncOperationWithProgress`
+  (its Completed/Progress handler setters emit; the Await synthesis
+  targets only `IAsyncOperation`1`/`IAsyncAction`) stay deferred, as does
+  a context-aware Await variant; the ~142 non-generic-delegate events
+  across the wider surface light up when their namespaces are emitted.*
 - **mscorlib marker types** (`System.Object`, `System.Guid`, `System.Enum`,
   `System.ValueType`, `System.MulticastDelegate`, `System.Attribute`) are
   type-system signals only — never resolve them as real types.
