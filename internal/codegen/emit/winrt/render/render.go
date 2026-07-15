@@ -38,3 +38,7 @@ func Interface(model view.InterfaceModel) (string, error) { return execute("inte
 
 // Class renders one runtime class: type, constructor, and query methods.
 func Class(model view.ClassModel) (string, error) { return execute("class", model) }
+
+// Delegate renders one event-delegate handler: type, IID, typed constructor
+// with its raw-word adapter, Ptr, and Close.
+func Delegate(model view.DelegateModel) (string, error) { return execute("delegate", model) }

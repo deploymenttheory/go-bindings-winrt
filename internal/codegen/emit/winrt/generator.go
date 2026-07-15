@@ -15,6 +15,7 @@ import (
 	"strings"
 
 	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/emit/winrt/render"
+	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/emit/winrt/view"
 	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/naming"
 	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/pipeline"
 	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/shared/fileasm"
@@ -44,6 +45,15 @@ type Generator struct {
 	pinstByName map[string]*winrtmeta.TypeRef
 	pinstIID    map[string]string
 	pinstQueue  []string
+
+	// Per-namespace event-delegate state (reset alongside the name claims):
+	// pdelByName maps the handler type name to the delegate reference it was
+	// grounded from (dedup), pdelModels accumulates the handler render
+	// models (built eagerly at request time), and pdelImports collects the
+	// <pkg>_delegates.go import edges.
+	pdelByName  map[string]*winrtmeta.TypeRef
+	pdelModels  []view.DelegateModel
+	pdelImports typemap.ImportSet
 
 	// writtenFiles records every path this run produced, so stale generated
 	// files from earlier runs can be pruned afterwards.
@@ -178,8 +188,8 @@ func (g *Generator) pruneStale(fullSweep bool) error {
 }
 
 // emitNamespace writes one namespace's package: doc.go plus the per-construct
-// files (enums, structs, interfaces, classes, pinterfaces), only when
-// non-empty.
+// files (enums, structs, interfaces, classes, pinterfaces, delegates), only
+// when non-empty.
 func (g *Generator) emitNamespace(meta *winrtmeta.NamespaceMeta) error {
 	g.prepareNamespaceClaims(meta)
 	packageName := naming.PackageName(meta.Namespace)
@@ -245,8 +255,23 @@ func (g *Generator) emitNamespace(meta *winrtmeta.NamespaceMeta) error {
 		return err
 	}
 
-	// Delegates are not emitted this wave (M6 brings Go-implemented COM
-	// callbacks); record one diagnostic per skipped delegate type.
+	// Event-delegate handlers requested by the Add/Remove accessors built
+	// above (declared interfaces and instantiated pinterfaces alike). The
+	// models were built eagerly at request time; sort for determinism.
+	sort.Slice(g.pdelModels, func(i, j int) bool { return g.pdelModels[i].TypeName < g.pdelModels[j].TypeName })
+	var delegateBody strings.Builder
+	for _, model := range g.pdelModels {
+		if err := renderInto(&delegateBody, render.Delegate, model); err != nil {
+			return err
+		}
+	}
+	if err := g.writeFile(packageDir, packageName+"_delegates.go", packageName, g.pdelImports, delegateBody.String()); err != nil {
+		return err
+	}
+
+	// Delegate TypeDefs are still not emitted into their home namespace —
+	// events ground per-package handler copies on demand instead; record one
+	// diagnostic per unprojected delegate type.
 	for _, name := range sortedKeys(meta.Delegates) {
 		g.diag("delegate-type-skipped", "%s.%s", meta.Namespace, name)
 	}
@@ -365,6 +390,9 @@ func (g *Generator) prepareNamespaceClaims(meta *winrtmeta.NamespaceMeta) {
 	g.pinstByName = map[string]*winrtmeta.TypeRef{}
 	g.pinstIID = map[string]string{}
 	g.pinstQueue = nil
+	g.pdelByName = map[string]*winrtmeta.TypeRef{}
+	g.pdelModels = nil
+	g.pdelImports = typemap.ImportSet{}
 	claimType := func(name string) {
 		exported := naming.Export(name)
 		if !g.claimedNames[exported] {

@@ -61,8 +61,6 @@
     "delegate-type-skipped: Windows.Foundation.DeferralCompletedHandler",
     "delegate-type-skipped: Windows.Foundation.EventHandler`1",
     "delegate-type-skipped: Windows.Foundation.TypedEventHandler`2",
-    "event-skipped: Windows.Foundation.IMemoryBufferReference.add_Closed (events are not emitted this wave)",
-    "event-skipped: Windows.Foundation.IMemoryBufferReference.remove_Closed (events are not emitted this wave)",
     "factory-generic-skipped: Windows.Globalization.Calendar factory Windows.Globalization.ICalendarFactory",
     "factory-generic-skipped: Windows.Globalization.Calendar factory Windows.Globalization.ICalendarFactory2",
     "factory-skipped: Windows.Foundation.Deferral factory Windows.Foundation.IDeferralFactory",

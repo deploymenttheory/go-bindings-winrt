@@ -187,8 +187,9 @@ func (m *Mapper) resolveNative(ref *winrtmeta.TypeRef, imports ImportSet) Resolv
 // resolveGenericInst maps a closed generic INTERFACE instantiation to the
 // concrete (monomorphized) type the gather layer emits into the consuming
 // package — package-local, so no import is recorded. Delegate instantiations
-// (TypedEventHandler`2 et al.) still degrade: generic delegates wait for the
-// event milestone. The open type's namespace is never imported, so blocked
+// (TypedEventHandler`2 et al.) still degrade HERE: as method parameters they
+// are not lowered; only the gather layer's event seam grounds them into
+// handler types. The open type's namespace is never imported, so blocked
 // import edges do not apply here; cross-namespace ARGUMENT references are
 // resolved (and blocked-edge checked) when the instantiation's methods are
 // lowered.

@@ -217,9 +217,21 @@ func (self *IMemoryBufferReference) Capacity() (uint32, error) {
 	return result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 7: add_Closed skipped: events are not emitted this wave
+// AddClosed (event add add_Closed) dispatches through IMemoryBufferReference's vtable slot 7.
+// The handler stays registered (and referenced by the runtime) until the
+// returned token is passed to RemoveClosed.
+func (self *IMemoryBufferReference) AddClosed(handler *TypedEventHandlerOfIMemoryBufferReferenceAndObject) (syswinrt.EventRegistrationToken, error) {
+	var result syswinrt.EventRegistrationToken
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
-// slot 8: remove_Closed skipped: events are not emitted this wave
+// RemoveClosed (event remove remove_Closed) dispatches through IMemoryBufferReference's vtable slot 8,
+// unregistering the Closed handler the token was returned for.
+func (self *IMemoryBufferReference) RemoveClosed(token syswinrt.EventRegistrationToken) error {
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(token.Value))
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // IPropertyValue is the WinRT interface Windows.Foundation.IPropertyValue.
 // IID: 4bd682dd-7554-40e9-9a9b-82654ede7e62
