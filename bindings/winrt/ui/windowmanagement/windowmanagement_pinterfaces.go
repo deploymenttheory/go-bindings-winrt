@@ -10,6 +10,8 @@ import (
 
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui"
 )
 
@@ -23,7 +25,16 @@ type IAsyncOperationOfAppWindow struct {
 // IID_IAsyncOperationOfAppWindow is the interface identifier for IAsyncOperationOfAppWindow.
 var IID_IAsyncOperationOfAppWindow = win32.GUID{Data1: 0x4167727a, Data2: 0x5df0, Data3: 0x5ed3, Data4: [8]byte{0xb6, 0x24, 0x16, 0x7c, 0x81, 0xbe, 0xff, 0x6b}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfAppWindow's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfAppWindow) SetCompleted(handler *AsyncOperationCompletedHandlerOfAppWindow) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -32,6 +43,45 @@ func (self *IAsyncOperationOfAppWindow) GetResults() (*IAppWindow, error) {
 	var result *IAppWindow
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfAppWindow reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfAppWindow) Await() (*IAppWindow, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfAppWindow(func(_ *IAsyncOperationOfAppWindow, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfBool is the WinRT interface Windows.Foundation.IAsyncOperation`1<Bool>.
@@ -44,7 +94,16 @@ type IAsyncOperationOfBool struct {
 // IID_IAsyncOperationOfBool is the interface identifier for IAsyncOperationOfBool.
 var IID_IAsyncOperationOfBool = win32.GUID{Data1: 0xcdb5efb3, Data2: 0x5788, Data3: 0x509d, Data4: [8]byte{0x9b, 0xe1, 0x71, 0xcc, 0xb8, 0xa3, 0x36, 0x2a}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfBool's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfBool) SetCompleted(handler *AsyncOperationCompletedHandlerOfBool) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -53,6 +112,45 @@ func (self *IAsyncOperationOfBool) GetResults() (bool, error) {
 	var result byte
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfBool reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfBool) Await() (bool, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfBool(func(_ *IAsyncOperationOfBool, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return false, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return false, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return false, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return false, err
+		}
+		return false, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IReferenceOfColor is the WinRT interface Windows.Foundation.IReference`1<Windows.UI.Color>.

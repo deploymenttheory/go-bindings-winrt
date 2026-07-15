@@ -10,6 +10,8 @@ import (
 
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 )
 
 // IAsyncOperationOfXmlDocument is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Data.Xml.Dom.XmlDocument>.
@@ -22,7 +24,16 @@ type IAsyncOperationOfXmlDocument struct {
 // IID_IAsyncOperationOfXmlDocument is the interface identifier for IAsyncOperationOfXmlDocument.
 var IID_IAsyncOperationOfXmlDocument = win32.GUID{Data1: 0xf858e239, Data2: 0x1896, Data3: 0x5982, Data4: [8]byte{0x84, 0x95, 0x14, 0x31, 0x68, 0x47, 0x8e, 0xb8}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfXmlDocument's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfXmlDocument) SetCompleted(handler *AsyncOperationCompletedHandlerOfXmlDocument) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -31,6 +42,45 @@ func (self *IAsyncOperationOfXmlDocument) GetResults() (*IXmlDocument, error) {
 	var result *IXmlDocument
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfXmlDocument reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfXmlDocument) Await() (*IXmlDocument, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfXmlDocument(func(_ *IAsyncOperationOfXmlDocument, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IIterableOfIXmlNode is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Data.Xml.Dom.IXmlNode>.

@@ -10,6 +10,8 @@ import (
 
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 )
 
 // IAsyncOperationOfIUICommand is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.UI.Popups.IUICommand>.
@@ -22,7 +24,16 @@ type IAsyncOperationOfIUICommand struct {
 // IID_IAsyncOperationOfIUICommand is the interface identifier for IAsyncOperationOfIUICommand.
 var IID_IAsyncOperationOfIUICommand = win32.GUID{Data1: 0xb8770535, Data2: 0x6a4b, Data3: 0x52b1, Data4: [8]byte{0xb5, 0x78, 0xf3, 0xcd, 0xc5, 0x00, 0x7a, 0x1f}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfIUICommand's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfIUICommand) SetCompleted(handler *AsyncOperationCompletedHandlerOfIUICommand) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -31,6 +42,45 @@ func (self *IAsyncOperationOfIUICommand) GetResults() (*IUICommand, error) {
 	var result *IUICommand
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfIUICommand reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfIUICommand) Await() (*IUICommand, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfIUICommand(func(_ *IAsyncOperationOfIUICommand, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IVectorOfIUICommand is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Popups.IUICommand>.

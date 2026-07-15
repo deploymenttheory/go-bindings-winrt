@@ -24,7 +24,16 @@ type IAsyncOperationOfBool struct {
 // IID_IAsyncOperationOfBool is the interface identifier for IAsyncOperationOfBool.
 var IID_IAsyncOperationOfBool = win32.GUID{Data1: 0xcdb5efb3, Data2: 0x5788, Data3: 0x509d, Data4: [8]byte{0x9b, 0xe1, 0x71, 0xcc, 0xb8, 0xa3, 0x36, 0x2a}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfBool's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfBool) SetCompleted(handler *AsyncOperationCompletedHandlerOfBool) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -33,6 +42,45 @@ func (self *IAsyncOperationOfBool) GetResults() (bool, error) {
 	var result byte
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfBool reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfBool) Await() (bool, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfBool(func(_ *IAsyncOperationOfBool, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return false, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return false, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return false, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return false, err
+		}
+		return false, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfIVectorOfPackageContentGroup is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.PackageContentGroup>>.
@@ -45,7 +93,16 @@ type IAsyncOperationOfIVectorOfPackageContentGroup struct {
 // IID_IAsyncOperationOfIVectorOfPackageContentGroup is the interface identifier for IAsyncOperationOfIVectorOfPackageContentGroup.
 var IID_IAsyncOperationOfIVectorOfPackageContentGroup = win32.GUID{Data1: 0x929e3c29, Data2: 0xbf29, Data3: 0x5594, Data4: [8]byte{0xbc, 0x63, 0x67, 0xdb, 0x43, 0xa5, 0x39, 0xea}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfIVectorOfPackageContentGroup's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfIVectorOfPackageContentGroup) SetCompleted(handler *AsyncOperationCompletedHandlerOfIVectorOfPackageContentGroup) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -54,6 +111,45 @@ func (self *IAsyncOperationOfIVectorOfPackageContentGroup) GetResults() (*IVecto
 	var result *IVectorOfPackageContentGroup
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfIVectorOfPackageContentGroup reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfIVectorOfPackageContentGroup) Await() (*IVectorOfPackageContentGroup, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfIVectorOfPackageContentGroup(func(_ *IAsyncOperationOfIVectorOfPackageContentGroup, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfIVectorViewOfAppListEntry is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Core.AppListEntry>>.
@@ -66,7 +162,16 @@ type IAsyncOperationOfIVectorViewOfAppListEntry struct {
 // IID_IAsyncOperationOfIVectorViewOfAppListEntry is the interface identifier for IAsyncOperationOfIVectorViewOfAppListEntry.
 var IID_IAsyncOperationOfIVectorViewOfAppListEntry = win32.GUID{Data1: 0xd3bcf8a0, Data2: 0x3538, Data3: 0x5dae, Data4: [8]byte{0x98, 0xd7, 0x1f, 0x2a, 0xb8, 0x8c, 0x3f, 0x01}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfIVectorViewOfAppListEntry's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfIVectorViewOfAppListEntry) SetCompleted(handler *AsyncOperationCompletedHandlerOfIVectorViewOfAppListEntry) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -75,6 +180,45 @@ func (self *IAsyncOperationOfIVectorViewOfAppListEntry) GetResults() (*IVectorVi
 	var result *IVectorViewOfAppListEntry
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfIVectorViewOfAppListEntry reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfIVectorViewOfAppListEntry) Await() (*IVectorViewOfAppListEntry, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfIVectorViewOfAppListEntry(func(_ *IAsyncOperationOfIVectorViewOfAppListEntry, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfPackageCatalogAddOptionalPackageResult is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult>.
@@ -87,7 +231,16 @@ type IAsyncOperationOfPackageCatalogAddOptionalPackageResult struct {
 // IID_IAsyncOperationOfPackageCatalogAddOptionalPackageResult is the interface identifier for IAsyncOperationOfPackageCatalogAddOptionalPackageResult.
 var IID_IAsyncOperationOfPackageCatalogAddOptionalPackageResult = win32.GUID{Data1: 0x59b2497f, Data2: 0x86eb, Data3: 0x542f, Data4: [8]byte{0xbe, 0xa6, 0x1b, 0xe5, 0x3e, 0x93, 0xe1, 0x3d}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfPackageCatalogAddOptionalPackageResult's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfPackageCatalogAddOptionalPackageResult) SetCompleted(handler *AsyncOperationCompletedHandlerOfPackageCatalogAddOptionalPackageResult) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -96,6 +249,45 @@ func (self *IAsyncOperationOfPackageCatalogAddOptionalPackageResult) GetResults(
 	var result *IPackageCatalogAddOptionalPackageResult
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfPackageCatalogAddOptionalPackageResult reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfPackageCatalogAddOptionalPackageResult) Await() (*IPackageCatalogAddOptionalPackageResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfPackageCatalogAddOptionalPackageResult(func(_ *IAsyncOperationOfPackageCatalogAddOptionalPackageResult, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult>.
@@ -108,7 +300,16 @@ type IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult struct {
 // IID_IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult is the interface identifier for IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult.
 var IID_IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult = win32.GUID{Data1: 0xcfc179aa, Data2: 0xfb98, Data3: 0x54ef, Data4: [8]byte{0x8e, 0xa8, 0x64, 0x49, 0x93, 0x47, 0xb7, 0xf7}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult) SetCompleted(handler *AsyncOperationCompletedHandlerOfPackageCatalogRemoveOptionalPackagesResult) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -117,6 +318,45 @@ func (self *IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult) GetResu
 	var result *IPackageCatalogRemoveOptionalPackagesResult
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult) Await() (*IPackageCatalogRemoveOptionalPackagesResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfPackageCatalogRemoveOptionalPackagesResult(func(_ *IAsyncOperationOfPackageCatalogRemoveOptionalPackagesResult, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult>.
@@ -129,7 +369,16 @@ type IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult struct {
 // IID_IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult is the interface identifier for IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult.
 var IID_IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult = win32.GUID{Data1: 0x342ee07c, Data2: 0x8d6e, Data3: 0x53a4, Data4: [8]byte{0xb7, 0x46, 0xc5, 0xb7, 0x4b, 0xb6, 0x1f, 0x6d}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult) SetCompleted(handler *AsyncOperationCompletedHandlerOfPackageCatalogRemoveResourcePackagesResult) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -138,6 +387,45 @@ func (self *IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult) GetResu
 	var result *IPackageCatalogRemoveResourcePackagesResult
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult) Await() (*IPackageCatalogRemoveResourcePackagesResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfPackageCatalogRemoveResourcePackagesResult(func(_ *IAsyncOperationOfPackageCatalogRemoveResourcePackagesResult, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfPackageContentGroup is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.ApplicationModel.PackageContentGroup>.
@@ -150,7 +438,16 @@ type IAsyncOperationOfPackageContentGroup struct {
 // IID_IAsyncOperationOfPackageContentGroup is the interface identifier for IAsyncOperationOfPackageContentGroup.
 var IID_IAsyncOperationOfPackageContentGroup = win32.GUID{Data1: 0xbbd292e3, Data2: 0xdb9f, Data3: 0x5802, Data4: [8]byte{0xa4, 0x88, 0x40, 0xf1, 0x56, 0x33, 0x2c, 0x04}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfPackageContentGroup's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfPackageContentGroup) SetCompleted(handler *AsyncOperationCompletedHandlerOfPackageContentGroup) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -159,6 +456,45 @@ func (self *IAsyncOperationOfPackageContentGroup) GetResults() (*IPackageContent
 	var result *IPackageContentGroup
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfPackageContentGroup reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfPackageContentGroup) Await() (*IPackageContentGroup, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfPackageContentGroup(func(_ *IAsyncOperationOfPackageContentGroup, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationOfPackageUpdateAvailabilityResult is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.ApplicationModel.PackageUpdateAvailabilityResult>.
@@ -171,7 +507,16 @@ type IAsyncOperationOfPackageUpdateAvailabilityResult struct {
 // IID_IAsyncOperationOfPackageUpdateAvailabilityResult is the interface identifier for IAsyncOperationOfPackageUpdateAvailabilityResult.
 var IID_IAsyncOperationOfPackageUpdateAvailabilityResult = win32.GUID{Data1: 0x010bd015, Data2: 0x43ef, Data3: 0x576c, Data4: [8]byte{0xbe, 0x1e, 0xbc, 0x38, 0xc5, 0xb6, 0xb6, 0x6b}}
 
-// slot 6: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfPackageUpdateAvailabilityResult's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfPackageUpdateAvailabilityResult) SetCompleted(handler *AsyncOperationCompletedHandlerOfPackageUpdateAvailabilityResult) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
@@ -180,6 +525,45 @@ func (self *IAsyncOperationOfPackageUpdateAvailabilityResult) GetResults() (*IPa
 	var result *IPackageUpdateAvailabilityResult
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(&result)))
 	return result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfPackageUpdateAvailabilityResult reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfPackageUpdateAvailabilityResult) Await() (*IPackageUpdateAvailabilityResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfPackageUpdateAvailabilityResult(func(_ *IAsyncOperationOfPackageUpdateAvailabilityResult, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationWithProgressOfPackageCatalogAddResourcePackageResultAndPackageInstallProgress is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.ApplicationModel.PackageCatalogAddResourcePackageResult, Windows.ApplicationModel.PackageInstallProgress>.
@@ -196,7 +580,16 @@ var IID_IAsyncOperationWithProgressOfPackageCatalogAddResourcePackageResultAndPa
 
 // slot 7: get_Progress skipped: parameterized type Windows.Foundation.AsyncOperationProgressHandler`2
 
-// slot 8: put_Completed skipped: parameterized type Windows.Foundation.AsyncOperationWithProgressCompletedHandler`2
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationWithProgressOfPackageCatalogAddResourcePackageResultAndPackageInstallProgress's vtable slot 8.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationWithProgressOfPackageCatalogAddResourcePackageResultAndPackageInstallProgress) SetCompleted(handler *AsyncOperationWithProgressCompletedHandlerOfPackageCatalogAddResourcePackageResultAndPackageInstallProgress) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // slot 9: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationWithProgressCompletedHandler`2
 

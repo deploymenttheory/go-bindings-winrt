@@ -59,6 +59,7 @@ const (
 	KindStruct                   // value struct
 	KindObjectPtr                // *syswinrt.IInspectable
 	KindInterfacePtr             // interface pointer (*IFoo)
+	KindDelegatePtr              // grounded delegate handler pointer (*FooHandler)
 	KindUnsupported              // member must degrade; see Reason
 )
 
@@ -93,6 +94,16 @@ type Context struct {
 	// name. A nil callback, or ok == false (the instantiation cannot be
 	// grounded or named), degrades the member exactly as before.
 	RequestInstantiation func(ref *winrtmeta.TypeRef) (string, bool)
+
+	// RequestDelegate is the gather layer's delegate-grounding seam for
+	// method PARAMETERS: when a parameter references a delegate (a closed
+	// generic delegate instantiation or a non-generic delegate ApiRef), the
+	// callback grounds it into a package-local handler type — under the same
+	// adaptability rules as event delegates — and returns the handler's Go
+	// type name. It is wired ONLY for parameter resolution: delegate
+	// RETURNS (get_Completed) resolve without it and keep degrading. A nil
+	// callback, or ok == false, degrades the member exactly as before.
+	RequestDelegate func(ref *winrtmeta.TypeRef) (string, bool)
 }
 
 // Mapper resolves TypeRefs against the loaded Registry.
@@ -186,22 +197,29 @@ func (m *Mapper) resolveNative(ref *winrtmeta.TypeRef, imports ImportSet) Resolv
 
 // resolveGenericInst maps a closed generic INTERFACE instantiation to the
 // concrete (monomorphized) type the gather layer emits into the consuming
-// package — package-local, so no import is recorded. Delegate instantiations
-// (TypedEventHandler`2 et al.) still degrade HERE: as method parameters they
-// are not lowered; only the gather layer's event seam grounds them into
-// handler types. The open type's namespace is never imported, so blocked
-// import edges do not apply here; cross-namespace ARGUMENT references are
-// resolved (and blocked-edge checked) when the instantiation's methods are
-// lowered.
+// package — package-local, so no import is recorded. Closed DELEGATE
+// instantiations (AsyncOperationCompletedHandler`1 et al.) ground the same
+// way through the RequestDelegate seam when it is wired (method parameters);
+// without it they keep degrading. The open type's namespace is never
+// imported, so blocked import edges do not apply here; cross-namespace
+// ARGUMENT references are resolved (and blocked-edge checked) when the
+// instantiation's (or handler's) methods are lowered.
 func (m *Mapper) resolveGenericInst(ref *winrtmeta.TypeRef, ctx Context) Resolved {
-	if ctx.RequestInstantiation == nil || m.Registry.Interface(ref.Namespace, ref.Name) == nil {
-		return unsupported("generic-member-skipped", "parameterized type %s.%s", ref.Namespace, ref.Name)
+	if ctx.RequestInstantiation != nil && m.Registry.Interface(ref.Namespace, ref.Name) != nil {
+		name, ok := ctx.RequestInstantiation(ref)
+		if !ok {
+			return unsupported("generic-member-skipped", "parameterized type %s.%s", ref.Namespace, ref.Name)
+		}
+		return Resolved{GoType: "*" + name, Kind: KindInterfacePtr}
 	}
-	name, ok := ctx.RequestInstantiation(ref)
-	if !ok {
-		return unsupported("generic-member-skipped", "parameterized type %s.%s", ref.Namespace, ref.Name)
+	if ctx.RequestDelegate != nil && m.Registry.Delegate(ref.Namespace, ref.Name) != nil {
+		name, ok := ctx.RequestDelegate(ref)
+		if !ok {
+			return unsupported("generic-member-skipped", "parameterized type %s.%s", ref.Namespace, ref.Name)
+		}
+		return Resolved{GoType: "*" + name, Kind: KindDelegatePtr}
 	}
-	return Resolved{GoType: "*" + name, Kind: KindInterfacePtr}
+	return unsupported("generic-member-skipped", "parameterized type %s.%s", ref.Namespace, ref.Name)
 }
 
 func (m *Mapper) resolveApiRef(ref *winrtmeta.TypeRef, ctx Context, imports ImportSet) Resolved {
@@ -239,6 +257,11 @@ func (m *Mapper) resolveApiRef(ref *winrtmeta.TypeRef, ctx Context, imports Impo
 	case "Class":
 		return m.resolveClassRef(ref, ctx, imports)
 	case "Delegate":
+		if ctx.RequestDelegate != nil {
+			if name, ok := ctx.RequestDelegate(ref); ok {
+				return Resolved{GoType: "*" + name, Kind: KindDelegatePtr}
+			}
+		}
 		return unsupported("delegate-param-skipped", "delegate %s.%s", ref.Namespace, ref.Name)
 	case "":
 		return unsupported("unresolved-typeref", "%s.%s", ref.Namespace, ref.Name)

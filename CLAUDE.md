@@ -55,6 +55,10 @@ go run ./examples/calendar                # the vertical, end to end
     set per Invoke arity, 1–3 raw ABI words), a pin registry keyed by the
     native `this` word, and QI answering the delegate IID + IUnknown +
     IAgileObject. Live-proven by event registration in `acceptance/`.
+  - `async.go` — `AsyncError(status, hresult int32) error`, the
+    terminal-failure error generated `Await` methods return: names the
+    AsyncStatus and wraps the IAsyncInfo error code as a `win32.HRESULT`
+    (reachable via `errors.As`).
   - `inspectable.go` — the shared core for Go-implemented INSPECTABLE
     objects: per-facet `inspectable` headers (vtable word first), shared
     `syscall.NewCallback` trampolines for the six IInspectable slots (QI
@@ -92,8 +96,11 @@ go run ./examples/calendar                # the vertical, end to end
     win32.GUID, Object = *syswinrt.IInspectable; ApiRef class → its default
     interface pointer; closed generic INTERFACE instantiations resolve to a
     package-local monomorphized type via the gather layer's
-    `Context.RequestInstantiation` callback; delegates (incl. generic
-    delegate instantiations)/open generics/arrays degrade the member.
+    `Context.RequestInstantiation` callback; delegate references in METHOD
+    PARAMETERS (incl. generic delegate instantiations) ground into
+    package-local handler types via the `Context.RequestDelegate` callback
+    (wired only for parameter resolution); delegates in RETURN
+    position/open generics/arrays degrade the member.
     External map (never re-emitted): Windows.Foundation
     EventRegistrationToken → syswinrt, HResult → int32.
   - `emit/winrt/` — gather → view → render with the render firewall:
@@ -102,7 +109,8 @@ go run ./examples/calendar                # the vertical, end to end
     precomputed kinds, never decide. Emits per package (non-empty only):
     doc.go, `<pkg>_enums.go`, `<pkg>_structs.go`, `<pkg>_interfaces.go`,
     `<pkg>_classes.go`, `<pkg>_pinterfaces.go` (generic instantiations),
-    `<pkg>_delegates.go` (event-delegate handler types).
+    `<pkg>_delegates.go` (delegate handler types, grounded by events and
+    delegate-typed method parameters).
   - `shared/fileasm/` — DO-NOT-EDIT header + build tag + go/format; the
     emitter is self-cleaning and only ever prunes files bearing the header.
 - **Emit rules**: slot = 6 + MethodDef index; skipped members NEVER
@@ -128,6 +136,24 @@ go run ./examples/calendar                # the vertical, end to end
   callback's duration, HSTRINGs read without consuming). Events whose
   delegate cannot be adapted (float/struct/array params, an Invoke return,
   or a param count outside 1–3) skip with `event-delegate-unloweable`.
+  Delegate-typed method PARAMS ARE emitted through the same grounding (same
+  adaptability rules): an adaptable delegate param lowers to
+  `handler *<Handler>` passing `handler.Ptr()` (nil passes NULL); an
+  un-adaptable one keeps the `delegate-param-skipped` /
+  `generic-member-skipped` diagnostics, and methods RETURNING delegates
+  (`get_Completed`) stay skipped under those same keys. Async awaiting IS
+  emitted: `put_Completed` lowers as `SetCompleted`, and every monomorphized
+  `IAsyncOperationOf<X>` whose `SetCompleted` and `GetResults` both emitted
+  — plus the plain `foundation.IAsyncAction` — gains a synthesized blocking
+  `Await()` (`(<X>, error)` / `error`): register a Completed handler that
+  sends the terminal AsyncStatus on a buffered channel, block, then
+  `GetResults()` on Completed or a `winrt.AsyncError` (status + IAsyncInfo
+  error code) otherwise. Race-free per the WinRT contract (a handler
+  assigned after completion is invoked immediately) and deadlock-free (the
+  send runs on the delegate runtime's fresh Invoke goroutine); Await blocks
+  indefinitely by design — a context-aware variant is future work.
+  Live-proven in `acceptance/async_test.go` (`GetFileFromPathAsync` →
+  `Await`, including the already-completed and failure paths).
   Statics ARE emitted: each [Static] interface S on a class gets a
   package-level accessor `<S-minus-leading-I>()` (`CalendarIdentifiersStatics()`)
   that GetActivationFactory-fetches the class factory queried to S's IID and
@@ -140,10 +166,10 @@ go run ./examples/calendar                # the vertical, end to end
   delegates to the already-generated factory-interface method, and re-types
   the result as the class — the factory interface itself stays emitted as a
   plain interface. The factory is fetched per call (a cache is a future
-  optimization). Open generic types themselves, delegate-typed method PARAMS
-  (delegate-param-skipped — async's Completed stays deferred with async
-  itself), delegate TypeDefs in their home namespace, arrays, and by-value
-  structs wider than one integer word are still skipped with diagnostics.
+  optimization). Open generic types themselves, delegate-returning methods
+  (`get_Completed`), delegate TypeDefs in their home namespace, arrays, and
+  by-value structs wider than one integer word are still skipped with
+  diagnostics.
 - **Diagnostics ratchet**: `metadata/diagnostics-baseline.json` is the
   committed degradation set; `bindings --diagnostics-baseline` fails on any
   NEW diagnostic, and CI's regen job enforces byte-identical regeneration
@@ -179,5 +205,6 @@ go run ./examples/calendar                # the vertical, end to end
 - Conventional commits, release-please, SHA-pinned actions, LF-normalized
   text (`.gitattributes`), `*.winmd` binary.
 - See `docs/ROADMAP.md` for the wave plan and out-of-scope list
-  (composition, async, delegate-typed method params; events, statics, and
-  factory constructors are emitted).
+  (composition, delegate returns, progress handlers' Await; events, statics,
+  factory constructors, delegate-typed method params, and async awaiting are
+  emitted).

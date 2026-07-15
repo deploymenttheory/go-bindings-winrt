@@ -10,7 +10,187 @@ import (
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 )
+
+// AsyncOperationCompletedHandlerOfDeviceInformation is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Enumeration.DeviceInformation>.
+// IID: bb483df2-7bb6-5923-a28d-8342ec30046b
+type AsyncOperationCompletedHandlerOfDeviceInformation struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfDeviceInformation is the delegate identifier for AsyncOperationCompletedHandlerOfDeviceInformation.
+var IID_AsyncOperationCompletedHandlerOfDeviceInformation = win32.GUID{Data1: 0xbb483df2, Data2: 0x7bb6, Data3: 0x5923, Data4: [8]byte{0xa2, 0x8d, 0x83, 0x42, 0xec, 0x30, 0x04, 0x6b}}
+
+// NewAsyncOperationCompletedHandlerOfDeviceInformation wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Enumeration.DeviceInformation>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfDeviceInformation(fn func(asyncInfo *IAsyncOperationOfDeviceInformation, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfDeviceInformation, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfDeviceInformation, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfDeviceInformation)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfDeviceInformation{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfDeviceInformation) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfDeviceInformation) Close() { h.delegate.Release() }
+
+// AsyncOperationCompletedHandlerOfDeviceInformationCollection is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Enumeration.DeviceInformationCollection>.
+// IID: 4a458732-527e-5c73-9a68-a73da370f782
+type AsyncOperationCompletedHandlerOfDeviceInformationCollection struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfDeviceInformationCollection is the delegate identifier for AsyncOperationCompletedHandlerOfDeviceInformationCollection.
+var IID_AsyncOperationCompletedHandlerOfDeviceInformationCollection = win32.GUID{Data1: 0x4a458732, Data2: 0x527e, Data3: 0x5c73, Data4: [8]byte{0x9a, 0x68, 0xa7, 0x3d, 0xa3, 0x70, 0xf7, 0x82}}
+
+// NewAsyncOperationCompletedHandlerOfDeviceInformationCollection wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Enumeration.DeviceInformationCollection>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfDeviceInformationCollection(fn func(asyncInfo *IAsyncOperationOfDeviceInformationCollection, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfDeviceInformationCollection, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfDeviceInformationCollection, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfDeviceInformationCollection)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfDeviceInformationCollection{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfDeviceInformationCollection) Ptr() uintptr {
+	return h.delegate.Ptr()
+}
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfDeviceInformationCollection) Close() { h.delegate.Release() }
+
+// AsyncOperationCompletedHandlerOfDevicePairingResult is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Enumeration.DevicePairingResult>.
+// IID: 7ee0247f-5f57-5cb2-b40e-18b5a211d6c3
+type AsyncOperationCompletedHandlerOfDevicePairingResult struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfDevicePairingResult is the delegate identifier for AsyncOperationCompletedHandlerOfDevicePairingResult.
+var IID_AsyncOperationCompletedHandlerOfDevicePairingResult = win32.GUID{Data1: 0x7ee0247f, Data2: 0x5f57, Data3: 0x5cb2, Data4: [8]byte{0xb4, 0x0e, 0x18, 0xb5, 0xa2, 0x11, 0xd6, 0xc3}}
+
+// NewAsyncOperationCompletedHandlerOfDevicePairingResult wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Enumeration.DevicePairingResult>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfDevicePairingResult(fn func(asyncInfo *IAsyncOperationOfDevicePairingResult, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfDevicePairingResult, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfDevicePairingResult, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfDevicePairingResult)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfDevicePairingResult{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfDevicePairingResult) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfDevicePairingResult) Close() { h.delegate.Release() }
+
+// AsyncOperationCompletedHandlerOfDeviceThumbnail is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Enumeration.DeviceThumbnail>.
+// IID: 86d455b2-d795-554c-9c31-bf6539349c19
+type AsyncOperationCompletedHandlerOfDeviceThumbnail struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfDeviceThumbnail is the delegate identifier for AsyncOperationCompletedHandlerOfDeviceThumbnail.
+var IID_AsyncOperationCompletedHandlerOfDeviceThumbnail = win32.GUID{Data1: 0x86d455b2, Data2: 0xd795, Data3: 0x554c, Data4: [8]byte{0x9c, 0x31, 0xbf, 0x65, 0x39, 0x34, 0x9c, 0x19}}
+
+// NewAsyncOperationCompletedHandlerOfDeviceThumbnail wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Enumeration.DeviceThumbnail>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfDeviceThumbnail(fn func(asyncInfo *IAsyncOperationOfDeviceThumbnail, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfDeviceThumbnail, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfDeviceThumbnail, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfDeviceThumbnail)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfDeviceThumbnail{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfDeviceThumbnail) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfDeviceThumbnail) Close() { h.delegate.Release() }
+
+// AsyncOperationCompletedHandlerOfDeviceUnpairingResult is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Enumeration.DeviceUnpairingResult>.
+// IID: 9bbe6eb9-db2d-5160-a20c-f0c265f20d8e
+type AsyncOperationCompletedHandlerOfDeviceUnpairingResult struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfDeviceUnpairingResult is the delegate identifier for AsyncOperationCompletedHandlerOfDeviceUnpairingResult.
+var IID_AsyncOperationCompletedHandlerOfDeviceUnpairingResult = win32.GUID{Data1: 0x9bbe6eb9, Data2: 0xdb2d, Data3: 0x5160, Data4: [8]byte{0xa2, 0x0c, 0xf0, 0xc2, 0x65, 0xf2, 0x0d, 0x8e}}
+
+// NewAsyncOperationCompletedHandlerOfDeviceUnpairingResult wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Devices.Enumeration.DeviceUnpairingResult>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfDeviceUnpairingResult(fn func(asyncInfo *IAsyncOperationOfDeviceUnpairingResult, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfDeviceUnpairingResult, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfDeviceUnpairingResult, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfDeviceUnpairingResult)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfDeviceUnpairingResult{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfDeviceUnpairingResult) Ptr() uintptr {
+	return h.delegate.Ptr()
+}
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfDeviceUnpairingResult) Close() { h.delegate.Release() }
 
 // TypedEventHandlerOfDeviceAccessInformationAndDeviceAccessChangedEventArgs is a Go-implemented handler for the WinRT delegate
 // Windows.Foundation.TypedEventHandler`2<Windows.Devices.Enumeration.DeviceAccessInformation, Windows.Devices.Enumeration.DeviceAccessChangedEventArgs>.

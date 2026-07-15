@@ -94,10 +94,24 @@ consumers prove it), so they are pure additions:
   pinterface-derived) or a non-generic delegate (declared IID) — grounds
   into a package-local typed handler in `<pkg>_delegates.go` wrapping the
   delegate runtime (live-tested: `IMemoryBufferReference.Closed` fires
-  through generated code). Delegate-typed method PARAMETERS (async's
-  `Completed` et al.) and delegate TypeDefs in their home namespaces stay
-  deferred; the ~142 non-generic-delegate events across the wider surface
-  light up when their namespaces are emitted.*
+  through generated code). Delegate-typed method PARAMETERS are landed:
+  the same grounding (and adaptability rules) serves method params via the
+  typemap's `RequestDelegate` seam, so `put_Completed` emits as
+  `SetCompleted(handler *<Handler>)` (nil passes NULL) — which unlocked
+  **async awaiting**: every monomorphized `IAsyncOperationOf<X>` whose
+  `SetCompleted` and `GetResults` both emitted, plus the plain
+  `IAsyncAction`, gains a synthesized blocking `Await()` returning
+  `GetResults()` on completion or a `winrt.AsyncError` (AsyncStatus + the
+  IAsyncInfo error code as a `win32.HRESULT`) otherwise. Live-tested in
+  `acceptance/async_test.go`: `StorageFile.GetFileFromPathAsync` awaited
+  end to end, including the already-completed (immediate handler invoke)
+  and failure (0x80070002 file-not-found surfaced through `errors.As`)
+  paths. Methods RETURNING delegates (`get_Completed`), delegate TypeDefs
+  in their home namespaces, and Await on `IAsyncOperationWithProgress`
+  (its Completed/Progress handler setters emit; the Await synthesis
+  targets only `IAsyncOperation`1`/`IAsyncAction`) stay deferred, as does
+  a context-aware Await variant; the ~142 non-generic-delegate events
+  across the wider surface light up when their namespaces are emitted.*
 - **mscorlib marker types** (`System.Object`, `System.Guid`, `System.Enum`,
   `System.ValueType`, `System.MulticastDelegate`, `System.Attribute`) are
   type-system signals only — never resolve them as real types.

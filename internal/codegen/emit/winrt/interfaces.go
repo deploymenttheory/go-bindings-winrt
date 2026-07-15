@@ -63,7 +63,11 @@ func (g *Generator) buildInterfaceModels(meta *winrtmeta.NamespaceMeta, imports 
 			g.diag("name-collision-skipped", "interface %s.%s", meta.Namespace, name)
 			continue
 		}
-		models = append(models, g.buildInterface(meta, meta.Namespace+"."+name, goName, &definition, imports))
+		model := g.buildInterface(meta, meta.Namespace+"."+name, goName, &definition, imports)
+		if meta.Namespace == "Windows.Foundation" && name == "IAsyncAction" {
+			g.attachAwait(meta, &model, imports)
+		}
+		models = append(models, model)
 	}
 	return models
 }
@@ -207,6 +211,12 @@ func (g *Generator) buildMethod(meta *winrtmeta.NamespaceMeta, interfaceGoName s
 	}
 
 	context := g.resolveContext(meta.Namespace)
+	// Parameters may ground delegate references into package-local handler
+	// types; returns resolve WITHOUT the seam, so methods returning a
+	// delegate (get_Completed) keep degrading — returning a native delegate
+	// to Go is meaningless this wave.
+	paramContext := context
+	paramContext.RequestDelegate = g.delegateRequester(meta)
 	scratch := typemap.ImportSet{}
 	var noteLines []string
 
@@ -277,13 +287,16 @@ func (g *Generator) buildMethod(meta *winrtmeta.NamespaceMeta, interfaceGoName s
 	for i := range method.Params {
 		param := &method.Params[i]
 		paramName := naming.ParamName(param.Name)
-		resolved := g.mapper.GoType(&param.Type, context, scratch)
+		resolved := g.mapper.GoType(&param.Type, paramContext, scratch)
 		if resolved.Kind == typemap.KindUnsupported {
 			s := splitReason(resolved.Reason)
 			return view.MethodModel{}, &s
 		}
 		if resolved.Kind == typemap.KindFloat {
 			return view.MethodModel{}, &skip{key: "float-abi-skipped", detail: fmt.Sprintf("%s parameter %s cannot cross SyscallN", resolved.GoType, param.Name)}
+		}
+		if resolved.Kind == typemap.KindDelegatePtr {
+			noteLines = append(noteLines, fmt.Sprintf("A nil %s passes NULL at the ABI (WinRT accepts it where a handler may be cleared).", paramName))
 		}
 		if resolved.Note != "" {
 			noteLines = append(noteLines, "Parameter "+paramName+"'s "+resolved.Note+".")
@@ -373,6 +386,17 @@ func (g *Generator) lowerInParam(paramName string, param *winrtmeta.Param, resol
 			detail: fmt.Sprintf("by-value GUID parameter %s has divergent amd64/arm64 ABIs", paramName)}
 	case typemap.KindInterfacePtr, typemap.KindObjectPtr:
 		return paramName + " " + resolved.GoType, nil, "uintptr(unsafe.Pointer(" + paramName + "))", nil
+	case typemap.KindDelegatePtr:
+		// A Go-implemented handler crosses as its COM object pointer; nil
+		// passes NULL (WinRT accepts it where a handler may be cleared).
+		local := freshLocal("_"+paramName, taken)
+		preamble = []string{
+			local + " := uintptr(0)",
+			"if " + paramName + " != nil {",
+			local + " = " + paramName + ".Ptr()",
+			"}",
+		}
+		return paramName + " " + resolved.GoType, preamble, local, nil
 	}
 	return "", nil, "", &skip{key: "unsupported-param", detail: fmt.Sprintf("parameter %s (%s)", param.Name, resolved.GoType)}
 }

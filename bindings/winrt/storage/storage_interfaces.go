@@ -159,7 +159,17 @@ func (self *IApplicationData) Version() (uint32, error) {
 	return result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 7: SetVersionAsync skipped: delegate Windows.Storage.ApplicationDataSetVersionHandler
+// SetVersionAsync dispatches through IApplicationData's vtable slot 7.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IApplicationData) SetVersionAsync(desiredVersion uint32, handler *ApplicationDataSetVersionHandler) (*foundation.IAsyncAction, error) {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	var result *foundation.IAsyncAction
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(desiredVersion), _handler, uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
 // ClearAllAsync dispatches through IApplicationData's vtable slot 8.
 func (self *IApplicationData) ClearAllAsync() (*foundation.IAsyncAction, error) {
@@ -1288,9 +1298,34 @@ func (self *IStorageFileStatics) GetFileFromApplicationUriAsync(uri *foundation.
 	return result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 8: CreateStreamedFileAsync skipped: delegate Windows.Storage.StreamedFileDataRequestedHandler
+// CreateStreamedFileAsync dispatches through IStorageFileStatics's vtable slot 8.
+// A nil dataRequested passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IStorageFileStatics) CreateStreamedFileAsync(displayNameWithExtension string, dataRequested *StreamedFileDataRequestedHandler, thumbnail *storagestreams.IRandomAccessStreamReference) (*IAsyncOperationOfStorageFile, error) {
+	hDisplayNameWithExtension, err := winrt.NewHString(displayNameWithExtension)
+	if err != nil {
+		return nil, err
+	}
+	defer hDisplayNameWithExtension.Close()
+	_dataRequested := uintptr(0)
+	if dataRequested != nil {
+		_dataRequested = dataRequested.Ptr()
+	}
+	var result *IAsyncOperationOfStorageFile
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hDisplayNameWithExtension.Raw()), _dataRequested, uintptr(unsafe.Pointer(thumbnail)), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
-// slot 9: ReplaceWithStreamedFileAsync skipped: delegate Windows.Storage.StreamedFileDataRequestedHandler
+// ReplaceWithStreamedFileAsync dispatches through IStorageFileStatics's vtable slot 9.
+// A nil dataRequested passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IStorageFileStatics) ReplaceWithStreamedFileAsync(fileToReplace *IStorageFile, dataRequested *StreamedFileDataRequestedHandler, thumbnail *storagestreams.IRandomAccessStreamReference) (*IAsyncOperationOfStorageFile, error) {
+	_dataRequested := uintptr(0)
+	if dataRequested != nil {
+		_dataRequested = dataRequested.Ptr()
+	}
+	var result *IAsyncOperationOfStorageFile
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(fileToReplace)), _dataRequested, uintptr(unsafe.Pointer(thumbnail)), uintptr(unsafe.Pointer(&result)))
+	return result, win32.ErrIfFailed(int32(r1))
+}
 
 // CreateStreamedFileFromUriAsync dispatches through IStorageFileStatics's vtable slot 10.
 func (self *IStorageFileStatics) CreateStreamedFileFromUriAsync(displayNameWithExtension string, uri *foundation.IUriRuntimeClass, thumbnail *storagestreams.IRandomAccessStreamReference) (*IAsyncOperationOfStorageFile, error) {

@@ -12,6 +12,41 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
+// AsyncActionCompletedHandler is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncActionCompletedHandler.
+// IID: a4ed5c81-76c9-40bd-8be6-b1d90fb20ae7
+type AsyncActionCompletedHandler struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncActionCompletedHandler is the delegate identifier for AsyncActionCompletedHandler.
+var IID_AsyncActionCompletedHandler = win32.GUID{Data1: 0xa4ed5c81, Data2: 0x76c9, Data3: 0x40bd, Data4: [8]byte{0x8b, 0xe6, 0xb1, 0xd9, 0x0f, 0xb2, 0x0a, 0xe7}}
+
+// NewAsyncActionCompletedHandler wraps fn as a COM-callable Windows.Foundation.AsyncActionCompletedHandler.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncActionCompletedHandler(fn func(asyncInfo *IAsyncAction, asyncStatus AsyncStatus)) (*AsyncActionCompletedHandler, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncActionCompletedHandler, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncAction)(unsafe.Pointer(raw[0])), AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncActionCompletedHandler{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncActionCompletedHandler) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncActionCompletedHandler) Close() { h.delegate.Release() }
+
 // TypedEventHandlerOfIMemoryBufferReferenceAndObject is a Go-implemented handler for the WinRT delegate
 // Windows.Foundation.TypedEventHandler`2<Windows.Foundation.IMemoryBufferReference, Object>.
 // IID: f4637d4a-0760-5431-bfc0-24eb1d4f6c4f
