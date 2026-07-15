@@ -134,10 +134,9 @@ var IID_TypedEventHandlerOfCustomMapTileDataSourceAndMapTileBitmapRequestedEvent
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.CustomMapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfCustomMapTileDataSourceAndMapTileBitmapRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapTileBitmapRequestedEventArgs)) (*TypedEventHandlerOfCustomMapTileDataSourceAndMapTileBitmapRequestedEventArgs, error) {
+func NewTypedEventHandlerOfCustomMapTileDataSourceAndMapTileBitmapRequestedEventArgs(fn func(sender *ICustomMapTileDataSource, args *IMapTileBitmapRequestedEventArgs)) (*TypedEventHandlerOfCustomMapTileDataSourceAndMapTileBitmapRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfCustomMapTileDataSourceAndMapTileBitmapRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapTileBitmapRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ICustomMapTileDataSource)(unsafe.Pointer(raw[0])), (*IMapTileBitmapRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -174,10 +173,9 @@ var IID_TypedEventHandlerOfHttpMapTileDataSourceAndMapTileUriRequestedEventArgs 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfHttpMapTileDataSourceAndMapTileUriRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapTileUriRequestedEventArgs)) (*TypedEventHandlerOfHttpMapTileDataSourceAndMapTileUriRequestedEventArgs, error) {
+func NewTypedEventHandlerOfHttpMapTileDataSourceAndMapTileUriRequestedEventArgs(fn func(sender *IHttpMapTileDataSource, args *IMapTileUriRequestedEventArgs)) (*TypedEventHandlerOfHttpMapTileDataSourceAndMapTileUriRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfHttpMapTileDataSourceAndMapTileUriRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapTileUriRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IHttpMapTileDataSource)(unsafe.Pointer(raw[0])), (*IMapTileUriRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -214,10 +212,9 @@ var IID_TypedEventHandlerOfLocalMapTileDataSourceAndMapTileUriRequestedEventArgs
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfLocalMapTileDataSourceAndMapTileUriRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapTileUriRequestedEventArgs)) (*TypedEventHandlerOfLocalMapTileDataSourceAndMapTileUriRequestedEventArgs, error) {
+func NewTypedEventHandlerOfLocalMapTileDataSourceAndMapTileUriRequestedEventArgs(fn func(sender *ILocalMapTileDataSource, args *IMapTileUriRequestedEventArgs)) (*TypedEventHandlerOfLocalMapTileDataSourceAndMapTileUriRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfLocalMapTileDataSourceAndMapTileUriRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapTileUriRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ILocalMapTileDataSource)(unsafe.Pointer(raw[0])), (*IMapTileUriRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -254,10 +251,9 @@ var IID_TypedEventHandlerOfMapControlAndMapActualCameraChangedEventArgs = win32.
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapControl is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapControlAndMapActualCameraChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapActualCameraChangedEventArgs)) (*TypedEventHandlerOfMapControlAndMapActualCameraChangedEventArgs, error) {
+func NewTypedEventHandlerOfMapControlAndMapActualCameraChangedEventArgs(fn func(sender *IMapControl, args *IMapActualCameraChangedEventArgs)) (*TypedEventHandlerOfMapControlAndMapActualCameraChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapControlAndMapActualCameraChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapActualCameraChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapControl)(unsafe.Pointer(raw[0])), (*IMapActualCameraChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -294,10 +290,9 @@ var IID_TypedEventHandlerOfMapControlAndMapActualCameraChangingEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapControl is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapControlAndMapActualCameraChangingEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapActualCameraChangingEventArgs)) (*TypedEventHandlerOfMapControlAndMapActualCameraChangingEventArgs, error) {
+func NewTypedEventHandlerOfMapControlAndMapActualCameraChangingEventArgs(fn func(sender *IMapControl, args *IMapActualCameraChangingEventArgs)) (*TypedEventHandlerOfMapControlAndMapActualCameraChangingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapControlAndMapActualCameraChangingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapActualCameraChangingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapControl)(unsafe.Pointer(raw[0])), (*IMapActualCameraChangingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -334,10 +329,9 @@ var IID_TypedEventHandlerOfMapControlAndMapContextRequestedEventArgs = win32.GUI
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapControl is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapControlAndMapContextRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapContextRequestedEventArgs)) (*TypedEventHandlerOfMapControlAndMapContextRequestedEventArgs, error) {
+func NewTypedEventHandlerOfMapControlAndMapContextRequestedEventArgs(fn func(sender *IMapControl, args *IMapContextRequestedEventArgs)) (*TypedEventHandlerOfMapControlAndMapContextRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapControlAndMapContextRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapContextRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapControl)(unsafe.Pointer(raw[0])), (*IMapContextRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -372,10 +366,9 @@ var IID_TypedEventHandlerOfMapControlAndMapCustomExperienceChangedEventArgs = wi
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapControl is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapControlAndMapCustomExperienceChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapCustomExperienceChangedEventArgs)) (*TypedEventHandlerOfMapControlAndMapCustomExperienceChangedEventArgs, error) {
+func NewTypedEventHandlerOfMapControlAndMapCustomExperienceChangedEventArgs(fn func(sender *IMapControl, args *IMapCustomExperienceChangedEventArgs)) (*TypedEventHandlerOfMapControlAndMapCustomExperienceChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapControlAndMapCustomExperienceChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapCustomExperienceChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapControl)(unsafe.Pointer(raw[0])), (*IMapCustomExperienceChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -412,10 +405,9 @@ var IID_TypedEventHandlerOfMapControlAndMapElementClickEventArgs = win32.GUID{Da
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapControl is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapControlAndMapElementClickEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapElementClickEventArgs)) (*TypedEventHandlerOfMapControlAndMapElementClickEventArgs, error) {
+func NewTypedEventHandlerOfMapControlAndMapElementClickEventArgs(fn func(sender *IMapControl, args *IMapElementClickEventArgs)) (*TypedEventHandlerOfMapControlAndMapElementClickEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapControlAndMapElementClickEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapElementClickEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapControl)(unsafe.Pointer(raw[0])), (*IMapElementClickEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -450,10 +442,9 @@ var IID_TypedEventHandlerOfMapControlAndMapElementPointerEnteredEventArgs = win3
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapControl is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapControlAndMapElementPointerEnteredEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapElementPointerEnteredEventArgs)) (*TypedEventHandlerOfMapControlAndMapElementPointerEnteredEventArgs, error) {
+func NewTypedEventHandlerOfMapControlAndMapElementPointerEnteredEventArgs(fn func(sender *IMapControl, args *IMapElementPointerEnteredEventArgs)) (*TypedEventHandlerOfMapControlAndMapElementPointerEnteredEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapControlAndMapElementPointerEnteredEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapElementPointerEnteredEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapControl)(unsafe.Pointer(raw[0])), (*IMapElementPointerEnteredEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -490,10 +481,9 @@ var IID_TypedEventHandlerOfMapControlAndMapElementPointerExitedEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapControl is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapControlAndMapElementPointerExitedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapElementPointerExitedEventArgs)) (*TypedEventHandlerOfMapControlAndMapElementPointerExitedEventArgs, error) {
+func NewTypedEventHandlerOfMapControlAndMapElementPointerExitedEventArgs(fn func(sender *IMapControl, args *IMapElementPointerExitedEventArgs)) (*TypedEventHandlerOfMapControlAndMapElementPointerExitedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapControlAndMapElementPointerExitedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapElementPointerExitedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapControl)(unsafe.Pointer(raw[0])), (*IMapElementPointerExitedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -530,11 +520,9 @@ var IID_TypedEventHandlerOfMapControlAndMapInputEventArgs = win32.GUID{Data1: 0x
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapControl is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Xaml.Controls.Maps.MapInputEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapControlAndMapInputEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfMapControlAndMapInputEventArgs, error) {
+func NewTypedEventHandlerOfMapControlAndMapInputEventArgs(fn func(sender *IMapControl, args *IMapInputEventArgs)) (*TypedEventHandlerOfMapControlAndMapInputEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapControlAndMapInputEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IMapControl)(unsafe.Pointer(raw[0])), (*IMapInputEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -567,10 +555,9 @@ var IID_TypedEventHandlerOfMapControlAndMapRightTappedEventArgs = win32.GUID{Dat
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapControl is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapControlAndMapRightTappedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapRightTappedEventArgs)) (*TypedEventHandlerOfMapControlAndMapRightTappedEventArgs, error) {
+func NewTypedEventHandlerOfMapControlAndMapRightTappedEventArgs(fn func(sender *IMapControl, args *IMapRightTappedEventArgs)) (*TypedEventHandlerOfMapControlAndMapRightTappedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapControlAndMapRightTappedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapRightTappedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapControl)(unsafe.Pointer(raw[0])), (*IMapRightTappedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -605,10 +592,9 @@ var IID_TypedEventHandlerOfMapControlAndMapTargetCameraChangedEventArgs = win32.
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapControl is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapControlAndMapTargetCameraChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapTargetCameraChangedEventArgs)) (*TypedEventHandlerOfMapControlAndMapTargetCameraChangedEventArgs, error) {
+func NewTypedEventHandlerOfMapControlAndMapTargetCameraChangedEventArgs(fn func(sender *IMapControl, args *IMapTargetCameraChangedEventArgs)) (*TypedEventHandlerOfMapControlAndMapTargetCameraChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapControlAndMapTargetCameraChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapTargetCameraChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapControl)(unsafe.Pointer(raw[0])), (*IMapTargetCameraChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -645,10 +631,9 @@ var IID_TypedEventHandlerOfMapControlAndObject = win32.GUID{Data1: 0xf250dd93, D
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapControl is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapControlAndObject(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfMapControlAndObject, error) {
+func NewTypedEventHandlerOfMapControlAndObject(fn func(sender *IMapControl, args *syswinrt.IInspectable)) (*TypedEventHandlerOfMapControlAndObject, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapControlAndObject, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IMapControl)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -681,10 +666,9 @@ var IID_TypedEventHandlerOfMapElementsLayerAndMapElementsLayerClickEventArgs = w
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapElementsLayer is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapElementsLayerAndMapElementsLayerClickEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapElementsLayerClickEventArgs)) (*TypedEventHandlerOfMapElementsLayerAndMapElementsLayerClickEventArgs, error) {
+func NewTypedEventHandlerOfMapElementsLayerAndMapElementsLayerClickEventArgs(fn func(sender *IMapElementsLayer, args *IMapElementsLayerClickEventArgs)) (*TypedEventHandlerOfMapElementsLayerAndMapElementsLayerClickEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapElementsLayerAndMapElementsLayerClickEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapElementsLayerClickEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapElementsLayer)(unsafe.Pointer(raw[0])), (*IMapElementsLayerClickEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -721,10 +705,9 @@ var IID_TypedEventHandlerOfMapElementsLayerAndMapElementsLayerContextRequestedEv
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapElementsLayer is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapElementsLayerAndMapElementsLayerContextRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapElementsLayerContextRequestedEventArgs)) (*TypedEventHandlerOfMapElementsLayerAndMapElementsLayerContextRequestedEventArgs, error) {
+func NewTypedEventHandlerOfMapElementsLayerAndMapElementsLayerContextRequestedEventArgs(fn func(sender *IMapElementsLayer, args *IMapElementsLayerContextRequestedEventArgs)) (*TypedEventHandlerOfMapElementsLayerAndMapElementsLayerContextRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapElementsLayerAndMapElementsLayerContextRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapElementsLayerContextRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapElementsLayer)(unsafe.Pointer(raw[0])), (*IMapElementsLayerContextRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -761,10 +744,9 @@ var IID_TypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerEnteredEven
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapElementsLayer is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerEnteredEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapElementsLayerPointerEnteredEventArgs)) (*TypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerEnteredEventArgs, error) {
+func NewTypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerEnteredEventArgs(fn func(sender *IMapElementsLayer, args *IMapElementsLayerPointerEnteredEventArgs)) (*TypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerEnteredEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerEnteredEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapElementsLayerPointerEnteredEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapElementsLayer)(unsafe.Pointer(raw[0])), (*IMapElementsLayerPointerEnteredEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -801,10 +783,9 @@ var IID_TypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerExitedEvent
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapElementsLayer is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerExitedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapElementsLayerPointerExitedEventArgs)) (*TypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerExitedEventArgs, error) {
+func NewTypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerExitedEventArgs(fn func(sender *IMapElementsLayer, args *IMapElementsLayerPointerExitedEventArgs)) (*TypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerExitedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapElementsLayerAndMapElementsLayerPointerExitedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapElementsLayerPointerExitedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapElementsLayer)(unsafe.Pointer(raw[0])), (*IMapElementsLayerPointerExitedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -841,10 +822,9 @@ var IID_TypedEventHandlerOfMapSceneAndMapTargetCameraChangedEventArgs = win32.GU
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Maps.MapScene is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMapSceneAndMapTargetCameraChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IMapTargetCameraChangedEventArgs)) (*TypedEventHandlerOfMapSceneAndMapTargetCameraChangedEventArgs, error) {
+func NewTypedEventHandlerOfMapSceneAndMapTargetCameraChangedEventArgs(fn func(sender *IMapScene, args *IMapTargetCameraChangedEventArgs)) (*TypedEventHandlerOfMapSceneAndMapTargetCameraChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMapSceneAndMapTargetCameraChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IMapTargetCameraChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMapScene)(unsafe.Pointer(raw[0])), (*IMapTargetCameraChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {

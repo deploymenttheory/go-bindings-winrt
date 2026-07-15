@@ -7,6 +7,7 @@ package input
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
@@ -100,6 +101,49 @@ func AccessKeyManagerStatics2() (*IAccessKeyManagerStatics2, error) {
 // the embedded IInspectable → IUnknown chain).
 type CanExecuteRequestedEventArgs struct {
 	ICanExecuteRequestedEventArgs
+}
+
+// CharacterReceivedRoutedEventArgs is the Windows.UI.Xaml.Input.CharacterReceivedRoutedEventArgs runtime class, surfaced through its
+// default interface ICharacterReceivedRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CharacterReceivedRoutedEventArgs struct {
+	ICharacterReceivedRoutedEventArgs
+}
+
+// ContextRequestedEventArgs is the Windows.UI.Xaml.Input.ContextRequestedEventArgs runtime class, surfaced through its
+// default interface IContextRequestedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ContextRequestedEventArgs struct {
+	IContextRequestedEventArgs
+}
+
+// NewContextRequestedEventArgs activates Windows.UI.Xaml.Input.ContextRequestedEventArgs through its default
+// constructor.
+func NewContextRequestedEventArgs() (*ContextRequestedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Input.ContextRequestedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ContextRequestedEventArgs](unsafe.Pointer(instance), &IID_IContextRequestedEventArgs)
+}
+
+// DoubleTappedRoutedEventArgs is the Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs runtime class, surfaced through its
+// default interface IDoubleTappedRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DoubleTappedRoutedEventArgs struct {
+	IDoubleTappedRoutedEventArgs
+}
+
+// NewDoubleTappedRoutedEventArgs activates Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs through its default
+// constructor.
+func NewDoubleTappedRoutedEventArgs() (*DoubleTappedRoutedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DoubleTappedRoutedEventArgs](unsafe.Pointer(instance), &IID_IDoubleTappedRoutedEventArgs)
 }
 
 // ExecuteRequestedEventArgs is the Windows.UI.Xaml.Input.ExecuteRequestedEventArgs runtime class, surfaced through its
@@ -239,6 +283,43 @@ type FocusMovementResult struct {
 	IFocusMovementResult
 }
 
+// GettingFocusEventArgs is the Windows.UI.Xaml.Input.GettingFocusEventArgs runtime class, surfaced through its
+// default interface IGettingFocusEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type GettingFocusEventArgs struct {
+	IGettingFocusEventArgs
+}
+
+// AsGettingFocusEventArgs2 queries the instance's IGettingFocusEventArgs2 interface.
+// The returned reference is owned by the caller.
+func (self *GettingFocusEventArgs) AsGettingFocusEventArgs2() (*IGettingFocusEventArgs2, error) {
+	return winrt.QueryInterface[IGettingFocusEventArgs2](unsafe.Pointer(self), &IID_IGettingFocusEventArgs2)
+}
+
+// AsGettingFocusEventArgs3 queries the instance's IGettingFocusEventArgs3 interface.
+// The returned reference is owned by the caller.
+func (self *GettingFocusEventArgs) AsGettingFocusEventArgs3() (*IGettingFocusEventArgs3, error) {
+	return winrt.QueryInterface[IGettingFocusEventArgs3](unsafe.Pointer(self), &IID_IGettingFocusEventArgs3)
+}
+
+// HoldingRoutedEventArgs is the Windows.UI.Xaml.Input.HoldingRoutedEventArgs runtime class, surfaced through its
+// default interface IHoldingRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type HoldingRoutedEventArgs struct {
+	IHoldingRoutedEventArgs
+}
+
+// NewHoldingRoutedEventArgs activates Windows.UI.Xaml.Input.HoldingRoutedEventArgs through its default
+// constructor.
+func NewHoldingRoutedEventArgs() (*HoldingRoutedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Input.HoldingRoutedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[HoldingRoutedEventArgs](unsafe.Pointer(instance), &IID_IHoldingRoutedEventArgs)
+}
+
 // InertiaExpansionBehavior is the Windows.UI.Xaml.Input.InertiaExpansionBehavior runtime class, surfaced through its
 // default interface IInertiaExpansionBehavior. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -260,6 +341,122 @@ type InertiaTranslationBehavior struct {
 	IInertiaTranslationBehavior
 }
 
+// InputScope is the Windows.UI.Xaml.Input.InputScope runtime class, surfaced through its
+// default interface IInputScope. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InputScope struct {
+	IInputScope
+}
+
+// NewInputScope activates Windows.UI.Xaml.Input.InputScope through its default
+// constructor.
+func NewInputScope() (*InputScope, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Input.InputScope")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[InputScope](unsafe.Pointer(instance), &IID_IInputScope)
+}
+
+// InputScopeName is the Windows.UI.Xaml.Input.InputScopeName runtime class, surfaced through its
+// default interface IInputScopeName. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InputScopeName struct {
+	IInputScopeName
+}
+
+// NewInputScopeName activates Windows.UI.Xaml.Input.InputScopeName through its default
+// constructor.
+func NewInputScopeName() (*InputScopeName, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Input.InputScopeName")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[InputScopeName](unsafe.Pointer(instance), &IID_IInputScopeName)
+}
+
+// CreateInstance constructs a Windows.UI.Xaml.Input.InputScopeName instance through
+// Windows.UI.Xaml.Input.IInputScopeNameFactory.CreateInstance. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstance(nameValue InputScopeNameValue) (*InputScopeName, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Input.InputScopeName", &IID_IInputScopeNameFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInputScopeNameFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstance(nameValue)
+	if err != nil {
+		return nil, err
+	}
+	return (*InputScopeName)(unsafe.Pointer(instance)), nil
+}
+
+// KeyRoutedEventArgs is the Windows.UI.Xaml.Input.KeyRoutedEventArgs runtime class, surfaced through its
+// default interface IKeyRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type KeyRoutedEventArgs struct {
+	IKeyRoutedEventArgs
+}
+
+// AsKeyRoutedEventArgs2 queries the instance's IKeyRoutedEventArgs2 interface.
+// The returned reference is owned by the caller.
+func (self *KeyRoutedEventArgs) AsKeyRoutedEventArgs2() (*IKeyRoutedEventArgs2, error) {
+	return winrt.QueryInterface[IKeyRoutedEventArgs2](unsafe.Pointer(self), &IID_IKeyRoutedEventArgs2)
+}
+
+// AsKeyRoutedEventArgs3 queries the instance's IKeyRoutedEventArgs3 interface.
+// The returned reference is owned by the caller.
+func (self *KeyRoutedEventArgs) AsKeyRoutedEventArgs3() (*IKeyRoutedEventArgs3, error) {
+	return winrt.QueryInterface[IKeyRoutedEventArgs3](unsafe.Pointer(self), &IID_IKeyRoutedEventArgs3)
+}
+
+// KeyboardAccelerator is the Windows.UI.Xaml.Input.KeyboardAccelerator runtime class, surfaced through its
+// default interface IKeyboardAccelerator. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type KeyboardAccelerator struct {
+	IKeyboardAccelerator
+}
+
+// KeyboardAcceleratorStatics returns the Windows.UI.Xaml.Input.IKeyboardAcceleratorStatics statics of the
+// Windows.UI.Xaml.Input.KeyboardAccelerator runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func KeyboardAcceleratorStatics() (*IKeyboardAcceleratorStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Input.KeyboardAccelerator", &IID_IKeyboardAcceleratorStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IKeyboardAcceleratorStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewKeyboardAccelerator constructs a Windows.UI.Xaml.Input.KeyboardAccelerator instance through
+// Windows.UI.Xaml.Input.IKeyboardAcceleratorFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewKeyboardAccelerator() (*KeyboardAccelerator, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Input.KeyboardAccelerator", &IID_IKeyboardAcceleratorFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IKeyboardAcceleratorFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*KeyboardAccelerator)(unsafe.Pointer(instance)), nil
+}
+
 // KeyboardAcceleratorInvokedEventArgs is the Windows.UI.Xaml.Input.KeyboardAcceleratorInvokedEventArgs runtime class, surfaced through its
 // default interface IKeyboardAcceleratorInvokedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -271,6 +468,79 @@ type KeyboardAcceleratorInvokedEventArgs struct {
 // The returned reference is owned by the caller.
 func (self *KeyboardAcceleratorInvokedEventArgs) AsKeyboardAcceleratorInvokedEventArgs2() (*IKeyboardAcceleratorInvokedEventArgs2, error) {
 	return winrt.QueryInterface[IKeyboardAcceleratorInvokedEventArgs2](unsafe.Pointer(self), &IID_IKeyboardAcceleratorInvokedEventArgs2)
+}
+
+// LosingFocusEventArgs is the Windows.UI.Xaml.Input.LosingFocusEventArgs runtime class, surfaced through its
+// default interface ILosingFocusEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type LosingFocusEventArgs struct {
+	ILosingFocusEventArgs
+}
+
+// AsLosingFocusEventArgs2 queries the instance's ILosingFocusEventArgs2 interface.
+// The returned reference is owned by the caller.
+func (self *LosingFocusEventArgs) AsLosingFocusEventArgs2() (*ILosingFocusEventArgs2, error) {
+	return winrt.QueryInterface[ILosingFocusEventArgs2](unsafe.Pointer(self), &IID_ILosingFocusEventArgs2)
+}
+
+// AsLosingFocusEventArgs3 queries the instance's ILosingFocusEventArgs3 interface.
+// The returned reference is owned by the caller.
+func (self *LosingFocusEventArgs) AsLosingFocusEventArgs3() (*ILosingFocusEventArgs3, error) {
+	return winrt.QueryInterface[ILosingFocusEventArgs3](unsafe.Pointer(self), &IID_ILosingFocusEventArgs3)
+}
+
+// ManipulationCompletedRoutedEventArgs is the Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs runtime class, surfaced through its
+// default interface IManipulationCompletedRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ManipulationCompletedRoutedEventArgs struct {
+	IManipulationCompletedRoutedEventArgs
+}
+
+// NewManipulationCompletedRoutedEventArgs activates Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs through its default
+// constructor.
+func NewManipulationCompletedRoutedEventArgs() (*ManipulationCompletedRoutedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ManipulationCompletedRoutedEventArgs](unsafe.Pointer(instance), &IID_IManipulationCompletedRoutedEventArgs)
+}
+
+// ManipulationDeltaRoutedEventArgs is the Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs runtime class, surfaced through its
+// default interface IManipulationDeltaRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ManipulationDeltaRoutedEventArgs struct {
+	IManipulationDeltaRoutedEventArgs
+}
+
+// NewManipulationDeltaRoutedEventArgs activates Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs through its default
+// constructor.
+func NewManipulationDeltaRoutedEventArgs() (*ManipulationDeltaRoutedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ManipulationDeltaRoutedEventArgs](unsafe.Pointer(instance), &IID_IManipulationDeltaRoutedEventArgs)
+}
+
+// ManipulationInertiaStartingRoutedEventArgs is the Windows.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs runtime class, surfaced through its
+// default interface IManipulationInertiaStartingRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ManipulationInertiaStartingRoutedEventArgs struct {
+	IManipulationInertiaStartingRoutedEventArgs
+}
+
+// NewManipulationInertiaStartingRoutedEventArgs activates Windows.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs through its default
+// constructor.
+func NewManipulationInertiaStartingRoutedEventArgs() (*ManipulationInertiaStartingRoutedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ManipulationInertiaStartingRoutedEventArgs](unsafe.Pointer(instance), &IID_IManipulationInertiaStartingRoutedEventArgs)
 }
 
 // ManipulationPivot is the Windows.UI.Xaml.Input.ManipulationPivot runtime class, surfaced through its
@@ -291,6 +561,63 @@ func NewManipulationPivot() (*ManipulationPivot, error) {
 	return winrt.QueryInterface[ManipulationPivot](unsafe.Pointer(instance), &IID_IManipulationPivot)
 }
 
+// ManipulationStartedRoutedEventArgs is the Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs runtime class, surfaced through its
+// default interface IManipulationStartedRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ManipulationStartedRoutedEventArgs struct {
+	IManipulationStartedRoutedEventArgs
+}
+
+// NewManipulationStartedRoutedEventArgs constructs a Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs instance through
+// Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgsFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewManipulationStartedRoutedEventArgs() (*ManipulationStartedRoutedEventArgs, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs", &IID_IManipulationStartedRoutedEventArgsFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IManipulationStartedRoutedEventArgsFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ManipulationStartedRoutedEventArgs)(unsafe.Pointer(instance)), nil
+}
+
+// ManipulationStartingRoutedEventArgs is the Windows.UI.Xaml.Input.ManipulationStartingRoutedEventArgs runtime class, surfaced through its
+// default interface IManipulationStartingRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ManipulationStartingRoutedEventArgs struct {
+	IManipulationStartingRoutedEventArgs
+}
+
+// NewManipulationStartingRoutedEventArgs activates Windows.UI.Xaml.Input.ManipulationStartingRoutedEventArgs through its default
+// constructor.
+func NewManipulationStartingRoutedEventArgs() (*ManipulationStartingRoutedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Input.ManipulationStartingRoutedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ManipulationStartingRoutedEventArgs](unsafe.Pointer(instance), &IID_IManipulationStartingRoutedEventArgs)
+}
+
+// NoFocusCandidateFoundEventArgs is the Windows.UI.Xaml.Input.NoFocusCandidateFoundEventArgs runtime class, surfaced through its
+// default interface INoFocusCandidateFoundEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type NoFocusCandidateFoundEventArgs struct {
+	INoFocusCandidateFoundEventArgs
+}
+
 // Pointer is the Windows.UI.Xaml.Input.Pointer runtime class, surfaced through its
 // default interface IPointer. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -298,9 +625,183 @@ type Pointer struct {
 	IPointer
 }
 
+// PointerRoutedEventArgs is the Windows.UI.Xaml.Input.PointerRoutedEventArgs runtime class, surfaced through its
+// default interface IPointerRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PointerRoutedEventArgs struct {
+	IPointerRoutedEventArgs
+}
+
+// AsPointerRoutedEventArgs2 queries the instance's IPointerRoutedEventArgs2 interface.
+// The returned reference is owned by the caller.
+func (self *PointerRoutedEventArgs) AsPointerRoutedEventArgs2() (*IPointerRoutedEventArgs2, error) {
+	return winrt.QueryInterface[IPointerRoutedEventArgs2](unsafe.Pointer(self), &IID_IPointerRoutedEventArgs2)
+}
+
 // ProcessKeyboardAcceleratorEventArgs is the Windows.UI.Xaml.Input.ProcessKeyboardAcceleratorEventArgs runtime class, surfaced through its
 // default interface IProcessKeyboardAcceleratorEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type ProcessKeyboardAcceleratorEventArgs struct {
 	IProcessKeyboardAcceleratorEventArgs
+}
+
+// RightTappedRoutedEventArgs is the Windows.UI.Xaml.Input.RightTappedRoutedEventArgs runtime class, surfaced through its
+// default interface IRightTappedRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RightTappedRoutedEventArgs struct {
+	IRightTappedRoutedEventArgs
+}
+
+// NewRightTappedRoutedEventArgs activates Windows.UI.Xaml.Input.RightTappedRoutedEventArgs through its default
+// constructor.
+func NewRightTappedRoutedEventArgs() (*RightTappedRoutedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Input.RightTappedRoutedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[RightTappedRoutedEventArgs](unsafe.Pointer(instance), &IID_IRightTappedRoutedEventArgs)
+}
+
+// StandardUICommand is the Windows.UI.Xaml.Input.StandardUICommand runtime class, surfaced through its
+// default interface IStandardUICommand. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type StandardUICommand struct {
+	IStandardUICommand
+}
+
+// AsStandardUICommand2 queries the instance's IStandardUICommand2 interface.
+// The returned reference is owned by the caller.
+func (self *StandardUICommand) AsStandardUICommand2() (*IStandardUICommand2, error) {
+	return winrt.QueryInterface[IStandardUICommand2](unsafe.Pointer(self), &IID_IStandardUICommand2)
+}
+
+// StandardUICommandStatics returns the Windows.UI.Xaml.Input.IStandardUICommandStatics statics of the
+// Windows.UI.Xaml.Input.StandardUICommand runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func StandardUICommandStatics() (*IStandardUICommandStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Input.StandardUICommand", &IID_IStandardUICommandStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IStandardUICommandStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewStandardUICommand constructs a Windows.UI.Xaml.Input.StandardUICommand instance through
+// Windows.UI.Xaml.Input.IStandardUICommandFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewStandardUICommand() (*StandardUICommand, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Input.StandardUICommand", &IID_IStandardUICommandFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IStandardUICommandFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*StandardUICommand)(unsafe.Pointer(instance)), nil
+}
+
+// NewStandardUICommandWithKind constructs a Windows.UI.Xaml.Input.StandardUICommand instance through
+// Windows.UI.Xaml.Input.IStandardUICommandFactory.CreateInstanceWithKind with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewStandardUICommandWithKind(kind StandardUICommandKind) (*StandardUICommand, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Input.StandardUICommand", &IID_IStandardUICommandFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IStandardUICommandFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstanceWithKind(kind, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*StandardUICommand)(unsafe.Pointer(instance)), nil
+}
+
+// TappedRoutedEventArgs is the Windows.UI.Xaml.Input.TappedRoutedEventArgs runtime class, surfaced through its
+// default interface ITappedRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TappedRoutedEventArgs struct {
+	ITappedRoutedEventArgs
+}
+
+// NewTappedRoutedEventArgs activates Windows.UI.Xaml.Input.TappedRoutedEventArgs through its default
+// constructor.
+func NewTappedRoutedEventArgs() (*TappedRoutedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Input.TappedRoutedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[TappedRoutedEventArgs](unsafe.Pointer(instance), &IID_ITappedRoutedEventArgs)
+}
+
+// XamlUICommand is the Windows.UI.Xaml.Input.XamlUICommand runtime class, surfaced through its
+// default interface IXamlUICommand. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type XamlUICommand struct {
+	IXamlUICommand
+}
+
+// AsCommand queries the instance's ICommand interface.
+// The returned reference is owned by the caller.
+func (self *XamlUICommand) AsCommand() (*ICommand, error) {
+	return winrt.QueryInterface[ICommand](unsafe.Pointer(self), &IID_ICommand)
+}
+
+// XamlUICommandStatics returns the Windows.UI.Xaml.Input.IXamlUICommandStatics statics of the
+// Windows.UI.Xaml.Input.XamlUICommand runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func XamlUICommandStatics() (*IXamlUICommandStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Input.XamlUICommand", &IID_IXamlUICommandStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IXamlUICommandStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewXamlUICommand constructs a Windows.UI.Xaml.Input.XamlUICommand instance through
+// Windows.UI.Xaml.Input.IXamlUICommandFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewXamlUICommand() (*XamlUICommand, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Input.XamlUICommand", &IID_IXamlUICommandFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IXamlUICommandFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*XamlUICommand)(unsafe.Pointer(instance)), nil
 }

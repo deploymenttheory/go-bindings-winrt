@@ -1306,7 +1306,7 @@ func (self *IMediaPlaybackItem) Source() (*mediacore.IMediaSource2, error) {
 }
 
 // AudioTracks (propget get_AudioTracks) dispatches through IMediaPlaybackItem's vtable slot 13.
-// The return value's class Windows.Media.Playback.MediaPlaybackAudioTrackList is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Media.Playback.MediaPlaybackAudioTrackList is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IMediaPlaybackItem) AudioTracks() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -1314,7 +1314,7 @@ func (self *IMediaPlaybackItem) AudioTracks() (*syswinrt.IInspectable, error) {
 }
 
 // VideoTracks (propget get_VideoTracks) dispatches through IMediaPlaybackItem's vtable slot 14.
-// The return value's class Windows.Media.Playback.MediaPlaybackVideoTrackList is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Media.Playback.MediaPlaybackVideoTrackList is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IMediaPlaybackItem) VideoTracks() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -1322,7 +1322,7 @@ func (self *IMediaPlaybackItem) VideoTracks() (*syswinrt.IInspectable, error) {
 }
 
 // TimedMetadataTracks (propget get_TimedMetadataTracks) dispatches through IMediaPlaybackItem's vtable slot 15.
-// The return value's class Windows.Media.Playback.MediaPlaybackTimedMetadataTrackList is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Media.Playback.MediaPlaybackTimedMetadataTrackList is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IMediaPlaybackItem) TimedMetadataTracks() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))

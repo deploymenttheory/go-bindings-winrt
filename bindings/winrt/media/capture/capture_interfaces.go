@@ -419,7 +419,7 @@ func (self *ICapturedFrame2) ControlValues() (*ICapturedFrameControlValues, erro
 }
 
 // BitmapProperties (propget get_BitmapProperties) dispatches through ICapturedFrame2's vtable slot 7.
-// The return value's class Windows.Graphics.Imaging.BitmapPropertySet is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Graphics.Imaging.BitmapPropertySet is projected as IInspectable (no emittable default interface is reachable here).
 func (self *ICapturedFrame2) BitmapProperties() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -990,7 +990,7 @@ func (self *IMediaCapture2) PrepareLowLagPhotoSequenceCaptureAsync(type_ *mediam
 }
 
 // SetEncodingPropertiesAsync dispatches through IMediaCapture2's vtable slot 12.
-// Parameter encoderProperties's class Windows.Media.MediaProperties.MediaPropertySet is projected as IInspectable (the class is not emitted this wave).
+// Parameter encoderProperties's class Windows.Media.MediaProperties.MediaPropertySet is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IMediaCapture2) SetEncodingPropertiesAsync(mediaStreamType MediaStreamType, mediaEncodingProperties *mediamediaproperties.IMediaEncodingProperties, encoderProperties *syswinrt.IInspectable) (*foundation.IAsyncAction, error) {
 	result := new(*foundation.IAsyncAction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(mediaStreamType), uintptr(unsafe.Pointer(mediaEncodingProperties)), uintptr(unsafe.Pointer(encoderProperties)), uintptr(winrt.OutParam(unsafe.Pointer(result))))

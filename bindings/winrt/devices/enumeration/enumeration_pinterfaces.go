@@ -108,7 +108,7 @@ func (self *IAsyncOperationOfDeviceInformationCollection) SetCompleted(handler *
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
 // GetResults dispatches through IAsyncOperationOfDeviceInformationCollection's vtable slot 8.
-// The return value's class Windows.Devices.Enumeration.DeviceInformationCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Devices.Enumeration.DeviceInformationCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IAsyncOperationOfDeviceInformationCollection) GetResults() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))

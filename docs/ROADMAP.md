@@ -27,6 +27,9 @@ All 2026-07, in dependency order:
 | Bluetooth + Management namespaces; the heap-escaped out-param invariant (`winrt.OutParam`) killing the GC stack-move flake | #26 |
 | **Full surface: all 282 namespaces in the ingested IR emitted** (~571k lines), keyword-escaping packages (`media/import_`), collision-suffixed factory names, statics-only/composable name-claim fixes; `SpeechSynthesis` live-proven as a never-before-emitted namespace | #27 |
 | v0.2.0 release | #17 |
+| `Await()` on `IAsyncOperationWithProgress`/`IAsyncActionWithProgress` (progress via `SetProgress` + handler ctor, documented in [async.md](async.md)) | — |
+| Element-generic Go-implemented collections: runtime core + codecs, writable `IVector<T>` (all 12 slots), generated `New<IIterableOfX>`-style constructors, inline nested-reentry dispatch on the inspectable worker | — |
+| **Composition, instantiate-only**: composable classes emit like any other class (704 un-skipped — class types, statics, `As<Name>()` queries, direct activation), `[Composable]` factory methods become null-outer `New<Class>`/`New<Class>With<Suffix>` constructors, composable-class-typed params/returns upgrade from `IInspectable` to typed default-interface pointers | — |
 
 Coverage is enforced structurally: the emit roots pin every IR namespace
 explicitly, CI regenerates byte-identically, `internal/verify` pins slots and
@@ -40,12 +43,12 @@ Remaining gaps are **per-member degradations** tracked by the committed
 diagnostics baseline (skipped members keep their slot comments; nothing
 renumbers) — not missing namespaces:
 
-- **Composable classes** (`[Composable]` — XAML-style inheritance with
-  controlling-IInspectable factory params): skipped entirely. The largest
-  single gap; unlocks much of `Windows.UI.Xaml`.
-- **`IAsyncOperationWithProgress`/`IAsyncActionWithProgress` Await**: the
-  Completed/Progress handler setters emit, but Await synthesis targets only
-  `IAsyncOperation<T>` and `IAsyncAction`.
+- **Go-side derivation of composable classes** (subclassing a `Button` from
+  Go — a non-null controlling outer with a Go-implemented overridable
+  IInspectable): out of scope. Composition itself landed
+  **instantiate-only** — every composable class is created and used through
+  null-outer constructors; inherited (base-class) interfaces are reached
+  with `winrt.QueryInterface`.
 - **Context-aware Await** (`AwaitContext(ctx)`): Await blocks indefinitely by
   design today; bound it with the select idiom in [async.md](async.md).
   Related sharp edge, also documented there: a fully-parked quiet process can

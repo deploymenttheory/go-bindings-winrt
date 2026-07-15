@@ -39,7 +39,7 @@ func (self *IIterableOfContentLinkProvider) First() (*IIteratorOfContentLinkProv
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfContentLinkProvider(items []*syswinrt.IInspectable) *IIterableOfContentLinkProvider {
+func NewIIterableOfContentLinkProvider(items []*IContentLinkProvider) *IIterableOfContentLinkProvider {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -58,9 +58,8 @@ type IIteratorOfContentLinkProvider struct {
 var IID_IIteratorOfContentLinkProvider = win32.GUID{Data1: 0x63e9b404, Data2: 0x2fc1, Data3: 0x59b1, Data4: [8]byte{0xab, 0x76, 0xcd, 0xb9, 0xa4, 0x53, 0x0c, 0x0d}}
 
 // Current (propget get_Current) dispatches through IIteratorOfContentLinkProvider's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Documents.ContentLinkProvider is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfContentLinkProvider) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfContentLinkProvider) Current() (*IContentLinkProvider, error) {
+	result := new(*IContentLinkProvider)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -92,9 +91,8 @@ type IVectorOfContentLinkProvider struct {
 var IID_IVectorOfContentLinkProvider = win32.GUID{Data1: 0xe69ef1b6, Data2: 0x2eb1, Data3: 0x5e9c, Data4: [8]byte{0xbc, 0x41, 0xb9, 0x4d, 0x39, 0x62, 0x81, 0xe4}}
 
 // GetAt dispatches through IVectorOfContentLinkProvider's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Documents.ContentLinkProvider is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfContentLinkProvider) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfContentLinkProvider) GetAt(index uint32) (*IContentLinkProvider, error) {
+	result := new(*IContentLinkProvider)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -114,23 +112,20 @@ func (self *IVectorOfContentLinkProvider) GetView() (*IVectorViewOfContentLinkPr
 }
 
 // IndexOf dispatches through IVectorOfContentLinkProvider's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Documents.ContentLinkProvider is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfContentLinkProvider) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfContentLinkProvider) IndexOf(value *IContentLinkProvider, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfContentLinkProvider's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Documents.ContentLinkProvider is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfContentLinkProvider) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfContentLinkProvider) SetAt(index uint32, value *IContentLinkProvider) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfContentLinkProvider's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Documents.ContentLinkProvider is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfContentLinkProvider) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfContentLinkProvider) InsertAt(index uint32, value *IContentLinkProvider) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -142,8 +137,7 @@ func (self *IVectorOfContentLinkProvider) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfContentLinkProvider's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Documents.ContentLinkProvider is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfContentLinkProvider) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfContentLinkProvider) Append(value *IContentLinkProvider) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -177,7 +171,7 @@ func (self *IVectorOfContentLinkProvider) Clear() error {
 // The vector is writable through the WinRT ABI (the Go side exposes no
 // mutation API); GetView returns an immutable SNAPSHOT of the contents at
 // call time.
-func NewIVectorOfContentLinkProvider(items []*syswinrt.IInspectable) *IVectorOfContentLinkProvider {
+func NewIVectorOfContentLinkProvider(items []*IContentLinkProvider) *IVectorOfContentLinkProvider {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -258,9 +252,8 @@ type IVectorViewOfContentLinkProvider struct {
 var IID_IVectorViewOfContentLinkProvider = win32.GUID{Data1: 0x6548aa5f, Data2: 0x3fd4, Data3: 0x5bea, Data4: [8]byte{0x9b, 0xd5, 0x13, 0x8b, 0x5b, 0xd8, 0x99, 0xfe}}
 
 // GetAt dispatches through IVectorViewOfContentLinkProvider's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Documents.ContentLinkProvider is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfContentLinkProvider) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfContentLinkProvider) GetAt(index uint32) (*IContentLinkProvider, error) {
+	result := new(*IContentLinkProvider)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -273,8 +266,7 @@ func (self *IVectorViewOfContentLinkProvider) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfContentLinkProvider's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Documents.ContentLinkProvider is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfContentLinkProvider) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfContentLinkProvider) IndexOf(value *IContentLinkProvider, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -292,7 +284,7 @@ func (self *IVectorViewOfContentLinkProvider) IndexOf(value *syswinrt.IInspectab
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIVectorViewOfContentLinkProvider(items []*syswinrt.IInspectable) *IVectorViewOfContentLinkProvider {
+func NewIVectorViewOfContentLinkProvider(items []*IContentLinkProvider) *IVectorViewOfContentLinkProvider {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))

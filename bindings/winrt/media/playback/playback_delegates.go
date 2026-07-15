@@ -875,7 +875,7 @@ var IID_TypedEventHandlerOfMediaPlaybackTimedMetadataTrackListAndTimedMetadataPr
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.Media.Playback.MediaPlaybackTimedMetadataTrackList is projected as IInspectable (the class is not emitted this wave).
+// Parameter sender's class Windows.Media.Playback.MediaPlaybackTimedMetadataTrackList is projected as IInspectable (no emittable default interface is reachable here).
 func NewTypedEventHandlerOfMediaPlaybackTimedMetadataTrackListAndTimedMetadataPresentationModeChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *ITimedMetadataPresentationModeChangedEventArgs)) (*TypedEventHandlerOfMediaPlaybackTimedMetadataTrackListAndTimedMetadataPresentationModeChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMediaPlaybackTimedMetadataTrackListAndTimedMetadataPresentationModeChangedEventArgs, 2, func(raw []uintptr) uintptr {
 		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITimedMetadataPresentationModeChangedEventArgs)(unsafe.Pointer(raw[1])))

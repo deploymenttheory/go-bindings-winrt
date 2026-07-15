@@ -7,6 +7,7 @@ package resources
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
@@ -33,4 +34,29 @@ func CustomXamlResourceLoaderStatics() (*ICustomXamlResourceLoaderStatics, error
 		return nil, err
 	}
 	return (*ICustomXamlResourceLoaderStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewCustomXamlResourceLoader constructs a Windows.UI.Xaml.Resources.CustomXamlResourceLoader instance through
+// Windows.UI.Xaml.Resources.ICustomXamlResourceLoaderFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCustomXamlResourceLoader() (*CustomXamlResourceLoader, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Resources.CustomXamlResourceLoader", &IID_ICustomXamlResourceLoaderFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICustomXamlResourceLoaderFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CustomXamlResourceLoader)(unsafe.Pointer(instance)), nil
 }

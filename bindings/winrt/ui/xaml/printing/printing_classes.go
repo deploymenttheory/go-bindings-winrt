@@ -7,6 +7,7 @@ package printing
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
@@ -62,4 +63,48 @@ func NewPaginateEventArgs() (*PaginateEventArgs, error) {
 	}
 	defer instance.Release()
 	return winrt.QueryInterface[PaginateEventArgs](unsafe.Pointer(instance), &IID_IPaginateEventArgs)
+}
+
+// PrintDocument is the Windows.UI.Xaml.Printing.PrintDocument runtime class, surfaced through its
+// default interface IPrintDocument. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PrintDocument struct {
+	IPrintDocument
+}
+
+// PrintDocumentStatics returns the Windows.UI.Xaml.Printing.IPrintDocumentStatics statics of the
+// Windows.UI.Xaml.Printing.PrintDocument runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PrintDocumentStatics() (*IPrintDocumentStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Printing.PrintDocument", &IID_IPrintDocumentStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPrintDocumentStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewPrintDocument constructs a Windows.UI.Xaml.Printing.PrintDocument instance through
+// Windows.UI.Xaml.Printing.IPrintDocumentFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewPrintDocument() (*PrintDocument, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Printing.PrintDocument", &IID_IPrintDocumentFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPrintDocumentFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*PrintDocument)(unsafe.Pointer(instance)), nil
 }

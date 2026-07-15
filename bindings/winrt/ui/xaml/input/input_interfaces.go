@@ -891,9 +891,8 @@ type IInputScopeNameFactory struct {
 var IID_IInputScopeNameFactory = win32.GUID{Data1: 0x4a40bb52, Data2: 0x4bd7, Data3: 0x4e54, Data4: [8]byte{0x86, 0x17, 0x1c, 0xda, 0x8a, 0x1e, 0xda, 0x7f}}
 
 // CreateInstance dispatches through IInputScopeNameFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IInputScopeNameFactory) CreateInstance(nameValue InputScopeNameValue) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInputScopeNameFactory) CreateInstance(nameValue InputScopeNameValue) (*IInputScopeName, error) {
+	result := new(*IInputScopeName)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(nameValue), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1060,9 +1059,8 @@ type IKeyboardAcceleratorFactory struct {
 var IID_IKeyboardAcceleratorFactory = win32.GUID{Data1: 0x44d88a99, Data2: 0x4bfd, Data3: 0x4a47, Data4: [8]byte{0xa8, 0x93, 0x51, 0x5f, 0x38, 0x86, 0x23, 0xf6}}
 
 // CreateInstance dispatches through IKeyboardAcceleratorFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IKeyboardAcceleratorFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IKeyboardAcceleratorFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IKeyboardAccelerator, error) {
+	result := new(*IKeyboardAccelerator)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1107,9 +1105,8 @@ type IKeyboardAcceleratorInvokedEventArgs2 struct {
 var IID_IKeyboardAcceleratorInvokedEventArgs2 = win32.GUID{Data1: 0xbefca4b8, Data2: 0x5907, Data3: 0x48ee, Data4: [8]byte{0x8e, 0x21, 0x9c, 0x96, 0x90, 0x78, 0xfa, 0x11}}
 
 // KeyboardAccelerator (propget get_KeyboardAccelerator) dispatches through IKeyboardAcceleratorInvokedEventArgs2's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IKeyboardAcceleratorInvokedEventArgs2) KeyboardAccelerator() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IKeyboardAcceleratorInvokedEventArgs2) KeyboardAccelerator() (*IKeyboardAccelerator, error) {
+	result := new(*IKeyboardAccelerator)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1573,9 +1570,8 @@ type IManipulationStartedRoutedEventArgsFactory struct {
 var IID_IManipulationStartedRoutedEventArgsFactory = win32.GUID{Data1: 0x84c1daa7, Data2: 0x7272, Data3: 0x4463, Data4: [8]byte{0xb6, 0xc3, 0xa4, 0x0b, 0x9b, 0xa1, 0x51, 0xfc}}
 
 // CreateInstance dispatches through IManipulationStartedRoutedEventArgsFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func (self *IManipulationStartedRoutedEventArgsFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IManipulationStartedRoutedEventArgsFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IManipulationStartedRoutedEventArgs, error) {
+	result := new(*IManipulationStartedRoutedEventArgs)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1899,17 +1895,15 @@ type IStandardUICommandFactory struct {
 var IID_IStandardUICommandFactory = win32.GUID{Data1: 0x8f1a7590, Data2: 0xdce1, Data3: 0x56e4, Data4: [8]byte{0xab, 0x63, 0xf5, 0xce, 0x3c, 0xe4, 0xeb, 0xf6}}
 
 // CreateInstance dispatches through IStandardUICommandFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.StandardUICommand is projected as IInspectable (the class is not emitted this wave).
-func (self *IStandardUICommandFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IStandardUICommandFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IStandardUICommand, error) {
+	result := new(*IStandardUICommand)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateInstanceWithKind dispatches through IStandardUICommandFactory's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Input.StandardUICommand is projected as IInspectable (the class is not emitted this wave).
-func (self *IStandardUICommandFactory) CreateInstanceWithKind(kind StandardUICommandKind, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IStandardUICommandFactory) CreateInstanceWithKind(kind StandardUICommandKind, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IStandardUICommand, error) {
+	result := new(*IStandardUICommand)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(kind), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2108,9 +2102,8 @@ type IXamlUICommandFactory struct {
 var IID_IXamlUICommandFactory = win32.GUID{Data1: 0x1eec08c3, Data2: 0xe061, Data3: 0x5e10, Data4: [8]byte{0x9f, 0x2a, 0x2b, 0xaa, 0x84, 0x08, 0x85, 0xc2}}
 
 // CreateInstance dispatches through IXamlUICommandFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.XamlUICommand is projected as IInspectable (the class is not emitted this wave).
-func (self *IXamlUICommandFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IXamlUICommandFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IXamlUICommand, error) {
+	result := new(*IXamlUICommand)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

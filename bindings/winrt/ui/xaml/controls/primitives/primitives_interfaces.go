@@ -16,6 +16,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui"
 	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
 	uixamlinput "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/input"
+	uixamlmedia "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/media"
 )
 
 // IAppBarButtonTemplateSettings is the WinRT interface Windows.UI.Xaml.Controls.Primitives.IAppBarButtonTemplateSettings.
@@ -183,9 +184,8 @@ type IButtonBaseFactory struct {
 var IID_IButtonBaseFactory = win32.GUID{Data1: 0x389b7c71, Data2: 0x5220, Data3: 0x42b2, Data4: [8]byte{0x99, 0x92, 0x26, 0x90, 0xc1, 0xa6, 0x70, 0x2f}}
 
 // CreateInstance dispatches through IButtonBaseFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.ButtonBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IButtonBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IButtonBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IButtonBase, error) {
+	result := new(*IButtonBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -527,9 +527,8 @@ type ICarouselPanelFactory struct {
 var IID_ICarouselPanelFactory = win32.GUID{Data1: 0xc1109404, Data2: 0x9ae1, Data3: 0x440e, Data4: [8]byte{0xa0, 0xdd, 0xbb, 0xb6, 0xe2, 0x29, 0x3c, 0xbe}}
 
 // CreateInstance dispatches through ICarouselPanelFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.CarouselPanel is projected as IInspectable (the class is not emitted this wave).
-func (self *ICarouselPanelFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICarouselPanelFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ICarouselPanel, error) {
+	result := new(*ICarouselPanel)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -559,9 +558,8 @@ type IColorPickerSliderFactory struct {
 var IID_IColorPickerSliderFactory = win32.GUID{Data1: 0x06d879a2, Data2: 0x8c07, Data3: 0x4b1e, Data4: [8]byte{0xa9, 0x40, 0x9f, 0xbc, 0xe8, 0xf4, 0x96, 0x39}}
 
 // CreateInstance dispatches through IColorPickerSliderFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.ColorPickerSlider is projected as IInspectable (the class is not emitted this wave).
-func (self *IColorPickerSliderFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IColorPickerSliderFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IColorPickerSlider, error) {
+	result := new(*IColorPickerSlider)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -712,9 +710,8 @@ type IColorSpectrumFactory struct {
 var IID_IColorSpectrumFactory = win32.GUID{Data1: 0x90c7e61e, Data2: 0x904d, Data3: 0x42ab, Data4: [8]byte{0xb4, 0x4f, 0xe6, 0x8d, 0xbf, 0x0c, 0xde, 0xe9}}
 
 // CreateInstance dispatches through IColorSpectrumFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.ColorSpectrum is projected as IInspectable (the class is not emitted this wave).
-func (self *IColorSpectrumFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IColorSpectrumFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IColorSpectrum, error) {
+	result := new(*IColorSpectrum)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -845,9 +842,8 @@ type ICommandBarFlyoutCommandBar struct {
 var IID_ICommandBarFlyoutCommandBar = win32.GUID{Data1: 0x14146e7c, Data2: 0x38c4, Data3: 0x55c4, Data4: [8]byte{0xb7, 0x06, 0xce, 0x18, 0xf6, 0x06, 0x1e, 0x7e}}
 
 // FlyoutTemplateSettings (propget get_FlyoutTemplateSettings) dispatches through ICommandBarFlyoutCommandBar's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBarTemplateSettings is projected as IInspectable (the class is not emitted this wave).
-func (self *ICommandBarFlyoutCommandBar) FlyoutTemplateSettings() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICommandBarFlyoutCommandBar) FlyoutTemplateSettings() (*ICommandBarFlyoutCommandBarTemplateSettings, error) {
+	result := new(*ICommandBarFlyoutCommandBarTemplateSettings)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -863,9 +859,8 @@ type ICommandBarFlyoutCommandBarFactory struct {
 var IID_ICommandBarFlyoutCommandBarFactory = win32.GUID{Data1: 0xf8236f9f, Data2: 0x5559, Data3: 0x5697, Data4: [8]byte{0x8e, 0x6f, 0x20, 0xd7, 0x0c, 0xa1, 0x7d, 0xd0}}
 
 // CreateInstance dispatches through ICommandBarFlyoutCommandBarFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBar is projected as IInspectable (the class is not emitted this wave).
-func (self *ICommandBarFlyoutCommandBarFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICommandBarFlyoutCommandBarFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ICommandBarFlyoutCommandBar, error) {
+	result := new(*ICommandBarFlyoutCommandBar)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1161,8 +1156,7 @@ func (self *IFlyoutBase) RemoveOpening(token syswinrt.EventRegistrationToken) er
 }
 
 // ShowAt dispatches through IFlyoutBase's vtable slot 14.
-// Parameter placementTarget's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IFlyoutBase) ShowAt(placementTarget *syswinrt.IInspectable) error {
+func (self *IFlyoutBase) ShowAt(placementTarget *uixaml.IFrameworkElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(placementTarget)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1184,9 +1178,8 @@ type IFlyoutBase2 struct {
 var IID_IFlyoutBase2 = win32.GUID{Data1: 0xf82b435e, Data2: 0x65b3, Data3: 0x41c6, Data4: [8]byte{0xa9, 0xe2, 0x77, 0xb6, 0x7b, 0xc4, 0xc0, 0x0c}}
 
 // Target (propget get_Target) dispatches through IFlyoutBase2's vtable slot 6.
-// The return value's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IFlyoutBase2) Target() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFlyoutBase2) Target() (*uixaml.IFrameworkElement, error) {
+	result := new(*uixaml.IFrameworkElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1442,9 +1435,8 @@ type IFlyoutBaseFactory struct {
 var IID_IFlyoutBaseFactory = win32.GUID{Data1: 0x1c3363d7, Data2: 0xfca7, Data3: 0x407e, Data4: [8]byte{0x92, 0x0e, 0x70, 0xe1, 0x5e, 0x9f, 0x0b, 0xf1}}
 
 // CreateInstance dispatches through IFlyoutBaseFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.FlyoutBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IFlyoutBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFlyoutBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IFlyoutBase, error) {
+	result := new(*IFlyoutBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1502,25 +1494,20 @@ func (self *IFlyoutBaseStatics) AttachedFlyoutProperty() (*uixaml.IDependencyPro
 }
 
 // GetAttachedFlyout dispatches through IFlyoutBaseStatics's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.FlyoutBase is projected as IInspectable (the class is not emitted this wave).
-// Parameter element's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IFlyoutBaseStatics) GetAttachedFlyout(element *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFlyoutBaseStatics) GetAttachedFlyout(element *uixaml.IFrameworkElement) (*IFlyoutBase, error) {
+	result := new(*IFlyoutBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAttachedFlyout dispatches through IFlyoutBaseStatics's vtable slot 9.
-// Parameter element's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-// Parameter value's class Windows.UI.Xaml.Controls.Primitives.FlyoutBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IFlyoutBaseStatics) SetAttachedFlyout(element *syswinrt.IInspectable, value *syswinrt.IInspectable) error {
+func (self *IFlyoutBaseStatics) SetAttachedFlyout(element *uixaml.IFrameworkElement, value *IFlyoutBase) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // ShowAttachedFlyout dispatches through IFlyoutBaseStatics's vtable slot 10.
-// Parameter flyoutOwner's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IFlyoutBaseStatics) ShowAttachedFlyout(flyoutOwner *syswinrt.IInspectable) error {
+func (self *IFlyoutBaseStatics) ShowAttachedFlyout(flyoutOwner *uixaml.IFrameworkElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(flyoutOwner)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1776,181 +1763,157 @@ func (self *IGridViewItemPresenter) SetSelectionCheckMarkVisualEnabled(value boo
 }
 
 // CheckHintBrush (propget get_CheckHintBrush) dispatches through IGridViewItemPresenter's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) CheckHintBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) CheckHintBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckHintBrush (propput put_CheckHintBrush) dispatches through IGridViewItemPresenter's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetCheckHintBrush(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetCheckHintBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckSelectingBrush (propget get_CheckSelectingBrush) dispatches through IGridViewItemPresenter's vtable slot 10.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) CheckSelectingBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) CheckSelectingBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckSelectingBrush (propput put_CheckSelectingBrush) dispatches through IGridViewItemPresenter's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetCheckSelectingBrush(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetCheckSelectingBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBrush (propget get_CheckBrush) dispatches through IGridViewItemPresenter's vtable slot 12.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) CheckBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) CheckBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBrush (propput put_CheckBrush) dispatches through IGridViewItemPresenter's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetCheckBrush(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetCheckBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // DragBackground (propget get_DragBackground) dispatches through IGridViewItemPresenter's vtable slot 14.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) DragBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) DragBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDragBackground (propput put_DragBackground) dispatches through IGridViewItemPresenter's vtable slot 15.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetDragBackground(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetDragBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // DragForeground (propget get_DragForeground) dispatches through IGridViewItemPresenter's vtable slot 16.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) DragForeground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) DragForeground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDragForeground (propput put_DragForeground) dispatches through IGridViewItemPresenter's vtable slot 17.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetDragForeground(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetDragForeground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // FocusBorderBrush (propget get_FocusBorderBrush) dispatches through IGridViewItemPresenter's vtable slot 18.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) FocusBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) FocusBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetFocusBorderBrush (propput put_FocusBorderBrush) dispatches through IGridViewItemPresenter's vtable slot 19.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetFocusBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetFocusBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // PlaceholderBackground (propget get_PlaceholderBackground) dispatches through IGridViewItemPresenter's vtable slot 20.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) PlaceholderBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) PlaceholderBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPlaceholderBackground (propput put_PlaceholderBackground) dispatches through IGridViewItemPresenter's vtable slot 21.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetPlaceholderBackground(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetPlaceholderBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // PointerOverBackground (propget get_PointerOverBackground) dispatches through IGridViewItemPresenter's vtable slot 22.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) PointerOverBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) PointerOverBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPointerOverBackground (propput put_PointerOverBackground) dispatches through IGridViewItemPresenter's vtable slot 23.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetPointerOverBackground(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetPointerOverBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedBackground (propget get_SelectedBackground) dispatches through IGridViewItemPresenter's vtable slot 24.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SelectedBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) SelectedBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedBackground (propput put_SelectedBackground) dispatches through IGridViewItemPresenter's vtable slot 25.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetSelectedBackground(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetSelectedBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedForeground (propget get_SelectedForeground) dispatches through IGridViewItemPresenter's vtable slot 26.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SelectedForeground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) SelectedForeground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedForeground (propput put_SelectedForeground) dispatches through IGridViewItemPresenter's vtable slot 27.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetSelectedForeground(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetSelectedForeground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[27], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedPointerOverBackground (propget get_SelectedPointerOverBackground) dispatches through IGridViewItemPresenter's vtable slot 28.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SelectedPointerOverBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) SelectedPointerOverBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedPointerOverBackground (propput put_SelectedPointerOverBackground) dispatches through IGridViewItemPresenter's vtable slot 29.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetSelectedPointerOverBackground(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetSelectedPointerOverBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedPointerOverBorderBrush (propget get_SelectedPointerOverBorderBrush) dispatches through IGridViewItemPresenter's vtable slot 30.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SelectedPointerOverBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenter) SelectedPointerOverBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[30], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedPointerOverBorderBrush (propput put_SelectedPointerOverBorderBrush) dispatches through IGridViewItemPresenter's vtable slot 31.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenter) SetSelectedPointerOverBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IGridViewItemPresenter) SetSelectedPointerOverBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[31], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2040,9 +2003,8 @@ type IGridViewItemPresenterFactory struct {
 var IID_IGridViewItemPresenterFactory = win32.GUID{Data1: 0x53c12178, Data2: 0x63bb, Data3: 0x4a65, Data4: [8]byte{0xa3, 0xf1, 0xab, 0x11, 0x4c, 0xfc, 0x6f, 0xfe}}
 
 // CreateInstance dispatches through IGridViewItemPresenterFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.GridViewItemPresenter is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemPresenterFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemPresenterFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IGridViewItemPresenter, error) {
+	result := new(*IGridViewItemPresenter)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2284,31 +2246,27 @@ type IJumpListItemBackgroundConverter struct {
 var IID_IJumpListItemBackgroundConverter = win32.GUID{Data1: 0x81177858, Data2: 0xd224, Data3: 0x410c, Data4: [8]byte{0xb1, 0x6c, 0xc5, 0xb6, 0xbb, 0x61, 0x88, 0xb2}}
 
 // Enabled (propget get_Enabled) dispatches through IJumpListItemBackgroundConverter's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IJumpListItemBackgroundConverter) Enabled() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IJumpListItemBackgroundConverter) Enabled() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetEnabled (propput put_Enabled) dispatches through IJumpListItemBackgroundConverter's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IJumpListItemBackgroundConverter) SetEnabled(value *syswinrt.IInspectable) error {
+func (self *IJumpListItemBackgroundConverter) SetEnabled(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Disabled (propget get_Disabled) dispatches through IJumpListItemBackgroundConverter's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IJumpListItemBackgroundConverter) Disabled() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IJumpListItemBackgroundConverter) Disabled() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDisabled (propput put_Disabled) dispatches through IJumpListItemBackgroundConverter's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IJumpListItemBackgroundConverter) SetDisabled(value *syswinrt.IInspectable) error {
+func (self *IJumpListItemBackgroundConverter) SetDisabled(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2348,31 +2306,27 @@ type IJumpListItemForegroundConverter struct {
 var IID_IJumpListItemForegroundConverter = win32.GUID{Data1: 0x1590ed38, Data2: 0xc504, Data3: 0x4796, Data4: [8]byte{0xa6, 0x3a, 0x5b, 0xfc, 0x9e, 0xef, 0xaa, 0xe8}}
 
 // Enabled (propget get_Enabled) dispatches through IJumpListItemForegroundConverter's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IJumpListItemForegroundConverter) Enabled() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IJumpListItemForegroundConverter) Enabled() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetEnabled (propput put_Enabled) dispatches through IJumpListItemForegroundConverter's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IJumpListItemForegroundConverter) SetEnabled(value *syswinrt.IInspectable) error {
+func (self *IJumpListItemForegroundConverter) SetEnabled(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Disabled (propget get_Disabled) dispatches through IJumpListItemForegroundConverter's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IJumpListItemForegroundConverter) Disabled() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IJumpListItemForegroundConverter) Disabled() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDisabled (propput put_Disabled) dispatches through IJumpListItemForegroundConverter's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IJumpListItemForegroundConverter) SetDisabled(value *syswinrt.IInspectable) error {
+func (self *IJumpListItemForegroundConverter) SetDisabled(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2422,16 +2376,14 @@ type ILayoutInformationStatics struct {
 var IID_ILayoutInformationStatics = win32.GUID{Data1: 0xcf06cf99, Data2: 0x58e9, Data3: 0x4682, Data4: [8]byte{0x83, 0x26, 0x50, 0xca, 0xab, 0x65, 0xed, 0x7c}}
 
 // GetLayoutExceptionElement dispatches through ILayoutInformationStatics's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *ILayoutInformationStatics) GetLayoutExceptionElement(dispatcher *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ILayoutInformationStatics) GetLayoutExceptionElement(dispatcher *syswinrt.IInspectable) (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(dispatcher)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetLayoutSlot dispatches through ILayoutInformationStatics's vtable slot 7.
-// Parameter element's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *ILayoutInformationStatics) GetLayoutSlot(element *syswinrt.IInspectable) (foundation.Rect, error) {
+func (self *ILayoutInformationStatics) GetLayoutSlot(element *uixaml.IFrameworkElement) (foundation.Rect, error) {
 	result := new(foundation.Rect)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
@@ -2448,8 +2400,7 @@ type ILayoutInformationStatics2 struct {
 var IID_ILayoutInformationStatics2 = win32.GUID{Data1: 0x760315b5, Data2: 0x6d4e, Data3: 0x4939, Data4: [8]byte{0xac, 0x61, 0x63, 0x98, 0x63, 0xce, 0xa3, 0x6b}}
 
 // GetAvailableSize dispatches through ILayoutInformationStatics2's vtable slot 6.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *ILayoutInformationStatics2) GetAvailableSize(element *syswinrt.IInspectable) (foundation.Size, error) {
+func (self *ILayoutInformationStatics2) GetAvailableSize(element *uixaml.IUIElement) (foundation.Size, error) {
 	result := new(foundation.Size)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
@@ -2483,181 +2434,157 @@ func (self *IListViewItemPresenter) SetSelectionCheckMarkVisualEnabled(value boo
 }
 
 // CheckHintBrush (propget get_CheckHintBrush) dispatches through IListViewItemPresenter's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) CheckHintBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) CheckHintBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckHintBrush (propput put_CheckHintBrush) dispatches through IListViewItemPresenter's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetCheckHintBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetCheckHintBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckSelectingBrush (propget get_CheckSelectingBrush) dispatches through IListViewItemPresenter's vtable slot 10.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) CheckSelectingBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) CheckSelectingBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckSelectingBrush (propput put_CheckSelectingBrush) dispatches through IListViewItemPresenter's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetCheckSelectingBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetCheckSelectingBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBrush (propget get_CheckBrush) dispatches through IListViewItemPresenter's vtable slot 12.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) CheckBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) CheckBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBrush (propput put_CheckBrush) dispatches through IListViewItemPresenter's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetCheckBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetCheckBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // DragBackground (propget get_DragBackground) dispatches through IListViewItemPresenter's vtable slot 14.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) DragBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) DragBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDragBackground (propput put_DragBackground) dispatches through IListViewItemPresenter's vtable slot 15.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetDragBackground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetDragBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // DragForeground (propget get_DragForeground) dispatches through IListViewItemPresenter's vtable slot 16.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) DragForeground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) DragForeground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDragForeground (propput put_DragForeground) dispatches through IListViewItemPresenter's vtable slot 17.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetDragForeground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetDragForeground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // FocusBorderBrush (propget get_FocusBorderBrush) dispatches through IListViewItemPresenter's vtable slot 18.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) FocusBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) FocusBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetFocusBorderBrush (propput put_FocusBorderBrush) dispatches through IListViewItemPresenter's vtable slot 19.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetFocusBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetFocusBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // PlaceholderBackground (propget get_PlaceholderBackground) dispatches through IListViewItemPresenter's vtable slot 20.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) PlaceholderBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) PlaceholderBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPlaceholderBackground (propput put_PlaceholderBackground) dispatches through IListViewItemPresenter's vtable slot 21.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetPlaceholderBackground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetPlaceholderBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // PointerOverBackground (propget get_PointerOverBackground) dispatches through IListViewItemPresenter's vtable slot 22.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) PointerOverBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) PointerOverBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPointerOverBackground (propput put_PointerOverBackground) dispatches through IListViewItemPresenter's vtable slot 23.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetPointerOverBackground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetPointerOverBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedBackground (propget get_SelectedBackground) dispatches through IListViewItemPresenter's vtable slot 24.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SelectedBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) SelectedBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedBackground (propput put_SelectedBackground) dispatches through IListViewItemPresenter's vtable slot 25.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetSelectedBackground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetSelectedBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedForeground (propget get_SelectedForeground) dispatches through IListViewItemPresenter's vtable slot 26.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SelectedForeground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) SelectedForeground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedForeground (propput put_SelectedForeground) dispatches through IListViewItemPresenter's vtable slot 27.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetSelectedForeground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetSelectedForeground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[27], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedPointerOverBackground (propget get_SelectedPointerOverBackground) dispatches through IListViewItemPresenter's vtable slot 28.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SelectedPointerOverBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) SelectedPointerOverBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedPointerOverBackground (propput put_SelectedPointerOverBackground) dispatches through IListViewItemPresenter's vtable slot 29.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetSelectedPointerOverBackground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetSelectedPointerOverBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedPointerOverBorderBrush (propget get_SelectedPointerOverBorderBrush) dispatches through IListViewItemPresenter's vtable slot 30.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SelectedPointerOverBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter) SelectedPointerOverBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[30], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedPointerOverBorderBrush (propput put_SelectedPointerOverBorderBrush) dispatches through IListViewItemPresenter's vtable slot 31.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter) SetSelectedPointerOverBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter) SetSelectedPointerOverBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[31], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2747,61 +2674,53 @@ type IListViewItemPresenter2 struct {
 var IID_IListViewItemPresenter2 = win32.GUID{Data1: 0xf5dc5496, Data2: 0xe122, Data3: 0x4c57, Data4: [8]byte{0xa6, 0x25, 0xac, 0x4b, 0x08, 0xfb, 0x2d, 0x4c}}
 
 // SelectedPressedBackground (propget get_SelectedPressedBackground) dispatches through IListViewItemPresenter2's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter2) SelectedPressedBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter2) SelectedPressedBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedPressedBackground (propput put_SelectedPressedBackground) dispatches through IListViewItemPresenter2's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter2) SetSelectedPressedBackground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter2) SetSelectedPressedBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // PressedBackground (propget get_PressedBackground) dispatches through IListViewItemPresenter2's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter2) PressedBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter2) PressedBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPressedBackground (propput put_PressedBackground) dispatches through IListViewItemPresenter2's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter2) SetPressedBackground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter2) SetPressedBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxBrush (propget get_CheckBoxBrush) dispatches through IListViewItemPresenter2's vtable slot 10.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter2) CheckBoxBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter2) CheckBoxBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxBrush (propput put_CheckBoxBrush) dispatches through IListViewItemPresenter2's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter2) SetCheckBoxBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter2) SetCheckBoxBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // FocusSecondaryBorderBrush (propget get_FocusSecondaryBorderBrush) dispatches through IListViewItemPresenter2's vtable slot 12.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter2) FocusSecondaryBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter2) FocusSecondaryBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetFocusSecondaryBorderBrush (propput put_FocusSecondaryBorderBrush) dispatches through IListViewItemPresenter2's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter2) SetFocusSecondaryBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter2) SetFocusSecondaryBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2820,16 +2739,14 @@ func (self *IListViewItemPresenter2) SetCheckMode(value ListViewItemPresenterChe
 }
 
 // PointerOverForeground (propget get_PointerOverForeground) dispatches through IListViewItemPresenter2's vtable slot 16.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter2) PointerOverForeground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter2) PointerOverForeground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPointerOverForeground (propput put_PointerOverForeground) dispatches through IListViewItemPresenter2's vtable slot 17.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter2) SetPointerOverForeground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter2) SetPointerOverForeground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2845,31 +2762,27 @@ type IListViewItemPresenter3 struct {
 var IID_IListViewItemPresenter3 = win32.GUID{Data1: 0x36620013, Data2: 0x0390, Data3: 0x4e30, Data4: [8]byte{0xad, 0x97, 0x87, 0x44, 0x40, 0x4f, 0x70, 0x10}}
 
 // RevealBackground (propget get_RevealBackground) dispatches through IListViewItemPresenter3's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter3) RevealBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter3) RevealBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetRevealBackground (propput put_RevealBackground) dispatches through IListViewItemPresenter3's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter3) SetRevealBackground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter3) SetRevealBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // RevealBorderBrush (propget get_RevealBorderBrush) dispatches through IListViewItemPresenter3's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter3) RevealBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter3) RevealBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetRevealBorderBrush (propput put_RevealBorderBrush) dispatches through IListViewItemPresenter3's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter3) SetRevealBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter3) SetRevealBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2911,211 +2824,183 @@ type IListViewItemPresenter4 struct {
 var IID_IListViewItemPresenter4 = win32.GUID{Data1: 0xda600ac1, Data2: 0xadea, Data3: 0x5940, Data4: [8]byte{0xa1, 0x8f, 0x57, 0x58, 0x2f, 0x96, 0xd9, 0x9a}}
 
 // SelectedDisabledBackground (propget get_SelectedDisabledBackground) dispatches through IListViewItemPresenter4's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SelectedDisabledBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) SelectedDisabledBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedDisabledBackground (propput put_SelectedDisabledBackground) dispatches through IListViewItemPresenter4's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetSelectedDisabledBackground(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetSelectedDisabledBackground(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckPressedBrush (propget get_CheckPressedBrush) dispatches through IListViewItemPresenter4's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckPressedBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckPressedBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckPressedBrush (propput put_CheckPressedBrush) dispatches through IListViewItemPresenter4's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckPressedBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckPressedBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckDisabledBrush (propget get_CheckDisabledBrush) dispatches through IListViewItemPresenter4's vtable slot 10.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckDisabledBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckDisabledBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckDisabledBrush (propput put_CheckDisabledBrush) dispatches through IListViewItemPresenter4's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckDisabledBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckDisabledBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxPointerOverBrush (propget get_CheckBoxPointerOverBrush) dispatches through IListViewItemPresenter4's vtable slot 12.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckBoxPointerOverBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckBoxPointerOverBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxPointerOverBrush (propput put_CheckBoxPointerOverBrush) dispatches through IListViewItemPresenter4's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckBoxPointerOverBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckBoxPointerOverBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxPressedBrush (propget get_CheckBoxPressedBrush) dispatches through IListViewItemPresenter4's vtable slot 14.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckBoxPressedBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckBoxPressedBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxPressedBrush (propput put_CheckBoxPressedBrush) dispatches through IListViewItemPresenter4's vtable slot 15.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckBoxPressedBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckBoxPressedBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxDisabledBrush (propget get_CheckBoxDisabledBrush) dispatches through IListViewItemPresenter4's vtable slot 16.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckBoxDisabledBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckBoxDisabledBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxDisabledBrush (propput put_CheckBoxDisabledBrush) dispatches through IListViewItemPresenter4's vtable slot 17.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckBoxDisabledBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckBoxDisabledBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxSelectedBrush (propget get_CheckBoxSelectedBrush) dispatches through IListViewItemPresenter4's vtable slot 18.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckBoxSelectedBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckBoxSelectedBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxSelectedBrush (propput put_CheckBoxSelectedBrush) dispatches through IListViewItemPresenter4's vtable slot 19.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckBoxSelectedBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckBoxSelectedBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxSelectedPointerOverBrush (propget get_CheckBoxSelectedPointerOverBrush) dispatches through IListViewItemPresenter4's vtable slot 20.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckBoxSelectedPointerOverBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckBoxSelectedPointerOverBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxSelectedPointerOverBrush (propput put_CheckBoxSelectedPointerOverBrush) dispatches through IListViewItemPresenter4's vtable slot 21.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckBoxSelectedPointerOverBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckBoxSelectedPointerOverBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxSelectedPressedBrush (propget get_CheckBoxSelectedPressedBrush) dispatches through IListViewItemPresenter4's vtable slot 22.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckBoxSelectedPressedBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckBoxSelectedPressedBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxSelectedPressedBrush (propput put_CheckBoxSelectedPressedBrush) dispatches through IListViewItemPresenter4's vtable slot 23.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckBoxSelectedPressedBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckBoxSelectedPressedBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxSelectedDisabledBrush (propget get_CheckBoxSelectedDisabledBrush) dispatches through IListViewItemPresenter4's vtable slot 24.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckBoxSelectedDisabledBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckBoxSelectedDisabledBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxSelectedDisabledBrush (propput put_CheckBoxSelectedDisabledBrush) dispatches through IListViewItemPresenter4's vtable slot 25.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckBoxSelectedDisabledBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckBoxSelectedDisabledBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxBorderBrush (propget get_CheckBoxBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 26.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckBoxBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckBoxBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxBorderBrush (propput put_CheckBoxBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 27.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckBoxBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckBoxBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[27], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxPointerOverBorderBrush (propget get_CheckBoxPointerOverBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 28.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckBoxPointerOverBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckBoxPointerOverBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxPointerOverBorderBrush (propput put_CheckBoxPointerOverBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 29.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckBoxPointerOverBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckBoxPointerOverBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxPressedBorderBrush (propget get_CheckBoxPressedBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 30.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckBoxPressedBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckBoxPressedBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[30], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxPressedBorderBrush (propput put_CheckBoxPressedBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 31.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckBoxPressedBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckBoxPressedBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[31], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CheckBoxDisabledBorderBrush (propget get_CheckBoxDisabledBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 32.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) CheckBoxDisabledBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) CheckBoxDisabledBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[32], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCheckBoxDisabledBorderBrush (propput put_CheckBoxDisabledBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 33.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetCheckBoxDisabledBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetCheckBoxDisabledBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[33], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -3169,136 +3054,118 @@ func (self *IListViewItemPresenter4) SetSelectionIndicatorMode(value ListViewIte
 }
 
 // SelectionIndicatorBrush (propget get_SelectionIndicatorBrush) dispatches through IListViewItemPresenter4's vtable slot 42.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SelectionIndicatorBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) SelectionIndicatorBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[42], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectionIndicatorBrush (propput put_SelectionIndicatorBrush) dispatches through IListViewItemPresenter4's vtable slot 43.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetSelectionIndicatorBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetSelectionIndicatorBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[43], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectionIndicatorPointerOverBrush (propget get_SelectionIndicatorPointerOverBrush) dispatches through IListViewItemPresenter4's vtable slot 44.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SelectionIndicatorPointerOverBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) SelectionIndicatorPointerOverBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[44], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectionIndicatorPointerOverBrush (propput put_SelectionIndicatorPointerOverBrush) dispatches through IListViewItemPresenter4's vtable slot 45.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetSelectionIndicatorPointerOverBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetSelectionIndicatorPointerOverBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[45], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectionIndicatorPressedBrush (propget get_SelectionIndicatorPressedBrush) dispatches through IListViewItemPresenter4's vtable slot 46.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SelectionIndicatorPressedBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) SelectionIndicatorPressedBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[46], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectionIndicatorPressedBrush (propput put_SelectionIndicatorPressedBrush) dispatches through IListViewItemPresenter4's vtable slot 47.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetSelectionIndicatorPressedBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetSelectionIndicatorPressedBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[47], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectionIndicatorDisabledBrush (propget get_SelectionIndicatorDisabledBrush) dispatches through IListViewItemPresenter4's vtable slot 48.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SelectionIndicatorDisabledBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) SelectionIndicatorDisabledBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[48], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectionIndicatorDisabledBrush (propput put_SelectionIndicatorDisabledBrush) dispatches through IListViewItemPresenter4's vtable slot 49.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetSelectionIndicatorDisabledBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetSelectionIndicatorDisabledBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[49], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedBorderBrush (propget get_SelectedBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 50.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SelectedBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) SelectedBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[50], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedBorderBrush (propput put_SelectedBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 51.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetSelectedBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetSelectedBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[51], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedPressedBorderBrush (propget get_SelectedPressedBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 52.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SelectedPressedBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) SelectedPressedBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[52], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedPressedBorderBrush (propput put_SelectedPressedBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 53.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetSelectedPressedBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetSelectedPressedBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[53], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedDisabledBorderBrush (propget get_SelectedDisabledBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 54.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SelectedDisabledBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) SelectedDisabledBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[54], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedDisabledBorderBrush (propput put_SelectedDisabledBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 55.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetSelectedDisabledBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetSelectedDisabledBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[55], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SelectedInnerBorderBrush (propget get_SelectedInnerBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 56.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SelectedInnerBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) SelectedInnerBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[56], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSelectedInnerBorderBrush (propput put_SelectedInnerBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 57.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetSelectedInnerBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetSelectedInnerBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[57], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // PointerOverBorderBrush (propget get_PointerOverBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 58.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) PointerOverBorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenter4) PointerOverBorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[58], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPointerOverBorderBrush (propput put_PointerOverBorderBrush) dispatches through IListViewItemPresenter4's vtable slot 59.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenter4) SetPointerOverBorderBrush(value *syswinrt.IInspectable) error {
+func (self *IListViewItemPresenter4) SetPointerOverBorderBrush(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[59], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -3314,9 +3181,8 @@ type IListViewItemPresenterFactory struct {
 var IID_IListViewItemPresenterFactory = win32.GUID{Data1: 0xe0777cfd, Data2: 0xf7e4, Data3: 0x4a67, Data4: [8]byte{0x9a, 0xc0, 0xa9, 0x94, 0xfc, 0xac, 0xd0, 0x20}}
 
 // CreateInstance dispatches through IListViewItemPresenterFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenter is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemPresenterFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemPresenterFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IListViewItemPresenter, error) {
+	result := new(*IListViewItemPresenter)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3884,16 +3750,14 @@ func (self *ILoopingSelector) SetItemHeight(value int32) error {
 }
 
 // ItemTemplate (propget get_ItemTemplate) dispatches through ILoopingSelector's vtable slot 18.
-// The return value's class Windows.UI.Xaml.DataTemplate is projected as IInspectable (the class is not emitted this wave).
-func (self *ILoopingSelector) ItemTemplate() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ILoopingSelector) ItemTemplate() (*uixaml.IDataTemplate, error) {
+	result := new(*uixaml.IDataTemplate)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetItemTemplate (propput put_ItemTemplate) dispatches through ILoopingSelector's vtable slot 19.
-// Parameter value's class Windows.UI.Xaml.DataTemplate is projected as IInspectable (the class is not emitted this wave).
-func (self *ILoopingSelector) SetItemTemplate(value *syswinrt.IInspectable) error {
+func (self *ILoopingSelector) SetItemTemplate(value *uixaml.IDataTemplate) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4030,9 +3894,8 @@ type INavigationViewItemPresenterFactory struct {
 var IID_INavigationViewItemPresenterFactory = win32.GUID{Data1: 0xbb062c50, Data2: 0x4a36, Data3: 0x52e7, Data4: [8]byte{0x94, 0x59, 0xe8, 0x9d, 0x02, 0xf3, 0xfc, 0x42}}
 
 // CreateInstance dispatches through INavigationViewItemPresenterFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.NavigationViewItemPresenter is projected as IInspectable (the class is not emitted this wave).
-func (self *INavigationViewItemPresenterFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *INavigationViewItemPresenterFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*INavigationViewItemPresenter, error) {
+	result := new(*INavigationViewItemPresenter)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -4232,9 +4095,8 @@ type IPickerFlyoutBaseFactory struct {
 var IID_IPickerFlyoutBaseFactory = win32.GUID{Data1: 0x7ec27a53, Data2: 0x9502, Data3: 0x4beb, Data4: [8]byte{0xb3, 0x42, 0x00, 0x56, 0x6c, 0x8f, 0x16, 0xb0}}
 
 // CreateInstance dispatches through IPickerFlyoutBaseFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.PickerFlyoutBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IPickerFlyoutBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPickerFlyoutBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IPickerFlyoutBase, error) {
+	result := new(*IPickerFlyoutBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -4321,9 +4183,8 @@ type IPivotHeaderItemFactory struct {
 var IID_IPivotHeaderItemFactory = win32.GUID{Data1: 0x14308b37, Data2: 0x185b, Data3: 0x4117, Data4: [8]byte{0xbc, 0x77, 0xdd, 0xa2, 0xeb, 0x26, 0x1b, 0x99}}
 
 // CreateInstance dispatches through IPivotHeaderItemFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.PivotHeaderItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IPivotHeaderItemFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPivotHeaderItemFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IPivotHeaderItem, error) {
+	result := new(*IPivotHeaderItem)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -4359,16 +4220,14 @@ type IPopup struct {
 var IID_IPopup = win32.GUID{Data1: 0x62418240, Data2: 0xe6d3, Data3: 0x4705, Data4: [8]byte{0xa1, 0xdc, 0x39, 0x15, 0x64, 0x56, 0xee, 0x29}}
 
 // Child (propget get_Child) dispatches through IPopup's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IPopup) Child() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPopup) Child() (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetChild (propput put_Child) dispatches through IPopup's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IPopup) SetChild(value *syswinrt.IInspectable) error {
+func (self *IPopup) SetChild(value *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4510,16 +4369,14 @@ type IPopup4 struct {
 var IID_IPopup4 = win32.GUID{Data1: 0x1870b836, Data2: 0xdf2f, Data3: 0x5fc6, Data4: [8]byte{0xa5, 0xf2, 0x74, 0x8e, 0xd6, 0xce, 0x73, 0x21}}
 
 // PlacementTarget (propget get_PlacementTarget) dispatches through IPopup4's vtable slot 6.
-// The return value's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IPopup4) PlacementTarget() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPopup4) PlacementTarget() (*uixaml.IFrameworkElement, error) {
+	result := new(*uixaml.IFrameworkElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPlacementTarget (propput put_PlacementTarget) dispatches through IPopup4's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IPopup4) SetPlacementTarget(value *syswinrt.IInspectable) error {
+func (self *IPopup4) SetPlacementTarget(value *uixaml.IFrameworkElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4772,9 +4629,8 @@ type IRangeBaseFactory struct {
 var IID_IRangeBaseFactory = win32.GUID{Data1: 0x389b7c71, Data2: 0x5220, Data3: 0x42b2, Data4: [8]byte{0x99, 0x92, 0x26, 0x90, 0xc1, 0xa6, 0x70, 0x30}}
 
 // CreateInstance dispatches through IRangeBaseFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.RangeBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IRangeBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IRangeBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IRangeBase, error) {
+	result := new(*IRangeBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -5205,9 +5061,8 @@ type ISelectorItemFactory struct {
 var IID_ISelectorItemFactory = win32.GUID{Data1: 0xb9363945, Data2: 0xc86a, Data3: 0x4b1e, Data4: [8]byte{0x94, 0x40, 0x18, 0x79, 0x37, 0x8d, 0x53, 0x13}}
 
 // CreateInstance dispatches through ISelectorItemFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.SelectorItem is projected as IInspectable (the class is not emitted this wave).
-func (self *ISelectorItemFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISelectorItemFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ISelectorItem, error) {
+	result := new(*ISelectorItem)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -5292,25 +5147,22 @@ type ISettingsFlyoutTemplateSettings struct {
 var IID_ISettingsFlyoutTemplateSettings = win32.GUID{Data1: 0xbcf14c10, Data2: 0xcea7, Data3: 0x43f1, Data4: [8]byte{0x9d, 0x68, 0x57, 0x60, 0x5d, 0xed, 0x69, 0xd4}}
 
 // HeaderBackground (propget get_HeaderBackground) dispatches through ISettingsFlyoutTemplateSettings's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *ISettingsFlyoutTemplateSettings) HeaderBackground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISettingsFlyoutTemplateSettings) HeaderBackground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // HeaderForeground (propget get_HeaderForeground) dispatches through ISettingsFlyoutTemplateSettings's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *ISettingsFlyoutTemplateSettings) HeaderForeground() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISettingsFlyoutTemplateSettings) HeaderForeground() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // BorderBrush (propget get_BorderBrush) dispatches through ISettingsFlyoutTemplateSettings's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *ISettingsFlyoutTemplateSettings) BorderBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISettingsFlyoutTemplateSettings) BorderBrush() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -5323,9 +5175,8 @@ func (self *ISettingsFlyoutTemplateSettings) BorderThickness() (uixaml.Thickness
 }
 
 // IconSource (propget get_IconSource) dispatches through ISettingsFlyoutTemplateSettings's vtable slot 10.
-// The return value's class Windows.UI.Xaml.Media.ImageSource is projected as IInspectable (the class is not emitted this wave).
-func (self *ISettingsFlyoutTemplateSettings) IconSource() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISettingsFlyoutTemplateSettings) IconSource() (*uixamlmedia.IImageSource, error) {
+	result := new(*uixamlmedia.IImageSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -5463,16 +5314,14 @@ type ITickBar struct {
 var IID_ITickBar = win32.GUID{Data1: 0x994683fa, Data2: 0xf1f6, Data3: 0x487d, Data4: [8]byte{0xa5, 0xac, 0xc1, 0x59, 0x21, 0xbf, 0xa9, 0x95}}
 
 // Fill (propget get_Fill) dispatches through ITickBar's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *ITickBar) Fill() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ITickBar) Fill() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetFill (propput put_Fill) dispatches through ITickBar's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *ITickBar) SetFill(value *syswinrt.IInspectable) error {
+func (self *ITickBar) SetFill(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -5593,9 +5442,8 @@ type IToggleButtonFactory struct {
 var IID_IToggleButtonFactory = win32.GUID{Data1: 0xd56aa2fc, Data2: 0xfc7f, Data3: 0x449c, Data4: [8]byte{0x98, 0x55, 0x7a, 0x10, 0x55, 0xd6, 0x68, 0xa8}}
 
 // CreateInstance dispatches through IToggleButtonFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Primitives.ToggleButton is projected as IInspectable (the class is not emitted this wave).
-func (self *IToggleButtonFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IToggleButtonFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IToggleButton, error) {
+	result := new(*IToggleButton)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

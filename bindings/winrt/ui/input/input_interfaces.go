@@ -2762,9 +2762,8 @@ type ISystemButtonEventControllerStatics struct {
 var IID_ISystemButtonEventControllerStatics = win32.GUID{Data1: 0x632fb07b, Data2: 0x20bd, Data3: 0x5e15, Data4: [8]byte{0xaf, 0x4a, 0x00, 0xdb, 0xf2, 0x06, 0x4f, 0xfa}}
 
 // CreateForDispatcherQueue dispatches through ISystemButtonEventControllerStatics's vtable slot 6.
-// The return value's class Windows.UI.Input.SystemButtonEventController is projected as IInspectable (the class is not emitted this wave).
-func (self *ISystemButtonEventControllerStatics) CreateForDispatcherQueue(queue *system.IDispatcherQueue) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISystemButtonEventControllerStatics) CreateForDispatcherQueue(queue *system.IDispatcherQueue) (*ISystemButtonEventController, error) {
+	result := new(*ISystemButtonEventController)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(queue)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

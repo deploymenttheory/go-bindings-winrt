@@ -245,7 +245,7 @@ func (self *IStorageItemAccessList) CheckAccess(file *storage.IStorageItem) (boo
 }
 
 // Entries (propget get_Entries) dispatches through IStorageItemAccessList's vtable slot 20.
-// The return value's class Windows.Storage.AccessCache.AccessListEntryView is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Storage.AccessCache.AccessListEntryView is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IStorageItemAccessList) Entries() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))

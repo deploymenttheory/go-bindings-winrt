@@ -12,30 +12,35 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/internal/winrtmeta"
 )
 
-// buildClassModels converts a namespace's non-composable runtime classes
-// into render models: a struct embedding the default interface by value,
-// a NewFoo constructor when the class is directly activatable, an
-// As<Interface> query method per other non-generic instance interface,
-// package-level statics accessors for the [Static] interfaces, and
-// package-level factory constructors for the [Activatable] factory
-// interfaces. Statics accessors are independent of the class type: a
-// statics-only class emits them with no class type at all.
+// buildClassModels converts a namespace's runtime classes into render
+// models: a struct embedding the default interface by value, a NewFoo
+// constructor when the class is directly activatable, an As<Interface>
+// query method per other non-generic instance interface, package-level
+// statics accessors for the [Static] interfaces, package-level factory
+// constructors for the [Activatable] factory interfaces, and package-level
+// composable constructors for the [Composable] factory interfaces
+// (null-outer CreateInstance — instantiate-only composition; Go-side
+// derivation is out of scope). Statics accessors are independent of the
+// class type: a statics-only class emits them with no class type at all. A
+// factory-less composable class is a valid platform shape (created by other
+// APIs, e.g. Compositor.CreateSpriteVisual): class type + queries + statics
+// only, no diagnostic.
 func (g *Generator) buildClassModels(meta *winrtmeta.NamespaceMeta, imports typemap.ImportSet) []view.ClassModel {
 	models := make([]view.ClassModel, 0, len(meta.Classes))
 	for _, name := range sortedKeys(meta.Classes) {
 		class := meta.Classes[name]
 		fullName := meta.Namespace + "." + name
-		if class.Composable {
-			g.diag("composable-class-skipped", "%s", fullName)
-			continue
-		}
 		model, typeEmitted := g.buildClassType(meta, name, fullName, &class, imports)
 		model.Statics = g.buildStaticsAccessors(meta, fullName, &class, imports)
 		if typeEmitted {
 			model.Factories = g.buildFactoryFuncs(meta, fullName, &class, &model, imports)
+			model.ComposableCtors = g.buildComposableCtorFuncs(meta, fullName, &class, &model, imports)
 		} else {
 			for _, factory := range class.ActivatableFactories {
 				g.diag("factory-skipped", "%s factory %s (class type not emitted)", fullName, factory)
+			}
+			for _, factory := range class.ComposableFactories {
+				g.diag("composable-factory-skipped", "%s factory %s (class type not emitted)", fullName, factory)
 			}
 		}
 		if typeEmitted || len(model.Statics) > 0 {
@@ -284,6 +289,144 @@ func (g *Generator) buildFactoryFuncs(meta *winrtmeta.NamespaceMeta, fullName st
 		}
 	}
 	return models
+}
+
+// buildComposableCtorFuncs projects a class's [Composable] factory
+// interfaces as package-level constructors (instantiate-only composition):
+// each emitted factory method whose trailing parameter pair is the
+// composition contract — baseInterface (in Object) + innerInterface (out
+// Object) — and whose return is the class's default interface becomes a
+// func taking only the LEADING parameters. The body fetches the factory,
+// delegates to the already-generated factory-interface method with a NULL
+// outer and a heap-escaping inner out-pointer (the method's own OutParam
+// routing), releases the returned non-nil inner (under null-outer
+// composition it is a second reference to the same object the retval
+// carries), and re-types the default-interface pointer as the class.
+// Go-side derivation (a non-null outer) stays out of scope. Shape-rule
+// failures record composable-factory-skipped; a class with NO composable
+// factories is a valid platform shape and records nothing.
+func (g *Generator) buildComposableCtorFuncs(meta *winrtmeta.NamespaceMeta, fullName string, class *winrtmeta.Class, model *view.ClassModel, imports typemap.ImportSet) []view.ComposableCtorModel {
+	var models []view.ComposableCtorModel
+	for ordinal, factoryFullName := range class.ComposableFactories {
+		ref, ok := interfaceRef(factoryFullName)
+		if !ok {
+			g.diag("composable-factory-skipped", "%s factory %s (not a namespace-qualified name)", fullName, factoryFullName)
+			continue
+		}
+		definition := g.mapper.Registry.Interface(ref.Namespace, ref.Name)
+		if definition == nil {
+			g.diag("composable-factory-skipped", "%s factory %s (unresolved)", fullName, factoryFullName)
+			continue
+		}
+		if definition.Arity > 0 {
+			g.diag("composable-factory-skipped", "%s factory %s (generic)", fullName, factoryFullName)
+			continue
+		}
+		if ref.Namespace != meta.Namespace {
+			// Composable factory interfaces are [ExclusiveTo] their class in
+			// practice; a cross-namespace one has no method surface recorded
+			// here.
+			g.diag("composable-factory-skipped", "%s factory %s (outside the class namespace)", fullName, factoryFullName)
+			continue
+		}
+		iidRef, ok := g.iidRef(&ref, meta.Namespace)
+		if !ok {
+			g.diag("composable-factory-skipped", "%s factory %s (no IID)", fullName, factoryFullName)
+			continue
+		}
+		records := g.ifaceMethods[factoryFullName]
+		for i := range definition.Methods {
+			method := &definition.Methods[i]
+			memberPath := fullName + " composable factory " + factoryFullName
+			var record emittedMethod
+			if i < len(records) {
+				record = records[i]
+			}
+			if !record.emitted {
+				g.diag("composable-factory-skipped", "%s (method %s not emitted on the factory interface)", memberPath, method.Name)
+				continue
+			}
+			if !composableTailParams(method) {
+				g.diag("composable-factory-skipped", "%s (method %s does not end with the (baseInterface in, innerInterface out) Object pair)", memberPath, method.Name)
+				continue
+			}
+			// The wrapper's unsafe re-type is only sound when the factory
+			// method hands back the class's default interface.
+			if record.returnType != "*"+model.DefaultInterface {
+				g.diag("composable-factory-skipped", "%s (method %s does not return the class default interface)", memberPath, method.Name)
+				continue
+			}
+			projected := method.Name
+			if method.Overload != "" {
+				projected = method.Overload
+			}
+			// CreateInstance → New<Class>; CreateInstanceWith<X> →
+			// New<Class>With<X>; anything else keeps its full projected name
+			// after the New<Class> stem.
+			suffix, isCreateInstance := strings.CutPrefix(projected, "CreateInstance")
+			if !isCreateInstance {
+				suffix = naming.Export(projected)
+			}
+			funcName := "New" + model.TypeName + suffix
+			if !g.claimName(funcName) {
+				// The same deterministic fallback chain as buildFactoryFuncs:
+				// class-name suffix first (a no-op here — the stem already
+				// carries it), then the factory's 1-based [Composable] ordinal.
+				candidate := funcName
+				if !strings.HasSuffix(candidate, model.TypeName) {
+					candidate += model.TypeName
+				}
+				switch suffixed := candidate + strconv.Itoa(ordinal+1); {
+				case candidate != funcName && g.claimName(candidate):
+					funcName = candidate
+				case g.claimName(suffixed):
+					funcName = suffixed
+				default:
+					g.diag("name-collision-skipped", "composable constructor %s for %s", funcName, fullName)
+					continue
+				}
+			}
+			// Leading parameters only: the constructor supplies the trailing
+			// composition pair (nil outer + the inner out-pointer) itself.
+			leadingDecls := record.paramDecls[:len(record.paramDecls)-2]
+			leadingNames := record.paramNames[:len(record.paramNames)-2]
+			taken := make(map[string]bool, len(leadingNames))
+			for _, name := range leadingNames {
+				taken[name] = true
+			}
+			innerName := freshLocal("inner", taken)
+			argNames := make([]string, 0, len(leadingNames)+2)
+			argNames = append(argNames, leadingNames...)
+			argNames = append(argNames, "nil", innerName)
+			imports.Merge(record.imports)
+			models = append(models, view.ComposableCtorModel{
+				FuncName:        funcName,
+				FactoryType:     naming.Export(ref.Name),
+				FactoryFullName: factoryFullName,
+				FactoryIIDRef:   iidRef,
+				MethodName:      record.goName,
+				ParamStr:        strings.Join(leadingDecls, ", "),
+				InnerName:       innerName,
+				ArgNames:        argNames,
+			})
+		}
+	}
+	return models
+}
+
+// composableTailParams reports whether a composable factory method's last
+// two parameters are the composition contract: baseInterface (in Object) +
+// innerInterface (out Object).
+func composableTailParams(method *winrtmeta.Method) bool {
+	if len(method.Params) < 2 {
+		return false
+	}
+	base := &method.Params[len(method.Params)-2]
+	inner := &method.Params[len(method.Params)-1]
+	isObject := func(ref *winrtmeta.TypeRef) bool {
+		return ref.Kind == "Native" && ref.Name == "Object"
+	}
+	return !base.Out && isObject(&base.Type) && inner.Out && isObject(&inner.Type)
 }
 
 // interfaceRef builds the ApiRef for a full interface metadata name

@@ -79,16 +79,14 @@ degrades gracefully when hardware or identity is missing:
 
 | Area | State |
 |---|---|
-| Interfaces, runtime classes (non-composable), enums, value structs | **Emitted** — absolute vtable-slot dispatch, constructors, `As<Name>()` queries |
+| Interfaces, runtime classes, enums, value structs | **Emitted** — absolute vtable-slot dispatch, constructors, `As<Name>()` queries |
 | Statics + factory constructors | **Emitted** — package-level accessors and `Create*` functions |
 | Events | **Emitted** — `Add`/`Remove` accessors + typed Go handler constructors |
-| Async | **Emitted** — synthesized blocking `Await()` on `IAsyncOperation<T>`/`IAsyncAction` |
+| Async | **Emitted** — synthesized blocking `Await()` on `IAsyncOperation<T>`/`IAsyncAction` and the `WithProgress` variants |
 | Generic instantiations | **Emitted** — monomorphized per consuming package, pinterface-derived IIDs |
-| Go-implemented collections | **Runtime** — `IIterable/IIterator/IVectorView` over `String` (`winrt.NewStringIterable` et al.) |
-| Composable classes (XAML-style inheritance) | Deferred — skipped with diagnostics |
-| `IAsyncOperationWithProgress` Await | Deferred — handler setters emit; no Await synthesis |
-| Writable / non-string Go collections (`IVector<T>`) | Deferred |
-| Delegate-returning methods (`get_Completed`), arrays, float ABI, wide by-value structs | Deferred — per-member skips tracked by the diagnostics ratchet |
+| Go-implemented collections | **Emitted + runtime** — element-generic `IIterable`/`IVectorView`/writable `IVector` with generated typed constructors (`New<IIterableOfX>`); `winrt.NewStringIterable` et al. remain |
+| Composable classes (`Windows.UI.*` hierarchy) | **Emitted, instantiate-only** — `New<Class>` null-outer composable constructors, direct activation, statics, `As<Name>()` queries; Go-side derivation out of scope (inherited interfaces via `winrt.QueryInterface`) |
+| Delegate-returning methods (`get_Completed`), arrays, float ABI, wide by-value structs, Go-implemented maps | Deferred — per-member skips tracked by the diagnostics ratchet |
 
 Every degradation is per member, never per namespace: skipped members leave
 `// slot N: name skipped: reason` comments and an entry in the committed

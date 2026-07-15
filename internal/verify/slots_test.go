@@ -10,6 +10,7 @@ import (
 	winmd "github.com/deploymenttheory/go-winmd"
 
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/globalization"
+	controls "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/controls"
 )
 
 // The hand-written vertical hardcodes vtable slots and IIDs. These tests
@@ -171,6 +172,36 @@ func TestICalendarSignatureShapes(t *testing.T) {
 	if sig := shape("SetDateTime"); len(sig.Params) != 1 || sig.Params[0].Kind != winmd.SigNamed ||
 		!sig.Params[0].IsValueType || sig.Params[0].Name != "DateTime" {
 		t.Errorf("SetDateTime params = %+v, want one by-value DateTime", sig.Params)
+	}
+}
+
+// TestIButtonFactoryPin pins the composable-constructor path's ABI inputs
+// against the committed winmd: NewButton dispatches IButtonFactory's
+// CreateInstance at vtable slot 6 through the generated IID_IButtonFactory.
+// A metadata bump or generator regression that moves either fails here, not
+// in a corrupted live CreateInstance call.
+func TestIButtonFactoryPin(t *testing.T) {
+	file := openContract(t)
+
+	factoryRow, factory := findTypeDef(t, file, "Windows.UI.Xaml.Controls", "IButtonFactory")
+	if got := guidOf(t, file, factoryRow); got != controls.IID_IButtonFactory {
+		t.Errorf("IID_IButtonFactory = %s, metadata says %s", controls.IID_IButtonFactory, got)
+	}
+	slot, method := slotOf(t, file, factory, "CreateInstance")
+	if slot != 6 {
+		t.Errorf("IButtonFactory.CreateInstance slot = %d, the composable constructor dispatches 6", slot)
+	}
+	// The composition contract the constructor relies on: two object params
+	// (baseInterface in, innerInterface out) and the Button class as retval.
+	sig, err := file.MethodSignature(method.Signature)
+	if err != nil {
+		t.Fatalf("CreateInstance signature: %v", err)
+	}
+	if len(sig.Params) != 2 {
+		t.Fatalf("CreateInstance params = %+v, want (baseInterface, innerInterface)", sig.Params)
+	}
+	if sig.Return.Kind != winmd.SigNamed || sig.Return.Namespace != "Windows.UI.Xaml.Controls" || sig.Return.Name != "Button" {
+		t.Errorf("CreateInstance returns %+v, want class Windows.UI.Xaml.Controls.Button", sig.Return)
 	}
 }
 

@@ -7,8 +7,86 @@ package data
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
+
+// Binding is the Windows.UI.Xaml.Data.Binding runtime class, surfaced through its
+// default interface IBinding. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Binding struct {
+	IBinding
+}
+
+// AsBinding2 queries the instance's IBinding2 interface.
+// The returned reference is owned by the caller.
+func (self *Binding) AsBinding2() (*IBinding2, error) {
+	return winrt.QueryInterface[IBinding2](unsafe.Pointer(self), &IID_IBinding2)
+}
+
+// NewBinding constructs a Windows.UI.Xaml.Data.Binding instance through
+// Windows.UI.Xaml.Data.IBindingFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewBinding() (*Binding, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Data.Binding", &IID_IBindingFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBindingFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Binding)(unsafe.Pointer(instance)), nil
+}
+
+// BindingBase is the Windows.UI.Xaml.Data.BindingBase runtime class, surfaced through its
+// default interface IBindingBase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BindingBase struct {
+	IBindingBase
+}
+
+// NewBindingBase constructs a Windows.UI.Xaml.Data.BindingBase instance through
+// Windows.UI.Xaml.Data.IBindingBaseFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewBindingBase() (*BindingBase, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Data.BindingBase", &IID_IBindingBaseFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBindingBaseFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*BindingBase)(unsafe.Pointer(instance)), nil
+}
+
+// BindingExpression is the Windows.UI.Xaml.Data.BindingExpression runtime class, surfaced through its
+// default interface IBindingExpression. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BindingExpression struct {
+	IBindingExpression
+}
 
 // BindingExpressionBase is the Windows.UI.Xaml.Data.BindingExpressionBase runtime class, surfaced through its
 // default interface IBindingExpressionBase. Release when done (promoted from
@@ -36,11 +114,91 @@ func BindingOperationsStatics() (*IBindingOperationsStatics, error) {
 	return (*IBindingOperationsStatics)(unsafe.Pointer(factory)), nil
 }
 
+// CollectionViewSource is the Windows.UI.Xaml.Data.CollectionViewSource runtime class, surfaced through its
+// default interface ICollectionViewSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CollectionViewSource struct {
+	ICollectionViewSource
+}
+
+// NewCollectionViewSource activates Windows.UI.Xaml.Data.CollectionViewSource through its default
+// constructor.
+func NewCollectionViewSource() (*CollectionViewSource, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Data.CollectionViewSource")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[CollectionViewSource](unsafe.Pointer(instance), &IID_ICollectionViewSource)
+}
+
+// CollectionViewSourceStatics returns the Windows.UI.Xaml.Data.ICollectionViewSourceStatics statics of the
+// Windows.UI.Xaml.Data.CollectionViewSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CollectionViewSourceStatics() (*ICollectionViewSourceStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Data.CollectionViewSource", &IID_ICollectionViewSourceStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICollectionViewSourceStatics)(unsafe.Pointer(factory)), nil
+}
+
 // CurrentChangingEventArgs is the Windows.UI.Xaml.Data.CurrentChangingEventArgs runtime class, surfaced through its
 // default interface ICurrentChangingEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type CurrentChangingEventArgs struct {
 	ICurrentChangingEventArgs
+}
+
+// NewCurrentChangingEventArgs constructs a Windows.UI.Xaml.Data.CurrentChangingEventArgs instance through
+// Windows.UI.Xaml.Data.ICurrentChangingEventArgsFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCurrentChangingEventArgs() (*CurrentChangingEventArgs, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Data.CurrentChangingEventArgs", &IID_ICurrentChangingEventArgsFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICurrentChangingEventArgsFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CurrentChangingEventArgs)(unsafe.Pointer(instance)), nil
+}
+
+// NewCurrentChangingEventArgsCreateWithCancelableParameter constructs a Windows.UI.Xaml.Data.CurrentChangingEventArgs instance through
+// Windows.UI.Xaml.Data.ICurrentChangingEventArgsFactory.CreateWithCancelableParameter with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCurrentChangingEventArgsCreateWithCancelableParameter(isCancelable bool) (*CurrentChangingEventArgs, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Data.CurrentChangingEventArgs", &IID_ICurrentChangingEventArgsFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICurrentChangingEventArgsFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateWithCancelableParameter(isCancelable, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CurrentChangingEventArgs)(unsafe.Pointer(instance)), nil
 }
 
 // ItemIndexRange is the Windows.UI.Xaml.Data.ItemIndexRange runtime class, surfaced through its
@@ -50,9 +208,91 @@ type ItemIndexRange struct {
 	IItemIndexRange
 }
 
+// NewItemIndexRange constructs a Windows.UI.Xaml.Data.ItemIndexRange instance through
+// Windows.UI.Xaml.Data.IItemIndexRangeFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewItemIndexRange(firstIndex int32, length uint32) (*ItemIndexRange, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Data.ItemIndexRange", &IID_IItemIndexRangeFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IItemIndexRangeFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(firstIndex, length, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ItemIndexRange)(unsafe.Pointer(instance)), nil
+}
+
 // PropertyChangedEventArgs is the Windows.UI.Xaml.Data.PropertyChangedEventArgs runtime class, surfaced through its
 // default interface IPropertyChangedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type PropertyChangedEventArgs struct {
 	IPropertyChangedEventArgs
+}
+
+// NewPropertyChangedEventArgs constructs a Windows.UI.Xaml.Data.PropertyChangedEventArgs instance through
+// Windows.UI.Xaml.Data.IPropertyChangedEventArgsFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewPropertyChangedEventArgs(name string) (*PropertyChangedEventArgs, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Data.PropertyChangedEventArgs", &IID_IPropertyChangedEventArgsFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPropertyChangedEventArgsFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(name, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*PropertyChangedEventArgs)(unsafe.Pointer(instance)), nil
+}
+
+// RelativeSource is the Windows.UI.Xaml.Data.RelativeSource runtime class, surfaced through its
+// default interface IRelativeSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RelativeSource struct {
+	IRelativeSource
+}
+
+// NewRelativeSource constructs a Windows.UI.Xaml.Data.RelativeSource instance through
+// Windows.UI.Xaml.Data.IRelativeSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRelativeSource() (*RelativeSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Data.RelativeSource", &IID_IRelativeSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRelativeSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RelativeSource)(unsafe.Pointer(instance)), nil
 }

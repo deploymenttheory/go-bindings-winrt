@@ -150,9 +150,8 @@ type ISceneMesh struct {
 var IID_ISceneMesh = win32.GUID{Data1: 0xee9a1530, Data2: 0x1155, Data3: 0x4c0c, Data4: [8]byte{0x92, 0xbd, 0x40, 0x02, 0x0c, 0xf7, 0x83, 0x47}}
 
 // Bounds (propget get_Bounds) dispatches through ISceneMesh's vtable slot 6.
-// The return value's class Windows.UI.Composition.Scenes.SceneBoundingBox is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMesh) Bounds() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneMesh) Bounds() (*ISceneBoundingBox, error) {
+	result := new(*ISceneBoundingBox)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -197,39 +196,34 @@ type ISceneMeshRendererComponent struct {
 var IID_ISceneMeshRendererComponent = win32.GUID{Data1: 0x9929f7e3, Data2: 0x6364, Data3: 0x477e, Data4: [8]byte{0x98, 0xfe, 0x74, 0xed, 0x9f, 0xd4, 0xc2, 0xde}}
 
 // Material (propget get_Material) dispatches through ISceneMeshRendererComponent's vtable slot 6.
-// The return value's class Windows.UI.Composition.Scenes.SceneMaterial is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMeshRendererComponent) Material() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneMeshRendererComponent) Material() (*ISceneMaterial, error) {
+	result := new(*ISceneMaterial)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetMaterial (propput put_Material) dispatches through ISceneMeshRendererComponent's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.Scenes.SceneMaterial is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMeshRendererComponent) SetMaterial(value *syswinrt.IInspectable) error {
+func (self *ISceneMeshRendererComponent) SetMaterial(value *ISceneMaterial) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Mesh (propget get_Mesh) dispatches through ISceneMeshRendererComponent's vtable slot 8.
-// The return value's class Windows.UI.Composition.Scenes.SceneMesh is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMeshRendererComponent) Mesh() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneMeshRendererComponent) Mesh() (*ISceneMesh, error) {
+	result := new(*ISceneMesh)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetMesh (propput put_Mesh) dispatches through ISceneMeshRendererComponent's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.Scenes.SceneMesh is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMeshRendererComponent) SetMesh(value *syswinrt.IInspectable) error {
+func (self *ISceneMeshRendererComponent) SetMesh(value *ISceneMesh) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // UVMappings (propget get_UVMappings) dispatches through ISceneMeshRendererComponent's vtable slot 10.
-// The return value's class Windows.UI.Composition.Scenes.SceneMeshMaterialAttributeMap is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMeshRendererComponent) UVMappings() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneMeshRendererComponent) UVMappings() (*ISceneMeshMaterialAttributeMap, error) {
+	result := new(*ISceneMeshMaterialAttributeMap)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -245,9 +239,8 @@ type ISceneMeshRendererComponentStatics struct {
 var IID_ISceneMeshRendererComponentStatics = win32.GUID{Data1: 0x4954f37a, Data2: 0x4459, Data3: 0x4521, Data4: [8]byte{0xbd, 0x6e, 0x2b, 0x38, 0xb8, 0xd7, 0x11, 0xea}}
 
 // Create dispatches through ISceneMeshRendererComponentStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Scenes.SceneMeshRendererComponent is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMeshRendererComponentStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneMeshRendererComponentStatics) Create(compositor *uicomposition.ICompositor) (*ISceneMeshRendererComponent, error) {
+	result := new(*ISceneMeshRendererComponent)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -263,9 +256,8 @@ type ISceneMeshStatics struct {
 var IID_ISceneMeshStatics = win32.GUID{Data1: 0x8412316c, Data2: 0x7b57, Data3: 0x473f, Data4: [8]byte{0x96, 0x6b, 0x81, 0xdc, 0x27, 0x7b, 0x17, 0x51}}
 
 // Create dispatches through ISceneMeshStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Scenes.SceneMesh is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMeshStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneMeshStatics) Create(compositor *uicomposition.ICompositor) (*ISceneMesh, error) {
+	result := new(*ISceneMesh)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -281,16 +273,14 @@ type ISceneMetallicRoughnessMaterial struct {
 var IID_ISceneMetallicRoughnessMaterial = win32.GUID{Data1: 0xc1d91446, Data2: 0x799c, Data3: 0x429e, Data4: [8]byte{0xa4, 0xe4, 0x5d, 0xa6, 0x45, 0xf1, 0x8e, 0x61}}
 
 // BaseColorInput (propget get_BaseColorInput) dispatches through ISceneMetallicRoughnessMaterial's vtable slot 6.
-// The return value's class Windows.UI.Composition.Scenes.SceneMaterialInput is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMetallicRoughnessMaterial) BaseColorInput() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneMetallicRoughnessMaterial) BaseColorInput() (*ISceneMaterialInput, error) {
+	result := new(*ISceneMaterialInput)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetBaseColorInput (propput put_BaseColorInput) dispatches through ISceneMetallicRoughnessMaterial's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.Scenes.SceneMaterialInput is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMetallicRoughnessMaterial) SetBaseColorInput(value *syswinrt.IInspectable) error {
+func (self *ISceneMetallicRoughnessMaterial) SetBaseColorInput(value *ISceneMaterialInput) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -309,16 +299,14 @@ func (self *ISceneMetallicRoughnessMaterial) BaseColorFactor() (foundationnumeri
 // slot 11: put_MetallicFactor skipped: float32 parameter value cannot cross SyscallN
 
 // MetallicRoughnessInput (propget get_MetallicRoughnessInput) dispatches through ISceneMetallicRoughnessMaterial's vtable slot 12.
-// The return value's class Windows.UI.Composition.Scenes.SceneMaterialInput is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMetallicRoughnessMaterial) MetallicRoughnessInput() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneMetallicRoughnessMaterial) MetallicRoughnessInput() (*ISceneMaterialInput, error) {
+	result := new(*ISceneMaterialInput)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetMetallicRoughnessInput (propput put_MetallicRoughnessInput) dispatches through ISceneMetallicRoughnessMaterial's vtable slot 13.
-// Parameter value's class Windows.UI.Composition.Scenes.SceneMaterialInput is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMetallicRoughnessMaterial) SetMetallicRoughnessInput(value *syswinrt.IInspectable) error {
+func (self *ISceneMetallicRoughnessMaterial) SetMetallicRoughnessInput(value *ISceneMaterialInput) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -338,9 +326,8 @@ type ISceneMetallicRoughnessMaterialStatics struct {
 var IID_ISceneMetallicRoughnessMaterialStatics = win32.GUID{Data1: 0x3bddca50, Data2: 0x6d9d, Data3: 0x4531, Data4: [8]byte{0x8d, 0xc4, 0xb2, 0x7e, 0x3e, 0x49, 0xb7, 0xab}}
 
 // Create dispatches through ISceneMetallicRoughnessMaterialStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneMetallicRoughnessMaterialStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneMetallicRoughnessMaterialStatics) Create(compositor *uicomposition.ICompositor) (*ISceneMetallicRoughnessMaterial, error) {
+	result := new(*ISceneMetallicRoughnessMaterial)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -410,7 +397,7 @@ type ISceneNode struct {
 var IID_ISceneNode = win32.GUID{Data1: 0xacf2c247, Data2: 0xf307, Data3: 0x4581, Data4: [8]byte{0x9c, 0x41, 0xaf, 0x2e, 0x29, 0xc3, 0xb0, 0x16}}
 
 // Children (propget get_Children) dispatches through ISceneNode's vtable slot 6.
-// The return value's class Windows.UI.Composition.Scenes.SceneNodeCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Composition.Scenes.SceneNodeCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *ISceneNode) Children() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -418,7 +405,7 @@ func (self *ISceneNode) Children() (*syswinrt.IInspectable, error) {
 }
 
 // Components (propget get_Components) dispatches through ISceneNode's vtable slot 7.
-// The return value's class Windows.UI.Composition.Scenes.SceneComponentCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Composition.Scenes.SceneComponentCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *ISceneNode) Components() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -426,25 +413,22 @@ func (self *ISceneNode) Components() (*syswinrt.IInspectable, error) {
 }
 
 // Parent (propget get_Parent) dispatches through ISceneNode's vtable slot 8.
-// The return value's class Windows.UI.Composition.Scenes.SceneNode is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneNode) Parent() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneNode) Parent() (*ISceneNode, error) {
+	result := new(*ISceneNode)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Transform (propget get_Transform) dispatches through ISceneNode's vtable slot 9.
-// The return value's class Windows.UI.Composition.Scenes.SceneModelTransform is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneNode) Transform() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneNode) Transform() (*ISceneModelTransform, error) {
+	result := new(*ISceneModelTransform)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // FindFirstComponentOfType dispatches through ISceneNode's vtable slot 10.
-// The return value's class Windows.UI.Composition.Scenes.SceneComponent is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneNode) FindFirstComponentOfType(value SceneComponentType) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneNode) FindFirstComponentOfType(value SceneComponentType) (*ISceneComponent, error) {
+	result := new(*ISceneComponent)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(value), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -470,9 +454,8 @@ type ISceneNodeStatics struct {
 var IID_ISceneNodeStatics = win32.GUID{Data1: 0x579a0faa, Data2: 0xbe9d, Data3: 0x4210, Data4: [8]byte{0x90, 0x8c, 0x93, 0xd1, 0x5f, 0xee, 0xd0, 0xb7}}
 
 // Create dispatches through ISceneNodeStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Scenes.SceneNode is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneNodeStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneNodeStatics) Create(compositor *uicomposition.ICompositor) (*ISceneNode, error) {
+	result := new(*ISceneNode)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -525,16 +508,14 @@ func (self *IScenePbrMaterial) SetAlphaMode(value SceneAlphaMode) error {
 }
 
 // EmissiveInput (propget get_EmissiveInput) dispatches through IScenePbrMaterial's vtable slot 10.
-// The return value's class Windows.UI.Composition.Scenes.SceneMaterialInput is projected as IInspectable (the class is not emitted this wave).
-func (self *IScenePbrMaterial) EmissiveInput() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IScenePbrMaterial) EmissiveInput() (*ISceneMaterialInput, error) {
+	result := new(*ISceneMaterialInput)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetEmissiveInput (propput put_EmissiveInput) dispatches through IScenePbrMaterial's vtable slot 11.
-// Parameter value's class Windows.UI.Composition.Scenes.SceneMaterialInput is projected as IInspectable (the class is not emitted this wave).
-func (self *IScenePbrMaterial) SetEmissiveInput(value *syswinrt.IInspectable) error {
+func (self *IScenePbrMaterial) SetEmissiveInput(value *ISceneMaterialInput) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -566,16 +547,14 @@ func (self *IScenePbrMaterial) SetIsDoubleSided(value bool) error {
 }
 
 // NormalInput (propget get_NormalInput) dispatches through IScenePbrMaterial's vtable slot 16.
-// The return value's class Windows.UI.Composition.Scenes.SceneMaterialInput is projected as IInspectable (the class is not emitted this wave).
-func (self *IScenePbrMaterial) NormalInput() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IScenePbrMaterial) NormalInput() (*ISceneMaterialInput, error) {
+	result := new(*ISceneMaterialInput)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetNormalInput (propput put_NormalInput) dispatches through IScenePbrMaterial's vtable slot 17.
-// Parameter value's class Windows.UI.Composition.Scenes.SceneMaterialInput is projected as IInspectable (the class is not emitted this wave).
-func (self *IScenePbrMaterial) SetNormalInput(value *syswinrt.IInspectable) error {
+func (self *IScenePbrMaterial) SetNormalInput(value *ISceneMaterialInput) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -585,16 +564,14 @@ func (self *IScenePbrMaterial) SetNormalInput(value *syswinrt.IInspectable) erro
 // slot 19: put_NormalScale skipped: float32 parameter value cannot cross SyscallN
 
 // OcclusionInput (propget get_OcclusionInput) dispatches through IScenePbrMaterial's vtable slot 20.
-// The return value's class Windows.UI.Composition.Scenes.SceneMaterialInput is projected as IInspectable (the class is not emitted this wave).
-func (self *IScenePbrMaterial) OcclusionInput() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IScenePbrMaterial) OcclusionInput() (*ISceneMaterialInput, error) {
+	result := new(*ISceneMaterialInput)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetOcclusionInput (propput put_OcclusionInput) dispatches through IScenePbrMaterial's vtable slot 21.
-// Parameter value's class Windows.UI.Composition.Scenes.SceneMaterialInput is projected as IInspectable (the class is not emitted this wave).
-func (self *IScenePbrMaterial) SetOcclusionInput(value *syswinrt.IInspectable) error {
+func (self *IScenePbrMaterial) SetOcclusionInput(value *ISceneMaterialInput) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -706,9 +683,8 @@ type ISceneSurfaceMaterialInputStatics struct {
 var IID_ISceneSurfaceMaterialInputStatics = win32.GUID{Data1: 0x5a2394d3, Data2: 0x6429, Data3: 0x4589, Data4: [8]byte{0xbb, 0xcf, 0xb8, 0x4f, 0x4f, 0x3c, 0xfb, 0xfe}}
 
 // Create dispatches through ISceneSurfaceMaterialInputStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneSurfaceMaterialInputStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneSurfaceMaterialInputStatics) Create(compositor *uicomposition.ICompositor) (*ISceneSurfaceMaterialInput, error) {
+	result := new(*ISceneSurfaceMaterialInput)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -724,16 +700,14 @@ type ISceneVisual struct {
 var IID_ISceneVisual = win32.GUID{Data1: 0x8e672c1e, Data2: 0xd734, Data3: 0x47b1, Data4: [8]byte{0xbe, 0x14, 0x3d, 0x69, 0x4f, 0xfa, 0x43, 0x01}}
 
 // Root (propget get_Root) dispatches through ISceneVisual's vtable slot 6.
-// The return value's class Windows.UI.Composition.Scenes.SceneNode is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneVisual) Root() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneVisual) Root() (*ISceneNode, error) {
+	result := new(*ISceneNode)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetRoot (propput put_Root) dispatches through ISceneVisual's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.Scenes.SceneNode is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneVisual) SetRoot(value *syswinrt.IInspectable) error {
+func (self *ISceneVisual) SetRoot(value *ISceneNode) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -749,9 +723,8 @@ type ISceneVisualStatics struct {
 var IID_ISceneVisualStatics = win32.GUID{Data1: 0xb8347e9a, Data2: 0x50aa, Data3: 0x4527, Data4: [8]byte{0x8d, 0x34, 0xde, 0x4c, 0xb8, 0xea, 0x88, 0xb4}}
 
 // Create dispatches through ISceneVisualStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Scenes.SceneVisual is projected as IInspectable (the class is not emitted this wave).
-func (self *ISceneVisualStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISceneVisualStatics) Create(compositor *uicomposition.ICompositor) (*ISceneVisual, error) {
+	result := new(*ISceneVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

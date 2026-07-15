@@ -11,6 +11,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
 )
 
 // IIterableOfUIElement is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.UIElement>.
@@ -39,7 +40,7 @@ func (self *IIterableOfUIElement) First() (*IIteratorOfUIElement, error) {
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfUIElement(items []*syswinrt.IInspectable) *IIterableOfUIElement {
+func NewIIterableOfUIElement(items []*uixaml.IUIElement) *IIterableOfUIElement {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -58,9 +59,8 @@ type IIteratorOfUIElement struct {
 var IID_IIteratorOfUIElement = win32.GUID{Data1: 0x1d1f9d60, Data2: 0xd53b, Data3: 0x57f7, Data4: [8]byte{0xb1, 0x44, 0x8f, 0x7c, 0x48, 0x78, 0x46, 0xe8}}
 
 // Current (propget get_Current) dispatches through IIteratorOfUIElement's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfUIElement) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfUIElement) Current() (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

@@ -7,6 +7,7 @@ package navigation
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
@@ -15,6 +16,31 @@ import (
 // the embedded IInspectable → IUnknown chain).
 type FrameNavigationOptions struct {
 	IFrameNavigationOptions
+}
+
+// NewFrameNavigationOptions constructs a Windows.UI.Xaml.Navigation.FrameNavigationOptions instance through
+// Windows.UI.Xaml.Navigation.IFrameNavigationOptionsFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewFrameNavigationOptions() (*FrameNavigationOptions, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Navigation.FrameNavigationOptions", &IID_IFrameNavigationOptionsFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IFrameNavigationOptionsFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*FrameNavigationOptions)(unsafe.Pointer(instance)), nil
 }
 
 // NavigatingCancelEventArgs is the Windows.UI.Xaml.Navigation.NavigatingCancelEventArgs runtime class, surfaced through its
@@ -48,4 +74,23 @@ func (self *NavigationEventArgs) AsNavigationEventArgs2() (*INavigationEventArgs
 // the embedded IInspectable → IUnknown chain).
 type NavigationFailedEventArgs struct {
 	INavigationFailedEventArgs
+}
+
+// PageStackEntry is the Windows.UI.Xaml.Navigation.PageStackEntry runtime class, surfaced through its
+// default interface IPageStackEntry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PageStackEntry struct {
+	IPageStackEntry
+}
+
+// PageStackEntryStatics returns the Windows.UI.Xaml.Navigation.IPageStackEntryStatics statics of the
+// Windows.UI.Xaml.Navigation.PageStackEntry runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PageStackEntryStatics() (*IPageStackEntryStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Navigation.PageStackEntry", &IID_IPageStackEntryStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPageStackEntryStatics)(unsafe.Pointer(factory)), nil
 }

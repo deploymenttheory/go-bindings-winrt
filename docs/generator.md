@@ -116,11 +116,18 @@ this.)
 
 - Slot = 6 + MethodDef index (IInspectable occupies 0–5); `[Overload]`
   attribute names win over metadata names (`MonthAsFullString`).
-- Classes embed their default interface by value; other interfaces get
-  `As<Name>()` queries; `[Composable]` classes are skipped entirely.
+- Classes — `[Composable]` ones included — embed their default interface by
+  value; other interfaces get `As<Name>()` queries.
 - Statics interfaces → package-level accessors; `[Activatable]` factory
   methods returning the class default interface → package-level constructors
   (bare names that collide across classes gain the class name).
+- `[Composable]` factory methods ending with the (baseInterface in,
+  innerInterface out) Object pair and returning the class default interface
+  → null-outer `New<Class>`/`New<Class>With<Suffix>` constructors
+  (instantiate-only composition; the returned non-nil inner is Released as a
+  second reference to the same object). Shape failures record
+  `composable-factory-skipped`; factory-less composables emit type + queries
+  + statics with no diagnostic.
 - Closed generic instantiations monomorphize into the CONSUMING package —
   two packages get two identical-ABI copies by design.
 - The ABI layer (HSTRING, IInspectable, Ro* functions, HRESULT, GUID) comes

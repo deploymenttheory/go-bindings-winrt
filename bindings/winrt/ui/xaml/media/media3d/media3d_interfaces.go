@@ -277,9 +277,8 @@ type ITransform3DFactory struct {
 var IID_ITransform3DFactory = win32.GUID{Data1: 0x052c1f7a, Data2: 0x8d73, Data3: 0x48cd, Data4: [8]byte{0xbb, 0xb8, 0xd0, 0x04, 0x34, 0xca, 0xae, 0x5d}}
 
 // CreateInstance dispatches through ITransform3DFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Media3D.Transform3D is projected as IInspectable (the class is not emitted this wave).
-func (self *ITransform3DFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ITransform3DFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ITransform3D, error) {
+	result := new(*ITransform3D)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

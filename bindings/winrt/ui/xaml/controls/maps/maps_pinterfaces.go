@@ -109,9 +109,8 @@ func (self *IAsyncOperationOfMapModel3D) SetCompleted(handler *AsyncOperationCom
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
 // GetResults dispatches through IAsyncOperationOfMapModel3D's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapModel3D is projected as IInspectable (the class is not emitted this wave).
-func (self *IAsyncOperationOfMapModel3D) GetResults() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAsyncOperationOfMapModel3D) GetResults() (*IMapModel3D, error) {
+	result := new(*IMapModel3D)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -127,7 +126,7 @@ func (self *IAsyncOperationOfMapModel3D) GetResults() (*syswinrt.IInspectable, e
 // the handler's Invoke, which the delegate runtime runs on a fresh goroutine
 // — it never contends with the runtime's callback worker, so a completed
 // operation cannot deadlock Await.
-func (self *IAsyncOperationOfMapModel3D) Await() (*syswinrt.IInspectable, error) {
+func (self *IAsyncOperationOfMapModel3D) Await() (*IMapModel3D, error) {
 	completion := make(chan foundation.AsyncStatus, 1)
 	handler, err := NewAsyncOperationCompletedHandlerOfMapModel3D(func(_ *IAsyncOperationOfMapModel3D, asyncStatus foundation.AsyncStatus) {
 		completion <- asyncStatus
@@ -179,9 +178,8 @@ func (self *IAsyncOperationOfStreetsidePanorama) SetCompleted(handler *AsyncOper
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
 // GetResults dispatches through IAsyncOperationOfStreetsidePanorama's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Controls.Maps.StreetsidePanorama is projected as IInspectable (the class is not emitted this wave).
-func (self *IAsyncOperationOfStreetsidePanorama) GetResults() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAsyncOperationOfStreetsidePanorama) GetResults() (*IStreetsidePanorama, error) {
+	result := new(*IStreetsidePanorama)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -197,7 +195,7 @@ func (self *IAsyncOperationOfStreetsidePanorama) GetResults() (*syswinrt.IInspec
 // the handler's Invoke, which the delegate runtime runs on a fresh goroutine
 // — it never contends with the runtime's callback worker, so a completed
 // operation cannot deadlock Await.
-func (self *IAsyncOperationOfStreetsidePanorama) Await() (*syswinrt.IInspectable, error) {
+func (self *IAsyncOperationOfStreetsidePanorama) Await() (*IStreetsidePanorama, error) {
 	completion := make(chan foundation.AsyncStatus, 1)
 	handler, err := NewAsyncOperationCompletedHandlerOfStreetsidePanorama(func(_ *IAsyncOperationOfStreetsidePanorama, asyncStatus foundation.AsyncStatus) {
 		completion <- asyncStatus
@@ -356,7 +354,7 @@ func (self *IIterableOfMapElement) First() (*IIteratorOfMapElement, error) {
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfMapElement(items []*syswinrt.IInspectable) *IIterableOfMapElement {
+func NewIIterableOfMapElement(items []*IMapElement) *IIterableOfMapElement {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -391,7 +389,7 @@ func (self *IIterableOfMapLayer) First() (*IIteratorOfMapLayer, error) {
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfMapLayer(items []*syswinrt.IInspectable) *IIterableOfMapLayer {
+func NewIIterableOfMapLayer(items []*IMapLayer) *IIterableOfMapLayer {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -426,7 +424,7 @@ func (self *IIterableOfMapRouteView) First() (*IIteratorOfMapRouteView, error) {
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfMapRouteView(items []*syswinrt.IInspectable) *IIterableOfMapRouteView {
+func NewIIterableOfMapRouteView(items []*IMapRouteView) *IIterableOfMapRouteView {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -461,7 +459,7 @@ func (self *IIterableOfMapStyleSheet) First() (*IIteratorOfMapStyleSheet, error)
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfMapStyleSheet(items []*syswinrt.IInspectable) *IIterableOfMapStyleSheet {
+func NewIIterableOfMapStyleSheet(items []*IMapStyleSheet) *IIterableOfMapStyleSheet {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -496,7 +494,7 @@ func (self *IIterableOfMapTileSource) First() (*IIteratorOfMapTileSource, error)
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfMapTileSource(items []*syswinrt.IInspectable) *IIterableOfMapTileSource {
+func NewIIterableOfMapTileSource(items []*IMapTileSource) *IIterableOfMapTileSource {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -611,9 +609,8 @@ type IIteratorOfMapElement struct {
 var IID_IIteratorOfMapElement = win32.GUID{Data1: 0xf916b428, Data2: 0x3b74, Data3: 0x5ad4, Data4: [8]byte{0x9d, 0x97, 0x1b, 0x0a, 0x38, 0x7a, 0xec, 0xb5}}
 
 // Current (propget get_Current) dispatches through IIteratorOfMapElement's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfMapElement) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfMapElement) Current() (*IMapElement, error) {
+	result := new(*IMapElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -644,9 +641,8 @@ type IIteratorOfMapLayer struct {
 var IID_IIteratorOfMapLayer = win32.GUID{Data1: 0xaf2283ff, Data2: 0x250e, Data3: 0x56d1, Data4: [8]byte{0x96, 0xd4, 0x9f, 0x78, 0xe1, 0x64, 0xcb, 0xc6}}
 
 // Current (propget get_Current) dispatches through IIteratorOfMapLayer's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapLayer is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfMapLayer) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfMapLayer) Current() (*IMapLayer, error) {
+	result := new(*IMapLayer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -677,9 +673,8 @@ type IIteratorOfMapRouteView struct {
 var IID_IIteratorOfMapRouteView = win32.GUID{Data1: 0xaf256095, Data2: 0x4144, Data3: 0x55a7, Data4: [8]byte{0x91, 0x39, 0x89, 0x84, 0x3b, 0x57, 0x2d, 0xb7}}
 
 // Current (propget get_Current) dispatches through IIteratorOfMapRouteView's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapRouteView is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfMapRouteView) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfMapRouteView) Current() (*IMapRouteView, error) {
+	result := new(*IMapRouteView)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -710,9 +705,8 @@ type IIteratorOfMapStyleSheet struct {
 var IID_IIteratorOfMapStyleSheet = win32.GUID{Data1: 0xe6c727e5, Data2: 0x6a18, Data3: 0x5333, Data4: [8]byte{0xaa, 0x6a, 0x26, 0x6e, 0x8c, 0x8b, 0xdd, 0x51}}
 
 // Current (propget get_Current) dispatches through IIteratorOfMapStyleSheet's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfMapStyleSheet) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfMapStyleSheet) Current() (*IMapStyleSheet, error) {
+	result := new(*IMapStyleSheet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -743,9 +737,8 @@ type IIteratorOfMapTileSource struct {
 var IID_IIteratorOfMapTileSource = win32.GUID{Data1: 0xe5c7eba6, Data2: 0x7c75, Data3: 0x50bc, Data4: [8]byte{0x8b, 0x36, 0x2d, 0x8c, 0xa1, 0xfa, 0x53, 0x8b}}
 
 // Current (propget get_Current) dispatches through IIteratorOfMapTileSource's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapTileSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfMapTileSource) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfMapTileSource) Current() (*IMapTileSource, error) {
+	result := new(*IMapTileSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1141,9 +1134,8 @@ type IVectorOfMapElement struct {
 var IID_IVectorOfMapElement = win32.GUID{Data1: 0x02773f2d, Data2: 0xbb17, Data3: 0x56fd, Data4: [8]byte{0x96, 0xcc, 0x89, 0xf1, 0xc4, 0x7f, 0x9e, 0x11}}
 
 // GetAt dispatches through IVectorOfMapElement's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapElement) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfMapElement) GetAt(index uint32) (*IMapElement, error) {
+	result := new(*IMapElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1163,23 +1155,20 @@ func (self *IVectorOfMapElement) GetView() (*IVectorViewOfMapElement, error) {
 }
 
 // IndexOf dispatches through IVectorOfMapElement's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapElement) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfMapElement) IndexOf(value *IMapElement, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfMapElement's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapElement) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapElement) SetAt(index uint32, value *IMapElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfMapElement's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapElement) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapElement) InsertAt(index uint32, value *IMapElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1191,8 +1180,7 @@ func (self *IVectorOfMapElement) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfMapElement's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapElement) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapElement) Append(value *IMapElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1226,7 +1214,7 @@ func (self *IVectorOfMapElement) Clear() error {
 // The vector is writable through the WinRT ABI (the Go side exposes no
 // mutation API); GetView returns an immutable SNAPSHOT of the contents at
 // call time.
-func NewIVectorOfMapElement(items []*syswinrt.IInspectable) *IVectorOfMapElement {
+func NewIVectorOfMapElement(items []*IMapElement) *IVectorOfMapElement {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -1246,9 +1234,8 @@ type IVectorOfMapLayer struct {
 var IID_IVectorOfMapLayer = win32.GUID{Data1: 0x62782500, Data2: 0xa9cc, Data3: 0x57f1, Data4: [8]byte{0xb8, 0x1b, 0x6e, 0xbc, 0xc9, 0x21, 0x22, 0x45}}
 
 // GetAt dispatches through IVectorOfMapLayer's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapLayer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapLayer) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfMapLayer) GetAt(index uint32) (*IMapLayer, error) {
+	result := new(*IMapLayer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1268,23 +1255,20 @@ func (self *IVectorOfMapLayer) GetView() (*IVectorViewOfMapLayer, error) {
 }
 
 // IndexOf dispatches through IVectorOfMapLayer's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapLayer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapLayer) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfMapLayer) IndexOf(value *IMapLayer, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfMapLayer's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapLayer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapLayer) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapLayer) SetAt(index uint32, value *IMapLayer) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfMapLayer's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapLayer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapLayer) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapLayer) InsertAt(index uint32, value *IMapLayer) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1296,8 +1280,7 @@ func (self *IVectorOfMapLayer) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfMapLayer's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapLayer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapLayer) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapLayer) Append(value *IMapLayer) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1331,7 +1314,7 @@ func (self *IVectorOfMapLayer) Clear() error {
 // The vector is writable through the WinRT ABI (the Go side exposes no
 // mutation API); GetView returns an immutable SNAPSHOT of the contents at
 // call time.
-func NewIVectorOfMapLayer(items []*syswinrt.IInspectable) *IVectorOfMapLayer {
+func NewIVectorOfMapLayer(items []*IMapLayer) *IVectorOfMapLayer {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -1351,9 +1334,8 @@ type IVectorOfMapRouteView struct {
 var IID_IVectorOfMapRouteView = win32.GUID{Data1: 0x8ce513b4, Data2: 0x0a7d, Data3: 0x5553, Data4: [8]byte{0xb7, 0x35, 0x79, 0xcd, 0x5a, 0x7f, 0xee, 0x3f}}
 
 // GetAt dispatches through IVectorOfMapRouteView's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapRouteView is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapRouteView) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfMapRouteView) GetAt(index uint32) (*IMapRouteView, error) {
+	result := new(*IMapRouteView)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1373,23 +1355,20 @@ func (self *IVectorOfMapRouteView) GetView() (*IVectorViewOfMapRouteView, error)
 }
 
 // IndexOf dispatches through IVectorOfMapRouteView's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapRouteView is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapRouteView) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfMapRouteView) IndexOf(value *IMapRouteView, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfMapRouteView's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapRouteView is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapRouteView) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapRouteView) SetAt(index uint32, value *IMapRouteView) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfMapRouteView's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapRouteView is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapRouteView) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapRouteView) InsertAt(index uint32, value *IMapRouteView) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1401,8 +1380,7 @@ func (self *IVectorOfMapRouteView) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfMapRouteView's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapRouteView is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapRouteView) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapRouteView) Append(value *IMapRouteView) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1436,7 +1414,7 @@ func (self *IVectorOfMapRouteView) Clear() error {
 // The vector is writable through the WinRT ABI (the Go side exposes no
 // mutation API); GetView returns an immutable SNAPSHOT of the contents at
 // call time.
-func NewIVectorOfMapRouteView(items []*syswinrt.IInspectable) *IVectorOfMapRouteView {
+func NewIVectorOfMapRouteView(items []*IMapRouteView) *IVectorOfMapRouteView {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -1456,9 +1434,8 @@ type IVectorOfMapTileSource struct {
 var IID_IVectorOfMapTileSource = win32.GUID{Data1: 0x19f78a46, Data2: 0x2c65, Data3: 0x5f94, Data4: [8]byte{0xbf, 0x5b, 0x96, 0x33, 0x47, 0xa0, 0xa3, 0x18}}
 
 // GetAt dispatches through IVectorOfMapTileSource's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapTileSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapTileSource) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfMapTileSource) GetAt(index uint32) (*IMapTileSource, error) {
+	result := new(*IMapTileSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1478,23 +1455,20 @@ func (self *IVectorOfMapTileSource) GetView() (*IVectorViewOfMapTileSource, erro
 }
 
 // IndexOf dispatches through IVectorOfMapTileSource's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapTileSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapTileSource) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfMapTileSource) IndexOf(value *IMapTileSource, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfMapTileSource's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapTileSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapTileSource) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapTileSource) SetAt(index uint32, value *IMapTileSource) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfMapTileSource's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapTileSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapTileSource) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapTileSource) InsertAt(index uint32, value *IMapTileSource) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1506,8 +1480,7 @@ func (self *IVectorOfMapTileSource) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfMapTileSource's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapTileSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfMapTileSource) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfMapTileSource) Append(value *IMapTileSource) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1541,7 +1514,7 @@ func (self *IVectorOfMapTileSource) Clear() error {
 // The vector is writable through the WinRT ABI (the Go side exposes no
 // mutation API); GetView returns an immutable SNAPSHOT of the contents at
 // call time.
-func NewIVectorOfMapTileSource(items []*syswinrt.IInspectable) *IVectorOfMapTileSource {
+func NewIVectorOfMapTileSource(items []*IMapTileSource) *IVectorOfMapTileSource {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -1665,9 +1638,8 @@ type IVectorViewOfMapElement struct {
 var IID_IVectorViewOfMapElement = win32.GUID{Data1: 0xcec120d8, Data2: 0xea73, Data3: 0x5aa3, Data4: [8]byte{0x91, 0x4a, 0x37, 0xdd, 0x25, 0x54, 0xf6, 0x86}}
 
 // GetAt dispatches through IVectorViewOfMapElement's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfMapElement) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfMapElement) GetAt(index uint32) (*IMapElement, error) {
+	result := new(*IMapElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1680,8 +1652,7 @@ func (self *IVectorViewOfMapElement) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfMapElement's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfMapElement) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfMapElement) IndexOf(value *IMapElement, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -1699,7 +1670,7 @@ func (self *IVectorViewOfMapElement) IndexOf(value *syswinrt.IInspectable, index
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIVectorViewOfMapElement(items []*syswinrt.IInspectable) *IVectorViewOfMapElement {
+func NewIVectorViewOfMapElement(items []*IMapElement) *IVectorViewOfMapElement {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -1719,9 +1690,8 @@ type IVectorViewOfMapLayer struct {
 var IID_IVectorViewOfMapLayer = win32.GUID{Data1: 0x963326b9, Data2: 0x6770, Data3: 0x52f1, Data4: [8]byte{0xb6, 0xc6, 0x51, 0x94, 0x41, 0xf8, 0x73, 0xc3}}
 
 // GetAt dispatches through IVectorViewOfMapLayer's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapLayer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfMapLayer) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfMapLayer) GetAt(index uint32) (*IMapLayer, error) {
+	result := new(*IMapLayer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1734,8 +1704,7 @@ func (self *IVectorViewOfMapLayer) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfMapLayer's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapLayer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfMapLayer) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfMapLayer) IndexOf(value *IMapLayer, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -1753,7 +1722,7 @@ func (self *IVectorViewOfMapLayer) IndexOf(value *syswinrt.IInspectable, index *
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIVectorViewOfMapLayer(items []*syswinrt.IInspectable) *IVectorViewOfMapLayer {
+func NewIVectorViewOfMapLayer(items []*IMapLayer) *IVectorViewOfMapLayer {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -1773,9 +1742,8 @@ type IVectorViewOfMapRouteView struct {
 var IID_IVectorViewOfMapRouteView = win32.GUID{Data1: 0xbdbb45ea, Data2: 0x0c73, Data3: 0x56bc, Data4: [8]byte{0xa3, 0x75, 0x3f, 0x2a, 0x7b, 0xeb, 0x6f, 0x2e}}
 
 // GetAt dispatches through IVectorViewOfMapRouteView's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapRouteView is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfMapRouteView) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfMapRouteView) GetAt(index uint32) (*IMapRouteView, error) {
+	result := new(*IMapRouteView)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1788,8 +1756,7 @@ func (self *IVectorViewOfMapRouteView) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfMapRouteView's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapRouteView is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfMapRouteView) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfMapRouteView) IndexOf(value *IMapRouteView, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -1807,7 +1774,7 @@ func (self *IVectorViewOfMapRouteView) IndexOf(value *syswinrt.IInspectable, ind
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIVectorViewOfMapRouteView(items []*syswinrt.IInspectable) *IVectorViewOfMapRouteView {
+func NewIVectorViewOfMapRouteView(items []*IMapRouteView) *IVectorViewOfMapRouteView {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -1827,9 +1794,8 @@ type IVectorViewOfMapTileSource struct {
 var IID_IVectorViewOfMapTileSource = win32.GUID{Data1: 0xde7aa182, Data2: 0x8e17, Data3: 0x5565, Data4: [8]byte{0x9a, 0x9d, 0x94, 0xa4, 0xff, 0x25, 0x36, 0x4a}}
 
 // GetAt dispatches through IVectorViewOfMapTileSource's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapTileSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfMapTileSource) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfMapTileSource) GetAt(index uint32) (*IMapTileSource, error) {
+	result := new(*IMapTileSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1842,8 +1808,7 @@ func (self *IVectorViewOfMapTileSource) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfMapTileSource's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapTileSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfMapTileSource) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfMapTileSource) IndexOf(value *IMapTileSource, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -1861,7 +1826,7 @@ func (self *IVectorViewOfMapTileSource) IndexOf(value *syswinrt.IInspectable, in
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIVectorViewOfMapTileSource(items []*syswinrt.IInspectable) *IVectorViewOfMapTileSource {
+func NewIVectorViewOfMapTileSource(items []*IMapTileSource) *IVectorViewOfMapTileSource {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))

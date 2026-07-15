@@ -27,31 +27,27 @@ type ICompositionConditionalValue struct {
 var IID_ICompositionConditionalValue = win32.GUID{Data1: 0x43250538, Data2: 0xeb73, Data3: 0x4561, Data4: [8]byte{0xa7, 0x1d, 0x1a, 0x43, 0xea, 0xeb, 0x7a, 0x9b}}
 
 // Condition (propget get_Condition) dispatches through ICompositionConditionalValue's vtable slot 6.
-// The return value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionConditionalValue) Condition() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionConditionalValue) Condition() (*uicomposition.IExpressionAnimation, error) {
+	result := new(*uicomposition.IExpressionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCondition (propput put_Condition) dispatches through ICompositionConditionalValue's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionConditionalValue) SetCondition(value *syswinrt.IInspectable) error {
+func (self *ICompositionConditionalValue) SetCondition(value *uicomposition.IExpressionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Value (propget get_Value) dispatches through ICompositionConditionalValue's vtable slot 8.
-// The return value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionConditionalValue) Value() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionConditionalValue) Value() (*uicomposition.IExpressionAnimation, error) {
+	result := new(*uicomposition.IExpressionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetValue (propput put_Value) dispatches through ICompositionConditionalValue's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionConditionalValue) SetValue(value *syswinrt.IInspectable) error {
+func (self *ICompositionConditionalValue) SetValue(value *uicomposition.IExpressionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -67,9 +63,8 @@ type ICompositionConditionalValueStatics struct {
 var IID_ICompositionConditionalValueStatics = win32.GUID{Data1: 0x090c4b72, Data2: 0x8467, Data3: 0x4d0a, Data4: [8]byte{0x90, 0x65, 0xac, 0x46, 0xb8, 0x0a, 0x55, 0x22}}
 
 // Create dispatches through ICompositionConditionalValueStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Interactions.CompositionConditionalValue is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionConditionalValueStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionConditionalValueStatics) Create(compositor *uicomposition.ICompositor) (*ICompositionConditionalValue, error) {
+	result := new(*ICompositionConditionalValue)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -178,9 +173,8 @@ type IInteractionTracker struct {
 var IID_IInteractionTracker = win32.GUID{Data1: 0x2a8e8cb1, Data2: 0x1000, Data3: 0x4416, Data4: [8]byte{0x83, 0x63, 0xcc, 0x27, 0xfb, 0x87, 0x73, 0x08}}
 
 // InteractionSources (propget get_InteractionSources) dispatches through IInteractionTracker's vtable slot 6.
-// The return value's class Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTracker) InteractionSources() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTracker) InteractionSources() (*ICompositionInteractionSourceCollection, error) {
+	result := new(*ICompositionInteractionSourceCollection)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -305,8 +299,7 @@ func (self *IInteractionTracker) ConfigureScaleInertiaModifiers(modifiers *IIter
 // slot 33: TryUpdatePositionBy skipped: by-value Windows.Foundation.Numerics.Vector3 parameter amount does not flatten to one integer word
 
 // TryUpdatePositionWithAnimation dispatches through IInteractionTracker's vtable slot 34.
-// Parameter animation's class Windows.UI.Composition.CompositionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTracker) TryUpdatePositionWithAnimation(animation *syswinrt.IInspectable) (int32, error) {
+func (self *IInteractionTracker) TryUpdatePositionWithAnimation(animation *uicomposition.ICompositionAnimation) (int32, error) {
 	result := new(int32)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[34], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(animation)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
@@ -490,31 +483,27 @@ type IInteractionTrackerInertiaMotion struct {
 var IID_IInteractionTrackerInertiaMotion = win32.GUID{Data1: 0x04922fdc, Data2: 0xf154, Data3: 0x4cb8, Data4: [8]byte{0xbf, 0x33, 0xcc, 0x1b, 0xa6, 0x11, 0xe6, 0xdb}}
 
 // Condition (propget get_Condition) dispatches through IInteractionTrackerInertiaMotion's vtable slot 6.
-// The return value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaMotion) Condition() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerInertiaMotion) Condition() (*uicomposition.IExpressionAnimation, error) {
+	result := new(*uicomposition.IExpressionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCondition (propput put_Condition) dispatches through IInteractionTrackerInertiaMotion's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaMotion) SetCondition(value *syswinrt.IInspectable) error {
+func (self *IInteractionTrackerInertiaMotion) SetCondition(value *uicomposition.IExpressionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Motion (propget get_Motion) dispatches through IInteractionTrackerInertiaMotion's vtable slot 8.
-// The return value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaMotion) Motion() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerInertiaMotion) Motion() (*uicomposition.IExpressionAnimation, error) {
+	result := new(*uicomposition.IExpressionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetMotion (propput put_Motion) dispatches through IInteractionTrackerInertiaMotion's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaMotion) SetMotion(value *syswinrt.IInspectable) error {
+func (self *IInteractionTrackerInertiaMotion) SetMotion(value *uicomposition.IExpressionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -530,9 +519,8 @@ type IInteractionTrackerInertiaMotionStatics struct {
 var IID_IInteractionTrackerInertiaMotionStatics = win32.GUID{Data1: 0x8cc83dd6, Data2: 0xba7b, Data3: 0x431a, Data4: [8]byte{0x84, 0x4b, 0x6e, 0xac, 0x91, 0x30, 0xf9, 0x9a}}
 
 // Create dispatches through IInteractionTrackerInertiaMotionStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaMotionStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerInertiaMotionStatics) Create(compositor *uicomposition.ICompositor) (*IInteractionTrackerInertiaMotion, error) {
+	result := new(*IInteractionTrackerInertiaMotion)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -548,31 +536,27 @@ type IInteractionTrackerInertiaNaturalMotion struct {
 var IID_IInteractionTrackerInertiaNaturalMotion = win32.GUID{Data1: 0x70acdaae, Data2: 0x27dc, Data3: 0x48ed, Data4: [8]byte{0xa3, 0xc3, 0x6d, 0x61, 0xc9, 0xa0, 0x29, 0xd2}}
 
 // Condition (propget get_Condition) dispatches through IInteractionTrackerInertiaNaturalMotion's vtable slot 6.
-// The return value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaNaturalMotion) Condition() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerInertiaNaturalMotion) Condition() (*uicomposition.IExpressionAnimation, error) {
+	result := new(*uicomposition.IExpressionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCondition (propput put_Condition) dispatches through IInteractionTrackerInertiaNaturalMotion's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaNaturalMotion) SetCondition(value *syswinrt.IInspectable) error {
+func (self *IInteractionTrackerInertiaNaturalMotion) SetCondition(value *uicomposition.IExpressionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // NaturalMotion (propget get_NaturalMotion) dispatches through IInteractionTrackerInertiaNaturalMotion's vtable slot 8.
-// The return value's class Windows.UI.Composition.ScalarNaturalMotionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaNaturalMotion) NaturalMotion() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerInertiaNaturalMotion) NaturalMotion() (*uicomposition.IScalarNaturalMotionAnimation, error) {
+	result := new(*uicomposition.IScalarNaturalMotionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetNaturalMotion (propput put_NaturalMotion) dispatches through IInteractionTrackerInertiaNaturalMotion's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.ScalarNaturalMotionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaNaturalMotion) SetNaturalMotion(value *syswinrt.IInspectable) error {
+func (self *IInteractionTrackerInertiaNaturalMotion) SetNaturalMotion(value *uicomposition.IScalarNaturalMotionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -588,9 +572,8 @@ type IInteractionTrackerInertiaNaturalMotionStatics struct {
 var IID_IInteractionTrackerInertiaNaturalMotionStatics = win32.GUID{Data1: 0xcfda55b0, Data2: 0x5e3e, Data3: 0x4289, Data4: [8]byte{0x93, 0x2d, 0xee, 0x5f, 0x50, 0xe7, 0x42, 0x83}}
 
 // Create dispatches through IInteractionTrackerInertiaNaturalMotionStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaNaturalMotionStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerInertiaNaturalMotionStatics) Create(compositor *uicomposition.ICompositor) (*IInteractionTrackerInertiaNaturalMotion, error) {
+	result := new(*IInteractionTrackerInertiaNaturalMotion)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -606,31 +589,27 @@ type IInteractionTrackerInertiaRestingValue struct {
 var IID_IInteractionTrackerInertiaRestingValue = win32.GUID{Data1: 0x86f7ec09, Data2: 0x5096, Data3: 0x4170, Data4: [8]byte{0x9c, 0xc8, 0xdf, 0x2f, 0xe1, 0x01, 0xbb, 0x93}}
 
 // Condition (propget get_Condition) dispatches through IInteractionTrackerInertiaRestingValue's vtable slot 6.
-// The return value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaRestingValue) Condition() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerInertiaRestingValue) Condition() (*uicomposition.IExpressionAnimation, error) {
+	result := new(*uicomposition.IExpressionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCondition (propput put_Condition) dispatches through IInteractionTrackerInertiaRestingValue's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaRestingValue) SetCondition(value *syswinrt.IInspectable) error {
+func (self *IInteractionTrackerInertiaRestingValue) SetCondition(value *uicomposition.IExpressionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // RestingValue (propget get_RestingValue) dispatches through IInteractionTrackerInertiaRestingValue's vtable slot 8.
-// The return value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaRestingValue) RestingValue() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerInertiaRestingValue) RestingValue() (*uicomposition.IExpressionAnimation, error) {
+	result := new(*uicomposition.IExpressionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetRestingValue (propput put_RestingValue) dispatches through IInteractionTrackerInertiaRestingValue's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaRestingValue) SetRestingValue(value *syswinrt.IInspectable) error {
+func (self *IInteractionTrackerInertiaRestingValue) SetRestingValue(value *uicomposition.IExpressionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -646,9 +625,8 @@ type IInteractionTrackerInertiaRestingValueStatics struct {
 var IID_IInteractionTrackerInertiaRestingValueStatics = win32.GUID{Data1: 0x18ed4699, Data2: 0x0745, Data3: 0x4096, Data4: [8]byte{0xbc, 0xab, 0x3a, 0x4e, 0x99, 0x56, 0x9b, 0xcf}}
 
 // Create dispatches through IInteractionTrackerInertiaRestingValueStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerInertiaRestingValueStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerInertiaRestingValueStatics) Create(compositor *uicomposition.ICompositor) (*IInteractionTrackerInertiaRestingValue, error) {
+	result := new(*IInteractionTrackerInertiaRestingValue)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -780,43 +758,37 @@ type IInteractionTrackerOwner struct {
 var IID_IInteractionTrackerOwner = win32.GUID{Data1: 0xdb2e8af3, Data2: 0x4deb, Data3: 0x4e53, Data4: [8]byte{0xb2, 0x9c, 0xb0, 0x6c, 0x9f, 0x96, 0xd6, 0x51}}
 
 // CustomAnimationStateEntered dispatches through IInteractionTrackerOwner's vtable slot 6.
-// Parameter sender's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerOwner) CustomAnimationStateEntered(sender *syswinrt.IInspectable, args *IInteractionTrackerCustomAnimationStateEnteredArgs) error {
+func (self *IInteractionTrackerOwner) CustomAnimationStateEntered(sender *IInteractionTracker, args *IInteractionTrackerCustomAnimationStateEnteredArgs) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(sender)), uintptr(unsafe.Pointer(args)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // IdleStateEntered dispatches through IInteractionTrackerOwner's vtable slot 7.
-// Parameter sender's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerOwner) IdleStateEntered(sender *syswinrt.IInspectable, args *IInteractionTrackerIdleStateEnteredArgs) error {
+func (self *IInteractionTrackerOwner) IdleStateEntered(sender *IInteractionTracker, args *IInteractionTrackerIdleStateEnteredArgs) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(sender)), uintptr(unsafe.Pointer(args)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InertiaStateEntered dispatches through IInteractionTrackerOwner's vtable slot 8.
-// Parameter sender's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerOwner) InertiaStateEntered(sender *syswinrt.IInspectable, args *IInteractionTrackerInertiaStateEnteredArgs) error {
+func (self *IInteractionTrackerOwner) InertiaStateEntered(sender *IInteractionTracker, args *IInteractionTrackerInertiaStateEnteredArgs) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(sender)), uintptr(unsafe.Pointer(args)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InteractingStateEntered dispatches through IInteractionTrackerOwner's vtable slot 9.
-// Parameter sender's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerOwner) InteractingStateEntered(sender *syswinrt.IInspectable, args *IInteractionTrackerInteractingStateEnteredArgs) error {
+func (self *IInteractionTrackerOwner) InteractingStateEntered(sender *IInteractionTracker, args *IInteractionTrackerInteractingStateEnteredArgs) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(sender)), uintptr(unsafe.Pointer(args)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // RequestIgnored dispatches through IInteractionTrackerOwner's vtable slot 10.
-// Parameter sender's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerOwner) RequestIgnored(sender *syswinrt.IInspectable, args *IInteractionTrackerRequestIgnoredArgs) error {
+func (self *IInteractionTrackerOwner) RequestIgnored(sender *IInteractionTracker, args *IInteractionTrackerRequestIgnoredArgs) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(sender)), uintptr(unsafe.Pointer(args)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // ValuesChanged dispatches through IInteractionTrackerOwner's vtable slot 11.
-// Parameter sender's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerOwner) ValuesChanged(sender *syswinrt.IInspectable, args *IInteractionTrackerValuesChangedArgs) error {
+func (self *IInteractionTrackerOwner) ValuesChanged(sender *IInteractionTracker, args *IInteractionTrackerValuesChangedArgs) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(sender)), uintptr(unsafe.Pointer(args)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -849,17 +821,15 @@ type IInteractionTrackerStatics struct {
 var IID_IInteractionTrackerStatics = win32.GUID{Data1: 0xbba5d7b7, Data2: 0x6590, Data3: 0x4498, Data4: [8]byte{0x8d, 0x6c, 0xeb, 0x62, 0xb5, 0x14, 0xc9, 0x2a}}
 
 // Create dispatches through IInteractionTrackerStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerStatics) Create(compositor *uicomposition.ICompositor) (*IInteractionTracker, error) {
+	result := new(*IInteractionTracker)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWithOwner dispatches through IInteractionTrackerStatics's vtable slot 7.
-// The return value's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerStatics) CreateWithOwner(compositor *uicomposition.ICompositor, owner *IInteractionTrackerOwner) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerStatics) CreateWithOwner(compositor *uicomposition.ICompositor, owner *IInteractionTrackerOwner) (*IInteractionTracker, error) {
+	result := new(*IInteractionTracker)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(unsafe.Pointer(owner)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -875,17 +845,13 @@ type IInteractionTrackerStatics2 struct {
 var IID_IInteractionTrackerStatics2 = win32.GUID{Data1: 0x35e53720, Data2: 0x46b7, Data3: 0x5cb0, Data4: [8]byte{0xb5, 0x05, 0xf3, 0xd6, 0x88, 0x4a, 0x61, 0x63}}
 
 // SetBindingMode dispatches through IInteractionTrackerStatics2's vtable slot 6.
-// Parameter boundTracker1's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-// Parameter boundTracker2's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerStatics2) SetBindingMode(boundTracker1 *syswinrt.IInspectable, boundTracker2 *syswinrt.IInspectable, axisMode InteractionBindingAxisModes) error {
+func (self *IInteractionTrackerStatics2) SetBindingMode(boundTracker1 *IInteractionTracker, boundTracker2 *IInteractionTracker, axisMode InteractionBindingAxisModes) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(boundTracker1)), uintptr(unsafe.Pointer(boundTracker2)), uintptr(axisMode))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // GetBindingMode dispatches through IInteractionTrackerStatics2's vtable slot 7.
-// Parameter boundTracker1's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-// Parameter boundTracker2's class Windows.UI.Composition.Interactions.InteractionTracker is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerStatics2) GetBindingMode(boundTracker1 *syswinrt.IInspectable, boundTracker2 *syswinrt.IInspectable) (InteractionBindingAxisModes, error) {
+func (self *IInteractionTrackerStatics2) GetBindingMode(boundTracker1 *IInteractionTracker, boundTracker2 *IInteractionTracker) (InteractionBindingAxisModes, error) {
 	result := new(InteractionBindingAxisModes)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(boundTracker1)), uintptr(unsafe.Pointer(boundTracker2)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
@@ -948,31 +914,27 @@ type IInteractionTrackerVector2InertiaNaturalMotion struct {
 var IID_IInteractionTrackerVector2InertiaNaturalMotion = win32.GUID{Data1: 0x5f17695c, Data2: 0x162d, Data3: 0x4c07, Data4: [8]byte{0x94, 0x00, 0xc2, 0x82, 0xb2, 0x82, 0x76, 0xca}}
 
 // Condition (propget get_Condition) dispatches through IInteractionTrackerVector2InertiaNaturalMotion's vtable slot 6.
-// The return value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerVector2InertiaNaturalMotion) Condition() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerVector2InertiaNaturalMotion) Condition() (*uicomposition.IExpressionAnimation, error) {
+	result := new(*uicomposition.IExpressionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCondition (propput put_Condition) dispatches through IInteractionTrackerVector2InertiaNaturalMotion's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerVector2InertiaNaturalMotion) SetCondition(value *syswinrt.IInspectable) error {
+func (self *IInteractionTrackerVector2InertiaNaturalMotion) SetCondition(value *uicomposition.IExpressionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // NaturalMotion (propget get_NaturalMotion) dispatches through IInteractionTrackerVector2InertiaNaturalMotion's vtable slot 8.
-// The return value's class Windows.UI.Composition.Vector2NaturalMotionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerVector2InertiaNaturalMotion) NaturalMotion() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerVector2InertiaNaturalMotion) NaturalMotion() (*uicomposition.IVector2NaturalMotionAnimation, error) {
+	result := new(*uicomposition.IVector2NaturalMotionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetNaturalMotion (propput put_NaturalMotion) dispatches through IInteractionTrackerVector2InertiaNaturalMotion's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.Vector2NaturalMotionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerVector2InertiaNaturalMotion) SetNaturalMotion(value *syswinrt.IInspectable) error {
+func (self *IInteractionTrackerVector2InertiaNaturalMotion) SetNaturalMotion(value *uicomposition.IVector2NaturalMotionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -988,9 +950,8 @@ type IInteractionTrackerVector2InertiaNaturalMotionStatics struct {
 var IID_IInteractionTrackerVector2InertiaNaturalMotionStatics = win32.GUID{Data1: 0x82001a48, Data2: 0x09c0, Data3: 0x434f, Data4: [8]byte{0x81, 0x89, 0x14, 0x1c, 0x66, 0xdf, 0x36, 0x2f}}
 
 // Create dispatches through IInteractionTrackerVector2InertiaNaturalMotionStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion is projected as IInspectable (the class is not emitted this wave).
-func (self *IInteractionTrackerVector2InertiaNaturalMotionStatics) Create(compositor *uicomposition.ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInteractionTrackerVector2InertiaNaturalMotionStatics) Create(compositor *uicomposition.ICompositor) (*IInteractionTrackerVector2InertiaNaturalMotion, error) {
+	result := new(*IInteractionTrackerVector2InertiaNaturalMotion)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1131,9 +1092,8 @@ func (self *IVisualInteractionSource) SetScaleSourceMode(value InteractionSource
 }
 
 // Source (propget get_Source) dispatches through IVisualInteractionSource's vtable slot 24.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualInteractionSource) Source() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisualInteractionSource) Source() (*uicomposition.IVisual, error) {
+	result := new(*uicomposition.IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1222,9 +1182,8 @@ type IVisualInteractionSource3 struct {
 var IID_IVisualInteractionSource3 = win32.GUID{Data1: 0xd941ef2a, Data2: 0x0d5c, Data3: 0x4057, Data4: [8]byte{0x92, 0xd7, 0xc9, 0x71, 0x15, 0x33, 0x20, 0x4f}}
 
 // PointerWheelConfig (propget get_PointerWheelConfig) dispatches through IVisualInteractionSource3's vtable slot 6.
-// The return value's class Windows.UI.Composition.Interactions.InteractionSourceConfiguration is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualInteractionSource3) PointerWheelConfig() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisualInteractionSource3) PointerWheelConfig() (*IInteractionSourceConfiguration, error) {
+	result := new(*IInteractionSourceConfiguration)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1250,10 +1209,8 @@ type IVisualInteractionSourceStatics struct {
 var IID_IVisualInteractionSourceStatics = win32.GUID{Data1: 0x369965e1, Data2: 0x8645, Data3: 0x4f75, Data4: [8]byte{0xba, 0x00, 0x64, 0x79, 0xcd, 0x10, 0xc8, 0xe6}}
 
 // Create dispatches through IVisualInteractionSourceStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Interactions.VisualInteractionSource is projected as IInspectable (the class is not emitted this wave).
-// Parameter source's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualInteractionSourceStatics) Create(source *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisualInteractionSourceStatics) Create(source *uicomposition.IVisual) (*IVisualInteractionSource, error) {
+	result := new(*IVisualInteractionSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(source)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1269,9 +1226,8 @@ type IVisualInteractionSourceStatics2 struct {
 var IID_IVisualInteractionSourceStatics2 = win32.GUID{Data1: 0xa979c032, Data2: 0x5764, Data3: 0x55e0, Data4: [8]byte{0xbc, 0x1f, 0x07, 0x78, 0x78, 0x6d, 0xcf, 0xde}}
 
 // CreateFromIVisualElement dispatches through IVisualInteractionSourceStatics2's vtable slot 6.
-// The return value's class Windows.UI.Composition.Interactions.VisualInteractionSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualInteractionSourceStatics2) CreateFromIVisualElement(source *uicomposition.IVisualElement) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisualInteractionSourceStatics2) CreateFromIVisualElement(source *uicomposition.IVisualElement) (*IVisualInteractionSource, error) {
+	result := new(*IVisualInteractionSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(source)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

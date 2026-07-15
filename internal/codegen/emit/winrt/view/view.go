@@ -207,9 +207,9 @@ type DelegateModel struct {
 	ArgExprs []string
 }
 
-// ClassModel is one non-composable runtime class: a struct embedding its
-// default interface by value, plus the package-level statics accessors and
-// factory constructors surfaced from the class's activation factory. A
+// ClassModel is one runtime class (composable or not): a struct embedding
+// its default interface by value, plus the package-level statics accessors
+// and constructors surfaced from the class's activation factory. A
 // statics-only class emits with TypeName "" — no class type, only Statics.
 type ClassModel struct {
 	// TypeName is the emitted class type; "" when the class type itself is
@@ -234,6 +234,10 @@ type ClassModel struct {
 	// Factories are the package-level factory constructors projected from
 	// the class's [Activatable] factory interfaces.
 	Factories []FactoryFuncModel
+	// ComposableCtors are the package-level null-outer composable
+	// constructors projected from the class's [Composable] factory
+	// interfaces (instantiate-only composition).
+	ComposableCtors []ComposableCtorModel
 }
 
 // StaticsAccessorModel is one package-level statics accessor: a func
@@ -281,6 +285,40 @@ type FactoryFuncModel struct {
 	// (already lowered by the interface emission).
 	ParamStr string
 	// ArgNames pass the parameters through to the factory method, in order.
+	ArgNames []string
+}
+
+// ComposableCtorModel is one package-level composable constructor: a func
+// fetching the class's activation factory, calling the generated composable
+// factory method with a NULL outer (the class is created as itself — Go-side
+// derivation is out of scope), releasing the returned inner (a second
+// reference to the same object under null-outer composition), and wrapping
+// the returned default-interface pointer as the class type.
+type ComposableCtorModel struct {
+	// FuncName is the constructor ("NewButton" for CreateInstance,
+	// "NewFooWithBar" for CreateInstanceWithBar).
+	FuncName string
+	// FactoryType is the composable factory interface's Go type name
+	// ("IButtonFactory").
+	FactoryType string
+	// FactoryFullName is the factory interface's full metadata name for the
+	// doc comment.
+	FactoryFullName string
+	// FactoryIIDRef is the address expression of the factory interface's
+	// IID variable.
+	FactoryIIDRef string
+	// MethodName is the generated factory-interface method the constructor
+	// delegates to.
+	MethodName string
+	// ParamStr is the LEADING parameter list — the factory method's
+	// parameters minus the trailing (baseInterface, innerInterface) pair the
+	// constructor supplies itself.
+	ParamStr string
+	// InnerName is the local holding the inner out-pointer
+	// ("inner"; freshened against the leading parameter names).
+	InnerName string
+	// ArgNames pass the leading parameters through to the factory method,
+	// followed by the composition pair ("nil", InnerName).
 	ArgNames []string
 }
 

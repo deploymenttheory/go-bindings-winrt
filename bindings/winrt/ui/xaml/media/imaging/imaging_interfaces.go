@@ -215,9 +215,8 @@ type IBitmapImageFactory struct {
 var IID_IBitmapImageFactory = win32.GUID{Data1: 0xc9132978, Data2: 0x4810, Data3: 0x4e5e, Data4: [8]byte{0x80, 0x87, 0x03, 0x67, 0x1e, 0xe6, 0x0d, 0x85}}
 
 // CreateInstanceWithUriSource dispatches through IBitmapImageFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Imaging.BitmapImage is projected as IInspectable (the class is not emitted this wave).
-func (self *IBitmapImageFactory) CreateInstanceWithUriSource(uriSource *foundation.IUriRuntimeClass) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IBitmapImageFactory) CreateInstanceWithUriSource(uriSource *foundation.IUriRuntimeClass) (*IBitmapImage, error) {
+	result := new(*IBitmapImage)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uriSource)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -356,9 +355,8 @@ type IBitmapSourceFactory struct {
 var IID_IBitmapSourceFactory = win32.GUID{Data1: 0xe240420e, Data2: 0xd4a7, Data3: 0x49a4, Data4: [8]byte{0xa0, 0xb4, 0xa5, 0x9f, 0xdd, 0x77, 0xe5, 0x08}}
 
 // CreateInstance dispatches through IBitmapSourceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Imaging.BitmapSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IBitmapSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IBitmapSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IBitmapSource, error) {
+	result := new(*IBitmapSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -435,16 +433,14 @@ func (self *IRenderTargetBitmap) PixelHeight() (int32, error) {
 }
 
 // RenderAsync dispatches through IRenderTargetBitmap's vtable slot 8.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IRenderTargetBitmap) RenderAsync(element *syswinrt.IInspectable) (*foundation.IAsyncAction, error) {
+func (self *IRenderTargetBitmap) RenderAsync(element *uixaml.IUIElement) (*foundation.IAsyncAction, error) {
 	result := new(*foundation.IAsyncAction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RenderToSizeAsync dispatches through IRenderTargetBitmap's vtable slot 9.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IRenderTargetBitmap) RenderToSizeAsync(element *syswinrt.IInspectable, scaledWidth int32, scaledHeight int32) (*foundation.IAsyncAction, error) {
+func (self *IRenderTargetBitmap) RenderToSizeAsync(element *uixaml.IUIElement, scaledWidth int32, scaledHeight int32) (*foundation.IAsyncAction, error) {
 	result := new(*foundation.IAsyncAction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(scaledWidth), uintptr(scaledHeight), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
@@ -519,21 +515,19 @@ type ISurfaceImageSourceFactory struct {
 var IID_ISurfaceImageSourceFactory = win32.GUID{Data1: 0x3ab2212a, Data2: 0xef65, Data3: 0x4a5f, Data4: [8]byte{0xbf, 0xac, 0x73, 0x99, 0x3e, 0x8c, 0x12, 0xc9}}
 
 // CreateInstanceWithDimensions dispatches through ISurfaceImageSourceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Imaging.SurfaceImageSource is projected as IInspectable (the class is not emitted this wave).
-func (self *ISurfaceImageSourceFactory) CreateInstanceWithDimensions(pixelWidth int32, pixelHeight int32, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISurfaceImageSourceFactory) CreateInstanceWithDimensions(pixelWidth int32, pixelHeight int32, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ISurfaceImageSource, error) {
+	result := new(*ISurfaceImageSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(pixelWidth), uintptr(pixelHeight), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateInstanceWithDimensionsAndOpacity dispatches through ISurfaceImageSourceFactory's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Media.Imaging.SurfaceImageSource is projected as IInspectable (the class is not emitted this wave).
-func (self *ISurfaceImageSourceFactory) CreateInstanceWithDimensionsAndOpacity(pixelWidth int32, pixelHeight int32, isOpaque bool, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
+func (self *ISurfaceImageSourceFactory) CreateInstanceWithDimensionsAndOpacity(pixelWidth int32, pixelHeight int32, isOpaque bool, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ISurfaceImageSource, error) {
 	_isOpaque := uintptr(0)
 	if isOpaque {
 		_isOpaque = 1
 	}
-	result := new(*syswinrt.IInspectable)
+	result := new(*ISurfaceImageSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(pixelWidth), uintptr(pixelHeight), _isOpaque, uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -619,17 +613,15 @@ type ISvgImageSourceFactory struct {
 var IID_ISvgImageSourceFactory = win32.GUID{Data1: 0xc794e9e7, Data2: 0xcf23, Data3: 0x4d72, Data4: [8]byte{0xbf, 0x1a, 0xdf, 0xaa, 0x16, 0xd8, 0xea, 0x52}}
 
 // CreateInstance dispatches through ISvgImageSourceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Imaging.SvgImageSource is projected as IInspectable (the class is not emitted this wave).
-func (self *ISvgImageSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISvgImageSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ISvgImageSource, error) {
+	result := new(*ISvgImageSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateInstanceWithUriSource dispatches through ISvgImageSourceFactory's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Media.Imaging.SvgImageSource is projected as IInspectable (the class is not emitted this wave).
-func (self *ISvgImageSourceFactory) CreateInstanceWithUriSource(uriSource *foundation.IUriRuntimeClass, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISvgImageSourceFactory) CreateInstanceWithUriSource(uriSource *foundation.IUriRuntimeClass, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ISvgImageSource, error) {
+	result := new(*ISvgImageSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uriSource)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -713,21 +705,19 @@ type IVirtualSurfaceImageSourceFactory struct {
 var IID_IVirtualSurfaceImageSourceFactory = win32.GUID{Data1: 0x3ab2212a, Data2: 0xbfac, Data3: 0x11e0, Data4: [8]byte{0x8a, 0x92, 0x69, 0xe4, 0x47, 0x24, 0x01, 0x9b}}
 
 // CreateInstanceWithDimensions dispatches through IVirtualSurfaceImageSourceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IVirtualSurfaceImageSourceFactory) CreateInstanceWithDimensions(pixelWidth int32, pixelHeight int32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVirtualSurfaceImageSourceFactory) CreateInstanceWithDimensions(pixelWidth int32, pixelHeight int32) (*IVirtualSurfaceImageSource, error) {
+	result := new(*IVirtualSurfaceImageSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(pixelWidth), uintptr(pixelHeight), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateInstanceWithDimensionsAndOpacity dispatches through IVirtualSurfaceImageSourceFactory's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IVirtualSurfaceImageSourceFactory) CreateInstanceWithDimensionsAndOpacity(pixelWidth int32, pixelHeight int32, isOpaque bool) (*syswinrt.IInspectable, error) {
+func (self *IVirtualSurfaceImageSourceFactory) CreateInstanceWithDimensionsAndOpacity(pixelWidth int32, pixelHeight int32, isOpaque bool) (*IVirtualSurfaceImageSource, error) {
 	_isOpaque := uintptr(0)
 	if isOpaque {
 		_isOpaque = 1
 	}
-	result := new(*syswinrt.IInspectable)
+	result := new(*IVirtualSurfaceImageSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(pixelWidth), uintptr(pixelHeight), _isOpaque, uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -766,9 +756,8 @@ type IWriteableBitmapFactory struct {
 var IID_IWriteableBitmapFactory = win32.GUID{Data1: 0x5563ebb1, Data2: 0x3ef2, Data3: 0x42c5, Data4: [8]byte{0x9c, 0x6d, 0x1c, 0xf5, 0xdc, 0xc0, 0x41, 0xff}}
 
 // CreateInstanceWithDimensions dispatches through IWriteableBitmapFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Imaging.WriteableBitmap is projected as IInspectable (the class is not emitted this wave).
-func (self *IWriteableBitmapFactory) CreateInstanceWithDimensions(pixelWidth int32, pixelHeight int32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IWriteableBitmapFactory) CreateInstanceWithDimensions(pixelWidth int32, pixelHeight int32) (*IWriteableBitmap, error) {
+	result := new(*IWriteableBitmap)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(pixelWidth), uintptr(pixelHeight), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

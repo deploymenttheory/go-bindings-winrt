@@ -24,6 +24,11 @@ type emittedMethod struct {
 	emitted  bool
 	goName   string
 	paramStr string
+	// paramDecls are the individual "name type" parameter declarations
+	// paramStr joins, index-aligned with paramNames — recorded so wrappers
+	// that restate only a PREFIX of the parameters (composable constructors
+	// supply the trailing composition pair themselves) can rebuild it.
+	paramDecls []string
 	// paramNames are the declared Go parameter names in order — the
 	// pass-through arguments of a wrapper.
 	paramNames []string
@@ -159,6 +164,7 @@ func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, fullName, goNa
 				emitted:    true,
 				goName:     methodModel.GoName,
 				paramStr:   methodModel.ParamStr,
+				paramDecls: splitParamDecls(methodModel.ParamStr),
 				paramNames: goParamNames(method),
 				returnType: logicalReturnType(methodModel.ReturnSig),
 				imports:    methodImports,
@@ -170,6 +176,17 @@ func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, fullName, goNa
 	// display forms never collide with them.
 	g.ifaceMethods[fullName] = records
 	return model
+}
+
+// splitParamDecls recovers the individual "name type" declarations from a
+// joined parameter string. Exact by construction: every lowered parameter
+// type is a single identifier, pointer, or qualified name — no emitted decl
+// ever contains ", ".
+func splitParamDecls(paramStr string) []string {
+	if paramStr == "" {
+		return nil
+	}
+	return strings.Split(paramStr, ", ")
 }
 
 // goParamNames lists a method's Go parameter names in declaration order —

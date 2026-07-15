@@ -110,7 +110,7 @@ func (self *IIterableOfInputScopeName) First() (*IIteratorOfInputScopeName, erro
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfInputScopeName(items []*syswinrt.IInspectable) *IIterableOfInputScopeName {
+func NewIIterableOfInputScopeName(items []*IInputScopeName) *IIterableOfInputScopeName {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -145,7 +145,7 @@ func (self *IIterableOfKeyboardAccelerator) First() (*IIteratorOfKeyboardAcceler
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfKeyboardAccelerator(items []*syswinrt.IInspectable) *IIterableOfKeyboardAccelerator {
+func NewIIterableOfKeyboardAccelerator(items []*IKeyboardAccelerator) *IIterableOfKeyboardAccelerator {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -199,9 +199,8 @@ type IIteratorOfInputScopeName struct {
 var IID_IIteratorOfInputScopeName = win32.GUID{Data1: 0x7ac16ff4, Data2: 0x5857, Data3: 0x5001, Data4: [8]byte{0xb8, 0x7f, 0x32, 0x70, 0x93, 0xf6, 0x83, 0x92}}
 
 // Current (propget get_Current) dispatches through IIteratorOfInputScopeName's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfInputScopeName) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfInputScopeName) Current() (*IInputScopeName, error) {
+	result := new(*IInputScopeName)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -232,9 +231,8 @@ type IIteratorOfKeyboardAccelerator struct {
 var IID_IIteratorOfKeyboardAccelerator = win32.GUID{Data1: 0x8b6ac198, Data2: 0xeaa0, Data3: 0x50e6, Data4: [8]byte{0x9a, 0x35, 0x32, 0xdf, 0xdf, 0x1f, 0x59, 0xe1}}
 
 // Current (propget get_Current) dispatches through IIteratorOfKeyboardAccelerator's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfKeyboardAccelerator) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfKeyboardAccelerator) Current() (*IKeyboardAccelerator, error) {
+	result := new(*IKeyboardAccelerator)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -298,9 +296,8 @@ type IVectorOfInputScopeName struct {
 var IID_IVectorOfInputScopeName = win32.GUID{Data1: 0x703fe123, Data2: 0xd766, Data3: 0x562f, Data4: [8]byte{0xb2, 0x10, 0x19, 0x80, 0xbb, 0x2a, 0x0d, 0x33}}
 
 // GetAt dispatches through IVectorOfInputScopeName's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfInputScopeName) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfInputScopeName) GetAt(index uint32) (*IInputScopeName, error) {
+	result := new(*IInputScopeName)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -320,23 +317,20 @@ func (self *IVectorOfInputScopeName) GetView() (*IVectorViewOfInputScopeName, er
 }
 
 // IndexOf dispatches through IVectorOfInputScopeName's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfInputScopeName) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfInputScopeName) IndexOf(value *IInputScopeName, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfInputScopeName's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfInputScopeName) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfInputScopeName) SetAt(index uint32, value *IInputScopeName) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfInputScopeName's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfInputScopeName) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfInputScopeName) InsertAt(index uint32, value *IInputScopeName) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -348,8 +342,7 @@ func (self *IVectorOfInputScopeName) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfInputScopeName's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfInputScopeName) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfInputScopeName) Append(value *IInputScopeName) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -383,7 +376,7 @@ func (self *IVectorOfInputScopeName) Clear() error {
 // The vector is writable through the WinRT ABI (the Go side exposes no
 // mutation API); GetView returns an immutable SNAPSHOT of the contents at
 // call time.
-func NewIVectorOfInputScopeName(items []*syswinrt.IInspectable) *IVectorOfInputScopeName {
+func NewIVectorOfInputScopeName(items []*IInputScopeName) *IVectorOfInputScopeName {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -403,9 +396,8 @@ type IVectorOfKeyboardAccelerator struct {
 var IID_IVectorOfKeyboardAccelerator = win32.GUID{Data1: 0xe4927feb, Data2: 0x1e4a, Data3: 0x5be3, Data4: [8]byte{0xbd, 0xa3, 0x62, 0xcf, 0x4e, 0x52, 0x02, 0x58}}
 
 // GetAt dispatches through IVectorOfKeyboardAccelerator's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfKeyboardAccelerator) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfKeyboardAccelerator) GetAt(index uint32) (*IKeyboardAccelerator, error) {
+	result := new(*IKeyboardAccelerator)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -425,23 +417,20 @@ func (self *IVectorOfKeyboardAccelerator) GetView() (*IVectorViewOfKeyboardAccel
 }
 
 // IndexOf dispatches through IVectorOfKeyboardAccelerator's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfKeyboardAccelerator) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfKeyboardAccelerator) IndexOf(value *IKeyboardAccelerator, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfKeyboardAccelerator's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfKeyboardAccelerator) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfKeyboardAccelerator) SetAt(index uint32, value *IKeyboardAccelerator) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfKeyboardAccelerator's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfKeyboardAccelerator) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfKeyboardAccelerator) InsertAt(index uint32, value *IKeyboardAccelerator) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -453,8 +442,7 @@ func (self *IVectorOfKeyboardAccelerator) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfKeyboardAccelerator's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfKeyboardAccelerator) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfKeyboardAccelerator) Append(value *IKeyboardAccelerator) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -488,7 +476,7 @@ func (self *IVectorOfKeyboardAccelerator) Clear() error {
 // The vector is writable through the WinRT ABI (the Go side exposes no
 // mutation API); GetView returns an immutable SNAPSHOT of the contents at
 // call time.
-func NewIVectorOfKeyboardAccelerator(items []*syswinrt.IInspectable) *IVectorOfKeyboardAccelerator {
+func NewIVectorOfKeyboardAccelerator(items []*IKeyboardAccelerator) *IVectorOfKeyboardAccelerator {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -608,9 +596,8 @@ type IVectorViewOfInputScopeName struct {
 var IID_IVectorViewOfInputScopeName = win32.GUID{Data1: 0xfcd65a82, Data2: 0x5328, Data3: 0x53bc, Data4: [8]byte{0xa8, 0x84, 0xc2, 0x09, 0xaa, 0xfa, 0xbf, 0x78}}
 
 // GetAt dispatches through IVectorViewOfInputScopeName's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfInputScopeName) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfInputScopeName) GetAt(index uint32) (*IInputScopeName, error) {
+	result := new(*IInputScopeName)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -623,8 +610,7 @@ func (self *IVectorViewOfInputScopeName) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfInputScopeName's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfInputScopeName) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfInputScopeName) IndexOf(value *IInputScopeName, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -642,7 +628,7 @@ func (self *IVectorViewOfInputScopeName) IndexOf(value *syswinrt.IInspectable, i
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIVectorViewOfInputScopeName(items []*syswinrt.IInspectable) *IVectorViewOfInputScopeName {
+func NewIVectorViewOfInputScopeName(items []*IInputScopeName) *IVectorViewOfInputScopeName {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -662,9 +648,8 @@ type IVectorViewOfKeyboardAccelerator struct {
 var IID_IVectorViewOfKeyboardAccelerator = win32.GUID{Data1: 0x4d5e3d08, Data2: 0xe27c, Data3: 0x5d05, Data4: [8]byte{0xa1, 0xdc, 0x98, 0x85, 0xa5, 0x1c, 0x37, 0x21}}
 
 // GetAt dispatches through IVectorViewOfKeyboardAccelerator's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfKeyboardAccelerator) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfKeyboardAccelerator) GetAt(index uint32) (*IKeyboardAccelerator, error) {
+	result := new(*IKeyboardAccelerator)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -677,8 +662,7 @@ func (self *IVectorViewOfKeyboardAccelerator) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfKeyboardAccelerator's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfKeyboardAccelerator) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfKeyboardAccelerator) IndexOf(value *IKeyboardAccelerator, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -696,7 +680,7 @@ func (self *IVectorViewOfKeyboardAccelerator) IndexOf(value *syswinrt.IInspectab
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIVectorViewOfKeyboardAccelerator(items []*syswinrt.IInspectable) *IVectorViewOfKeyboardAccelerator {
+func NewIVectorViewOfKeyboardAccelerator(items []*IKeyboardAccelerator) *IVectorViewOfKeyboardAccelerator {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))

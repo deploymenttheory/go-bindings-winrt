@@ -54,4 +54,30 @@ func {{.FuncName}}({{.ParamStr}}) (*{{$.TypeName}}, error) {
 	return (*{{$.TypeName}})(unsafe.Pointer(instance)), nil
 }
 
+{{end -}}
+{{range .ComposableCtors}}// {{.FuncName}} constructs a {{$.FullName}} instance through
+// {{.FactoryFullName}}.{{.MethodName}} with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func {{.FuncName}}({{.ParamStr}}) (*{{$.TypeName}}, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("{{$.FullName}}", {{.FactoryIIDRef}})
+	if err != nil {
+		return nil, err
+	}
+	factory := (*{{.FactoryType}})(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	{{.InnerName}} := new(*syswinrt.IInspectable)
+	instance, err := factory.{{.MethodName}}({{join .ArgNames ", "}})
+	if err != nil {
+		return nil, err
+	}
+	if *{{.InnerName}} != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*{{.InnerName}}).Release()
+	}
+	return (*{{$.TypeName}})(unsafe.Pointer(instance)), nil
+}
+
 {{end}}{{end}}

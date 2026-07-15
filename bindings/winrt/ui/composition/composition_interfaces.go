@@ -120,8 +120,7 @@ type IAnimationObject struct {
 var IID_IAnimationObject = win32.GUID{Data1: 0xe7141e0a, Data2: 0x04b8, Data3: 0x4fc5, Data4: [8]byte{0xa4, 0xdc, 0x19, 0x53, 0x92, 0xe5, 0x78, 0x07}}
 
 // PopulatePropertyInfo dispatches through IAnimationObject's vtable slot 6.
-// Parameter propertyInfo's class Windows.UI.Composition.AnimationPropertyInfo is projected as IInspectable (the class is not emitted this wave).
-func (self *IAnimationObject) PopulatePropertyInfo(propertyName string, propertyInfo *syswinrt.IInspectable) error {
+func (self *IAnimationObject) PopulatePropertyInfo(propertyName string, propertyInfo *IAnimationPropertyInfo) error {
 	hPropertyName, err := winrt.NewHString(propertyName)
 	if err != nil {
 		return err
@@ -447,7 +446,7 @@ type ICompositionAnimation3 struct {
 var IID_ICompositionAnimation3 = win32.GUID{Data1: 0xd51e030d, Data2: 0x7da4, Data3: 0x4bd7, Data4: [8]byte{0xbc, 0x2d, 0xf4, 0x51, 0x75, 0x29, 0xf4, 0x3a}}
 
 // InitialValueExpressions (propget get_InitialValueExpressions) dispatches through ICompositionAnimation3's vtable slot 6.
-// The return value's class Windows.UI.Composition.InitialValueExpressionCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Composition.InitialValueExpressionCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *ICompositionAnimation3) InitialValueExpressions() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -512,15 +511,13 @@ func (self *ICompositionAnimationGroup) Count() (int32, error) {
 }
 
 // Add dispatches through ICompositionAnimationGroup's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.CompositionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionAnimationGroup) Add(value *syswinrt.IInspectable) error {
+func (self *ICompositionAnimationGroup) Add(value *ICompositionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Remove dispatches through ICompositionAnimationGroup's vtable slot 8.
-// Parameter value's class Windows.UI.Composition.CompositionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionAnimationGroup) Remove(value *syswinrt.IInspectable) error {
+func (self *ICompositionAnimationGroup) Remove(value *ICompositionAnimation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -814,7 +811,7 @@ type ICompositionContainerShape struct {
 var IID_ICompositionContainerShape = win32.GUID{Data1: 0x4f5e859b, Data2: 0x2e5b, Data3: 0x44a8, Data4: [8]byte{0x98, 0x2c, 0xaa, 0x0f, 0x69, 0xc1, 0x60, 0x59}}
 
 // Shapes (propget get_Shapes) dispatches through ICompositionContainerShape's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionShapeCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Composition.CompositionShapeCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *ICompositionContainerShape) Shapes() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -922,25 +919,22 @@ var IID_ICompositionEasingFunctionStatics = win32.GUID{Data1: 0x17a766b6, Data2:
 // slot 6: CreateCubicBezierEasingFunction skipped: by-value Windows.Foundation.Numerics.Vector2 parameter controlPoint1 does not flatten to one integer word
 
 // CreateLinearEasingFunction dispatches through ICompositionEasingFunctionStatics's vtable slot 7.
-// The return value's class Windows.UI.Composition.LinearEasingFunction is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionEasingFunctionStatics) CreateLinearEasingFunction(owner *ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionEasingFunctionStatics) CreateLinearEasingFunction(owner *ICompositor) (*ILinearEasingFunction, error) {
+	result := new(*ILinearEasingFunction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateStepEasingFunction dispatches through ICompositionEasingFunctionStatics's vtable slot 8.
-// The return value's class Windows.UI.Composition.StepEasingFunction is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionEasingFunctionStatics) CreateStepEasingFunction(owner *ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionEasingFunctionStatics) CreateStepEasingFunction(owner *ICompositor) (*IStepEasingFunction, error) {
+	result := new(*IStepEasingFunction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateStepEasingFunctionWithStepCount dispatches through ICompositionEasingFunctionStatics's vtable slot 9.
-// The return value's class Windows.UI.Composition.StepEasingFunction is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionEasingFunctionStatics) CreateStepEasingFunctionWithStepCount(owner *ICompositor, stepCount int32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionEasingFunctionStatics) CreateStepEasingFunctionWithStepCount(owner *ICompositor, stepCount int32) (*IStepEasingFunction, error) {
+	result := new(*IStepEasingFunction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(stepCount), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -950,9 +944,8 @@ func (self *ICompositionEasingFunctionStatics) CreateStepEasingFunctionWithStepC
 // slot 11: CreateBounceEasingFunction skipped: float32 parameter bounciness cannot cross SyscallN
 
 // CreateCircleEasingFunction dispatches through ICompositionEasingFunctionStatics's vtable slot 12.
-// The return value's class Windows.UI.Composition.CircleEasingFunction is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionEasingFunctionStatics) CreateCircleEasingFunction(owner *ICompositor, mode CompositionEasingFunctionMode) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionEasingFunctionStatics) CreateCircleEasingFunction(owner *ICompositor, mode CompositionEasingFunctionMode) (*ICircleEasingFunction, error) {
+	result := new(*ICircleEasingFunction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(mode), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -964,9 +957,8 @@ func (self *ICompositionEasingFunctionStatics) CreateCircleEasingFunction(owner 
 // slot 15: CreatePowerEasingFunction skipped: float32 parameter power cannot cross SyscallN
 
 // CreateSineEasingFunction dispatches through ICompositionEasingFunctionStatics's vtable slot 16.
-// The return value's class Windows.UI.Composition.SineEasingFunction is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionEasingFunctionStatics) CreateSineEasingFunction(owner *ICompositor, mode CompositionEasingFunctionMode) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionEasingFunctionStatics) CreateSineEasingFunction(owner *ICompositor, mode CompositionEasingFunctionMode) (*ISineEasingFunction, error) {
+	result := new(*ISineEasingFunction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(mode), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -982,21 +974,19 @@ type ICompositionEffectBrush struct {
 var IID_ICompositionEffectBrush = win32.GUID{Data1: 0xbf7f795e, Data2: 0x83cc, Data3: 0x44bf, Data4: [8]byte{0xa4, 0x47, 0x3e, 0x3c, 0x07, 0x17, 0x89, 0xec}}
 
 // GetSourceParameter dispatches through ICompositionEffectBrush's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionEffectBrush) GetSourceParameter(name string) (*syswinrt.IInspectable, error) {
+func (self *ICompositionEffectBrush) GetSourceParameter(name string) (*ICompositionBrush, error) {
 	hName, err := winrt.NewHString(name)
 	if err != nil {
 		return nil, err
 	}
 	defer hName.Close()
-	result := new(*syswinrt.IInspectable)
+	result := new(*ICompositionBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSourceParameter dispatches through ICompositionEffectBrush's vtable slot 7.
-// Parameter source's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionEffectBrush) SetSourceParameter(name string, source *syswinrt.IInspectable) error {
+func (self *ICompositionEffectBrush) SetSourceParameter(name string, source *ICompositionBrush) error {
 	hName, err := winrt.NewHString(name)
 	if err != nil {
 		return err
@@ -1017,9 +1007,8 @@ type ICompositionEffectFactory struct {
 var IID_ICompositionEffectFactory = win32.GUID{Data1: 0xbe5624af, Data2: 0xba7e, Data3: 0x4510, Data4: [8]byte{0x98, 0x50, 0x41, 0xc0, 0xb4, 0xff, 0x74, 0xdf}}
 
 // CreateBrush dispatches through ICompositionEffectFactory's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionEffectBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionEffectFactory) CreateBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionEffectFactory) CreateBrush() (*ICompositionEffectBrush, error) {
+	result := new(*ICompositionEffectBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1119,31 +1108,27 @@ type ICompositionGeometricClip struct {
 var IID_ICompositionGeometricClip = win32.GUID{Data1: 0xc840b581, Data2: 0x81c9, Data3: 0x4444, Data4: [8]byte{0xa2, 0xc1, 0xcc, 0xae, 0xce, 0x3a, 0x50, 0xe5}}
 
 // Geometry (propget get_Geometry) dispatches through ICompositionGeometricClip's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionGeometricClip) Geometry() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionGeometricClip) Geometry() (*ICompositionGeometry, error) {
+	result := new(*ICompositionGeometry)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetGeometry (propput put_Geometry) dispatches through ICompositionGeometricClip's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.CompositionGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionGeometricClip) SetGeometry(value *syswinrt.IInspectable) error {
+func (self *ICompositionGeometricClip) SetGeometry(value *ICompositionGeometry) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // ViewBox (propget get_ViewBox) dispatches through ICompositionGeometricClip's vtable slot 8.
-// The return value's class Windows.UI.Composition.CompositionViewBox is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionGeometricClip) ViewBox() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionGeometricClip) ViewBox() (*ICompositionViewBox, error) {
+	result := new(*ICompositionViewBox)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetViewBox (propput put_ViewBox) dispatches through ICompositionGeometricClip's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.CompositionViewBox is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionGeometricClip) SetViewBox(value *syswinrt.IInspectable) error {
+func (self *ICompositionGeometricClip) SetViewBox(value *ICompositionViewBox) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1392,9 +1377,8 @@ type ICompositionLight struct {
 var IID_ICompositionLight = win32.GUID{Data1: 0x41a6d7c2, Data2: 0x2e5d, Data3: 0x4bc1, Data4: [8]byte{0xb0, 0x9e, 0x8f, 0x0a, 0x03, 0xe3, 0xd8, 0xd3}}
 
 // Targets (propget get_Targets) dispatches through ICompositionLight's vtable slot 6.
-// The return value's class Windows.UI.Composition.VisualUnorderedCollection is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionLight) Targets() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionLight) Targets() (*IVisualUnorderedCollection, error) {
+	result := new(*IVisualUnorderedCollection)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1410,9 +1394,8 @@ type ICompositionLight2 struct {
 var IID_ICompositionLight2 = win32.GUID{Data1: 0xa7bcda72, Data2: 0xf35d, Data3: 0x425d, Data4: [8]byte{0x9b, 0x98, 0x23, 0xf4, 0x20, 0x5f, 0x66, 0x69}}
 
 // ExclusionsFromTargets (propget get_ExclusionsFromTargets) dispatches through ICompositionLight2's vtable slot 6.
-// The return value's class Windows.UI.Composition.VisualUnorderedCollection is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionLight2) ExclusionsFromTargets() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionLight2) ExclusionsFromTargets() (*IVisualUnorderedCollection, error) {
+	result := new(*IVisualUnorderedCollection)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1521,31 +1504,27 @@ type ICompositionMaskBrush struct {
 var IID_ICompositionMaskBrush = win32.GUID{Data1: 0x522cf09e, Data2: 0xbe6b, Data3: 0x4f41, Data4: [8]byte{0xbe, 0x49, 0xf9, 0x22, 0x6d, 0x47, 0x1b, 0x4a}}
 
 // Mask (propget get_Mask) dispatches through ICompositionMaskBrush's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionMaskBrush) Mask() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionMaskBrush) Mask() (*ICompositionBrush, error) {
+	result := new(*ICompositionBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetMask (propput put_Mask) dispatches through ICompositionMaskBrush's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionMaskBrush) SetMask(value *syswinrt.IInspectable) error {
+func (self *ICompositionMaskBrush) SetMask(value *ICompositionBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Source (propget get_Source) dispatches through ICompositionMaskBrush's vtable slot 8.
-// The return value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionMaskBrush) Source() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionMaskBrush) Source() (*ICompositionBrush, error) {
+	result := new(*ICompositionBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSource (propput put_Source) dispatches through ICompositionMaskBrush's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionMaskBrush) SetSource(value *syswinrt.IInspectable) error {
+func (self *ICompositionMaskBrush) SetSource(value *ICompositionBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1589,9 +1568,8 @@ func (self *ICompositionMipmapSurface) SizeInt32() (graphics.SizeInt32, error) {
 }
 
 // GetDrawingSurfaceForLevel dispatches through ICompositionMipmapSurface's vtable slot 10.
-// The return value's class Windows.UI.Composition.CompositionDrawingSurface is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionMipmapSurface) GetDrawingSurfaceForLevel(level uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionMipmapSurface) GetDrawingSurfaceForLevel(level uint32) (*ICompositionDrawingSurface, error) {
+	result := new(*ICompositionDrawingSurface)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(level), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1648,16 +1626,14 @@ func (self *ICompositionNineGridBrush) SetIsCenterHollow(value bool) error {
 // slot 19: put_RightInsetScale skipped: float32 parameter value cannot cross SyscallN
 
 // Source (propget get_Source) dispatches through ICompositionNineGridBrush's vtable slot 20.
-// The return value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionNineGridBrush) Source() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionNineGridBrush) Source() (*ICompositionBrush, error) {
+	result := new(*ICompositionBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSource (propput put_Source) dispatches through ICompositionNineGridBrush's vtable slot 21.
-// Parameter value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionNineGridBrush) SetSource(value *syswinrt.IInspectable) error {
+func (self *ICompositionNineGridBrush) SetSource(value *ICompositionBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1698,16 +1674,14 @@ func (self *ICompositionObject) Compositor() (*ICompositor, error) {
 // slot 7: get_Dispatcher skipped: reference to Windows.UI.Core.CoreDispatcher crosses a severed import edge
 
 // Properties (propget get_Properties) dispatches through ICompositionObject's vtable slot 8.
-// The return value's class Windows.UI.Composition.CompositionPropertySet is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionObject) Properties() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionObject) Properties() (*ICompositionPropertySet, error) {
+	result := new(*ICompositionPropertySet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // StartAnimation dispatches through ICompositionObject's vtable slot 9.
-// Parameter animation's class Windows.UI.Composition.CompositionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionObject) StartAnimation(propertyName string, animation *syswinrt.IInspectable) error {
+func (self *ICompositionObject) StartAnimation(propertyName string, animation *ICompositionAnimation) error {
 	hPropertyName, err := winrt.NewHString(propertyName)
 	if err != nil {
 		return err
@@ -1760,16 +1734,14 @@ func (self *ICompositionObject2) SetComment(value string) error {
 }
 
 // ImplicitAnimations (propget get_ImplicitAnimations) dispatches through ICompositionObject2's vtable slot 8.
-// The return value's class Windows.UI.Composition.ImplicitAnimationCollection is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionObject2) ImplicitAnimations() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionObject2) ImplicitAnimations() (*IImplicitAnimationCollection, error) {
+	result := new(*IImplicitAnimationCollection)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetImplicitAnimations (propput put_ImplicitAnimations) dispatches through ICompositionObject2's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.ImplicitAnimationCollection is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionObject2) SetImplicitAnimations(value *syswinrt.IInspectable) error {
+func (self *ICompositionObject2) SetImplicitAnimations(value *IImplicitAnimationCollection) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1814,14 +1786,13 @@ type ICompositionObject4 struct {
 var IID_ICompositionObject4 = win32.GUID{Data1: 0x0bb3784c, Data2: 0x346b, Data3: 0x4a7c, Data4: [8]byte{0x96, 0x6b, 0x73, 0x10, 0x96, 0x65, 0x53, 0xd5}}
 
 // TryGetAnimationController dispatches through ICompositionObject4's vtable slot 6.
-// The return value's class Windows.UI.Composition.AnimationController is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionObject4) TryGetAnimationController(propertyName string) (*syswinrt.IInspectable, error) {
+func (self *ICompositionObject4) TryGetAnimationController(propertyName string) (*IAnimationController, error) {
 	hPropertyName, err := winrt.NewHString(propertyName)
 	if err != nil {
 		return nil, err
 	}
 	defer hPropertyName.Close()
-	result := new(*syswinrt.IInspectable)
+	result := new(*IAnimationController)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hPropertyName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1837,9 +1808,7 @@ type ICompositionObject5 struct {
 var IID_ICompositionObject5 = win32.GUID{Data1: 0x1d7f391b, Data2: 0xa130, Data3: 0x5265, Data4: [8]byte{0xa6, 0x2b, 0x60, 0xb8, 0xe6, 0x68, 0x96, 0x5a}}
 
 // StartAnimationWithController dispatches through ICompositionObject5's vtable slot 6.
-// Parameter animation's class Windows.UI.Composition.CompositionAnimation is projected as IInspectable (the class is not emitted this wave).
-// Parameter animationController's class Windows.UI.Composition.AnimationController is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionObject5) StartAnimationWithController(propertyName string, animation *syswinrt.IInspectable, animationController *syswinrt.IInspectable) error {
+func (self *ICompositionObject5) StartAnimationWithController(propertyName string, animation *ICompositionAnimation, animationController *IAnimationController) error {
 	hPropertyName, err := winrt.NewHString(propertyName)
 	if err != nil {
 		return err
@@ -1870,8 +1839,7 @@ type ICompositionObjectStatics struct {
 var IID_ICompositionObjectStatics = win32.GUID{Data1: 0xc1ed052f, Data2: 0x1ba2, Data3: 0x44ba, Data4: [8]byte{0xa9, 0x04, 0x6a, 0x88, 0x2a, 0x0a, 0x5a, 0xdb}}
 
 // StartAnimationWithIAnimationObject dispatches through ICompositionObjectStatics's vtable slot 6.
-// Parameter animation's class Windows.UI.Composition.CompositionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionObjectStatics) StartAnimationWithIAnimationObject(target *IAnimationObject, propertyName string, animation *syswinrt.IInspectable) error {
+func (self *ICompositionObjectStatics) StartAnimationWithIAnimationObject(target *IAnimationObject, propertyName string, animation *ICompositionAnimation) error {
 	hPropertyName, err := winrt.NewHString(propertyName)
 	if err != nil {
 		return err
@@ -1952,24 +1920,21 @@ var IID_ICompositionProjectedShadow = win32.GUID{Data1: 0x285b8e72, Data2: 0x432
 // slot 7: put_BlurRadiusMultiplier skipped: float32 parameter value cannot cross SyscallN
 
 // Casters (propget get_Casters) dispatches through ICompositionProjectedShadow's vtable slot 8.
-// The return value's class Windows.UI.Composition.CompositionProjectedShadowCasterCollection is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadow) Casters() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionProjectedShadow) Casters() (*ICompositionProjectedShadowCasterCollection, error) {
+	result := new(*ICompositionProjectedShadowCasterCollection)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // LightSource (propget get_LightSource) dispatches through ICompositionProjectedShadow's vtable slot 9.
-// The return value's class Windows.UI.Composition.CompositionLight is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadow) LightSource() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionProjectedShadow) LightSource() (*ICompositionLight, error) {
+	result := new(*ICompositionLight)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetLightSource (propput put_LightSource) dispatches through ICompositionProjectedShadow's vtable slot 10.
-// Parameter value's class Windows.UI.Composition.CompositionLight is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadow) SetLightSource(value *syswinrt.IInspectable) error {
+func (self *ICompositionProjectedShadow) SetLightSource(value *ICompositionLight) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1983,9 +1948,8 @@ func (self *ICompositionProjectedShadow) SetLightSource(value *syswinrt.IInspect
 // slot 14: put_MinBlurRadius skipped: float32 parameter value cannot cross SyscallN
 
 // Receivers (propget get_Receivers) dispatches through ICompositionProjectedShadow's vtable slot 15.
-// The return value's class Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadow) Receivers() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionProjectedShadow) Receivers() (*ICompositionProjectedShadowReceiverUnorderedCollection, error) {
+	result := new(*ICompositionProjectedShadowReceiverUnorderedCollection)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2001,31 +1965,27 @@ type ICompositionProjectedShadowCaster struct {
 var IID_ICompositionProjectedShadowCaster = win32.GUID{Data1: 0xb1d7d426, Data2: 0x1e36, Data3: 0x5a62, Data4: [8]byte{0xbe, 0x56, 0xa1, 0x61, 0x12, 0xfd, 0xd1, 0x48}}
 
 // Brush (propget get_Brush) dispatches through ICompositionProjectedShadowCaster's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowCaster) Brush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionProjectedShadowCaster) Brush() (*ICompositionBrush, error) {
+	result := new(*ICompositionBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetBrush (propput put_Brush) dispatches through ICompositionProjectedShadowCaster's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowCaster) SetBrush(value *syswinrt.IInspectable) error {
+func (self *ICompositionProjectedShadowCaster) SetBrush(value *ICompositionBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // CastingVisual (propget get_CastingVisual) dispatches through ICompositionProjectedShadowCaster's vtable slot 8.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowCaster) CastingVisual() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionProjectedShadowCaster) CastingVisual() (*IVisual, error) {
+	result := new(*IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCastingVisual (propput put_CastingVisual) dispatches through ICompositionProjectedShadowCaster's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowCaster) SetCastingVisual(value *syswinrt.IInspectable) error {
+func (self *ICompositionProjectedShadowCaster) SetCastingVisual(value *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2048,38 +2008,31 @@ func (self *ICompositionProjectedShadowCasterCollection) Count() (int32, error) 
 }
 
 // InsertAbove dispatches through ICompositionProjectedShadowCasterCollection's vtable slot 7.
-// Parameter newCaster's class Windows.UI.Composition.CompositionProjectedShadowCaster is projected as IInspectable (the class is not emitted this wave).
-// Parameter reference's class Windows.UI.Composition.CompositionProjectedShadowCaster is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowCasterCollection) InsertAbove(newCaster *syswinrt.IInspectable, reference *syswinrt.IInspectable) error {
+func (self *ICompositionProjectedShadowCasterCollection) InsertAbove(newCaster *ICompositionProjectedShadowCaster, reference *ICompositionProjectedShadowCaster) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newCaster)), uintptr(unsafe.Pointer(reference)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAtBottom dispatches through ICompositionProjectedShadowCasterCollection's vtable slot 8.
-// Parameter newCaster's class Windows.UI.Composition.CompositionProjectedShadowCaster is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowCasterCollection) InsertAtBottom(newCaster *syswinrt.IInspectable) error {
+func (self *ICompositionProjectedShadowCasterCollection) InsertAtBottom(newCaster *ICompositionProjectedShadowCaster) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newCaster)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAtTop dispatches through ICompositionProjectedShadowCasterCollection's vtable slot 9.
-// Parameter newCaster's class Windows.UI.Composition.CompositionProjectedShadowCaster is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowCasterCollection) InsertAtTop(newCaster *syswinrt.IInspectable) error {
+func (self *ICompositionProjectedShadowCasterCollection) InsertAtTop(newCaster *ICompositionProjectedShadowCaster) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newCaster)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertBelow dispatches through ICompositionProjectedShadowCasterCollection's vtable slot 10.
-// Parameter newCaster's class Windows.UI.Composition.CompositionProjectedShadowCaster is projected as IInspectable (the class is not emitted this wave).
-// Parameter reference's class Windows.UI.Composition.CompositionProjectedShadowCaster is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowCasterCollection) InsertBelow(newCaster *syswinrt.IInspectable, reference *syswinrt.IInspectable) error {
+func (self *ICompositionProjectedShadowCasterCollection) InsertBelow(newCaster *ICompositionProjectedShadowCaster, reference *ICompositionProjectedShadowCaster) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newCaster)), uintptr(unsafe.Pointer(reference)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Remove dispatches through ICompositionProjectedShadowCasterCollection's vtable slot 11.
-// Parameter caster's class Windows.UI.Composition.CompositionProjectedShadowCaster is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowCasterCollection) Remove(caster *syswinrt.IInspectable) error {
+func (self *ICompositionProjectedShadowCasterCollection) Remove(caster *ICompositionProjectedShadowCaster) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(caster)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2118,16 +2071,14 @@ type ICompositionProjectedShadowReceiver struct {
 var IID_ICompositionProjectedShadowReceiver = win32.GUID{Data1: 0x1377985a, Data2: 0x6a49, Data3: 0x536a, Data4: [8]byte{0x9b, 0xe4, 0xa9, 0x6a, 0x8e, 0x52, 0x98, 0xa9}}
 
 // ReceivingVisual (propget get_ReceivingVisual) dispatches through ICompositionProjectedShadowReceiver's vtable slot 6.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowReceiver) ReceivingVisual() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionProjectedShadowReceiver) ReceivingVisual() (*IVisual, error) {
+	result := new(*IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetReceivingVisual (propput put_ReceivingVisual) dispatches through ICompositionProjectedShadowReceiver's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowReceiver) SetReceivingVisual(value *syswinrt.IInspectable) error {
+func (self *ICompositionProjectedShadowReceiver) SetReceivingVisual(value *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2143,8 +2094,7 @@ type ICompositionProjectedShadowReceiverUnorderedCollection struct {
 var IID_ICompositionProjectedShadowReceiverUnorderedCollection = win32.GUID{Data1: 0x02b3e3b7, Data2: 0x27d2, Data3: 0x599f, Data4: [8]byte{0xac, 0x4b, 0xab, 0x78, 0x7c, 0xdd, 0xe6, 0xfd}}
 
 // Add dispatches through ICompositionProjectedShadowReceiverUnorderedCollection's vtable slot 6.
-// Parameter value's class Windows.UI.Composition.CompositionProjectedShadowReceiver is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowReceiverUnorderedCollection) Add(value *syswinrt.IInspectable) error {
+func (self *ICompositionProjectedShadowReceiverUnorderedCollection) Add(value *ICompositionProjectedShadowReceiver) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2157,8 +2107,7 @@ func (self *ICompositionProjectedShadowReceiverUnorderedCollection) Count() (int
 }
 
 // Remove dispatches through ICompositionProjectedShadowReceiverUnorderedCollection's vtable slot 8.
-// Parameter value's class Windows.UI.Composition.CompositionProjectedShadowReceiver is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionProjectedShadowReceiverUnorderedCollection) Remove(value *syswinrt.IInspectable) error {
+func (self *ICompositionProjectedShadowReceiverUnorderedCollection) Remove(value *ICompositionProjectedShadowReceiver) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2563,31 +2512,27 @@ type ICompositionSpriteShape struct {
 var IID_ICompositionSpriteShape = win32.GUID{Data1: 0x401b61bb, Data2: 0x0007, Data3: 0x4363, Data4: [8]byte{0xb1, 0xf3, 0x6b, 0xcc, 0x00, 0x3f, 0xb8, 0x3e}}
 
 // FillBrush (propget get_FillBrush) dispatches through ICompositionSpriteShape's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionSpriteShape) FillBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionSpriteShape) FillBrush() (*ICompositionBrush, error) {
+	result := new(*ICompositionBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetFillBrush (propput put_FillBrush) dispatches through ICompositionSpriteShape's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionSpriteShape) SetFillBrush(value *syswinrt.IInspectable) error {
+func (self *ICompositionSpriteShape) SetFillBrush(value *ICompositionBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Geometry (propget get_Geometry) dispatches through ICompositionSpriteShape's vtable slot 8.
-// The return value's class Windows.UI.Composition.CompositionGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionSpriteShape) Geometry() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionSpriteShape) Geometry() (*ICompositionGeometry, error) {
+	result := new(*ICompositionGeometry)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetGeometry (propput put_Geometry) dispatches through ICompositionSpriteShape's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.CompositionGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionSpriteShape) SetGeometry(value *syswinrt.IInspectable) error {
+func (self *ICompositionSpriteShape) SetGeometry(value *ICompositionGeometry) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2610,22 +2555,20 @@ func (self *ICompositionSpriteShape) SetIsStrokeNonScaling(value bool) error {
 }
 
 // StrokeBrush (propget get_StrokeBrush) dispatches through ICompositionSpriteShape's vtable slot 12.
-// The return value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionSpriteShape) StrokeBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionSpriteShape) StrokeBrush() (*ICompositionBrush, error) {
+	result := new(*ICompositionBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetStrokeBrush (propput put_StrokeBrush) dispatches through ICompositionSpriteShape's vtable slot 13.
-// Parameter value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionSpriteShape) SetStrokeBrush(value *syswinrt.IInspectable) error {
+func (self *ICompositionSpriteShape) SetStrokeBrush(value *ICompositionBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // StrokeDashArray (propget get_StrokeDashArray) dispatches through ICompositionSpriteShape's vtable slot 14.
-// The return value's class Windows.UI.Composition.CompositionStrokeDashArray is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Composition.CompositionStrokeDashArray is projected as IInspectable (no emittable default interface is reachable here).
 func (self *ICompositionSpriteShape) StrokeDashArray() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -2706,16 +2649,14 @@ type ICompositionSupportsSystemBackdrop struct {
 var IID_ICompositionSupportsSystemBackdrop = win32.GUID{Data1: 0x397dafe4, Data2: 0xb6c2, Data3: 0x5bb9, Data4: [8]byte{0x95, 0x1d, 0xf5, 0x70, 0x7d, 0xe8, 0xb7, 0xbc}}
 
 // SystemBackdrop (propget get_SystemBackdrop) dispatches through ICompositionSupportsSystemBackdrop's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionSupportsSystemBackdrop) SystemBackdrop() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionSupportsSystemBackdrop) SystemBackdrop() (*ICompositionBrush, error) {
+	result := new(*ICompositionBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSystemBackdrop (propput put_SystemBackdrop) dispatches through ICompositionSupportsSystemBackdrop's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionSupportsSystemBackdrop) SetSystemBackdrop(value *syswinrt.IInspectable) error {
+func (self *ICompositionSupportsSystemBackdrop) SetSystemBackdrop(value *ICompositionBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2903,16 +2844,14 @@ type ICompositionTarget struct {
 var IID_ICompositionTarget = win32.GUID{Data1: 0xa1bea8ba, Data2: 0xd726, Data3: 0x4663, Data4: [8]byte{0x81, 0x29, 0x6b, 0x5e, 0x79, 0x27, 0xff, 0xa6}}
 
 // Root (propget get_Root) dispatches through ICompositionTarget's vtable slot 6.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionTarget) Root() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionTarget) Root() (*IVisual, error) {
+	result := new(*IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetRoot (propput put_Root) dispatches through ICompositionTarget's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionTarget) SetRoot(value *syswinrt.IInspectable) error {
+func (self *ICompositionTarget) SetRoot(value *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -3084,16 +3023,14 @@ type ICompositionVisualSurface struct {
 var IID_ICompositionVisualSurface = win32.GUID{Data1: 0xb224d803, Data2: 0x4f6e, Data3: 0x4a3f, Data4: [8]byte{0x8c, 0xae, 0x3d, 0xc1, 0xcd, 0xa7, 0x4f, 0xc6}}
 
 // SourceVisual (propget get_SourceVisual) dispatches through ICompositionVisualSurface's vtable slot 6.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionVisualSurface) SourceVisual() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositionVisualSurface) SourceVisual() (*IVisual, error) {
+	result := new(*IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSourceVisual (propput put_SourceVisual) dispatches through ICompositionVisualSurface's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionVisualSurface) SetSourceVisual(value *syswinrt.IInspectable) error {
+func (self *ICompositionVisualSurface) SetSourceVisual(value *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -3127,17 +3064,15 @@ type ICompositor struct {
 var IID_ICompositor = win32.GUID{Data1: 0xb403ca50, Data2: 0x7f8c, Data3: 0x4e83, Data4: [8]byte{0x98, 0x5f, 0xcc, 0x45, 0x06, 0x00, 0x36, 0xd8}}
 
 // CreateColorKeyFrameAnimation dispatches through ICompositor's vtable slot 6.
-// The return value's class Windows.UI.Composition.ColorKeyFrameAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateColorKeyFrameAnimation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateColorKeyFrameAnimation() (*IColorKeyFrameAnimation, error) {
+	result := new(*IColorKeyFrameAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateColorBrush dispatches through ICompositor's vtable slot 7.
-// The return value's class Windows.UI.Composition.CompositionColorBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateColorBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateColorBrush() (*ICompositionColorBrush, error) {
+	result := new(*ICompositionColorBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3145,9 +3080,8 @@ func (self *ICompositor) CreateColorBrush() (*syswinrt.IInspectable, error) {
 // slot 8: CreateColorBrush skipped: by-value Windows.UI.Color parameter color does not flatten to one integer word
 
 // CreateContainerVisual dispatches through ICompositor's vtable slot 9.
-// The return value's class Windows.UI.Composition.ContainerVisual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateContainerVisual() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateContainerVisual() (*IContainerVisual, error) {
+	result := new(*IContainerVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3155,46 +3089,41 @@ func (self *ICompositor) CreateContainerVisual() (*syswinrt.IInspectable, error)
 // slot 10: CreateCubicBezierEasingFunction skipped: by-value Windows.Foundation.Numerics.Vector2 parameter controlPoint1 does not flatten to one integer word
 
 // CreateEffectFactory dispatches through ICompositor's vtable slot 11.
-// The return value's class Windows.UI.Composition.CompositionEffectFactory is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateEffectFactory(graphicsEffect *graphicseffects.IGraphicsEffect) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateEffectFactory(graphicsEffect *graphicseffects.IGraphicsEffect) (*ICompositionEffectFactory, error) {
+	result := new(*ICompositionEffectFactory)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(graphicsEffect)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateEffectFactoryWithProperties dispatches through ICompositor's vtable slot 12.
-// The return value's class Windows.UI.Composition.CompositionEffectFactory is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateEffectFactoryWithProperties(graphicsEffect *graphicseffects.IGraphicsEffect, animatableProperties *IIterableOfString) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateEffectFactoryWithProperties(graphicsEffect *graphicseffects.IGraphicsEffect, animatableProperties *IIterableOfString) (*ICompositionEffectFactory, error) {
+	result := new(*ICompositionEffectFactory)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(graphicsEffect)), uintptr(unsafe.Pointer(animatableProperties)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateExpressionAnimation dispatches through ICompositor's vtable slot 13.
-// The return value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateExpressionAnimation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateExpressionAnimation() (*IExpressionAnimation, error) {
+	result := new(*IExpressionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateExpressionAnimationWithExpression dispatches through ICompositor's vtable slot 14.
-// The return value's class Windows.UI.Composition.ExpressionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateExpressionAnimationWithExpression(expression string) (*syswinrt.IInspectable, error) {
+func (self *ICompositor) CreateExpressionAnimationWithExpression(expression string) (*IExpressionAnimation, error) {
 	hExpression, err := winrt.NewHString(expression)
 	if err != nil {
 		return nil, err
 	}
 	defer hExpression.Close()
-	result := new(*syswinrt.IInspectable)
+	result := new(*IExpressionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(hExpression.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateInsetClip dispatches through ICompositor's vtable slot 15.
-// The return value's class Windows.UI.Composition.InsetClip is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateInsetClip() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateInsetClip() (*IInsetClip, error) {
+	result := new(*IInsetClip)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3202,105 +3131,92 @@ func (self *ICompositor) CreateInsetClip() (*syswinrt.IInspectable, error) {
 // slot 16: CreateInsetClip skipped: float32 parameter leftInset cannot cross SyscallN
 
 // CreateLinearEasingFunction dispatches through ICompositor's vtable slot 17.
-// The return value's class Windows.UI.Composition.LinearEasingFunction is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateLinearEasingFunction() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateLinearEasingFunction() (*ILinearEasingFunction, error) {
+	result := new(*ILinearEasingFunction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreatePropertySet dispatches through ICompositor's vtable slot 18.
-// The return value's class Windows.UI.Composition.CompositionPropertySet is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreatePropertySet() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreatePropertySet() (*ICompositionPropertySet, error) {
+	result := new(*ICompositionPropertySet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateQuaternionKeyFrameAnimation dispatches through ICompositor's vtable slot 19.
-// The return value's class Windows.UI.Composition.QuaternionKeyFrameAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateQuaternionKeyFrameAnimation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateQuaternionKeyFrameAnimation() (*IQuaternionKeyFrameAnimation, error) {
+	result := new(*IQuaternionKeyFrameAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateScalarKeyFrameAnimation dispatches through ICompositor's vtable slot 20.
-// The return value's class Windows.UI.Composition.ScalarKeyFrameAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateScalarKeyFrameAnimation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateScalarKeyFrameAnimation() (*IScalarKeyFrameAnimation, error) {
+	result := new(*IScalarKeyFrameAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateScopedBatch dispatches through ICompositor's vtable slot 21.
-// The return value's class Windows.UI.Composition.CompositionScopedBatch is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateScopedBatch(batchType CompositionBatchTypes) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateScopedBatch(batchType CompositionBatchTypes) (*ICompositionScopedBatch, error) {
+	result := new(*ICompositionScopedBatch)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(batchType), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateSpriteVisual dispatches through ICompositor's vtable slot 22.
-// The return value's class Windows.UI.Composition.SpriteVisual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateSpriteVisual() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateSpriteVisual() (*ISpriteVisual, error) {
+	result := new(*ISpriteVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateSurfaceBrush dispatches through ICompositor's vtable slot 23.
-// The return value's class Windows.UI.Composition.CompositionSurfaceBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateSurfaceBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateSurfaceBrush() (*ICompositionSurfaceBrush, error) {
+	result := new(*ICompositionSurfaceBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateSurfaceBrushWithSurface dispatches through ICompositor's vtable slot 24.
-// The return value's class Windows.UI.Composition.CompositionSurfaceBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateSurfaceBrushWithSurface(surface *ICompositionSurface) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateSurfaceBrushWithSurface(surface *ICompositionSurface) (*ICompositionSurfaceBrush, error) {
+	result := new(*ICompositionSurfaceBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(surface)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateTargetForCurrentView dispatches through ICompositor's vtable slot 25.
-// The return value's class Windows.UI.Composition.CompositionTarget is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateTargetForCurrentView() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateTargetForCurrentView() (*ICompositionTarget, error) {
+	result := new(*ICompositionTarget)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateVector2KeyFrameAnimation dispatches through ICompositor's vtable slot 26.
-// The return value's class Windows.UI.Composition.Vector2KeyFrameAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateVector2KeyFrameAnimation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateVector2KeyFrameAnimation() (*IVector2KeyFrameAnimation, error) {
+	result := new(*IVector2KeyFrameAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateVector3KeyFrameAnimation dispatches through ICompositor's vtable slot 27.
-// The return value's class Windows.UI.Composition.Vector3KeyFrameAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateVector3KeyFrameAnimation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateVector3KeyFrameAnimation() (*IVector3KeyFrameAnimation, error) {
+	result := new(*IVector3KeyFrameAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[27], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateVector4KeyFrameAnimation dispatches through ICompositor's vtable slot 28.
-// The return value's class Windows.UI.Composition.Vector4KeyFrameAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) CreateVector4KeyFrameAnimation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) CreateVector4KeyFrameAnimation() (*IVector4KeyFrameAnimation, error) {
+	result := new(*IVector4KeyFrameAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetCommitBatch dispatches through ICompositor's vtable slot 29.
-// The return value's class Windows.UI.Composition.CompositionCommitBatch is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor) GetCommitBatch(batchType CompositionBatchTypes) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor) GetCommitBatch(batchType CompositionBatchTypes) (*ICompositionCommitBatch, error) {
+	result := new(*ICompositionCommitBatch)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(batchType), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3316,105 +3232,92 @@ type ICompositor2 struct {
 var IID_ICompositor2 = win32.GUID{Data1: 0x735081dc, Data2: 0x5e24, Data3: 0x45da, Data4: [8]byte{0xa3, 0x8f, 0xe3, 0x2c, 0xc3, 0x49, 0xa9, 0xa0}}
 
 // CreateAmbientLight dispatches through ICompositor2's vtable slot 6.
-// The return value's class Windows.UI.Composition.AmbientLight is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateAmbientLight() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateAmbientLight() (*IAmbientLight, error) {
+	result := new(*IAmbientLight)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateAnimationGroup dispatches through ICompositor2's vtable slot 7.
-// The return value's class Windows.UI.Composition.CompositionAnimationGroup is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateAnimationGroup() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateAnimationGroup() (*ICompositionAnimationGroup, error) {
+	result := new(*ICompositionAnimationGroup)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateBackdropBrush dispatches through ICompositor2's vtable slot 8.
-// The return value's class Windows.UI.Composition.CompositionBackdropBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateBackdropBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateBackdropBrush() (*ICompositionBackdropBrush, error) {
+	result := new(*ICompositionBackdropBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateDistantLight dispatches through ICompositor2's vtable slot 9.
-// The return value's class Windows.UI.Composition.DistantLight is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateDistantLight() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateDistantLight() (*IDistantLight, error) {
+	result := new(*IDistantLight)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateDropShadow dispatches through ICompositor2's vtable slot 10.
-// The return value's class Windows.UI.Composition.DropShadow is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateDropShadow() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateDropShadow() (*IDropShadow, error) {
+	result := new(*IDropShadow)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateImplicitAnimationCollection dispatches through ICompositor2's vtable slot 11.
-// The return value's class Windows.UI.Composition.ImplicitAnimationCollection is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateImplicitAnimationCollection() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateImplicitAnimationCollection() (*IImplicitAnimationCollection, error) {
+	result := new(*IImplicitAnimationCollection)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateLayerVisual dispatches through ICompositor2's vtable slot 12.
-// The return value's class Windows.UI.Composition.LayerVisual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateLayerVisual() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateLayerVisual() (*ILayerVisual, error) {
+	result := new(*ILayerVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateMaskBrush dispatches through ICompositor2's vtable slot 13.
-// The return value's class Windows.UI.Composition.CompositionMaskBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateMaskBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateMaskBrush() (*ICompositionMaskBrush, error) {
+	result := new(*ICompositionMaskBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateNineGridBrush dispatches through ICompositor2's vtable slot 14.
-// The return value's class Windows.UI.Composition.CompositionNineGridBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateNineGridBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateNineGridBrush() (*ICompositionNineGridBrush, error) {
+	result := new(*ICompositionNineGridBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreatePointLight dispatches through ICompositor2's vtable slot 15.
-// The return value's class Windows.UI.Composition.PointLight is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreatePointLight() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreatePointLight() (*IPointLight, error) {
+	result := new(*IPointLight)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateSpotLight dispatches through ICompositor2's vtable slot 16.
-// The return value's class Windows.UI.Composition.SpotLight is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateSpotLight() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateSpotLight() (*ISpotLight, error) {
+	result := new(*ISpotLight)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateStepEasingFunction dispatches through ICompositor2's vtable slot 17.
-// The return value's class Windows.UI.Composition.StepEasingFunction is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateStepEasingFunction() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateStepEasingFunction() (*IStepEasingFunction, error) {
+	result := new(*IStepEasingFunction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateStepEasingFunctionWithStepCount dispatches through ICompositor2's vtable slot 18.
-// The return value's class Windows.UI.Composition.StepEasingFunction is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor2) CreateStepEasingFunctionWithStepCount(stepCount int32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor2) CreateStepEasingFunctionWithStepCount(stepCount int32) (*IStepEasingFunction, error) {
+	result := new(*IStepEasingFunction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(stepCount), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3430,9 +3333,8 @@ type ICompositor3 struct {
 var IID_ICompositor3 = win32.GUID{Data1: 0xc9dd8ef0, Data2: 0x6eb1, Data3: 0x4e3c, Data4: [8]byte{0xa6, 0x58, 0x67, 0x5d, 0x9c, 0x64, 0xd4, 0xab}}
 
 // CreateHostBackdropBrush dispatches through ICompositor3's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionBackdropBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor3) CreateHostBackdropBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor3) CreateHostBackdropBrush() (*ICompositionBackdropBrush, error) {
+	result := new(*ICompositionBackdropBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3448,9 +3350,8 @@ type ICompositor4 struct {
 var IID_ICompositor4 = win32.GUID{Data1: 0xae47e78a, Data2: 0x7910, Data3: 0x4425, Data4: [8]byte{0xa4, 0x82, 0xa0, 0x5b, 0x75, 0x8a, 0xdc, 0xe9}}
 
 // CreateColorGradientStop dispatches through ICompositor4's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionColorGradientStop is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor4) CreateColorGradientStop() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor4) CreateColorGradientStop() (*ICompositionColorGradientStop, error) {
+	result := new(*ICompositionColorGradientStop)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3458,33 +3359,29 @@ func (self *ICompositor4) CreateColorGradientStop() (*syswinrt.IInspectable, err
 // slot 7: CreateColorGradientStop skipped: float32 parameter offset cannot cross SyscallN
 
 // CreateLinearGradientBrush dispatches through ICompositor4's vtable slot 8.
-// The return value's class Windows.UI.Composition.CompositionLinearGradientBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor4) CreateLinearGradientBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor4) CreateLinearGradientBrush() (*ICompositionLinearGradientBrush, error) {
+	result := new(*ICompositionLinearGradientBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateSpringScalarAnimation dispatches through ICompositor4's vtable slot 9.
-// The return value's class Windows.UI.Composition.SpringScalarNaturalMotionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor4) CreateSpringScalarAnimation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor4) CreateSpringScalarAnimation() (*ISpringScalarNaturalMotionAnimation, error) {
+	result := new(*ISpringScalarNaturalMotionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateSpringVector2Animation dispatches through ICompositor4's vtable slot 10.
-// The return value's class Windows.UI.Composition.SpringVector2NaturalMotionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor4) CreateSpringVector2Animation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor4) CreateSpringVector2Animation() (*ISpringVector2NaturalMotionAnimation, error) {
+	result := new(*ISpringVector2NaturalMotionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateSpringVector3Animation dispatches through ICompositor4's vtable slot 11.
-// The return value's class Windows.UI.Composition.SpringVector3NaturalMotionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor4) CreateSpringVector3Animation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor4) CreateSpringVector3Animation() (*ISpringVector3NaturalMotionAnimation, error) {
+	result := new(*ISpringVector3NaturalMotionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3525,122 +3422,106 @@ func (self *ICompositor5) SetComment(value string) error {
 // slot 9: put_GlobalPlaybackRate skipped: float32 parameter value cannot cross SyscallN
 
 // CreateBounceScalarAnimation dispatches through ICompositor5's vtable slot 10.
-// The return value's class Windows.UI.Composition.BounceScalarNaturalMotionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateBounceScalarAnimation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateBounceScalarAnimation() (*IBounceScalarNaturalMotionAnimation, error) {
+	result := new(*IBounceScalarNaturalMotionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateBounceVector2Animation dispatches through ICompositor5's vtable slot 11.
-// The return value's class Windows.UI.Composition.BounceVector2NaturalMotionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateBounceVector2Animation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateBounceVector2Animation() (*IBounceVector2NaturalMotionAnimation, error) {
+	result := new(*IBounceVector2NaturalMotionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateBounceVector3Animation dispatches through ICompositor5's vtable slot 12.
-// The return value's class Windows.UI.Composition.BounceVector3NaturalMotionAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateBounceVector3Animation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateBounceVector3Animation() (*IBounceVector3NaturalMotionAnimation, error) {
+	result := new(*IBounceVector3NaturalMotionAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateContainerShape dispatches through ICompositor5's vtable slot 13.
-// The return value's class Windows.UI.Composition.CompositionContainerShape is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateContainerShape() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateContainerShape() (*ICompositionContainerShape, error) {
+	result := new(*ICompositionContainerShape)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateEllipseGeometry dispatches through ICompositor5's vtable slot 14.
-// The return value's class Windows.UI.Composition.CompositionEllipseGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateEllipseGeometry() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateEllipseGeometry() (*ICompositionEllipseGeometry, error) {
+	result := new(*ICompositionEllipseGeometry)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateLineGeometry dispatches through ICompositor5's vtable slot 15.
-// The return value's class Windows.UI.Composition.CompositionLineGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateLineGeometry() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateLineGeometry() (*ICompositionLineGeometry, error) {
+	result := new(*ICompositionLineGeometry)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreatePathGeometry dispatches through ICompositor5's vtable slot 16.
-// The return value's class Windows.UI.Composition.CompositionPathGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreatePathGeometry() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreatePathGeometry() (*ICompositionPathGeometry, error) {
+	result := new(*ICompositionPathGeometry)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreatePathGeometryWithPath dispatches through ICompositor5's vtable slot 17.
-// The return value's class Windows.UI.Composition.CompositionPathGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreatePathGeometryWithPath(path *ICompositionPath) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreatePathGeometryWithPath(path *ICompositionPath) (*ICompositionPathGeometry, error) {
+	result := new(*ICompositionPathGeometry)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(path)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreatePathKeyFrameAnimation dispatches through ICompositor5's vtable slot 18.
-// The return value's class Windows.UI.Composition.PathKeyFrameAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreatePathKeyFrameAnimation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreatePathKeyFrameAnimation() (*IPathKeyFrameAnimation, error) {
+	result := new(*IPathKeyFrameAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateRectangleGeometry dispatches through ICompositor5's vtable slot 19.
-// The return value's class Windows.UI.Composition.CompositionRectangleGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateRectangleGeometry() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateRectangleGeometry() (*ICompositionRectangleGeometry, error) {
+	result := new(*ICompositionRectangleGeometry)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[19], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateRoundedRectangleGeometry dispatches through ICompositor5's vtable slot 20.
-// The return value's class Windows.UI.Composition.CompositionRoundedRectangleGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateRoundedRectangleGeometry() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateRoundedRectangleGeometry() (*ICompositionRoundedRectangleGeometry, error) {
+	result := new(*ICompositionRoundedRectangleGeometry)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateShapeVisual dispatches through ICompositor5's vtable slot 21.
-// The return value's class Windows.UI.Composition.ShapeVisual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateShapeVisual() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateShapeVisual() (*IShapeVisual, error) {
+	result := new(*IShapeVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateSpriteShape dispatches through ICompositor5's vtable slot 22.
-// The return value's class Windows.UI.Composition.CompositionSpriteShape is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateSpriteShape() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateSpriteShape() (*ICompositionSpriteShape, error) {
+	result := new(*ICompositionSpriteShape)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateSpriteShapeWithGeometry dispatches through ICompositor5's vtable slot 23.
-// The return value's class Windows.UI.Composition.CompositionSpriteShape is projected as IInspectable (the class is not emitted this wave).
-// Parameter geometry's class Windows.UI.Composition.CompositionGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateSpriteShapeWithGeometry(geometry *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateSpriteShapeWithGeometry(geometry *ICompositionGeometry) (*ICompositionSpriteShape, error) {
+	result := new(*ICompositionSpriteShape)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(geometry)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateViewBox dispatches through ICompositor5's vtable slot 24.
-// The return value's class Windows.UI.Composition.CompositionViewBox is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor5) CreateViewBox() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor5) CreateViewBox() (*ICompositionViewBox, error) {
+	result := new(*ICompositionViewBox)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3663,43 +3544,36 @@ type ICompositor6 struct {
 var IID_ICompositor6 = win32.GUID{Data1: 0x7a38b2bd, Data2: 0xcec8, Data3: 0x4eeb, Data4: [8]byte{0x83, 0x0f, 0xd8, 0xd0, 0x7a, 0xed, 0xeb, 0xc3}}
 
 // CreateGeometricClip dispatches through ICompositor6's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionGeometricClip is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor6) CreateGeometricClip() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor6) CreateGeometricClip() (*ICompositionGeometricClip, error) {
+	result := new(*ICompositionGeometricClip)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateGeometricClipWithGeometry dispatches through ICompositor6's vtable slot 7.
-// The return value's class Windows.UI.Composition.CompositionGeometricClip is projected as IInspectable (the class is not emitted this wave).
-// Parameter geometry's class Windows.UI.Composition.CompositionGeometry is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor6) CreateGeometricClipWithGeometry(geometry *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor6) CreateGeometricClipWithGeometry(geometry *ICompositionGeometry) (*ICompositionGeometricClip, error) {
+	result := new(*ICompositionGeometricClip)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(geometry)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateRedirectVisual dispatches through ICompositor6's vtable slot 8.
-// The return value's class Windows.UI.Composition.RedirectVisual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor6) CreateRedirectVisual() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor6) CreateRedirectVisual() (*IRedirectVisual, error) {
+	result := new(*IRedirectVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateRedirectVisualWithSourceVisual dispatches through ICompositor6's vtable slot 9.
-// The return value's class Windows.UI.Composition.RedirectVisual is projected as IInspectable (the class is not emitted this wave).
-// Parameter source's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor6) CreateRedirectVisualWithSourceVisual(source *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor6) CreateRedirectVisualWithSourceVisual(source *IVisual) (*IRedirectVisual, error) {
+	result := new(*IRedirectVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(source)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateBooleanKeyFrameAnimation dispatches through ICompositor6's vtable slot 10.
-// The return value's class Windows.UI.Composition.BooleanKeyFrameAnimation is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor6) CreateBooleanKeyFrameAnimation() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor6) CreateBooleanKeyFrameAnimation() (*IBooleanKeyFrameAnimation, error) {
+	result := new(*IBooleanKeyFrameAnimation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3722,17 +3596,15 @@ func (self *ICompositor7) DispatcherQueue() (*system.IDispatcherQueue, error) {
 }
 
 // CreateAnimationPropertyInfo dispatches through ICompositor7's vtable slot 7.
-// The return value's class Windows.UI.Composition.AnimationPropertyInfo is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor7) CreateAnimationPropertyInfo() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor7) CreateAnimationPropertyInfo() (*IAnimationPropertyInfo, error) {
+	result := new(*IAnimationPropertyInfo)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateRectangleClip dispatches through ICompositor7's vtable slot 8.
-// The return value's class Windows.UI.Composition.RectangleClip is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor7) CreateRectangleClip() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor7) CreateRectangleClip() (*IRectangleClip, error) {
+	result := new(*IRectangleClip)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3752,9 +3624,8 @@ type ICompositor8 struct {
 var IID_ICompositor8 = win32.GUID{Data1: 0x9a0bdee2, Data2: 0xfe7b, Data3: 0x5f62, Data4: [8]byte{0xa3, 0x66, 0x9c, 0xf8, 0xef, 0xfe, 0x21, 0x12}}
 
 // CreateAnimationController dispatches through ICompositor8's vtable slot 6.
-// The return value's class Windows.UI.Composition.AnimationController is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositor8) CreateAnimationController() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositor8) CreateAnimationController() (*IAnimationController, error) {
+	result := new(*IAnimationController)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3784,9 +3655,8 @@ type ICompositorWithBlurredWallpaperBackdropBrush struct {
 var IID_ICompositorWithBlurredWallpaperBackdropBrush = win32.GUID{Data1: 0x0d8fb190, Data2: 0xf122, Data3: 0x5b8d, Data4: [8]byte{0x9f, 0xdd, 0x54, 0x3b, 0x0d, 0x8e, 0xb7, 0xf3}}
 
 // TryCreateBlurredWallpaperBackdropBrush dispatches through ICompositorWithBlurredWallpaperBackdropBrush's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionBackdropBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositorWithBlurredWallpaperBackdropBrush) TryCreateBlurredWallpaperBackdropBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositorWithBlurredWallpaperBackdropBrush) TryCreateBlurredWallpaperBackdropBrush() (*ICompositionBackdropBrush, error) {
+	result := new(*ICompositionBackdropBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3802,25 +3672,22 @@ type ICompositorWithProjectedShadow struct {
 var IID_ICompositorWithProjectedShadow = win32.GUID{Data1: 0xa2e6330e, Data2: 0x8a60, Data3: 0x5a38, Data4: [8]byte{0xbb, 0x85, 0xb4, 0x4e, 0xa9, 0x01, 0x67, 0x7c}}
 
 // CreateProjectedShadowCaster dispatches through ICompositorWithProjectedShadow's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionProjectedShadowCaster is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositorWithProjectedShadow) CreateProjectedShadowCaster() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositorWithProjectedShadow) CreateProjectedShadowCaster() (*ICompositionProjectedShadowCaster, error) {
+	result := new(*ICompositionProjectedShadowCaster)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateProjectedShadow dispatches through ICompositorWithProjectedShadow's vtable slot 7.
-// The return value's class Windows.UI.Composition.CompositionProjectedShadow is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositorWithProjectedShadow) CreateProjectedShadow() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositorWithProjectedShadow) CreateProjectedShadow() (*ICompositionProjectedShadow, error) {
+	result := new(*ICompositionProjectedShadow)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateProjectedShadowReceiver dispatches through ICompositorWithProjectedShadow's vtable slot 8.
-// The return value's class Windows.UI.Composition.CompositionProjectedShadowReceiver is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositorWithProjectedShadow) CreateProjectedShadowReceiver() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositorWithProjectedShadow) CreateProjectedShadowReceiver() (*ICompositionProjectedShadowReceiver, error) {
+	result := new(*ICompositionProjectedShadowReceiver)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3836,9 +3703,8 @@ type ICompositorWithRadialGradient struct {
 var IID_ICompositorWithRadialGradient = win32.GUID{Data1: 0x98b9c1a7, Data2: 0x8e71, Data3: 0x4b53, Data4: [8]byte{0xb4, 0xa8, 0x69, 0xba, 0x5d, 0x19, 0xdc, 0x5b}}
 
 // CreateRadialGradientBrush dispatches through ICompositorWithRadialGradient's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionRadialGradientBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositorWithRadialGradient) CreateRadialGradientBrush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositorWithRadialGradient) CreateRadialGradientBrush() (*ICompositionRadialGradientBrush, error) {
+	result := new(*ICompositionRadialGradientBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3854,9 +3720,8 @@ type ICompositorWithVisualSurface struct {
 var IID_ICompositorWithVisualSurface = win32.GUID{Data1: 0xcfa1658b, Data2: 0x0123, Data3: 0x4551, Data4: [8]byte{0x88, 0x91, 0x89, 0xbd, 0xcc, 0x40, 0x32, 0x2b}}
 
 // CreateVisualSurface dispatches through ICompositorWithVisualSurface's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionVisualSurface is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositorWithVisualSurface) CreateVisualSurface() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICompositorWithVisualSurface) CreateVisualSurface() (*ICompositionVisualSurface, error) {
+	result := new(*ICompositionVisualSurface)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3872,9 +3737,8 @@ type IContainerVisual struct {
 var IID_IContainerVisual = win32.GUID{Data1: 0x02f6bc74, Data2: 0xed20, Data3: 0x4773, Data4: [8]byte{0xaf, 0xe6, 0xd4, 0x9b, 0x4a, 0x93, 0xdb, 0x32}}
 
 // Children (propget get_Children) dispatches through IContainerVisual's vtable slot 6.
-// The return value's class Windows.UI.Composition.VisualCollection is projected as IInspectable (the class is not emitted this wave).
-func (self *IContainerVisual) Children() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IContainerVisual) Children() (*IVisualCollection, error) {
+	result := new(*IVisualCollection)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3946,17 +3810,15 @@ type IDelegatedInkTrailVisualStatics struct {
 var IID_IDelegatedInkTrailVisualStatics = win32.GUID{Data1: 0x0daf6bd5, Data2: 0x42c6, Data3: 0x555c, Data4: [8]byte{0x92, 0x67, 0xe0, 0xac, 0x66, 0x3a, 0xf8, 0x36}}
 
 // Create dispatches through IDelegatedInkTrailVisualStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.DelegatedInkTrailVisual is projected as IInspectable (the class is not emitted this wave).
-func (self *IDelegatedInkTrailVisualStatics) Create(compositor *ICompositor) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IDelegatedInkTrailVisualStatics) Create(compositor *ICompositor) (*IDelegatedInkTrailVisual, error) {
+	result := new(*IDelegatedInkTrailVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateForSwapChain dispatches through IDelegatedInkTrailVisualStatics's vtable slot 7.
-// The return value's class Windows.UI.Composition.DelegatedInkTrailVisual is projected as IInspectable (the class is not emitted this wave).
-func (self *IDelegatedInkTrailVisualStatics) CreateForSwapChain(compositor *ICompositor, swapChain *ICompositionSurface) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IDelegatedInkTrailVisualStatics) CreateForSwapChain(compositor *ICompositor, swapChain *ICompositionSurface) (*IDelegatedInkTrailVisual, error) {
+	result := new(*IDelegatedInkTrailVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(compositor)), uintptr(unsafe.Pointer(swapChain)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3981,16 +3843,14 @@ func (self *IDistantLight) Color() (ui.Color, error) {
 // slot 7: put_Color skipped: by-value Windows.UI.Color parameter value does not flatten to one integer word
 
 // CoordinateSpace (propget get_CoordinateSpace) dispatches through IDistantLight's vtable slot 8.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IDistantLight) CoordinateSpace() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IDistantLight) CoordinateSpace() (*IVisual, error) {
+	result := new(*IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCoordinateSpace (propput put_CoordinateSpace) dispatches through IDistantLight's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IDistantLight) SetCoordinateSpace(value *syswinrt.IInspectable) error {
+func (self *IDistantLight) SetCoordinateSpace(value *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4042,16 +3902,14 @@ func (self *IDropShadow) Color() (ui.Color, error) {
 // slot 9: put_Color skipped: by-value Windows.UI.Color parameter value does not flatten to one integer word
 
 // Mask (propget get_Mask) dispatches through IDropShadow's vtable slot 10.
-// The return value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *IDropShadow) Mask() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IDropShadow) Mask() (*ICompositionBrush, error) {
+	result := new(*ICompositionBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetMask (propput put_Mask) dispatches through IDropShadow's vtable slot 11.
-// Parameter value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *IDropShadow) SetMask(value *syswinrt.IInspectable) error {
+func (self *IDropShadow) SetMask(value *ICompositionBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4357,16 +4215,14 @@ type ILayerVisual struct {
 var IID_ILayerVisual = win32.GUID{Data1: 0xaf843985, Data2: 0x0444, Data3: 0x4887, Data4: [8]byte{0x8e, 0x83, 0xb4, 0x0b, 0x25, 0x3f, 0x82, 0x2c}}
 
 // Effect (propget get_Effect) dispatches through ILayerVisual's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionEffectBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ILayerVisual) Effect() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ILayerVisual) Effect() (*ICompositionEffectBrush, error) {
+	result := new(*ICompositionEffectBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetEffect (propput put_Effect) dispatches through ILayerVisual's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.CompositionEffectBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ILayerVisual) SetEffect(value *syswinrt.IInspectable) error {
+func (self *ILayerVisual) SetEffect(value *ICompositionEffectBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4382,16 +4238,14 @@ type ILayerVisual2 struct {
 var IID_ILayerVisual2 = win32.GUID{Data1: 0x98f9aeeb, Data2: 0x6f23, Data3: 0x49f1, Data4: [8]byte{0x90, 0xb1, 0x1f, 0x59, 0xa1, 0x4f, 0xbc, 0xe3}}
 
 // Shadow (propget get_Shadow) dispatches through ILayerVisual2's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionShadow is projected as IInspectable (the class is not emitted this wave).
-func (self *ILayerVisual2) Shadow() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ILayerVisual2) Shadow() (*ICompositionShadow, error) {
+	result := new(*ICompositionShadow)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetShadow (propput put_Shadow) dispatches through ILayerVisual2's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.CompositionShadow is projected as IInspectable (the class is not emitted this wave).
-func (self *ILayerVisual2) SetShadow(value *syswinrt.IInspectable) error {
+func (self *ILayerVisual2) SetShadow(value *ICompositionShadow) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4503,16 +4357,14 @@ func (self *IPointLight) Color() (ui.Color, error) {
 // slot 9: put_ConstantAttenuation skipped: float32 parameter value cannot cross SyscallN
 
 // CoordinateSpace (propget get_CoordinateSpace) dispatches through IPointLight's vtable slot 10.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IPointLight) CoordinateSpace() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPointLight) CoordinateSpace() (*IVisual, error) {
+	result := new(*IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCoordinateSpace (propput put_CoordinateSpace) dispatches through IPointLight's vtable slot 11.
-// Parameter value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IPointLight) SetCoordinateSpace(value *syswinrt.IInspectable) error {
+func (self *IPointLight) SetCoordinateSpace(value *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4672,16 +4524,14 @@ type IRedirectVisual struct {
 var IID_IRedirectVisual = win32.GUID{Data1: 0x8cc6e340, Data2: 0x8b75, Data3: 0x5422, Data4: [8]byte{0xb0, 0x6f, 0x09, 0xff, 0xe9, 0xf8, 0x61, 0x7e}}
 
 // Source (propget get_Source) dispatches through IRedirectVisual's vtable slot 6.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IRedirectVisual) Source() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IRedirectVisual) Source() (*IVisual, error) {
+	result := new(*IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetSource (propput put_Source) dispatches through IRedirectVisual's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IRedirectVisual) SetSource(value *syswinrt.IInspectable) error {
+func (self *IRedirectVisual) SetSource(value *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4697,9 +4547,8 @@ type IRenderingDeviceReplacedEventArgs struct {
 var IID_IRenderingDeviceReplacedEventArgs = win32.GUID{Data1: 0x3a31ac7d, Data2: 0x28bf, Data3: 0x4e7a, Data4: [8]byte{0x85, 0x24, 0x71, 0x67, 0x9d, 0x48, 0x0f, 0x38}}
 
 // GraphicsDevice (propget get_GraphicsDevice) dispatches through IRenderingDeviceReplacedEventArgs's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionGraphicsDevice is projected as IInspectable (the class is not emitted this wave).
-func (self *IRenderingDeviceReplacedEventArgs) GraphicsDevice() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IRenderingDeviceReplacedEventArgs) GraphicsDevice() (*ICompositionGraphicsDevice, error) {
+	result := new(*ICompositionGraphicsDevice)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -4779,7 +4628,7 @@ type IShapeVisual struct {
 var IID_IShapeVisual = win32.GUID{Data1: 0xf2bd13c3, Data2: 0xba7e, Data3: 0x4b0f, Data4: [8]byte{0x91, 0x26, 0xff, 0xb7, 0x53, 0x6b, 0x81, 0x76}}
 
 // Shapes (propget get_Shapes) dispatches through IShapeVisual's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionShapeCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Composition.CompositionShapeCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IShapeVisual) Shapes() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -4787,16 +4636,14 @@ func (self *IShapeVisual) Shapes() (*syswinrt.IInspectable, error) {
 }
 
 // ViewBox (propget get_ViewBox) dispatches through IShapeVisual's vtable slot 7.
-// The return value's class Windows.UI.Composition.CompositionViewBox is projected as IInspectable (the class is not emitted this wave).
-func (self *IShapeVisual) ViewBox() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IShapeVisual) ViewBox() (*ICompositionViewBox, error) {
+	result := new(*ICompositionViewBox)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetViewBox (propput put_ViewBox) dispatches through IShapeVisual's vtable slot 8.
-// Parameter value's class Windows.UI.Composition.CompositionViewBox is projected as IInspectable (the class is not emitted this wave).
-func (self *IShapeVisual) SetViewBox(value *syswinrt.IInspectable) error {
+func (self *IShapeVisual) SetViewBox(value *ICompositionViewBox) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4833,16 +4680,14 @@ var IID_ISpotLight = win32.GUID{Data1: 0x5a9fe273, Data2: 0x44a1, Data3: 0x4f95,
 // slot 7: put_ConstantAttenuation skipped: float32 parameter value cannot cross SyscallN
 
 // CoordinateSpace (propget get_CoordinateSpace) dispatches through ISpotLight's vtable slot 8.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ISpotLight) CoordinateSpace() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISpotLight) CoordinateSpace() (*IVisual, error) {
+	result := new(*IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCoordinateSpace (propput put_CoordinateSpace) dispatches through ISpotLight's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ISpotLight) SetCoordinateSpace(value *syswinrt.IInspectable) error {
+func (self *ISpotLight) SetCoordinateSpace(value *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -5035,16 +4880,14 @@ type ISpriteVisual struct {
 var IID_ISpriteVisual = win32.GUID{Data1: 0x08e05581, Data2: 0x1ad1, Data3: 0x4f97, Data4: [8]byte{0x97, 0x57, 0x40, 0x2d, 0x76, 0xe4, 0x23, 0x3b}}
 
 // Brush (propget get_Brush) dispatches through ISpriteVisual's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ISpriteVisual) Brush() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISpriteVisual) Brush() (*ICompositionBrush, error) {
+	result := new(*ICompositionBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetBrush (propput put_Brush) dispatches through ISpriteVisual's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *ISpriteVisual) SetBrush(value *syswinrt.IInspectable) error {
+func (self *ISpriteVisual) SetBrush(value *ICompositionBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -5060,16 +4903,14 @@ type ISpriteVisual2 struct {
 var IID_ISpriteVisual2 = win32.GUID{Data1: 0x588c9664, Data2: 0x997a, Data3: 0x4850, Data4: [8]byte{0x91, 0xfe, 0x53, 0xcb, 0x58, 0xf8, 0x1c, 0xe9}}
 
 // Shadow (propget get_Shadow) dispatches through ISpriteVisual2's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionShadow is projected as IInspectable (the class is not emitted this wave).
-func (self *ISpriteVisual2) Shadow() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISpriteVisual2) Shadow() (*ICompositionShadow, error) {
+	result := new(*ICompositionShadow)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetShadow (propput put_Shadow) dispatches through ISpriteVisual2's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.CompositionShadow is projected as IInspectable (the class is not emitted this wave).
-func (self *ISpriteVisual2) SetShadow(value *syswinrt.IInspectable) error {
+func (self *ISpriteVisual2) SetShadow(value *ICompositionShadow) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -5364,16 +5205,14 @@ func (self *IVisual) CenterPoint() (foundationnumerics.Vector3, error) {
 // slot 13: put_CenterPoint skipped: by-value Windows.Foundation.Numerics.Vector3 parameter value does not flatten to one integer word
 
 // Clip (propget get_Clip) dispatches through IVisual's vtable slot 14.
-// The return value's class Windows.UI.Composition.CompositionClip is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisual) Clip() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisual) Clip() (*ICompositionClip, error) {
+	result := new(*ICompositionClip)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetClip (propput put_Clip) dispatches through IVisual's vtable slot 15.
-// Parameter value's class Windows.UI.Composition.CompositionClip is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisual) SetClip(value *syswinrt.IInspectable) error {
+func (self *IVisual) SetClip(value *ICompositionClip) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[15], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -5431,9 +5270,8 @@ func (self *IVisual) Orientation() (foundationnumerics.Quaternion, error) {
 // slot 25: put_Orientation skipped: by-value Windows.Foundation.Numerics.Quaternion parameter value does not flatten to one integer word
 
 // Parent (propget get_Parent) dispatches through IVisual's vtable slot 26.
-// The return value's class Windows.UI.Composition.ContainerVisual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisual) Parent() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisual) Parent() (*IContainerVisual, error) {
+	result := new(*IContainerVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[26], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -5493,16 +5331,14 @@ type IVisual2 struct {
 var IID_IVisual2 = win32.GUID{Data1: 0x3052b611, Data2: 0x56c3, Data3: 0x4c3e, Data4: [8]byte{0x8b, 0xf3, 0xf6, 0xe1, 0xad, 0x47, 0x3f, 0x06}}
 
 // ParentForTransform (propget get_ParentForTransform) dispatches through IVisual2's vtable slot 6.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisual2) ParentForTransform() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisual2) ParentForTransform() (*IVisual, error) {
+	result := new(*IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetParentForTransform (propput put_ParentForTransform) dispatches through IVisual2's vtable slot 7.
-// Parameter value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisual2) SetParentForTransform(value *syswinrt.IInspectable) error {
+func (self *IVisual2) SetParentForTransform(value *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -5597,38 +5433,31 @@ func (self *IVisualCollection) Count() (int32, error) {
 }
 
 // InsertAbove dispatches through IVisualCollection's vtable slot 7.
-// Parameter newChild's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-// Parameter sibling's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualCollection) InsertAbove(newChild *syswinrt.IInspectable, sibling *syswinrt.IInspectable) error {
+func (self *IVisualCollection) InsertAbove(newChild *IVisual, sibling *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newChild)), uintptr(unsafe.Pointer(sibling)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAtBottom dispatches through IVisualCollection's vtable slot 8.
-// Parameter newChild's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualCollection) InsertAtBottom(newChild *syswinrt.IInspectable) error {
+func (self *IVisualCollection) InsertAtBottom(newChild *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newChild)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAtTop dispatches through IVisualCollection's vtable slot 9.
-// Parameter newChild's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualCollection) InsertAtTop(newChild *syswinrt.IInspectable) error {
+func (self *IVisualCollection) InsertAtTop(newChild *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newChild)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertBelow dispatches through IVisualCollection's vtable slot 10.
-// Parameter newChild's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-// Parameter sibling's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualCollection) InsertBelow(newChild *syswinrt.IInspectable, sibling *syswinrt.IInspectable) error {
+func (self *IVisualCollection) InsertBelow(newChild *IVisual, sibling *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newChild)), uintptr(unsafe.Pointer(sibling)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Remove dispatches through IVisualCollection's vtable slot 11.
-// Parameter child's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualCollection) Remove(child *syswinrt.IInspectable) error {
+func (self *IVisualCollection) Remove(child *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(child)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -5658,9 +5487,8 @@ type IVisualElement2 struct {
 var IID_IVisualElement2 = win32.GUID{Data1: 0x993ae8a0, Data2: 0x6057, Data3: 0x5e40, Data4: [8]byte{0x91, 0x8c, 0xe0, 0x6e, 0x0b, 0x7e, 0x7c, 0x64}}
 
 // GetVisualInternal dispatches through IVisualElement2's vtable slot 6.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualElement2) GetVisualInternal() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisualElement2) GetVisualInternal() (*IVisual, error) {
+	result := new(*IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -5693,15 +5521,13 @@ func (self *IVisualUnorderedCollection) Count() (int32, error) {
 }
 
 // Add dispatches through IVisualUnorderedCollection's vtable slot 7.
-// Parameter newVisual's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualUnorderedCollection) Add(newVisual *syswinrt.IInspectable) error {
+func (self *IVisualUnorderedCollection) Add(newVisual *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(newVisual)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Remove dispatches through IVisualUnorderedCollection's vtable slot 8.
-// Parameter visual's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualUnorderedCollection) Remove(visual *syswinrt.IInspectable) error {
+func (self *IVisualUnorderedCollection) Remove(visual *IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(visual)))
 	return win32.ErrIfFailed(int32(r1))
 }

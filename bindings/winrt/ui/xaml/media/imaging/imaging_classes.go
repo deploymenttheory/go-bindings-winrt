@@ -7,14 +7,323 @@ package imaging
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 )
+
+// BitmapImage is the Windows.UI.Xaml.Media.Imaging.BitmapImage runtime class, surfaced through its
+// default interface IBitmapImage. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BitmapImage struct {
+	IBitmapImage
+}
+
+// NewBitmapImage activates Windows.UI.Xaml.Media.Imaging.BitmapImage through its default
+// constructor.
+func NewBitmapImage() (*BitmapImage, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Imaging.BitmapImage")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[BitmapImage](unsafe.Pointer(instance), &IID_IBitmapImage)
+}
+
+// AsBitmapImage2 queries the instance's IBitmapImage2 interface.
+// The returned reference is owned by the caller.
+func (self *BitmapImage) AsBitmapImage2() (*IBitmapImage2, error) {
+	return winrt.QueryInterface[IBitmapImage2](unsafe.Pointer(self), &IID_IBitmapImage2)
+}
+
+// AsBitmapImage3 queries the instance's IBitmapImage3 interface.
+// The returned reference is owned by the caller.
+func (self *BitmapImage) AsBitmapImage3() (*IBitmapImage3, error) {
+	return winrt.QueryInterface[IBitmapImage3](unsafe.Pointer(self), &IID_IBitmapImage3)
+}
+
+// BitmapImageStatics returns the Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics statics of the
+// Windows.UI.Xaml.Media.Imaging.BitmapImage runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BitmapImageStatics() (*IBitmapImageStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.BitmapImage", &IID_IBitmapImageStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBitmapImageStatics)(unsafe.Pointer(factory)), nil
+}
+
+// BitmapImageStatics2 returns the Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics2 statics of the
+// Windows.UI.Xaml.Media.Imaging.BitmapImage runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BitmapImageStatics2() (*IBitmapImageStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.BitmapImage", &IID_IBitmapImageStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBitmapImageStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// BitmapImageStatics3 returns the Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics3 statics of the
+// Windows.UI.Xaml.Media.Imaging.BitmapImage runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BitmapImageStatics3() (*IBitmapImageStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.BitmapImage", &IID_IBitmapImageStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBitmapImageStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// CreateInstanceWithUriSource constructs a Windows.UI.Xaml.Media.Imaging.BitmapImage instance through
+// Windows.UI.Xaml.Media.Imaging.IBitmapImageFactory.CreateInstanceWithUriSource. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstanceWithUriSource(uriSource *foundation.IUriRuntimeClass) (*BitmapImage, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.BitmapImage", &IID_IBitmapImageFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBitmapImageFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstanceWithUriSource(uriSource)
+	if err != nil {
+		return nil, err
+	}
+	return (*BitmapImage)(unsafe.Pointer(instance)), nil
+}
+
+// BitmapSource is the Windows.UI.Xaml.Media.Imaging.BitmapSource runtime class, surfaced through its
+// default interface IBitmapSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BitmapSource struct {
+	IBitmapSource
+}
+
+// BitmapSourceStatics returns the Windows.UI.Xaml.Media.Imaging.IBitmapSourceStatics statics of the
+// Windows.UI.Xaml.Media.Imaging.BitmapSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BitmapSourceStatics() (*IBitmapSourceStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.BitmapSource", &IID_IBitmapSourceStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBitmapSourceStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewBitmapSource constructs a Windows.UI.Xaml.Media.Imaging.BitmapSource instance through
+// Windows.UI.Xaml.Media.Imaging.IBitmapSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewBitmapSource() (*BitmapSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.BitmapSource", &IID_IBitmapSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBitmapSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*BitmapSource)(unsafe.Pointer(instance)), nil
+}
 
 // DownloadProgressEventArgs is the Windows.UI.Xaml.Media.Imaging.DownloadProgressEventArgs runtime class, surfaced through its
 // default interface IDownloadProgressEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type DownloadProgressEventArgs struct {
 	IDownloadProgressEventArgs
+}
+
+// RenderTargetBitmap is the Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap runtime class, surfaced through its
+// default interface IRenderTargetBitmap. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RenderTargetBitmap struct {
+	IRenderTargetBitmap
+}
+
+// NewRenderTargetBitmap activates Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap through its default
+// constructor.
+func NewRenderTargetBitmap() (*RenderTargetBitmap, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[RenderTargetBitmap](unsafe.Pointer(instance), &IID_IRenderTargetBitmap)
+}
+
+// RenderTargetBitmapStatics returns the Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmapStatics statics of the
+// Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RenderTargetBitmapStatics() (*IRenderTargetBitmapStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap", &IID_IRenderTargetBitmapStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRenderTargetBitmapStatics)(unsafe.Pointer(factory)), nil
+}
+
+// SoftwareBitmapSource is the Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource runtime class, surfaced through its
+// default interface ISoftwareBitmapSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SoftwareBitmapSource struct {
+	ISoftwareBitmapSource
+}
+
+// NewSoftwareBitmapSource activates Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource through its default
+// constructor.
+func NewSoftwareBitmapSource() (*SoftwareBitmapSource, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SoftwareBitmapSource](unsafe.Pointer(instance), &IID_ISoftwareBitmapSource)
+}
+
+// AsClosable queries the instance's foundation.IClosable interface.
+// The returned reference is owned by the caller.
+func (self *SoftwareBitmapSource) AsClosable() (*foundation.IClosable, error) {
+	return winrt.QueryInterface[foundation.IClosable](unsafe.Pointer(self), &foundation.IID_IClosable)
+}
+
+// SurfaceImageSource is the Windows.UI.Xaml.Media.Imaging.SurfaceImageSource runtime class, surfaced through its
+// default interface ISurfaceImageSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SurfaceImageSource struct {
+	ISurfaceImageSource
+}
+
+// NewSurfaceImageSourceWithDimensions constructs a Windows.UI.Xaml.Media.Imaging.SurfaceImageSource instance through
+// Windows.UI.Xaml.Media.Imaging.ISurfaceImageSourceFactory.CreateInstanceWithDimensions with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSurfaceImageSourceWithDimensions(pixelWidth int32, pixelHeight int32) (*SurfaceImageSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.SurfaceImageSource", &IID_ISurfaceImageSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISurfaceImageSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstanceWithDimensions(pixelWidth, pixelHeight, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SurfaceImageSource)(unsafe.Pointer(instance)), nil
+}
+
+// NewSurfaceImageSourceWithDimensionsAndOpacity constructs a Windows.UI.Xaml.Media.Imaging.SurfaceImageSource instance through
+// Windows.UI.Xaml.Media.Imaging.ISurfaceImageSourceFactory.CreateInstanceWithDimensionsAndOpacity with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSurfaceImageSourceWithDimensionsAndOpacity(pixelWidth int32, pixelHeight int32, isOpaque bool) (*SurfaceImageSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.SurfaceImageSource", &IID_ISurfaceImageSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISurfaceImageSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SurfaceImageSource)(unsafe.Pointer(instance)), nil
+}
+
+// SvgImageSource is the Windows.UI.Xaml.Media.Imaging.SvgImageSource runtime class, surfaced through its
+// default interface ISvgImageSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SvgImageSource struct {
+	ISvgImageSource
+}
+
+// SvgImageSourceStatics returns the Windows.UI.Xaml.Media.Imaging.ISvgImageSourceStatics statics of the
+// Windows.UI.Xaml.Media.Imaging.SvgImageSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SvgImageSourceStatics() (*ISvgImageSourceStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.SvgImageSource", &IID_ISvgImageSourceStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISvgImageSourceStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewSvgImageSource constructs a Windows.UI.Xaml.Media.Imaging.SvgImageSource instance through
+// Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSvgImageSource() (*SvgImageSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.SvgImageSource", &IID_ISvgImageSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISvgImageSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SvgImageSource)(unsafe.Pointer(instance)), nil
+}
+
+// NewSvgImageSourceWithUriSource constructs a Windows.UI.Xaml.Media.Imaging.SvgImageSource instance through
+// Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFactory.CreateInstanceWithUriSource with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSvgImageSourceWithUriSource(uriSource *foundation.IUriRuntimeClass) (*SvgImageSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.SvgImageSource", &IID_ISvgImageSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISvgImageSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstanceWithUriSource(uriSource, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SvgImageSource)(unsafe.Pointer(instance)), nil
 }
 
 // SvgImageSourceFailedEventArgs is the Windows.UI.Xaml.Media.Imaging.SvgImageSourceFailedEventArgs runtime class, surfaced through its
@@ -31,6 +340,71 @@ type SvgImageSourceOpenedEventArgs struct {
 	ISvgImageSourceOpenedEventArgs
 }
 
+// VirtualSurfaceImageSource is the Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource runtime class, surfaced through its
+// default interface IVirtualSurfaceImageSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type VirtualSurfaceImageSource struct {
+	IVirtualSurfaceImageSource
+}
+
+// CreateInstanceWithDimensions constructs a Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource instance through
+// Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSourceFactory.CreateInstanceWithDimensions. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstanceWithDimensions(pixelWidth int32, pixelHeight int32) (*VirtualSurfaceImageSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource", &IID_IVirtualSurfaceImageSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IVirtualSurfaceImageSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstanceWithDimensions(pixelWidth, pixelHeight)
+	if err != nil {
+		return nil, err
+	}
+	return (*VirtualSurfaceImageSource)(unsafe.Pointer(instance)), nil
+}
+
+// CreateInstanceWithDimensionsAndOpacity constructs a Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource instance through
+// Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSourceFactory.CreateInstanceWithDimensionsAndOpacity. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstanceWithDimensionsAndOpacity(pixelWidth int32, pixelHeight int32, isOpaque bool) (*VirtualSurfaceImageSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource", &IID_IVirtualSurfaceImageSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IVirtualSurfaceImageSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque)
+	if err != nil {
+		return nil, err
+	}
+	return (*VirtualSurfaceImageSource)(unsafe.Pointer(instance)), nil
+}
+
+// WriteableBitmap is the Windows.UI.Xaml.Media.Imaging.WriteableBitmap runtime class, surfaced through its
+// default interface IWriteableBitmap. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type WriteableBitmap struct {
+	IWriteableBitmap
+}
+
+// CreateInstanceWithDimensionsWriteableBitmap constructs a Windows.UI.Xaml.Media.Imaging.WriteableBitmap instance through
+// Windows.UI.Xaml.Media.Imaging.IWriteableBitmapFactory.CreateInstanceWithDimensions. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstanceWithDimensionsWriteableBitmap(pixelWidth int32, pixelHeight int32) (*WriteableBitmap, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.WriteableBitmap", &IID_IWriteableBitmapFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IWriteableBitmapFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstanceWithDimensions(pixelWidth, pixelHeight)
+	if err != nil {
+		return nil, err
+	}
+	return (*WriteableBitmap)(unsafe.Pointer(instance)), nil
+}
+
 // XamlRenderingBackgroundTask is the Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask runtime class, surfaced through its
 // default interface IXamlRenderingBackgroundTask. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -42,4 +416,29 @@ type XamlRenderingBackgroundTask struct {
 // The returned reference is owned by the caller.
 func (self *XamlRenderingBackgroundTask) AsXamlRenderingBackgroundTaskOverrides() (*IXamlRenderingBackgroundTaskOverrides, error) {
 	return winrt.QueryInterface[IXamlRenderingBackgroundTaskOverrides](unsafe.Pointer(self), &IID_IXamlRenderingBackgroundTaskOverrides)
+}
+
+// NewXamlRenderingBackgroundTask constructs a Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask instance through
+// Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTaskFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewXamlRenderingBackgroundTask() (*XamlRenderingBackgroundTask, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask", &IID_IXamlRenderingBackgroundTaskFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IXamlRenderingBackgroundTaskFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*XamlRenderingBackgroundTask)(unsafe.Pointer(instance)), nil
 }

@@ -7,8 +7,39 @@ package media3d
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
+
+// CompositeTransform3D is the Windows.UI.Xaml.Media.Media3D.CompositeTransform3D runtime class, surfaced through its
+// default interface ICompositeTransform3D. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositeTransform3D struct {
+	ICompositeTransform3D
+}
+
+// NewCompositeTransform3D activates Windows.UI.Xaml.Media.Media3D.CompositeTransform3D through its default
+// constructor.
+func NewCompositeTransform3D() (*CompositeTransform3D, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Media3D.CompositeTransform3D")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[CompositeTransform3D](unsafe.Pointer(instance), &IID_ICompositeTransform3D)
+}
+
+// CompositeTransform3DStatics returns the Windows.UI.Xaml.Media.Media3D.ICompositeTransform3DStatics statics of the
+// Windows.UI.Xaml.Media.Media3D.CompositeTransform3D runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CompositeTransform3DStatics() (*ICompositeTransform3DStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Media3D.CompositeTransform3D", &IID_ICompositeTransform3DStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICompositeTransform3DStatics)(unsafe.Pointer(factory)), nil
+}
 
 // Matrix3DHelper is the Windows.UI.Xaml.Media.Media3D.Matrix3DHelper runtime class, surfaced through its
 // default interface IMatrix3DHelper. Release when done (promoted from
@@ -27,4 +58,66 @@ func Matrix3DHelperStatics() (*IMatrix3DHelperStatics, error) {
 		return nil, err
 	}
 	return (*IMatrix3DHelperStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PerspectiveTransform3D is the Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D runtime class, surfaced through its
+// default interface IPerspectiveTransform3D. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PerspectiveTransform3D struct {
+	IPerspectiveTransform3D
+}
+
+// NewPerspectiveTransform3D activates Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D through its default
+// constructor.
+func NewPerspectiveTransform3D() (*PerspectiveTransform3D, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PerspectiveTransform3D](unsafe.Pointer(instance), &IID_IPerspectiveTransform3D)
+}
+
+// PerspectiveTransform3DStatics returns the Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3DStatics statics of the
+// Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PerspectiveTransform3DStatics() (*IPerspectiveTransform3DStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D", &IID_IPerspectiveTransform3DStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPerspectiveTransform3DStatics)(unsafe.Pointer(factory)), nil
+}
+
+// Transform3D is the Windows.UI.Xaml.Media.Media3D.Transform3D runtime class, surfaced through its
+// default interface ITransform3D. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Transform3D struct {
+	ITransform3D
+}
+
+// NewTransform3D constructs a Windows.UI.Xaml.Media.Media3D.Transform3D instance through
+// Windows.UI.Xaml.Media.Media3D.ITransform3DFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTransform3D() (*Transform3D, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Media3D.Transform3D", &IID_ITransform3DFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITransform3DFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Transform3D)(unsafe.Pointer(instance)), nil
 }

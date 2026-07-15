@@ -137,10 +137,9 @@ var IID_ExceptionRoutedEventHandler = win32.GUID{Data1: 0x68e0e810, Data2: 0xf6e
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.ExceptionRoutedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewExceptionRoutedEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*ExceptionRoutedEventHandler, error) {
+func NewExceptionRoutedEventHandler(fn func(sender *syswinrt.IInspectable, e *uixaml.IExceptionRoutedEventArgs)) (*ExceptionRoutedEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_ExceptionRoutedEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixaml.IExceptionRoutedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -208,10 +207,9 @@ var IID_TypedEventHandlerOfSvgImageSourceAndSvgImageSourceFailedEventArgs = win3
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Media.Imaging.SvgImageSource is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSvgImageSourceAndSvgImageSourceFailedEventArgs(fn func(sender *syswinrt.IInspectable, args *ISvgImageSourceFailedEventArgs)) (*TypedEventHandlerOfSvgImageSourceAndSvgImageSourceFailedEventArgs, error) {
+func NewTypedEventHandlerOfSvgImageSourceAndSvgImageSourceFailedEventArgs(fn func(sender *ISvgImageSource, args *ISvgImageSourceFailedEventArgs)) (*TypedEventHandlerOfSvgImageSourceAndSvgImageSourceFailedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSvgImageSourceAndSvgImageSourceFailedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISvgImageSourceFailedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISvgImageSource)(unsafe.Pointer(raw[0])), (*ISvgImageSourceFailedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -248,10 +246,9 @@ var IID_TypedEventHandlerOfSvgImageSourceAndSvgImageSourceOpenedEventArgs = win3
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Media.Imaging.SvgImageSource is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSvgImageSourceAndSvgImageSourceOpenedEventArgs(fn func(sender *syswinrt.IInspectable, args *ISvgImageSourceOpenedEventArgs)) (*TypedEventHandlerOfSvgImageSourceAndSvgImageSourceOpenedEventArgs, error) {
+func NewTypedEventHandlerOfSvgImageSourceAndSvgImageSourceOpenedEventArgs(fn func(sender *ISvgImageSource, args *ISvgImageSourceOpenedEventArgs)) (*TypedEventHandlerOfSvgImageSourceAndSvgImageSourceOpenedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSvgImageSourceAndSvgImageSourceOpenedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISvgImageSourceOpenedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISvgImageSource)(unsafe.Pointer(raw[0])), (*ISvgImageSourceOpenedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {

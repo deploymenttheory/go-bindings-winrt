@@ -29,10 +29,9 @@ var IID_DragCompletedEventHandler = win32.GUID{Data1: 0x36b28888, Data2: 0x19ac,
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Controls.Primitives.DragCompletedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewDragCompletedEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*DragCompletedEventHandler, error) {
+func NewDragCompletedEventHandler(fn func(sender *syswinrt.IInspectable, e *IDragCompletedEventArgs)) (*DragCompletedEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_DragCompletedEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IDragCompletedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -65,10 +64,9 @@ var IID_DragDeltaEventHandler = win32.GUID{Data1: 0x4ac24f9f, Data2: 0xac28, Dat
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Controls.Primitives.DragDeltaEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewDragDeltaEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*DragDeltaEventHandler, error) {
+func NewDragDeltaEventHandler(fn func(sender *syswinrt.IInspectable, e *IDragDeltaEventArgs)) (*DragDeltaEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_DragDeltaEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IDragDeltaEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -101,10 +99,9 @@ var IID_DragStartedEventHandler = win32.GUID{Data1: 0xd2eea48a, Data2: 0xc65a, D
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Controls.Primitives.DragStartedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewDragStartedEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*DragStartedEventHandler, error) {
+func NewDragStartedEventHandler(fn func(sender *syswinrt.IInspectable, e *IDragStartedEventArgs)) (*DragStartedEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_DragStartedEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IDragStartedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -172,10 +169,9 @@ var IID_RangeBaseValueChangedEventHandler = win32.GUID{Data1: 0xe3906fd9, Data2:
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewRangeBaseValueChangedEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*RangeBaseValueChangedEventHandler, error) {
+func NewRangeBaseValueChangedEventHandler(fn func(sender *syswinrt.IInspectable, e *IRangeBaseValueChangedEventArgs)) (*RangeBaseValueChangedEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_RangeBaseValueChangedEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IRangeBaseValueChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -243,10 +239,9 @@ var IID_ScrollEventHandler = win32.GUID{Data1: 0x8860b0a4, Data2: 0xa383, Data3:
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Controls.Primitives.ScrollEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewScrollEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*ScrollEventHandler, error) {
+func NewScrollEventHandler(fn func(sender *syswinrt.IInspectable, e *IScrollEventArgs)) (*ScrollEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_ScrollEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IScrollEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -279,10 +274,9 @@ var IID_TypedEventHandlerOfFlyoutBaseAndFlyoutBaseClosingEventArgs = win32.GUID{
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Primitives.FlyoutBase is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfFlyoutBaseAndFlyoutBaseClosingEventArgs(fn func(sender *syswinrt.IInspectable, args *IFlyoutBaseClosingEventArgs)) (*TypedEventHandlerOfFlyoutBaseAndFlyoutBaseClosingEventArgs, error) {
+func NewTypedEventHandlerOfFlyoutBaseAndFlyoutBaseClosingEventArgs(fn func(sender *IFlyoutBase, args *IFlyoutBaseClosingEventArgs)) (*TypedEventHandlerOfFlyoutBaseAndFlyoutBaseClosingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfFlyoutBaseAndFlyoutBaseClosingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IFlyoutBaseClosingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IFlyoutBase)(unsafe.Pointer(raw[0])), (*IFlyoutBaseClosingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {

@@ -4,17 +4,32 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/emit/winrt/render"
 	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/emit/winrt/view"
 	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/pipeline"
 	"github.com/deploymenttheory/go-bindings-winrt/internal/codegen/typemap"
 	"github.com/deploymenttheory/go-bindings-winrt/internal/winrtmeta"
 )
 
+// composableTail appends the composition contract — baseInterface (in
+// Object) + innerInterface (out Object) — to the given leading params.
+func composableTail(leading ...winrtmeta.Param) []winrtmeta.Param {
+	return append(leading,
+		winrtmeta.Param{Name: "baseInterface", Type: nativeRef("Object")},
+		winrtmeta.Param{Name: "innerInterface", Type: nativeRef("Object"), Out: true},
+	)
+}
+
+// gizmoClassRef references the composable test class Windows.Test.Gizmo.
+func gizmoClassRef() winrtmeta.TypeRef {
+	return winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "Gizmo", TargetKind: "Class"}
+}
+
 // classesRegistry builds a registry exercising the statics and factory
 // projections: an emittable statics interface, one without an IID, a generic
 // one, an unresolved one, a statics-only class, a factory with an emitted
-// creator plus per-method skip shapes, a colliding second factory, and a
-// generic factory.
+// creator plus per-method skip shapes, a colliding second factory, a generic
+// factory, and the composable-constructor fixtures (Gizmo/Doodad/GenComp).
 func classesRegistry() *pipeline.Registry {
 	widgetRef := winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "IWidget", TargetKind: "Interface"}
 	widgetClassRef := winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "Widget", TargetKind: "Class"}
@@ -101,6 +116,47 @@ func classesRegistry() *pipeline.Registry {
 					{Name: "Create", Return: refPtr(winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "Beta", TargetKind: "Class"})}, // slot 6
 				},
 			},
+			// Composable-constructor fixtures: a composable class whose factory
+			// carries the full ctor qualification matrix.
+			"IGizmo": {GUID: "d1111111-2222-4333-8444-555555555555"},
+			"IGizmoFactory": {
+				GUID: "e1111111-2222-4333-8444-555555555555", ExclusiveTo: "Windows.Test.Gizmo",
+				Methods: []winrtmeta.Method{
+					{Name: "CreateInstance", // slot 6: the canonical shape → NewGizmo
+						Params: composableTail(),
+						Return: refPtr(gizmoClassRef())},
+					{Name: "CreateInstanceWithLabel", // slot 7: leading param → NewGizmoWithLabel
+						Params: composableTail(winrtmeta.Param{Name: "label", Type: nativeRef("HString")}),
+						Return: refPtr(gizmoClassRef())},
+					{Name: "MakeGizmo", // slot 8: no CreateInstance prefix → projected-name fallback
+						Params: composableTail(),
+						Return: refPtr(gizmoClassRef())},
+					{Name: "CreateInstanceWithInner", // slot 9: a leading param named inner —
+						// the out-pointer local must freshen away from it.
+						Params: composableTail(winrtmeta.Param{Name: "inner", Type: nativeRef("HString")}),
+						Return: refPtr(gizmoClassRef())},
+					{Name: "CreateSpecial", // slot 10: no trailing composition pair
+						Params: []winrtmeta.Param{{Name: "label", Type: nativeRef("HString")}},
+						Return: refPtr(gizmoClassRef())},
+					{Name: "CreateLabel", // slot 11: right pair, wrong return
+						Params: composableTail(),
+						Return: refPtr(nativeRef("HString"))},
+					{Name: "CreateFromValues", // slot 12: array param degrades the method
+						Params: composableTail(winrtmeta.Param{Name: "values", Type: winrtmeta.TypeRef{Kind: "Array", Elem: refPtr(nativeRef("I4"))}}),
+						Return: refPtr(gizmoClassRef())},
+				},
+			},
+			// A direct-activatable composable: the direct ctor claims NewDoodad
+			// first, so the composable CreateInstance takes the ordinal form.
+			"IDoodad": {GUID: "f1111111-2222-4333-8444-555555555555"},
+			"IDoodadFactory": {
+				GUID: "f2111111-2222-4333-8444-555555555555", ExclusiveTo: "Windows.Test.Doodad",
+				Methods: []winrtmeta.Method{
+					{Name: "CreateInstance", // slot 6
+						Params: composableTail(),
+						Return: refPtr(winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "Doodad", TargetKind: "Class"})},
+				},
+			},
 		},
 		Classes: map[string]winrtmeta.Class{
 			"Widget": {
@@ -140,6 +196,27 @@ func classesRegistry() *pipeline.Registry {
 			"Beta": {
 				DefaultInterface:     refPtr(winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "IBeta", TargetKind: "Interface"}),
 				ActivatableFactories: []string{"Windows.Test.IBetaFactory"},
+			},
+			// Composable, factory-created only (see IGizmoFactory).
+			"Gizmo": {
+				Composable:          true,
+				DefaultInterface:    refPtr(winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "IGizmo", TargetKind: "Interface"}),
+				Interfaces:          []winrtmeta.TypeRef{{Kind: "ApiRef", Namespace: "Windows.Test", Name: "IGizmo", TargetKind: "Interface"}},
+				ComposableFactories: []string{"Windows.Test.IGizmoFactory"},
+			},
+			// Composable AND direct-activatable (the RoActivateInstance path
+			// composes null-outer internally): both ctor forms coexist.
+			"Doodad": {
+				Composable:          true,
+				ActivatableDirect:   true,
+				DefaultInterface:    refPtr(winrtmeta.TypeRef{Kind: "ApiRef", Namespace: "Windows.Test", Name: "IDoodad", TargetKind: "Interface"}),
+				ComposableFactories: []string{"Windows.Test.IDoodadFactory"},
+			},
+			// Composable with a GENERIC composable factory: skipped by shape.
+			"GenComp": {
+				Composable:          true,
+				DefaultInterface:    refPtr(widgetRef),
+				ComposableFactories: []string{"Windows.Test.IGenFactory"},
 			},
 		},
 	}
@@ -318,6 +395,117 @@ func TestFactoryConstructorEmission(t *testing.T) {
 	} {
 		if !strings.Contains(diagnostics, want) {
 			t.Errorf("diagnostics missing %q:\n%s", want, diagnostics)
+		}
+	}
+}
+
+// TestComposableCtorEmission pins the composable-constructor projection:
+// composable classes emit class types (no composable-class-skipped left),
+// qualifying factory methods become New<Class>[With<Suffix>] ctors taking
+// only the leading params, naming falls back deterministically, and the
+// shape-rule failures record composable-factory-skipped.
+func TestComposableCtorEmission(t *testing.T) {
+	generator, models, _ := buildClassesFixture(t)
+
+	gizmo, ok := models["Windows.Test.Gizmo"]
+	if !ok {
+		t.Fatal("Gizmo model not built (composable classes must emit)")
+	}
+	if gizmo.TypeName != "Gizmo" || gizmo.DefaultInterface != "IGizmo" {
+		t.Errorf("Gizmo class type = %+v", gizmo)
+	}
+	if gizmo.CtorName != "" {
+		t.Errorf("Gizmo is not directly activatable, got CtorName %q", gizmo.CtorName)
+	}
+	if len(gizmo.ComposableCtors) != 4 {
+		t.Fatalf("Gizmo composable ctors = %+v, want NewGizmo + NewGizmoWithLabel + NewGizmoMakeGizmo + NewGizmoWithInner", gizmo.ComposableCtors)
+	}
+
+	// CreateInstance: no leading params, the canonical New<Class>.
+	canonical := gizmo.ComposableCtors[0]
+	if canonical.FuncName != "NewGizmo" || canonical.FactoryType != "IGizmoFactory" ||
+		canonical.FactoryIIDRef != "&IID_IGizmoFactory" || canonical.MethodName != "CreateInstance" ||
+		canonical.ParamStr != "" || canonical.InnerName != "inner" ||
+		strings.Join(canonical.ArgNames, ",") != "nil,inner" {
+		t.Errorf("canonical composable ctor = %+v", canonical)
+	}
+
+	// CreateInstanceWith<Suffix>: leading params only; the pair is supplied
+	// by the ctor body.
+	withLabel := gizmo.ComposableCtors[1]
+	if withLabel.FuncName != "NewGizmoWithLabel" || withLabel.ParamStr != "label string" ||
+		strings.Join(withLabel.ArgNames, ",") != "label,nil,inner" {
+		t.Errorf("WithLabel composable ctor = %+v", withLabel)
+	}
+
+	// No CreateInstance prefix: the projected method name after the
+	// New<Class> stem.
+	made := gizmo.ComposableCtors[2]
+	if made.FuncName != "NewGizmoMakeGizmo" || made.MethodName != "MakeGizmo" {
+		t.Errorf("projected-name-fallback composable ctor = %+v", made)
+	}
+
+	// A leading parameter named inner: the out-pointer local freshens.
+	withInner := gizmo.ComposableCtors[3]
+	if withInner.FuncName != "NewGizmoWithInner" || withInner.InnerName != "inner_" ||
+		strings.Join(withInner.ArgNames, ",") != "inner,nil,inner_" {
+		t.Errorf("inner-freshening composable ctor = %+v", withInner)
+	}
+
+	// Direct-activatable composable: the direct ctor keeps NewDoodad; the
+	// composable CreateInstance takes the 1-based factory-ordinal form.
+	doodad := models["Windows.Test.Doodad"]
+	if doodad.CtorName != "NewDoodad" {
+		t.Errorf("Doodad direct ctor = %q, want NewDoodad", doodad.CtorName)
+	}
+	if len(doodad.ComposableCtors) != 1 || doodad.ComposableCtors[0].FuncName != "NewDoodad1" {
+		t.Errorf("Doodad composable ctors = %+v, want the ordinal NewDoodad1", doodad.ComposableCtors)
+	}
+
+	diagnostics := strings.Join(generator.Diagnostics, "\n")
+	for _, want := range []string{
+		"composable-factory-skipped: Windows.Test.Gizmo composable factory Windows.Test.IGizmoFactory (method CreateSpecial does not end with the (baseInterface in, innerInterface out) Object pair)",
+		"composable-factory-skipped: Windows.Test.Gizmo composable factory Windows.Test.IGizmoFactory (method CreateLabel does not return the class default interface)",
+		"composable-factory-skipped: Windows.Test.Gizmo composable factory Windows.Test.IGizmoFactory (method CreateFromValues not emitted on the factory interface)",
+		"composable-factory-skipped: Windows.Test.GenComp factory Windows.Test.IGenFactory (generic)",
+	} {
+		if !strings.Contains(diagnostics, want) {
+			t.Errorf("diagnostics missing %q:\n%s", want, diagnostics)
+		}
+	}
+	if strings.Contains(diagnostics, "composable-class-skipped") {
+		t.Errorf("composable-class-skipped still reported:\n%s", diagnostics)
+	}
+}
+
+// TestComposableCtorRenderShape pins the generated ctor body: null-outer
+// delegation to the generated factory method, the heap-escaping inner
+// out-pointer, the non-nil inner Release (a second reference to the same
+// object under null-outer composition), and the class re-type.
+func TestComposableCtorRenderShape(t *testing.T) {
+	_, models, _ := buildClassesFixture(t)
+	rendered, err := render.Class(models["Windows.Test.Gizmo"])
+	if err != nil {
+		t.Fatalf("render.Class: %v", err)
+	}
+	for _, want := range []string{
+		"func NewGizmo() (*Gizmo, error) {",
+		`factoryUnknown, err := winrt.GetActivationFactory("Windows.Test.Gizmo", &IID_IGizmoFactory)`,
+		"factory := (*IGizmoFactory)(unsafe.Pointer(factoryUnknown))",
+		"defer factory.Release()",
+		"inner := new(*syswinrt.IInspectable)",
+		"instance, err := factory.CreateInstance(nil, inner)",
+		"if *inner != nil {",
+		"(*inner).Release()",
+		"return (*Gizmo)(unsafe.Pointer(instance)), nil",
+		"func NewGizmoWithLabel(label string) (*Gizmo, error) {",
+		"factory.CreateInstanceWithLabel(label, nil, inner)",
+		"func NewGizmoWithInner(inner string) (*Gizmo, error) {",
+		"inner_ := new(*syswinrt.IInspectable)",
+		"factory.CreateInstanceWithInner(inner, nil, inner_)",
+	} {
+		if !strings.Contains(rendered, want) {
+			t.Errorf("rendered class missing %q:\n%s", want, rendered)
 		}
 	}
 }

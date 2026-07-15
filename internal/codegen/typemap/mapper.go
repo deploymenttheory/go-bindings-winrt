@@ -270,15 +270,17 @@ func (m *Mapper) resolveApiRef(ref *winrtmeta.TypeRef, ctx Context, imports Impo
 }
 
 // resolveClassRef lowers a runtime-class reference: a class in a signature
-// means its default interface at the ABI. When the class itself is not
-// emitted (composable, statics-only, or generic default interface) the
+// means its default interface at the ABI — composable classes included
+// (instantiate-only composition: the reference is still just the default
+// interface pointer). When no emittable default interface is reachable
+// (statics-only class, generic default interface, a severed import edge) the
 // reference degrades to the raw IInspectable with an explanatory note.
 func (m *Mapper) resolveClassRef(ref *winrtmeta.TypeRef, ctx Context, imports ImportSet) Resolved {
 	class := m.Registry.Class(ref.Namespace, ref.Name)
 	if class == nil {
 		return unsupported("unresolved-typeref", "%s.%s", ref.Namespace, ref.Name)
 	}
-	if class.DefaultInterface != nil && class.DefaultInterface.Kind == "ApiRef" && !class.Composable {
+	if class.DefaultInterface != nil && class.DefaultInterface.Kind == "ApiRef" {
 		resolved := m.GoType(class.DefaultInterface, ctx, imports)
 		if resolved.Kind == KindInterfacePtr {
 			return resolved
@@ -288,7 +290,7 @@ func (m *Mapper) resolveClassRef(ref *winrtmeta.TypeRef, ctx Context, imports Im
 	return Resolved{
 		GoType: "*syswinrt.IInspectable",
 		Kind:   KindObjectPtr,
-		Note:   fmt.Sprintf("class %s.%s is projected as IInspectable (the class is not emitted this wave)", ref.Namespace, ref.Name),
+		Note:   fmt.Sprintf("class %s.%s is projected as IInspectable (no emittable default interface is reachable here)", ref.Namespace, ref.Name),
 	}
 }
 

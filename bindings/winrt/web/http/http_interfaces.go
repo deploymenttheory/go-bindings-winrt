@@ -486,7 +486,7 @@ func (self *IHttpCookieManager) DeleteCookie(cookie *IHttpCookie) error {
 }
 
 // GetCookies dispatches through IHttpCookieManager's vtable slot 9.
-// The return value's class Windows.Web.Http.HttpCookieCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Web.Http.HttpCookieCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IHttpCookieManager) GetCookies(uri *foundation.IUriRuntimeClass) (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(uri)), uintptr(winrt.OutParam(unsafe.Pointer(result))))

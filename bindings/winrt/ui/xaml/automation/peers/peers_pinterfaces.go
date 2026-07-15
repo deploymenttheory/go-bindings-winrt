@@ -39,7 +39,7 @@ func (self *IIterableOfAutomationPeer) First() (*IIteratorOfAutomationPeer, erro
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfAutomationPeer(items []*syswinrt.IInspectable) *IIterableOfAutomationPeer {
+func NewIIterableOfAutomationPeer(items []*IAutomationPeer) *IIterableOfAutomationPeer {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -74,7 +74,7 @@ func (self *IIterableOfAutomationPeerAnnotation) First() (*IIteratorOfAutomation
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfAutomationPeerAnnotation(items []*syswinrt.IInspectable) *IIterableOfAutomationPeerAnnotation {
+func NewIIterableOfAutomationPeerAnnotation(items []*IAutomationPeerAnnotation) *IIterableOfAutomationPeerAnnotation {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -93,9 +93,8 @@ type IIteratorOfAutomationPeer struct {
 var IID_IIteratorOfAutomationPeer = win32.GUID{Data1: 0x1f93cd7a, Data2: 0x8075, Data3: 0x5ba9, Data4: [8]byte{0xbc, 0x3e, 0xb0, 0x4a, 0x94, 0xe1, 0x4b, 0xc0}}
 
 // Current (propget get_Current) dispatches through IIteratorOfAutomationPeer's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfAutomationPeer) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfAutomationPeer) Current() (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -126,9 +125,8 @@ type IIteratorOfAutomationPeerAnnotation struct {
 var IID_IIteratorOfAutomationPeerAnnotation = win32.GUID{Data1: 0x3b415733, Data2: 0x48f2, Data3: 0x58b0, Data4: [8]byte{0x98, 0x84, 0x6f, 0x0d, 0x0e, 0x35, 0xdc, 0x1a}}
 
 // Current (propget get_Current) dispatches through IIteratorOfAutomationPeerAnnotation's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfAutomationPeerAnnotation) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfAutomationPeerAnnotation) Current() (*IAutomationPeerAnnotation, error) {
+	result := new(*IAutomationPeerAnnotation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -160,9 +158,8 @@ type IVectorOfAutomationPeer struct {
 var IID_IVectorOfAutomationPeer = win32.GUID{Data1: 0xa8d8a409, Data2: 0x9130, Data3: 0x5e14, Data4: [8]byte{0x84, 0x26, 0x07, 0x82, 0xaa, 0xf0, 0x16, 0x08}}
 
 // GetAt dispatches through IVectorOfAutomationPeer's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationPeer) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfAutomationPeer) GetAt(index uint32) (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -182,23 +179,20 @@ func (self *IVectorOfAutomationPeer) GetView() (*IVectorViewOfAutomationPeer, er
 }
 
 // IndexOf dispatches through IVectorOfAutomationPeer's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationPeer) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfAutomationPeer) IndexOf(value *IAutomationPeer, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfAutomationPeer's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationPeer) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationPeer) SetAt(index uint32, value *IAutomationPeer) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfAutomationPeer's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationPeer) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationPeer) InsertAt(index uint32, value *IAutomationPeer) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -210,8 +204,7 @@ func (self *IVectorOfAutomationPeer) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfAutomationPeer's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationPeer) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationPeer) Append(value *IAutomationPeer) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -245,7 +238,7 @@ func (self *IVectorOfAutomationPeer) Clear() error {
 // The vector is writable through the WinRT ABI (the Go side exposes no
 // mutation API); GetView returns an immutable SNAPSHOT of the contents at
 // call time.
-func NewIVectorOfAutomationPeer(items []*syswinrt.IInspectable) *IVectorOfAutomationPeer {
+func NewIVectorOfAutomationPeer(items []*IAutomationPeer) *IVectorOfAutomationPeer {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -265,9 +258,8 @@ type IVectorOfAutomationPeerAnnotation struct {
 var IID_IVectorOfAutomationPeerAnnotation = win32.GUID{Data1: 0xd353f885, Data2: 0x4bf0, Data3: 0x5dc2, Data4: [8]byte{0x87, 0x8e, 0xec, 0x7a, 0x39, 0x4e, 0xe8, 0x80}}
 
 // GetAt dispatches through IVectorOfAutomationPeerAnnotation's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationPeerAnnotation) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfAutomationPeerAnnotation) GetAt(index uint32) (*IAutomationPeerAnnotation, error) {
+	result := new(*IAutomationPeerAnnotation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -287,23 +279,20 @@ func (self *IVectorOfAutomationPeerAnnotation) GetView() (*IVectorViewOfAutomati
 }
 
 // IndexOf dispatches through IVectorOfAutomationPeerAnnotation's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationPeerAnnotation) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfAutomationPeerAnnotation) IndexOf(value *IAutomationPeerAnnotation, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfAutomationPeerAnnotation's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationPeerAnnotation) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationPeerAnnotation) SetAt(index uint32, value *IAutomationPeerAnnotation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfAutomationPeerAnnotation's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationPeerAnnotation) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationPeerAnnotation) InsertAt(index uint32, value *IAutomationPeerAnnotation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -315,8 +304,7 @@ func (self *IVectorOfAutomationPeerAnnotation) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfAutomationPeerAnnotation's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationPeerAnnotation) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationPeerAnnotation) Append(value *IAutomationPeerAnnotation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -350,7 +338,7 @@ func (self *IVectorOfAutomationPeerAnnotation) Clear() error {
 // The vector is writable through the WinRT ABI (the Go side exposes no
 // mutation API); GetView returns an immutable SNAPSHOT of the contents at
 // call time.
-func NewIVectorOfAutomationPeerAnnotation(items []*syswinrt.IInspectable) *IVectorOfAutomationPeerAnnotation {
+func NewIVectorOfAutomationPeerAnnotation(items []*IAutomationPeerAnnotation) *IVectorOfAutomationPeerAnnotation {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -370,9 +358,8 @@ type IVectorViewOfAutomationPeer struct {
 var IID_IVectorViewOfAutomationPeer = win32.GUID{Data1: 0xb56a6076, Data2: 0x19e2, Data3: 0x50c1, Data4: [8]byte{0x93, 0x0f, 0x82, 0x5b, 0xfc, 0x39, 0x63, 0x5c}}
 
 // GetAt dispatches through IVectorViewOfAutomationPeer's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfAutomationPeer) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfAutomationPeer) GetAt(index uint32) (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -385,8 +372,7 @@ func (self *IVectorViewOfAutomationPeer) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfAutomationPeer's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfAutomationPeer) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfAutomationPeer) IndexOf(value *IAutomationPeer, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -404,7 +390,7 @@ func (self *IVectorViewOfAutomationPeer) IndexOf(value *syswinrt.IInspectable, i
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIVectorViewOfAutomationPeer(items []*syswinrt.IInspectable) *IVectorViewOfAutomationPeer {
+func NewIVectorViewOfAutomationPeer(items []*IAutomationPeer) *IVectorViewOfAutomationPeer {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -424,9 +410,8 @@ type IVectorViewOfAutomationPeerAnnotation struct {
 var IID_IVectorViewOfAutomationPeerAnnotation = win32.GUID{Data1: 0x00775c79, Data2: 0x589b, Data3: 0x5c36, Data4: [8]byte{0xae, 0x72, 0x2e, 0x7a, 0xab, 0x02, 0x70, 0xc6}}
 
 // GetAt dispatches through IVectorViewOfAutomationPeerAnnotation's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfAutomationPeerAnnotation) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfAutomationPeerAnnotation) GetAt(index uint32) (*IAutomationPeerAnnotation, error) {
+	result := new(*IAutomationPeerAnnotation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -439,8 +424,7 @@ func (self *IVectorViewOfAutomationPeerAnnotation) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfAutomationPeerAnnotation's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfAutomationPeerAnnotation) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfAutomationPeerAnnotation) IndexOf(value *IAutomationPeerAnnotation, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -458,7 +442,7 @@ func (self *IVectorViewOfAutomationPeerAnnotation) IndexOf(value *syswinrt.IInsp
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIVectorViewOfAutomationPeerAnnotation(items []*syswinrt.IInspectable) *IVectorViewOfAutomationPeerAnnotation {
+func NewIVectorViewOfAutomationPeerAnnotation(items []*IAutomationPeerAnnotation) *IVectorViewOfAutomationPeerAnnotation {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))

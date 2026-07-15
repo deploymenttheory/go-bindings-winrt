@@ -1118,7 +1118,7 @@ type IPlayReadyLicenseAcquisitionServiceRequest3 struct {
 var IID_IPlayReadyLicenseAcquisitionServiceRequest3 = win32.GUID{Data1: 0x394e5f4d, Data2: 0x7f75, Data3: 0x430d, Data4: [8]byte{0xb2, 0xe7, 0x7f, 0x75, 0xf3, 0x4b, 0x2d, 0x75}}
 
 // CreateLicenseIterable dispatches through IPlayReadyLicenseAcquisitionServiceRequest3's vtable slot 6.
-// The return value's class Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IPlayReadyLicenseAcquisitionServiceRequest3) CreateLicenseIterable(contentHeader *IPlayReadyContentHeader, fullyEvaluated bool) (*syswinrt.IInspectable, error) {
 	_fullyEvaluated := uintptr(0)
 	if fullyEvaluated {
@@ -1140,7 +1140,7 @@ type IPlayReadyLicenseIterableFactory struct {
 var IID_IPlayReadyLicenseIterableFactory = win32.GUID{Data1: 0xd4179f08, Data2: 0x0837, Data3: 0x4978, Data4: [8]byte{0x8e, 0x68, 0xbe, 0x42, 0x93, 0xc8, 0xd7, 0xa6}}
 
 // CreateInstance dispatches through IPlayReadyLicenseIterableFactory's vtable slot 6.
-// The return value's class Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IPlayReadyLicenseIterableFactory) CreateInstance(contentHeader *IPlayReadyContentHeader, fullyEvaluated bool) (*syswinrt.IInspectable, error) {
 	_fullyEvaluated := uintptr(0)
 	if fullyEvaluated {
@@ -1201,7 +1201,7 @@ type IPlayReadyLicenseSession2 struct {
 var IID_IPlayReadyLicenseSession2 = win32.GUID{Data1: 0x4909be3a, Data2: 0x3aed, Data3: 0x4656, Data4: [8]byte{0x8a, 0xd7, 0xee, 0x0f, 0xd7, 0x79, 0x95, 0x10}}
 
 // CreateLicenseIterable dispatches through IPlayReadyLicenseSession2's vtable slot 6.
-// The return value's class Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IPlayReadyLicenseSession2) CreateLicenseIterable(contentHeader *IPlayReadyContentHeader, fullyEvaluated bool) (*syswinrt.IInspectable, error) {
 	_fullyEvaluated := uintptr(0)
 	if fullyEvaluated {

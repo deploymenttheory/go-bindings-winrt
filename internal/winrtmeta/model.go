@@ -158,11 +158,13 @@ type Class struct {
 	// StaticInterfaces are the [Static(Type, ...)] interface full names.
 	StaticInterfaces []string `json:"static_interfaces,omitempty"`
 	// ComposableFactories are the [Composable(Type, ...)] factory full
-	// names — recorded but not processed until composition lands.
+	// names — emit projects each qualifying factory method as a null-outer
+	// composable constructor (instantiate-only composition).
 	ComposableFactories []string `json:"composable_factories,omitempty"`
 
 	// Composable is set when the class extends another runtime class
-	// (Extends != System.Object); composable classes are skipped at emit.
+	// (Extends != System.Object). Composable classes emit like any other
+	// class (instantiate-only: Go-side derivation stays out of scope).
 	Composable bool `json:"composable,omitempty"`
 }
 

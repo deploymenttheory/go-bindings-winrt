@@ -53,9 +53,8 @@ type IAdaptiveTriggerFactory struct {
 var IID_IAdaptiveTriggerFactory = win32.GUID{Data1: 0xc966d482, Data2: 0x5aeb, Data3: 0x4841, Data4: [8]byte{0x92, 0x47, 0xc1, 0xa0, 0xbd, 0xd6, 0xf5, 0x9f}}
 
 // CreateInstance dispatches through IAdaptiveTriggerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.AdaptiveTrigger is projected as IInspectable (the class is not emitted this wave).
-func (self *IAdaptiveTriggerFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAdaptiveTriggerFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IAdaptiveTrigger, error) {
+	result := new(*IAdaptiveTrigger)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -95,16 +94,14 @@ type IApplication struct {
 var IID_IApplication = win32.GUID{Data1: 0x74b861a1, Data2: 0x7487, Data3: 0x46a9, Data4: [8]byte{0x9a, 0x6e, 0xc7, 0x8b, 0x51, 0x27, 0x26, 0xc5}}
 
 // Resources (propget get_Resources) dispatches through IApplication's vtable slot 6.
-// The return value's class Windows.UI.Xaml.ResourceDictionary is projected as IInspectable (the class is not emitted this wave).
-func (self *IApplication) Resources() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IApplication) Resources() (*IResourceDictionary, error) {
+	result := new(*IResourceDictionary)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetResources (propput put_Resources) dispatches through IApplication's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.ResourceDictionary is projected as IInspectable (the class is not emitted this wave).
-func (self *IApplication) SetResources(value *syswinrt.IInspectable) error {
+func (self *IApplication) SetResources(value *IResourceDictionary) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -514,16 +511,14 @@ type IBringIntoViewRequestedEventArgs struct {
 var IID_IBringIntoViewRequestedEventArgs = win32.GUID{Data1: 0x0e629ec4, Data2: 0x2206, Data3: 0x4c8b, Data4: [8]byte{0x94, 0xae, 0xbd, 0xb6, 0x6a, 0x4e, 0xbf, 0xd1}}
 
 // TargetElement (propget get_TargetElement) dispatches through IBringIntoViewRequestedEventArgs's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IBringIntoViewRequestedEventArgs) TargetElement() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IBringIntoViewRequestedEventArgs) TargetElement() (*IUIElement, error) {
+	result := new(*IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetTargetElement (propput put_TargetElement) dispatches through IBringIntoViewRequestedEventArgs's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IBringIntoViewRequestedEventArgs) SetTargetElement(value *syswinrt.IInspectable) error {
+func (self *IBringIntoViewRequestedEventArgs) SetTargetElement(value *IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -995,9 +990,8 @@ type IColorPaletteResourcesFactory struct {
 var IID_IColorPaletteResourcesFactory = win32.GUID{Data1: 0xa57f0783, Data2: 0x1876, Data3: 0x5cc0, Data4: [8]byte{0x8e, 0xa5, 0xbc, 0x77, 0xb1, 0x7e, 0x0f, 0x7e}}
 
 // CreateInstance dispatches through IColorPaletteResourcesFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.ColorPaletteResources is projected as IInspectable (the class is not emitted this wave).
-func (self *IColorPaletteResourcesFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IColorPaletteResourcesFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IColorPaletteResources, error) {
+	result := new(*IColorPaletteResources)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1112,9 +1106,8 @@ type IDataTemplateFactory struct {
 var IID_IDataTemplateFactory = win32.GUID{Data1: 0x51ed9d7e, Data2: 0x2b53, Data3: 0x475b, Data4: [8]byte{0x9c, 0x88, 0x0c, 0x18, 0x32, 0xc8, 0x35, 0x1a}}
 
 // CreateInstance dispatches through IDataTemplateFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.DataTemplate is projected as IInspectable (the class is not emitted this wave).
-func (self *IDataTemplateFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IDataTemplateFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IDataTemplate, error) {
+	result := new(*IDataTemplate)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1184,16 +1177,14 @@ func (self *IDataTemplateStatics2) ExtensionInstanceProperty() (*IDependencyProp
 }
 
 // GetExtensionInstance dispatches through IDataTemplateStatics2's vtable slot 7.
-// Parameter element's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IDataTemplateStatics2) GetExtensionInstance(element *syswinrt.IInspectable) (*IDataTemplateExtension, error) {
+func (self *IDataTemplateStatics2) GetExtensionInstance(element *IFrameworkElement) (*IDataTemplateExtension, error) {
 	result := new(*IDataTemplateExtension)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetExtensionInstance dispatches through IDataTemplateStatics2's vtable slot 8.
-// Parameter element's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IDataTemplateStatics2) SetExtensionInstance(element *syswinrt.IInspectable, value *IDataTemplateExtension) error {
+func (self *IDataTemplateStatics2) SetExtensionInstance(element *IFrameworkElement, value *IDataTemplateExtension) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1445,7 +1436,7 @@ type IDependencyObjectCollectionFactory struct {
 var IID_IDependencyObjectCollectionFactory = win32.GUID{Data1: 0x051e79ff, Data2: 0xb3a8, Data3: 0x49ee, Data4: [8]byte{0xb5, 0xaf, 0xac, 0x8f, 0x68, 0xb6, 0x49, 0xe4}}
 
 // CreateInstance dispatches through IDependencyObjectCollectionFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.DependencyObjectCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Xaml.DependencyObjectCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IDependencyObjectCollectionFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -1649,8 +1640,7 @@ func (self *IDragEventArgs) SetData(value *applicationmodeldatatransfer.IDataPac
 }
 
 // GetPosition dispatches through IDragEventArgs's vtable slot 10.
-// Parameter relativeTo's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IDragEventArgs) GetPosition(relativeTo *syswinrt.IInspectable) (foundation.Point, error) {
+func (self *IDragEventArgs) GetPosition(relativeTo *IUIElement) (foundation.Point, error) {
 	result := new(foundation.Point)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(relativeTo)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
@@ -1789,8 +1779,7 @@ func (self *IDragStartingEventArgs) GetDeferral() (*IDragOperationDeferral, erro
 }
 
 // GetPosition dispatches through IDragStartingEventArgs's vtable slot 11.
-// Parameter relativeTo's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IDragStartingEventArgs) GetPosition(relativeTo *syswinrt.IInspectable) (foundation.Point, error) {
+func (self *IDragStartingEventArgs) GetPosition(relativeTo *IUIElement) (foundation.Point, error) {
 	result := new(foundation.Point)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(relativeTo)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
@@ -2053,9 +2042,8 @@ type IElementFactory struct {
 var IID_IElementFactory = win32.GUID{Data1: 0x17d2ad90, Data2: 0x1370, Data3: 0x55c8, Data4: [8]byte{0x80, 0xe1, 0x78, 0xb4, 0x90, 0x04, 0xa9, 0xe1}}
 
 // GetElement dispatches through IElementFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementFactory) GetElement(args *IElementFactoryGetArgs) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IElementFactory) GetElement(args *IElementFactoryGetArgs) (*IUIElement, error) {
+	result := new(*IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(args)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2090,16 +2078,14 @@ func (self *IElementFactoryGetArgs) SetData(value *syswinrt.IInspectable) error 
 }
 
 // Parent (propget get_Parent) dispatches through IElementFactoryGetArgs's vtable slot 8.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementFactoryGetArgs) Parent() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IElementFactoryGetArgs) Parent() (*IUIElement, error) {
+	result := new(*IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetParent (propput put_Parent) dispatches through IElementFactoryGetArgs's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementFactoryGetArgs) SetParent(value *syswinrt.IInspectable) error {
+func (self *IElementFactoryGetArgs) SetParent(value *IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2132,31 +2118,27 @@ type IElementFactoryRecycleArgs struct {
 var IID_IElementFactoryRecycleArgs = win32.GUID{Data1: 0x86f16b14, Data2: 0x37e8, Data3: 0x5dd8, Data4: [8]byte{0xa9, 0x0c, 0x25, 0xd3, 0x71, 0x03, 0x18, 0xb0}}
 
 // Element (propget get_Element) dispatches through IElementFactoryRecycleArgs's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementFactoryRecycleArgs) Element() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IElementFactoryRecycleArgs) Element() (*IUIElement, error) {
+	result := new(*IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetElement (propput put_Element) dispatches through IElementFactoryRecycleArgs's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementFactoryRecycleArgs) SetElement(value *syswinrt.IInspectable) error {
+func (self *IElementFactoryRecycleArgs) SetElement(value *IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Parent (propget get_Parent) dispatches through IElementFactoryRecycleArgs's vtable slot 8.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementFactoryRecycleArgs) Parent() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IElementFactoryRecycleArgs) Parent() (*IUIElement, error) {
+	result := new(*IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetParent (propput put_Parent) dispatches through IElementFactoryRecycleArgs's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementFactoryRecycleArgs) SetParent(value *syswinrt.IInspectable) error {
+func (self *IElementFactoryRecycleArgs) SetParent(value *IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2268,7 +2250,7 @@ func (self *IEventTrigger) SetRoutedEvent(value *IRoutedEvent) error {
 }
 
 // Actions (propget get_Actions) dispatches through IEventTrigger's vtable slot 8.
-// The return value's class Windows.UI.Xaml.TriggerActionCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Xaml.TriggerActionCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IEventTrigger) Actions() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -2316,7 +2298,7 @@ type IFrameworkElement struct {
 var IID_IFrameworkElement = win32.GUID{Data1: 0xa391d09b, Data2: 0x4a99, Data3: 0x4b7c, Data4: [8]byte{0x9d, 0x8d, 0x6f, 0xa5, 0xd0, 0x1f, 0x6f, 0xbf}}
 
 // Triggers (propget get_Triggers) dispatches through IFrameworkElement's vtable slot 6.
-// The return value's class Windows.UI.Xaml.TriggerCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Xaml.TriggerCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IFrameworkElement) Triggers() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -2324,16 +2306,14 @@ func (self *IFrameworkElement) Triggers() (*syswinrt.IInspectable, error) {
 }
 
 // Resources (propget get_Resources) dispatches through IFrameworkElement's vtable slot 7.
-// The return value's class Windows.UI.Xaml.ResourceDictionary is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameworkElement) Resources() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFrameworkElement) Resources() (*IResourceDictionary, error) {
+	result := new(*IResourceDictionary)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetResources (propput put_Resources) dispatches through IFrameworkElement's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.ResourceDictionary is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameworkElement) SetResources(value *syswinrt.IInspectable) error {
+func (self *IFrameworkElement) SetResources(value *IResourceDictionary) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2477,16 +2457,14 @@ func (self *IFrameworkElement) SetDataContext(value *syswinrt.IInspectable) erro
 }
 
 // Style (propget get_Style) dispatches through IFrameworkElement's vtable slot 38.
-// The return value's class Windows.UI.Xaml.Style is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameworkElement) Style() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFrameworkElement) Style() (*IStyle, error) {
+	result := new(*IStyle)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[38], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetStyle (propput put_Style) dispatches through IFrameworkElement's vtable slot 39.
-// Parameter value's class Windows.UI.Xaml.Style is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameworkElement) SetStyle(value *syswinrt.IInspectable) error {
+func (self *IFrameworkElement) SetStyle(value *IStyle) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[39], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2812,9 +2790,8 @@ type IFrameworkElementFactory struct {
 var IID_IFrameworkElementFactory = win32.GUID{Data1: 0xdeaee126, Data2: 0x03ca, Data3: 0x4966, Data4: [8]byte{0xb5, 0x76, 0x60, 0x4c, 0xce, 0x93, 0xb5, 0xe8}}
 
 // CreateInstance dispatches through IFrameworkElementFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameworkElementFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFrameworkElementFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IFrameworkElement, error) {
+	result := new(*IFrameworkElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3140,9 +3117,8 @@ type IFrameworkTemplateFactory struct {
 var IID_IFrameworkTemplateFactory = win32.GUID{Data1: 0x1a78a0a5, Data2: 0x937d, Data3: 0x46d4, Data4: [8]byte{0x83, 0x2b, 0x94, 0xff, 0x14, 0xda, 0xb0, 0x61}}
 
 // CreateInstance dispatches through IFrameworkTemplateFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.FrameworkTemplate is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameworkTemplateFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFrameworkTemplateFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IFrameworkTemplate, error) {
+	result := new(*IFrameworkTemplate)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3360,14 +3336,13 @@ type IPropertyPathFactory struct {
 var IID_IPropertyPathFactory = win32.GUID{Data1: 0x4e4cdf99, Data2: 0x9826, Data3: 0x4e56, Data4: [8]byte{0x84, 0x7c, 0xca, 0x05, 0x5f, 0x16, 0x29, 0x05}}
 
 // CreateInstance dispatches through IPropertyPathFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.PropertyPath is projected as IInspectable (the class is not emitted this wave).
-func (self *IPropertyPathFactory) CreateInstance(path string) (*syswinrt.IInspectable, error) {
+func (self *IPropertyPathFactory) CreateInstance(path string) (*IPropertyPath, error) {
 	hPath, err := winrt.NewHString(path)
 	if err != nil {
 		return nil, err
 	}
 	defer hPath.Close()
-	result := new(*syswinrt.IInspectable)
+	result := new(*IPropertyPath)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hPath.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3473,9 +3448,8 @@ type IResourceDictionaryFactory struct {
 var IID_IResourceDictionaryFactory = win32.GUID{Data1: 0xea3639b5, Data2: 0x31b7, Data3: 0x4271, Data4: [8]byte{0x92, 0xc9, 0x7c, 0x95, 0x84, 0xa9, 0x1c, 0x22}}
 
 // CreateInstance dispatches through IResourceDictionaryFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.ResourceDictionary is projected as IInspectable (the class is not emitted this wave).
-func (self *IResourceDictionaryFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IResourceDictionaryFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IResourceDictionary, error) {
+	result := new(*IResourceDictionary)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3678,9 +3652,8 @@ type ISetterFactory struct {
 var IID_ISetterFactory = win32.GUID{Data1: 0xd3ca3d42, Data2: 0x09b1, Data3: 0x49d5, Data4: [8]byte{0x88, 0x91, 0xe7, 0xb5, 0x64, 0x8e, 0x02, 0xa2}}
 
 // CreateInstance dispatches through ISetterFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Setter is projected as IInspectable (the class is not emitted this wave).
-func (self *ISetterFactory) CreateInstance(targetProperty *IDependencyProperty, value *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISetterFactory) CreateInstance(targetProperty *IDependencyProperty, value *syswinrt.IInspectable) (*ISetter, error) {
+	result := new(*ISetter)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(targetProperty)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3790,9 +3763,8 @@ type IStateTriggerBaseFactory struct {
 var IID_IStateTriggerBaseFactory = win32.GUID{Data1: 0x970e2c4b, Data2: 0xbfaf, Data3: 0x47b0, Data4: [8]byte{0xbe, 0x42, 0xc1, 0xd7, 0x11, 0xbb, 0x2e, 0x9f}}
 
 // CreateInstance dispatches through IStateTriggerBaseFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.StateTriggerBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IStateTriggerBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IStateTriggerBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IStateTriggerBase, error) {
+	result := new(*IStateTriggerBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3863,16 +3835,14 @@ func (self *IStyle) Setters() (*ISetterBaseCollection, error) {
 // slot 9: put_TargetType skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
 
 // BasedOn (propget get_BasedOn) dispatches through IStyle's vtable slot 10.
-// The return value's class Windows.UI.Xaml.Style is projected as IInspectable (the class is not emitted this wave).
-func (self *IStyle) BasedOn() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IStyle) BasedOn() (*IStyle, error) {
+	result := new(*IStyle)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetBasedOn (propput put_BasedOn) dispatches through IStyle's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Style is projected as IInspectable (the class is not emitted this wave).
-func (self *IStyle) SetBasedOn(value *syswinrt.IInspectable) error {
+func (self *IStyle) SetBasedOn(value *IStyle) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -3906,16 +3876,14 @@ type ITargetPropertyPath struct {
 var IID_ITargetPropertyPath = win32.GUID{Data1: 0x40740f8e, Data2: 0x085f, Data3: 0x4ced, Data4: [8]byte{0xbe, 0x70, 0x6f, 0x47, 0xac, 0xf1, 0x5a, 0xd0}}
 
 // Path (propget get_Path) dispatches through ITargetPropertyPath's vtable slot 6.
-// The return value's class Windows.UI.Xaml.PropertyPath is projected as IInspectable (the class is not emitted this wave).
-func (self *ITargetPropertyPath) Path() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ITargetPropertyPath) Path() (*IPropertyPath, error) {
+	result := new(*IPropertyPath)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPath (propput put_Path) dispatches through ITargetPropertyPath's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.PropertyPath is projected as IInspectable (the class is not emitted this wave).
-func (self *ITargetPropertyPath) SetPath(value *syswinrt.IInspectable) error {
+func (self *ITargetPropertyPath) SetPath(value *IPropertyPath) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -5534,8 +5502,7 @@ func (self *IUIElementOverrides8) OnKeyboardAcceleratorInvoked(args *uixamlinput
 }
 
 // OnBringIntoViewRequested dispatches through IUIElementOverrides8's vtable slot 7.
-// Parameter e's class Windows.UI.Xaml.BringIntoViewRequestedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func (self *IUIElementOverrides8) OnBringIntoViewRequested(e *syswinrt.IInspectable) error {
+func (self *IUIElementOverrides8) OnBringIntoViewRequested(e *IBringIntoViewRequestedEventArgs) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(e)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -5551,8 +5518,7 @@ type IUIElementOverrides9 struct {
 var IID_IUIElementOverrides9 = win32.GUID{Data1: 0x9a6e5973, Data2: 0x6d63, Data3: 0x54f2, Data4: [8]byte{0x90, 0xfa, 0x62, 0x81, 0x3b, 0x20, 0xb7, 0xb9}}
 
 // PopulatePropertyInfoOverride dispatches through IUIElementOverrides9's vtable slot 6.
-// Parameter animationPropertyInfo's class Windows.UI.Composition.AnimationPropertyInfo is projected as IInspectable (the class is not emitted this wave).
-func (self *IUIElementOverrides9) PopulatePropertyInfoOverride(propertyName string, animationPropertyInfo *syswinrt.IInspectable) error {
+func (self *IUIElementOverrides9) PopulatePropertyInfoOverride(propertyName string, animationPropertyInfo *uicomposition.IAnimationPropertyInfo) error {
 	hPropertyName, err := winrt.NewHString(propertyName)
 	if err != nil {
 		return err
@@ -6157,8 +6123,7 @@ func (self *IUIElementStatics8) KeyboardAcceleratorPlacementModeProperty() (*IDe
 }
 
 // RegisterAsScrollPort dispatches through IUIElementStatics8's vtable slot 11.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IUIElementStatics8) RegisterAsScrollPort(element *syswinrt.IInspectable) error {
+func (self *IUIElementStatics8) RegisterAsScrollPort(element *IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -6363,31 +6328,27 @@ type IVisualStateChangedEventArgs struct {
 var IID_IVisualStateChangedEventArgs = win32.GUID{Data1: 0xfe216ab1, Data2: 0xf31f, Data3: 0x4791, Data4: [8]byte{0x89, 0x89, 0xc7, 0x0e, 0x1d, 0x9b, 0x59, 0xff}}
 
 // OldState (propget get_OldState) dispatches through IVisualStateChangedEventArgs's vtable slot 6.
-// The return value's class Windows.UI.Xaml.VisualState is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualStateChangedEventArgs) OldState() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisualStateChangedEventArgs) OldState() (*IVisualState, error) {
+	result := new(*IVisualState)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetOldState (propput put_OldState) dispatches through IVisualStateChangedEventArgs's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.VisualState is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualStateChangedEventArgs) SetOldState(value *syswinrt.IInspectable) error {
+func (self *IVisualStateChangedEventArgs) SetOldState(value *IVisualState) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // NewState (propget get_NewState) dispatches through IVisualStateChangedEventArgs's vtable slot 8.
-// The return value's class Windows.UI.Xaml.VisualState is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualStateChangedEventArgs) NewState() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisualStateChangedEventArgs) NewState() (*IVisualState, error) {
+	result := new(*IVisualState)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetNewState (propput put_NewState) dispatches through IVisualStateChangedEventArgs's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.VisualState is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualStateChangedEventArgs) SetNewState(value *syswinrt.IInspectable) error {
+func (self *IVisualStateChangedEventArgs) SetNewState(value *IVisualState) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -6431,9 +6392,8 @@ func (self *IVisualStateGroup) States() (*IVectorOfVisualState, error) {
 }
 
 // CurrentState (propget get_CurrentState) dispatches through IVisualStateGroup's vtable slot 9.
-// The return value's class Windows.UI.Xaml.VisualState is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualStateGroup) CurrentState() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisualStateGroup) CurrentState() (*IVisualState, error) {
+	result := new(*IVisualState)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -6491,9 +6451,8 @@ type IVisualStateManagerFactory struct {
 var IID_IVisualStateManagerFactory = win32.GUID{Data1: 0x85e598fd, Data2: 0xa575, Data3: 0x47b6, Data4: [8]byte{0x9e, 0x30, 0x38, 0x3c, 0xd0, 0x85, 0x85, 0xf2}}
 
 // CreateInstance dispatches through IVisualStateManagerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.VisualStateManager is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualStateManagerFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisualStateManagerFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IVisualStateManager, error) {
+	result := new(*IVisualStateManager)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -6535,8 +6494,7 @@ type IVisualStateManagerStatics struct {
 var IID_IVisualStateManagerStatics = win32.GUID{Data1: 0x01d0e9e0, Data2: 0xd713, Data3: 0x414e, Data4: [8]byte{0xa7, 0x4e, 0xe6, 0x3e, 0xc7, 0xac, 0x8c, 0x3d}}
 
 // GetVisualStateGroups dispatches through IVisualStateManagerStatics's vtable slot 6.
-// Parameter obj's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualStateManagerStatics) GetVisualStateGroups(obj *syswinrt.IInspectable) (*IVectorOfVisualStateGroup, error) {
+func (self *IVisualStateManagerStatics) GetVisualStateGroups(obj *IFrameworkElement) (*IVectorOfVisualStateGroup, error) {
 	result := new(*IVectorOfVisualStateGroup)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(obj)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
@@ -6550,18 +6508,14 @@ func (self *IVisualStateManagerStatics) CustomVisualStateManagerProperty() (*IDe
 }
 
 // GetCustomVisualStateManager dispatches through IVisualStateManagerStatics's vtable slot 8.
-// The return value's class Windows.UI.Xaml.VisualStateManager is projected as IInspectable (the class is not emitted this wave).
-// Parameter obj's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualStateManagerStatics) GetCustomVisualStateManager(obj *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisualStateManagerStatics) GetCustomVisualStateManager(obj *IFrameworkElement) (*IVisualStateManager, error) {
+	result := new(*IVisualStateManager)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(obj)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCustomVisualStateManager dispatches through IVisualStateManagerStatics's vtable slot 9.
-// Parameter obj's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-// Parameter value's class Windows.UI.Xaml.VisualStateManager is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualStateManagerStatics) SetCustomVisualStateManager(obj *syswinrt.IInspectable, value *syswinrt.IInspectable) error {
+func (self *IVisualStateManagerStatics) SetCustomVisualStateManager(obj *IFrameworkElement, value *IVisualStateManager) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(obj)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -6648,9 +6602,8 @@ type IVisualTransitionFactory struct {
 var IID_IVisualTransitionFactory = win32.GUID{Data1: 0xea75864f, Data2: 0xd1e0, Data3: 0x4dae, Data4: [8]byte{0xb4, 0x29, 0x89, 0xfc, 0x32, 0x27, 0x24, 0xf4}}
 
 // CreateInstance dispatches through IVisualTransitionFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.VisualTransition is projected as IInspectable (the class is not emitted this wave).
-func (self *IVisualTransitionFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVisualTransitionFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IVisualTransition, error) {
+	result := new(*IVisualTransition)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -6680,16 +6633,14 @@ func (self *IWindow) Visible() (bool, error) {
 }
 
 // Content (propget get_Content) dispatches through IWindow's vtable slot 8.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IWindow) Content() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IWindow) Content() (*IUIElement, error) {
+	result := new(*IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetContent (propput put_Content) dispatches through IWindow's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IWindow) SetContent(value *syswinrt.IInspectable) error {
+func (self *IWindow) SetContent(value *IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -6795,8 +6746,7 @@ type IWindow2 struct {
 var IID_IWindow2 = win32.GUID{Data1: 0xd384759f, Data2: 0x34f6, Data3: 0x4482, Data4: [8]byte{0x84, 0x35, 0xf5, 0x52, 0xf9, 0xb2, 0x4c, 0xc8}}
 
 // SetTitleBar dispatches through IWindow2's vtable slot 6.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IWindow2) SetTitleBar(value *syswinrt.IInspectable) error {
+func (self *IWindow2) SetTitleBar(value *IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -6880,9 +6830,8 @@ type IXamlRoot struct {
 var IID_IXamlRoot = win32.GUID{Data1: 0x34b50756, Data2: 0x1696, Data3: 0x5b6d, Data4: [8]byte{0x8e, 0x9b, 0xc7, 0x14, 0x64, 0xcc, 0xad, 0x5a}}
 
 // Content (propget get_Content) dispatches through IXamlRoot's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IXamlRoot) Content() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IXamlRoot) Content() (*IUIElement, error) {
+	result := new(*IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

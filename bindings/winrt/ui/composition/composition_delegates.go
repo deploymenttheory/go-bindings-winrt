@@ -99,11 +99,9 @@ var IID_TypedEventHandlerOfCompositionGraphicsDeviceAndRenderingDeviceReplacedEv
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Composition.CompositionGraphicsDevice is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Composition.RenderingDeviceReplacedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfCompositionGraphicsDeviceAndRenderingDeviceReplacedEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfCompositionGraphicsDeviceAndRenderingDeviceReplacedEventArgs, error) {
+func NewTypedEventHandlerOfCompositionGraphicsDeviceAndRenderingDeviceReplacedEventArgs(fn func(sender *ICompositionGraphicsDevice, args *IRenderingDeviceReplacedEventArgs)) (*TypedEventHandlerOfCompositionGraphicsDeviceAndRenderingDeviceReplacedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfCompositionGraphicsDeviceAndRenderingDeviceReplacedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*ICompositionGraphicsDevice)(unsafe.Pointer(raw[0])), (*IRenderingDeviceReplacedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -140,10 +138,9 @@ var IID_TypedEventHandlerOfObjectAndCompositionBatchCompletedEventArgs = win32.G
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter args's class Windows.UI.Composition.CompositionBatchCompletedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfObjectAndCompositionBatchCompletedEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfObjectAndCompositionBatchCompletedEventArgs, error) {
+func NewTypedEventHandlerOfObjectAndCompositionBatchCompletedEventArgs(fn func(sender *syswinrt.IInspectable, args *ICompositionBatchCompletedEventArgs)) (*TypedEventHandlerOfObjectAndCompositionBatchCompletedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfObjectAndCompositionBatchCompletedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ICompositionBatchCompletedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {

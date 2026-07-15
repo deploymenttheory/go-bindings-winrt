@@ -137,9 +137,23 @@ go run ./examples/calendar                # the vertical, end to end
     emitter is self-cleaning and only ever prunes files bearing the header.
 - **Emit rules**: slot = 6 + MethodDef index; skipped members NEVER
   renumber — they leave `// slot N: name skipped: reason` comments.
-  Classes (non-composable) embed their default interface by value;
-  direct-activatable classes get `NewFoo()`; other instance interfaces get
-  `As<Name>()` query methods. Closed generic INTERFACE instantiations
+  Classes — composable ones included — embed their default interface by
+  value; direct-activatable classes get `NewFoo()`; other instance
+  interfaces get `As<Name>()` query methods. Composition is
+  INSTANTIATE-ONLY: a class-typed param/return resolves to the class's
+  default-interface pointer (composable or not), and each emitted
+  `[Composable]` factory method whose trailing params are the composition
+  pair (`baseInterface` in Object + `innerInterface` out Object) and whose
+  return is the class default interface becomes a package-level
+  `New<Class>` / `New<Class>With<Suffix>` constructor taking only the
+  LEADING params: it delegates to the generated factory method with a NULL
+  outer and an inner out-pointer, Releases the returned non-nil inner (a
+  second reference to the same object under null-outer composition), and
+  re-types the retval as the class. Shape-rule failures record
+  `composable-factory-skipped`; factory-less composables (SpriteVisual) are
+  a valid platform shape — class type + queries + statics, no diagnostic.
+  Go-side derivation (non-null outer) is out of scope; inherited
+  (base-class) interfaces are reached via `winrt.QueryInterface`. Closed generic INTERFACE instantiations
   referenced by emittable members are emitted as concrete (monomorphized)
   types into the CONSUMING package's `<pkg>_pinterfaces.go` — mangled name
   (`IVectorView`1<String>` → `IVectorViewOfString`), IID derived by
@@ -228,8 +242,8 @@ go run ./examples/calendar                # the vertical, end to end
   for updates).
 - Conventional commits, release-please, SHA-pinned actions, LF-normalized
   text (`.gitattributes`), `*.winmd` binary.
-- See `docs/ROADMAP.md` for the landed/deferred state (composition, delegate
-  returns, and progress handlers' Await stay deferred; events, statics,
-  factory constructors, delegate-typed method params, and async awaiting are
-  emitted). User-facing guides live in `docs/*.md`; runnable examples in
+- See `docs/ROADMAP.md` for the landed/deferred state (Go-side derivation of
+  composable classes and delegate returns stay deferred; events, statics,
+  factory constructors, composable constructors, delegate-typed method
+  params, and async awaiting — WithProgress included — are emitted). User-facing guides live in `docs/*.md`; runnable examples in
   `examples/` (indexed by `examples/README.md`).

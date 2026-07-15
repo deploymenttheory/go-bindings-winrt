@@ -40,7 +40,7 @@ func (self *IIterableOfAutomationAnnotation) First() (*IIteratorOfAutomationAnno
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfAutomationAnnotation(items []*syswinrt.IInspectable) *IIterableOfAutomationAnnotation {
+func NewIIterableOfAutomationAnnotation(items []*IAutomationAnnotation) *IIterableOfAutomationAnnotation {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -110,7 +110,7 @@ func (self *IIterableOfUIElement) First() (*IIteratorOfUIElement, error) {
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIIterableOfUIElement(items []*syswinrt.IInspectable) *IIterableOfUIElement {
+func NewIIterableOfUIElement(items []*uixaml.IUIElement) *IIterableOfUIElement {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -129,9 +129,8 @@ type IIteratorOfAutomationAnnotation struct {
 var IID_IIteratorOfAutomationAnnotation = win32.GUID{Data1: 0x7ed32ba3, Data2: 0xdb0c, Data3: 0x5a54, Data4: [8]byte{0xab, 0x43, 0x30, 0x62, 0x8a, 0xfb, 0xc2, 0xd8}}
 
 // Current (propget get_Current) dispatches through IIteratorOfAutomationAnnotation's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfAutomationAnnotation) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfAutomationAnnotation) Current() (*IAutomationAnnotation, error) {
+	result := new(*IAutomationAnnotation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -194,9 +193,8 @@ type IIteratorOfUIElement struct {
 var IID_IIteratorOfUIElement = win32.GUID{Data1: 0x1d1f9d60, Data2: 0xd53b, Data3: 0x57f7, Data4: [8]byte{0xb1, 0x44, 0x8f, 0x7c, 0x48, 0x78, 0x46, 0xe8}}
 
 // Current (propget get_Current) dispatches through IIteratorOfUIElement's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfUIElement) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfUIElement) Current() (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -228,9 +226,8 @@ type IVectorOfAutomationAnnotation struct {
 var IID_IVectorOfAutomationAnnotation = win32.GUID{Data1: 0x73596c82, Data2: 0xf6e5, Data3: 0x5b57, Data4: [8]byte{0x8d, 0xc5, 0x55, 0x6c, 0xb7, 0xa8, 0xfb, 0xe6}}
 
 // GetAt dispatches through IVectorOfAutomationAnnotation's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationAnnotation) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfAutomationAnnotation) GetAt(index uint32) (*IAutomationAnnotation, error) {
+	result := new(*IAutomationAnnotation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -250,23 +247,20 @@ func (self *IVectorOfAutomationAnnotation) GetView() (*IVectorViewOfAutomationAn
 }
 
 // IndexOf dispatches through IVectorOfAutomationAnnotation's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationAnnotation) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfAutomationAnnotation) IndexOf(value *IAutomationAnnotation, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfAutomationAnnotation's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationAnnotation) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationAnnotation) SetAt(index uint32, value *IAutomationAnnotation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfAutomationAnnotation's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationAnnotation) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationAnnotation) InsertAt(index uint32, value *IAutomationAnnotation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -278,8 +272,7 @@ func (self *IVectorOfAutomationAnnotation) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfAutomationAnnotation's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationAnnotation) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationAnnotation) Append(value *IAutomationAnnotation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -313,7 +306,7 @@ func (self *IVectorOfAutomationAnnotation) Clear() error {
 // The vector is writable through the WinRT ABI (the Go side exposes no
 // mutation API); GetView returns an immutable SNAPSHOT of the contents at
 // call time.
-func NewIVectorOfAutomationAnnotation(items []*syswinrt.IInspectable) *IVectorOfAutomationAnnotation {
+func NewIVectorOfAutomationAnnotation(items []*IAutomationAnnotation) *IVectorOfAutomationAnnotation {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -433,9 +426,8 @@ type IVectorOfUIElement struct {
 var IID_IVectorOfUIElement = win32.GUID{Data1: 0xb4c1e3ac, Data2: 0x8768, Data3: 0x5b9d, Data4: [8]byte{0xa6, 0x61, 0xf6, 0x33, 0x30, 0xb8, 0x50, 0x7b}}
 
 // GetAt dispatches through IVectorOfUIElement's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfUIElement) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfUIElement) GetAt(index uint32) (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -455,23 +447,20 @@ func (self *IVectorOfUIElement) GetView() (*IVectorViewOfUIElement, error) {
 }
 
 // IndexOf dispatches through IVectorOfUIElement's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfUIElement) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfUIElement) IndexOf(value *uixaml.IUIElement, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfUIElement's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfUIElement) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfUIElement) SetAt(index uint32, value *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfUIElement's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfUIElement) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfUIElement) InsertAt(index uint32, value *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -483,8 +472,7 @@ func (self *IVectorOfUIElement) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfUIElement's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfUIElement) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfUIElement) Append(value *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -518,7 +506,7 @@ func (self *IVectorOfUIElement) Clear() error {
 // The vector is writable through the WinRT ABI (the Go side exposes no
 // mutation API); GetView returns an immutable SNAPSHOT of the contents at
 // call time.
-func NewIVectorOfUIElement(items []*syswinrt.IInspectable) *IVectorOfUIElement {
+func NewIVectorOfUIElement(items []*uixaml.IUIElement) *IVectorOfUIElement {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -538,9 +526,8 @@ type IVectorViewOfAutomationAnnotation struct {
 var IID_IVectorViewOfAutomationAnnotation = win32.GUID{Data1: 0xa4b8a26c, Data2: 0x9009, Data3: 0x5394, Data4: [8]byte{0x98, 0xc8, 0x98, 0x10, 0x7e, 0x80, 0xdb, 0x61}}
 
 // GetAt dispatches through IVectorViewOfAutomationAnnotation's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfAutomationAnnotation) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfAutomationAnnotation) GetAt(index uint32) (*IAutomationAnnotation, error) {
+	result := new(*IAutomationAnnotation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -553,8 +540,7 @@ func (self *IVectorViewOfAutomationAnnotation) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfAutomationAnnotation's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfAutomationAnnotation) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfAutomationAnnotation) IndexOf(value *IAutomationAnnotation, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -572,7 +558,7 @@ func (self *IVectorViewOfAutomationAnnotation) IndexOf(value *syswinrt.IInspecta
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIVectorViewOfAutomationAnnotation(items []*syswinrt.IInspectable) *IVectorViewOfAutomationAnnotation {
+func NewIVectorViewOfAutomationAnnotation(items []*IAutomationAnnotation) *IVectorViewOfAutomationAnnotation {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))
@@ -644,9 +630,8 @@ type IVectorViewOfUIElement struct {
 var IID_IVectorViewOfUIElement = win32.GUID{Data1: 0xf3864c10, Data2: 0x14a4, Data3: 0x5516, Data4: [8]byte{0xb1, 0xd9, 0x63, 0xb6, 0x57, 0x94, 0x29, 0xb1}}
 
 // GetAt dispatches through IVectorViewOfUIElement's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfUIElement) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfUIElement) GetAt(index uint32) (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -659,8 +644,7 @@ func (self *IVectorViewOfUIElement) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfUIElement's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfUIElement) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfUIElement) IndexOf(value *uixaml.IUIElement, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -678,7 +662,7 @@ func (self *IVectorViewOfUIElement) IndexOf(value *syswinrt.IInspectable, index 
 // as it is displaced, removed, or when the collection itself is released.
 // IndexOf compares COM identity WORDS (no QueryInterface is issued): an
 // element matches only the exact interface pointer it was built from.
-func NewIVectorViewOfUIElement(items []*syswinrt.IInspectable) *IVectorViewOfUIElement {
+func NewIVectorViewOfUIElement(items []*uixaml.IUIElement) *IVectorViewOfUIElement {
 	boxed := make([]any, len(items))
 	for i, item := range items {
 		boxed[i] = uintptr(unsafe.Pointer(item))

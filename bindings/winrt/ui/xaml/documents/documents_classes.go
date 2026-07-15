@@ -7,14 +7,175 @@ package documents
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
+
+// Block is the Windows.UI.Xaml.Documents.Block runtime class, surfaced through its
+// default interface IBlock. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Block struct {
+	IBlock
+}
+
+// AsBlock2 queries the instance's IBlock2 interface.
+// The returned reference is owned by the caller.
+func (self *Block) AsBlock2() (*IBlock2, error) {
+	return winrt.QueryInterface[IBlock2](unsafe.Pointer(self), &IID_IBlock2)
+}
+
+// BlockStatics returns the Windows.UI.Xaml.Documents.IBlockStatics statics of the
+// Windows.UI.Xaml.Documents.Block runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BlockStatics() (*IBlockStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Block", &IID_IBlockStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBlockStatics)(unsafe.Pointer(factory)), nil
+}
+
+// BlockStatics2 returns the Windows.UI.Xaml.Documents.IBlockStatics2 statics of the
+// Windows.UI.Xaml.Documents.Block runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BlockStatics2() (*IBlockStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Block", &IID_IBlockStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBlockStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewBlock constructs a Windows.UI.Xaml.Documents.Block instance through
+// Windows.UI.Xaml.Documents.IBlockFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewBlock() (*Block, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Block", &IID_IBlockFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBlockFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Block)(unsafe.Pointer(instance)), nil
+}
+
+// Bold is the Windows.UI.Xaml.Documents.Bold runtime class, surfaced through its
+// default interface IBold. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Bold struct {
+	IBold
+}
+
+// NewBold activates Windows.UI.Xaml.Documents.Bold through its default
+// constructor.
+func NewBold() (*Bold, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.Bold")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Bold](unsafe.Pointer(instance), &IID_IBold)
+}
+
+// ContactContentLinkProvider is the Windows.UI.Xaml.Documents.ContactContentLinkProvider runtime class, surfaced through its
+// default interface IContactContentLinkProvider. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ContactContentLinkProvider struct {
+	IContactContentLinkProvider
+}
+
+// NewContactContentLinkProvider activates Windows.UI.Xaml.Documents.ContactContentLinkProvider through its default
+// constructor.
+func NewContactContentLinkProvider() (*ContactContentLinkProvider, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.ContactContentLinkProvider")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ContactContentLinkProvider](unsafe.Pointer(instance), &IID_IContactContentLinkProvider)
+}
+
+// ContentLink is the Windows.UI.Xaml.Documents.ContentLink runtime class, surfaced through its
+// default interface IContentLink. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ContentLink struct {
+	IContentLink
+}
+
+// NewContentLink activates Windows.UI.Xaml.Documents.ContentLink through its default
+// constructor.
+func NewContentLink() (*ContentLink, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.ContentLink")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ContentLink](unsafe.Pointer(instance), &IID_IContentLink)
+}
+
+// ContentLinkStatics returns the Windows.UI.Xaml.Documents.IContentLinkStatics statics of the
+// Windows.UI.Xaml.Documents.ContentLink runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ContentLinkStatics() (*IContentLinkStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.ContentLink", &IID_IContentLinkStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IContentLinkStatics)(unsafe.Pointer(factory)), nil
+}
 
 // ContentLinkInvokedEventArgs is the Windows.UI.Xaml.Documents.ContentLinkInvokedEventArgs runtime class, surfaced through its
 // default interface IContentLinkInvokedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type ContentLinkInvokedEventArgs struct {
 	IContentLinkInvokedEventArgs
+}
+
+// ContentLinkProvider is the Windows.UI.Xaml.Documents.ContentLinkProvider runtime class, surfaced through its
+// default interface IContentLinkProvider. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ContentLinkProvider struct {
+	IContentLinkProvider
+}
+
+// NewContentLinkProvider constructs a Windows.UI.Xaml.Documents.ContentLinkProvider instance through
+// Windows.UI.Xaml.Documents.IContentLinkProviderFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewContentLinkProvider() (*ContentLinkProvider, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.ContentLinkProvider", &IID_IContentLinkProviderFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IContentLinkProviderFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ContentLinkProvider)(unsafe.Pointer(instance)), nil
 }
 
 // ContentLinkProviderCollection is the Windows.UI.Xaml.Documents.ContentLinkProviderCollection runtime class, surfaced through its
@@ -47,6 +208,444 @@ func (self *ContentLinkProviderCollection) AsIterableOfContentLinkProvider() (*I
 	return winrt.QueryInterface[IIterableOfContentLinkProvider](unsafe.Pointer(self), &IID_IIterableOfContentLinkProvider)
 }
 
+// Glyphs is the Windows.UI.Xaml.Documents.Glyphs runtime class, surfaced through its
+// default interface IGlyphs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Glyphs struct {
+	IGlyphs
+}
+
+// NewGlyphs activates Windows.UI.Xaml.Documents.Glyphs through its default
+// constructor.
+func NewGlyphs() (*Glyphs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.Glyphs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Glyphs](unsafe.Pointer(instance), &IID_IGlyphs)
+}
+
+// AsGlyphs2 queries the instance's IGlyphs2 interface.
+// The returned reference is owned by the caller.
+func (self *Glyphs) AsGlyphs2() (*IGlyphs2, error) {
+	return winrt.QueryInterface[IGlyphs2](unsafe.Pointer(self), &IID_IGlyphs2)
+}
+
+// GlyphsStatics returns the Windows.UI.Xaml.Documents.IGlyphsStatics statics of the
+// Windows.UI.Xaml.Documents.Glyphs runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GlyphsStatics() (*IGlyphsStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Glyphs", &IID_IGlyphsStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGlyphsStatics)(unsafe.Pointer(factory)), nil
+}
+
+// GlyphsStatics2 returns the Windows.UI.Xaml.Documents.IGlyphsStatics2 statics of the
+// Windows.UI.Xaml.Documents.Glyphs runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GlyphsStatics2() (*IGlyphsStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Glyphs", &IID_IGlyphsStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGlyphsStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// Hyperlink is the Windows.UI.Xaml.Documents.Hyperlink runtime class, surfaced through its
+// default interface IHyperlink. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Hyperlink struct {
+	IHyperlink
+}
+
+// NewHyperlink activates Windows.UI.Xaml.Documents.Hyperlink through its default
+// constructor.
+func NewHyperlink() (*Hyperlink, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.Hyperlink")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Hyperlink](unsafe.Pointer(instance), &IID_IHyperlink)
+}
+
+// AsHyperlink2 queries the instance's IHyperlink2 interface.
+// The returned reference is owned by the caller.
+func (self *Hyperlink) AsHyperlink2() (*IHyperlink2, error) {
+	return winrt.QueryInterface[IHyperlink2](unsafe.Pointer(self), &IID_IHyperlink2)
+}
+
+// AsHyperlink3 queries the instance's IHyperlink3 interface.
+// The returned reference is owned by the caller.
+func (self *Hyperlink) AsHyperlink3() (*IHyperlink3, error) {
+	return winrt.QueryInterface[IHyperlink3](unsafe.Pointer(self), &IID_IHyperlink3)
+}
+
+// AsHyperlink4 queries the instance's IHyperlink4 interface.
+// The returned reference is owned by the caller.
+func (self *Hyperlink) AsHyperlink4() (*IHyperlink4, error) {
+	return winrt.QueryInterface[IHyperlink4](unsafe.Pointer(self), &IID_IHyperlink4)
+}
+
+// AsHyperlink5 queries the instance's IHyperlink5 interface.
+// The returned reference is owned by the caller.
+func (self *Hyperlink) AsHyperlink5() (*IHyperlink5, error) {
+	return winrt.QueryInterface[IHyperlink5](unsafe.Pointer(self), &IID_IHyperlink5)
+}
+
+// HyperlinkStatics returns the Windows.UI.Xaml.Documents.IHyperlinkStatics statics of the
+// Windows.UI.Xaml.Documents.Hyperlink runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func HyperlinkStatics() (*IHyperlinkStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Hyperlink", &IID_IHyperlinkStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IHyperlinkStatics)(unsafe.Pointer(factory)), nil
+}
+
+// HyperlinkStatics2 returns the Windows.UI.Xaml.Documents.IHyperlinkStatics2 statics of the
+// Windows.UI.Xaml.Documents.Hyperlink runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func HyperlinkStatics2() (*IHyperlinkStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Hyperlink", &IID_IHyperlinkStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IHyperlinkStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// HyperlinkStatics3 returns the Windows.UI.Xaml.Documents.IHyperlinkStatics3 statics of the
+// Windows.UI.Xaml.Documents.Hyperlink runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func HyperlinkStatics3() (*IHyperlinkStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Hyperlink", &IID_IHyperlinkStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IHyperlinkStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// HyperlinkStatics4 returns the Windows.UI.Xaml.Documents.IHyperlinkStatics4 statics of the
+// Windows.UI.Xaml.Documents.Hyperlink runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func HyperlinkStatics4() (*IHyperlinkStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Hyperlink", &IID_IHyperlinkStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IHyperlinkStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// HyperlinkStatics5 returns the Windows.UI.Xaml.Documents.IHyperlinkStatics5 statics of the
+// Windows.UI.Xaml.Documents.Hyperlink runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func HyperlinkStatics5() (*IHyperlinkStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Hyperlink", &IID_IHyperlinkStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IHyperlinkStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// HyperlinkClickEventArgs is the Windows.UI.Xaml.Documents.HyperlinkClickEventArgs runtime class, surfaced through its
+// default interface IHyperlinkClickEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type HyperlinkClickEventArgs struct {
+	IHyperlinkClickEventArgs
+}
+
+// Inline is the Windows.UI.Xaml.Documents.Inline runtime class, surfaced through its
+// default interface IInline. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Inline struct {
+	IInline
+}
+
+// NewInline constructs a Windows.UI.Xaml.Documents.Inline instance through
+// Windows.UI.Xaml.Documents.IInlineFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInline() (*Inline, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Inline", &IID_IInlineFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInlineFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Inline)(unsafe.Pointer(instance)), nil
+}
+
+// InlineUIContainer is the Windows.UI.Xaml.Documents.InlineUIContainer runtime class, surfaced through its
+// default interface IInlineUIContainer. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InlineUIContainer struct {
+	IInlineUIContainer
+}
+
+// NewInlineUIContainer activates Windows.UI.Xaml.Documents.InlineUIContainer through its default
+// constructor.
+func NewInlineUIContainer() (*InlineUIContainer, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.InlineUIContainer")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[InlineUIContainer](unsafe.Pointer(instance), &IID_IInlineUIContainer)
+}
+
+// Italic is the Windows.UI.Xaml.Documents.Italic runtime class, surfaced through its
+// default interface IItalic. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Italic struct {
+	IItalic
+}
+
+// NewItalic activates Windows.UI.Xaml.Documents.Italic through its default
+// constructor.
+func NewItalic() (*Italic, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.Italic")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Italic](unsafe.Pointer(instance), &IID_IItalic)
+}
+
+// LineBreak is the Windows.UI.Xaml.Documents.LineBreak runtime class, surfaced through its
+// default interface ILineBreak. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type LineBreak struct {
+	ILineBreak
+}
+
+// NewLineBreak activates Windows.UI.Xaml.Documents.LineBreak through its default
+// constructor.
+func NewLineBreak() (*LineBreak, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.LineBreak")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[LineBreak](unsafe.Pointer(instance), &IID_ILineBreak)
+}
+
+// Paragraph is the Windows.UI.Xaml.Documents.Paragraph runtime class, surfaced through its
+// default interface IParagraph. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Paragraph struct {
+	IParagraph
+}
+
+// NewParagraph activates Windows.UI.Xaml.Documents.Paragraph through its default
+// constructor.
+func NewParagraph() (*Paragraph, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.Paragraph")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Paragraph](unsafe.Pointer(instance), &IID_IParagraph)
+}
+
+// ParagraphStatics returns the Windows.UI.Xaml.Documents.IParagraphStatics statics of the
+// Windows.UI.Xaml.Documents.Paragraph runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ParagraphStatics() (*IParagraphStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Paragraph", &IID_IParagraphStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IParagraphStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PlaceContentLinkProvider is the Windows.UI.Xaml.Documents.PlaceContentLinkProvider runtime class, surfaced through its
+// default interface IPlaceContentLinkProvider. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PlaceContentLinkProvider struct {
+	IPlaceContentLinkProvider
+}
+
+// NewPlaceContentLinkProvider activates Windows.UI.Xaml.Documents.PlaceContentLinkProvider through its default
+// constructor.
+func NewPlaceContentLinkProvider() (*PlaceContentLinkProvider, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.PlaceContentLinkProvider")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PlaceContentLinkProvider](unsafe.Pointer(instance), &IID_IPlaceContentLinkProvider)
+}
+
+// Run is the Windows.UI.Xaml.Documents.Run runtime class, surfaced through its
+// default interface IRun. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Run struct {
+	IRun
+}
+
+// NewRun activates Windows.UI.Xaml.Documents.Run through its default
+// constructor.
+func NewRun() (*Run, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.Run")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Run](unsafe.Pointer(instance), &IID_IRun)
+}
+
+// RunStatics returns the Windows.UI.Xaml.Documents.IRunStatics statics of the
+// Windows.UI.Xaml.Documents.Run runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RunStatics() (*IRunStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Run", &IID_IRunStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRunStatics)(unsafe.Pointer(factory)), nil
+}
+
+// Span is the Windows.UI.Xaml.Documents.Span runtime class, surfaced through its
+// default interface ISpan. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Span struct {
+	ISpan
+}
+
+// NewSpan constructs a Windows.UI.Xaml.Documents.Span instance through
+// Windows.UI.Xaml.Documents.ISpanFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSpan() (*Span, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.Span", &IID_ISpanFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISpanFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Span)(unsafe.Pointer(instance)), nil
+}
+
+// TextElement is the Windows.UI.Xaml.Documents.TextElement runtime class, surfaced through its
+// default interface ITextElement. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TextElement struct {
+	ITextElement
+}
+
+// AsTextElement2 queries the instance's ITextElement2 interface.
+// The returned reference is owned by the caller.
+func (self *TextElement) AsTextElement2() (*ITextElement2, error) {
+	return winrt.QueryInterface[ITextElement2](unsafe.Pointer(self), &IID_ITextElement2)
+}
+
+// AsTextElement3 queries the instance's ITextElement3 interface.
+// The returned reference is owned by the caller.
+func (self *TextElement) AsTextElement3() (*ITextElement3, error) {
+	return winrt.QueryInterface[ITextElement3](unsafe.Pointer(self), &IID_ITextElement3)
+}
+
+// AsTextElement4 queries the instance's ITextElement4 interface.
+// The returned reference is owned by the caller.
+func (self *TextElement) AsTextElement4() (*ITextElement4, error) {
+	return winrt.QueryInterface[ITextElement4](unsafe.Pointer(self), &IID_ITextElement4)
+}
+
+// AsTextElement5 queries the instance's ITextElement5 interface.
+// The returned reference is owned by the caller.
+func (self *TextElement) AsTextElement5() (*ITextElement5, error) {
+	return winrt.QueryInterface[ITextElement5](unsafe.Pointer(self), &IID_ITextElement5)
+}
+
+// AsTextElementOverrides queries the instance's ITextElementOverrides interface.
+// The returned reference is owned by the caller.
+func (self *TextElement) AsTextElementOverrides() (*ITextElementOverrides, error) {
+	return winrt.QueryInterface[ITextElementOverrides](unsafe.Pointer(self), &IID_ITextElementOverrides)
+}
+
+// TextElementStatics returns the Windows.UI.Xaml.Documents.ITextElementStatics statics of the
+// Windows.UI.Xaml.Documents.TextElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextElementStatics() (*ITextElementStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.TextElement", &IID_ITextElementStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextElementStatics)(unsafe.Pointer(factory)), nil
+}
+
+// TextElementStatics2 returns the Windows.UI.Xaml.Documents.ITextElementStatics2 statics of the
+// Windows.UI.Xaml.Documents.TextElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextElementStatics2() (*ITextElementStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.TextElement", &IID_ITextElementStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextElementStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// TextElementStatics3 returns the Windows.UI.Xaml.Documents.ITextElementStatics3 statics of the
+// Windows.UI.Xaml.Documents.TextElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextElementStatics3() (*ITextElementStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.TextElement", &IID_ITextElementStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextElementStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// TextElementStatics4 returns the Windows.UI.Xaml.Documents.ITextElementStatics4 statics of the
+// Windows.UI.Xaml.Documents.TextElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextElementStatics4() (*ITextElementStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.TextElement", &IID_ITextElementStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextElementStatics4)(unsafe.Pointer(factory)), nil
+}
+
 // TextHighlighter is the Windows.UI.Xaml.Documents.TextHighlighter runtime class, surfaced through its
 // default interface ITextHighlighter. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -64,6 +663,38 @@ func TextHighlighterStatics() (*ITextHighlighterStatics, error) {
 		return nil, err
 	}
 	return (*ITextHighlighterStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewTextHighlighter constructs a Windows.UI.Xaml.Documents.TextHighlighter instance through
+// Windows.UI.Xaml.Documents.ITextHighlighterFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTextHighlighter() (*TextHighlighter, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Documents.TextHighlighter", &IID_ITextHighlighterFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITextHighlighterFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*TextHighlighter)(unsafe.Pointer(instance)), nil
+}
+
+// TextHighlighterBase is the Windows.UI.Xaml.Documents.TextHighlighterBase runtime class, surfaced through its
+// default interface ITextHighlighterBase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TextHighlighterBase struct {
+	ITextHighlighterBase
 }
 
 // TextPointer is the Windows.UI.Xaml.Documents.TextPointer runtime class, surfaced through its
@@ -90,4 +721,22 @@ func TypographyStatics() (*ITypographyStatics, error) {
 		return nil, err
 	}
 	return (*ITypographyStatics)(unsafe.Pointer(factory)), nil
+}
+
+// Underline is the Windows.UI.Xaml.Documents.Underline runtime class, surfaced through its
+// default interface IUnderline. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Underline struct {
+	IUnderline
+}
+
+// NewUnderline activates Windows.UI.Xaml.Documents.Underline through its default
+// constructor.
+func NewUnderline() (*Underline, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Documents.Underline")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Underline](unsafe.Pointer(instance), &IID_IUnderline)
 }

@@ -8,6 +8,7 @@ import (
 	"unsafe"
 
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
 )
 
 // AnnotationPatternIdentifiers is the Windows.UI.Xaml.Automation.AnnotationPatternIdentifiers runtime class, surfaced through its
@@ -27,6 +28,70 @@ func AnnotationPatternIdentifiersStatics() (*IAnnotationPatternIdentifiersStatic
 		return nil, err
 	}
 	return (*IAnnotationPatternIdentifiersStatics)(unsafe.Pointer(factory)), nil
+}
+
+// AutomationAnnotation is the Windows.UI.Xaml.Automation.AutomationAnnotation runtime class, surfaced through its
+// default interface IAutomationAnnotation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AutomationAnnotation struct {
+	IAutomationAnnotation
+}
+
+// NewAutomationAnnotation activates Windows.UI.Xaml.Automation.AutomationAnnotation through its default
+// constructor.
+func NewAutomationAnnotation() (*AutomationAnnotation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Automation.AutomationAnnotation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[AutomationAnnotation](unsafe.Pointer(instance), &IID_IAutomationAnnotation)
+}
+
+// AutomationAnnotationStatics returns the Windows.UI.Xaml.Automation.IAutomationAnnotationStatics statics of the
+// Windows.UI.Xaml.Automation.AutomationAnnotation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AutomationAnnotationStatics() (*IAutomationAnnotationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Automation.AutomationAnnotation", &IID_IAutomationAnnotationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAutomationAnnotationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CreateInstance constructs a Windows.UI.Xaml.Automation.AutomationAnnotation instance through
+// Windows.UI.Xaml.Automation.IAutomationAnnotationFactory.CreateInstance. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstance(type_ AnnotationType) (*AutomationAnnotation, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Automation.AutomationAnnotation", &IID_IAutomationAnnotationFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IAutomationAnnotationFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstance(type_)
+	if err != nil {
+		return nil, err
+	}
+	return (*AutomationAnnotation)(unsafe.Pointer(instance)), nil
+}
+
+// CreateWithElementParameter constructs a Windows.UI.Xaml.Automation.AutomationAnnotation instance through
+// Windows.UI.Xaml.Automation.IAutomationAnnotationFactory.CreateWithElementParameter. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateWithElementParameter(type_ AnnotationType, element *uixaml.IUIElement) (*AutomationAnnotation, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Automation.AutomationAnnotation", &IID_IAutomationAnnotationFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IAutomationAnnotationFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateWithElementParameter(type_, element)
+	if err != nil {
+		return nil, err
+	}
+	return (*AutomationAnnotation)(unsafe.Pointer(instance)), nil
 }
 
 // AutomationElementIdentifiers is the Windows.UI.Xaml.Automation.AutomationElementIdentifiers runtime class, surfaced through its

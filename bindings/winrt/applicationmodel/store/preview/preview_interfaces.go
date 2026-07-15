@@ -15,6 +15,7 @@ import (
 	securityauthenticationwebcore "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/security/authentication/web/core"
 	securitycredentials "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/security/credentials"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/system"
+	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
 )
 
 // IDeliveryOptimizationSettings is the WinRT interface Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettings.
@@ -635,16 +636,14 @@ type IWebAuthenticationCoreManagerHelper struct {
 var IID_IWebAuthenticationCoreManagerHelper = win32.GUID{Data1: 0x06a50525, Data2: 0xe715, Data3: 0x4123, Data4: [8]byte{0x92, 0x76, 0x9d, 0x6f, 0x86, 0x5b, 0xa5, 0x5f}}
 
 // RequestTokenWithUIElementHostingAsync dispatches through IWebAuthenticationCoreManagerHelper's vtable slot 6.
-// Parameter uiElement's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IWebAuthenticationCoreManagerHelper) RequestTokenWithUIElementHostingAsync(request *securityauthenticationwebcore.IWebTokenRequest, uiElement *syswinrt.IInspectable) (*IAsyncOperationOfWebTokenRequestResult, error) {
+func (self *IWebAuthenticationCoreManagerHelper) RequestTokenWithUIElementHostingAsync(request *securityauthenticationwebcore.IWebTokenRequest, uiElement *uixaml.IUIElement) (*IAsyncOperationOfWebTokenRequestResult, error) {
 	result := new(*IAsyncOperationOfWebTokenRequestResult)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(request)), uintptr(unsafe.Pointer(uiElement)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RequestTokenWithUIElementHostingAndWebAccountAsync dispatches through IWebAuthenticationCoreManagerHelper's vtable slot 7.
-// Parameter uiElement's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IWebAuthenticationCoreManagerHelper) RequestTokenWithUIElementHostingAndWebAccountAsync(request *securityauthenticationwebcore.IWebTokenRequest, webAccount *securitycredentials.IWebAccount, uiElement *syswinrt.IInspectable) (*IAsyncOperationOfWebTokenRequestResult, error) {
+func (self *IWebAuthenticationCoreManagerHelper) RequestTokenWithUIElementHostingAndWebAccountAsync(request *securityauthenticationwebcore.IWebTokenRequest, webAccount *securitycredentials.IWebAccount, uiElement *uixaml.IUIElement) (*IAsyncOperationOfWebTokenRequestResult, error) {
 	result := new(*IAsyncOperationOfWebTokenRequestResult)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(request)), uintptr(unsafe.Pointer(webAccount)), uintptr(unsafe.Pointer(uiElement)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))

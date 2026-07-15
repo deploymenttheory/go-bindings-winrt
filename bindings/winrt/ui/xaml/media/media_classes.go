@@ -7,10 +7,269 @@ package media
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 	uicomposition "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/composition"
 )
+
+// AcrylicBrush is the Windows.UI.Xaml.Media.AcrylicBrush runtime class, surfaced through its
+// default interface IAcrylicBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AcrylicBrush struct {
+	IAcrylicBrush
+}
+
+// AsAcrylicBrush2 queries the instance's IAcrylicBrush2 interface.
+// The returned reference is owned by the caller.
+func (self *AcrylicBrush) AsAcrylicBrush2() (*IAcrylicBrush2, error) {
+	return winrt.QueryInterface[IAcrylicBrush2](unsafe.Pointer(self), &IID_IAcrylicBrush2)
+}
+
+// AcrylicBrushStatics returns the Windows.UI.Xaml.Media.IAcrylicBrushStatics statics of the
+// Windows.UI.Xaml.Media.AcrylicBrush runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AcrylicBrushStatics() (*IAcrylicBrushStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.AcrylicBrush", &IID_IAcrylicBrushStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAcrylicBrushStatics)(unsafe.Pointer(factory)), nil
+}
+
+// AcrylicBrushStatics2 returns the Windows.UI.Xaml.Media.IAcrylicBrushStatics2 statics of the
+// Windows.UI.Xaml.Media.AcrylicBrush runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AcrylicBrushStatics2() (*IAcrylicBrushStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.AcrylicBrush", &IID_IAcrylicBrushStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAcrylicBrushStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewAcrylicBrush constructs a Windows.UI.Xaml.Media.AcrylicBrush instance through
+// Windows.UI.Xaml.Media.IAcrylicBrushFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewAcrylicBrush() (*AcrylicBrush, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.AcrylicBrush", &IID_IAcrylicBrushFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IAcrylicBrushFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*AcrylicBrush)(unsafe.Pointer(instance)), nil
+}
+
+// ArcSegment is the Windows.UI.Xaml.Media.ArcSegment runtime class, surfaced through its
+// default interface IArcSegment. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ArcSegment struct {
+	IArcSegment
+}
+
+// NewArcSegment activates Windows.UI.Xaml.Media.ArcSegment through its default
+// constructor.
+func NewArcSegment() (*ArcSegment, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.ArcSegment")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ArcSegment](unsafe.Pointer(instance), &IID_IArcSegment)
+}
+
+// ArcSegmentStatics returns the Windows.UI.Xaml.Media.IArcSegmentStatics statics of the
+// Windows.UI.Xaml.Media.ArcSegment runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ArcSegmentStatics() (*IArcSegmentStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.ArcSegment", &IID_IArcSegmentStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IArcSegmentStatics)(unsafe.Pointer(factory)), nil
+}
+
+// BezierSegment is the Windows.UI.Xaml.Media.BezierSegment runtime class, surfaced through its
+// default interface IBezierSegment. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BezierSegment struct {
+	IBezierSegment
+}
+
+// NewBezierSegment activates Windows.UI.Xaml.Media.BezierSegment through its default
+// constructor.
+func NewBezierSegment() (*BezierSegment, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.BezierSegment")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[BezierSegment](unsafe.Pointer(instance), &IID_IBezierSegment)
+}
+
+// BezierSegmentStatics returns the Windows.UI.Xaml.Media.IBezierSegmentStatics statics of the
+// Windows.UI.Xaml.Media.BezierSegment runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BezierSegmentStatics() (*IBezierSegmentStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.BezierSegment", &IID_IBezierSegmentStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBezierSegmentStatics)(unsafe.Pointer(factory)), nil
+}
+
+// BitmapCache is the Windows.UI.Xaml.Media.BitmapCache runtime class, surfaced through its
+// default interface IBitmapCache. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BitmapCache struct {
+	IBitmapCache
+}
+
+// NewBitmapCache activates Windows.UI.Xaml.Media.BitmapCache through its default
+// constructor.
+func NewBitmapCache() (*BitmapCache, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.BitmapCache")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[BitmapCache](unsafe.Pointer(instance), &IID_IBitmapCache)
+}
+
+// Brush is the Windows.UI.Xaml.Media.Brush runtime class, surfaced through its
+// default interface IBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Brush struct {
+	IBrush
+}
+
+// AsBrushOverrides2 queries the instance's IBrushOverrides2 interface.
+// The returned reference is owned by the caller.
+func (self *Brush) AsBrushOverrides2() (*IBrushOverrides2, error) {
+	return winrt.QueryInterface[IBrushOverrides2](unsafe.Pointer(self), &IID_IBrushOverrides2)
+}
+
+// AsAnimationObject queries the instance's uicomposition.IAnimationObject interface.
+// The returned reference is owned by the caller.
+func (self *Brush) AsAnimationObject() (*uicomposition.IAnimationObject, error) {
+	return winrt.QueryInterface[uicomposition.IAnimationObject](unsafe.Pointer(self), &uicomposition.IID_IAnimationObject)
+}
+
+// BrushStatics returns the Windows.UI.Xaml.Media.IBrushStatics statics of the
+// Windows.UI.Xaml.Media.Brush runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BrushStatics() (*IBrushStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Brush", &IID_IBrushStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBrushStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewBrush constructs a Windows.UI.Xaml.Media.Brush instance through
+// Windows.UI.Xaml.Media.IBrushFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewBrush() (*Brush, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Brush", &IID_IBrushFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBrushFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Brush)(unsafe.Pointer(instance)), nil
+}
+
+// CacheMode is the Windows.UI.Xaml.Media.CacheMode runtime class, surfaced through its
+// default interface ICacheMode. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CacheMode struct {
+	ICacheMode
+}
+
+// NewCacheMode constructs a Windows.UI.Xaml.Media.CacheMode instance through
+// Windows.UI.Xaml.Media.ICacheModeFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCacheMode() (*CacheMode, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.CacheMode", &IID_ICacheModeFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICacheModeFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CacheMode)(unsafe.Pointer(instance)), nil
+}
+
+// CompositeTransform is the Windows.UI.Xaml.Media.CompositeTransform runtime class, surfaced through its
+// default interface ICompositeTransform. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositeTransform struct {
+	ICompositeTransform
+}
+
+// NewCompositeTransform activates Windows.UI.Xaml.Media.CompositeTransform through its default
+// constructor.
+func NewCompositeTransform() (*CompositeTransform, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.CompositeTransform")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[CompositeTransform](unsafe.Pointer(instance), &IID_ICompositeTransform)
+}
+
+// CompositeTransformStatics returns the Windows.UI.Xaml.Media.ICompositeTransformStatics statics of the
+// Windows.UI.Xaml.Media.CompositeTransform runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CompositeTransformStatics() (*ICompositeTransformStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.CompositeTransform", &IID_ICompositeTransformStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICompositeTransformStatics)(unsafe.Pointer(factory)), nil
+}
 
 // CompositionTarget is the Windows.UI.Xaml.Media.CompositionTarget runtime class, surfaced through its
 // default interface ICompositionTarget. Release when done (promoted from
@@ -43,6 +302,36 @@ func CompositionTargetStatics3() (*ICompositionTargetStatics3, error) {
 	return (*ICompositionTargetStatics3)(unsafe.Pointer(factory)), nil
 }
 
+// EllipseGeometry is the Windows.UI.Xaml.Media.EllipseGeometry runtime class, surfaced through its
+// default interface IEllipseGeometry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type EllipseGeometry struct {
+	IEllipseGeometry
+}
+
+// NewEllipseGeometry activates Windows.UI.Xaml.Media.EllipseGeometry through its default
+// constructor.
+func NewEllipseGeometry() (*EllipseGeometry, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.EllipseGeometry")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[EllipseGeometry](unsafe.Pointer(instance), &IID_IEllipseGeometry)
+}
+
+// EllipseGeometryStatics returns the Windows.UI.Xaml.Media.IEllipseGeometryStatics statics of the
+// Windows.UI.Xaml.Media.EllipseGeometry runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func EllipseGeometryStatics() (*IEllipseGeometryStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.EllipseGeometry", &IID_IEllipseGeometryStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IEllipseGeometryStatics)(unsafe.Pointer(factory)), nil
+}
+
 // FontFamily is the Windows.UI.Xaml.Media.FontFamily runtime class, surfaced through its
 // default interface IFontFamily. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -60,6 +349,319 @@ func FontFamilyStatics2() (*IFontFamilyStatics2, error) {
 		return nil, err
 	}
 	return (*IFontFamilyStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewFontFamilyWithName constructs a Windows.UI.Xaml.Media.FontFamily instance through
+// Windows.UI.Xaml.Media.IFontFamilyFactory.CreateInstanceWithName with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewFontFamilyWithName(familyName string) (*FontFamily, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.FontFamily", &IID_IFontFamilyFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IFontFamilyFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstanceWithName(familyName, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*FontFamily)(unsafe.Pointer(instance)), nil
+}
+
+// GeneralTransform is the Windows.UI.Xaml.Media.GeneralTransform runtime class, surfaced through its
+// default interface IGeneralTransform. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type GeneralTransform struct {
+	IGeneralTransform
+}
+
+// AsGeneralTransformOverrides queries the instance's IGeneralTransformOverrides interface.
+// The returned reference is owned by the caller.
+func (self *GeneralTransform) AsGeneralTransformOverrides() (*IGeneralTransformOverrides, error) {
+	return winrt.QueryInterface[IGeneralTransformOverrides](unsafe.Pointer(self), &IID_IGeneralTransformOverrides)
+}
+
+// NewGeneralTransform constructs a Windows.UI.Xaml.Media.GeneralTransform instance through
+// Windows.UI.Xaml.Media.IGeneralTransformFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewGeneralTransform() (*GeneralTransform, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.GeneralTransform", &IID_IGeneralTransformFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGeneralTransformFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*GeneralTransform)(unsafe.Pointer(instance)), nil
+}
+
+// Geometry is the Windows.UI.Xaml.Media.Geometry runtime class, surfaced through its
+// default interface IGeometry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Geometry struct {
+	IGeometry
+}
+
+// GeometryStatics returns the Windows.UI.Xaml.Media.IGeometryStatics statics of the
+// Windows.UI.Xaml.Media.Geometry runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GeometryStatics() (*IGeometryStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Geometry", &IID_IGeometryStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGeometryStatics)(unsafe.Pointer(factory)), nil
+}
+
+// GeometryGroup is the Windows.UI.Xaml.Media.GeometryGroup runtime class, surfaced through its
+// default interface IGeometryGroup. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type GeometryGroup struct {
+	IGeometryGroup
+}
+
+// NewGeometryGroup activates Windows.UI.Xaml.Media.GeometryGroup through its default
+// constructor.
+func NewGeometryGroup() (*GeometryGroup, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.GeometryGroup")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[GeometryGroup](unsafe.Pointer(instance), &IID_IGeometryGroup)
+}
+
+// GeometryGroupStatics returns the Windows.UI.Xaml.Media.IGeometryGroupStatics statics of the
+// Windows.UI.Xaml.Media.GeometryGroup runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GeometryGroupStatics() (*IGeometryGroupStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.GeometryGroup", &IID_IGeometryGroupStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGeometryGroupStatics)(unsafe.Pointer(factory)), nil
+}
+
+// GradientBrush is the Windows.UI.Xaml.Media.GradientBrush runtime class, surfaced through its
+// default interface IGradientBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type GradientBrush struct {
+	IGradientBrush
+}
+
+// GradientBrushStatics returns the Windows.UI.Xaml.Media.IGradientBrushStatics statics of the
+// Windows.UI.Xaml.Media.GradientBrush runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GradientBrushStatics() (*IGradientBrushStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.GradientBrush", &IID_IGradientBrushStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGradientBrushStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewGradientBrush constructs a Windows.UI.Xaml.Media.GradientBrush instance through
+// Windows.UI.Xaml.Media.IGradientBrushFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewGradientBrush() (*GradientBrush, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.GradientBrush", &IID_IGradientBrushFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGradientBrushFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*GradientBrush)(unsafe.Pointer(instance)), nil
+}
+
+// GradientStop is the Windows.UI.Xaml.Media.GradientStop runtime class, surfaced through its
+// default interface IGradientStop. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type GradientStop struct {
+	IGradientStop
+}
+
+// NewGradientStop activates Windows.UI.Xaml.Media.GradientStop through its default
+// constructor.
+func NewGradientStop() (*GradientStop, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.GradientStop")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[GradientStop](unsafe.Pointer(instance), &IID_IGradientStop)
+}
+
+// GradientStopStatics returns the Windows.UI.Xaml.Media.IGradientStopStatics statics of the
+// Windows.UI.Xaml.Media.GradientStop runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GradientStopStatics() (*IGradientStopStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.GradientStop", &IID_IGradientStopStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGradientStopStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ImageBrush is the Windows.UI.Xaml.Media.ImageBrush runtime class, surfaced through its
+// default interface IImageBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ImageBrush struct {
+	IImageBrush
+}
+
+// NewImageBrush activates Windows.UI.Xaml.Media.ImageBrush through its default
+// constructor.
+func NewImageBrush() (*ImageBrush, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.ImageBrush")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ImageBrush](unsafe.Pointer(instance), &IID_IImageBrush)
+}
+
+// ImageBrushStatics returns the Windows.UI.Xaml.Media.IImageBrushStatics statics of the
+// Windows.UI.Xaml.Media.ImageBrush runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ImageBrushStatics() (*IImageBrushStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.ImageBrush", &IID_IImageBrushStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IImageBrushStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ImageSource is the Windows.UI.Xaml.Media.ImageSource runtime class, surfaced through its
+// default interface IImageSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ImageSource struct {
+	IImageSource
+}
+
+// LineGeometry is the Windows.UI.Xaml.Media.LineGeometry runtime class, surfaced through its
+// default interface ILineGeometry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type LineGeometry struct {
+	ILineGeometry
+}
+
+// NewLineGeometry activates Windows.UI.Xaml.Media.LineGeometry through its default
+// constructor.
+func NewLineGeometry() (*LineGeometry, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.LineGeometry")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[LineGeometry](unsafe.Pointer(instance), &IID_ILineGeometry)
+}
+
+// LineGeometryStatics returns the Windows.UI.Xaml.Media.ILineGeometryStatics statics of the
+// Windows.UI.Xaml.Media.LineGeometry runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func LineGeometryStatics() (*ILineGeometryStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.LineGeometry", &IID_ILineGeometryStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ILineGeometryStatics)(unsafe.Pointer(factory)), nil
+}
+
+// LineSegment is the Windows.UI.Xaml.Media.LineSegment runtime class, surfaced through its
+// default interface ILineSegment. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type LineSegment struct {
+	ILineSegment
+}
+
+// NewLineSegment activates Windows.UI.Xaml.Media.LineSegment through its default
+// constructor.
+func NewLineSegment() (*LineSegment, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.LineSegment")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[LineSegment](unsafe.Pointer(instance), &IID_ILineSegment)
+}
+
+// LineSegmentStatics returns the Windows.UI.Xaml.Media.ILineSegmentStatics statics of the
+// Windows.UI.Xaml.Media.LineSegment runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func LineSegmentStatics() (*ILineSegmentStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.LineSegment", &IID_ILineSegmentStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ILineSegmentStatics)(unsafe.Pointer(factory)), nil
+}
+
+// LinearGradientBrush is the Windows.UI.Xaml.Media.LinearGradientBrush runtime class, surfaced through its
+// default interface ILinearGradientBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type LinearGradientBrush struct {
+	ILinearGradientBrush
+}
+
+// NewLinearGradientBrush activates Windows.UI.Xaml.Media.LinearGradientBrush through its default
+// constructor.
+func NewLinearGradientBrush() (*LinearGradientBrush, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.LinearGradientBrush")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[LinearGradientBrush](unsafe.Pointer(instance), &IID_ILinearGradientBrush)
+}
+
+// LinearGradientBrushStatics returns the Windows.UI.Xaml.Media.ILinearGradientBrushStatics statics of the
+// Windows.UI.Xaml.Media.LinearGradientBrush runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func LinearGradientBrushStatics() (*ILinearGradientBrushStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.LinearGradientBrush", &IID_ILinearGradientBrushStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ILinearGradientBrushStatics)(unsafe.Pointer(factory)), nil
 }
 
 // LoadedImageSourceLoadCompletedEventArgs is the Windows.UI.Xaml.Media.LoadedImageSourceLoadCompletedEventArgs runtime class, surfaced through its
@@ -100,6 +702,36 @@ func LoadedImageSurfaceStatics() (*ILoadedImageSurfaceStatics, error) {
 	return (*ILoadedImageSurfaceStatics)(unsafe.Pointer(factory)), nil
 }
 
+// Matrix3DProjection is the Windows.UI.Xaml.Media.Matrix3DProjection runtime class, surfaced through its
+// default interface IMatrix3DProjection. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Matrix3DProjection struct {
+	IMatrix3DProjection
+}
+
+// NewMatrix3DProjection activates Windows.UI.Xaml.Media.Matrix3DProjection through its default
+// constructor.
+func NewMatrix3DProjection() (*Matrix3DProjection, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Matrix3DProjection")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Matrix3DProjection](unsafe.Pointer(instance), &IID_IMatrix3DProjection)
+}
+
+// Matrix3DProjectionStatics returns the Windows.UI.Xaml.Media.IMatrix3DProjectionStatics statics of the
+// Windows.UI.Xaml.Media.Matrix3DProjection runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func Matrix3DProjectionStatics() (*IMatrix3DProjectionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Matrix3DProjection", &IID_IMatrix3DProjectionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMatrix3DProjectionStatics)(unsafe.Pointer(factory)), nil
+}
+
 // MatrixHelper is the Windows.UI.Xaml.Media.MatrixHelper runtime class, surfaced through its
 // default interface IMatrixHelper. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -117,6 +749,36 @@ func MatrixHelperStatics() (*IMatrixHelperStatics, error) {
 		return nil, err
 	}
 	return (*IMatrixHelperStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MatrixTransform is the Windows.UI.Xaml.Media.MatrixTransform runtime class, surfaced through its
+// default interface IMatrixTransform. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MatrixTransform struct {
+	IMatrixTransform
+}
+
+// NewMatrixTransform activates Windows.UI.Xaml.Media.MatrixTransform through its default
+// constructor.
+func NewMatrixTransform() (*MatrixTransform, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.MatrixTransform")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[MatrixTransform](unsafe.Pointer(instance), &IID_IMatrixTransform)
+}
+
+// MatrixTransformStatics returns the Windows.UI.Xaml.Media.IMatrixTransformStatics statics of the
+// Windows.UI.Xaml.Media.MatrixTransform runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MatrixTransformStatics() (*IMatrixTransformStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.MatrixTransform", &IID_IMatrixTransformStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMatrixTransformStatics)(unsafe.Pointer(factory)), nil
 }
 
 // MediaTransportControlsThumbnailRequestedEventArgs is the Windows.UI.Xaml.Media.MediaTransportControlsThumbnailRequestedEventArgs runtime class, surfaced through its
@@ -150,6 +812,303 @@ func (self *PartialMediaFailureDetectedEventArgs) AsPartialMediaFailureDetectedE
 	return winrt.QueryInterface[IPartialMediaFailureDetectedEventArgs2](unsafe.Pointer(self), &IID_IPartialMediaFailureDetectedEventArgs2)
 }
 
+// PathFigure is the Windows.UI.Xaml.Media.PathFigure runtime class, surfaced through its
+// default interface IPathFigure. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PathFigure struct {
+	IPathFigure
+}
+
+// NewPathFigure activates Windows.UI.Xaml.Media.PathFigure through its default
+// constructor.
+func NewPathFigure() (*PathFigure, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.PathFigure")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PathFigure](unsafe.Pointer(instance), &IID_IPathFigure)
+}
+
+// PathFigureStatics returns the Windows.UI.Xaml.Media.IPathFigureStatics statics of the
+// Windows.UI.Xaml.Media.PathFigure runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PathFigureStatics() (*IPathFigureStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.PathFigure", &IID_IPathFigureStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPathFigureStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PathGeometry is the Windows.UI.Xaml.Media.PathGeometry runtime class, surfaced through its
+// default interface IPathGeometry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PathGeometry struct {
+	IPathGeometry
+}
+
+// NewPathGeometry activates Windows.UI.Xaml.Media.PathGeometry through its default
+// constructor.
+func NewPathGeometry() (*PathGeometry, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.PathGeometry")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PathGeometry](unsafe.Pointer(instance), &IID_IPathGeometry)
+}
+
+// PathGeometryStatics returns the Windows.UI.Xaml.Media.IPathGeometryStatics statics of the
+// Windows.UI.Xaml.Media.PathGeometry runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PathGeometryStatics() (*IPathGeometryStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.PathGeometry", &IID_IPathGeometryStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPathGeometryStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PathSegment is the Windows.UI.Xaml.Media.PathSegment runtime class, surfaced through its
+// default interface IPathSegment. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PathSegment struct {
+	IPathSegment
+}
+
+// PlaneProjection is the Windows.UI.Xaml.Media.PlaneProjection runtime class, surfaced through its
+// default interface IPlaneProjection. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PlaneProjection struct {
+	IPlaneProjection
+}
+
+// NewPlaneProjection activates Windows.UI.Xaml.Media.PlaneProjection through its default
+// constructor.
+func NewPlaneProjection() (*PlaneProjection, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.PlaneProjection")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PlaneProjection](unsafe.Pointer(instance), &IID_IPlaneProjection)
+}
+
+// PlaneProjectionStatics returns the Windows.UI.Xaml.Media.IPlaneProjectionStatics statics of the
+// Windows.UI.Xaml.Media.PlaneProjection runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PlaneProjectionStatics() (*IPlaneProjectionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.PlaneProjection", &IID_IPlaneProjectionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPlaneProjectionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PolyBezierSegment is the Windows.UI.Xaml.Media.PolyBezierSegment runtime class, surfaced through its
+// default interface IPolyBezierSegment. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PolyBezierSegment struct {
+	IPolyBezierSegment
+}
+
+// NewPolyBezierSegment activates Windows.UI.Xaml.Media.PolyBezierSegment through its default
+// constructor.
+func NewPolyBezierSegment() (*PolyBezierSegment, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.PolyBezierSegment")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PolyBezierSegment](unsafe.Pointer(instance), &IID_IPolyBezierSegment)
+}
+
+// PolyBezierSegmentStatics returns the Windows.UI.Xaml.Media.IPolyBezierSegmentStatics statics of the
+// Windows.UI.Xaml.Media.PolyBezierSegment runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PolyBezierSegmentStatics() (*IPolyBezierSegmentStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.PolyBezierSegment", &IID_IPolyBezierSegmentStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPolyBezierSegmentStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PolyLineSegment is the Windows.UI.Xaml.Media.PolyLineSegment runtime class, surfaced through its
+// default interface IPolyLineSegment. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PolyLineSegment struct {
+	IPolyLineSegment
+}
+
+// NewPolyLineSegment activates Windows.UI.Xaml.Media.PolyLineSegment through its default
+// constructor.
+func NewPolyLineSegment() (*PolyLineSegment, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.PolyLineSegment")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PolyLineSegment](unsafe.Pointer(instance), &IID_IPolyLineSegment)
+}
+
+// PolyLineSegmentStatics returns the Windows.UI.Xaml.Media.IPolyLineSegmentStatics statics of the
+// Windows.UI.Xaml.Media.PolyLineSegment runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PolyLineSegmentStatics() (*IPolyLineSegmentStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.PolyLineSegment", &IID_IPolyLineSegmentStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPolyLineSegmentStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PolyQuadraticBezierSegment is the Windows.UI.Xaml.Media.PolyQuadraticBezierSegment runtime class, surfaced through its
+// default interface IPolyQuadraticBezierSegment. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PolyQuadraticBezierSegment struct {
+	IPolyQuadraticBezierSegment
+}
+
+// NewPolyQuadraticBezierSegment activates Windows.UI.Xaml.Media.PolyQuadraticBezierSegment through its default
+// constructor.
+func NewPolyQuadraticBezierSegment() (*PolyQuadraticBezierSegment, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.PolyQuadraticBezierSegment")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PolyQuadraticBezierSegment](unsafe.Pointer(instance), &IID_IPolyQuadraticBezierSegment)
+}
+
+// PolyQuadraticBezierSegmentStatics returns the Windows.UI.Xaml.Media.IPolyQuadraticBezierSegmentStatics statics of the
+// Windows.UI.Xaml.Media.PolyQuadraticBezierSegment runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PolyQuadraticBezierSegmentStatics() (*IPolyQuadraticBezierSegmentStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.PolyQuadraticBezierSegment", &IID_IPolyQuadraticBezierSegmentStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPolyQuadraticBezierSegmentStatics)(unsafe.Pointer(factory)), nil
+}
+
+// Projection is the Windows.UI.Xaml.Media.Projection runtime class, surfaced through its
+// default interface IProjection. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Projection struct {
+	IProjection
+}
+
+// NewProjection constructs a Windows.UI.Xaml.Media.Projection instance through
+// Windows.UI.Xaml.Media.IProjectionFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewProjection() (*Projection, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Projection", &IID_IProjectionFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IProjectionFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Projection)(unsafe.Pointer(instance)), nil
+}
+
+// QuadraticBezierSegment is the Windows.UI.Xaml.Media.QuadraticBezierSegment runtime class, surfaced through its
+// default interface IQuadraticBezierSegment. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type QuadraticBezierSegment struct {
+	IQuadraticBezierSegment
+}
+
+// NewQuadraticBezierSegment activates Windows.UI.Xaml.Media.QuadraticBezierSegment through its default
+// constructor.
+func NewQuadraticBezierSegment() (*QuadraticBezierSegment, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.QuadraticBezierSegment")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[QuadraticBezierSegment](unsafe.Pointer(instance), &IID_IQuadraticBezierSegment)
+}
+
+// QuadraticBezierSegmentStatics returns the Windows.UI.Xaml.Media.IQuadraticBezierSegmentStatics statics of the
+// Windows.UI.Xaml.Media.QuadraticBezierSegment runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func QuadraticBezierSegmentStatics() (*IQuadraticBezierSegmentStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.QuadraticBezierSegment", &IID_IQuadraticBezierSegmentStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IQuadraticBezierSegmentStatics)(unsafe.Pointer(factory)), nil
+}
+
+// RateChangedRoutedEventArgs is the Windows.UI.Xaml.Media.RateChangedRoutedEventArgs runtime class, surfaced through its
+// default interface IRateChangedRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RateChangedRoutedEventArgs struct {
+	IRateChangedRoutedEventArgs
+}
+
+// NewRateChangedRoutedEventArgs activates Windows.UI.Xaml.Media.RateChangedRoutedEventArgs through its default
+// constructor.
+func NewRateChangedRoutedEventArgs() (*RateChangedRoutedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.RateChangedRoutedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[RateChangedRoutedEventArgs](unsafe.Pointer(instance), &IID_IRateChangedRoutedEventArgs)
+}
+
+// RectangleGeometry is the Windows.UI.Xaml.Media.RectangleGeometry runtime class, surfaced through its
+// default interface IRectangleGeometry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RectangleGeometry struct {
+	IRectangleGeometry
+}
+
+// NewRectangleGeometry activates Windows.UI.Xaml.Media.RectangleGeometry through its default
+// constructor.
+func NewRectangleGeometry() (*RectangleGeometry, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.RectangleGeometry")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[RectangleGeometry](unsafe.Pointer(instance), &IID_IRectangleGeometry)
+}
+
+// RectangleGeometryStatics returns the Windows.UI.Xaml.Media.IRectangleGeometryStatics statics of the
+// Windows.UI.Xaml.Media.RectangleGeometry runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RectangleGeometryStatics() (*IRectangleGeometryStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.RectangleGeometry", &IID_IRectangleGeometryStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRectangleGeometryStatics)(unsafe.Pointer(factory)), nil
+}
+
 // RenderedEventArgs is the Windows.UI.Xaml.Media.RenderedEventArgs runtime class, surfaced through its
 // default interface IRenderedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -162,6 +1121,432 @@ type RenderedEventArgs struct {
 // the embedded IInspectable → IUnknown chain).
 type RenderingEventArgs struct {
 	IRenderingEventArgs
+}
+
+// RevealBackgroundBrush is the Windows.UI.Xaml.Media.RevealBackgroundBrush runtime class, surfaced through its
+// default interface IRevealBackgroundBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RevealBackgroundBrush struct {
+	IRevealBackgroundBrush
+}
+
+// NewRevealBackgroundBrush constructs a Windows.UI.Xaml.Media.RevealBackgroundBrush instance through
+// Windows.UI.Xaml.Media.IRevealBackgroundBrushFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRevealBackgroundBrush() (*RevealBackgroundBrush, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.RevealBackgroundBrush", &IID_IRevealBackgroundBrushFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRevealBackgroundBrushFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RevealBackgroundBrush)(unsafe.Pointer(instance)), nil
+}
+
+// RevealBorderBrush is the Windows.UI.Xaml.Media.RevealBorderBrush runtime class, surfaced through its
+// default interface IRevealBorderBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RevealBorderBrush struct {
+	IRevealBorderBrush
+}
+
+// NewRevealBorderBrush constructs a Windows.UI.Xaml.Media.RevealBorderBrush instance through
+// Windows.UI.Xaml.Media.IRevealBorderBrushFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRevealBorderBrush() (*RevealBorderBrush, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.RevealBorderBrush", &IID_IRevealBorderBrushFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRevealBorderBrushFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RevealBorderBrush)(unsafe.Pointer(instance)), nil
+}
+
+// RevealBrush is the Windows.UI.Xaml.Media.RevealBrush runtime class, surfaced through its
+// default interface IRevealBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RevealBrush struct {
+	IRevealBrush
+}
+
+// RevealBrushStatics returns the Windows.UI.Xaml.Media.IRevealBrushStatics statics of the
+// Windows.UI.Xaml.Media.RevealBrush runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RevealBrushStatics() (*IRevealBrushStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.RevealBrush", &IID_IRevealBrushStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRevealBrushStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewRevealBrush constructs a Windows.UI.Xaml.Media.RevealBrush instance through
+// Windows.UI.Xaml.Media.IRevealBrushFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRevealBrush() (*RevealBrush, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.RevealBrush", &IID_IRevealBrushFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRevealBrushFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RevealBrush)(unsafe.Pointer(instance)), nil
+}
+
+// RotateTransform is the Windows.UI.Xaml.Media.RotateTransform runtime class, surfaced through its
+// default interface IRotateTransform. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RotateTransform struct {
+	IRotateTransform
+}
+
+// NewRotateTransform activates Windows.UI.Xaml.Media.RotateTransform through its default
+// constructor.
+func NewRotateTransform() (*RotateTransform, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.RotateTransform")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[RotateTransform](unsafe.Pointer(instance), &IID_IRotateTransform)
+}
+
+// RotateTransformStatics returns the Windows.UI.Xaml.Media.IRotateTransformStatics statics of the
+// Windows.UI.Xaml.Media.RotateTransform runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RotateTransformStatics() (*IRotateTransformStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.RotateTransform", &IID_IRotateTransformStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRotateTransformStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ScaleTransform is the Windows.UI.Xaml.Media.ScaleTransform runtime class, surfaced through its
+// default interface IScaleTransform. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ScaleTransform struct {
+	IScaleTransform
+}
+
+// NewScaleTransform activates Windows.UI.Xaml.Media.ScaleTransform through its default
+// constructor.
+func NewScaleTransform() (*ScaleTransform, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.ScaleTransform")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ScaleTransform](unsafe.Pointer(instance), &IID_IScaleTransform)
+}
+
+// ScaleTransformStatics returns the Windows.UI.Xaml.Media.IScaleTransformStatics statics of the
+// Windows.UI.Xaml.Media.ScaleTransform runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ScaleTransformStatics() (*IScaleTransformStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.ScaleTransform", &IID_IScaleTransformStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IScaleTransformStatics)(unsafe.Pointer(factory)), nil
+}
+
+// Shadow is the Windows.UI.Xaml.Media.Shadow runtime class, surfaced through its
+// default interface IShadow. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Shadow struct {
+	IShadow
+}
+
+// SkewTransform is the Windows.UI.Xaml.Media.SkewTransform runtime class, surfaced through its
+// default interface ISkewTransform. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SkewTransform struct {
+	ISkewTransform
+}
+
+// NewSkewTransform activates Windows.UI.Xaml.Media.SkewTransform through its default
+// constructor.
+func NewSkewTransform() (*SkewTransform, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.SkewTransform")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SkewTransform](unsafe.Pointer(instance), &IID_ISkewTransform)
+}
+
+// SkewTransformStatics returns the Windows.UI.Xaml.Media.ISkewTransformStatics statics of the
+// Windows.UI.Xaml.Media.SkewTransform runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SkewTransformStatics() (*ISkewTransformStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.SkewTransform", &IID_ISkewTransformStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISkewTransformStatics)(unsafe.Pointer(factory)), nil
+}
+
+// SolidColorBrush is the Windows.UI.Xaml.Media.SolidColorBrush runtime class, surfaced through its
+// default interface ISolidColorBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SolidColorBrush struct {
+	ISolidColorBrush
+}
+
+// NewSolidColorBrush activates Windows.UI.Xaml.Media.SolidColorBrush through its default
+// constructor.
+func NewSolidColorBrush() (*SolidColorBrush, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.SolidColorBrush")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SolidColorBrush](unsafe.Pointer(instance), &IID_ISolidColorBrush)
+}
+
+// SolidColorBrushStatics returns the Windows.UI.Xaml.Media.ISolidColorBrushStatics statics of the
+// Windows.UI.Xaml.Media.SolidColorBrush runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SolidColorBrushStatics() (*ISolidColorBrushStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.SolidColorBrush", &IID_ISolidColorBrushStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISolidColorBrushStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ThemeShadow is the Windows.UI.Xaml.Media.ThemeShadow runtime class, surfaced through its
+// default interface IThemeShadow. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ThemeShadow struct {
+	IThemeShadow
+}
+
+// NewThemeShadow constructs a Windows.UI.Xaml.Media.ThemeShadow instance through
+// Windows.UI.Xaml.Media.IThemeShadowFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewThemeShadow() (*ThemeShadow, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.ThemeShadow", &IID_IThemeShadowFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IThemeShadowFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ThemeShadow)(unsafe.Pointer(instance)), nil
+}
+
+// TileBrush is the Windows.UI.Xaml.Media.TileBrush runtime class, surfaced through its
+// default interface ITileBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TileBrush struct {
+	ITileBrush
+}
+
+// TileBrushStatics returns the Windows.UI.Xaml.Media.ITileBrushStatics statics of the
+// Windows.UI.Xaml.Media.TileBrush runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TileBrushStatics() (*ITileBrushStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.TileBrush", &IID_ITileBrushStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITileBrushStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewTileBrush constructs a Windows.UI.Xaml.Media.TileBrush instance through
+// Windows.UI.Xaml.Media.ITileBrushFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTileBrush() (*TileBrush, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.TileBrush", &IID_ITileBrushFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITileBrushFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*TileBrush)(unsafe.Pointer(instance)), nil
+}
+
+// TimelineMarker is the Windows.UI.Xaml.Media.TimelineMarker runtime class, surfaced through its
+// default interface ITimelineMarker. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TimelineMarker struct {
+	ITimelineMarker
+}
+
+// NewTimelineMarker activates Windows.UI.Xaml.Media.TimelineMarker through its default
+// constructor.
+func NewTimelineMarker() (*TimelineMarker, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.TimelineMarker")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[TimelineMarker](unsafe.Pointer(instance), &IID_ITimelineMarker)
+}
+
+// TimelineMarkerStatics returns the Windows.UI.Xaml.Media.ITimelineMarkerStatics statics of the
+// Windows.UI.Xaml.Media.TimelineMarker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TimelineMarkerStatics() (*ITimelineMarkerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.TimelineMarker", &IID_ITimelineMarkerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITimelineMarkerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// TimelineMarkerRoutedEventArgs is the Windows.UI.Xaml.Media.TimelineMarkerRoutedEventArgs runtime class, surfaced through its
+// default interface ITimelineMarkerRoutedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TimelineMarkerRoutedEventArgs struct {
+	ITimelineMarkerRoutedEventArgs
+}
+
+// NewTimelineMarkerRoutedEventArgs activates Windows.UI.Xaml.Media.TimelineMarkerRoutedEventArgs through its default
+// constructor.
+func NewTimelineMarkerRoutedEventArgs() (*TimelineMarkerRoutedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.TimelineMarkerRoutedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[TimelineMarkerRoutedEventArgs](unsafe.Pointer(instance), &IID_ITimelineMarkerRoutedEventArgs)
+}
+
+// Transform is the Windows.UI.Xaml.Media.Transform runtime class, surfaced through its
+// default interface ITransform. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Transform struct {
+	ITransform
+}
+
+// TransformGroup is the Windows.UI.Xaml.Media.TransformGroup runtime class, surfaced through its
+// default interface ITransformGroup. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TransformGroup struct {
+	ITransformGroup
+}
+
+// NewTransformGroup activates Windows.UI.Xaml.Media.TransformGroup through its default
+// constructor.
+func NewTransformGroup() (*TransformGroup, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.TransformGroup")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[TransformGroup](unsafe.Pointer(instance), &IID_ITransformGroup)
+}
+
+// TransformGroupStatics returns the Windows.UI.Xaml.Media.ITransformGroupStatics statics of the
+// Windows.UI.Xaml.Media.TransformGroup runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TransformGroupStatics() (*ITransformGroupStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.TransformGroup", &IID_ITransformGroupStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITransformGroupStatics)(unsafe.Pointer(factory)), nil
+}
+
+// TranslateTransform is the Windows.UI.Xaml.Media.TranslateTransform runtime class, surfaced through its
+// default interface ITranslateTransform. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TranslateTransform struct {
+	ITranslateTransform
+}
+
+// NewTranslateTransform activates Windows.UI.Xaml.Media.TranslateTransform through its default
+// constructor.
+func NewTranslateTransform() (*TranslateTransform, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.TranslateTransform")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[TranslateTransform](unsafe.Pointer(instance), &IID_ITranslateTransform)
+}
+
+// TranslateTransformStatics returns the Windows.UI.Xaml.Media.ITranslateTransformStatics statics of the
+// Windows.UI.Xaml.Media.TranslateTransform runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TranslateTransformStatics() (*ITranslateTransformStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.TranslateTransform", &IID_ITranslateTransformStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITranslateTransformStatics)(unsafe.Pointer(factory)), nil
 }
 
 // VisualTreeHelper is the Windows.UI.Xaml.Media.VisualTreeHelper runtime class, surfaced through its
@@ -205,4 +1590,116 @@ func VisualTreeHelperStatics3() (*IVisualTreeHelperStatics3, error) {
 		return nil, err
 	}
 	return (*IVisualTreeHelperStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// XamlCompositionBrushBase is the Windows.UI.Xaml.Media.XamlCompositionBrushBase runtime class, surfaced through its
+// default interface IXamlCompositionBrushBase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type XamlCompositionBrushBase struct {
+	IXamlCompositionBrushBase
+}
+
+// AsXamlCompositionBrushBaseProtected queries the instance's IXamlCompositionBrushBaseProtected interface.
+// The returned reference is owned by the caller.
+func (self *XamlCompositionBrushBase) AsXamlCompositionBrushBaseProtected() (*IXamlCompositionBrushBaseProtected, error) {
+	return winrt.QueryInterface[IXamlCompositionBrushBaseProtected](unsafe.Pointer(self), &IID_IXamlCompositionBrushBaseProtected)
+}
+
+// AsXamlCompositionBrushBaseOverrides queries the instance's IXamlCompositionBrushBaseOverrides interface.
+// The returned reference is owned by the caller.
+func (self *XamlCompositionBrushBase) AsXamlCompositionBrushBaseOverrides() (*IXamlCompositionBrushBaseOverrides, error) {
+	return winrt.QueryInterface[IXamlCompositionBrushBaseOverrides](unsafe.Pointer(self), &IID_IXamlCompositionBrushBaseOverrides)
+}
+
+// XamlCompositionBrushBaseStatics returns the Windows.UI.Xaml.Media.IXamlCompositionBrushBaseStatics statics of the
+// Windows.UI.Xaml.Media.XamlCompositionBrushBase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func XamlCompositionBrushBaseStatics() (*IXamlCompositionBrushBaseStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.XamlCompositionBrushBase", &IID_IXamlCompositionBrushBaseStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IXamlCompositionBrushBaseStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewXamlCompositionBrushBase constructs a Windows.UI.Xaml.Media.XamlCompositionBrushBase instance through
+// Windows.UI.Xaml.Media.IXamlCompositionBrushBaseFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewXamlCompositionBrushBase() (*XamlCompositionBrushBase, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.XamlCompositionBrushBase", &IID_IXamlCompositionBrushBaseFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IXamlCompositionBrushBaseFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*XamlCompositionBrushBase)(unsafe.Pointer(instance)), nil
+}
+
+// XamlLight is the Windows.UI.Xaml.Media.XamlLight runtime class, surfaced through its
+// default interface IXamlLight. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type XamlLight struct {
+	IXamlLight
+}
+
+// AsXamlLightProtected queries the instance's IXamlLightProtected interface.
+// The returned reference is owned by the caller.
+func (self *XamlLight) AsXamlLightProtected() (*IXamlLightProtected, error) {
+	return winrt.QueryInterface[IXamlLightProtected](unsafe.Pointer(self), &IID_IXamlLightProtected)
+}
+
+// AsXamlLightOverrides queries the instance's IXamlLightOverrides interface.
+// The returned reference is owned by the caller.
+func (self *XamlLight) AsXamlLightOverrides() (*IXamlLightOverrides, error) {
+	return winrt.QueryInterface[IXamlLightOverrides](unsafe.Pointer(self), &IID_IXamlLightOverrides)
+}
+
+// XamlLightStatics returns the Windows.UI.Xaml.Media.IXamlLightStatics statics of the
+// Windows.UI.Xaml.Media.XamlLight runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func XamlLightStatics() (*IXamlLightStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.XamlLight", &IID_IXamlLightStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IXamlLightStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewXamlLight constructs a Windows.UI.Xaml.Media.XamlLight instance through
+// Windows.UI.Xaml.Media.IXamlLightFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewXamlLight() (*XamlLight, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.XamlLight", &IID_IXamlLightFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IXamlLightFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*XamlLight)(unsafe.Pointer(instance)), nil
 }
