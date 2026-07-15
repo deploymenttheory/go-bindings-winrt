@@ -26,7 +26,7 @@ go vet ./cmd/... ./internal/... ./acceptance/ ./bindings/runtime/...  # generate
 go test ./bindings/runtime/...            # live WinRT calls; needs Windows
 go test ./internal/... ./acceptance/...   # slot/IID guard + live acceptance
 go run ./cmd/generate fetch-metadata      # refresh the pinned contract winmds
-go run ./cmd/generate ingest              # winmds → metadata/winrt/*.winrtmeta.json (gitignored)
+go run ./cmd/generate ingest              # winmds → metadata/winrt/*.winrtmeta.json (committed)
 go run ./cmd/generate validate            # structural integrity checks over the IR
 go run ./cmd/generate bindings --namespace Windows.Globalization \
   --diagnostics-baseline metadata/diagnostics-baseline.json      # regenerate the committed tree
@@ -57,7 +57,8 @@ go run ./examples/calendar                # the vertical, end to end
     IAgileObject. Live-proven by event registration in `acceptance/`.
 - **`internal/winrtmeta` + `internal/winrtmeta/ingest`** — the IR and its
   producer: the pinned contract winmds project into per-namespace
-  `metadata/winrt/<Namespace>.winrtmeta.json` files (gitignored). Methods
+  `metadata/winrt/<Namespace>.winrtmeta.json` files (committed; the CI
+  regen gate keeps them in lockstep with the winmds). Methods
   carry the LOGICAL signature — the HRESULT return and trailing
   `[out, retval]` lowering is emit's job, not ingest's.
 - **`internal/codegen/`** — the generator (mirrors go-bindings-win32's

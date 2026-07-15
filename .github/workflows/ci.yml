@@ -71,5 +71,5 @@ jobs:
       - name: Generated output must match the committed tree
         shell: bash
         run: |
-          git add -N bindings
-          git diff --exit-code --stat -- bindings
+          git add -N bindings metadata/winrt
+          git diff --exit-code --stat -- bindings metadata/winrt

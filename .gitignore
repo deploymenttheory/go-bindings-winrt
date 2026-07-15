@@ -20,7 +20,6 @@
 *.winfile eol=crlf
 
 # Ingested IR cache (regenerate with `go run ./cmd/generate ingest`)
-metadata/winrt/
 
 # Go development
 *.test
