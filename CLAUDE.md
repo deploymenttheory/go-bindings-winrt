@@ -80,7 +80,8 @@ go run ./examples/calendar                # the vertical, end to end
     models; `render/` executes `//go:embed` templates that only branch on
     precomputed kinds, never decide. Emits per package (non-empty only):
     doc.go, `<pkg>_enums.go`, `<pkg>_structs.go`, `<pkg>_interfaces.go`,
-    `<pkg>_classes.go`, `<pkg>_pinterfaces.go` (generic instantiations).
+    `<pkg>_classes.go`, `<pkg>_pinterfaces.go` (generic instantiations),
+    `<pkg>_delegates.go` (event-delegate handler types).
   - `shared/fileasm/` — DO-NOT-EDIT header + build tag + go/format; the
     emitter is self-cleaning and only ever prunes files bearing the header.
 - **Emit rules**: slot = 6 + MethodDef index; skipped members NEVER
@@ -95,8 +96,20 @@ go run ./examples/calendar                # the vertical, end to end
   MethodDef order, transitively closed (First → IIterator, GetView →
   IVectorView) and deduped per package. Two packages using the same
   instantiation each get their own copy: distinct Go types, identical ABI.
-  Open generic types themselves, generic DELEGATE instantiations
-  (TypedEventHandler`2 — the event milestone), events, statics, factory
+  Events ARE emitted: add_/remove_ accessors become
+  `Add<Event>(handler *<Handler>) (syswinrt.EventRegistrationToken, error)`
+  / `Remove<Event>(token) error`, and the event's delegate type — a generic
+  instantiation (TypedEventHandler`2<A,B> → `TypedEventHandlerOfAAndB`, IID
+  pinterface-derived) or a non-generic delegate (declared IID) — grounds
+  into a package-local typed handler in `<pkg>_delegates.go` wrapping the
+  runtime `winrt.Delegate`; the constructor's adapter converts the raw ABI
+  words to typed callback arguments (pointers are BORROWED for the
+  callback's duration, HSTRINGs read without consuming). Events whose
+  delegate cannot be adapted (float/struct/array params, an Invoke return,
+  or a param count outside 1–3) skip with `event-delegate-unloweable`.
+  Open generic types themselves, delegate-typed method PARAMS
+  (delegate-param-skipped — async's Completed stays deferred with async
+  itself), delegate TypeDefs in their home namespace, statics, factory
   ctors, arrays, and by-value structs wider than one integer word are still
   skipped with diagnostics.
 - **Diagnostics ratchet**: `metadata/diagnostics-baseline.json` is the
@@ -129,4 +142,5 @@ go run ./examples/calendar                # the vertical, end to end
 - Conventional commits, release-please, SHA-pinned actions, LF-normalized
   text (`.gitattributes`), `*.winmd` binary.
 - See `docs/ROADMAP.md` for the wave plan and out-of-scope list
-  (composition, statics, events/generic delegates, async).
+  (composition, statics, async, delegate-typed method params; events and
+  their generic delegate instantiations are emitted).

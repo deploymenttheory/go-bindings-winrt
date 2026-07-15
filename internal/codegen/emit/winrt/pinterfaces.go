@@ -19,8 +19,8 @@ package emitwinrt
 // arguments into an open interface's methods may surface further
 // instantiations (IIterable<T>.First → IIterator<T>; IVector<T>.GetView →
 // IVectorView<T>), which are queued and emitted into the same package until
-// a fixed point. Generic DELEGATE instantiations still degrade — events are
-// the next milestone.
+// a fixed point. Generic DELEGATE instantiations ground only when an EVENT
+// requests them (see events.go); as method parameters they still degrade.
 
 import (
 	"fmt"
@@ -135,37 +135,49 @@ func substituteRef(ref *winrtmeta.TypeRef, args []winrtmeta.TypeRef) winrtmeta.T
 	return out
 }
 
+// substituteMethod deep-copies a method with every generic parameter
+// replaced under args (nil args is a plain deep copy — any leftover
+// GenericParamRef degrades downstream).
+func substituteMethod(method *winrtmeta.Method, args []winrtmeta.TypeRef) winrtmeta.Method {
+	out := winrtmeta.Method{
+		Name:              method.Name,
+		Overload:          method.Overload,
+		IsDefaultOverload: method.IsDefaultOverload,
+	}
+	for i := range method.Params {
+		param := method.Params[i]
+		param.Type = substituteRef(&param.Type, args)
+		out.Params = append(out.Params, param)
+	}
+	if method.Return != nil {
+		returnType := substituteRef(method.Return, args)
+		out.Return = &returnType
+	}
+	return out
+}
+
 // instantiateInterface grounds an open interface's IR under the given type
 // arguments: methods (in MethodDef order, so vtable slots are preserved),
-// properties, and requires (doc comments) are deep-copied with every
-// generic parameter substituted. GUID is left empty — the caller assigns
-// the derived pinterface IID.
+// properties, events, and requires (doc comments) are deep-copied with
+// every generic parameter substituted. GUID is left empty — the caller
+// assigns the derived pinterface IID.
 func instantiateInterface(open *winrtmeta.Interface, args []winrtmeta.TypeRef) *winrtmeta.Interface {
 	inst := &winrtmeta.Interface{ExclusiveTo: open.ExclusiveTo}
 	for i := range open.Requires {
 		inst.Requires = append(inst.Requires, substituteRef(&open.Requires[i], args))
 	}
 	for i := range open.Methods {
-		method := winrtmeta.Method{
-			Name:              open.Methods[i].Name,
-			Overload:          open.Methods[i].Overload,
-			IsDefaultOverload: open.Methods[i].IsDefaultOverload,
-		}
-		for j := range open.Methods[i].Params {
-			param := open.Methods[i].Params[j]
-			param.Type = substituteRef(&param.Type, args)
-			method.Params = append(method.Params, param)
-		}
-		if open.Methods[i].Return != nil {
-			returnType := substituteRef(open.Methods[i].Return, args)
-			method.Return = &returnType
-		}
-		inst.Methods = append(inst.Methods, method)
+		inst.Methods = append(inst.Methods, substituteMethod(&open.Methods[i], args))
 	}
 	for i := range open.Properties {
 		property := open.Properties[i]
 		property.Type = substituteRef(&property.Type, args)
 		inst.Properties = append(inst.Properties, property)
+	}
+	for i := range open.Events {
+		event := open.Events[i]
+		event.Type = substituteRef(&event.Type, args)
+		inst.Events = append(inst.Events, event)
 	}
 	return inst
 }

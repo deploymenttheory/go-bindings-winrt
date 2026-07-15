@@ -1,0 +1,32 @@
+{{define "delegate"}}// {{.TypeName}} is a Go-implemented handler for the WinRT delegate
+// {{.FullName}}.
+// IID: {{.GUID}}
+type {{.TypeName}} struct {
+	delegate *winrt.Delegate
+}
+
+// {{.IIDVar}} is the delegate identifier for {{.TypeName}}.
+var {{.IIDVar}} = {{.IIDLiteral}}
+
+{{range .CtorCommentLines}}// {{.}}
+{{end -}}
+func {{.CtorName}}(fn func({{.FnParams}})) (*{{.TypeName}}, error) {
+	delegate, err := winrt.NewDelegate({{.IIDVar}}, {{.ParamCount}}, func(raw []uintptr) uintptr {
+		fn({{join .ArgExprs ", "}})
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &{{.TypeName}}{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *{{.TypeName}}) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *{{.TypeName}}) Close() { h.delegate.Release() }
+
+{{end}}

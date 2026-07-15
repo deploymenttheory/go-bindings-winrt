@@ -103,6 +103,37 @@ type MethodModel struct {
 	ZeroReturn string
 }
 
+// DelegateModel is one event-delegate handler type emitted into the
+// consuming package's <pkg>_delegates.go: a typed wrapper over the runtime's
+// Go-implemented Delegate, with a constructor whose adapter converts the raw
+// Invoke ABI words into typed callback arguments.
+type DelegateModel struct {
+	TypeName string
+	// FullName is the display name for the doc comment
+	// ("Windows.Foundation.TypedEventHandler`2<Windows.Foundation.IMemoryBufferReference, Object>").
+	FullName string
+	// GUID is the delegate IID string for the doc comment (declared, or
+	// pinterface-derived for a generic instantiation).
+	GUID string
+	// IIDVar/IIDLiteral declare the IID variable.
+	IIDVar     string
+	IIDLiteral string
+	// CtorName is the typed constructor ("New" + TypeName).
+	CtorName string
+	// CtorCommentLines document the constructor, including the
+	// borrowed-reference contract when pointer or string arguments apply.
+	CtorCommentLines []string
+	// FnParams is the callback signature's parameter list
+	// ("sender *IMemoryBufferReference, args *syswinrt.IInspectable").
+	FnParams string
+	// ParamCount is the number of raw ABI words Invoke receives (the
+	// delegate runtime's NewDelegate paramCount).
+	ParamCount int
+	// ArgExprs convert the adapter's raw words to the typed callback
+	// arguments, in parameter order ("(*IMemoryBufferReference)(unsafe.Pointer(raw[0]))").
+	ArgExprs []string
+}
+
 // ClassModel is one non-composable runtime class: a struct embedding its
 // default interface by value.
 type ClassModel struct {

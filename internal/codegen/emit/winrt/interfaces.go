@@ -79,6 +79,20 @@ func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, fullName, goNa
 		g.diag("interface-missing-guid", "%s", fullName)
 	}
 
+	// Events reference their add_/remove_ accessors by MethodDef name; the
+	// accessors themselves sit in Methods at their vtable slots.
+	addEvents := map[string]*winrtmeta.Event{}
+	removeEvents := map[string]*winrtmeta.Event{}
+	for i := range definition.Events {
+		event := &definition.Events[i]
+		if event.AddMethod != "" {
+			addEvents[event.AddMethod] = event
+		}
+		if event.RemoveMethod != "" {
+			removeEvents[event.RemoveMethod] = event
+		}
+	}
+
 	// Vtable methods in MethodDef order: slot = 6 + index. Skipped members
 	// NEVER renumber — they leave an audit comment at their slot instead.
 	methodNames := map[string]bool{}
@@ -86,7 +100,16 @@ func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, fullName, goNa
 		method := &definition.Methods[i]
 		slot := 6 + i
 		memberPath := model.FullName + "." + method.Name
-		methodModel, skipped := g.buildMethod(meta, goName, method, slot, imports)
+		var methodModel view.MethodModel
+		var skipped *skip
+		switch {
+		case strings.HasPrefix(method.Name, "add_"):
+			methodModel, skipped = g.buildAddAccessor(meta, goName, method, slot, addEvents[method.Name])
+		case strings.HasPrefix(method.Name, "remove_"):
+			methodModel, skipped = g.buildRemoveAccessor(meta, goName, method, slot, removeEvents[method.Name])
+		default:
+			methodModel, skipped = g.buildMethod(meta, goName, method, slot, imports)
+		}
 		if skipped != nil {
 			g.diag(skipped.key, "%s (%s)", memberPath, skipped.detail)
 			model.Methods = append(model.Methods, view.MethodModel{
@@ -110,8 +133,6 @@ func (g *Generator) buildMethod(meta *winrtmeta.NamespaceMeta, interfaceGoName s
 	metadataName := method.Name
 	var goName, accessorNote string
 	switch {
-	case strings.HasPrefix(metadataName, "add_"), strings.HasPrefix(metadataName, "remove_"):
-		return view.MethodModel{}, &skip{key: "event-skipped", detail: "events are not emitted this wave"}
 	case strings.HasPrefix(metadataName, "get_"):
 		goName = naming.Export(strings.TrimPrefix(metadataName, "get_"))
 		accessorNote = fmt.Sprintf(" (propget %s)", metadataName)

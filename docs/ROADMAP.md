@@ -69,10 +69,17 @@ consumers prove it), so they are pure additions:
   emission are landed: closed instantiations referenced by emittable
   members monomorphize into the consuming package's `<pkg>_pinterfaces.go`
   with derived IIDs (`Calendar.Languages()` → `IVectorViewOfString`,
-  live-tested). Generator **emission** of events and delegate types —
-  including generic delegate instantiations like `TypedEventHandler`2` —
-  is the next milestone; ~142 non-generic-delegate events exist across the
-  wider surface and light up when their namespaces are emitted.*
+  live-tested). Generator **event emission** is landed: add_/remove_
+  accessors project as `Add<Event>`/`Remove<Event>`, and each event's
+  delegate — a generic instantiation like
+  `TypedEventHandler`2<IMemoryBufferReference, Object>` (IID
+  pinterface-derived) or a non-generic delegate (declared IID) — grounds
+  into a package-local typed handler in `<pkg>_delegates.go` wrapping the
+  delegate runtime (live-tested: `IMemoryBufferReference.Closed` fires
+  through generated code). Delegate-typed method PARAMETERS (async's
+  `Completed` et al.) and delegate TypeDefs in their home namespaces stay
+  deferred; the ~142 non-generic-delegate events across the wider surface
+  light up when their namespaces are emitted.*
 - **mscorlib marker types** (`System.Object`, `System.Guid`, `System.Enum`,
   `System.ValueType`, `System.MulticastDelegate`, `System.Attribute`) are
   type-system signals only — never resolve them as real types.
