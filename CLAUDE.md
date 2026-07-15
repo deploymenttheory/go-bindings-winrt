@@ -69,7 +69,10 @@ go run ./examples/calendar                # the vertical, end to end
   - `typemap/` — the ONE type-decision site. Bool = 1 byte at the ABI (Go
     bool), HString = Go string (syswinrt.HSTRING at the ABI), Guid =
     win32.GUID, Object = *syswinrt.IInspectable; ApiRef class → its default
-    interface pointer; delegates/generics/arrays degrade the member.
+    interface pointer; closed generic INTERFACE instantiations resolve to a
+    package-local monomorphized type via the gather layer's
+    `Context.RequestInstantiation` callback; delegates (incl. generic
+    delegate instantiations)/open generics/arrays degrade the member.
     External map (never re-emitted): Windows.Foundation
     EventRegistrationToken → syswinrt, HResult → int32.
   - `emit/winrt/` — gather → view → render with the render firewall:
@@ -77,16 +80,25 @@ go run ./examples/calendar                # the vertical, end to end
     models; `render/` executes `//go:embed` templates that only branch on
     precomputed kinds, never decide. Emits per package (non-empty only):
     doc.go, `<pkg>_enums.go`, `<pkg>_structs.go`, `<pkg>_interfaces.go`,
-    `<pkg>_classes.go`.
+    `<pkg>_classes.go`, `<pkg>_pinterfaces.go` (generic instantiations).
   - `shared/fileasm/` — DO-NOT-EDIT header + build tag + go/format; the
     emitter is self-cleaning and only ever prunes files bearing the header.
 - **Emit rules**: slot = 6 + MethodDef index; skipped members NEVER
   renumber — they leave `// slot N: name skipped: reason` comments.
   Classes (non-composable) embed their default interface by value;
   direct-activatable classes get `NewFoo()`; other instance interfaces get
-  `As<Name>()` query methods. Events, delegates, statics, factory ctors,
-  generics, arrays, and by-value structs wider than one integer word are
-  skipped with diagnostics this wave.
+  `As<Name>()` query methods. Closed generic INTERFACE instantiations
+  referenced by emittable members are emitted as concrete (monomorphized)
+  types into the CONSUMING package's `<pkg>_pinterfaces.go` — mangled name
+  (`IVectorView`1<String>` → `IVectorViewOfString`), IID derived by
+  `internal/codegen/pinterface`, slots preserved from the open interface's
+  MethodDef order, transitively closed (First → IIterator, GetView →
+  IVectorView) and deduped per package. Two packages using the same
+  instantiation each get their own copy: distinct Go types, identical ABI.
+  Open generic types themselves, generic DELEGATE instantiations
+  (TypedEventHandler`2 — the event milestone), events, statics, factory
+  ctors, arrays, and by-value structs wider than one integer word are still
+  skipped with diagnostics.
 - **Diagnostics ratchet**: `metadata/diagnostics-baseline.json` is the
   committed degradation set; `bindings --diagnostics-baseline` fails on any
   NEW diagnostic, and CI's regen job enforces byte-identical regeneration
@@ -117,4 +129,4 @@ go run ./examples/calendar                # the vertical, end to end
 - Conventional commits, release-please, SHA-pinned actions, LF-normalized
   text (`.gitattributes`), `*.winmd` binary.
 - See `docs/ROADMAP.md` for the wave plan and out-of-scope list
-  (composition, statics, generic instantiations/pinterface IIDs, async).
+  (composition, statics, events/generic delegates, async).

@@ -85,6 +85,14 @@ type Context struct {
 	// ("Windows.Globalization"); references into it stay unqualified.
 	// Blocked-edge decisions key off this namespace.
 	Namespace string
+
+	// RequestInstantiation is the gather layer's demand-driven pinterface
+	// seam: when a member references a closed generic INTERFACE
+	// instantiation, the callback registers the instantiation for emission
+	// into the consuming package and returns its package-local Go type
+	// name. A nil callback, or ok == false (the instantiation cannot be
+	// grounded or named), degrades the member exactly as before.
+	RequestInstantiation func(ref *winrtmeta.TypeRef) (string, bool)
 }
 
 // Mapper resolves TypeRefs against the loaded Registry.
@@ -142,7 +150,7 @@ func (m *Mapper) GoType(ref *winrtmeta.TypeRef, ctx Context, imports ImportSet) 
 	case "ApiRef":
 		return m.resolveApiRef(ref, ctx, imports)
 	case "GenericInst":
-		return unsupported("generic-member-skipped", "parameterized type %s.%s", ref.Namespace, ref.Name)
+		return m.resolveGenericInst(ref, ctx)
 	case "GenericParamRef":
 		return unsupported("generic-member-skipped", "generic type parameter")
 	case "Array":
@@ -174,6 +182,25 @@ func (m *Mapper) resolveNative(ref *winrtmeta.TypeRef, imports ImportSet) Resolv
 		return Resolved{GoType: goType, Kind: KindScalar}
 	}
 	return unsupported("unknown-native-type", "%q", ref.Name)
+}
+
+// resolveGenericInst maps a closed generic INTERFACE instantiation to the
+// concrete (monomorphized) type the gather layer emits into the consuming
+// package — package-local, so no import is recorded. Delegate instantiations
+// (TypedEventHandler`2 et al.) still degrade: generic delegates wait for the
+// event milestone. The open type's namespace is never imported, so blocked
+// import edges do not apply here; cross-namespace ARGUMENT references are
+// resolved (and blocked-edge checked) when the instantiation's methods are
+// lowered.
+func (m *Mapper) resolveGenericInst(ref *winrtmeta.TypeRef, ctx Context) Resolved {
+	if ctx.RequestInstantiation == nil || m.Registry.Interface(ref.Namespace, ref.Name) == nil {
+		return unsupported("generic-member-skipped", "parameterized type %s.%s", ref.Namespace, ref.Name)
+	}
+	name, ok := ctx.RequestInstantiation(ref)
+	if !ok {
+		return unsupported("generic-member-skipped", "parameterized type %s.%s", ref.Namespace, ref.Name)
+	}
+	return Resolved{GoType: "*" + name, Kind: KindInterfacePtr}
 }
 
 func (m *Mapper) resolveApiRef(ref *winrtmeta.TypeRef, ctx Context, imports ImportSet) Resolved {

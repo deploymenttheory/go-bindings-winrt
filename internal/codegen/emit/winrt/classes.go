@@ -46,7 +46,7 @@ func (g *Generator) buildClassModels(meta *winrtmeta.NamespaceMeta, imports type
 }
 
 func (g *Generator) buildClass(meta *winrtmeta.NamespaceMeta, name, fullName string, class *winrtmeta.Class, imports typemap.ImportSet) (view.ClassModel, bool) {
-	context := typemap.Context{Namespace: meta.Namespace}
+	context := g.resolveContext(meta.Namespace)
 	scratch := typemap.ImportSet{}
 
 	resolvedDefault := g.mapper.GoType(class.DefaultInterface, context, scratch)
@@ -104,10 +104,6 @@ func (g *Generator) buildClass(meta *winrtmeta.NamespaceMeta, name, fullName str
 		}
 		asName := naming.InterfaceAsName(target.Name)
 		memberPath := fullName + "." + asName
-		if target.Kind != "ApiRef" {
-			g.diag("generic-member-skipped", "%s (instance interface %s)", memberPath, refDisplay(target))
-			continue
-		}
 		resolved := g.mapper.GoType(target, context, scratch)
 		if resolved.Kind != typemap.KindInterfacePtr {
 			s := splitReason(resolved.Reason)
@@ -116,6 +112,13 @@ func (g *Generator) buildClass(meta *winrtmeta.NamespaceMeta, name, fullName str
 			}
 			g.diag(s.key, "%s (%s)", memberPath, s.detail)
 			continue
+		}
+		if target.Kind == "GenericInst" {
+			// The instantiation is package-local under its mangled name; the
+			// query method follows it (AsVectorViewOfString), not the
+			// backtick-arity metadata name.
+			asName = naming.InterfaceAsName(strings.TrimPrefix(resolved.GoType, "*"))
+			memberPath = fullName + "." + asName
 		}
 		iidRef, ok := g.iidRef(target, meta.Namespace)
 		if !ok {
@@ -140,8 +143,16 @@ func (g *Generator) buildClass(meta *winrtmeta.NamespaceMeta, name, fullName str
 
 // iidRef builds the address expression of an interface's IID variable
 // ("&IID_ICalendar", "&foundation.IID_IStringable"); false when the
-// interface carries no GUID.
+// interface carries no GUID. Generic instantiations resolve to the derived
+// IID var emitted alongside the instantiation in the consuming package.
 func (g *Generator) iidRef(ref *winrtmeta.TypeRef, fromNamespace string) (string, bool) {
+	if ref.Kind == "GenericInst" {
+		mangled, err := instantiationName(ref)
+		if err != nil {
+			return "", false
+		}
+		return "&IID_" + mangled, true
+	}
 	definition := g.mapper.Registry.Interface(ref.Namespace, ref.Name)
 	if definition == nil || definition.GUID == "" {
 		return "", false

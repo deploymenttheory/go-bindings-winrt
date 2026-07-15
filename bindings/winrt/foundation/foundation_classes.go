@@ -62,6 +62,18 @@ type WwwFormUrlDecoder struct {
 	IWwwFormUrlDecoderRuntimeClass
 }
 
+// AsVectorViewOfIWwwFormUrlDecoderEntry queries the instance's IVectorViewOfIWwwFormUrlDecoderEntry interface.
+// The returned reference is owned by the caller.
+func (self *WwwFormUrlDecoder) AsVectorViewOfIWwwFormUrlDecoderEntry() (*IVectorViewOfIWwwFormUrlDecoderEntry, error) {
+	return winrt.QueryInterface[IVectorViewOfIWwwFormUrlDecoderEntry](unsafe.Pointer(self), &IID_IVectorViewOfIWwwFormUrlDecoderEntry)
+}
+
+// AsIterableOfIWwwFormUrlDecoderEntry queries the instance's IIterableOfIWwwFormUrlDecoderEntry interface.
+// The returned reference is owned by the caller.
+func (self *WwwFormUrlDecoder) AsIterableOfIWwwFormUrlDecoderEntry() (*IIterableOfIWwwFormUrlDecoderEntry, error) {
+	return winrt.QueryInterface[IIterableOfIWwwFormUrlDecoderEntry](unsafe.Pointer(self), &IID_IIterableOfIWwwFormUrlDecoderEntry)
+}
+
 // WwwFormUrlDecoderEntry is the Windows.Foundation.WwwFormUrlDecoderEntry runtime class, surfaced through its
 // default interface IWwwFormUrlDecoderEntry. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).

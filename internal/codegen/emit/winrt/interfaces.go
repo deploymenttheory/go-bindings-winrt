@@ -44,15 +44,20 @@ func (g *Generator) buildInterfaceModels(meta *winrtmeta.NamespaceMeta, imports 
 			g.diag("name-collision-skipped", "interface %s.%s", meta.Namespace, name)
 			continue
 		}
-		models = append(models, g.buildInterface(meta, name, goName, &definition, imports))
+		models = append(models, g.buildInterface(meta, meta.Namespace+"."+name, goName, &definition, imports))
 	}
 	return models
 }
 
-func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, name, goName string, definition *winrtmeta.Interface, imports typemap.ImportSet) view.InterfaceModel {
+// buildInterface lowers one interface definition (declared or a grounded
+// generic instantiation) into its render model. fullName is the display
+// name for doc comments and diagnostics — "Windows.Globalization.ICalendar"
+// for declared interfaces, the instantiation display form
+// ("Windows.Foundation.Collections.IVectorView`1<String>") for pinterfaces.
+func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, fullName, goName string, definition *winrtmeta.Interface, imports typemap.ImportSet) view.InterfaceModel {
 	model := view.InterfaceModel{
 		TypeName:    goName,
-		FullName:    meta.Namespace + "." + name,
+		FullName:    fullName,
 		GUID:        definition.GUID,
 		ExclusiveTo: definition.ExclusiveTo,
 	}
@@ -63,15 +68,15 @@ func (g *Generator) buildInterface(meta *winrtmeta.NamespaceMeta, name, goName s
 	if definition.GUID != "" {
 		literal, err := guidLiteral(definition.GUID)
 		if err != nil {
-			g.diag("malformed-guid", "interface %s.%s: %v", meta.Namespace, name, err)
+			g.diag("malformed-guid", "interface %s: %v", fullName, err)
 		} else if iidVar := "IID_" + goName; g.claimName(iidVar) {
 			model.IIDVar = iidVar
 			model.IIDLiteral = literal
 		} else {
-			g.diag("name-collision-skipped", "IID var for %s.%s", meta.Namespace, name)
+			g.diag("name-collision-skipped", "IID var for %s", fullName)
 		}
 	} else {
-		g.diag("interface-missing-guid", "%s.%s", meta.Namespace, name)
+		g.diag("interface-missing-guid", "%s", fullName)
 	}
 
 	// Vtable methods in MethodDef order: slot = 6 + index. Skipped members
@@ -119,7 +124,7 @@ func (g *Generator) buildMethod(meta *winrtmeta.NamespaceMeta, interfaceGoName s
 		goName = naming.Export(metadataName)
 	}
 
-	context := typemap.Context{Namespace: meta.Namespace}
+	context := g.resolveContext(meta.Namespace)
 	scratch := typemap.ImportSet{}
 	var noteLines []string
 
@@ -299,10 +304,14 @@ func freshLocal(candidate string, taken map[string]bool) string {
 }
 
 // refDisplay renders a TypeRef for doc comments (full metadata names,
-// generic arguments in angle brackets).
+// generic arguments in angle brackets, primitives under their projected
+// WinRT names: IVectorView`1<String>).
 func refDisplay(ref *winrtmeta.TypeRef) string {
 	switch ref.Kind {
 	case "Native":
+		if projected, ok := nativeMangles[ref.Name]; ok {
+			return projected
+		}
 		return ref.Name
 	case "GenericParamRef":
 		return fmt.Sprintf("T%d", ref.Index)
