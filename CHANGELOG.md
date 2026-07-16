@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.3.0](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.2.0...v0.3.0) (2026-07-16)
+
+
+### Features
+
+* composition instantiate ([7b91f31](https://github.com/deploymenttheory/go-bindings-winrt/commit/7b91f3132ed38c4bbe473ed8e8f2447090090882))
+* composition, instantiate-only — 704 composable classes un-skip ([f9b22d9](https://github.com/deploymenttheory/go-bindings-winrt/commit/f9b22d9868f8a2c07ed36ee10a13747345aec272))
+* element-generic + writable Go-implemented collections ([f85d352](https://github.com/deploymenttheory/go-bindings-winrt/commit/f85d3525d2e8f76f6830ec756fc33e9eab01ff84))
+* generated Await() on WithProgress async operations ([9145e05](https://github.com/deploymenttheory/go-bindings-winrt/commit/9145e059d83abd103c16349f11f4a0add9201aa5))
+
 ## [0.2.0](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.1.0...v0.2.0) (2026-07-15)
 
 
