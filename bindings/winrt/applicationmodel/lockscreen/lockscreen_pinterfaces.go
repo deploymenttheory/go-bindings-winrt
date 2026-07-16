@@ -13,6 +13,140 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
+// IIterableOfLockScreenBadge is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.LockScreen.LockScreenBadge>.
+// IID: 6e82dedc-b74e-503a-b00b-9c6f47f12a0f
+type IIterableOfLockScreenBadge struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfLockScreenBadge is the interface identifier for IIterableOfLockScreenBadge.
+var IID_IIterableOfLockScreenBadge = win32.GUID{Data1: 0x6e82dedc, Data2: 0xb74e, Data3: 0x503a, Data4: [8]byte{0xb0, 0x0b, 0x9c, 0x6f, 0x47, 0xf1, 0x2a, 0x0f}}
+
+// First dispatches through IIterableOfLockScreenBadge's vtable slot 6.
+func (self *IIterableOfLockScreenBadge) First() (*IIteratorOfLockScreenBadge, error) {
+	result := new(*IIteratorOfLockScreenBadge)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfLockScreenBadge creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.LockScreen.LockScreenBadge>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfLockScreenBadge(items []*ILockScreenBadge) *IIterableOfLockScreenBadge {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.LockScreen.LockScreenBadge>", winrt.CollectionIIDs{Iterable: IID_IIterableOfLockScreenBadge, Iterator: IID_IIteratorOfLockScreenBadge}, winrt.CodecInterface, boxed)
+	return (*IIterableOfLockScreenBadge)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfLockScreenBadge is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.LockScreen.LockScreenBadge>.
+// IID: 8d38f924-154d-5705-8f0b-ed61353f6ce2
+type IIteratorOfLockScreenBadge struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfLockScreenBadge is the interface identifier for IIteratorOfLockScreenBadge.
+var IID_IIteratorOfLockScreenBadge = win32.GUID{Data1: 0x8d38f924, Data2: 0x154d, Data3: 0x5705, Data4: [8]byte{0x8f, 0x0b, 0xed, 0x61, 0x35, 0x3f, 0x6c, 0xe2}}
+
+// Current (propget get_Current) dispatches through IIteratorOfLockScreenBadge's vtable slot 6.
+func (self *IIteratorOfLockScreenBadge) Current() (*ILockScreenBadge, error) {
+	result := new(*ILockScreenBadge)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfLockScreenBadge's vtable slot 7.
+func (self *IIteratorOfLockScreenBadge) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfLockScreenBadge's vtable slot 8.
+func (self *IIteratorOfLockScreenBadge) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfUInt32 is the WinRT interface Windows.Foundation.IReference`1<UInt32>.
 // IID: 513ef3af-e784-5325-a91e-97c2b8111cf3
 // Requires: Windows.Foundation.IPropertyValue.
@@ -63,6 +197,25 @@ func (self *IVectorViewOfLockScreenBadge) IndexOf(value *ILockScreenBadge, index
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfLockScreenBadge creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.LockScreen.LockScreenBadge>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfLockScreenBadge(items []*ILockScreenBadge) *IVectorViewOfLockScreenBadge {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.LockScreen.LockScreenBadge>", winrt.CollectionIIDs{Iterable: IID_IIterableOfLockScreenBadge, Iterator: IID_IIteratorOfLockScreenBadge, VectorView: IID_IVectorViewOfLockScreenBadge}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfLockScreenBadge)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
 // Requires: Windows.Foundation.Collections.IIterable`1<String>.
@@ -103,3 +256,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

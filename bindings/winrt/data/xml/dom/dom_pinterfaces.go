@@ -99,6 +99,25 @@ func (self *IIterableOfIXmlNode) First() (*IIteratorOfIXmlNode, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfIXmlNode creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Data.Xml.Dom.IXmlNode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIXmlNode(items []*IXmlNode) *IIterableOfIXmlNode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Data.Xml.Dom.IXmlNode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIXmlNode, Iterator: IID_IIteratorOfIXmlNode}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIXmlNode)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfIXmlNode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Data.Xml.Dom.IXmlNode>.
 // IID: 3833a35e-2c61-56bd-b093-3694165f8898
 type IIteratorOfIXmlNode struct {
@@ -163,3 +182,22 @@ func (self *IVectorViewOfIXmlNode) IndexOf(value *IXmlNode, index *uint32) (bool
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfIXmlNode creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Data.Xml.Dom.IXmlNode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIXmlNode(items []*IXmlNode) *IVectorViewOfIXmlNode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Data.Xml.Dom.IXmlNode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIXmlNode, Iterator: IID_IIteratorOfIXmlNode, VectorView: IID_IVectorViewOfIXmlNode}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIXmlNode)(unsafe.Pointer(obj))
+}

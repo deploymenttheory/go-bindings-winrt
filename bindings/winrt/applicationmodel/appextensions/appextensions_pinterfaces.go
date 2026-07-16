@@ -292,6 +292,73 @@ func (self *IAsyncOperationOfStorageFolder) Await() (*storage.IStorageFolder, er
 	return self.GetResults()
 }
 
+// IIterableOfAppExtension is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.AppExtensions.AppExtension>.
+// IID: 3b4fe356-1b13-59cb-ab1f-c4667a74756b
+type IIterableOfAppExtension struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAppExtension is the interface identifier for IIterableOfAppExtension.
+var IID_IIterableOfAppExtension = win32.GUID{Data1: 0x3b4fe356, Data2: 0x1b13, Data3: 0x59cb, Data4: [8]byte{0xab, 0x1f, 0xc4, 0x66, 0x7a, 0x74, 0x75, 0x6b}}
+
+// First dispatches through IIterableOfAppExtension's vtable slot 6.
+func (self *IIterableOfAppExtension) First() (*IIteratorOfAppExtension, error) {
+	result := new(*IIteratorOfAppExtension)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAppExtension creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.AppExtensions.AppExtension>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAppExtension(items []*IAppExtension) *IIterableOfAppExtension {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.AppExtensions.AppExtension>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppExtension, Iterator: IID_IIteratorOfAppExtension}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAppExtension)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfAppExtension is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.AppExtensions.AppExtension>.
+// IID: 8e80ca83-3cd3-5f9c-83e4-84347ca5498c
+type IIteratorOfAppExtension struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAppExtension is the interface identifier for IIteratorOfAppExtension.
+var IID_IIteratorOfAppExtension = win32.GUID{Data1: 0x8e80ca83, Data2: 0x3cd3, Data3: 0x5f9c, Data4: [8]byte{0x83, 0xe4, 0x84, 0x34, 0x7c, 0xa5, 0x49, 0x8c}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAppExtension's vtable slot 6.
+func (self *IIteratorOfAppExtension) Current() (*IAppExtension, error) {
+	result := new(*IAppExtension)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAppExtension's vtable slot 7.
+func (self *IIteratorOfAppExtension) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAppExtension's vtable slot 8.
+func (self *IIteratorOfAppExtension) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfAppExtension is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.AppExtensions.AppExtension>.
 // IID: 94520810-7e9b-5efd-b74d-e9d4175fd94a
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.AppExtensions.AppExtension>.
@@ -324,3 +391,22 @@ func (self *IVectorViewOfAppExtension) IndexOf(value *IAppExtension, index *uint
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfAppExtension creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.AppExtensions.AppExtension>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAppExtension(items []*IAppExtension) *IVectorViewOfAppExtension {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.AppExtensions.AppExtension>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppExtension, Iterator: IID_IIteratorOfAppExtension, VectorView: IID_IVectorViewOfAppExtension}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAppExtension)(unsafe.Pointer(obj))
+}

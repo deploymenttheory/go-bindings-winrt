@@ -13,6 +13,8 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 	uicomposition "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/composition"
 	uiwindowmanagement "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/windowmanagement"
+	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
+	uixamlcontrols "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/controls"
 )
 
 // IElementCompositionPreview is the WinRT interface Windows.UI.Xaml.Hosting.IElementCompositionPreview.
@@ -36,36 +38,28 @@ type IElementCompositionPreviewStatics struct {
 var IID_IElementCompositionPreviewStatics = win32.GUID{Data1: 0x08c92b38, Data2: 0xec99, Data3: 0x4c55, Data4: [8]byte{0xbc, 0x85, 0xa1, 0xc1, 0x80, 0xb2, 0x76, 0x46}}
 
 // GetElementVisual dispatches through IElementCompositionPreviewStatics's vtable slot 6.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementCompositionPreviewStatics) GetElementVisual(element *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IElementCompositionPreviewStatics) GetElementVisual(element *uixaml.IUIElement) (*uicomposition.IVisual, error) {
+	result := new(*uicomposition.IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // GetElementChildVisual dispatches through IElementCompositionPreviewStatics's vtable slot 7.
-// The return value's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementCompositionPreviewStatics) GetElementChildVisual(element *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IElementCompositionPreviewStatics) GetElementChildVisual(element *uixaml.IUIElement) (*uicomposition.IVisual, error) {
+	result := new(*uicomposition.IVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetElementChildVisual dispatches through IElementCompositionPreviewStatics's vtable slot 8.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-// Parameter visual's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementCompositionPreviewStatics) SetElementChildVisual(element *syswinrt.IInspectable, visual *syswinrt.IInspectable) error {
+func (self *IElementCompositionPreviewStatics) SetElementChildVisual(element *uixaml.IUIElement, visual *uicomposition.IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(unsafe.Pointer(visual)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // GetScrollViewerManipulationPropertySet dispatches through IElementCompositionPreviewStatics's vtable slot 9.
-// The return value's class Windows.UI.Composition.CompositionPropertySet is projected as IInspectable (the class is not emitted this wave).
-// Parameter scrollViewer's class Windows.UI.Xaml.Controls.ScrollViewer is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementCompositionPreviewStatics) GetScrollViewerManipulationPropertySet(scrollViewer *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IElementCompositionPreviewStatics) GetScrollViewerManipulationPropertySet(scrollViewer *uixamlcontrols.IScrollViewer) (*uicomposition.ICompositionPropertySet, error) {
+	result := new(*uicomposition.ICompositionPropertySet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(scrollViewer)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -81,22 +75,19 @@ type IElementCompositionPreviewStatics2 struct {
 var IID_IElementCompositionPreviewStatics2 = win32.GUID{Data1: 0x24148fbb, Data2: 0x23d6, Data3: 0x4f37, Data4: [8]byte{0xba, 0x0c, 0x07, 0x33, 0xe7, 0x99, 0x72, 0x2d}}
 
 // SetImplicitShowAnimation dispatches through IElementCompositionPreviewStatics2's vtable slot 6.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementCompositionPreviewStatics2) SetImplicitShowAnimation(element *syswinrt.IInspectable, animation *uicomposition.ICompositionAnimationBase) error {
+func (self *IElementCompositionPreviewStatics2) SetImplicitShowAnimation(element *uixaml.IUIElement, animation *uicomposition.ICompositionAnimationBase) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(unsafe.Pointer(animation)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SetImplicitHideAnimation dispatches through IElementCompositionPreviewStatics2's vtable slot 7.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementCompositionPreviewStatics2) SetImplicitHideAnimation(element *syswinrt.IInspectable, animation *uicomposition.ICompositionAnimationBase) error {
+func (self *IElementCompositionPreviewStatics2) SetImplicitHideAnimation(element *uixaml.IUIElement, animation *uicomposition.ICompositionAnimationBase) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(unsafe.Pointer(animation)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // SetIsTranslationEnabled dispatches through IElementCompositionPreviewStatics2's vtable slot 8.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementCompositionPreviewStatics2) SetIsTranslationEnabled(element *syswinrt.IInspectable, value bool) error {
+func (self *IElementCompositionPreviewStatics2) SetIsTranslationEnabled(element *uixaml.IUIElement, value bool) error {
 	_value := uintptr(0)
 	if value {
 		_value = 1
@@ -106,10 +97,8 @@ func (self *IElementCompositionPreviewStatics2) SetIsTranslationEnabled(element 
 }
 
 // GetPointerPositionPropertySet dispatches through IElementCompositionPreviewStatics2's vtable slot 9.
-// The return value's class Windows.UI.Composition.CompositionPropertySet is projected as IInspectable (the class is not emitted this wave).
-// Parameter targetElement's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementCompositionPreviewStatics2) GetPointerPositionPropertySet(targetElement *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IElementCompositionPreviewStatics2) GetPointerPositionPropertySet(targetElement *uixaml.IUIElement) (*uicomposition.ICompositionPropertySet, error) {
+	result := new(*uicomposition.ICompositionPropertySet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(targetElement)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -125,16 +114,14 @@ type IElementCompositionPreviewStatics3 struct {
 var IID_IElementCompositionPreviewStatics3 = win32.GUID{Data1: 0x843bc4c3, Data2: 0xc105, Data3: 0x59fe, Data4: [8]byte{0xa3, 0xd1, 0x37, 0x3c, 0x1d, 0x3e, 0x6f, 0xbc}}
 
 // SetAppWindowContent dispatches through IElementCompositionPreviewStatics3's vtable slot 6.
-// Parameter xamlContent's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementCompositionPreviewStatics3) SetAppWindowContent(appWindow *uiwindowmanagement.IAppWindow, xamlContent *syswinrt.IInspectable) error {
+func (self *IElementCompositionPreviewStatics3) SetAppWindowContent(appWindow *uiwindowmanagement.IAppWindow, xamlContent *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(appWindow)), uintptr(unsafe.Pointer(xamlContent)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // GetAppWindowContent dispatches through IElementCompositionPreviewStatics3's vtable slot 7.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IElementCompositionPreviewStatics3) GetAppWindowContent(appWindow *uiwindowmanagement.IAppWindow) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IElementCompositionPreviewStatics3) GetAppWindowContent(appWindow *uiwindowmanagement.IAppWindow) (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(appWindow)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

@@ -153,6 +153,73 @@ func (self *IAsyncOperationOfStreamSocket) Await() (*networkingsockets.IStreamSo
 	return self.GetResults()
 }
 
+// IIterableOfPeerInformation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.Proximity.PeerInformation>.
+// IID: 917e1105-0647-5793-9d50-befe225f0f2f
+type IIterableOfPeerInformation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPeerInformation is the interface identifier for IIterableOfPeerInformation.
+var IID_IIterableOfPeerInformation = win32.GUID{Data1: 0x917e1105, Data2: 0x0647, Data3: 0x5793, Data4: [8]byte{0x9d, 0x50, 0xbe, 0xfe, 0x22, 0x5f, 0x0f, 0x2f}}
+
+// First dispatches through IIterableOfPeerInformation's vtable slot 6.
+func (self *IIterableOfPeerInformation) First() (*IIteratorOfPeerInformation, error) {
+	result := new(*IIteratorOfPeerInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPeerInformation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.Proximity.PeerInformation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPeerInformation(items []*IPeerInformation) *IIterableOfPeerInformation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.Proximity.PeerInformation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPeerInformation, Iterator: IID_IIteratorOfPeerInformation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPeerInformation)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfPeerInformation is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.Proximity.PeerInformation>.
+// IID: eb6fe2c2-d6cd-5df0-a295-74c56ec58aab
+type IIteratorOfPeerInformation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPeerInformation is the interface identifier for IIteratorOfPeerInformation.
+var IID_IIteratorOfPeerInformation = win32.GUID{Data1: 0xeb6fe2c2, Data2: 0xd6cd, Data3: 0x5df0, Data4: [8]byte{0xa2, 0x95, 0x74, 0xc5, 0x6e, 0xc5, 0x8a, 0xab}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPeerInformation's vtable slot 6.
+func (self *IIteratorOfPeerInformation) Current() (*IPeerInformation, error) {
+	result := new(*IPeerInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPeerInformation's vtable slot 7.
+func (self *IIteratorOfPeerInformation) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPeerInformation's vtable slot 8.
+func (self *IIteratorOfPeerInformation) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IMapOfStringAndString is the WinRT interface Windows.Foundation.Collections.IMap`2<String, String>.
 // IID: f6d1f700-49c2-52ae-8154-826f9908773c
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>.
@@ -320,3 +387,22 @@ func (self *IVectorViewOfPeerInformation) IndexOf(value *IPeerInformation, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPeerInformation creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Proximity.PeerInformation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPeerInformation(items []*IPeerInformation) *IVectorViewOfPeerInformation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Proximity.PeerInformation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPeerInformation, Iterator: IID_IIteratorOfPeerInformation, VectorView: IID_IVectorViewOfPeerInformation}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPeerInformation)(unsafe.Pointer(obj))
+}

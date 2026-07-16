@@ -84,6 +84,111 @@ func (self *IAsyncOperationOfDisplayMuxDevice) Await() (*IDisplayMuxDevice, erro
 	return self.GetResults()
 }
 
+// IIterableOfDisplayAdapter is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayAdapter>.
+// IID: db889bc5-3fd5-5b02-a2ea-d8daab6c33f2
+type IIterableOfDisplayAdapter struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDisplayAdapter is the interface identifier for IIterableOfDisplayAdapter.
+var IID_IIterableOfDisplayAdapter = win32.GUID{Data1: 0xdb889bc5, Data2: 0x3fd5, Data3: 0x5b02, Data4: [8]byte{0xa2, 0xea, 0xd8, 0xda, 0xab, 0x6c, 0x33, 0xf2}}
+
+// First dispatches through IIterableOfDisplayAdapter's vtable slot 6.
+func (self *IIterableOfDisplayAdapter) First() (*IIteratorOfDisplayAdapter, error) {
+	result := new(*IIteratorOfDisplayAdapter)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDisplayAdapter creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayAdapter>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDisplayAdapter(items []*IDisplayAdapter) *IIterableOfDisplayAdapter {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayAdapter>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayAdapter, Iterator: IID_IIteratorOfDisplayAdapter}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDisplayAdapter)(unsafe.Pointer(obj))
+}
+
+// IIterableOfDisplayModeInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayModeInfo>.
+// IID: dabee849-f1c8-5dab-abe5-effa5110894c
+type IIterableOfDisplayModeInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDisplayModeInfo is the interface identifier for IIterableOfDisplayModeInfo.
+var IID_IIterableOfDisplayModeInfo = win32.GUID{Data1: 0xdabee849, Data2: 0xf1c8, Data3: 0x5dab, Data4: [8]byte{0xab, 0xe5, 0xef, 0xfa, 0x51, 0x10, 0x89, 0x4c}}
+
+// First dispatches through IIterableOfDisplayModeInfo's vtable slot 6.
+func (self *IIterableOfDisplayModeInfo) First() (*IIteratorOfDisplayModeInfo, error) {
+	result := new(*IIteratorOfDisplayModeInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDisplayModeInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayModeInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDisplayModeInfo(items []*IDisplayModeInfo) *IIterableOfDisplayModeInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayModeInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayModeInfo, Iterator: IID_IIteratorOfDisplayModeInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDisplayModeInfo)(unsafe.Pointer(obj))
+}
+
+// IIterableOfDisplayPath is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayPath>.
+// IID: 4c0352b3-bb9e-52a7-afa7-c946928c12c9
+type IIterableOfDisplayPath struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDisplayPath is the interface identifier for IIterableOfDisplayPath.
+var IID_IIterableOfDisplayPath = win32.GUID{Data1: 0x4c0352b3, Data2: 0xbb9e, Data3: 0x52a7, Data4: [8]byte{0xaf, 0xa7, 0xc9, 0x46, 0x92, 0x8c, 0x12, 0xc9}}
+
+// First dispatches through IIterableOfDisplayPath's vtable slot 6.
+func (self *IIterableOfDisplayPath) First() (*IIteratorOfDisplayPath, error) {
+	result := new(*IIteratorOfDisplayPath)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDisplayPath creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayPath>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDisplayPath(items []*IDisplayPath) *IIterableOfDisplayPath {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayPath>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayPath, Iterator: IID_IIteratorOfDisplayPath}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDisplayPath)(unsafe.Pointer(obj))
+}
+
 // IIterableOfDisplayTarget is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayTarget>.
 // IID: ccb2e527-3a37-50fd-8d28-59e9db8cf9d9
 type IIterableOfDisplayTarget struct {
@@ -98,6 +203,60 @@ func (self *IIterableOfDisplayTarget) First() (*IIteratorOfDisplayTarget, error)
 	result := new(*IIteratorOfDisplayTarget)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDisplayTarget creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayTarget>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDisplayTarget(items []*IDisplayTarget) *IIterableOfDisplayTarget {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayTarget>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayTarget, Iterator: IID_IIteratorOfDisplayTarget}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDisplayTarget)(unsafe.Pointer(obj))
+}
+
+// IIterableOfDisplayView is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayView>.
+// IID: 8b18679f-3a2d-5d78-8409-2af682e7433c
+type IIterableOfDisplayView struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDisplayView is the interface identifier for IIterableOfDisplayView.
+var IID_IIterableOfDisplayView = win32.GUID{Data1: 0x8b18679f, Data2: 0x3a2d, Data3: 0x5d78, Data4: [8]byte{0x84, 0x09, 0x2a, 0xf6, 0x82, 0xe7, 0x43, 0x3c}}
+
+// First dispatches through IIterableOfDisplayView's vtable slot 6.
+func (self *IIterableOfDisplayView) First() (*IIteratorOfDisplayView, error) {
+	result := new(*IIteratorOfDisplayView)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDisplayView creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayView>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDisplayView(items []*IDisplayView) *IIterableOfDisplayView {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayView>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayView, Iterator: IID_IIteratorOfDisplayView}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDisplayView)(unsafe.Pointer(obj))
 }
 
 // IIterableOfIKeyValuePairOfGuidAndObject is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<Guid, Object>>.
@@ -116,6 +275,25 @@ func (self *IIterableOfIKeyValuePairOfGuidAndObject) First() (*IIteratorOfIKeyVa
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfIKeyValuePairOfGuidAndObject creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<Guid, Object>>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIKeyValuePairOfGuidAndObject(items []*IKeyValuePairOfGuidAndObject) *IIterableOfIKeyValuePairOfGuidAndObject {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<Guid, Object>>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIKeyValuePairOfGuidAndObject, Iterator: IID_IIteratorOfIKeyValuePairOfGuidAndObject}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIKeyValuePairOfGuidAndObject)(unsafe.Pointer(obj))
+}
+
 // IIterableOfRectInt32 is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.RectInt32>.
 // IID: d6222360-b82e-5eed-9eab-2e275b36e47e
 type IIterableOfRectInt32 struct {
@@ -131,6 +309,102 @@ func (self *IIterableOfRectInt32) First() (*IIteratorOfRectInt32, error) {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// IIteratorOfDisplayAdapter is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Display.Core.DisplayAdapter>.
+// IID: eeaa87f4-4128-5f75-9eab-d7c8a2e9e14d
+type IIteratorOfDisplayAdapter struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDisplayAdapter is the interface identifier for IIteratorOfDisplayAdapter.
+var IID_IIteratorOfDisplayAdapter = win32.GUID{Data1: 0xeeaa87f4, Data2: 0x4128, Data3: 0x5f75, Data4: [8]byte{0x9e, 0xab, 0xd7, 0xc8, 0xa2, 0xe9, 0xe1, 0x4d}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDisplayAdapter's vtable slot 6.
+func (self *IIteratorOfDisplayAdapter) Current() (*IDisplayAdapter, error) {
+	result := new(*IDisplayAdapter)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDisplayAdapter's vtable slot 7.
+func (self *IIteratorOfDisplayAdapter) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDisplayAdapter's vtable slot 8.
+func (self *IIteratorOfDisplayAdapter) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfDisplayModeInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Display.Core.DisplayModeInfo>.
+// IID: eda19941-13b1-5745-b866-4eb39d0ad62c
+type IIteratorOfDisplayModeInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDisplayModeInfo is the interface identifier for IIteratorOfDisplayModeInfo.
+var IID_IIteratorOfDisplayModeInfo = win32.GUID{Data1: 0xeda19941, Data2: 0x13b1, Data3: 0x5745, Data4: [8]byte{0xb8, 0x66, 0x4e, 0xb3, 0x9d, 0x0a, 0xd6, 0x2c}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDisplayModeInfo's vtable slot 6.
+func (self *IIteratorOfDisplayModeInfo) Current() (*IDisplayModeInfo, error) {
+	result := new(*IDisplayModeInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDisplayModeInfo's vtable slot 7.
+func (self *IIteratorOfDisplayModeInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDisplayModeInfo's vtable slot 8.
+func (self *IIteratorOfDisplayModeInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfDisplayPath is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Display.Core.DisplayPath>.
+// IID: 957cdd72-e861-5fe4-9748-216eeb59a9b1
+type IIteratorOfDisplayPath struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDisplayPath is the interface identifier for IIteratorOfDisplayPath.
+var IID_IIteratorOfDisplayPath = win32.GUID{Data1: 0x957cdd72, Data2: 0xe861, Data3: 0x5fe4, Data4: [8]byte{0x97, 0x48, 0x21, 0x6e, 0xeb, 0x59, 0xa9, 0xb1}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDisplayPath's vtable slot 6.
+func (self *IIteratorOfDisplayPath) Current() (*IDisplayPath, error) {
+	result := new(*IDisplayPath)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDisplayPath's vtable slot 7.
+func (self *IIteratorOfDisplayPath) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDisplayPath's vtable slot 8.
+func (self *IIteratorOfDisplayPath) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfDisplayTarget is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Display.Core.DisplayTarget>.
 // IID: 069f9407-81b5-526b-8c63-cdf8ed207ede
@@ -157,6 +431,38 @@ func (self *IIteratorOfDisplayTarget) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfDisplayTarget's vtable slot 8.
 func (self *IIteratorOfDisplayTarget) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfDisplayView is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Display.Core.DisplayView>.
+// IID: a6fbd467-44c0-5ab4-9ad1-25c6eac704d3
+type IIteratorOfDisplayView struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDisplayView is the interface identifier for IIteratorOfDisplayView.
+var IID_IIteratorOfDisplayView = win32.GUID{Data1: 0xa6fbd467, Data2: 0x44c0, Data3: 0x5ab4, Data4: [8]byte{0x9a, 0xd1, 0x25, 0xc6, 0xea, 0xc7, 0x04, 0xd3}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDisplayView's vtable slot 6.
+func (self *IIteratorOfDisplayView) Current() (*IDisplayView, error) {
+	result := new(*IDisplayView)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDisplayView's vtable slot 7.
+func (self *IIteratorOfDisplayView) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDisplayView's vtable slot 8.
+func (self *IIteratorOfDisplayView) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -400,6 +706,25 @@ func (self *IVectorViewOfDisplayAdapter) IndexOf(value *IDisplayAdapter, index *
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfDisplayAdapter creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayAdapter>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDisplayAdapter(items []*IDisplayAdapter) *IVectorViewOfDisplayAdapter {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayAdapter>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayAdapter, Iterator: IID_IIteratorOfDisplayAdapter, VectorView: IID_IVectorViewOfDisplayAdapter}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDisplayAdapter)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfDisplayModeInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayModeInfo>.
 // IID: 339be624-f7dc-562c-b5d2-1b4405bdb7e2
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayModeInfo>.
@@ -432,6 +757,25 @@ func (self *IVectorViewOfDisplayModeInfo) IndexOf(value *IDisplayModeInfo, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfDisplayModeInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayModeInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDisplayModeInfo(items []*IDisplayModeInfo) *IVectorViewOfDisplayModeInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayModeInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayModeInfo, Iterator: IID_IIteratorOfDisplayModeInfo, VectorView: IID_IVectorViewOfDisplayModeInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDisplayModeInfo)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfDisplayPath is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayPath>.
 // IID: eb9b91c4-3d7a-52f6-882b-4b850156e12b
@@ -466,6 +810,25 @@ func (self *IVectorViewOfDisplayPath) IndexOf(value *IDisplayPath, index *uint32
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfDisplayPath creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayPath>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDisplayPath(items []*IDisplayPath) *IVectorViewOfDisplayPath {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayPath>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayPath, Iterator: IID_IIteratorOfDisplayPath, VectorView: IID_IVectorViewOfDisplayPath}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDisplayPath)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfDisplayTarget is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayTarget>.
 // IID: 5011224d-182d-5d88-a56b-d543c6be3621
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayTarget>.
@@ -499,6 +862,25 @@ func (self *IVectorViewOfDisplayTarget) IndexOf(value *IDisplayTarget, index *ui
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfDisplayTarget creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayTarget>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDisplayTarget(items []*IDisplayTarget) *IVectorViewOfDisplayTarget {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayTarget>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayTarget, Iterator: IID_IIteratorOfDisplayTarget, VectorView: IID_IVectorViewOfDisplayTarget}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDisplayTarget)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfDisplayView is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayView>.
 // IID: 442a33f9-7b39-5c9e-84d7-b43cf55171d4
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Display.Core.DisplayView>.
@@ -531,3 +913,22 @@ func (self *IVectorViewOfDisplayView) IndexOf(value *IDisplayView, index *uint32
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfDisplayView creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayView>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDisplayView(items []*IDisplayView) *IVectorViewOfDisplayView {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Display.Core.DisplayView>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDisplayView, Iterator: IID_IIteratorOfDisplayView, VectorView: IID_IVectorViewOfDisplayView}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDisplayView)(unsafe.Pointer(obj))
+}

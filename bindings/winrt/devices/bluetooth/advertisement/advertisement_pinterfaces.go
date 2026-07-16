@@ -13,6 +13,270 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
+// IIterableOfBluetoothLEAdvertisementBytePattern is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern>.
+// IID: 1e3fadee-54ac-538b-8777-351afb78cb74
+type IIterableOfBluetoothLEAdvertisementBytePattern struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfBluetoothLEAdvertisementBytePattern is the interface identifier for IIterableOfBluetoothLEAdvertisementBytePattern.
+var IID_IIterableOfBluetoothLEAdvertisementBytePattern = win32.GUID{Data1: 0x1e3fadee, Data2: 0x54ac, Data3: 0x538b, Data4: [8]byte{0x87, 0x77, 0x35, 0x1a, 0xfb, 0x78, 0xcb, 0x74}}
+
+// First dispatches through IIterableOfBluetoothLEAdvertisementBytePattern's vtable slot 6.
+func (self *IIterableOfBluetoothLEAdvertisementBytePattern) First() (*IIteratorOfBluetoothLEAdvertisementBytePattern, error) {
+	result := new(*IIteratorOfBluetoothLEAdvertisementBytePattern)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfBluetoothLEAdvertisementBytePattern creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfBluetoothLEAdvertisementBytePattern(items []*IBluetoothLEAdvertisementBytePattern) *IIterableOfBluetoothLEAdvertisementBytePattern {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBluetoothLEAdvertisementBytePattern, Iterator: IID_IIteratorOfBluetoothLEAdvertisementBytePattern}, winrt.CodecInterface, boxed)
+	return (*IIterableOfBluetoothLEAdvertisementBytePattern)(unsafe.Pointer(obj))
+}
+
+// IIterableOfBluetoothLEAdvertisementDataSection is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection>.
+// IID: db98b5d1-897e-59cc-b86a-7b8855ac98af
+type IIterableOfBluetoothLEAdvertisementDataSection struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfBluetoothLEAdvertisementDataSection is the interface identifier for IIterableOfBluetoothLEAdvertisementDataSection.
+var IID_IIterableOfBluetoothLEAdvertisementDataSection = win32.GUID{Data1: 0xdb98b5d1, Data2: 0x897e, Data3: 0x59cc, Data4: [8]byte{0xb8, 0x6a, 0x7b, 0x88, 0x55, 0xac, 0x98, 0xaf}}
+
+// First dispatches through IIterableOfBluetoothLEAdvertisementDataSection's vtable slot 6.
+func (self *IIterableOfBluetoothLEAdvertisementDataSection) First() (*IIteratorOfBluetoothLEAdvertisementDataSection, error) {
+	result := new(*IIteratorOfBluetoothLEAdvertisementDataSection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfBluetoothLEAdvertisementDataSection creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfBluetoothLEAdvertisementDataSection(items []*IBluetoothLEAdvertisementDataSection) *IIterableOfBluetoothLEAdvertisementDataSection {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBluetoothLEAdvertisementDataSection, Iterator: IID_IIteratorOfBluetoothLEAdvertisementDataSection}, winrt.CodecInterface, boxed)
+	return (*IIterableOfBluetoothLEAdvertisementDataSection)(unsafe.Pointer(obj))
+}
+
+// IIterableOfBluetoothLEManufacturerData is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData>.
+// IID: 834a4cac-bb8b-5f0f-9f28-4dbc98c17907
+type IIterableOfBluetoothLEManufacturerData struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfBluetoothLEManufacturerData is the interface identifier for IIterableOfBluetoothLEManufacturerData.
+var IID_IIterableOfBluetoothLEManufacturerData = win32.GUID{Data1: 0x834a4cac, Data2: 0xbb8b, Data3: 0x5f0f, Data4: [8]byte{0x9f, 0x28, 0x4d, 0xbc, 0x98, 0xc1, 0x79, 0x07}}
+
+// First dispatches through IIterableOfBluetoothLEManufacturerData's vtable slot 6.
+func (self *IIterableOfBluetoothLEManufacturerData) First() (*IIteratorOfBluetoothLEManufacturerData, error) {
+	result := new(*IIteratorOfBluetoothLEManufacturerData)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfBluetoothLEManufacturerData creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfBluetoothLEManufacturerData(items []*IBluetoothLEManufacturerData) *IIterableOfBluetoothLEManufacturerData {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBluetoothLEManufacturerData, Iterator: IID_IIteratorOfBluetoothLEManufacturerData}, winrt.CodecInterface, boxed)
+	return (*IIterableOfBluetoothLEManufacturerData)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGuid is the WinRT interface Windows.Foundation.Collections.IIterable`1<Guid>.
+// IID: f4ca3045-5dd7-54be-982e-d88d8ca0876e
+type IIterableOfGuid struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGuid is the interface identifier for IIterableOfGuid.
+var IID_IIterableOfGuid = win32.GUID{Data1: 0xf4ca3045, Data2: 0x5dd7, Data3: 0x54be, Data4: [8]byte{0x98, 0x2e, 0xd8, 0x8d, 0x8c, 0xa0, 0x87, 0x6e}}
+
+// First dispatches through IIterableOfGuid's vtable slot 6.
+func (self *IIterableOfGuid) First() (*IIteratorOfGuid, error) {
+	result := new(*IIteratorOfGuid)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGuid creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Guid>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfGuid(items []win32.GUID) *IIterableOfGuid {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Guid>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGuid, Iterator: IID_IIteratorOfGuid}, winrt.CodecGuid, boxed)
+	return (*IIterableOfGuid)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfBluetoothLEAdvertisementBytePattern is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern>.
+// IID: b33e103a-1a61-5107-8813-c0e905c05486
+type IIteratorOfBluetoothLEAdvertisementBytePattern struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfBluetoothLEAdvertisementBytePattern is the interface identifier for IIteratorOfBluetoothLEAdvertisementBytePattern.
+var IID_IIteratorOfBluetoothLEAdvertisementBytePattern = win32.GUID{Data1: 0xb33e103a, Data2: 0x1a61, Data3: 0x5107, Data4: [8]byte{0x88, 0x13, 0xc0, 0xe9, 0x05, 0xc0, 0x54, 0x86}}
+
+// Current (propget get_Current) dispatches through IIteratorOfBluetoothLEAdvertisementBytePattern's vtable slot 6.
+func (self *IIteratorOfBluetoothLEAdvertisementBytePattern) Current() (*IBluetoothLEAdvertisementBytePattern, error) {
+	result := new(*IBluetoothLEAdvertisementBytePattern)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfBluetoothLEAdvertisementBytePattern's vtable slot 7.
+func (self *IIteratorOfBluetoothLEAdvertisementBytePattern) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfBluetoothLEAdvertisementBytePattern's vtable slot 8.
+func (self *IIteratorOfBluetoothLEAdvertisementBytePattern) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfBluetoothLEAdvertisementDataSection is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection>.
+// IID: af5c0e81-788b-52d4-82a2-1ed28c66a05e
+type IIteratorOfBluetoothLEAdvertisementDataSection struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfBluetoothLEAdvertisementDataSection is the interface identifier for IIteratorOfBluetoothLEAdvertisementDataSection.
+var IID_IIteratorOfBluetoothLEAdvertisementDataSection = win32.GUID{Data1: 0xaf5c0e81, Data2: 0x788b, Data3: 0x52d4, Data4: [8]byte{0x82, 0xa2, 0x1e, 0xd2, 0x8c, 0x66, 0xa0, 0x5e}}
+
+// Current (propget get_Current) dispatches through IIteratorOfBluetoothLEAdvertisementDataSection's vtable slot 6.
+func (self *IIteratorOfBluetoothLEAdvertisementDataSection) Current() (*IBluetoothLEAdvertisementDataSection, error) {
+	result := new(*IBluetoothLEAdvertisementDataSection)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfBluetoothLEAdvertisementDataSection's vtable slot 7.
+func (self *IIteratorOfBluetoothLEAdvertisementDataSection) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfBluetoothLEAdvertisementDataSection's vtable slot 8.
+func (self *IIteratorOfBluetoothLEAdvertisementDataSection) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfBluetoothLEManufacturerData is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData>.
+// IID: 12f158dd-7016-5338-ac5c-7d5503d73274
+type IIteratorOfBluetoothLEManufacturerData struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfBluetoothLEManufacturerData is the interface identifier for IIteratorOfBluetoothLEManufacturerData.
+var IID_IIteratorOfBluetoothLEManufacturerData = win32.GUID{Data1: 0x12f158dd, Data2: 0x7016, Data3: 0x5338, Data4: [8]byte{0xac, 0x5c, 0x7d, 0x55, 0x03, 0xd7, 0x32, 0x74}}
+
+// Current (propget get_Current) dispatches through IIteratorOfBluetoothLEManufacturerData's vtable slot 6.
+func (self *IIteratorOfBluetoothLEManufacturerData) Current() (*IBluetoothLEManufacturerData, error) {
+	result := new(*IBluetoothLEManufacturerData)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfBluetoothLEManufacturerData's vtable slot 7.
+func (self *IIteratorOfBluetoothLEManufacturerData) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfBluetoothLEManufacturerData's vtable slot 8.
+func (self *IIteratorOfBluetoothLEManufacturerData) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGuid is the WinRT interface Windows.Foundation.Collections.IIterator`1<Guid>.
+// IID: d3d64048-82b3-53c7-9285-b0be18368482
+type IIteratorOfGuid struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGuid is the interface identifier for IIteratorOfGuid.
+var IID_IIteratorOfGuid = win32.GUID{Data1: 0xd3d64048, Data2: 0x82b3, Data3: 0x53c7, Data4: [8]byte{0x92, 0x85, 0xb0, 0xbe, 0x18, 0x36, 0x84, 0x82}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGuid's vtable slot 6.
+func (self *IIteratorOfGuid) Current() (win32.GUID, error) {
+	result := new(win32.GUID)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGuid's vtable slot 7.
+func (self *IIteratorOfGuid) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGuid's vtable slot 8.
+func (self *IIteratorOfGuid) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfBluetoothLEAdvertisementFlags is the WinRT interface Windows.Foundation.IReference`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFlags>.
 // IID: 91c0ba96-9e69-5b82-bf1d-83ab2a509c53
 // Requires: Windows.Foundation.IPropertyValue.
@@ -125,6 +389,28 @@ func (self *IVectorOfBluetoothLEAdvertisementBytePattern) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfBluetoothLEAdvertisementBytePattern creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfBluetoothLEAdvertisementBytePattern(items []*IBluetoothLEAdvertisementBytePattern) *IVectorOfBluetoothLEAdvertisementBytePattern {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBluetoothLEAdvertisementBytePattern, Iterator: IID_IIteratorOfBluetoothLEAdvertisementBytePattern, VectorView: IID_IVectorViewOfBluetoothLEAdvertisementBytePattern, Vector: IID_IVectorOfBluetoothLEAdvertisementBytePattern}, winrt.CodecInterface, boxed)
+	return (*IVectorOfBluetoothLEAdvertisementBytePattern)(unsafe.Pointer(obj))
+}
+
 // IVectorOfBluetoothLEAdvertisementDataSection is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection>.
 // IID: b6f71ad2-e2cf-5d54-b6f1-90964ee5d4da
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection>.
@@ -202,6 +488,28 @@ func (self *IVectorOfBluetoothLEAdvertisementDataSection) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfBluetoothLEAdvertisementDataSection creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfBluetoothLEAdvertisementDataSection(items []*IBluetoothLEAdvertisementDataSection) *IVectorOfBluetoothLEAdvertisementDataSection {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBluetoothLEAdvertisementDataSection, Iterator: IID_IIteratorOfBluetoothLEAdvertisementDataSection, VectorView: IID_IVectorViewOfBluetoothLEAdvertisementDataSection, Vector: IID_IVectorOfBluetoothLEAdvertisementDataSection}, winrt.CodecInterface, boxed)
+	return (*IVectorOfBluetoothLEAdvertisementDataSection)(unsafe.Pointer(obj))
+}
 
 // IVectorOfBluetoothLEManufacturerData is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData>.
 // IID: 52d75b45-1d24-5eeb-babb-65effae45e46
@@ -281,6 +589,28 @@ func (self *IVectorOfBluetoothLEManufacturerData) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfBluetoothLEManufacturerData creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfBluetoothLEManufacturerData(items []*IBluetoothLEManufacturerData) *IVectorOfBluetoothLEManufacturerData {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBluetoothLEManufacturerData, Iterator: IID_IIteratorOfBluetoothLEManufacturerData, VectorView: IID_IVectorViewOfBluetoothLEManufacturerData, Vector: IID_IVectorOfBluetoothLEManufacturerData}, winrt.CodecInterface, boxed)
+	return (*IVectorOfBluetoothLEManufacturerData)(unsafe.Pointer(obj))
+}
+
 // IVectorOfGuid is the WinRT interface Windows.Foundation.Collections.IVector`1<Guid>.
 // IID: 482e676d-b913-5ec1-afa8-5f96922e94ae
 // Requires: Windows.Foundation.Collections.IIterable`1<Guid>.
@@ -342,6 +672,24 @@ func (self *IVectorOfGuid) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfGuid creates a Go-implemented Windows.Foundation.Collections.IVector`1<Guid>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfGuid(items []win32.GUID) *IVectorOfGuid {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Guid>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGuid, Iterator: IID_IIteratorOfGuid, VectorView: IID_IVectorViewOfGuid, Vector: IID_IVectorOfGuid}, winrt.CodecGuid, boxed)
+	return (*IVectorOfGuid)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfBluetoothLEAdvertisementBytePattern is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern>.
 // IID: a7d9983a-a11f-572e-89fb-683ea429bcbc
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern>.
@@ -374,6 +722,25 @@ func (self *IVectorViewOfBluetoothLEAdvertisementBytePattern) IndexOf(value *IBl
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfBluetoothLEAdvertisementBytePattern creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfBluetoothLEAdvertisementBytePattern(items []*IBluetoothLEAdvertisementBytePattern) *IVectorViewOfBluetoothLEAdvertisementBytePattern {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBluetoothLEAdvertisementBytePattern, Iterator: IID_IIteratorOfBluetoothLEAdvertisementBytePattern, VectorView: IID_IVectorViewOfBluetoothLEAdvertisementBytePattern}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfBluetoothLEAdvertisementBytePattern)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfBluetoothLEAdvertisementDataSection is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection>.
 // IID: c4f2b8ea-11a8-5109-9013-4047e12c72e8
@@ -408,6 +775,25 @@ func (self *IVectorViewOfBluetoothLEAdvertisementDataSection) IndexOf(value *IBl
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfBluetoothLEAdvertisementDataSection creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfBluetoothLEAdvertisementDataSection(items []*IBluetoothLEAdvertisementDataSection) *IVectorViewOfBluetoothLEAdvertisementDataSection {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBluetoothLEAdvertisementDataSection, Iterator: IID_IIteratorOfBluetoothLEAdvertisementDataSection, VectorView: IID_IVectorViewOfBluetoothLEAdvertisementDataSection}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfBluetoothLEAdvertisementDataSection)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfBluetoothLEManufacturerData is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData>.
 // IID: 78ab070e-ad7e-5912-a4f1-7be33e4560af
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData>.
@@ -441,6 +827,25 @@ func (self *IVectorViewOfBluetoothLEManufacturerData) IndexOf(value *IBluetoothL
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfBluetoothLEManufacturerData creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfBluetoothLEManufacturerData(items []*IBluetoothLEManufacturerData) *IVectorViewOfBluetoothLEManufacturerData {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBluetoothLEManufacturerData, Iterator: IID_IIteratorOfBluetoothLEManufacturerData, VectorView: IID_IVectorViewOfBluetoothLEManufacturerData}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfBluetoothLEManufacturerData)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGuid is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Guid>.
 // IID: 9520e64b-15b2-52a6-98ed-3191fa6cf68a
 // Requires: Windows.Foundation.Collections.IIterable`1<Guid>.
@@ -468,3 +873,18 @@ func (self *IVectorViewOfGuid) Size() (uint32, error) {
 // slot 8: IndexOf skipped: by-value GUID parameter value has divergent amd64/arm64 ABIs
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfGuid creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Guid>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfGuid(items []win32.GUID) *IVectorViewOfGuid {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Guid>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGuid, Iterator: IID_IIteratorOfGuid, VectorView: IID_IVectorViewOfGuid}, winrt.CodecGuid, boxed)
+	return (*IVectorViewOfGuid)(unsafe.Pointer(obj))
+}

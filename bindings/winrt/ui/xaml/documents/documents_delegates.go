@@ -65,10 +65,9 @@ var IID_TypedEventHandlerOfContentLinkAndContentLinkInvokedEventArgs = win32.GUI
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Documents.ContentLink is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfContentLinkAndContentLinkInvokedEventArgs(fn func(sender *syswinrt.IInspectable, args *IContentLinkInvokedEventArgs)) (*TypedEventHandlerOfContentLinkAndContentLinkInvokedEventArgs, error) {
+func NewTypedEventHandlerOfContentLinkAndContentLinkInvokedEventArgs(fn func(sender *IContentLink, args *IContentLinkInvokedEventArgs)) (*TypedEventHandlerOfContentLinkAndContentLinkInvokedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfContentLinkAndContentLinkInvokedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IContentLinkInvokedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IContentLink)(unsafe.Pointer(raw[0])), (*IContentLinkInvokedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -103,11 +102,9 @@ var IID_TypedEventHandlerOfHyperlinkAndHyperlinkClickEventArgs = win32.GUID{Data
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Documents.Hyperlink is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Xaml.Documents.HyperlinkClickEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfHyperlinkAndHyperlinkClickEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfHyperlinkAndHyperlinkClickEventArgs, error) {
+func NewTypedEventHandlerOfHyperlinkAndHyperlinkClickEventArgs(fn func(sender *IHyperlink, args *IHyperlinkClickEventArgs)) (*TypedEventHandlerOfHyperlinkAndHyperlinkClickEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfHyperlinkAndHyperlinkClickEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IHyperlink)(unsafe.Pointer(raw[0])), (*IHyperlinkClickEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -142,10 +139,9 @@ var IID_TypedEventHandlerOfTextElementAndAccessKeyDisplayDismissedEventArgs = wi
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Documents.TextElement is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextElementAndAccessKeyDisplayDismissedEventArgs(fn func(sender *syswinrt.IInspectable, args *uixamlinput.IAccessKeyDisplayDismissedEventArgs)) (*TypedEventHandlerOfTextElementAndAccessKeyDisplayDismissedEventArgs, error) {
+func NewTypedEventHandlerOfTextElementAndAccessKeyDisplayDismissedEventArgs(fn func(sender *ITextElement, args *uixamlinput.IAccessKeyDisplayDismissedEventArgs)) (*TypedEventHandlerOfTextElementAndAccessKeyDisplayDismissedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextElementAndAccessKeyDisplayDismissedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixamlinput.IAccessKeyDisplayDismissedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextElement)(unsafe.Pointer(raw[0])), (*uixamlinput.IAccessKeyDisplayDismissedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -182,10 +178,9 @@ var IID_TypedEventHandlerOfTextElementAndAccessKeyDisplayRequestedEventArgs = wi
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Documents.TextElement is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextElementAndAccessKeyDisplayRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *uixamlinput.IAccessKeyDisplayRequestedEventArgs)) (*TypedEventHandlerOfTextElementAndAccessKeyDisplayRequestedEventArgs, error) {
+func NewTypedEventHandlerOfTextElementAndAccessKeyDisplayRequestedEventArgs(fn func(sender *ITextElement, args *uixamlinput.IAccessKeyDisplayRequestedEventArgs)) (*TypedEventHandlerOfTextElementAndAccessKeyDisplayRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextElementAndAccessKeyDisplayRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixamlinput.IAccessKeyDisplayRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextElement)(unsafe.Pointer(raw[0])), (*uixamlinput.IAccessKeyDisplayRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -222,10 +217,9 @@ var IID_TypedEventHandlerOfTextElementAndAccessKeyInvokedEventArgs = win32.GUID{
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Documents.TextElement is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextElementAndAccessKeyInvokedEventArgs(fn func(sender *syswinrt.IInspectable, args *uixamlinput.IAccessKeyInvokedEventArgs)) (*TypedEventHandlerOfTextElementAndAccessKeyInvokedEventArgs, error) {
+func NewTypedEventHandlerOfTextElementAndAccessKeyInvokedEventArgs(fn func(sender *ITextElement, args *uixamlinput.IAccessKeyInvokedEventArgs)) (*TypedEventHandlerOfTextElementAndAccessKeyInvokedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextElementAndAccessKeyInvokedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixamlinput.IAccessKeyInvokedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextElement)(unsafe.Pointer(raw[0])), (*uixamlinput.IAccessKeyInvokedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {

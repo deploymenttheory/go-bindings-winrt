@@ -15,6 +15,542 @@ import (
 	gaminginputforcefeedback "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/gaming/input/forcefeedback"
 )
 
+// IIterableOfArcadeStick is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.ArcadeStick>.
+// IID: 9376f457-2da5-544a-a409-c636f5d81c35
+type IIterableOfArcadeStick struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfArcadeStick is the interface identifier for IIterableOfArcadeStick.
+var IID_IIterableOfArcadeStick = win32.GUID{Data1: 0x9376f457, Data2: 0x2da5, Data3: 0x544a, Data4: [8]byte{0xa4, 0x09, 0xc6, 0x36, 0xf5, 0xd8, 0x1c, 0x35}}
+
+// First dispatches through IIterableOfArcadeStick's vtable slot 6.
+func (self *IIterableOfArcadeStick) First() (*IIteratorOfArcadeStick, error) {
+	result := new(*IIteratorOfArcadeStick)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfArcadeStick creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.ArcadeStick>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfArcadeStick(items []*IArcadeStick) *IIterableOfArcadeStick {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.ArcadeStick>", winrt.CollectionIIDs{Iterable: IID_IIterableOfArcadeStick, Iterator: IID_IIteratorOfArcadeStick}, winrt.CodecInterface, boxed)
+	return (*IIterableOfArcadeStick)(unsafe.Pointer(obj))
+}
+
+// IIterableOfFlightStick is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.FlightStick>.
+// IID: 3b7fc175-bebe-52ef-a3e9-dda75ea1acfc
+type IIterableOfFlightStick struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfFlightStick is the interface identifier for IIterableOfFlightStick.
+var IID_IIterableOfFlightStick = win32.GUID{Data1: 0x3b7fc175, Data2: 0xbebe, Data3: 0x52ef, Data4: [8]byte{0xa3, 0xe9, 0xdd, 0xa7, 0x5e, 0xa1, 0xac, 0xfc}}
+
+// First dispatches through IIterableOfFlightStick's vtable slot 6.
+func (self *IIterableOfFlightStick) First() (*IIteratorOfFlightStick, error) {
+	result := new(*IIteratorOfFlightStick)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfFlightStick creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.FlightStick>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfFlightStick(items []*IFlightStick) *IIterableOfFlightStick {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.FlightStick>", winrt.CollectionIIDs{Iterable: IID_IIterableOfFlightStick, Iterator: IID_IIteratorOfFlightStick}, winrt.CodecInterface, boxed)
+	return (*IIterableOfFlightStick)(unsafe.Pointer(obj))
+}
+
+// IIterableOfForceFeedbackMotor is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor>.
+// IID: c14440d1-fea0-5147-aed8-9b85239da882
+type IIterableOfForceFeedbackMotor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfForceFeedbackMotor is the interface identifier for IIterableOfForceFeedbackMotor.
+var IID_IIterableOfForceFeedbackMotor = win32.GUID{Data1: 0xc14440d1, Data2: 0xfea0, Data3: 0x5147, Data4: [8]byte{0xae, 0xd8, 0x9b, 0x85, 0x23, 0x9d, 0xa8, 0x82}}
+
+// First dispatches through IIterableOfForceFeedbackMotor's vtable slot 6.
+func (self *IIterableOfForceFeedbackMotor) First() (*IIteratorOfForceFeedbackMotor, error) {
+	result := new(*IIteratorOfForceFeedbackMotor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfForceFeedbackMotor creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfForceFeedbackMotor(items []*gaminginputforcefeedback.IForceFeedbackMotor) *IIterableOfForceFeedbackMotor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfForceFeedbackMotor, Iterator: IID_IIteratorOfForceFeedbackMotor}, winrt.CodecInterface, boxed)
+	return (*IIterableOfForceFeedbackMotor)(unsafe.Pointer(obj))
+}
+
+// IIterableOfGamepad is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.Gamepad>.
+// IID: 47132ba0-6b17-5cd2-a8bd-b5d3443ccb13
+type IIterableOfGamepad struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGamepad is the interface identifier for IIterableOfGamepad.
+var IID_IIterableOfGamepad = win32.GUID{Data1: 0x47132ba0, Data2: 0x6b17, Data3: 0x5cd2, Data4: [8]byte{0xa8, 0xbd, 0xb5, 0xd3, 0x44, 0x3c, 0xcb, 0x13}}
+
+// First dispatches through IIterableOfGamepad's vtable slot 6.
+func (self *IIterableOfGamepad) First() (*IIteratorOfGamepad, error) {
+	result := new(*IIteratorOfGamepad)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGamepad creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.Gamepad>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGamepad(items []*IGamepad) *IIterableOfGamepad {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.Gamepad>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGamepad, Iterator: IID_IIteratorOfGamepad}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGamepad)(unsafe.Pointer(obj))
+}
+
+// IIterableOfRacingWheel is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.RacingWheel>.
+// IID: 9a7c3830-9a87-5287-a1e2-8a2af29cf68c
+type IIterableOfRacingWheel struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfRacingWheel is the interface identifier for IIterableOfRacingWheel.
+var IID_IIterableOfRacingWheel = win32.GUID{Data1: 0x9a7c3830, Data2: 0x9a87, Data3: 0x5287, Data4: [8]byte{0xa1, 0xe2, 0x8a, 0x2a, 0xf2, 0x9c, 0xf6, 0x8c}}
+
+// First dispatches through IIterableOfRacingWheel's vtable slot 6.
+func (self *IIterableOfRacingWheel) First() (*IIteratorOfRacingWheel, error) {
+	result := new(*IIteratorOfRacingWheel)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfRacingWheel creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.RacingWheel>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfRacingWheel(items []*IRacingWheel) *IIterableOfRacingWheel {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.RacingWheel>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRacingWheel, Iterator: IID_IIteratorOfRacingWheel}, winrt.CodecInterface, boxed)
+	return (*IIterableOfRacingWheel)(unsafe.Pointer(obj))
+}
+
+// IIterableOfRawGameController is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.RawGameController>.
+// IID: 8f2f08cc-f4f4-5539-9357-1f07334d381f
+type IIterableOfRawGameController struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfRawGameController is the interface identifier for IIterableOfRawGameController.
+var IID_IIterableOfRawGameController = win32.GUID{Data1: 0x8f2f08cc, Data2: 0xf4f4, Data3: 0x5539, Data4: [8]byte{0x93, 0x57, 0x1f, 0x07, 0x33, 0x4d, 0x38, 0x1f}}
+
+// First dispatches through IIterableOfRawGameController's vtable slot 6.
+func (self *IIterableOfRawGameController) First() (*IIteratorOfRawGameController, error) {
+	result := new(*IIteratorOfRawGameController)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfRawGameController creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.RawGameController>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfRawGameController(items []*IRawGameController) *IIterableOfRawGameController {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.RawGameController>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRawGameController, Iterator: IID_IIteratorOfRawGameController}, winrt.CodecInterface, boxed)
+	return (*IIterableOfRawGameController)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSimpleHapticsController is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.SimpleHapticsController>.
+// IID: b50da692-4a2b-5c8a-8e14-0439c0b1dba4
+type IIterableOfSimpleHapticsController struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSimpleHapticsController is the interface identifier for IIterableOfSimpleHapticsController.
+var IID_IIterableOfSimpleHapticsController = win32.GUID{Data1: 0xb50da692, Data2: 0x4a2b, Data3: 0x5c8a, Data4: [8]byte{0x8e, 0x14, 0x04, 0x39, 0xc0, 0xb1, 0xdb, 0xa4}}
+
+// First dispatches through IIterableOfSimpleHapticsController's vtable slot 6.
+func (self *IIterableOfSimpleHapticsController) First() (*IIteratorOfSimpleHapticsController, error) {
+	result := new(*IIteratorOfSimpleHapticsController)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSimpleHapticsController creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.SimpleHapticsController>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSimpleHapticsController(items []*deviceshaptics.ISimpleHapticsController) *IIterableOfSimpleHapticsController {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.SimpleHapticsController>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSimpleHapticsController, Iterator: IID_IIteratorOfSimpleHapticsController}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSimpleHapticsController)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUINavigationController is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.UINavigationController>.
+// IID: 8dea85a0-0204-57dd-abad-90e37c0ef240
+type IIterableOfUINavigationController struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUINavigationController is the interface identifier for IIterableOfUINavigationController.
+var IID_IIterableOfUINavigationController = win32.GUID{Data1: 0x8dea85a0, Data2: 0x0204, Data3: 0x57dd, Data4: [8]byte{0xab, 0xad, 0x90, 0xe3, 0x7c, 0x0e, 0xf2, 0x40}}
+
+// First dispatches through IIterableOfUINavigationController's vtable slot 6.
+func (self *IIterableOfUINavigationController) First() (*IIteratorOfUINavigationController, error) {
+	result := new(*IIteratorOfUINavigationController)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUINavigationController creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.UINavigationController>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUINavigationController(items []*IUINavigationController) *IIterableOfUINavigationController {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.UINavigationController>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUINavigationController, Iterator: IID_IIteratorOfUINavigationController}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUINavigationController)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfArcadeStick is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Gaming.Input.ArcadeStick>.
+// IID: d30629af-cc9d-52e1-8b1f-0ffa9629afee
+type IIteratorOfArcadeStick struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfArcadeStick is the interface identifier for IIteratorOfArcadeStick.
+var IID_IIteratorOfArcadeStick = win32.GUID{Data1: 0xd30629af, Data2: 0xcc9d, Data3: 0x52e1, Data4: [8]byte{0x8b, 0x1f, 0x0f, 0xfa, 0x96, 0x29, 0xaf, 0xee}}
+
+// Current (propget get_Current) dispatches through IIteratorOfArcadeStick's vtable slot 6.
+func (self *IIteratorOfArcadeStick) Current() (*IArcadeStick, error) {
+	result := new(*IArcadeStick)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfArcadeStick's vtable slot 7.
+func (self *IIteratorOfArcadeStick) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfArcadeStick's vtable slot 8.
+func (self *IIteratorOfArcadeStick) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfFlightStick is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Gaming.Input.FlightStick>.
+// IID: f5fa1919-3f18-5560-bb13-cf7018ac41d5
+type IIteratorOfFlightStick struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfFlightStick is the interface identifier for IIteratorOfFlightStick.
+var IID_IIteratorOfFlightStick = win32.GUID{Data1: 0xf5fa1919, Data2: 0x3f18, Data3: 0x5560, Data4: [8]byte{0xbb, 0x13, 0xcf, 0x70, 0x18, 0xac, 0x41, 0xd5}}
+
+// Current (propget get_Current) dispatches through IIteratorOfFlightStick's vtable slot 6.
+func (self *IIteratorOfFlightStick) Current() (*IFlightStick, error) {
+	result := new(*IFlightStick)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfFlightStick's vtable slot 7.
+func (self *IIteratorOfFlightStick) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfFlightStick's vtable slot 8.
+func (self *IIteratorOfFlightStick) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfForceFeedbackMotor is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor>.
+// IID: 64cf69e0-5464-5b72-bd4b-82f7c3d0386d
+type IIteratorOfForceFeedbackMotor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfForceFeedbackMotor is the interface identifier for IIteratorOfForceFeedbackMotor.
+var IID_IIteratorOfForceFeedbackMotor = win32.GUID{Data1: 0x64cf69e0, Data2: 0x5464, Data3: 0x5b72, Data4: [8]byte{0xbd, 0x4b, 0x82, 0xf7, 0xc3, 0xd0, 0x38, 0x6d}}
+
+// Current (propget get_Current) dispatches through IIteratorOfForceFeedbackMotor's vtable slot 6.
+func (self *IIteratorOfForceFeedbackMotor) Current() (*gaminginputforcefeedback.IForceFeedbackMotor, error) {
+	result := new(*gaminginputforcefeedback.IForceFeedbackMotor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfForceFeedbackMotor's vtable slot 7.
+func (self *IIteratorOfForceFeedbackMotor) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfForceFeedbackMotor's vtable slot 8.
+func (self *IIteratorOfForceFeedbackMotor) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfGamepad is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Gaming.Input.Gamepad>.
+// IID: 246737e8-12bc-5c64-af52-06db4b13fa2f
+type IIteratorOfGamepad struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGamepad is the interface identifier for IIteratorOfGamepad.
+var IID_IIteratorOfGamepad = win32.GUID{Data1: 0x246737e8, Data2: 0x12bc, Data3: 0x5c64, Data4: [8]byte{0xaf, 0x52, 0x06, 0xdb, 0x4b, 0x13, 0xfa, 0x2f}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGamepad's vtable slot 6.
+func (self *IIteratorOfGamepad) Current() (*IGamepad, error) {
+	result := new(*IGamepad)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGamepad's vtable slot 7.
+func (self *IIteratorOfGamepad) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGamepad's vtable slot 8.
+func (self *IIteratorOfGamepad) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfRacingWheel is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Gaming.Input.RacingWheel>.
+// IID: 23d735b8-4d36-5377-a245-69df97c9fcd9
+type IIteratorOfRacingWheel struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfRacingWheel is the interface identifier for IIteratorOfRacingWheel.
+var IID_IIteratorOfRacingWheel = win32.GUID{Data1: 0x23d735b8, Data2: 0x4d36, Data3: 0x5377, Data4: [8]byte{0xa2, 0x45, 0x69, 0xdf, 0x97, 0xc9, 0xfc, 0xd9}}
+
+// Current (propget get_Current) dispatches through IIteratorOfRacingWheel's vtable slot 6.
+func (self *IIteratorOfRacingWheel) Current() (*IRacingWheel, error) {
+	result := new(*IRacingWheel)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfRacingWheel's vtable slot 7.
+func (self *IIteratorOfRacingWheel) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfRacingWheel's vtable slot 8.
+func (self *IIteratorOfRacingWheel) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfRawGameController is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Gaming.Input.RawGameController>.
+// IID: 51cc88dc-66fb-55ea-9a1b-aadcd71cc08e
+type IIteratorOfRawGameController struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfRawGameController is the interface identifier for IIteratorOfRawGameController.
+var IID_IIteratorOfRawGameController = win32.GUID{Data1: 0x51cc88dc, Data2: 0x66fb, Data3: 0x55ea, Data4: [8]byte{0x9a, 0x1b, 0xaa, 0xdc, 0xd7, 0x1c, 0xc0, 0x8e}}
+
+// Current (propget get_Current) dispatches through IIteratorOfRawGameController's vtable slot 6.
+func (self *IIteratorOfRawGameController) Current() (*IRawGameController, error) {
+	result := new(*IRawGameController)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfRawGameController's vtable slot 7.
+func (self *IIteratorOfRawGameController) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfRawGameController's vtable slot 8.
+func (self *IIteratorOfRawGameController) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSimpleHapticsController is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Haptics.SimpleHapticsController>.
+// IID: 3c501ba4-eda4-5238-bdb7-d10ba350cd83
+type IIteratorOfSimpleHapticsController struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSimpleHapticsController is the interface identifier for IIteratorOfSimpleHapticsController.
+var IID_IIteratorOfSimpleHapticsController = win32.GUID{Data1: 0x3c501ba4, Data2: 0xeda4, Data3: 0x5238, Data4: [8]byte{0xbd, 0xb7, 0xd1, 0x0b, 0xa3, 0x50, 0xcd, 0x83}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSimpleHapticsController's vtable slot 6.
+func (self *IIteratorOfSimpleHapticsController) Current() (*deviceshaptics.ISimpleHapticsController, error) {
+	result := new(*deviceshaptics.ISimpleHapticsController)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSimpleHapticsController's vtable slot 7.
+func (self *IIteratorOfSimpleHapticsController) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSimpleHapticsController's vtable slot 8.
+func (self *IIteratorOfSimpleHapticsController) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUINavigationController is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Gaming.Input.UINavigationController>.
+// IID: c10b2696-64a3-5262-bc4f-b741e5d5afab
+type IIteratorOfUINavigationController struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUINavigationController is the interface identifier for IIteratorOfUINavigationController.
+var IID_IIteratorOfUINavigationController = win32.GUID{Data1: 0xc10b2696, Data2: 0x64a3, Data3: 0x5262, Data4: [8]byte{0xbc, 0x4f, 0xb7, 0x41, 0xe5, 0xd5, 0xaf, 0xab}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUINavigationController's vtable slot 6.
+func (self *IIteratorOfUINavigationController) Current() (*IUINavigationController, error) {
+	result := new(*IUINavigationController)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUINavigationController's vtable slot 7.
+func (self *IIteratorOfUINavigationController) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUINavigationController's vtable slot 8.
+func (self *IIteratorOfUINavigationController) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfArcadeStick is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.ArcadeStick>.
 // IID: becace75-d0cd-5a9c-845f-72f085503cdf
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.ArcadeStick>.
@@ -47,6 +583,25 @@ func (self *IVectorViewOfArcadeStick) IndexOf(value *IArcadeStick, index *uint32
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfArcadeStick creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.ArcadeStick>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfArcadeStick(items []*IArcadeStick) *IVectorViewOfArcadeStick {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.ArcadeStick>", winrt.CollectionIIDs{Iterable: IID_IIterableOfArcadeStick, Iterator: IID_IIteratorOfArcadeStick, VectorView: IID_IVectorViewOfArcadeStick}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfArcadeStick)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfFlightStick is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.FlightStick>.
 // IID: 8b9d067e-b6f5-592f-a90a-d72c3d98d4da
@@ -81,6 +636,25 @@ func (self *IVectorViewOfFlightStick) IndexOf(value *IFlightStick, index *uint32
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfFlightStick creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.FlightStick>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfFlightStick(items []*IFlightStick) *IVectorViewOfFlightStick {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.FlightStick>", winrt.CollectionIIDs{Iterable: IID_IIterableOfFlightStick, Iterator: IID_IIteratorOfFlightStick, VectorView: IID_IVectorViewOfFlightStick}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfFlightStick)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfForceFeedbackMotor is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor>.
 // IID: 5bfc5070-101d-5fbb-8d5f-ce5c23becdd9
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor>.
@@ -113,6 +687,25 @@ func (self *IVectorViewOfForceFeedbackMotor) IndexOf(value *gaminginputforcefeed
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfForceFeedbackMotor creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfForceFeedbackMotor(items []*gaminginputforcefeedback.IForceFeedbackMotor) *IVectorViewOfForceFeedbackMotor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfForceFeedbackMotor, Iterator: IID_IIteratorOfForceFeedbackMotor, VectorView: IID_IVectorViewOfForceFeedbackMotor}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfForceFeedbackMotor)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfGamepad is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.Gamepad>.
 // IID: eb97bb69-09c9-5a99-86b2-3e36085284d4
@@ -147,6 +740,25 @@ func (self *IVectorViewOfGamepad) IndexOf(value *IGamepad, index *uint32) (bool,
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfGamepad creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.Gamepad>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGamepad(items []*IGamepad) *IVectorViewOfGamepad {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.Gamepad>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGamepad, Iterator: IID_IIteratorOfGamepad, VectorView: IID_IVectorViewOfGamepad}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGamepad)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfRacingWheel is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.RacingWheel>.
 // IID: 153993b2-6052-5959-91ec-900c53fef120
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.RacingWheel>.
@@ -179,6 +791,25 @@ func (self *IVectorViewOfRacingWheel) IndexOf(value *IRacingWheel, index *uint32
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfRacingWheel creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.RacingWheel>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfRacingWheel(items []*IRacingWheel) *IVectorViewOfRacingWheel {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.RacingWheel>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRacingWheel, Iterator: IID_IIteratorOfRacingWheel, VectorView: IID_IVectorViewOfRacingWheel}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfRacingWheel)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfRawGameController is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.RawGameController>.
 // IID: 779cc322-40c0-55c1-8dc5-cc6e3afe02cf
@@ -213,6 +844,25 @@ func (self *IVectorViewOfRawGameController) IndexOf(value *IRawGameController, i
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfRawGameController creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.RawGameController>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfRawGameController(items []*IRawGameController) *IVectorViewOfRawGameController {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.RawGameController>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRawGameController, Iterator: IID_IIteratorOfRawGameController, VectorView: IID_IVectorViewOfRawGameController}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfRawGameController)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfSimpleHapticsController is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Haptics.SimpleHapticsController>.
 // IID: 5390f01e-c701-5382-97cc-94eaac4b6cbf
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Haptics.SimpleHapticsController>.
@@ -246,6 +896,25 @@ func (self *IVectorViewOfSimpleHapticsController) IndexOf(value *deviceshaptics.
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfSimpleHapticsController creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Haptics.SimpleHapticsController>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSimpleHapticsController(items []*deviceshaptics.ISimpleHapticsController) *IVectorViewOfSimpleHapticsController {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Haptics.SimpleHapticsController>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSimpleHapticsController, Iterator: IID_IIteratorOfSimpleHapticsController, VectorView: IID_IVectorViewOfSimpleHapticsController}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSimpleHapticsController)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUINavigationController is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.UINavigationController>.
 // IID: 684b9e5a-2dc2-54fc-adf5-5ca8f6871425
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Gaming.Input.UINavigationController>.
@@ -278,3 +947,22 @@ func (self *IVectorViewOfUINavigationController) IndexOf(value *IUINavigationCon
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUINavigationController creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.UINavigationController>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUINavigationController(items []*IUINavigationController) *IVectorViewOfUINavigationController {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Gaming.Input.UINavigationController>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUINavigationController, Iterator: IID_IIteratorOfUINavigationController, VectorView: IID_IVectorViewOfUINavigationController}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUINavigationController)(unsafe.Pointer(obj))
+}

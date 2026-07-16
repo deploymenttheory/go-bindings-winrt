@@ -50,6 +50,45 @@ func (self *IAsyncOperationWithProgressOfHttpGetBufferResultAndHttpProgress) Get
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfHttpGetBufferResultAndHttpProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfHttpGetBufferResultAndHttpProgress) Await() (*IHttpGetBufferResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfHttpGetBufferResultAndHttpProgress(func(_ *IAsyncOperationWithProgressOfHttpGetBufferResultAndHttpProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationWithProgressOfHttpGetInputStreamResultAndHttpProgress is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Web.Http.HttpGetInputStreamResult, Windows.Web.Http.HttpProgress>.
 // IID: 6e1ce5ac-c10b-5d09-ad43-f4ddeada857a
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -82,6 +121,45 @@ func (self *IAsyncOperationWithProgressOfHttpGetInputStreamResultAndHttpProgress
 	result := new(*IHttpGetInputStreamResult)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfHttpGetInputStreamResultAndHttpProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfHttpGetInputStreamResultAndHttpProgress) Await() (*IHttpGetInputStreamResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfHttpGetInputStreamResultAndHttpProgress(func(_ *IAsyncOperationWithProgressOfHttpGetInputStreamResultAndHttpProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationWithProgressOfHttpGetStringResultAndHttpProgress is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Web.Http.HttpGetStringResult, Windows.Web.Http.HttpProgress>.
@@ -118,6 +196,45 @@ func (self *IAsyncOperationWithProgressOfHttpGetStringResultAndHttpProgress) Get
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfHttpGetStringResultAndHttpProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfHttpGetStringResultAndHttpProgress) Await() (*IHttpGetStringResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfHttpGetStringResultAndHttpProgress(func(_ *IAsyncOperationWithProgressOfHttpGetStringResultAndHttpProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationWithProgressOfHttpRequestResultAndHttpProgress is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Web.Http.HttpRequestResult, Windows.Web.Http.HttpProgress>.
 // IID: 97388336-2eac-5d76-b228-d32ef9a38175
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -150,6 +267,45 @@ func (self *IAsyncOperationWithProgressOfHttpRequestResultAndHttpProgress) GetRe
 	result := new(*IHttpRequestResult)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfHttpRequestResultAndHttpProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfHttpRequestResultAndHttpProgress) Await() (*IHttpRequestResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfHttpRequestResultAndHttpProgress(func(_ *IAsyncOperationWithProgressOfHttpRequestResultAndHttpProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationWithProgressOfHttpResponseMessageAndHttpProgress is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Web.Http.HttpResponseMessage, Windows.Web.Http.HttpProgress>.
@@ -186,6 +342,45 @@ func (self *IAsyncOperationWithProgressOfHttpResponseMessageAndHttpProgress) Get
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfHttpResponseMessageAndHttpProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfHttpResponseMessageAndHttpProgress) Await() (*IHttpResponseMessage, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfHttpResponseMessageAndHttpProgress(func(_ *IAsyncOperationWithProgressOfHttpResponseMessageAndHttpProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationWithProgressOfIBufferAndHttpProgress is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Storage.Streams.IBuffer, Windows.Web.Http.HttpProgress>.
 // IID: 88d9bb75-afb4-5f32-9d7e-d3bf3785354c
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -218,6 +413,45 @@ func (self *IAsyncOperationWithProgressOfIBufferAndHttpProgress) GetResults() (*
 	result := new(*storagestreams.IBuffer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfIBufferAndHttpProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfIBufferAndHttpProgress) Await() (*storagestreams.IBuffer, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfIBufferAndHttpProgress(func(_ *IAsyncOperationWithProgressOfIBufferAndHttpProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationWithProgressOfIBufferAndUInt64 is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Storage.Streams.IBuffer, UInt64>.
@@ -263,6 +497,45 @@ func (self *IAsyncOperationWithProgressOfIBufferAndUInt64) GetResults() (*storag
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfIBufferAndUInt64 reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfIBufferAndUInt64) Await() (*storagestreams.IBuffer, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfIBufferAndUInt64(func(_ *IAsyncOperationWithProgressOfIBufferAndUInt64, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationWithProgressOfIInputStreamAndHttpProgress is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Storage.Streams.IInputStream, Windows.Web.Http.HttpProgress>.
 // IID: 0b97c784-df17-571f-8337-447dff068a9c
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -295,6 +568,45 @@ func (self *IAsyncOperationWithProgressOfIInputStreamAndHttpProgress) GetResults
 	result := new(*storagestreams.IInputStream)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfIInputStreamAndHttpProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfIInputStreamAndHttpProgress) Await() (*storagestreams.IInputStream, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfIInputStreamAndHttpProgress(func(_ *IAsyncOperationWithProgressOfIInputStreamAndHttpProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationWithProgressOfIInputStreamAndUInt64 is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Storage.Streams.IInputStream, UInt64>.
@@ -340,6 +652,45 @@ func (self *IAsyncOperationWithProgressOfIInputStreamAndUInt64) GetResults() (*s
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfIInputStreamAndUInt64 reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfIInputStreamAndUInt64) Await() (*storagestreams.IInputStream, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfIInputStreamAndUInt64(func(_ *IAsyncOperationWithProgressOfIInputStreamAndUInt64, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationWithProgressOfStringAndHttpProgress is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<String, Windows.Web.Http.HttpProgress>.
 // IID: 91ecbe45-e889-5518-bd8d-c5bde163109b
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -375,6 +726,45 @@ func (self *IAsyncOperationWithProgressOfStringAndHttpProgress) GetResults() (st
 		return "", err
 	}
 	return winrt.TakeHString(*result), nil
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfStringAndHttpProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfStringAndHttpProgress) Await() (string, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfStringAndHttpProgress(func(_ *IAsyncOperationWithProgressOfStringAndHttpProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return "", err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return "", err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return "", err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return "", err
+		}
+		return "", winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
 }
 
 // IAsyncOperationWithProgressOfStringAndUInt64 is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<String, UInt64>.
@@ -423,6 +813,45 @@ func (self *IAsyncOperationWithProgressOfStringAndUInt64) GetResults() (string, 
 	return winrt.TakeHString(*result), nil
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfStringAndUInt64 reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfStringAndUInt64) Await() (string, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfStringAndUInt64(func(_ *IAsyncOperationWithProgressOfStringAndUInt64, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return "", err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return "", err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return "", err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return "", err
+		}
+		return "", winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationWithProgressOfUInt64AndUInt64 is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<UInt64, UInt64>.
 // IID: 8f1db6e3-6556-5516-825c-1021ee27cd0c
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -466,6 +895,111 @@ func (self *IAsyncOperationWithProgressOfUInt64AndUInt64) GetResults() (uint64, 
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfUInt64AndUInt64 reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfUInt64AndUInt64) Await() (uint64, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfUInt64AndUInt64(func(_ *IAsyncOperationWithProgressOfUInt64AndUInt64, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return 0, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return 0, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return 0, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return 0, err
+		}
+		return 0, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
+// IIterableOfCertificate is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.Certificate>.
+// IID: 0c7d1423-e8fd-5a91-b55c-8bfbe7ac2d40
+type IIterableOfCertificate struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCertificate is the interface identifier for IIterableOfCertificate.
+var IID_IIterableOfCertificate = win32.GUID{Data1: 0x0c7d1423, Data2: 0xe8fd, Data3: 0x5a91, Data4: [8]byte{0xb5, 0x5c, 0x8b, 0xfb, 0xe7, 0xac, 0x2d, 0x40}}
+
+// First dispatches through IIterableOfCertificate's vtable slot 6.
+func (self *IIterableOfCertificate) First() (*IIteratorOfCertificate, error) {
+	result := new(*IIteratorOfCertificate)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCertificate creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.Certificate>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCertificate(items []*securitycryptographycertificates.ICertificate) *IIterableOfCertificate {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.Certificate>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCertificate, Iterator: IID_IIteratorOfCertificate}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCertificate)(unsafe.Pointer(obj))
+}
+
+// IIterableOfChainValidationResult is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>.
+// IID: 2628f58f-3f02-54f2-808f-e1117709d6d0
+type IIterableOfChainValidationResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfChainValidationResult is the interface identifier for IIterableOfChainValidationResult.
+var IID_IIterableOfChainValidationResult = win32.GUID{Data1: 0x2628f58f, Data2: 0x3f02, Data3: 0x54f2, Data4: [8]byte{0x80, 0x8f, 0xe1, 0x11, 0x77, 0x09, 0xd6, 0xd0}}
+
+// First dispatches through IIterableOfChainValidationResult's vtable slot 6.
+func (self *IIterableOfChainValidationResult) First() (*IIteratorOfChainValidationResult, error) {
+	result := new(*IIteratorOfChainValidationResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfChainValidationResult creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfChainValidationResult(items []securitycryptographycertificates.ChainValidationResult) *IIterableOfChainValidationResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChainValidationResult, Iterator: IID_IIteratorOfChainValidationResult}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfChainValidationResult)(unsafe.Pointer(obj))
+}
+
 // IIterableOfIHttpContent is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.IHttpContent>.
 // IID: f102157f-b482-5736-9d12-c683bc494942
 type IIterableOfIHttpContent struct {
@@ -480,6 +1014,25 @@ func (self *IIterableOfIHttpContent) First() (*IIteratorOfIHttpContent, error) {
 	result := new(*IIteratorOfIHttpContent)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIHttpContent creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.IHttpContent>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIHttpContent(items []*IHttpContent) *IIterableOfIHttpContent {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Http.IHttpContent>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIHttpContent, Iterator: IID_IIteratorOfIHttpContent}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIHttpContent)(unsafe.Pointer(obj))
 }
 
 // IIterableOfIKeyValuePairOfStringAndString is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>.
@@ -497,6 +1050,89 @@ func (self *IIterableOfIKeyValuePairOfStringAndString) First() (*IIteratorOfIKey
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfIKeyValuePairOfStringAndString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIKeyValuePairOfStringAndString(items []*IKeyValuePairOfStringAndString) *IIterableOfIKeyValuePairOfStringAndString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIKeyValuePairOfStringAndString, Iterator: IID_IIteratorOfIKeyValuePairOfStringAndString}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIKeyValuePairOfStringAndString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfCertificate is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Cryptography.Certificates.Certificate>.
+// IID: 676fc159-f15c-58bd-91a7-28f7e795c756
+type IIteratorOfCertificate struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCertificate is the interface identifier for IIteratorOfCertificate.
+var IID_IIteratorOfCertificate = win32.GUID{Data1: 0x676fc159, Data2: 0xf15c, Data3: 0x58bd, Data4: [8]byte{0x91, 0xa7, 0x28, 0xf7, 0xe7, 0x95, 0xc7, 0x56}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCertificate's vtable slot 6.
+func (self *IIteratorOfCertificate) Current() (*securitycryptographycertificates.ICertificate, error) {
+	result := new(*securitycryptographycertificates.ICertificate)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCertificate's vtable slot 7.
+func (self *IIteratorOfCertificate) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCertificate's vtable slot 8.
+func (self *IIteratorOfCertificate) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfChainValidationResult is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>.
+// IID: 8bcad2b7-0e3b-5eae-bf69-e1f6d9c888f8
+type IIteratorOfChainValidationResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfChainValidationResult is the interface identifier for IIteratorOfChainValidationResult.
+var IID_IIteratorOfChainValidationResult = win32.GUID{Data1: 0x8bcad2b7, Data2: 0x0e3b, Data3: 0x5eae, Data4: [8]byte{0xbf, 0x69, 0xe1, 0xf6, 0xd9, 0xc8, 0x88, 0xf8}}
+
+// Current (propget get_Current) dispatches through IIteratorOfChainValidationResult's vtable slot 6.
+func (self *IIteratorOfChainValidationResult) Current() (securitycryptographycertificates.ChainValidationResult, error) {
+	result := new(securitycryptographycertificates.ChainValidationResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfChainValidationResult's vtable slot 7.
+func (self *IIteratorOfChainValidationResult) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfChainValidationResult's vtable slot 8.
+func (self *IIteratorOfChainValidationResult) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfIHttpContent is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.Http.IHttpContent>.
 // IID: 59f44f31-695e-5af7-a3c5-85c01939cec8
@@ -765,6 +1401,25 @@ func (self *IVectorViewOfCertificate) IndexOf(value *securitycryptographycertifi
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfCertificate creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.Certificate>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCertificate(items []*securitycryptographycertificates.ICertificate) *IVectorViewOfCertificate {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.Certificate>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCertificate, Iterator: IID_IIteratorOfCertificate, VectorView: IID_IVectorViewOfCertificate}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCertificate)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfChainValidationResult is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>.
 // IID: cb383486-c2bc-5756-912d-6a708a07e5bd
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>.
@@ -797,3 +1452,18 @@ func (self *IVectorViewOfChainValidationResult) IndexOf(value securitycryptograp
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfChainValidationResult creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfChainValidationResult(items []securitycryptographycertificates.ChainValidationResult) *IVectorViewOfChainValidationResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChainValidationResult, Iterator: IID_IIteratorOfChainValidationResult, VectorView: IID_IVectorViewOfChainValidationResult}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfChainValidationResult)(unsafe.Pointer(obj))
+}

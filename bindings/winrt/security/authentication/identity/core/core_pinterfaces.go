@@ -290,6 +290,41 @@ func (self *IAsyncOperationOfMicrosoftAccountMultiFactorUnregisteredAccountsAndS
 	return self.GetResults()
 }
 
+// IIterableOfMicrosoftAccountMultiFactorSessionInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo>.
+// IID: 85a662c8-8a5d-59a8-9f73-ee237393c55c
+type IIterableOfMicrosoftAccountMultiFactorSessionInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMicrosoftAccountMultiFactorSessionInfo is the interface identifier for IIterableOfMicrosoftAccountMultiFactorSessionInfo.
+var IID_IIterableOfMicrosoftAccountMultiFactorSessionInfo = win32.GUID{Data1: 0x85a662c8, Data2: 0x8a5d, Data3: 0x59a8, Data4: [8]byte{0x9f, 0x73, 0xee, 0x23, 0x73, 0x93, 0xc5, 0x5c}}
+
+// First dispatches through IIterableOfMicrosoftAccountMultiFactorSessionInfo's vtable slot 6.
+func (self *IIterableOfMicrosoftAccountMultiFactorSessionInfo) First() (*IIteratorOfMicrosoftAccountMultiFactorSessionInfo, error) {
+	result := new(*IIteratorOfMicrosoftAccountMultiFactorSessionInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMicrosoftAccountMultiFactorSessionInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMicrosoftAccountMultiFactorSessionInfo(items []*IMicrosoftAccountMultiFactorSessionInfo) *IIterableOfMicrosoftAccountMultiFactorSessionInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMicrosoftAccountMultiFactorSessionInfo, Iterator: IID_IIteratorOfMicrosoftAccountMultiFactorSessionInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMicrosoftAccountMultiFactorSessionInfo)(unsafe.Pointer(obj))
+}
+
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
 // IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
 type IIterableOfString struct {
@@ -305,6 +340,54 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfMicrosoftAccountMultiFactorSessionInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo>.
+// IID: fd6d2ade-0fd3-5cd0-b86e-d24ad9a2092c
+type IIteratorOfMicrosoftAccountMultiFactorSessionInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMicrosoftAccountMultiFactorSessionInfo is the interface identifier for IIteratorOfMicrosoftAccountMultiFactorSessionInfo.
+var IID_IIteratorOfMicrosoftAccountMultiFactorSessionInfo = win32.GUID{Data1: 0xfd6d2ade, Data2: 0x0fd3, Data3: 0x5cd0, Data4: [8]byte{0xb8, 0x6e, 0xd2, 0x4a, 0xd9, 0xa2, 0x09, 0x2c}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMicrosoftAccountMultiFactorSessionInfo's vtable slot 6.
+func (self *IIteratorOfMicrosoftAccountMultiFactorSessionInfo) Current() (*IMicrosoftAccountMultiFactorSessionInfo, error) {
+	result := new(*IMicrosoftAccountMultiFactorSessionInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMicrosoftAccountMultiFactorSessionInfo's vtable slot 7.
+func (self *IIteratorOfMicrosoftAccountMultiFactorSessionInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMicrosoftAccountMultiFactorSessionInfo's vtable slot 8.
+func (self *IIteratorOfMicrosoftAccountMultiFactorSessionInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
 // IID: 8c304ebb-6615-50a4-8829-879ecd443236
@@ -374,6 +457,25 @@ func (self *IVectorViewOfMicrosoftAccountMultiFactorSessionInfo) IndexOf(value *
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMicrosoftAccountMultiFactorSessionInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMicrosoftAccountMultiFactorSessionInfo(items []*IMicrosoftAccountMultiFactorSessionInfo) *IVectorViewOfMicrosoftAccountMultiFactorSessionInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMicrosoftAccountMultiFactorSessionInfo, Iterator: IID_IIteratorOfMicrosoftAccountMultiFactorSessionInfo, VectorView: IID_IVectorViewOfMicrosoftAccountMultiFactorSessionInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMicrosoftAccountMultiFactorSessionInfo)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
 // Requires: Windows.Foundation.Collections.IIterable`1<String>.
@@ -414,3 +516,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

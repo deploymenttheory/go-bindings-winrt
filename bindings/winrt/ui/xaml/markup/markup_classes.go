@@ -7,6 +7,7 @@ package markup
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
@@ -21,6 +22,31 @@ type MarkupExtension struct {
 // The returned reference is owned by the caller.
 func (self *MarkupExtension) AsMarkupExtensionOverrides() (*IMarkupExtensionOverrides, error) {
 	return winrt.QueryInterface[IMarkupExtensionOverrides](unsafe.Pointer(self), &IID_IMarkupExtensionOverrides)
+}
+
+// NewMarkupExtension constructs a Windows.UI.Xaml.Markup.MarkupExtension instance through
+// Windows.UI.Xaml.Markup.IMarkupExtensionFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMarkupExtension() (*MarkupExtension, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Markup.MarkupExtension", &IID_IMarkupExtensionFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMarkupExtensionFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MarkupExtension)(unsafe.Pointer(instance)), nil
 }
 
 // XamlBinaryWriter is the Windows.UI.Xaml.Markup.XamlBinaryWriter runtime class, surfaced through its

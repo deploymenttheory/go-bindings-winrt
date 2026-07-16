@@ -194,15 +194,13 @@ func (self *IXamlBindingHelperStatics) SetDataTemplateComponent(element *uixaml.
 }
 
 // SuspendRendering dispatches through IXamlBindingHelperStatics's vtable slot 9.
-// Parameter target's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IXamlBindingHelperStatics) SuspendRendering(target *syswinrt.IInspectable) error {
+func (self *IXamlBindingHelperStatics) SuspendRendering(target *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(target)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // ResumeRendering dispatches through IXamlBindingHelperStatics's vtable slot 10.
-// Parameter target's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IXamlBindingHelperStatics) ResumeRendering(target *syswinrt.IInspectable) error {
+func (self *IXamlBindingHelperStatics) ResumeRendering(target *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(target)))
 	return win32.ErrIfFailed(int32(r1))
 }

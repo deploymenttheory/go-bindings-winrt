@@ -59,6 +59,41 @@ type InterfaceModel struct {
 	// an async interface (a monomorphized IAsyncOperation<T> or the plain
 	// IAsyncAction).
 	Await *AwaitModel
+	// CollectionCtor, when non-nil, renders the synthesized Go-implemented
+	// collection constructor on a monomorphized IIterable`1 / IVectorView`1 /
+	// IVector`1 whose element grounds to a runtime element codec.
+	CollectionCtor *CollectionCtorModel
+}
+
+// CollectionCtorModel renders the package-level constructor that builds a
+// Go-implemented collection object (backed by the runtime's generic
+// collection core) and returns it as the package-local consumer type. Every
+// decision — the codec selection, the element boxing expression, the sibling
+// IID wiring — is precomputed by the gather layer; the template only
+// interpolates.
+type CollectionCtorModel struct {
+	CommentLines []string
+	// CtorName is the constructor ("NewIIterableOfUri").
+	CtorName string
+	// ElemType is the element's Go type in the constructor signature
+	// ("string", "*foundation.IUriRuntimeClass", "int32", "win32.GUID").
+	ElemType string
+	// BoxExpr converts one `item` of ElemType into the runtime payload
+	// representation ("item", "uintptr(unsafe.Pointer(item))",
+	// "uint64(item)").
+	BoxExpr string
+	// RuntimeCtor is the runtime core constructor ("NewIterableObject",
+	// "NewVectorViewObject", "NewVectorObject").
+	RuntimeCtor string
+	// Class is the WinRT runtime class display name the object reports
+	// ("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>").
+	Class string
+	// IIDs is the complete winrt.CollectionIIDs composite literal wiring the
+	// package-local derived IID vars.
+	IIDs string
+	// Codec is the runtime codec expression ("winrt.CodecString",
+	// "winrt.CodecInterface", "winrt.CodecScalar(4)", "winrt.CodecGuid").
+	Codec string
 }
 
 // AwaitModel renders the synthesized Await method: register a Completed
@@ -172,9 +207,9 @@ type DelegateModel struct {
 	ArgExprs []string
 }
 
-// ClassModel is one non-composable runtime class: a struct embedding its
-// default interface by value, plus the package-level statics accessors and
-// factory constructors surfaced from the class's activation factory. A
+// ClassModel is one runtime class (composable or not): a struct embedding
+// its default interface by value, plus the package-level statics accessors
+// and constructors surfaced from the class's activation factory. A
 // statics-only class emits with TypeName "" — no class type, only Statics.
 type ClassModel struct {
 	// TypeName is the emitted class type; "" when the class type itself is
@@ -199,6 +234,10 @@ type ClassModel struct {
 	// Factories are the package-level factory constructors projected from
 	// the class's [Activatable] factory interfaces.
 	Factories []FactoryFuncModel
+	// ComposableCtors are the package-level null-outer composable
+	// constructors projected from the class's [Composable] factory
+	// interfaces (instantiate-only composition).
+	ComposableCtors []ComposableCtorModel
 }
 
 // StaticsAccessorModel is one package-level statics accessor: a func
@@ -246,6 +285,40 @@ type FactoryFuncModel struct {
 	// (already lowered by the interface emission).
 	ParamStr string
 	// ArgNames pass the parameters through to the factory method, in order.
+	ArgNames []string
+}
+
+// ComposableCtorModel is one package-level composable constructor: a func
+// fetching the class's activation factory, calling the generated composable
+// factory method with a NULL outer (the class is created as itself — Go-side
+// derivation is out of scope), releasing the returned inner (a second
+// reference to the same object under null-outer composition), and wrapping
+// the returned default-interface pointer as the class type.
+type ComposableCtorModel struct {
+	// FuncName is the constructor ("NewButton" for CreateInstance,
+	// "NewFooWithBar" for CreateInstanceWithBar).
+	FuncName string
+	// FactoryType is the composable factory interface's Go type name
+	// ("IButtonFactory").
+	FactoryType string
+	// FactoryFullName is the factory interface's full metadata name for the
+	// doc comment.
+	FactoryFullName string
+	// FactoryIIDRef is the address expression of the factory interface's
+	// IID variable.
+	FactoryIIDRef string
+	// MethodName is the generated factory-interface method the constructor
+	// delegates to.
+	MethodName string
+	// ParamStr is the LEADING parameter list — the factory method's
+	// parameters minus the trailing (baseInterface, innerInterface) pair the
+	// constructor supplies itself.
+	ParamStr string
+	// InnerName is the local holding the inner out-pointer
+	// ("inner"; freshened against the leading parameter names).
+	InnerName string
+	// ArgNames pass the leading parameters through to the factory method,
+	// followed by the composition pair ("nil", InnerName).
 	ArgNames []string
 }
 

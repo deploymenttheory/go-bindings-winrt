@@ -57,9 +57,8 @@ type ICustomMapTileDataSourceFactory struct {
 var IID_ICustomMapTileDataSourceFactory = win32.GUID{Data1: 0xc8477947, Data2: 0xc955, Data3: 0x4f22, Data4: [8]byte{0x94, 0x44, 0xa1, 0xd8, 0xd7, 0x44, 0xaf, 0x11}}
 
 // CreateInstance dispatches through ICustomMapTileDataSourceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.CustomMapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func (self *ICustomMapTileDataSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICustomMapTileDataSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ICustomMapTileDataSource, error) {
+	result := new(*ICustomMapTileDataSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -146,22 +145,20 @@ type IHttpMapTileDataSourceFactory struct {
 var IID_IHttpMapTileDataSourceFactory = win32.GUID{Data1: 0x53b4b107, Data2: 0x84dc, Data3: 0x4291, Data4: [8]byte{0x89, 0xf8, 0x6d, 0x0b, 0xb6, 0x12, 0xa0, 0x55}}
 
 // CreateInstance dispatches through IHttpMapTileDataSourceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IHttpMapTileDataSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IHttpMapTileDataSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IHttpMapTileDataSource, error) {
+	result := new(*IHttpMapTileDataSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateInstanceWithUriFormatString dispatches through IHttpMapTileDataSourceFactory's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IHttpMapTileDataSourceFactory) CreateInstanceWithUriFormatString(uriFormatString string, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
+func (self *IHttpMapTileDataSourceFactory) CreateInstanceWithUriFormatString(uriFormatString string, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IHttpMapTileDataSource, error) {
 	hUriFormatString, err := winrt.NewHString(uriFormatString)
 	if err != nil {
 		return nil, err
 	}
 	defer hUriFormatString.Close()
-	result := new(*syswinrt.IInspectable)
+	result := new(*IHttpMapTileDataSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hUriFormatString.Raw()), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -224,22 +221,20 @@ type ILocalMapTileDataSourceFactory struct {
 var IID_ILocalMapTileDataSourceFactory = win32.GUID{Data1: 0xc5cfe9fc, Data2: 0x72ac, Data3: 0x4839, Data4: [8]byte{0x8a, 0x0d, 0x01, 0x1f, 0x24, 0x69, 0x3c, 0x79}}
 
 // CreateInstance dispatches through ILocalMapTileDataSourceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func (self *ILocalMapTileDataSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ILocalMapTileDataSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ILocalMapTileDataSource, error) {
+	result := new(*ILocalMapTileDataSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateInstanceWithUriFormatString dispatches through ILocalMapTileDataSourceFactory's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func (self *ILocalMapTileDataSourceFactory) CreateInstanceWithUriFormatString(uriFormatString string, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
+func (self *ILocalMapTileDataSourceFactory) CreateInstanceWithUriFormatString(uriFormatString string, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ILocalMapTileDataSource, error) {
 	hUriFormatString, err := winrt.NewHString(uriFormatString)
 	if err != nil {
 		return nil, err
 	}
 	defer hUriFormatString.Close()
-	result := new(*syswinrt.IInspectable)
+	result := new(*ILocalMapTileDataSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hUriFormatString.Raw()), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -255,9 +250,8 @@ type IMapActualCameraChangedEventArgs struct {
 var IID_IMapActualCameraChangedEventArgs = win32.GUID{Data1: 0xdaa080da, Data2: 0xb7f4, Data3: 0x422c, Data4: [8]byte{0xa6, 0x18, 0xbb, 0xaa, 0x7c, 0x1d, 0x81, 0x4c}}
 
 // Camera (propget get_Camera) dispatches through IMapActualCameraChangedEventArgs's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapCamera is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapActualCameraChangedEventArgs) Camera() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapActualCameraChangedEventArgs) Camera() (*IMapCamera, error) {
+	result := new(*IMapCamera)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -290,9 +284,8 @@ type IMapActualCameraChangingEventArgs struct {
 var IID_IMapActualCameraChangingEventArgs = win32.GUID{Data1: 0x6b0dbed6, Data2: 0x93f7, Data3: 0x4682, Data4: [8]byte{0x8d, 0xe5, 0xa4, 0x7a, 0x1c, 0xc7, 0xa9, 0x45}}
 
 // Camera (propget get_Camera) dispatches through IMapActualCameraChangingEventArgs's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapCamera is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapActualCameraChangingEventArgs) Camera() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapActualCameraChangingEventArgs) Camera() (*IMapCamera, error) {
+	result := new(*IMapCamera)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -373,9 +366,8 @@ func (self *IMapBillboard) SetCollisionBehaviorDesired(value MapElementCollision
 }
 
 // ReferenceCamera (propget get_ReferenceCamera) dispatches through IMapBillboard's vtable slot 14.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapCamera is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapBillboard) ReferenceCamera() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapBillboard) ReferenceCamera() (*IMapCamera, error) {
+	result := new(*IMapCamera)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -391,10 +383,8 @@ type IMapBillboardFactory struct {
 var IID_IMapBillboardFactory = win32.GUID{Data1: 0xbe45a4c5, Data2: 0x8f09, Data3: 0x4b86, Data4: [8]byte{0xae, 0x28, 0x78, 0x37, 0x40, 0xeb, 0x8b, 0x31}}
 
 // CreateInstanceFromCamera dispatches through IMapBillboardFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapBillboard is projected as IInspectable (the class is not emitted this wave).
-// Parameter camera's class Windows.UI.Xaml.Controls.Maps.MapCamera is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapBillboardFactory) CreateInstanceFromCamera(camera *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapBillboardFactory) CreateInstanceFromCamera(camera *IMapCamera) (*IMapBillboard, error) {
+	result := new(*IMapBillboard)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(camera)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -480,9 +470,8 @@ type IMapCameraFactory struct {
 var IID_IMapCameraFactory = win32.GUID{Data1: 0xea3b0f16, Data2: 0x83af, Data3: 0x4ace, Data4: [8]byte{0x8e, 0x71, 0x10, 0xad, 0x9f, 0x1e, 0x9e, 0x7f}}
 
 // CreateInstanceWithLocation dispatches through IMapCameraFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapCamera is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapCameraFactory) CreateInstanceWithLocation(location *devicesgeolocation.IGeopoint) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapCameraFactory) CreateInstanceWithLocation(location *devicesgeolocation.IGeopoint) (*IMapCamera, error) {
+	result := new(*IMapCamera)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(location)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1022,47 +1011,41 @@ func (self *IMapControl2) IsStreetsideSupported() (bool, error) {
 }
 
 // Scene (propget get_Scene) dispatches through IMapControl2's vtable slot 20.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapScene is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapControl2) Scene() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapControl2) Scene() (*IMapScene, error) {
+	result := new(*IMapScene)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetScene (propput put_Scene) dispatches through IMapControl2's vtable slot 21.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapScene is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapControl2) SetScene(value *syswinrt.IInspectable) error {
+func (self *IMapControl2) SetScene(value *IMapScene) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[21], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // ActualCamera (propget get_ActualCamera) dispatches through IMapControl2's vtable slot 22.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapCamera is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapControl2) ActualCamera() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapControl2) ActualCamera() (*IMapCamera, error) {
+	result := new(*IMapCamera)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TargetCamera (propget get_TargetCamera) dispatches through IMapControl2's vtable slot 23.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapCamera is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapControl2) TargetCamera() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapControl2) TargetCamera() (*IMapCamera, error) {
+	result := new(*IMapCamera)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[23], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CustomExperience (propget get_CustomExperience) dispatches through IMapControl2's vtable slot 24.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapCustomExperience is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapControl2) CustomExperience() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapControl2) CustomExperience() (*IMapCustomExperience, error) {
+	result := new(*IMapCustomExperience)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetCustomExperience (propput put_CustomExperience) dispatches through IMapControl2's vtable slot 25.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapCustomExperience is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapControl2) SetCustomExperience(value *syswinrt.IInspectable) error {
+func (self *IMapControl2) SetCustomExperience(value *IMapCustomExperience) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1228,16 +1211,14 @@ func (self *IMapControl2) TryZoomOutAsync() (*IAsyncOperationOfBool, error) {
 // slot 52: TryZoomToAsync skipped: float64 parameter zoomLevel cannot cross SyscallN
 
 // TrySetSceneAsync dispatches through IMapControl2's vtable slot 53.
-// Parameter scene's class Windows.UI.Xaml.Controls.Maps.MapScene is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapControl2) TrySetSceneAsync(scene *syswinrt.IInspectable) (*IAsyncOperationOfBool, error) {
+func (self *IMapControl2) TrySetSceneAsync(scene *IMapScene) (*IAsyncOperationOfBool, error) {
 	result := new(*IAsyncOperationOfBool)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[53], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(scene)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TrySetSceneWithAnimationAsync dispatches through IMapControl2's vtable slot 54.
-// Parameter scene's class Windows.UI.Xaml.Controls.Maps.MapScene is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapControl2) TrySetSceneWithAnimationAsync(scene *syswinrt.IInspectable, animationKind MapAnimationKind) (*IAsyncOperationOfBool, error) {
+func (self *IMapControl2) TrySetSceneWithAnimationAsync(scene *IMapScene, animationKind MapAnimationKind) (*IAsyncOperationOfBool, error) {
 	result := new(*IAsyncOperationOfBool)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[54], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(scene)), uintptr(animationKind), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
@@ -1344,16 +1325,14 @@ func (self *IMapControl5) SetMapProjection(value MapProjection) error {
 }
 
 // StyleSheet (propget get_StyleSheet) dispatches through IMapControl5's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapControl5) StyleSheet() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapControl5) StyleSheet() (*IMapStyleSheet, error) {
+	result := new(*IMapStyleSheet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetStyleSheet (propput put_StyleSheet) dispatches through IMapControl5's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapControl5) SetStyleSheet(value *syswinrt.IInspectable) error {
+func (self *IMapControl5) SetStyleSheet(value *IMapStyleSheet) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1903,9 +1882,8 @@ type IMapCustomExperienceFactory struct {
 var IID_IMapCustomExperienceFactory = win32.GUID{Data1: 0x7a403fb5, Data2: 0xa1b1, Data3: 0x4e7f, Data4: [8]byte{0x92, 0x1e, 0x3e, 0x6b, 0x8d, 0x8e, 0xbe, 0xd6}}
 
 // CreateInstance dispatches through IMapCustomExperienceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapCustomExperience is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapCustomExperienceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapCustomExperienceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMapCustomExperience, error) {
+	result := new(*IMapCustomExperience)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2062,16 +2040,14 @@ func (self *IMapElement3D) SetLocation(value *devicesgeolocation.IGeopoint) erro
 }
 
 // Model (propget get_Model) dispatches through IMapElement3D's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapModel3D is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapElement3D) Model() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapElement3D) Model() (*IMapModel3D, error) {
+	result := new(*IMapModel3D)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetModel (propput put_Model) dispatches through IMapElement3D's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapModel3D is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapElement3D) SetModel(value *syswinrt.IInspectable) error {
+func (self *IMapElement3D) SetModel(value *IMapModel3D) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2211,9 +2187,8 @@ type IMapElementFactory struct {
 var IID_IMapElementFactory = win32.GUID{Data1: 0x4a30d007, Data2: 0x0bd6, Data3: 0x47a5, Data4: [8]byte{0x86, 0x0b, 0x7e, 0x7c, 0xf5, 0xf0, 0xc5, 0x73}}
 
 // CreateInstance dispatches through IMapElementFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapElementFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapElementFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMapElement, error) {
+	result := new(*IMapElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2243,9 +2218,8 @@ func (self *IMapElementPointerEnteredEventArgs) Location() (*devicesgeolocation.
 }
 
 // MapElement (propget get_MapElement) dispatches through IMapElementPointerEnteredEventArgs's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapElementPointerEnteredEventArgs) MapElement() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapElementPointerEnteredEventArgs) MapElement() (*IMapElement, error) {
+	result := new(*IMapElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2275,9 +2249,8 @@ func (self *IMapElementPointerExitedEventArgs) Location() (*devicesgeolocation.I
 }
 
 // MapElement (propget get_MapElement) dispatches through IMapElementPointerExitedEventArgs's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapElementPointerExitedEventArgs) MapElement() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapElementPointerExitedEventArgs) MapElement() (*IMapElement, error) {
+	result := new(*IMapElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2545,9 +2518,8 @@ func (self *IMapElementsLayerPointerEnteredEventArgs) Location() (*devicesgeoloc
 }
 
 // MapElement (propget get_MapElement) dispatches through IMapElementsLayerPointerEnteredEventArgs's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapElementsLayerPointerEnteredEventArgs) MapElement() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapElementsLayerPointerEnteredEventArgs) MapElement() (*IMapElement, error) {
+	result := new(*IMapElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2577,9 +2549,8 @@ func (self *IMapElementsLayerPointerExitedEventArgs) Location() (*devicesgeoloca
 }
 
 // MapElement (propget get_MapElement) dispatches through IMapElementsLayerPointerExitedEventArgs's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapElementsLayerPointerExitedEventArgs) MapElement() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapElementsLayerPointerExitedEventArgs) MapElement() (*IMapElement, error) {
+	result := new(*IMapElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2793,16 +2764,14 @@ func (self *IMapItemsControl) Items() (*IVectorOfDependencyObject, error) {
 }
 
 // ItemTemplate (propget get_ItemTemplate) dispatches through IMapItemsControl's vtable slot 9.
-// The return value's class Windows.UI.Xaml.DataTemplate is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapItemsControl) ItemTemplate() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapItemsControl) ItemTemplate() (*uixaml.IDataTemplate, error) {
+	result := new(*uixaml.IDataTemplate)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetItemTemplate (propput put_ItemTemplate) dispatches through IMapItemsControl's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.DataTemplate is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapItemsControl) SetItemTemplate(value *syswinrt.IInspectable) error {
+func (self *IMapItemsControl) SetItemTemplate(value *uixaml.IDataTemplate) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2902,9 +2871,8 @@ type IMapLayerFactory struct {
 var IID_IMapLayerFactory = win32.GUID{Data1: 0xe02a2207, Data2: 0xdee3, Data3: 0x47c8, Data4: [8]byte{0x98, 0x25, 0xbd, 0x02, 0x9c, 0x57, 0x52, 0xf7}}
 
 // CreateInstance dispatches through IMapLayerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapLayer is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapLayerFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapLayerFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMapLayer, error) {
+	result := new(*IMapLayer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2961,9 +2929,8 @@ type IMapModel3DFactory struct {
 var IID_IMapModel3DFactory = win32.GUID{Data1: 0xdf7f0bcc, Data2: 0x580a, Data3: 0x498b, Data4: [8]byte{0x93, 0x9b, 0x01, 0x19, 0xa9, 0xda, 0xdb, 0x9e}}
 
 // CreateInstance dispatches through IMapModel3DFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapModel3D is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapModel3DFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapModel3DFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMapModel3D, error) {
+	result := new(*IMapModel3D)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3249,9 +3216,8 @@ type IMapRouteViewFactory struct {
 var IID_IMapRouteViewFactory = win32.GUID{Data1: 0xf083addf, Data2: 0x0066, Data3: 0x4628, Data4: [8]byte{0x82, 0xfe, 0xea, 0x78, 0xc2, 0x3c, 0xec, 0x1e}}
 
 // CreateInstanceWithMapRoute dispatches through IMapRouteViewFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapRouteView is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapRouteViewFactory) CreateInstanceWithMapRoute(route *servicesmaps.IMapRoute, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapRouteViewFactory) CreateInstanceWithMapRoute(route *servicesmaps.IMapRoute, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMapRouteView, error) {
+	result := new(*IMapRouteView)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(route)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3267,9 +3233,8 @@ type IMapScene struct {
 var IID_IMapScene = win32.GUID{Data1: 0x8bba10a9, Data2: 0x50e7, Data3: 0x482c, Data4: [8]byte{0x97, 0x89, 0xc6, 0x88, 0xb1, 0x78, 0xac, 0x24}}
 
 // TargetCamera (propget get_TargetCamera) dispatches through IMapScene's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapCamera is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapScene) TargetCamera() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapScene) TargetCamera() (*IMapCamera, error) {
+	result := new(*IMapCamera)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3301,9 +3266,8 @@ type IMapSceneStatics struct {
 var IID_IMapSceneStatics = win32.GUID{Data1: 0x03e4ad6c, Data2: 0x86ec, Data3: 0x44d9, Data4: [8]byte{0x95, 0x97, 0xfb, 0x75, 0xb7, 0xde, 0xba, 0x0a}}
 
 // CreateFromBoundingBox dispatches through IMapSceneStatics's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapScene is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapSceneStatics) CreateFromBoundingBox(bounds *devicesgeolocation.IGeoboundingBox) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapSceneStatics) CreateFromBoundingBox(bounds *devicesgeolocation.IGeoboundingBox) (*IMapScene, error) {
+	result := new(*IMapScene)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(bounds)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3311,18 +3275,15 @@ func (self *IMapSceneStatics) CreateFromBoundingBox(bounds *devicesgeolocation.I
 // slot 7: CreateFromBoundingBox skipped: float64 parameter headingInDegrees cannot cross SyscallN
 
 // CreateFromCamera dispatches through IMapSceneStatics's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapScene is projected as IInspectable (the class is not emitted this wave).
-// Parameter camera's class Windows.UI.Xaml.Controls.Maps.MapCamera is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapSceneStatics) CreateFromCamera(camera *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapSceneStatics) CreateFromCamera(camera *IMapCamera) (*IMapScene, error) {
+	result := new(*IMapScene)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(camera)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateFromLocation dispatches through IMapSceneStatics's vtable slot 9.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapScene is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapSceneStatics) CreateFromLocation(location *devicesgeolocation.IGeopoint) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapSceneStatics) CreateFromLocation(location *devicesgeolocation.IGeopoint) (*IMapScene, error) {
+	result := new(*IMapScene)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(location)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3334,9 +3295,8 @@ func (self *IMapSceneStatics) CreateFromLocation(location *devicesgeolocation.IG
 // slot 12: CreateFromLocationAndRadius skipped: float64 parameter radiusInMeters cannot cross SyscallN
 
 // CreateFromLocations dispatches through IMapSceneStatics's vtable slot 13.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapScene is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapSceneStatics) CreateFromLocations(locations *IIterableOfGeopoint) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapSceneStatics) CreateFromLocations(locations *IIterableOfGeopoint) (*IMapScene, error) {
+	result := new(*IMapScene)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(locations)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -4054,77 +4014,68 @@ type IMapStyleSheetStatics struct {
 var IID_IMapStyleSheetStatics = win32.GUID{Data1: 0xabbd00ad, Data2: 0x0a1c, Data3: 0x4335, Data4: [8]byte{0x82, 0xf4, 0x61, 0xd9, 0x36, 0xaa, 0x19, 0x7d}}
 
 // Aerial dispatches through IMapStyleSheetStatics's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapStyleSheetStatics) Aerial() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapStyleSheetStatics) Aerial() (*IMapStyleSheet, error) {
+	result := new(*IMapStyleSheet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // AerialWithOverlay dispatches through IMapStyleSheetStatics's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapStyleSheetStatics) AerialWithOverlay() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapStyleSheetStatics) AerialWithOverlay() (*IMapStyleSheet, error) {
+	result := new(*IMapStyleSheet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RoadLight dispatches through IMapStyleSheetStatics's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapStyleSheetStatics) RoadLight() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapStyleSheetStatics) RoadLight() (*IMapStyleSheet, error) {
+	result := new(*IMapStyleSheet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RoadDark dispatches through IMapStyleSheetStatics's vtable slot 9.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapStyleSheetStatics) RoadDark() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapStyleSheetStatics) RoadDark() (*IMapStyleSheet, error) {
+	result := new(*IMapStyleSheet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RoadHighContrastLight dispatches through IMapStyleSheetStatics's vtable slot 10.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapStyleSheetStatics) RoadHighContrastLight() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapStyleSheetStatics) RoadHighContrastLight() (*IMapStyleSheet, error) {
+	result := new(*IMapStyleSheet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // RoadHighContrastDark dispatches through IMapStyleSheetStatics's vtable slot 11.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapStyleSheetStatics) RoadHighContrastDark() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapStyleSheetStatics) RoadHighContrastDark() (*IMapStyleSheet, error) {
+	result := new(*IMapStyleSheet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // Combine dispatches through IMapStyleSheetStatics's vtable slot 12.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapStyleSheetStatics) Combine(styleSheets *IIterableOfMapStyleSheet) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapStyleSheetStatics) Combine(styleSheets *IIterableOfMapStyleSheet) (*IMapStyleSheet, error) {
+	result := new(*IMapStyleSheet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(styleSheets)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ParseFromJson dispatches through IMapStyleSheetStatics's vtable slot 13.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapStyleSheetStatics) ParseFromJson(styleAsJson string) (*syswinrt.IInspectable, error) {
+func (self *IMapStyleSheetStatics) ParseFromJson(styleAsJson string) (*IMapStyleSheet, error) {
 	hStyleAsJson, err := winrt.NewHString(styleAsJson)
 	if err != nil {
 		return nil, err
 	}
 	defer hStyleAsJson.Close()
-	result := new(*syswinrt.IInspectable)
+	result := new(*IMapStyleSheet)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(hStyleAsJson.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // TryParseFromJson dispatches through IMapStyleSheetStatics's vtable slot 14.
-// Parameter styleSheet's class Windows.UI.Xaml.Controls.Maps.MapStyleSheet is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapStyleSheetStatics) TryParseFromJson(styleAsJson string, styleSheet **syswinrt.IInspectable) (bool, error) {
+func (self *IMapStyleSheetStatics) TryParseFromJson(styleAsJson string, styleSheet **IMapStyleSheet) (bool, error) {
 	hStyleAsJson, err := winrt.NewHString(styleAsJson)
 	if err != nil {
 		return false, err
@@ -4146,9 +4097,8 @@ type IMapTargetCameraChangedEventArgs struct {
 var IID_IMapTargetCameraChangedEventArgs = win32.GUID{Data1: 0xdbf00472, Data2: 0xe953, Data3: 0x4fa8, Data4: [8]byte{0x97, 0xd0, 0xea, 0x86, 0x35, 0x90, 0x57, 0xcf}}
 
 // Camera (propget get_Camera) dispatches through IMapTargetCameraChangedEventArgs's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapCamera is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapTargetCameraChangedEventArgs) Camera() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapTargetCameraChangedEventArgs) Camera() (*IMapCamera, error) {
+	result := new(*IMapCamera)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -4292,9 +4242,8 @@ type IMapTileDataSourceFactory struct {
 var IID_IMapTileDataSourceFactory = win32.GUID{Data1: 0xa3920fbd, Data2: 0xe446, Data3: 0x4648, Data4: [8]byte{0xa7, 0x4d, 0xfd, 0x2c, 0x5d, 0x55, 0x7c, 0x06}}
 
 // CreateInstance dispatches through IMapTileDataSourceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapTileDataSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapTileDataSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMapTileDataSource, error) {
+	result := new(*IMapTileDataSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -4310,16 +4259,14 @@ type IMapTileSource struct {
 var IID_IMapTileSource = win32.GUID{Data1: 0x88a76e4e, Data2: 0x2fdf, Data3: 0x4567, Data4: [8]byte{0x92, 0x55, 0x11, 0x00, 0x51, 0x9c, 0x8d, 0x62}}
 
 // DataSource (propget get_DataSource) dispatches through IMapTileSource's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapTileSource) DataSource() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapTileSource) DataSource() (*IMapTileDataSource, error) {
+	result := new(*IMapTileDataSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDataSource (propput put_DataSource) dispatches through IMapTileSource's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Controls.Maps.MapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapTileSource) SetDataSource(value *syswinrt.IInspectable) error {
+func (self *IMapTileSource) SetDataSource(value *IMapTileDataSource) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4559,18 +4506,15 @@ type IMapTileSourceFactory struct {
 var IID_IMapTileSourceFactory = win32.GUID{Data1: 0xcd7f811f, Data2: 0x77fa, Data3: 0x482b, Data4: [8]byte{0x9d, 0x34, 0x71, 0xd3, 0x1d, 0x46, 0x5c, 0x48}}
 
 // CreateInstance dispatches through IMapTileSourceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapTileSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapTileSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapTileSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMapTileSource, error) {
+	result := new(*IMapTileSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateInstanceWithDataSource dispatches through IMapTileSourceFactory's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Controls.Maps.MapTileSource is projected as IInspectable (the class is not emitted this wave).
-// Parameter dataSource's class Windows.UI.Xaml.Controls.Maps.MapTileDataSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IMapTileSourceFactory) CreateInstanceWithDataSource(dataSource *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMapTileSourceFactory) CreateInstanceWithDataSource(dataSource *IMapTileDataSource, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMapTileSource, error) {
+	result := new(*IMapTileSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(dataSource)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -4930,10 +4874,8 @@ type IStreetsideExperienceFactory struct {
 var IID_IStreetsideExperienceFactory = win32.GUID{Data1: 0x7a5bcf3c, Data2: 0x649e, Data3: 0x4342, Data4: [8]byte{0x99, 0x95, 0x68, 0xa6, 0xcf, 0x59, 0x61, 0xa7}}
 
 // CreateInstanceWithPanorama dispatches through IStreetsideExperienceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Controls.Maps.StreetsideExperience is projected as IInspectable (the class is not emitted this wave).
-// Parameter panorama's class Windows.UI.Xaml.Controls.Maps.StreetsidePanorama is projected as IInspectable (the class is not emitted this wave).
-func (self *IStreetsideExperienceFactory) CreateInstanceWithPanorama(panorama *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IStreetsideExperienceFactory) CreateInstanceWithPanorama(panorama *IStreetsidePanorama) (*IStreetsideExperience, error) {
+	result := new(*IStreetsideExperience)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(panorama)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

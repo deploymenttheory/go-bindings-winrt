@@ -1,9 +1,10 @@
 // Package emitwinrt emits the WinRT bindings: one Go package per Windows.*
 // namespace under bindings/winrt/, with interfaces dispatching through
-// syscall.SyscallN and non-composable runtime classes embedding their
-// default interface. The emit pipeline is gather (this package's builders,
-// which resolve everything through the typemap) → view (pure data) → render
-// (templates that never decide).
+// syscall.SyscallN and runtime classes (composable ones included —
+// instantiate-only composition) embedding their default interface. The emit
+// pipeline is gather (this package's builders, which resolve everything
+// through the typemap) → view (pure data) → render (templates that never
+// decide).
 package emitwinrt
 
 import (
@@ -417,12 +418,12 @@ func (g *Generator) prepareNamespaceClaims(meta *winrtmeta.NamespaceMeta) {
 		claimType(name)
 	}
 	for _, name := range sortedKeys(meta.Classes) {
-		// Classes that can never emit a type — composable (skipped outright)
-		// and statics-only (no default interface: the accessors are the whole
-		// projection) — must not hold a name claim: a statics-only class
-		// named X with statics interface IX would otherwise block its own
-		// X() accessor (CurrentApp, SystemProperties, PlayReadyStatics…).
-		if class := meta.Classes[name]; class.Composable || class.DefaultInterface == nil {
+		// Classes that can never emit a type — statics-only (no default
+		// interface: the accessors are the whole projection) — must not hold
+		// a name claim: a statics-only class named X with statics interface
+		// IX would otherwise block its own X() accessor (CurrentApp,
+		// SystemProperties, PlayReadyStatics…).
+		if meta.Classes[name].DefaultInterface == nil {
 			continue
 		}
 		claimType(name)

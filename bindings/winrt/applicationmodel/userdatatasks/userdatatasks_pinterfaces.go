@@ -500,6 +500,140 @@ func (self *IAsyncOperationOfUserDataTaskStore) Await() (*IUserDataTaskStore, er
 	return self.GetResults()
 }
 
+// IIterableOfUserDataTask is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserDataTasks.UserDataTask>.
+// IID: 8ae8becd-375f-5932-91ed-f82a74224365
+type IIterableOfUserDataTask struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUserDataTask is the interface identifier for IIterableOfUserDataTask.
+var IID_IIterableOfUserDataTask = win32.GUID{Data1: 0x8ae8becd, Data2: 0x375f, Data3: 0x5932, Data4: [8]byte{0x91, 0xed, 0xf8, 0x2a, 0x74, 0x22, 0x43, 0x65}}
+
+// First dispatches through IIterableOfUserDataTask's vtable slot 6.
+func (self *IIterableOfUserDataTask) First() (*IIteratorOfUserDataTask, error) {
+	result := new(*IIteratorOfUserDataTask)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUserDataTask creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserDataTasks.UserDataTask>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUserDataTask(items []*IUserDataTask) *IIterableOfUserDataTask {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserDataTasks.UserDataTask>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserDataTask, Iterator: IID_IIteratorOfUserDataTask}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUserDataTask)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUserDataTaskList is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserDataTasks.UserDataTaskList>.
+// IID: 2c4d63bc-cffb-50d2-8a82-a9aefad651d3
+type IIterableOfUserDataTaskList struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUserDataTaskList is the interface identifier for IIterableOfUserDataTaskList.
+var IID_IIterableOfUserDataTaskList = win32.GUID{Data1: 0x2c4d63bc, Data2: 0xcffb, Data3: 0x50d2, Data4: [8]byte{0x8a, 0x82, 0xa9, 0xae, 0xfa, 0xd6, 0x51, 0xd3}}
+
+// First dispatches through IIterableOfUserDataTaskList's vtable slot 6.
+func (self *IIterableOfUserDataTaskList) First() (*IIteratorOfUserDataTaskList, error) {
+	result := new(*IIteratorOfUserDataTaskList)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUserDataTaskList creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserDataTasks.UserDataTaskList>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUserDataTaskList(items []*IUserDataTaskList) *IIterableOfUserDataTaskList {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserDataTasks.UserDataTaskList>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserDataTaskList, Iterator: IID_IIteratorOfUserDataTaskList}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUserDataTaskList)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfUserDataTask is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.UserDataTasks.UserDataTask>.
+// IID: 98733fc7-1908-532f-bfe3-3868445d29d6
+type IIteratorOfUserDataTask struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUserDataTask is the interface identifier for IIteratorOfUserDataTask.
+var IID_IIteratorOfUserDataTask = win32.GUID{Data1: 0x98733fc7, Data2: 0x1908, Data3: 0x532f, Data4: [8]byte{0xbf, 0xe3, 0x38, 0x68, 0x44, 0x5d, 0x29, 0xd6}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUserDataTask's vtable slot 6.
+func (self *IIteratorOfUserDataTask) Current() (*IUserDataTask, error) {
+	result := new(*IUserDataTask)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUserDataTask's vtable slot 7.
+func (self *IIteratorOfUserDataTask) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUserDataTask's vtable slot 8.
+func (self *IIteratorOfUserDataTask) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUserDataTaskList is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.UserDataTasks.UserDataTaskList>.
+// IID: 8e989bcb-9d7c-512f-89da-fdb75532d665
+type IIteratorOfUserDataTaskList struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUserDataTaskList is the interface identifier for IIteratorOfUserDataTaskList.
+var IID_IIteratorOfUserDataTaskList = win32.GUID{Data1: 0x8e989bcb, Data2: 0x9d7c, Data3: 0x512f, Data4: [8]byte{0x89, 0xda, 0xfd, 0xb7, 0x55, 0x32, 0xd6, 0x65}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUserDataTaskList's vtable slot 6.
+func (self *IIteratorOfUserDataTaskList) Current() (*IUserDataTaskList, error) {
+	result := new(*IUserDataTaskList)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUserDataTaskList's vtable slot 7.
+func (self *IIteratorOfUserDataTaskList) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUserDataTaskList's vtable slot 8.
+func (self *IIteratorOfUserDataTaskList) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfDateTime is the WinRT interface Windows.Foundation.IReference`1<Windows.Foundation.DateTime>.
 // IID: 5541d8a7-497c-5aa4-86fc-7713adbf2a2c
 // Requires: Windows.Foundation.IPropertyValue.
@@ -601,6 +735,25 @@ func (self *IVectorViewOfUserDataTask) IndexOf(value *IUserDataTask, index *uint
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfUserDataTask creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserDataTasks.UserDataTask>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUserDataTask(items []*IUserDataTask) *IVectorViewOfUserDataTask {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserDataTasks.UserDataTask>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserDataTask, Iterator: IID_IIteratorOfUserDataTask, VectorView: IID_IVectorViewOfUserDataTask}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUserDataTask)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUserDataTaskList is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserDataTasks.UserDataTaskList>.
 // IID: 0910e3ae-2075-5486-866f-f1590ade3616
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserDataTasks.UserDataTaskList>.
@@ -633,3 +786,22 @@ func (self *IVectorViewOfUserDataTaskList) IndexOf(value *IUserDataTaskList, ind
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUserDataTaskList creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserDataTasks.UserDataTaskList>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUserDataTaskList(items []*IUserDataTaskList) *IVectorViewOfUserDataTaskList {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserDataTasks.UserDataTaskList>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserDataTaskList, Iterator: IID_IIteratorOfUserDataTaskList, VectorView: IID_IVectorViewOfUserDataTaskList}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUserDataTaskList)(unsafe.Pointer(obj))
+}

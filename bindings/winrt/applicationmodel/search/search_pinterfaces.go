@@ -14,6 +14,41 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/storage"
 )
 
+// IIterableOfStorageFolder is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Storage.StorageFolder>.
+// IID: 4669befc-ae5c-52b1-8a97-5466ce61e94e
+type IIterableOfStorageFolder struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfStorageFolder is the interface identifier for IIterableOfStorageFolder.
+var IID_IIterableOfStorageFolder = win32.GUID{Data1: 0x4669befc, Data2: 0xae5c, Data3: 0x52b1, Data4: [8]byte{0x8a, 0x97, 0x54, 0x66, 0xce, 0x61, 0xe9, 0x4e}}
+
+// First dispatches through IIterableOfStorageFolder's vtable slot 6.
+func (self *IIterableOfStorageFolder) First() (*IIteratorOfStorageFolder, error) {
+	result := new(*IIteratorOfStorageFolder)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfStorageFolder creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Storage.StorageFolder>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfStorageFolder(items []*storage.IStorageFolder) *IIterableOfStorageFolder {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Storage.StorageFolder>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStorageFolder, Iterator: IID_IIteratorOfStorageFolder}, winrt.CodecInterface, boxed)
+	return (*IIterableOfStorageFolder)(unsafe.Pointer(obj))
+}
+
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
 // IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
 type IIterableOfString struct {
@@ -29,6 +64,54 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfStorageFolder is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Storage.StorageFolder>.
+// IID: 5aac96fb-b3b9-5a7f-a920-4b5a8df81168
+type IIteratorOfStorageFolder struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfStorageFolder is the interface identifier for IIteratorOfStorageFolder.
+var IID_IIteratorOfStorageFolder = win32.GUID{Data1: 0x5aac96fb, Data2: 0xb3b9, Data3: 0x5a7f, Data4: [8]byte{0xa9, 0x20, 0x4b, 0x5a, 0x8d, 0xf8, 0x11, 0x68}}
+
+// Current (propget get_Current) dispatches through IIteratorOfStorageFolder's vtable slot 6.
+func (self *IIteratorOfStorageFolder) Current() (*storage.IStorageFolder, error) {
+	result := new(*storage.IStorageFolder)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfStorageFolder's vtable slot 7.
+func (self *IIteratorOfStorageFolder) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfStorageFolder's vtable slot 8.
+func (self *IIteratorOfStorageFolder) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
 // IID: 8c304ebb-6615-50a4-8829-879ecd443236
@@ -143,6 +226,28 @@ func (self *IVectorOfStorageFolder) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfStorageFolder creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Storage.StorageFolder>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfStorageFolder(items []*storage.IStorageFolder) *IVectorOfStorageFolder {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Storage.StorageFolder>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStorageFolder, Iterator: IID_IIteratorOfStorageFolder, VectorView: IID_IVectorViewOfStorageFolder, Vector: IID_IVectorOfStorageFolder}, winrt.CodecInterface, boxed)
+	return (*IVectorOfStorageFolder)(unsafe.Pointer(obj))
+}
+
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
 // Requires: Windows.Foundation.Collections.IIterable`1<String>.
@@ -244,6 +349,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfStorageFolder is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Storage.StorageFolder>.
 // IID: e20debc6-dc4e-542e-a2e7-a24d19c8dd62
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Storage.StorageFolder>.
@@ -276,6 +400,25 @@ func (self *IVectorViewOfStorageFolder) IndexOf(value *storage.IStorageFolder, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfStorageFolder creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Storage.StorageFolder>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfStorageFolder(items []*storage.IStorageFolder) *IVectorViewOfStorageFolder {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Storage.StorageFolder>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStorageFolder, Iterator: IID_IIteratorOfStorageFolder, VectorView: IID_IVectorViewOfStorageFolder}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfStorageFolder)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -317,3 +460,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

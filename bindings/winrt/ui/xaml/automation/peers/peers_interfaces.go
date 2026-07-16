@@ -13,6 +13,9 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
+	uixamlautomationprovider "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/automation/provider"
+	uixamlcontrols "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/controls"
+	uixamlcontrolsprimitives "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/controls/primitives"
 )
 
 // IAppBarAutomationPeer is the WinRT interface Windows.UI.Xaml.Automation.Peers.IAppBarAutomationPeer.
@@ -36,10 +39,8 @@ type IAppBarAutomationPeerFactory struct {
 var IID_IAppBarAutomationPeerFactory = win32.GUID{Data1: 0x8360f4e2, Data2: 0xe396, Data3: 0x4517, Data4: [8]byte{0xaf, 0x5d, 0xf4, 0xcf, 0x34, 0xc5, 0x4e, 0xdf}}
 
 // CreateInstanceWithOwner dispatches through IAppBarAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AppBarAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.AppBar is projected as IInspectable (the class is not emitted this wave).
-func (self *IAppBarAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAppBarAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IAppBar, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IAppBarAutomationPeer, error) {
+	result := new(*IAppBarAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -65,10 +66,8 @@ type IAppBarButtonAutomationPeerFactory struct {
 var IID_IAppBarButtonAutomationPeerFactory = win32.GUID{Data1: 0xaef0342a, Data2: 0xacb7, Data3: 0x42dc, Data4: [8]byte{0x97, 0xe3, 0x84, 0x70, 0x71, 0x86, 0x5f, 0xd6}}
 
 // CreateInstanceWithOwner dispatches through IAppBarButtonAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AppBarButtonAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.AppBarButton is projected as IInspectable (the class is not emitted this wave).
-func (self *IAppBarButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAppBarButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IAppBarButton, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IAppBarButtonAutomationPeer, error) {
+	result := new(*IAppBarButtonAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -94,10 +93,8 @@ type IAppBarToggleButtonAutomationPeerFactory struct {
 var IID_IAppBarToggleButtonAutomationPeerFactory = win32.GUID{Data1: 0xd6f9139d, Data2: 0x02c1, Data3: 0x4221, Data4: [8]byte{0x95, 0x91, 0x7d, 0x4e, 0xfe, 0xb7, 0x47, 0x01}}
 
 // CreateInstanceWithOwner dispatches through IAppBarToggleButtonAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AppBarToggleButtonAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.AppBarToggleButton is projected as IInspectable (the class is not emitted this wave).
-func (self *IAppBarToggleButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAppBarToggleButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IAppBarToggleButton, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IAppBarToggleButtonAutomationPeer, error) {
+	result := new(*IAppBarToggleButtonAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -123,10 +120,8 @@ type IAutoSuggestBoxAutomationPeerFactory struct {
 var IID_IAutoSuggestBoxAutomationPeerFactory = win32.GUID{Data1: 0x80046849, Data2: 0x18e7, Data3: 0x4475, Data4: [8]byte{0xb3, 0x62, 0x4b, 0xbd, 0x53, 0xd2, 0x45, 0x62}}
 
 // CreateInstanceWithOwner dispatches through IAutoSuggestBoxAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutoSuggestBoxAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.AutoSuggestBox is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutoSuggestBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutoSuggestBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IAutoSuggestBox) (*IAutoSuggestBoxAutomationPeer, error) {
+	result := new(*IAutoSuggestBoxAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -142,16 +137,14 @@ type IAutomationPeer struct {
 var IID_IAutomationPeer = win32.GUID{Data1: 0x35aac87a, Data2: 0x62ee, Data3: 0x4d3e, Data4: [8]byte{0xa2, 0x4c, 0x2b, 0xc8, 0x43, 0x2d, 0x68, 0xb7}}
 
 // EventsSource (propget get_EventsSource) dispatches through IAutomationPeer's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeer) EventsSource() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationPeer) EventsSource() (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetEventsSource (propput put_EventsSource) dispatches through IAutomationPeer's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeer) SetEventsSource(value *syswinrt.IInspectable) error {
+func (self *IAutomationPeer) SetEventsSource(value *IAutomationPeer) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -270,9 +263,8 @@ func (self *IAutomationPeer) GetItemType() (string, error) {
 }
 
 // GetLabeledBy dispatches through IAutomationPeer's vtable slot 22.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeer) GetLabeledBy() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationPeer) GetLabeledBy() (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[22], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -367,9 +359,8 @@ func (self *IAutomationPeer) SetFocus() error {
 }
 
 // GetParent dispatches through IAutomationPeer's vtable slot 35.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeer) GetParent() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationPeer) GetParent() (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[35], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -446,8 +437,7 @@ func (self *IAutomationPeer3) GetAnnotations() (*IVectorOfAutomationPeerAnnotati
 }
 
 // SetParent dispatches through IAutomationPeer3's vtable slot 12.
-// Parameter peer's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeer3) SetParent(peer *syswinrt.IInspectable) error {
+func (self *IAutomationPeer3) SetParent(peer *IAutomationPeer) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(peer)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -476,8 +466,7 @@ func (self *IAutomationPeer3) GetLevel() (int32, error) {
 }
 
 // RaiseStructureChangedEvent dispatches through IAutomationPeer3's vtable slot 17.
-// Parameter child's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeer3) RaiseStructureChangedEvent(structureChangeType AutomationStructureChangeType, child *syswinrt.IInspectable) error {
+func (self *IAutomationPeer3) RaiseStructureChangedEvent(structureChangeType AutomationStructureChangeType, child *IAutomationPeer) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(structureChangeType), uintptr(unsafe.Pointer(child)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -635,16 +624,14 @@ var IID_IAutomationPeerAnnotation = win32.GUID{Data1: 0x0c456061, Data2: 0x52cf,
 // slot 7: put_Type skipped: reference to Windows.UI.Xaml.Automation.AnnotationType crosses a severed import edge
 
 // Peer (propget get_Peer) dispatches through IAutomationPeerAnnotation's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeerAnnotation) Peer() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationPeerAnnotation) Peer() (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPeer (propput put_Peer) dispatches through IAutomationPeerAnnotation's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeerAnnotation) SetPeer(value *syswinrt.IInspectable) error {
+func (self *IAutomationPeerAnnotation) SetPeer(value *IAutomationPeer) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -698,9 +685,8 @@ type IAutomationPeerFactory struct {
 var IID_IAutomationPeerFactory = win32.GUID{Data1: 0x20c27545, Data2: 0xa88b, Data3: 0x43c8, Data4: [8]byte{0xbc, 0x24, 0xce, 0xa9, 0xda, 0xfd, 0x04, 0xa3}}
 
 // CreateInstance dispatches through IAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeerFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationPeerFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -821,9 +807,8 @@ func (self *IAutomationPeerOverrides) GetItemTypeCore() (string, error) {
 }
 
 // GetLabeledByCore dispatches through IAutomationPeerOverrides's vtable slot 18.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeerOverrides) GetLabeledByCore() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationPeerOverrides) GetLabeledByCore() (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[18], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1147,19 +1132,15 @@ type IAutomationPeerProtected struct {
 var IID_IAutomationPeerProtected = win32.GUID{Data1: 0xf4b40e52, Data2: 0x642f, Data3: 0x4629, Data4: [8]byte{0xa5, 0x4a, 0xea, 0x5d, 0x23, 0x49, 0xc4, 0x48}}
 
 // PeerFromProvider dispatches through IAutomationPeerProtected's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter provider's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeerProtected) PeerFromProvider(provider *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationPeerProtected) PeerFromProvider(provider *uixamlautomationprovider.IIRawElementProviderSimple) (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(provider)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // ProviderFromPeer dispatches through IAutomationPeerProtected's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-// Parameter peer's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPeerProtected) ProviderFromPeer(peer *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationPeerProtected) ProviderFromPeer(peer *IAutomationPeer) (*uixamlautomationprovider.IIRawElementProviderSimple, error) {
+	result := new(*uixamlautomationprovider.IIRawElementProviderSimple)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(peer)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1219,10 +1200,8 @@ type IButtonAutomationPeerFactory struct {
 var IID_IButtonAutomationPeerFactory = win32.GUID{Data1: 0x3fdb9f49, Data2: 0xf4ab, Data3: 0x4780, Data4: [8]byte{0x86, 0x44, 0x03, 0x37, 0x62, 0x99, 0xa1, 0x75}}
 
 // CreateInstanceWithOwner dispatches through IButtonAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ButtonAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Button is projected as IInspectable (the class is not emitted this wave).
-func (self *IButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IButton, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IButtonAutomationPeer, error) {
+	result := new(*IButtonAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1248,10 +1227,8 @@ type IButtonBaseAutomationPeerFactory struct {
 var IID_IButtonBaseAutomationPeerFactory = win32.GUID{Data1: 0x8a04091e, Data2: 0xe6b2, Data3: 0x4c60, Data4: [8]byte{0xa7, 0x59, 0xc1, 0x3c, 0xa4, 0x51, 0x65, 0xed}}
 
 // CreateInstanceWithOwner dispatches through IButtonBaseAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ButtonBaseAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Primitives.ButtonBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IButtonBaseAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IButtonBaseAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrolsprimitives.IButtonBase, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IButtonBaseAutomationPeer, error) {
+	result := new(*IButtonBaseAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1277,10 +1254,8 @@ type ICalendarDatePickerAutomationPeerFactory struct {
 var IID_ICalendarDatePickerAutomationPeerFactory = win32.GUID{Data1: 0xab705dd2, Data2: 0xd293, Data3: 0x45bf, Data4: [8]byte{0x9f, 0x19, 0x26, 0xf7, 0x60, 0x3a, 0x5e, 0x9b}}
 
 // CreateInstanceWithOwner dispatches through ICalendarDatePickerAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.CalendarDatePickerAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.CalendarDatePicker is projected as IInspectable (the class is not emitted this wave).
-func (self *ICalendarDatePickerAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICalendarDatePickerAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ICalendarDatePicker, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ICalendarDatePickerAutomationPeer, error) {
+	result := new(*ICalendarDatePickerAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1306,10 +1281,8 @@ type ICaptureElementAutomationPeerFactory struct {
 var IID_ICaptureElementAutomationPeerFactory = win32.GUID{Data1: 0x9b92ef48, Data2: 0x85e9, Data3: 0x4869, Data4: [8]byte{0xb1, 0x75, 0x8f, 0x7c, 0xf4, 0x5a, 0x6d, 0x9f}}
 
 // CreateInstanceWithOwner dispatches through ICaptureElementAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.CaptureElementAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.CaptureElement is projected as IInspectable (the class is not emitted this wave).
-func (self *ICaptureElementAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICaptureElementAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ICaptureElement, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ICaptureElementAutomationPeer, error) {
+	result := new(*ICaptureElementAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1335,10 +1308,8 @@ type ICheckBoxAutomationPeerFactory struct {
 var IID_ICheckBoxAutomationPeerFactory = win32.GUID{Data1: 0xb75c775d, Data2: 0xeb8f, Data3: 0x44ef, Data4: [8]byte{0xa2, 0x7c, 0xe2, 0x6a, 0xc7, 0xde, 0x83, 0x33}}
 
 // CreateInstanceWithOwner dispatches through ICheckBoxAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.CheckBoxAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.CheckBox is projected as IInspectable (the class is not emitted this wave).
-func (self *ICheckBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICheckBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ICheckBox, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ICheckBoxAutomationPeer, error) {
+	result := new(*ICheckBoxAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1364,10 +1335,8 @@ type IColorPickerSliderAutomationPeerFactory struct {
 var IID_IColorPickerSliderAutomationPeerFactory = win32.GUID{Data1: 0x1a55c77e, Data2: 0x9dd6, Data3: 0x45a3, Data4: [8]byte{0x90, 0x42, 0xb4, 0x02, 0x00, 0xfe, 0xa1, 0xa9}}
 
 // CreateInstanceWithOwner dispatches through IColorPickerSliderAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ColorPickerSliderAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Primitives.ColorPickerSlider is projected as IInspectable (the class is not emitted this wave).
-func (self *IColorPickerSliderAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IColorPickerSliderAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrolsprimitives.IColorPickerSlider, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IColorPickerSliderAutomationPeer, error) {
+	result := new(*IColorPickerSliderAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1393,10 +1362,8 @@ type IColorSpectrumAutomationPeerFactory struct {
 var IID_IColorSpectrumAutomationPeerFactory = win32.GUID{Data1: 0x0ac400e1, Data2: 0xb743, Data3: 0x4496, Data4: [8]byte{0x83, 0x7a, 0x88, 0x89, 0xe6, 0xac, 0x64, 0x97}}
 
 // CreateInstanceWithOwner dispatches through IColorSpectrumAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ColorSpectrumAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Primitives.ColorSpectrum is projected as IInspectable (the class is not emitted this wave).
-func (self *IColorSpectrumAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IColorSpectrumAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrolsprimitives.IColorSpectrum, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IColorSpectrumAutomationPeer, error) {
+	result := new(*IColorSpectrumAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1422,10 +1389,8 @@ type IComboBoxAutomationPeerFactory struct {
 var IID_IComboBoxAutomationPeerFactory = win32.GUID{Data1: 0x098e5b0d, Data2: 0x1b90, Data3: 0x40b9, Data4: [8]byte{0x9b, 0xe3, 0xb2, 0x32, 0x67, 0xeb, 0x13, 0xcf}}
 
 // CreateInstanceWithOwner dispatches through IComboBoxAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ComboBoxAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ComboBox is projected as IInspectable (the class is not emitted this wave).
-func (self *IComboBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IComboBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IComboBox, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IComboBoxAutomationPeer, error) {
+	result := new(*IComboBoxAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1451,10 +1416,8 @@ type IComboBoxItemAutomationPeerFactory struct {
 var IID_IComboBoxItemAutomationPeerFactory = win32.GUID{Data1: 0x134ac7fc, Data2: 0x397a, Data3: 0x403f, Data4: [8]byte{0xa6, 0xec, 0x1c, 0xe8, 0xbe, 0xda, 0x15, 0xe5}}
 
 // CreateInstanceWithOwner dispatches through IComboBoxItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ComboBoxItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ComboBoxItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IComboBoxItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IComboBoxItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IComboBoxItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IComboBoxItemAutomationPeer, error) {
+	result := new(*IComboBoxItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1480,10 +1443,8 @@ type IComboBoxItemDataAutomationPeerFactory struct {
 var IID_IComboBoxItemDataAutomationPeerFactory = win32.GUID{Data1: 0x14a8d4f6, Data2: 0x469a, Data3: 0x41ba, Data4: [8]byte{0x9d, 0x93, 0x44, 0xa1, 0xa5, 0x5d, 0xa8, 0x72}}
 
 // CreateInstanceWithParentAndItem dispatches through IComboBoxItemDataAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ComboBoxItemDataAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter parent's class Windows.UI.Xaml.Automation.Peers.ComboBoxAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IComboBoxItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IComboBoxItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *IComboBoxAutomationPeer, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IComboBoxItemDataAutomationPeer, error) {
+	result := new(*IComboBoxItemDataAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(item)), uintptr(unsafe.Pointer(parent)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1509,10 +1470,8 @@ type IDatePickerAutomationPeerFactory struct {
 var IID_IDatePickerAutomationPeerFactory = win32.GUID{Data1: 0xe5667d19, Data2: 0x9157, Data3: 0x4436, Data4: [8]byte{0x9f, 0x4d, 0x7f, 0xb9, 0x91, 0x74, 0xb4, 0x8e}}
 
 // CreateInstanceWithOwner dispatches through IDatePickerAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.DatePickerAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.DatePicker is projected as IInspectable (the class is not emitted this wave).
-func (self *IDatePickerAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IDatePickerAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IDatePicker, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IDatePickerAutomationPeer, error) {
+	result := new(*IDatePickerAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1548,10 +1507,8 @@ type IFlipViewAutomationPeerFactory struct {
 var IID_IFlipViewAutomationPeerFactory = win32.GUID{Data1: 0x4395ab0d, Data2: 0x8d83, Data3: 0x483c, Data4: [8]byte{0x88, 0xeb, 0xe2, 0x61, 0x7b, 0x0d, 0x29, 0x3f}}
 
 // CreateInstanceWithOwner dispatches through IFlipViewAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.FlipViewAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.FlipView is projected as IInspectable (the class is not emitted this wave).
-func (self *IFlipViewAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFlipViewAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IFlipView, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IFlipViewAutomationPeer, error) {
+	result := new(*IFlipViewAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1577,10 +1534,8 @@ type IFlipViewItemAutomationPeerFactory struct {
 var IID_IFlipViewItemAutomationPeerFactory = win32.GUID{Data1: 0x69109356, Data2: 0xd0e5, Data3: 0x4c10, Data4: [8]byte{0xa0, 0x9c, 0xad, 0x0b, 0xf1, 0xb0, 0xcb, 0x01}}
 
 // CreateInstanceWithOwner dispatches through IFlipViewItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.FlipViewItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.FlipViewItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IFlipViewItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFlipViewItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IFlipViewItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IFlipViewItemAutomationPeer, error) {
+	result := new(*IFlipViewItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1606,10 +1561,8 @@ type IFlipViewItemDataAutomationPeerFactory struct {
 var IID_IFlipViewItemDataAutomationPeerFactory = win32.GUID{Data1: 0x3c864393, Data2: 0x0aea, Data3: 0x4e78, Data4: [8]byte{0xbc, 0x11, 0xb7, 0x75, 0xca, 0xc4, 0x11, 0x4c}}
 
 // CreateInstanceWithParentAndItem dispatches through IFlipViewItemDataAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.FlipViewItemDataAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter parent's class Windows.UI.Xaml.Automation.Peers.FlipViewAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IFlipViewItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFlipViewItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *IFlipViewAutomationPeer, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IFlipViewItemDataAutomationPeer, error) {
+	result := new(*IFlipViewItemDataAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(item)), uintptr(unsafe.Pointer(parent)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1635,10 +1588,8 @@ type IFlyoutPresenterAutomationPeerFactory struct {
 var IID_IFlyoutPresenterAutomationPeerFactory = win32.GUID{Data1: 0xf350155f, Data2: 0x8924, Data3: 0x44c0, Data4: [8]byte{0xba, 0x44, 0x65, 0x3f, 0xe7, 0x9f, 0x1e, 0xfb}}
 
 // CreateInstanceWithOwner dispatches through IFlyoutPresenterAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.FlyoutPresenterAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.FlyoutPresenter is projected as IInspectable (the class is not emitted this wave).
-func (self *IFlyoutPresenterAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFlyoutPresenterAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IFlyoutPresenter, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IFlyoutPresenterAutomationPeer, error) {
+	result := new(*IFlyoutPresenterAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1654,9 +1605,8 @@ type IFrameworkElementAutomationPeer struct {
 var IID_IFrameworkElementAutomationPeer = win32.GUID{Data1: 0xb90ad781, Data2: 0xbfeb, Data3: 0x4451, Data4: [8]byte{0xbd, 0x47, 0x9f, 0x3a, 0x63, 0xeb, 0xd2, 0x4a}}
 
 // Owner (propget get_Owner) dispatches through IFrameworkElementAutomationPeer's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameworkElementAutomationPeer) Owner() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFrameworkElementAutomationPeer) Owner() (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1672,10 +1622,8 @@ type IFrameworkElementAutomationPeerFactory struct {
 var IID_IFrameworkElementAutomationPeerFactory = win32.GUID{Data1: 0x0db9b8bc, Data2: 0xb812, Data3: 0x48e3, Data4: [8]byte{0xaf, 0x1f, 0xdb, 0xc5, 0x76, 0x00, 0xc3, 0x25}}
 
 // CreateInstanceWithOwner dispatches through IFrameworkElementAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.FrameworkElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameworkElementAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFrameworkElementAutomationPeerFactory) CreateInstanceWithOwner(owner *uixaml.IFrameworkElement, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IFrameworkElementAutomationPeer, error) {
+	result := new(*IFrameworkElementAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1691,19 +1639,15 @@ type IFrameworkElementAutomationPeerStatics struct {
 var IID_IFrameworkElementAutomationPeerStatics = win32.GUID{Data1: 0xb9c0b997, Data2: 0x2820, Data3: 0x44a1, Data4: [8]byte{0xa5, 0xa8, 0x9b, 0x80, 0x1e, 0xdc, 0x26, 0x9e}}
 
 // FromElement dispatches through IFrameworkElementAutomationPeerStatics's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameworkElementAutomationPeerStatics) FromElement(element *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFrameworkElementAutomationPeerStatics) FromElement(element *uixaml.IUIElement) (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreatePeerForElement dispatches through IFrameworkElementAutomationPeerStatics's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Automation.Peers.AutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameworkElementAutomationPeerStatics) CreatePeerForElement(element *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFrameworkElementAutomationPeerStatics) CreatePeerForElement(element *uixaml.IUIElement) (*IAutomationPeer, error) {
+	result := new(*IAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1729,10 +1673,8 @@ type IGridViewAutomationPeerFactory struct {
 var IID_IGridViewAutomationPeerFactory = win32.GUID{Data1: 0x8aca59dd, Data2: 0x22a7, Data3: 0x4800, Data4: [8]byte{0x89, 0x4b, 0xc1, 0xf4, 0x85, 0xf3, 0x89, 0x53}}
 
 // CreateInstanceWithOwner dispatches through IGridViewAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.GridViewAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.GridView is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IGridView, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IGridViewAutomationPeer, error) {
+	result := new(*IGridViewAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1758,10 +1700,8 @@ type IGridViewHeaderItemAutomationPeerFactory struct {
 var IID_IGridViewHeaderItemAutomationPeerFactory = win32.GUID{Data1: 0x2c80b4d2, Data2: 0xffc2, Data3: 0x4157, Data4: [8]byte{0x88, 0xdd, 0x59, 0xcd, 0x92, 0xe3, 0x97, 0x15}}
 
 // CreateInstanceWithOwner dispatches through IGridViewHeaderItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.GridViewHeaderItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.GridViewHeaderItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewHeaderItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewHeaderItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IGridViewHeaderItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IGridViewHeaderItemAutomationPeer, error) {
+	result := new(*IGridViewHeaderItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1787,10 +1727,8 @@ type IGridViewItemAutomationPeerFactory struct {
 var IID_IGridViewItemAutomationPeerFactory = win32.GUID{Data1: 0xfafec376, Data2: 0xf22e, Data3: 0x466d, Data4: [8]byte{0x91, 0x3c, 0xae, 0x24, 0xcc, 0xdb, 0x16, 0x0f}}
 
 // CreateInstanceWithOwner dispatches through IGridViewItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.GridViewItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.GridViewItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IGridViewItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IGridViewItemAutomationPeer, error) {
+	result := new(*IGridViewItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1816,10 +1754,8 @@ type IGridViewItemDataAutomationPeerFactory struct {
 var IID_IGridViewItemDataAutomationPeerFactory = win32.GUID{Data1: 0xa65e7a88, Data2: 0x770d, Data3: 0x402c, Data4: [8]byte{0x99, 0x6f, 0x67, 0x50, 0x6a, 0xf2, 0xa4, 0xaf}}
 
 // CreateInstanceWithParentAndItem dispatches through IGridViewItemDataAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.GridViewItemDataAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter parent's class Windows.UI.Xaml.Automation.Peers.GridViewAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridViewItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridViewItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *IGridViewAutomationPeer, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IGridViewItemDataAutomationPeer, error) {
+	result := new(*IGridViewItemDataAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(item)), uintptr(unsafe.Pointer(parent)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1845,10 +1781,8 @@ type IGroupItemAutomationPeerFactory struct {
 var IID_IGroupItemAutomationPeerFactory = win32.GUID{Data1: 0x56a64567, Data2: 0xf21c, Data3: 0x4c90, Data4: [8]byte{0xb3, 0x79, 0x15, 0xa2, 0x7c, 0x7f, 0x84, 0x09}}
 
 // CreateInstanceWithOwner dispatches through IGroupItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.GroupItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.GroupItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IGroupItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGroupItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IGroupItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IGroupItemAutomationPeer, error) {
+	result := new(*IGroupItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1874,10 +1808,8 @@ type IHubAutomationPeerFactory struct {
 var IID_IHubAutomationPeerFactory = win32.GUID{Data1: 0xc762d43f, Data2: 0x79dd, Data3: 0x43ee, Data4: [8]byte{0x87, 0x77, 0x8d, 0x08, 0xb3, 0x9a, 0xa0, 0x65}}
 
 // CreateInstanceWithOwner dispatches through IHubAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.HubAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Hub is projected as IInspectable (the class is not emitted this wave).
-func (self *IHubAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IHubAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IHub, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IHubAutomationPeer, error) {
+	result := new(*IHubAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1903,10 +1835,8 @@ type IHubSectionAutomationPeerFactory struct {
 var IID_IHubSectionAutomationPeerFactory = win32.GUID{Data1: 0xc68e27e8, Data2: 0x17ec, Data3: 0x4329, Data4: [8]byte{0x91, 0xae, 0x2d, 0x0b, 0x23, 0x39, 0xd4, 0x98}}
 
 // CreateInstanceWithOwner dispatches through IHubSectionAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.HubSectionAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.HubSection is projected as IInspectable (the class is not emitted this wave).
-func (self *IHubSectionAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IHubSectionAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IHubSection, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IHubSectionAutomationPeer, error) {
+	result := new(*IHubSectionAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1932,10 +1862,8 @@ type IHyperlinkButtonAutomationPeerFactory struct {
 var IID_IHyperlinkButtonAutomationPeerFactory = win32.GUID{Data1: 0x59bc1661, Data2: 0xc182, Data3: 0x49af, Data4: [8]byte{0x95, 0x26, 0x44, 0xb8, 0x8e, 0x62, 0x84, 0x55}}
 
 // CreateInstanceWithOwner dispatches through IHyperlinkButtonAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.HyperlinkButtonAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.HyperlinkButton is projected as IInspectable (the class is not emitted this wave).
-func (self *IHyperlinkButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IHyperlinkButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IHyperlinkButton, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IHyperlinkButtonAutomationPeer, error) {
+	result := new(*IHyperlinkButtonAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1961,10 +1889,8 @@ type IImageAutomationPeerFactory struct {
 var IID_IImageAutomationPeerFactory = win32.GUID{Data1: 0x90304003, Data2: 0x687d, Data3: 0x47bf, Data4: [8]byte{0xb3, 0xa2, 0x4b, 0xab, 0xca, 0xd8, 0xef, 0x50}}
 
 // CreateInstanceWithOwner dispatches through IImageAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ImageAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Image is projected as IInspectable (the class is not emitted this wave).
-func (self *IImageAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IImageAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IImage, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IImageAutomationPeer, error) {
+	result := new(*IImageAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1997,9 +1923,8 @@ func (self *IItemAutomationPeer) Item() (*syswinrt.IInspectable, error) {
 }
 
 // ItemsControlAutomationPeer (propget get_ItemsControlAutomationPeer) dispatches through IItemAutomationPeer's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ItemsControlAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IItemAutomationPeer) ItemsControlAutomationPeer() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IItemAutomationPeer) ItemsControlAutomationPeer() (*IItemsControlAutomationPeer, error) {
+	result := new(*IItemsControlAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2015,10 +1940,8 @@ type IItemAutomationPeerFactory struct {
 var IID_IItemAutomationPeerFactory = win32.GUID{Data1: 0x29065073, Data2: 0xde3d, Data3: 0x4d3f, Data4: [8]byte{0x97, 0xb4, 0x4d, 0x6f, 0x9d, 0x53, 0x44, 0x4d}}
 
 // CreateInstanceWithParentAndItem dispatches through IItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter parent's class Windows.UI.Xaml.Automation.Peers.ItemsControlAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IItemAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IItemAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *IItemsControlAutomationPeer, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IItemAutomationPeer, error) {
+	result := new(*IItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(item)), uintptr(unsafe.Pointer(parent)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2044,9 +1967,8 @@ type IItemsControlAutomationPeer2 struct {
 var IID_IItemsControlAutomationPeer2 = win32.GUID{Data1: 0xc48d8917, Data2: 0x95a8, Data3: 0x47b8, Data4: [8]byte{0xa5, 0x17, 0xbf, 0x89, 0x1a, 0x6c, 0x03, 0x9b}}
 
 // CreateItemAutomationPeer dispatches through IItemsControlAutomationPeer2's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IItemsControlAutomationPeer2) CreateItemAutomationPeer(item *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IItemsControlAutomationPeer2) CreateItemAutomationPeer(item *syswinrt.IInspectable) (*IItemAutomationPeer, error) {
+	result := new(*IItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(item)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2062,10 +1984,8 @@ type IItemsControlAutomationPeerFactory struct {
 var IID_IItemsControlAutomationPeerFactory = win32.GUID{Data1: 0x4038a259, Data2: 0x2e1a, Data3: 0x49ca, Data4: [8]byte{0xa5, 0x33, 0xc6, 0x4f, 0x18, 0x15, 0x77, 0xe6}}
 
 // CreateInstanceWithOwner dispatches through IItemsControlAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ItemsControlAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ItemsControl is projected as IInspectable (the class is not emitted this wave).
-func (self *IItemsControlAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IItemsControlAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IItemsControl, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IItemsControlAutomationPeer, error) {
+	result := new(*IItemsControlAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2081,9 +2001,8 @@ type IItemsControlAutomationPeerOverrides2 struct {
 var IID_IItemsControlAutomationPeerOverrides2 = win32.GUID{Data1: 0x361dc0e8, Data2: 0xb56f, Data3: 0x45e9, Data4: [8]byte{0x80, 0xfe, 0x10, 0xa0, 0xfb, 0x0f, 0xe1, 0x77}}
 
 // OnCreateItemAutomationPeer dispatches through IItemsControlAutomationPeerOverrides2's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IItemsControlAutomationPeerOverrides2) OnCreateItemAutomationPeer(item *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IItemsControlAutomationPeerOverrides2) OnCreateItemAutomationPeer(item *syswinrt.IInspectable) (*IItemAutomationPeer, error) {
+	result := new(*IItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(item)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2109,10 +2028,8 @@ type IListBoxAutomationPeerFactory struct {
 var IID_IListBoxAutomationPeerFactory = win32.GUID{Data1: 0xe2362185, Data2: 0x7df6, Data3: 0x49f7, Data4: [8]byte{0x8a, 0xbc, 0x4c, 0x33, 0xf1, 0xa3, 0xd4, 0x6e}}
 
 // CreateInstanceWithOwner dispatches through IListBoxAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ListBoxAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ListBox is projected as IInspectable (the class is not emitted this wave).
-func (self *IListBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IListBox, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IListBoxAutomationPeer, error) {
+	result := new(*IListBoxAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2138,10 +2055,8 @@ type IListBoxItemAutomationPeerFactory struct {
 var IID_IListBoxItemAutomationPeerFactory = win32.GUID{Data1: 0x509f9dd8, Data2: 0xb0aa, Data3: 0x443f, Data4: [8]byte{0xa1, 0x10, 0x41, 0x20, 0x9a, 0xf4, 0x4f, 0x1c}}
 
 // CreateInstanceWithOwner dispatches through IListBoxItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ListBoxItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ListBoxItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IListBoxItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListBoxItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IListBoxItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IListBoxItemAutomationPeer, error) {
+	result := new(*IListBoxItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2167,10 +2082,8 @@ type IListBoxItemDataAutomationPeerFactory struct {
 var IID_IListBoxItemDataAutomationPeerFactory = win32.GUID{Data1: 0xd7924e16, Data2: 0xbd8d, Data3: 0x4662, Data4: [8]byte{0xa9, 0x95, 0x20, 0xff, 0x9a, 0x05, 0x60, 0x93}}
 
 // CreateInstanceWithParentAndItem dispatches through IListBoxItemDataAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ListBoxItemDataAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter parent's class Windows.UI.Xaml.Automation.Peers.ListBoxAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IListBoxItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListBoxItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *IListBoxAutomationPeer, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IListBoxItemDataAutomationPeer, error) {
+	result := new(*IListBoxItemDataAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(item)), uintptr(unsafe.Pointer(parent)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2206,10 +2119,8 @@ type IListViewAutomationPeerFactory struct {
 var IID_IListViewAutomationPeerFactory = win32.GUID{Data1: 0x65f39174, Data2: 0xeaa2, Data3: 0x4e44, Data4: [8]byte{0x8b, 0xe6, 0x4c, 0xca, 0x28, 0xcd, 0x02, 0x88}}
 
 // CreateInstanceWithOwner dispatches through IListViewAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ListViewAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ListView is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IListView, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IListViewAutomationPeer, error) {
+	result := new(*IListViewAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2235,10 +2146,8 @@ type IListViewBaseAutomationPeerFactory struct {
 var IID_IListViewBaseAutomationPeerFactory = win32.GUID{Data1: 0x70d3c2be, Data2: 0x8950, Data3: 0x4647, Data4: [8]byte{0x93, 0x62, 0xfd, 0x00, 0x2f, 0x8f, 0xf8, 0x2e}}
 
 // CreateInstanceWithOwner dispatches through IListViewBaseAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ListViewBaseAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ListViewBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewBaseAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewBaseAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IListViewBase, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IListViewBaseAutomationPeer, error) {
+	result := new(*IListViewBaseAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2264,10 +2173,8 @@ type IListViewBaseHeaderItemAutomationPeerFactory struct {
 var IID_IListViewBaseHeaderItemAutomationPeerFactory = win32.GUID{Data1: 0x40ec995f, Data2: 0xd631, Data3: 0x4004, Data4: [8]byte{0x83, 0x2e, 0x6d, 0x86, 0x43, 0xe5, 0x15, 0x61}}
 
 // CreateInstanceWithOwner dispatches through IListViewBaseHeaderItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ListViewBaseHeaderItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ListViewBaseHeaderItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewBaseHeaderItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewBaseHeaderItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IListViewBaseHeaderItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IListViewBaseHeaderItemAutomationPeer, error) {
+	result := new(*IListViewBaseHeaderItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2293,10 +2200,8 @@ type IListViewHeaderItemAutomationPeerFactory struct {
 var IID_IListViewHeaderItemAutomationPeerFactory = win32.GUID{Data1: 0x07668694, Data2: 0x2ca5, Data3: 0x4be4, Data4: [8]byte{0xa8, 0xb9, 0x59, 0x2d, 0x48, 0xf7, 0x60, 0x87}}
 
 // CreateInstanceWithOwner dispatches through IListViewHeaderItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ListViewHeaderItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ListViewHeaderItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewHeaderItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewHeaderItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IListViewHeaderItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IListViewHeaderItemAutomationPeer, error) {
+	result := new(*IListViewHeaderItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2322,10 +2227,8 @@ type IListViewItemAutomationPeerFactory struct {
 var IID_IListViewItemAutomationPeerFactory = win32.GUID{Data1: 0xc47dfbc0, Data2: 0xfacc, Data3: 0x4024, Data4: [8]byte{0xa7, 0x3b, 0x17, 0xec, 0x4e, 0x66, 0x26, 0x54}}
 
 // CreateInstanceWithOwner dispatches through IListViewItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ListViewItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ListViewItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IListViewItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IListViewItemAutomationPeer, error) {
+	result := new(*IListViewItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2351,10 +2254,8 @@ type IListViewItemDataAutomationPeerFactory struct {
 var IID_IListViewItemDataAutomationPeerFactory = win32.GUID{Data1: 0xd0db12bb, Data2: 0xd715, Data3: 0x4523, Data4: [8]byte{0xac, 0xc0, 0x1e, 0x10, 0x72, 0xd8, 0xe3, 0x2b}}
 
 // CreateInstanceWithParentAndItem dispatches through IListViewItemDataAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ListViewItemDataAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter parent's class Windows.UI.Xaml.Automation.Peers.ListViewBaseAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IListViewItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IListViewItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *IListViewBaseAutomationPeer, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IListViewItemDataAutomationPeer, error) {
+	result := new(*IListViewItemDataAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(item)), uintptr(unsafe.Pointer(parent)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2420,10 +2321,8 @@ type IMediaElementAutomationPeerFactory struct {
 var IID_IMediaElementAutomationPeerFactory = win32.GUID{Data1: 0xb2ad3b28, Data2: 0x7575, Data3: 0x4173, Data4: [8]byte{0x9b, 0xc7, 0x80, 0x36, 0x7a, 0x16, 0x4e, 0xd2}}
 
 // CreateInstanceWithOwner dispatches through IMediaElementAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.MediaElementAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.MediaElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IMediaElementAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMediaElementAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IMediaElement, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMediaElementAutomationPeer, error) {
+	result := new(*IMediaElementAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2449,10 +2348,8 @@ type IMediaPlayerElementAutomationPeerFactory struct {
 var IID_IMediaPlayerElementAutomationPeerFactory = win32.GUID{Data1: 0x08848077, Data2: 0x82af, Data3: 0x4d19, Data4: [8]byte{0xb1, 0x70, 0x28, 0x2a, 0x9e, 0x0e, 0x7f, 0x37}}
 
 // CreateInstanceWithOwner dispatches through IMediaPlayerElementAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.MediaPlayerElementAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.MediaPlayerElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IMediaPlayerElementAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMediaPlayerElementAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IMediaPlayerElement, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMediaPlayerElementAutomationPeer, error) {
+	result := new(*IMediaPlayerElementAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2478,10 +2375,8 @@ type IMediaTransportControlsAutomationPeerFactory struct {
 var IID_IMediaTransportControlsAutomationPeerFactory = win32.GUID{Data1: 0xf41cb003, Data2: 0xe103, Data3: 0x4ab0, Data4: [8]byte{0x81, 0x2a, 0xa0, 0x8f, 0xbd, 0xb5, 0x70, 0xce}}
 
 // CreateInstanceWithOwner dispatches through IMediaTransportControlsAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.MediaTransportControlsAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.MediaTransportControls is projected as IInspectable (the class is not emitted this wave).
-func (self *IMediaTransportControlsAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMediaTransportControlsAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IMediaTransportControls, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMediaTransportControlsAutomationPeer, error) {
+	result := new(*IMediaTransportControlsAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2507,10 +2402,8 @@ type IMenuBarAutomationPeerFactory struct {
 var IID_IMenuBarAutomationPeerFactory = win32.GUID{Data1: 0x2a094871, Data2: 0x4a9b, Data3: 0x5a0b, Data4: [8]byte{0x9f, 0xda, 0x7b, 0xc3, 0xae, 0x95, 0x7c, 0x53}}
 
 // CreateInstance dispatches through IMenuBarAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.MenuBarAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.MenuBar is projected as IInspectable (the class is not emitted this wave).
-func (self *IMenuBarAutomationPeerFactory) CreateInstance(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMenuBarAutomationPeerFactory) CreateInstance(owner *uixamlcontrols.IMenuBar, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMenuBarAutomationPeer, error) {
+	result := new(*IMenuBarAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2536,10 +2429,8 @@ type IMenuBarItemAutomationPeerFactory struct {
 var IID_IMenuBarItemAutomationPeerFactory = win32.GUID{Data1: 0xc9c77746, Data2: 0x130f, Data3: 0x5b19, Data4: [8]byte{0x83, 0xa6, 0x61, 0xdb, 0x58, 0x46, 0x13, 0xaa}}
 
 // CreateInstance dispatches through IMenuBarItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.MenuBarItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.MenuBarItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IMenuBarItemAutomationPeerFactory) CreateInstance(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMenuBarItemAutomationPeerFactory) CreateInstance(owner *uixamlcontrols.IMenuBarItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMenuBarItemAutomationPeer, error) {
+	result := new(*IMenuBarItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2565,10 +2456,8 @@ type IMenuFlyoutItemAutomationPeerFactory struct {
 var IID_IMenuFlyoutItemAutomationPeerFactory = win32.GUID{Data1: 0xd08bfcb8, Data2: 0x20d1, Data3: 0x45d8, Data4: [8]byte{0xa2, 0xc2, 0x2f, 0x13, 0x0d, 0xf7, 0x14, 0xe0}}
 
 // CreateInstanceWithOwner dispatches through IMenuFlyoutItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.MenuFlyoutItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.MenuFlyoutItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IMenuFlyoutItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMenuFlyoutItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IMenuFlyoutItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMenuFlyoutItemAutomationPeer, error) {
+	result := new(*IMenuFlyoutItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2594,10 +2483,8 @@ type IMenuFlyoutPresenterAutomationPeerFactory struct {
 var IID_IMenuFlyoutPresenterAutomationPeerFactory = win32.GUID{Data1: 0x07b5172d, Data2: 0x761d, Data3: 0x452b, Data4: [8]byte{0x9e, 0x6d, 0xfa, 0x2a, 0x8b, 0xe0, 0xad, 0x26}}
 
 // CreateInstanceWithOwner dispatches through IMenuFlyoutPresenterAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.MenuFlyoutPresenterAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.MenuFlyoutPresenter is projected as IInspectable (the class is not emitted this wave).
-func (self *IMenuFlyoutPresenterAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IMenuFlyoutPresenterAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IMenuFlyoutPresenter, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IMenuFlyoutPresenterAutomationPeer, error) {
+	result := new(*IMenuFlyoutPresenterAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2623,10 +2510,8 @@ type INavigationViewItemAutomationPeerFactory struct {
 var IID_INavigationViewItemAutomationPeerFactory = win32.GUID{Data1: 0x0bc2835d, Data2: 0xaa38, Data3: 0x4f97, Data4: [8]byte{0x96, 0x64, 0xe6, 0xfc, 0x82, 0x1d, 0x81, 0xed}}
 
 // CreateInstanceWithOwner dispatches through INavigationViewItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.NavigationViewItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.NavigationViewItem is projected as IInspectable (the class is not emitted this wave).
-func (self *INavigationViewItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *INavigationViewItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.INavigationViewItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*INavigationViewItemAutomationPeer, error) {
+	result := new(*INavigationViewItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2652,10 +2537,8 @@ type IPasswordBoxAutomationPeerFactory struct {
 var IID_IPasswordBoxAutomationPeerFactory = win32.GUID{Data1: 0xac3d7ede, Data2: 0xdca4, Data3: 0x481c, Data4: [8]byte{0xb5, 0x20, 0x4a, 0x9b, 0x3f, 0x3b, 0x17, 0x9c}}
 
 // CreateInstanceWithOwner dispatches through IPasswordBoxAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.PasswordBoxAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.PasswordBox is projected as IInspectable (the class is not emitted this wave).
-func (self *IPasswordBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPasswordBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IPasswordBox, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IPasswordBoxAutomationPeer, error) {
+	result := new(*IPasswordBoxAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2681,10 +2564,8 @@ type IPersonPictureAutomationPeerFactory struct {
 var IID_IPersonPictureAutomationPeerFactory = win32.GUID{Data1: 0xa95f1f6d, Data2: 0x2524, Data3: 0x44a4, Data4: [8]byte{0x97, 0xfd, 0x11, 0x81, 0x13, 0x01, 0x00, 0xad}}
 
 // CreateInstanceWithOwner dispatches through IPersonPictureAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.PersonPictureAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.PersonPicture is projected as IInspectable (the class is not emitted this wave).
-func (self *IPersonPictureAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPersonPictureAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IPersonPicture, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IPersonPictureAutomationPeer, error) {
+	result := new(*IPersonPictureAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2720,10 +2601,8 @@ type IPivotAutomationPeerFactory struct {
 var IID_IPivotAutomationPeerFactory = win32.GUID{Data1: 0x3efe0f94, Data2: 0x0c91, Data3: 0x4341, Data4: [8]byte{0xb9, 0xac, 0x1b, 0x56, 0xb4, 0xe6, 0xb8, 0x4f}}
 
 // CreateInstanceWithOwner dispatches through IPivotAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.PivotAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Pivot is projected as IInspectable (the class is not emitted this wave).
-func (self *IPivotAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPivotAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IPivot) (*IPivotAutomationPeer, error) {
+	result := new(*IPivotAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2749,10 +2628,8 @@ type IPivotItemAutomationPeerFactory struct {
 var IID_IPivotItemAutomationPeerFactory = win32.GUID{Data1: 0xf2810471, Data2: 0x183f, Data3: 0x416b, Data4: [8]byte{0xb4, 0x1a, 0x1e, 0x5a, 0x95, 0x8a, 0x91, 0xf4}}
 
 // CreateInstanceWithOwner dispatches through IPivotItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.PivotItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.PivotItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IPivotItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPivotItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IPivotItem) (*IPivotItemAutomationPeer, error) {
+	result := new(*IPivotItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2778,10 +2655,8 @@ type IPivotItemDataAutomationPeerFactory struct {
 var IID_IPivotItemDataAutomationPeerFactory = win32.GUID{Data1: 0x517a2480, Data2: 0xd3b6, Data3: 0x412e, Data4: [8]byte{0x82, 0xb6, 0x94, 0xa0, 0xa8, 0x4c, 0x13, 0xb0}}
 
 // CreateInstanceWithParentAndItem dispatches through IPivotItemDataAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.PivotItemDataAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter parent's class Windows.UI.Xaml.Automation.Peers.PivotAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *IPivotItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPivotItemDataAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *IPivotAutomationPeer) (*IPivotItemDataAutomationPeer, error) {
+	result := new(*IPivotItemDataAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(item)), uintptr(unsafe.Pointer(parent)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2807,10 +2682,8 @@ type IProgressBarAutomationPeerFactory struct {
 var IID_IProgressBarAutomationPeerFactory = win32.GUID{Data1: 0x364679ab, Data2: 0xb80f, Data3: 0x41b4, Data4: [8]byte{0x8e, 0xea, 0x2f, 0x52, 0x51, 0xbc, 0x73, 0x9c}}
 
 // CreateInstanceWithOwner dispatches through IProgressBarAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ProgressBarAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ProgressBar is projected as IInspectable (the class is not emitted this wave).
-func (self *IProgressBarAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IProgressBarAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IProgressBar, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IProgressBarAutomationPeer, error) {
+	result := new(*IProgressBarAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2836,10 +2709,8 @@ type IProgressRingAutomationPeerFactory struct {
 var IID_IProgressRingAutomationPeerFactory = win32.GUID{Data1: 0xf3db204b, Data2: 0x157e, Data3: 0x40bc, Data4: [8]byte{0x95, 0x93, 0x55, 0xbc, 0x5c, 0x71, 0xa4, 0xf6}}
 
 // CreateInstanceWithOwner dispatches through IProgressRingAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ProgressRingAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ProgressRing is projected as IInspectable (the class is not emitted this wave).
-func (self *IProgressRingAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IProgressRingAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IProgressRing, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IProgressRingAutomationPeer, error) {
+	result := new(*IProgressRingAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2865,10 +2736,8 @@ type IRadioButtonAutomationPeerFactory struct {
 var IID_IRadioButtonAutomationPeerFactory = win32.GUID{Data1: 0x4940c4fd, Data2: 0x3d88, Data3: 0x49ca, Data4: [8]byte{0x8f, 0x31, 0x92, 0x41, 0x87, 0xaf, 0x0b, 0xfe}}
 
 // CreateInstanceWithOwner dispatches through IRadioButtonAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.RadioButtonAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.RadioButton is projected as IInspectable (the class is not emitted this wave).
-func (self *IRadioButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IRadioButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IRadioButton, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IRadioButtonAutomationPeer, error) {
+	result := new(*IRadioButtonAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2894,10 +2763,8 @@ type IRangeBaseAutomationPeerFactory struct {
 var IID_IRangeBaseAutomationPeerFactory = win32.GUID{Data1: 0x827c7601, Data2: 0x3078, Data3: 0x4479, Data4: [8]byte{0x95, 0xea, 0x91, 0x37, 0x4c, 0xa0, 0x62, 0x07}}
 
 // CreateInstanceWithOwner dispatches through IRangeBaseAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.RangeBaseAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Primitives.RangeBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IRangeBaseAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IRangeBaseAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrolsprimitives.IRangeBase, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IRangeBaseAutomationPeer, error) {
+	result := new(*IRangeBaseAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2923,10 +2790,8 @@ type IRatingControlAutomationPeerFactory struct {
 var IID_IRatingControlAutomationPeerFactory = win32.GUID{Data1: 0xf179f272, Data2: 0x9846, Data3: 0x4632, Data4: [8]byte{0x8b, 0x9c, 0xbe, 0x6f, 0xa8, 0xd3, 0xc9, 0xbb}}
 
 // CreateInstanceWithOwner dispatches through IRatingControlAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.RatingControlAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.RatingControl is projected as IInspectable (the class is not emitted this wave).
-func (self *IRatingControlAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IRatingControlAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IRatingControl, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IRatingControlAutomationPeer, error) {
+	result := new(*IRatingControlAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2952,10 +2817,8 @@ type IRepeatButtonAutomationPeerFactory struct {
 var IID_IRepeatButtonAutomationPeerFactory = win32.GUID{Data1: 0x6a6ff9d4, Data2: 0x575e, Data3: 0x4e60, Data4: [8]byte{0xbd, 0xd6, 0xec, 0x14, 0x41, 0x9b, 0x4f, 0xf6}}
 
 // CreateInstanceWithOwner dispatches through IRepeatButtonAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.RepeatButtonAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Primitives.RepeatButton is projected as IInspectable (the class is not emitted this wave).
-func (self *IRepeatButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IRepeatButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrolsprimitives.IRepeatButton, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IRepeatButtonAutomationPeer, error) {
+	result := new(*IRepeatButtonAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2981,10 +2844,8 @@ type IRichEditBoxAutomationPeerFactory struct {
 var IID_IRichEditBoxAutomationPeerFactory = win32.GUID{Data1: 0x752c8399, Data2: 0xd296, Data3: 0x4d87, Data4: [8]byte{0x90, 0x20, 0xa4, 0x75, 0x0e, 0x88, 0x5b, 0x3c}}
 
 // CreateInstanceWithOwner dispatches through IRichEditBoxAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.RichEditBoxAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.RichEditBox is projected as IInspectable (the class is not emitted this wave).
-func (self *IRichEditBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IRichEditBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IRichEditBox, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IRichEditBoxAutomationPeer, error) {
+	result := new(*IRichEditBoxAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3010,10 +2871,8 @@ type IRichTextBlockAutomationPeerFactory struct {
 var IID_IRichTextBlockAutomationPeerFactory = win32.GUID{Data1: 0x2038ae61, Data2: 0x1389, Data3: 0x467a, Data4: [8]byte{0xae, 0xd6, 0x37, 0x33, 0x4d, 0xa9, 0x62, 0x2b}}
 
 // CreateInstanceWithOwner dispatches through IRichTextBlockAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.RichTextBlockAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.RichTextBlock is projected as IInspectable (the class is not emitted this wave).
-func (self *IRichTextBlockAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IRichTextBlockAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IRichTextBlock, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IRichTextBlockAutomationPeer, error) {
+	result := new(*IRichTextBlockAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3039,10 +2898,8 @@ type IRichTextBlockOverflowAutomationPeerFactory struct {
 var IID_IRichTextBlockOverflowAutomationPeerFactory = win32.GUID{Data1: 0xbd5eb663, Data2: 0x2c14, Data3: 0x4665, Data4: [8]byte{0xad, 0xef, 0xf2, 0xb0, 0x33, 0x94, 0x7b, 0xeb}}
 
 // CreateInstanceWithOwner dispatches through IRichTextBlockOverflowAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.RichTextBlockOverflowAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.RichTextBlockOverflow is projected as IInspectable (the class is not emitted this wave).
-func (self *IRichTextBlockOverflowAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IRichTextBlockOverflowAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IRichTextBlockOverflow, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IRichTextBlockOverflowAutomationPeer, error) {
+	result := new(*IRichTextBlockOverflowAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3068,10 +2925,8 @@ type IScrollBarAutomationPeerFactory struct {
 var IID_IScrollBarAutomationPeerFactory = win32.GUID{Data1: 0xe1302110, Data2: 0xafeb, Data3: 0x4595, Data4: [8]byte{0x8e, 0x3d, 0xed, 0xc0, 0x84, 0x4a, 0x2b, 0x21}}
 
 // CreateInstanceWithOwner dispatches through IScrollBarAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ScrollBarAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Primitives.ScrollBar is projected as IInspectable (the class is not emitted this wave).
-func (self *IScrollBarAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IScrollBarAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrolsprimitives.IScrollBar, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IScrollBarAutomationPeer, error) {
+	result := new(*IScrollBarAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3097,10 +2952,8 @@ type IScrollViewerAutomationPeerFactory struct {
 var IID_IScrollViewerAutomationPeerFactory = win32.GUID{Data1: 0x270dff7d, Data2: 0xd96d, Data3: 0x48f9, Data4: [8]byte{0xa3, 0x6a, 0xc2, 0x52, 0xaa, 0x9c, 0x46, 0x70}}
 
 // CreateInstanceWithOwner dispatches through IScrollViewerAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ScrollViewerAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ScrollViewer is projected as IInspectable (the class is not emitted this wave).
-func (self *IScrollViewerAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IScrollViewerAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IScrollViewer, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IScrollViewerAutomationPeer, error) {
+	result := new(*IScrollViewerAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3126,10 +2979,8 @@ type ISearchBoxAutomationPeerFactory struct {
 var IID_ISearchBoxAutomationPeerFactory = win32.GUID{Data1: 0xb3c01430, Data2: 0x7faa, Data3: 0x41bb, Data4: [8]byte{0x8e, 0x91, 0x7c, 0x76, 0x1c, 0x52, 0x67, 0xf1}}
 
 // CreateInstanceWithOwner dispatches through ISearchBoxAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.SearchBoxAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.SearchBox is projected as IInspectable (the class is not emitted this wave).
-func (self *ISearchBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISearchBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ISearchBox, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ISearchBoxAutomationPeer, error) {
+	result := new(*ISearchBoxAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3155,10 +3006,8 @@ type ISelectorAutomationPeerFactory struct {
 var IID_ISelectorAutomationPeerFactory = win32.GUID{Data1: 0x7b525646, Data2: 0x829b, Data3: 0x4dcc, Data4: [8]byte{0xbd, 0x52, 0x5a, 0x8d, 0x03, 0x99, 0x38, 0x7a}}
 
 // CreateInstanceWithOwner dispatches through ISelectorAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.SelectorAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Primitives.Selector is projected as IInspectable (the class is not emitted this wave).
-func (self *ISelectorAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISelectorAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrolsprimitives.ISelector, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ISelectorAutomationPeer, error) {
+	result := new(*ISelectorAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3184,10 +3033,8 @@ type ISelectorItemAutomationPeerFactory struct {
 var IID_ISelectorItemAutomationPeerFactory = win32.GUID{Data1: 0x66d7edfb, Data2: 0x786d, Data3: 0x4362, Data4: [8]byte{0xa9, 0x64, 0xeb, 0xfb, 0x21, 0x77, 0x6c, 0x30}}
 
 // CreateInstanceWithParentAndItem dispatches through ISelectorItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.SelectorItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter parent's class Windows.UI.Xaml.Automation.Peers.SelectorAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-func (self *ISelectorItemAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISelectorItemAutomationPeerFactory) CreateInstanceWithParentAndItem(item *syswinrt.IInspectable, parent *ISelectorAutomationPeer, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ISelectorItemAutomationPeer, error) {
+	result := new(*ISelectorItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(item)), uintptr(unsafe.Pointer(parent)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3213,10 +3060,8 @@ type ISemanticZoomAutomationPeerFactory struct {
 var IID_ISemanticZoomAutomationPeerFactory = win32.GUID{Data1: 0xf518d44d, Data2: 0xa493, Data3: 0x4496, Data4: [8]byte{0xb0, 0x77, 0x96, 0x74, 0xc7, 0xf4, 0xc5, 0xfa}}
 
 // CreateInstanceWithOwner dispatches through ISemanticZoomAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.SemanticZoomAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.SemanticZoom is projected as IInspectable (the class is not emitted this wave).
-func (self *ISemanticZoomAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISemanticZoomAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ISemanticZoom, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ISemanticZoomAutomationPeer, error) {
+	result := new(*ISemanticZoomAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3242,10 +3087,8 @@ type ISettingsFlyoutAutomationPeerFactory struct {
 var IID_ISettingsFlyoutAutomationPeerFactory = win32.GUID{Data1: 0xf94762bd, Data2: 0x8a14, Data3: 0x40e4, Data4: [8]byte{0x94, 0xa7, 0x3f, 0x33, 0xc9, 0x22, 0xe9, 0x45}}
 
 // CreateInstanceWithOwner dispatches through ISettingsFlyoutAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.SettingsFlyoutAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.SettingsFlyout is projected as IInspectable (the class is not emitted this wave).
-func (self *ISettingsFlyoutAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISettingsFlyoutAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ISettingsFlyout, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ISettingsFlyoutAutomationPeer, error) {
+	result := new(*ISettingsFlyoutAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3271,10 +3114,8 @@ type ISliderAutomationPeerFactory struct {
 var IID_ISliderAutomationPeerFactory = win32.GUID{Data1: 0x971b8056, Data2: 0x9a7a, Data3: 0x4df9, Data4: [8]byte{0x95, 0xfa, 0x6f, 0x5c, 0x04, 0xc9, 0x1c, 0xac}}
 
 // CreateInstanceWithOwner dispatches through ISliderAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.SliderAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Slider is projected as IInspectable (the class is not emitted this wave).
-func (self *ISliderAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISliderAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ISlider, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ISliderAutomationPeer, error) {
+	result := new(*ISliderAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3300,10 +3141,8 @@ type ITextBlockAutomationPeerFactory struct {
 var IID_ITextBlockAutomationPeerFactory = win32.GUID{Data1: 0x76bf924b, Data2: 0x7ca0, Data3: 0x4b01, Data4: [8]byte{0xbc, 0x5c, 0xa8, 0xcf, 0x4d, 0x36, 0x91, 0xde}}
 
 // CreateInstanceWithOwner dispatches through ITextBlockAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.TextBlockAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.TextBlock is projected as IInspectable (the class is not emitted this wave).
-func (self *ITextBlockAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ITextBlockAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ITextBlock, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ITextBlockAutomationPeer, error) {
+	result := new(*ITextBlockAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3329,10 +3168,8 @@ type ITextBoxAutomationPeerFactory struct {
 var IID_ITextBoxAutomationPeerFactory = win32.GUID{Data1: 0x01f0c067, Data2: 0x966b, Data3: 0x4130, Data4: [8]byte{0xb8, 0x72, 0x46, 0x9e, 0x42, 0xbd, 0x4a, 0x7f}}
 
 // CreateInstanceWithOwner dispatches through ITextBoxAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.TextBoxAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.TextBox is projected as IInspectable (the class is not emitted this wave).
-func (self *ITextBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ITextBoxAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ITextBox, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ITextBoxAutomationPeer, error) {
+	result := new(*ITextBoxAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3358,10 +3195,8 @@ type IThumbAutomationPeerFactory struct {
 var IID_IThumbAutomationPeerFactory = win32.GUID{Data1: 0x970743ff, Data2: 0xaf41, Data3: 0x4600, Data4: [8]byte{0xb5, 0x5d, 0x26, 0xd4, 0x3d, 0xf8, 0x60, 0xe1}}
 
 // CreateInstanceWithOwner dispatches through IThumbAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ThumbAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Primitives.Thumb is projected as IInspectable (the class is not emitted this wave).
-func (self *IThumbAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IThumbAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrolsprimitives.IThumb, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IThumbAutomationPeer, error) {
+	result := new(*IThumbAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3387,10 +3222,8 @@ type ITimePickerAutomationPeerFactory struct {
 var IID_ITimePickerAutomationPeerFactory = win32.GUID{Data1: 0x978f6671, Data2: 0x47f8, Data3: 0x40a7, Data4: [8]byte{0x9e, 0x21, 0x68, 0x12, 0x8b, 0x16, 0xb4, 0xfd}}
 
 // CreateInstanceWithOwner dispatches through ITimePickerAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.TimePickerAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.TimePicker is projected as IInspectable (the class is not emitted this wave).
-func (self *ITimePickerAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ITimePickerAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ITimePicker, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ITimePickerAutomationPeer, error) {
+	result := new(*ITimePickerAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3426,10 +3259,8 @@ type IToggleButtonAutomationPeerFactory struct {
 var IID_IToggleButtonAutomationPeerFactory = win32.GUID{Data1: 0xc9218cc4, Data2: 0xad4b, Data3: 0x4d03, Data4: [8]byte{0xa6, 0xa4, 0x7d, 0x59, 0xe6, 0x36, 0x00, 0x04}}
 
 // CreateInstanceWithOwner dispatches through IToggleButtonAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ToggleButtonAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.Primitives.ToggleButton is projected as IInspectable (the class is not emitted this wave).
-func (self *IToggleButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IToggleButtonAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrolsprimitives.IToggleButton, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IToggleButtonAutomationPeer, error) {
+	result := new(*IToggleButtonAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3455,10 +3286,8 @@ type IToggleMenuFlyoutItemAutomationPeerFactory struct {
 var IID_IToggleMenuFlyoutItemAutomationPeerFactory = win32.GUID{Data1: 0x94364b77, Data2: 0x8f6c, Data3: 0x4837, Data4: [8]byte{0xaa, 0xe3, 0x94, 0xd0, 0x10, 0xd8, 0xd1, 0x62}}
 
 // CreateInstanceWithOwner dispatches through IToggleMenuFlyoutItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ToggleMenuFlyoutItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ToggleMenuFlyoutItem is projected as IInspectable (the class is not emitted this wave).
-func (self *IToggleMenuFlyoutItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IToggleMenuFlyoutItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IToggleMenuFlyoutItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IToggleMenuFlyoutItemAutomationPeer, error) {
+	result := new(*IToggleMenuFlyoutItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3484,10 +3313,8 @@ type IToggleSwitchAutomationPeerFactory struct {
 var IID_IToggleSwitchAutomationPeerFactory = win32.GUID{Data1: 0x31f933e3, Data2: 0xfef8, Data3: 0x4419, Data4: [8]byte{0x9d, 0xf5, 0xd9, 0xef, 0x71, 0x96, 0xea, 0x34}}
 
 // CreateInstanceWithOwner dispatches through IToggleSwitchAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.ToggleSwitchAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.ToggleSwitch is projected as IInspectable (the class is not emitted this wave).
-func (self *IToggleSwitchAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IToggleSwitchAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.IToggleSwitch, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IToggleSwitchAutomationPeer, error) {
+	result := new(*IToggleSwitchAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3513,10 +3340,8 @@ type ITreeViewItemAutomationPeerFactory struct {
 var IID_ITreeViewItemAutomationPeerFactory = win32.GUID{Data1: 0x73d388bf, Data2: 0x1d01, Data3: 0x4159, Data4: [8]byte{0x82, 0xc0, 0x2b, 0x29, 0x96, 0xdb, 0xfd, 0xce}}
 
 // CreateInstanceWithOwner dispatches through ITreeViewItemAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.TreeViewItemAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.TreeViewItem is projected as IInspectable (the class is not emitted this wave).
-func (self *ITreeViewItemAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ITreeViewItemAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ITreeViewItem, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ITreeViewItemAutomationPeer, error) {
+	result := new(*ITreeViewItemAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3542,10 +3367,8 @@ type ITreeViewListAutomationPeerFactory struct {
 var IID_ITreeViewListAutomationPeerFactory = win32.GUID{Data1: 0x00f597e2, Data2: 0xf811, Data3: 0x475a, Data4: [8]byte{0xbf, 0xe6, 0x29, 0x0f, 0xe7, 0x07, 0xfa, 0x88}}
 
 // CreateInstanceWithOwner dispatches through ITreeViewListAutomationPeerFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Peers.TreeViewListAutomationPeer is projected as IInspectable (the class is not emitted this wave).
-// Parameter owner's class Windows.UI.Xaml.Controls.TreeViewList is projected as IInspectable (the class is not emitted this wave).
-func (self *ITreeViewListAutomationPeerFactory) CreateInstanceWithOwner(owner *syswinrt.IInspectable, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ITreeViewListAutomationPeerFactory) CreateInstanceWithOwner(owner *uixamlcontrols.ITreeViewList, baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ITreeViewListAutomationPeer, error) {
+	result := new(*ITreeViewListAutomationPeer)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(owner)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

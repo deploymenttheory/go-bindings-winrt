@@ -99,6 +99,57 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUnsupportedAppRequirement is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.System.Profile.UnsupportedAppRequirement>.
+// IID: bd9ded1d-0379-5143-a490-168b6b8413a3
+type IIterableOfUnsupportedAppRequirement struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUnsupportedAppRequirement is the interface identifier for IIterableOfUnsupportedAppRequirement.
+var IID_IIterableOfUnsupportedAppRequirement = win32.GUID{Data1: 0xbd9ded1d, Data2: 0x0379, Data3: 0x5143, Data4: [8]byte{0xa4, 0x90, 0x16, 0x8b, 0x6b, 0x84, 0x13, 0xa3}}
+
+// First dispatches through IIterableOfUnsupportedAppRequirement's vtable slot 6.
+func (self *IIterableOfUnsupportedAppRequirement) First() (*IIteratorOfUnsupportedAppRequirement, error) {
+	result := new(*IIteratorOfUnsupportedAppRequirement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUnsupportedAppRequirement creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.System.Profile.UnsupportedAppRequirement>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUnsupportedAppRequirement(items []*IUnsupportedAppRequirement) *IIterableOfUnsupportedAppRequirement {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.System.Profile.UnsupportedAppRequirement>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUnsupportedAppRequirement, Iterator: IID_IIteratorOfUnsupportedAppRequirement}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUnsupportedAppRequirement)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
 // IID: 8c304ebb-6615-50a4-8829-879ecd443236
 type IIteratorOfString struct {
@@ -127,6 +178,38 @@ func (self *IIteratorOfString) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfString's vtable slot 8.
 func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUnsupportedAppRequirement is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.System.Profile.UnsupportedAppRequirement>.
+// IID: 10956160-6437-5430-9322-df0d6ab2ebe6
+type IIteratorOfUnsupportedAppRequirement struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUnsupportedAppRequirement is the interface identifier for IIteratorOfUnsupportedAppRequirement.
+var IID_IIteratorOfUnsupportedAppRequirement = win32.GUID{Data1: 0x10956160, Data2: 0x6437, Data3: 0x5430, Data4: [8]byte{0x93, 0x22, 0xdf, 0x0d, 0x6a, 0xb2, 0xeb, 0xe6}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUnsupportedAppRequirement's vtable slot 6.
+func (self *IIteratorOfUnsupportedAppRequirement) Current() (*IUnsupportedAppRequirement, error) {
+	result := new(*IUnsupportedAppRequirement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUnsupportedAppRequirement's vtable slot 7.
+func (self *IIteratorOfUnsupportedAppRequirement) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUnsupportedAppRequirement's vtable slot 8.
+func (self *IIteratorOfUnsupportedAppRequirement) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -216,3 +299,22 @@ func (self *IVectorViewOfUnsupportedAppRequirement) IndexOf(value *IUnsupportedA
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUnsupportedAppRequirement creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.System.Profile.UnsupportedAppRequirement>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUnsupportedAppRequirement(items []*IUnsupportedAppRequirement) *IVectorViewOfUnsupportedAppRequirement {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.System.Profile.UnsupportedAppRequirement>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUnsupportedAppRequirement, Iterator: IID_IIteratorOfUnsupportedAppRequirement, VectorView: IID_IVectorViewOfUnsupportedAppRequirement}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUnsupportedAppRequirement)(unsafe.Pointer(obj))
+}

@@ -11,6 +11,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/system"
 )
 
@@ -56,6 +57,179 @@ func (self *IAsyncOperationWithProgressOfDiagnosticActionResultAndDiagnosticActi
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfDiagnosticActionResultAndDiagnosticActionState reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfDiagnosticActionResultAndDiagnosticActionState) Await() (*IDiagnosticActionResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfDiagnosticActionResultAndDiagnosticActionState(func(_ *IAsyncOperationWithProgressOfDiagnosticActionResultAndDiagnosticActionState, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
+// IIterableOfAppDiagnosticInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.System.AppDiagnosticInfo>.
+// IID: 8118de8f-3ae3-55e1-80a8-25453cdba894
+type IIterableOfAppDiagnosticInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAppDiagnosticInfo is the interface identifier for IIterableOfAppDiagnosticInfo.
+var IID_IIterableOfAppDiagnosticInfo = win32.GUID{Data1: 0x8118de8f, Data2: 0x3ae3, Data3: 0x55e1, Data4: [8]byte{0x80, 0xa8, 0x25, 0x45, 0x3c, 0xdb, 0xa8, 0x94}}
+
+// First dispatches through IIterableOfAppDiagnosticInfo's vtable slot 6.
+func (self *IIterableOfAppDiagnosticInfo) First() (*IIteratorOfAppDiagnosticInfo, error) {
+	result := new(*IIteratorOfAppDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAppDiagnosticInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.System.AppDiagnosticInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAppDiagnosticInfo(items []*system.IAppDiagnosticInfo) *IIterableOfAppDiagnosticInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.System.AppDiagnosticInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppDiagnosticInfo, Iterator: IID_IIteratorOfAppDiagnosticInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAppDiagnosticInfo)(unsafe.Pointer(obj))
+}
+
+// IIterableOfProcessDiagnosticInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.System.Diagnostics.ProcessDiagnosticInfo>.
+// IID: 97b73627-b296-5076-b8cd-6bd8a240e966
+type IIterableOfProcessDiagnosticInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfProcessDiagnosticInfo is the interface identifier for IIterableOfProcessDiagnosticInfo.
+var IID_IIterableOfProcessDiagnosticInfo = win32.GUID{Data1: 0x97b73627, Data2: 0xb296, Data3: 0x5076, Data4: [8]byte{0xb8, 0xcd, 0x6b, 0xd8, 0xa2, 0x40, 0xe9, 0x66}}
+
+// First dispatches through IIterableOfProcessDiagnosticInfo's vtable slot 6.
+func (self *IIterableOfProcessDiagnosticInfo) First() (*IIteratorOfProcessDiagnosticInfo, error) {
+	result := new(*IIteratorOfProcessDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfProcessDiagnosticInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.System.Diagnostics.ProcessDiagnosticInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfProcessDiagnosticInfo(items []*IProcessDiagnosticInfo) *IIterableOfProcessDiagnosticInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.System.Diagnostics.ProcessDiagnosticInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfProcessDiagnosticInfo, Iterator: IID_IIteratorOfProcessDiagnosticInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfProcessDiagnosticInfo)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfAppDiagnosticInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.System.AppDiagnosticInfo>.
+// IID: 183f1e4a-2224-5fe4-b064-68869c53e361
+type IIteratorOfAppDiagnosticInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAppDiagnosticInfo is the interface identifier for IIteratorOfAppDiagnosticInfo.
+var IID_IIteratorOfAppDiagnosticInfo = win32.GUID{Data1: 0x183f1e4a, Data2: 0x2224, Data3: 0x5fe4, Data4: [8]byte{0xb0, 0x64, 0x68, 0x86, 0x9c, 0x53, 0xe3, 0x61}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAppDiagnosticInfo's vtable slot 6.
+func (self *IIteratorOfAppDiagnosticInfo) Current() (*system.IAppDiagnosticInfo, error) {
+	result := new(*system.IAppDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAppDiagnosticInfo's vtable slot 7.
+func (self *IIteratorOfAppDiagnosticInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAppDiagnosticInfo's vtable slot 8.
+func (self *IIteratorOfAppDiagnosticInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfProcessDiagnosticInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.System.Diagnostics.ProcessDiagnosticInfo>.
+// IID: a89b4418-4c3b-5f49-b957-785697c99abf
+type IIteratorOfProcessDiagnosticInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfProcessDiagnosticInfo is the interface identifier for IIteratorOfProcessDiagnosticInfo.
+var IID_IIteratorOfProcessDiagnosticInfo = win32.GUID{Data1: 0xa89b4418, Data2: 0x4c3b, Data3: 0x5f49, Data4: [8]byte{0xb9, 0x57, 0x78, 0x56, 0x97, 0xc9, 0x9a, 0xbf}}
+
+// Current (propget get_Current) dispatches through IIteratorOfProcessDiagnosticInfo's vtable slot 6.
+func (self *IIteratorOfProcessDiagnosticInfo) Current() (*IProcessDiagnosticInfo, error) {
+	result := new(*IProcessDiagnosticInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfProcessDiagnosticInfo's vtable slot 7.
+func (self *IIteratorOfProcessDiagnosticInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfProcessDiagnosticInfo's vtable slot 8.
+func (self *IIteratorOfProcessDiagnosticInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IVectorOfAppDiagnosticInfo is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.System.AppDiagnosticInfo>.
 // IID: 9cffa2c3-7eeb-599c-b94d-c794b11f807f
@@ -135,6 +309,28 @@ func (self *IVectorOfAppDiagnosticInfo) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfAppDiagnosticInfo creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.System.AppDiagnosticInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfAppDiagnosticInfo(items []*system.IAppDiagnosticInfo) *IVectorOfAppDiagnosticInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.System.AppDiagnosticInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppDiagnosticInfo, Iterator: IID_IIteratorOfAppDiagnosticInfo, VectorView: IID_IVectorViewOfAppDiagnosticInfo, Vector: IID_IVectorOfAppDiagnosticInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorOfAppDiagnosticInfo)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfAppDiagnosticInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.System.AppDiagnosticInfo>.
 // IID: b0c2c7a4-78ba-50fd-84fe-00e02a6c1d42
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.System.AppDiagnosticInfo>.
@@ -168,6 +364,25 @@ func (self *IVectorViewOfAppDiagnosticInfo) IndexOf(value *system.IAppDiagnostic
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfAppDiagnosticInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.System.AppDiagnosticInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAppDiagnosticInfo(items []*system.IAppDiagnosticInfo) *IVectorViewOfAppDiagnosticInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.System.AppDiagnosticInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAppDiagnosticInfo, Iterator: IID_IIteratorOfAppDiagnosticInfo, VectorView: IID_IVectorViewOfAppDiagnosticInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAppDiagnosticInfo)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfProcessDiagnosticInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.System.Diagnostics.ProcessDiagnosticInfo>.
 // IID: 74ab2473-9624-5a06-9025-6d91e622bf8e
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.System.Diagnostics.ProcessDiagnosticInfo>.
@@ -200,3 +415,22 @@ func (self *IVectorViewOfProcessDiagnosticInfo) IndexOf(value *IProcessDiagnosti
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfProcessDiagnosticInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.System.Diagnostics.ProcessDiagnosticInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfProcessDiagnosticInfo(items []*IProcessDiagnosticInfo) *IVectorViewOfProcessDiagnosticInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.System.Diagnostics.ProcessDiagnosticInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfProcessDiagnosticInfo, Iterator: IID_IIteratorOfProcessDiagnosticInfo, VectorView: IID_IVectorViewOfProcessDiagnosticInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfProcessDiagnosticInfo)(unsafe.Pointer(obj))
+}

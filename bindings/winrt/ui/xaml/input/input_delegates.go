@@ -134,10 +134,9 @@ var IID_EventHandlerOfGettingFocusEventArgs = win32.GUID{Data1: 0x2efa05aa, Data
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter args's class Windows.UI.Xaml.Input.GettingFocusEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewEventHandlerOfGettingFocusEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*EventHandlerOfGettingFocusEventArgs, error) {
+func NewEventHandlerOfGettingFocusEventArgs(fn func(sender *syswinrt.IInspectable, args *IGettingFocusEventArgs)) (*EventHandlerOfGettingFocusEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_EventHandlerOfGettingFocusEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IGettingFocusEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -170,10 +169,9 @@ var IID_EventHandlerOfLosingFocusEventArgs = win32.GUID{Data1: 0xb17a4f5f, Data2
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter args's class Windows.UI.Xaml.Input.LosingFocusEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewEventHandlerOfLosingFocusEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*EventHandlerOfLosingFocusEventArgs, error) {
+func NewEventHandlerOfLosingFocusEventArgs(fn func(sender *syswinrt.IInspectable, args *ILosingFocusEventArgs)) (*EventHandlerOfLosingFocusEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_EventHandlerOfLosingFocusEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ILosingFocusEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -241,10 +239,9 @@ var IID_TypedEventHandlerOfKeyboardAcceleratorAndKeyboardAcceleratorInvokedEvent
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfKeyboardAcceleratorAndKeyboardAcceleratorInvokedEventArgs(fn func(sender *syswinrt.IInspectable, args *IKeyboardAcceleratorInvokedEventArgs)) (*TypedEventHandlerOfKeyboardAcceleratorAndKeyboardAcceleratorInvokedEventArgs, error) {
+func NewTypedEventHandlerOfKeyboardAcceleratorAndKeyboardAcceleratorInvokedEventArgs(fn func(sender *IKeyboardAccelerator, args *IKeyboardAcceleratorInvokedEventArgs)) (*TypedEventHandlerOfKeyboardAcceleratorAndKeyboardAcceleratorInvokedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfKeyboardAcceleratorAndKeyboardAcceleratorInvokedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IKeyboardAcceleratorInvokedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IKeyboardAccelerator)(unsafe.Pointer(raw[0])), (*IKeyboardAcceleratorInvokedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -316,10 +313,9 @@ var IID_TypedEventHandlerOfXamlUICommandAndCanExecuteRequestedEventArgs = win32.
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Input.XamlUICommand is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfXamlUICommandAndCanExecuteRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *ICanExecuteRequestedEventArgs)) (*TypedEventHandlerOfXamlUICommandAndCanExecuteRequestedEventArgs, error) {
+func NewTypedEventHandlerOfXamlUICommandAndCanExecuteRequestedEventArgs(fn func(sender *IXamlUICommand, args *ICanExecuteRequestedEventArgs)) (*TypedEventHandlerOfXamlUICommandAndCanExecuteRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfXamlUICommandAndCanExecuteRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ICanExecuteRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IXamlUICommand)(unsafe.Pointer(raw[0])), (*ICanExecuteRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -356,10 +352,9 @@ var IID_TypedEventHandlerOfXamlUICommandAndExecuteRequestedEventArgs = win32.GUI
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Input.XamlUICommand is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfXamlUICommandAndExecuteRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IExecuteRequestedEventArgs)) (*TypedEventHandlerOfXamlUICommandAndExecuteRequestedEventArgs, error) {
+func NewTypedEventHandlerOfXamlUICommandAndExecuteRequestedEventArgs(fn func(sender *IXamlUICommand, args *IExecuteRequestedEventArgs)) (*TypedEventHandlerOfXamlUICommandAndExecuteRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfXamlUICommandAndExecuteRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IExecuteRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IXamlUICommand)(unsafe.Pointer(raw[0])), (*IExecuteRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {

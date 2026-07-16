@@ -168,6 +168,60 @@ func (self *IIterableOfUserActivity) First() (*IIteratorOfUserActivity, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfUserActivity creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserActivities.UserActivity>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUserActivity(items []*IUserActivity) *IIterableOfUserActivity {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserActivities.UserActivity>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserActivity, Iterator: IID_IIteratorOfUserActivity}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUserActivity)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUserActivitySessionHistoryItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>.
+// IID: 29439e38-9cf0-51c7-a549-4469039caf79
+type IIterableOfUserActivitySessionHistoryItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUserActivitySessionHistoryItem is the interface identifier for IIterableOfUserActivitySessionHistoryItem.
+var IID_IIterableOfUserActivitySessionHistoryItem = win32.GUID{Data1: 0x29439e38, Data2: 0x9cf0, Data3: 0x51c7, Data4: [8]byte{0xa5, 0x49, 0x44, 0x69, 0x03, 0x9c, 0xaf, 0x79}}
+
+// First dispatches through IIterableOfUserActivitySessionHistoryItem's vtable slot 6.
+func (self *IIterableOfUserActivitySessionHistoryItem) First() (*IIteratorOfUserActivitySessionHistoryItem, error) {
+	result := new(*IIteratorOfUserActivitySessionHistoryItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUserActivitySessionHistoryItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUserActivitySessionHistoryItem(items []*IUserActivitySessionHistoryItem) *IIterableOfUserActivitySessionHistoryItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserActivitySessionHistoryItem, Iterator: IID_IIteratorOfUserActivitySessionHistoryItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUserActivitySessionHistoryItem)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfUserActivity is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.UserActivities.UserActivity>.
 // IID: 2ca0633b-0505-5f88-a98f-8e7c5b08f25b
 type IIteratorOfUserActivity struct {
@@ -193,6 +247,38 @@ func (self *IIteratorOfUserActivity) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfUserActivity's vtable slot 8.
 func (self *IIteratorOfUserActivity) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUserActivitySessionHistoryItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>.
+// IID: 88c0e720-7442-553a-86d7-43dfe7d21929
+type IIteratorOfUserActivitySessionHistoryItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUserActivitySessionHistoryItem is the interface identifier for IIteratorOfUserActivitySessionHistoryItem.
+var IID_IIteratorOfUserActivitySessionHistoryItem = win32.GUID{Data1: 0x88c0e720, Data2: 0x7442, Data3: 0x553a, Data4: [8]byte{0x86, 0xd7, 0x43, 0xdf, 0xe7, 0xd2, 0x19, 0x29}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUserActivitySessionHistoryItem's vtable slot 6.
+func (self *IIteratorOfUserActivitySessionHistoryItem) Current() (*IUserActivitySessionHistoryItem, error) {
+	result := new(*IUserActivitySessionHistoryItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUserActivitySessionHistoryItem's vtable slot 7.
+func (self *IIteratorOfUserActivitySessionHistoryItem) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUserActivitySessionHistoryItem's vtable slot 8.
+func (self *IIteratorOfUserActivitySessionHistoryItem) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -295,6 +381,28 @@ func (self *IVectorOfUserActivity) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfUserActivity creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.UserActivities.UserActivity>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfUserActivity(items []*IUserActivity) *IVectorOfUserActivity {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.UserActivities.UserActivity>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserActivity, Iterator: IID_IIteratorOfUserActivity, VectorView: IID_IVectorViewOfUserActivity, Vector: IID_IVectorOfUserActivity}, winrt.CodecInterface, boxed)
+	return (*IVectorOfUserActivity)(unsafe.Pointer(obj))
+}
+
 // IVectorOfUserActivitySessionHistoryItem is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>.
 // IID: 8765461c-2f90-586e-83ec-58b3e4309480
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>.
@@ -373,6 +481,28 @@ func (self *IVectorOfUserActivitySessionHistoryItem) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfUserActivitySessionHistoryItem creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfUserActivitySessionHistoryItem(items []*IUserActivitySessionHistoryItem) *IVectorOfUserActivitySessionHistoryItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserActivitySessionHistoryItem, Iterator: IID_IIteratorOfUserActivitySessionHistoryItem, VectorView: IID_IVectorViewOfUserActivitySessionHistoryItem, Vector: IID_IVectorOfUserActivitySessionHistoryItem}, winrt.CodecInterface, boxed)
+	return (*IVectorOfUserActivitySessionHistoryItem)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUserActivity is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserActivities.UserActivity>.
 // IID: 192a5116-61d6-5e18-8679-0af4f7090816
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserActivities.UserActivity>.
@@ -406,6 +536,25 @@ func (self *IVectorViewOfUserActivity) IndexOf(value *IUserActivity, index *uint
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfUserActivity creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserActivities.UserActivity>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUserActivity(items []*IUserActivity) *IVectorViewOfUserActivity {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserActivities.UserActivity>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserActivity, Iterator: IID_IIteratorOfUserActivity, VectorView: IID_IVectorViewOfUserActivity}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUserActivity)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUserActivitySessionHistoryItem is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>.
 // IID: 006a83c1-59ff-5870-8d8d-0583814af160
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>.
@@ -438,3 +587,22 @@ func (self *IVectorViewOfUserActivitySessionHistoryItem) IndexOf(value *IUserAct
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUserActivitySessionHistoryItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUserActivitySessionHistoryItem(items []*IUserActivitySessionHistoryItem) *IVectorViewOfUserActivitySessionHistoryItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserActivitySessionHistoryItem, Iterator: IID_IIteratorOfUserActivitySessionHistoryItem, VectorView: IID_IVectorViewOfUserActivitySessionHistoryItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUserActivitySessionHistoryItem)(unsafe.Pointer(obj))
+}

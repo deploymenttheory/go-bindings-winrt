@@ -1537,6 +1537,522 @@ func (self *IAsyncOperationOfUInt32) Await() (uint32, error) {
 	return self.GetResults()
 }
 
+// IIterableOfActivationSignalDetectionConfiguration is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration>.
+// IID: cb03ac8c-3a88-5c35-9872-00a466e49a12
+type IIterableOfActivationSignalDetectionConfiguration struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfActivationSignalDetectionConfiguration is the interface identifier for IIterableOfActivationSignalDetectionConfiguration.
+var IID_IIterableOfActivationSignalDetectionConfiguration = win32.GUID{Data1: 0xcb03ac8c, Data2: 0x3a88, Data3: 0x5c35, Data4: [8]byte{0x98, 0x72, 0x00, 0xa4, 0x66, 0xe4, 0x9a, 0x12}}
+
+// First dispatches through IIterableOfActivationSignalDetectionConfiguration's vtable slot 6.
+func (self *IIterableOfActivationSignalDetectionConfiguration) First() (*IIteratorOfActivationSignalDetectionConfiguration, error) {
+	result := new(*IIteratorOfActivationSignalDetectionConfiguration)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfActivationSignalDetectionConfiguration creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfActivationSignalDetectionConfiguration(items []*IActivationSignalDetectionConfiguration) *IIterableOfActivationSignalDetectionConfiguration {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivationSignalDetectionConfiguration, Iterator: IID_IIteratorOfActivationSignalDetectionConfiguration}, winrt.CodecInterface, boxed)
+	return (*IIterableOfActivationSignalDetectionConfiguration)(unsafe.Pointer(obj))
+}
+
+// IIterableOfActivationSignalDetectionTrainingDataFormat is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat>.
+// IID: 88b67e2c-ec3f-520c-ae65-bfe63272fadd
+type IIterableOfActivationSignalDetectionTrainingDataFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfActivationSignalDetectionTrainingDataFormat is the interface identifier for IIterableOfActivationSignalDetectionTrainingDataFormat.
+var IID_IIterableOfActivationSignalDetectionTrainingDataFormat = win32.GUID{Data1: 0x88b67e2c, Data2: 0xec3f, Data3: 0x520c, Data4: [8]byte{0xae, 0x65, 0xbf, 0xe6, 0x32, 0x72, 0xfa, 0xdd}}
+
+// First dispatches through IIterableOfActivationSignalDetectionTrainingDataFormat's vtable slot 6.
+func (self *IIterableOfActivationSignalDetectionTrainingDataFormat) First() (*IIteratorOfActivationSignalDetectionTrainingDataFormat, error) {
+	result := new(*IIteratorOfActivationSignalDetectionTrainingDataFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfActivationSignalDetectionTrainingDataFormat creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfActivationSignalDetectionTrainingDataFormat(items []ActivationSignalDetectionTrainingDataFormat) *IIterableOfActivationSignalDetectionTrainingDataFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivationSignalDetectionTrainingDataFormat, Iterator: IID_IIteratorOfActivationSignalDetectionTrainingDataFormat}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfActivationSignalDetectionTrainingDataFormat)(unsafe.Pointer(obj))
+}
+
+// IIterableOfActivationSignalDetector is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector>.
+// IID: e1f74a8f-38eb-58be-b770-78af5a4a6b2e
+type IIterableOfActivationSignalDetector struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfActivationSignalDetector is the interface identifier for IIterableOfActivationSignalDetector.
+var IID_IIterableOfActivationSignalDetector = win32.GUID{Data1: 0xe1f74a8f, Data2: 0x38eb, Data3: 0x58be, Data4: [8]byte{0xb7, 0x70, 0x78, 0xaf, 0x5a, 0x4a, 0x6b, 0x2e}}
+
+// First dispatches through IIterableOfActivationSignalDetector's vtable slot 6.
+func (self *IIterableOfActivationSignalDetector) First() (*IIteratorOfActivationSignalDetector, error) {
+	result := new(*IIteratorOfActivationSignalDetector)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfActivationSignalDetector creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfActivationSignalDetector(items []*IActivationSignalDetector) *IIterableOfActivationSignalDetector {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivationSignalDetector, Iterator: IID_IIteratorOfActivationSignalDetector}, winrt.CodecInterface, boxed)
+	return (*IIterableOfActivationSignalDetector)(unsafe.Pointer(obj))
+}
+
+// IIterableOfActivationSignalDetectorPowerState is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState>.
+// IID: b6860d48-cec5-5a00-8653-4c924a991575
+type IIterableOfActivationSignalDetectorPowerState struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfActivationSignalDetectorPowerState is the interface identifier for IIterableOfActivationSignalDetectorPowerState.
+var IID_IIterableOfActivationSignalDetectorPowerState = win32.GUID{Data1: 0xb6860d48, Data2: 0xcec5, Data3: 0x5a00, Data4: [8]byte{0x86, 0x53, 0x4c, 0x92, 0x4a, 0x99, 0x15, 0x75}}
+
+// First dispatches through IIterableOfActivationSignalDetectorPowerState's vtable slot 6.
+func (self *IIterableOfActivationSignalDetectorPowerState) First() (*IIteratorOfActivationSignalDetectorPowerState, error) {
+	result := new(*IIteratorOfActivationSignalDetectorPowerState)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfActivationSignalDetectorPowerState creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfActivationSignalDetectorPowerState(items []ActivationSignalDetectorPowerState) *IIterableOfActivationSignalDetectorPowerState {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivationSignalDetectorPowerState, Iterator: IID_IIteratorOfActivationSignalDetectorPowerState}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfActivationSignalDetectorPowerState)(unsafe.Pointer(obj))
+}
+
+// IIterableOfConversationalAgentVoiceActivationPrerequisiteKind is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind>.
+// IID: 4e9bb4c0-65ab-5049-9336-918b6d359071
+type IIterableOfConversationalAgentVoiceActivationPrerequisiteKind struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfConversationalAgentVoiceActivationPrerequisiteKind is the interface identifier for IIterableOfConversationalAgentVoiceActivationPrerequisiteKind.
+var IID_IIterableOfConversationalAgentVoiceActivationPrerequisiteKind = win32.GUID{Data1: 0x4e9bb4c0, Data2: 0x65ab, Data3: 0x5049, Data4: [8]byte{0x93, 0x36, 0x91, 0x8b, 0x6d, 0x35, 0x90, 0x71}}
+
+// First dispatches through IIterableOfConversationalAgentVoiceActivationPrerequisiteKind's vtable slot 6.
+func (self *IIterableOfConversationalAgentVoiceActivationPrerequisiteKind) First() (*IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind, error) {
+	result := new(*IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfConversationalAgentVoiceActivationPrerequisiteKind creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfConversationalAgentVoiceActivationPrerequisiteKind(items []ConversationalAgentVoiceActivationPrerequisiteKind) *IIterableOfConversationalAgentVoiceActivationPrerequisiteKind {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind>", winrt.CollectionIIDs{Iterable: IID_IIterableOfConversationalAgentVoiceActivationPrerequisiteKind, Iterator: IID_IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfConversationalAgentVoiceActivationPrerequisiteKind)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSignalDetectorResourceKind is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind>.
+// IID: 263e7b6e-5338-5871-9fdb-a27d9bc02e92
+type IIterableOfSignalDetectorResourceKind struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSignalDetectorResourceKind is the interface identifier for IIterableOfSignalDetectorResourceKind.
+var IID_IIterableOfSignalDetectorResourceKind = win32.GUID{Data1: 0x263e7b6e, Data2: 0x5338, Data3: 0x5871, Data4: [8]byte{0x9f, 0xdb, 0xa2, 0x7d, 0x9b, 0xc0, 0x2e, 0x92}}
+
+// First dispatches through IIterableOfSignalDetectorResourceKind's vtable slot 6.
+func (self *IIterableOfSignalDetectorResourceKind) First() (*IIteratorOfSignalDetectorResourceKind, error) {
+	result := new(*IIteratorOfSignalDetectorResourceKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSignalDetectorResourceKind creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfSignalDetectorResourceKind(items []SignalDetectorResourceKind) *IIterableOfSignalDetectorResourceKind {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSignalDetectorResourceKind, Iterator: IID_IIteratorOfSignalDetectorResourceKind}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfSignalDetectorResourceKind)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUInt32 is the WinRT interface Windows.Foundation.Collections.IIterable`1<UInt32>.
+// IID: 421d4b91-b13b-5f37-ae54-b5249bd80539
+type IIterableOfUInt32 struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUInt32 is the interface identifier for IIterableOfUInt32.
+var IID_IIterableOfUInt32 = win32.GUID{Data1: 0x421d4b91, Data2: 0xb13b, Data3: 0x5f37, Data4: [8]byte{0xae, 0x54, 0xb5, 0x24, 0x9b, 0xd8, 0x05, 0x39}}
+
+// First dispatches through IIterableOfUInt32's vtable slot 6.
+func (self *IIterableOfUInt32) First() (*IIteratorOfUInt32, error) {
+	result := new(*IIteratorOfUInt32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUInt32 creates a Go-implemented Windows.Foundation.Collections.IIterable`1<UInt32>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfUInt32(items []uint32) *IIterableOfUInt32 {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<UInt32>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUInt32, Iterator: IID_IIteratorOfUInt32}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfUInt32)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfActivationSignalDetectionConfiguration is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration>.
+// IID: 23e55a59-d7b5-5a4f-a51d-45d156776e3f
+type IIteratorOfActivationSignalDetectionConfiguration struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfActivationSignalDetectionConfiguration is the interface identifier for IIteratorOfActivationSignalDetectionConfiguration.
+var IID_IIteratorOfActivationSignalDetectionConfiguration = win32.GUID{Data1: 0x23e55a59, Data2: 0xd7b5, Data3: 0x5a4f, Data4: [8]byte{0xa5, 0x1d, 0x45, 0xd1, 0x56, 0x77, 0x6e, 0x3f}}
+
+// Current (propget get_Current) dispatches through IIteratorOfActivationSignalDetectionConfiguration's vtable slot 6.
+func (self *IIteratorOfActivationSignalDetectionConfiguration) Current() (*IActivationSignalDetectionConfiguration, error) {
+	result := new(*IActivationSignalDetectionConfiguration)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfActivationSignalDetectionConfiguration's vtable slot 7.
+func (self *IIteratorOfActivationSignalDetectionConfiguration) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfActivationSignalDetectionConfiguration's vtable slot 8.
+func (self *IIteratorOfActivationSignalDetectionConfiguration) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfActivationSignalDetectionTrainingDataFormat is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat>.
+// IID: 1f6ef295-4d31-5874-a22d-29875ee8165c
+type IIteratorOfActivationSignalDetectionTrainingDataFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfActivationSignalDetectionTrainingDataFormat is the interface identifier for IIteratorOfActivationSignalDetectionTrainingDataFormat.
+var IID_IIteratorOfActivationSignalDetectionTrainingDataFormat = win32.GUID{Data1: 0x1f6ef295, Data2: 0x4d31, Data3: 0x5874, Data4: [8]byte{0xa2, 0x2d, 0x29, 0x87, 0x5e, 0xe8, 0x16, 0x5c}}
+
+// Current (propget get_Current) dispatches through IIteratorOfActivationSignalDetectionTrainingDataFormat's vtable slot 6.
+func (self *IIteratorOfActivationSignalDetectionTrainingDataFormat) Current() (ActivationSignalDetectionTrainingDataFormat, error) {
+	result := new(ActivationSignalDetectionTrainingDataFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfActivationSignalDetectionTrainingDataFormat's vtable slot 7.
+func (self *IIteratorOfActivationSignalDetectionTrainingDataFormat) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfActivationSignalDetectionTrainingDataFormat's vtable slot 8.
+func (self *IIteratorOfActivationSignalDetectionTrainingDataFormat) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfActivationSignalDetector is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector>.
+// IID: bc1c2e1c-bdc3-50b8-96ab-2e12531f6bc0
+type IIteratorOfActivationSignalDetector struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfActivationSignalDetector is the interface identifier for IIteratorOfActivationSignalDetector.
+var IID_IIteratorOfActivationSignalDetector = win32.GUID{Data1: 0xbc1c2e1c, Data2: 0xbdc3, Data3: 0x50b8, Data4: [8]byte{0x96, 0xab, 0x2e, 0x12, 0x53, 0x1f, 0x6b, 0xc0}}
+
+// Current (propget get_Current) dispatches through IIteratorOfActivationSignalDetector's vtable slot 6.
+func (self *IIteratorOfActivationSignalDetector) Current() (*IActivationSignalDetector, error) {
+	result := new(*IActivationSignalDetector)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfActivationSignalDetector's vtable slot 7.
+func (self *IIteratorOfActivationSignalDetector) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfActivationSignalDetector's vtable slot 8.
+func (self *IIteratorOfActivationSignalDetector) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfActivationSignalDetectorPowerState is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState>.
+// IID: f5daac9c-92cf-5945-9c5b-1c0b8eac8143
+type IIteratorOfActivationSignalDetectorPowerState struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfActivationSignalDetectorPowerState is the interface identifier for IIteratorOfActivationSignalDetectorPowerState.
+var IID_IIteratorOfActivationSignalDetectorPowerState = win32.GUID{Data1: 0xf5daac9c, Data2: 0x92cf, Data3: 0x5945, Data4: [8]byte{0x9c, 0x5b, 0x1c, 0x0b, 0x8e, 0xac, 0x81, 0x43}}
+
+// Current (propget get_Current) dispatches through IIteratorOfActivationSignalDetectorPowerState's vtable slot 6.
+func (self *IIteratorOfActivationSignalDetectorPowerState) Current() (ActivationSignalDetectorPowerState, error) {
+	result := new(ActivationSignalDetectorPowerState)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfActivationSignalDetectorPowerState's vtable slot 7.
+func (self *IIteratorOfActivationSignalDetectorPowerState) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfActivationSignalDetectorPowerState's vtable slot 8.
+func (self *IIteratorOfActivationSignalDetectorPowerState) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind>.
+// IID: 89b54546-b694-5277-866b-7f2fc740c640
+type IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind is the interface identifier for IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind.
+var IID_IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind = win32.GUID{Data1: 0x89b54546, Data2: 0xb694, Data3: 0x5277, Data4: [8]byte{0x86, 0x6b, 0x7f, 0x2f, 0xc7, 0x40, 0xc6, 0x40}}
+
+// Current (propget get_Current) dispatches through IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind's vtable slot 6.
+func (self *IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind) Current() (ConversationalAgentVoiceActivationPrerequisiteKind, error) {
+	result := new(ConversationalAgentVoiceActivationPrerequisiteKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind's vtable slot 7.
+func (self *IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind's vtable slot 8.
+func (self *IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSignalDetectorResourceKind is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind>.
+// IID: a27176ec-ab9a-5a55-8e50-ad4dab5b5d68
+type IIteratorOfSignalDetectorResourceKind struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSignalDetectorResourceKind is the interface identifier for IIteratorOfSignalDetectorResourceKind.
+var IID_IIteratorOfSignalDetectorResourceKind = win32.GUID{Data1: 0xa27176ec, Data2: 0xab9a, Data3: 0x5a55, Data4: [8]byte{0x8e, 0x50, 0xad, 0x4d, 0xab, 0x5b, 0x5d, 0x68}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSignalDetectorResourceKind's vtable slot 6.
+func (self *IIteratorOfSignalDetectorResourceKind) Current() (SignalDetectorResourceKind, error) {
+	result := new(SignalDetectorResourceKind)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSignalDetectorResourceKind's vtable slot 7.
+func (self *IIteratorOfSignalDetectorResourceKind) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSignalDetectorResourceKind's vtable slot 8.
+func (self *IIteratorOfSignalDetectorResourceKind) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUInt32 is the WinRT interface Windows.Foundation.Collections.IIterator`1<UInt32>.
+// IID: f06a2739-9443-5ef0-b284-dc5aff3e7d10
+type IIteratorOfUInt32 struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUInt32 is the interface identifier for IIteratorOfUInt32.
+var IID_IIteratorOfUInt32 = win32.GUID{Data1: 0xf06a2739, Data2: 0x9443, Data3: 0x5ef0, Data4: [8]byte{0xb2, 0x84, 0xdc, 0x5a, 0xff, 0x3e, 0x7d, 0x10}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUInt32's vtable slot 6.
+func (self *IIteratorOfUInt32) Current() (uint32, error) {
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUInt32's vtable slot 7.
+func (self *IIteratorOfUInt32) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUInt32's vtable slot 8.
+func (self *IIteratorOfUInt32) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
 // Requires: Windows.Foundation.Collections.IIterable`1<String>.
@@ -1638,6 +2154,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfActivationSignalDetectionConfiguration is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration>.
 // IID: 2515803e-4d85-5df7-a88a-88388730d659
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration>.
@@ -1670,6 +2205,25 @@ func (self *IVectorViewOfActivationSignalDetectionConfiguration) IndexOf(value *
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfActivationSignalDetectionConfiguration creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfActivationSignalDetectionConfiguration(items []*IActivationSignalDetectionConfiguration) *IVectorViewOfActivationSignalDetectionConfiguration {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivationSignalDetectionConfiguration, Iterator: IID_IIteratorOfActivationSignalDetectionConfiguration, VectorView: IID_IVectorViewOfActivationSignalDetectionConfiguration}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfActivationSignalDetectionConfiguration)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfActivationSignalDetectionTrainingDataFormat is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat>.
 // IID: 679189c6-73c4-5295-8b04-6ce05cab4d17
@@ -1704,6 +2258,21 @@ func (self *IVectorViewOfActivationSignalDetectionTrainingDataFormat) IndexOf(va
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfActivationSignalDetectionTrainingDataFormat creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfActivationSignalDetectionTrainingDataFormat(items []ActivationSignalDetectionTrainingDataFormat) *IVectorViewOfActivationSignalDetectionTrainingDataFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionTrainingDataFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivationSignalDetectionTrainingDataFormat, Iterator: IID_IIteratorOfActivationSignalDetectionTrainingDataFormat, VectorView: IID_IVectorViewOfActivationSignalDetectionTrainingDataFormat}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfActivationSignalDetectionTrainingDataFormat)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfActivationSignalDetector is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector>.
 // IID: 6e514658-da3d-5201-9eb2-b2ef1c8dd1ba
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector>.
@@ -1736,6 +2305,25 @@ func (self *IVectorViewOfActivationSignalDetector) IndexOf(value *IActivationSig
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfActivationSignalDetector creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfActivationSignalDetector(items []*IActivationSignalDetector) *IVectorViewOfActivationSignalDetector {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivationSignalDetector, Iterator: IID_IIteratorOfActivationSignalDetector, VectorView: IID_IVectorViewOfActivationSignalDetector}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfActivationSignalDetector)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfActivationSignalDetectorPowerState is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState>.
 // IID: c303fd7f-d073-54c3-8411-c118226323ac
@@ -1770,6 +2358,21 @@ func (self *IVectorViewOfActivationSignalDetectorPowerState) IndexOf(value Activ
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfActivationSignalDetectorPowerState creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfActivationSignalDetectorPowerState(items []ActivationSignalDetectorPowerState) *IVectorViewOfActivationSignalDetectorPowerState {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectorPowerState>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivationSignalDetectorPowerState, Iterator: IID_IIteratorOfActivationSignalDetectorPowerState, VectorView: IID_IVectorViewOfActivationSignalDetectorPowerState}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfActivationSignalDetectorPowerState)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfConversationalAgentVoiceActivationPrerequisiteKind is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind>.
 // IID: 82216c11-1e7a-592c-9a3d-15d63e6fdd19
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind>.
@@ -1803,6 +2406,21 @@ func (self *IVectorViewOfConversationalAgentVoiceActivationPrerequisiteKind) Ind
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfConversationalAgentVoiceActivationPrerequisiteKind creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfConversationalAgentVoiceActivationPrerequisiteKind(items []ConversationalAgentVoiceActivationPrerequisiteKind) *IVectorViewOfConversationalAgentVoiceActivationPrerequisiteKind {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.ConversationalAgentVoiceActivationPrerequisiteKind>", winrt.CollectionIIDs{Iterable: IID_IIterableOfConversationalAgentVoiceActivationPrerequisiteKind, Iterator: IID_IIteratorOfConversationalAgentVoiceActivationPrerequisiteKind, VectorView: IID_IVectorViewOfConversationalAgentVoiceActivationPrerequisiteKind}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfConversationalAgentVoiceActivationPrerequisiteKind)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfSignalDetectorResourceKind is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind>.
 // IID: a847ac9b-a9ae-55c5-811d-920122e361d6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind>.
@@ -1835,6 +2453,21 @@ func (self *IVectorViewOfSignalDetectorResourceKind) IndexOf(value SignalDetecto
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfSignalDetectorResourceKind creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfSignalDetectorResourceKind(items []SignalDetectorResourceKind) *IVectorViewOfSignalDetectorResourceKind {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSignalDetectorResourceKind, Iterator: IID_IIteratorOfSignalDetectorResourceKind, VectorView: IID_IVectorViewOfSignalDetectorResourceKind}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfSignalDetectorResourceKind)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -1877,6 +2510,22 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUInt32 is the WinRT interface Windows.Foundation.Collections.IVectorView`1<UInt32>.
 // IID: e5ce1a07-8d33-5007-ba64-7d2508ccf85c
 // Requires: Windows.Foundation.Collections.IIterable`1<UInt32>.
@@ -1909,3 +2558,18 @@ func (self *IVectorViewOfUInt32) IndexOf(value uint32, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUInt32 creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<UInt32>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfUInt32(items []uint32) *IVectorViewOfUInt32 {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<UInt32>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUInt32, Iterator: IID_IIteratorOfUInt32, VectorView: IID_IVectorViewOfUInt32}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfUInt32)(unsafe.Pointer(obj))
+}

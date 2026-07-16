@@ -16,6 +16,7 @@ import (
 	graphicsdirectxdirect3d11 "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/graphics/directx/direct3d11"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/system"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui"
+	uicomposition "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/composition"
 )
 
 // IDirect3D11CaptureFrame is the WinRT interface Windows.Graphics.Capture.IDirect3D11CaptureFrame.
@@ -257,8 +258,7 @@ type IGraphicsCaptureItemStatics struct {
 var IID_IGraphicsCaptureItemStatics = win32.GUID{Data1: 0xa87ebea5, Data2: 0x457c, Data3: 0x5788, Data4: [8]byte{0xab, 0x47, 0x0c, 0xf1, 0xd3, 0x63, 0x7e, 0x74}}
 
 // CreateFromVisual dispatches through IGraphicsCaptureItemStatics's vtable slot 6.
-// Parameter visual's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *IGraphicsCaptureItemStatics) CreateFromVisual(visual *syswinrt.IInspectable) (*IGraphicsCaptureItem, error) {
+func (self *IGraphicsCaptureItemStatics) CreateFromVisual(visual *uicomposition.IVisual) (*IGraphicsCaptureItem, error) {
 	result := new(*IGraphicsCaptureItem)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(visual)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))

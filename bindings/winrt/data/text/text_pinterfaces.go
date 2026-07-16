@@ -224,6 +224,41 @@ func (self *IAsyncOperationOfString) Await() (string, error) {
 	return self.GetResults()
 }
 
+// IIterableOfAlternateWordForm is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.AlternateWordForm>.
+// IID: ae838c29-60c1-5093-ae61-0ed22857db05
+type IIterableOfAlternateWordForm struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAlternateWordForm is the interface identifier for IIterableOfAlternateWordForm.
+var IID_IIterableOfAlternateWordForm = win32.GUID{Data1: 0xae838c29, Data2: 0x60c1, Data3: 0x5093, Data4: [8]byte{0xae, 0x61, 0x0e, 0xd2, 0x28, 0x57, 0xdb, 0x05}}
+
+// First dispatches through IIterableOfAlternateWordForm's vtable slot 6.
+func (self *IIterableOfAlternateWordForm) First() (*IIteratorOfAlternateWordForm, error) {
+	result := new(*IIteratorOfAlternateWordForm)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAlternateWordForm creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.AlternateWordForm>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAlternateWordForm(items []*IAlternateWordForm) *IIterableOfAlternateWordForm {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.AlternateWordForm>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAlternateWordForm, Iterator: IID_IIteratorOfAlternateWordForm}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAlternateWordForm)(unsafe.Pointer(obj))
+}
+
 // IIterableOfSelectableWordSegment is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.SelectableWordSegment>.
 // IID: 784b0cec-1348-5334-91e5-2e013294e211
 type IIterableOfSelectableWordSegment struct {
@@ -238,6 +273,25 @@ func (self *IIterableOfSelectableWordSegment) First() (*IIteratorOfSelectableWor
 	result := new(*IIteratorOfSelectableWordSegment)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSelectableWordSegment creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.SelectableWordSegment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSelectableWordSegment(items []*ISelectableWordSegment) *IIterableOfSelectableWordSegment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.SelectableWordSegment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSelectableWordSegment, Iterator: IID_IIteratorOfSelectableWordSegment}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSelectableWordSegment)(unsafe.Pointer(obj))
 }
 
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
@@ -256,6 +310,57 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIterableOfTextPhoneme is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.TextPhoneme>.
+// IID: 2017f561-8162-55f8-b056-656636935815
+type IIterableOfTextPhoneme struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfTextPhoneme is the interface identifier for IIterableOfTextPhoneme.
+var IID_IIterableOfTextPhoneme = win32.GUID{Data1: 0x2017f561, Data2: 0x8162, Data3: 0x55f8, Data4: [8]byte{0xb0, 0x56, 0x65, 0x66, 0x36, 0x93, 0x58, 0x15}}
+
+// First dispatches through IIterableOfTextPhoneme's vtable slot 6.
+func (self *IIterableOfTextPhoneme) First() (*IIteratorOfTextPhoneme, error) {
+	result := new(*IIteratorOfTextPhoneme)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfTextPhoneme creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.TextPhoneme>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfTextPhoneme(items []*ITextPhoneme) *IIterableOfTextPhoneme {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.TextPhoneme>", winrt.CollectionIIDs{Iterable: IID_IIterableOfTextPhoneme, Iterator: IID_IIteratorOfTextPhoneme}, winrt.CodecInterface, boxed)
+	return (*IIterableOfTextPhoneme)(unsafe.Pointer(obj))
+}
+
 // IIterableOfWordSegment is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.WordSegment>.
 // IID: d14dc94a-a311-5ddc-bf8b-d58795d87d6d
 type IIterableOfWordSegment struct {
@@ -271,6 +376,57 @@ func (self *IIterableOfWordSegment) First() (*IIteratorOfWordSegment, error) {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfWordSegment creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.WordSegment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfWordSegment(items []*IWordSegment) *IIterableOfWordSegment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.WordSegment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWordSegment, Iterator: IID_IIteratorOfWordSegment}, winrt.CodecInterface, boxed)
+	return (*IIterableOfWordSegment)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfAlternateWordForm is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Data.Text.AlternateWordForm>.
+// IID: 7f463f8a-e08f-516e-b4b8-81b5417bfb58
+type IIteratorOfAlternateWordForm struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAlternateWordForm is the interface identifier for IIteratorOfAlternateWordForm.
+var IID_IIteratorOfAlternateWordForm = win32.GUID{Data1: 0x7f463f8a, Data2: 0xe08f, Data3: 0x516e, Data4: [8]byte{0xb4, 0xb8, 0x81, 0xb5, 0x41, 0x7b, 0xfb, 0x58}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAlternateWordForm's vtable slot 6.
+func (self *IIteratorOfAlternateWordForm) Current() (*IAlternateWordForm, error) {
+	result := new(*IAlternateWordForm)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAlternateWordForm's vtable slot 7.
+func (self *IIteratorOfAlternateWordForm) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAlternateWordForm's vtable slot 8.
+func (self *IIteratorOfAlternateWordForm) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfSelectableWordSegment is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Data.Text.SelectableWordSegment>.
 // IID: a5842459-147d-5a88-8f23-a3398afd8a85
@@ -332,6 +488,38 @@ func (self *IIteratorOfString) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfString's vtable slot 8.
 func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfTextPhoneme is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Data.Text.TextPhoneme>.
+// IID: 36426c36-b5c4-5d1b-a468-aff3b48b7c3a
+type IIteratorOfTextPhoneme struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfTextPhoneme is the interface identifier for IIteratorOfTextPhoneme.
+var IID_IIteratorOfTextPhoneme = win32.GUID{Data1: 0x36426c36, Data2: 0xb5c4, Data3: 0x5d1b, Data4: [8]byte{0xa4, 0x68, 0xaf, 0xf3, 0xb4, 0x8b, 0x7c, 0x3a}}
+
+// Current (propget get_Current) dispatches through IIteratorOfTextPhoneme's vtable slot 6.
+func (self *IIteratorOfTextPhoneme) Current() (*ITextPhoneme, error) {
+	result := new(*ITextPhoneme)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfTextPhoneme's vtable slot 7.
+func (self *IIteratorOfTextPhoneme) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfTextPhoneme's vtable slot 8.
+func (self *IIteratorOfTextPhoneme) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -404,6 +592,25 @@ func (self *IVectorViewOfAlternateWordForm) IndexOf(value *IAlternateWordForm, i
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfAlternateWordForm creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Data.Text.AlternateWordForm>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAlternateWordForm(items []*IAlternateWordForm) *IVectorViewOfAlternateWordForm {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Data.Text.AlternateWordForm>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAlternateWordForm, Iterator: IID_IIteratorOfAlternateWordForm, VectorView: IID_IVectorViewOfAlternateWordForm}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAlternateWordForm)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfSelectableWordSegment is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Data.Text.SelectableWordSegment>.
 // IID: 33f90a72-86f4-5027-b50a-6939a1f9d560
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.SelectableWordSegment>.
@@ -436,6 +643,25 @@ func (self *IVectorViewOfSelectableWordSegment) IndexOf(value *ISelectableWordSe
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfSelectableWordSegment creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Data.Text.SelectableWordSegment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSelectableWordSegment(items []*ISelectableWordSegment) *IVectorViewOfSelectableWordSegment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Data.Text.SelectableWordSegment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSelectableWordSegment, Iterator: IID_IIteratorOfSelectableWordSegment, VectorView: IID_IVectorViewOfSelectableWordSegment}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSelectableWordSegment)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -478,6 +704,22 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfTextPhoneme is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Data.Text.TextPhoneme>.
 // IID: cfc6e66d-5e2a-582d-8b6d-fbf71cf3d0eb
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Data.Text.TextPhoneme>.
@@ -510,6 +752,25 @@ func (self *IVectorViewOfTextPhoneme) IndexOf(value *ITextPhoneme, index *uint32
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfTextPhoneme creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Data.Text.TextPhoneme>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfTextPhoneme(items []*ITextPhoneme) *IVectorViewOfTextPhoneme {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Data.Text.TextPhoneme>", winrt.CollectionIIDs{Iterable: IID_IIterableOfTextPhoneme, Iterator: IID_IIteratorOfTextPhoneme, VectorView: IID_IVectorViewOfTextPhoneme}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfTextPhoneme)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfTextSegment is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Data.Text.TextSegment>.
 // IID: 2f245f9d-eb5f-5641-9dcc-6ab1946cc7e6
@@ -571,3 +832,22 @@ func (self *IVectorViewOfWordSegment) IndexOf(value *IWordSegment, index *uint32
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfWordSegment creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Data.Text.WordSegment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfWordSegment(items []*IWordSegment) *IVectorViewOfWordSegment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Data.Text.WordSegment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWordSegment, Iterator: IID_IIteratorOfWordSegment, VectorView: IID_IVectorViewOfWordSegment}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfWordSegment)(unsafe.Pointer(obj))
+}

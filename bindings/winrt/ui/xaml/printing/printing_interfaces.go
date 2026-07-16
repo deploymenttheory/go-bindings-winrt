@@ -139,8 +139,7 @@ func (self *IPrintDocument) RemoveAddPages(token syswinrt.EventRegistrationToken
 }
 
 // AddPage dispatches through IPrintDocument's vtable slot 13.
-// Parameter pageVisual's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IPrintDocument) AddPage(pageVisual *syswinrt.IInspectable) error {
+func (self *IPrintDocument) AddPage(pageVisual *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(pageVisual)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -158,8 +157,7 @@ func (self *IPrintDocument) SetPreviewPageCount(count int32, type_ PreviewPageCo
 }
 
 // SetPreviewPage dispatches through IPrintDocument's vtable slot 16.
-// Parameter pageVisual's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IPrintDocument) SetPreviewPage(pageNumber int32, pageVisual *syswinrt.IInspectable) error {
+func (self *IPrintDocument) SetPreviewPage(pageNumber int32, pageVisual *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[16], uintptr(unsafe.Pointer(self)), uintptr(pageNumber), uintptr(unsafe.Pointer(pageVisual)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -181,9 +179,8 @@ type IPrintDocumentFactory struct {
 var IID_IPrintDocumentFactory = win32.GUID{Data1: 0xfb87b18f, Data2: 0x2606, Data3: 0x4a2f, Data4: [8]byte{0x99, 0xd4, 0xa7, 0xcd, 0xbc, 0x35, 0xd7, 0xc7}}
 
 // CreateInstance dispatches through IPrintDocumentFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Printing.PrintDocument is projected as IInspectable (the class is not emitted this wave).
-func (self *IPrintDocumentFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPrintDocumentFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IPrintDocument, error) {
+	result := new(*IPrintDocument)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

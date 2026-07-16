@@ -26,7 +26,7 @@ type IOnlineIdAuthenticator struct {
 var IID_IOnlineIdAuthenticator = win32.GUID{Data1: 0xa003f58a, Data2: 0x29ab, Data3: 0x4817, Data4: [8]byte{0xb8, 0x84, 0xd7, 0x51, 0x6d, 0xad, 0x18, 0xb9}}
 
 // AuthenticateUserAsync dispatches through IOnlineIdAuthenticator's vtable slot 6.
-// The return value's class Windows.Security.Authentication.OnlineId.UserAuthenticationOperation is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Security.Authentication.OnlineId.UserAuthenticationOperation is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IOnlineIdAuthenticator) AuthenticateUserAsync(request *IOnlineIdServiceTicketRequest) (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(request)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -34,7 +34,7 @@ func (self *IOnlineIdAuthenticator) AuthenticateUserAsync(request *IOnlineIdServ
 }
 
 // AuthenticateUserAsyncAdvanced dispatches through IOnlineIdAuthenticator's vtable slot 7.
-// The return value's class Windows.Security.Authentication.OnlineId.UserAuthenticationOperation is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Security.Authentication.OnlineId.UserAuthenticationOperation is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IOnlineIdAuthenticator) AuthenticateUserAsyncAdvanced(requests *IIterableOfOnlineIdServiceTicketRequest, credentialPromptType CredentialPromptType) (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(requests)), uintptr(credentialPromptType), uintptr(winrt.OutParam(unsafe.Pointer(result))))

@@ -7,8 +7,11 @@ package controls
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
+	uixamlautomationprovider "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/automation/provider"
+	uixamlcontrolsprimitives "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/controls/primitives"
 	uixamldata "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/data"
 )
 
@@ -17,6 +20,574 @@ import (
 // the embedded IInspectable → IUnknown chain).
 type AnchorRequestedEventArgs struct {
 	IAnchorRequestedEventArgs
+}
+
+// AppBar is the Windows.UI.Xaml.Controls.AppBar runtime class, surfaced through its
+// default interface IAppBar. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AppBar struct {
+	IAppBar
+}
+
+// AsAppBar2 queries the instance's IAppBar2 interface.
+// The returned reference is owned by the caller.
+func (self *AppBar) AsAppBar2() (*IAppBar2, error) {
+	return winrt.QueryInterface[IAppBar2](unsafe.Pointer(self), &IID_IAppBar2)
+}
+
+// AsAppBar3 queries the instance's IAppBar3 interface.
+// The returned reference is owned by the caller.
+func (self *AppBar) AsAppBar3() (*IAppBar3, error) {
+	return winrt.QueryInterface[IAppBar3](unsafe.Pointer(self), &IID_IAppBar3)
+}
+
+// AsAppBar4 queries the instance's IAppBar4 interface.
+// The returned reference is owned by the caller.
+func (self *AppBar) AsAppBar4() (*IAppBar4, error) {
+	return winrt.QueryInterface[IAppBar4](unsafe.Pointer(self), &IID_IAppBar4)
+}
+
+// AsAppBarOverrides queries the instance's IAppBarOverrides interface.
+// The returned reference is owned by the caller.
+func (self *AppBar) AsAppBarOverrides() (*IAppBarOverrides, error) {
+	return winrt.QueryInterface[IAppBarOverrides](unsafe.Pointer(self), &IID_IAppBarOverrides)
+}
+
+// AsAppBarOverrides3 queries the instance's IAppBarOverrides3 interface.
+// The returned reference is owned by the caller.
+func (self *AppBar) AsAppBarOverrides3() (*IAppBarOverrides3, error) {
+	return winrt.QueryInterface[IAppBarOverrides3](unsafe.Pointer(self), &IID_IAppBarOverrides3)
+}
+
+// AppBarStatics returns the Windows.UI.Xaml.Controls.IAppBarStatics statics of the
+// Windows.UI.Xaml.Controls.AppBar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarStatics() (*IAppBarStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBar", &IID_IAppBarStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarStatics)(unsafe.Pointer(factory)), nil
+}
+
+// AppBarStatics2 returns the Windows.UI.Xaml.Controls.IAppBarStatics2 statics of the
+// Windows.UI.Xaml.Controls.AppBar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarStatics2() (*IAppBarStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBar", &IID_IAppBarStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// AppBarStatics4 returns the Windows.UI.Xaml.Controls.IAppBarStatics4 statics of the
+// Windows.UI.Xaml.Controls.AppBar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarStatics4() (*IAppBarStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBar", &IID_IAppBarStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// NewAppBar constructs a Windows.UI.Xaml.Controls.AppBar instance through
+// Windows.UI.Xaml.Controls.IAppBarFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewAppBar() (*AppBar, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBar", &IID_IAppBarFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IAppBarFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*AppBar)(unsafe.Pointer(instance)), nil
+}
+
+// AppBarButton is the Windows.UI.Xaml.Controls.AppBarButton runtime class, surfaced through its
+// default interface IAppBarButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AppBarButton struct {
+	IAppBarButton
+}
+
+// AsAppBarButton3 queries the instance's IAppBarButton3 interface.
+// The returned reference is owned by the caller.
+func (self *AppBarButton) AsAppBarButton3() (*IAppBarButton3, error) {
+	return winrt.QueryInterface[IAppBarButton3](unsafe.Pointer(self), &IID_IAppBarButton3)
+}
+
+// AsAppBarButton4 queries the instance's IAppBarButton4 interface.
+// The returned reference is owned by the caller.
+func (self *AppBarButton) AsAppBarButton4() (*IAppBarButton4, error) {
+	return winrt.QueryInterface[IAppBarButton4](unsafe.Pointer(self), &IID_IAppBarButton4)
+}
+
+// AsAppBarButton5 queries the instance's IAppBarButton5 interface.
+// The returned reference is owned by the caller.
+func (self *AppBarButton) AsAppBarButton5() (*IAppBarButton5, error) {
+	return winrt.QueryInterface[IAppBarButton5](unsafe.Pointer(self), &IID_IAppBarButton5)
+}
+
+// AsCommandBarElement queries the instance's ICommandBarElement interface.
+// The returned reference is owned by the caller.
+func (self *AppBarButton) AsCommandBarElement() (*ICommandBarElement, error) {
+	return winrt.QueryInterface[ICommandBarElement](unsafe.Pointer(self), &IID_ICommandBarElement)
+}
+
+// AsCommandBarElement2 queries the instance's ICommandBarElement2 interface.
+// The returned reference is owned by the caller.
+func (self *AppBarButton) AsCommandBarElement2() (*ICommandBarElement2, error) {
+	return winrt.QueryInterface[ICommandBarElement2](unsafe.Pointer(self), &IID_ICommandBarElement2)
+}
+
+// AppBarButtonStatics returns the Windows.UI.Xaml.Controls.IAppBarButtonStatics statics of the
+// Windows.UI.Xaml.Controls.AppBarButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarButtonStatics() (*IAppBarButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarButton", &IID_IAppBarButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// AppBarButtonStatics3 returns the Windows.UI.Xaml.Controls.IAppBarButtonStatics3 statics of the
+// Windows.UI.Xaml.Controls.AppBarButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarButtonStatics3() (*IAppBarButtonStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarButton", &IID_IAppBarButtonStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarButtonStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// AppBarButtonStatics4 returns the Windows.UI.Xaml.Controls.IAppBarButtonStatics4 statics of the
+// Windows.UI.Xaml.Controls.AppBarButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarButtonStatics4() (*IAppBarButtonStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarButton", &IID_IAppBarButtonStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarButtonStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// NewAppBarButton constructs a Windows.UI.Xaml.Controls.AppBarButton instance through
+// Windows.UI.Xaml.Controls.IAppBarButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewAppBarButton() (*AppBarButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarButton", &IID_IAppBarButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IAppBarButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*AppBarButton)(unsafe.Pointer(instance)), nil
+}
+
+// AppBarElementContainer is the Windows.UI.Xaml.Controls.AppBarElementContainer runtime class, surfaced through its
+// default interface IAppBarElementContainer. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AppBarElementContainer struct {
+	IAppBarElementContainer
+}
+
+// AsCommandBarElement queries the instance's ICommandBarElement interface.
+// The returned reference is owned by the caller.
+func (self *AppBarElementContainer) AsCommandBarElement() (*ICommandBarElement, error) {
+	return winrt.QueryInterface[ICommandBarElement](unsafe.Pointer(self), &IID_ICommandBarElement)
+}
+
+// AsCommandBarElement2 queries the instance's ICommandBarElement2 interface.
+// The returned reference is owned by the caller.
+func (self *AppBarElementContainer) AsCommandBarElement2() (*ICommandBarElement2, error) {
+	return winrt.QueryInterface[ICommandBarElement2](unsafe.Pointer(self), &IID_ICommandBarElement2)
+}
+
+// AppBarElementContainerStatics returns the Windows.UI.Xaml.Controls.IAppBarElementContainerStatics statics of the
+// Windows.UI.Xaml.Controls.AppBarElementContainer runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarElementContainerStatics() (*IAppBarElementContainerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarElementContainer", &IID_IAppBarElementContainerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarElementContainerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewAppBarElementContainer constructs a Windows.UI.Xaml.Controls.AppBarElementContainer instance through
+// Windows.UI.Xaml.Controls.IAppBarElementContainerFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewAppBarElementContainer() (*AppBarElementContainer, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarElementContainer", &IID_IAppBarElementContainerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IAppBarElementContainerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*AppBarElementContainer)(unsafe.Pointer(instance)), nil
+}
+
+// AppBarSeparator is the Windows.UI.Xaml.Controls.AppBarSeparator runtime class, surfaced through its
+// default interface IAppBarSeparator. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AppBarSeparator struct {
+	IAppBarSeparator
+}
+
+// AsCommandBarElement queries the instance's ICommandBarElement interface.
+// The returned reference is owned by the caller.
+func (self *AppBarSeparator) AsCommandBarElement() (*ICommandBarElement, error) {
+	return winrt.QueryInterface[ICommandBarElement](unsafe.Pointer(self), &IID_ICommandBarElement)
+}
+
+// AsCommandBarElement2 queries the instance's ICommandBarElement2 interface.
+// The returned reference is owned by the caller.
+func (self *AppBarSeparator) AsCommandBarElement2() (*ICommandBarElement2, error) {
+	return winrt.QueryInterface[ICommandBarElement2](unsafe.Pointer(self), &IID_ICommandBarElement2)
+}
+
+// AppBarSeparatorStatics returns the Windows.UI.Xaml.Controls.IAppBarSeparatorStatics statics of the
+// Windows.UI.Xaml.Controls.AppBarSeparator runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarSeparatorStatics() (*IAppBarSeparatorStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarSeparator", &IID_IAppBarSeparatorStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarSeparatorStatics)(unsafe.Pointer(factory)), nil
+}
+
+// AppBarSeparatorStatics3 returns the Windows.UI.Xaml.Controls.IAppBarSeparatorStatics3 statics of the
+// Windows.UI.Xaml.Controls.AppBarSeparator runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarSeparatorStatics3() (*IAppBarSeparatorStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarSeparator", &IID_IAppBarSeparatorStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarSeparatorStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// NewAppBarSeparator constructs a Windows.UI.Xaml.Controls.AppBarSeparator instance through
+// Windows.UI.Xaml.Controls.IAppBarSeparatorFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewAppBarSeparator() (*AppBarSeparator, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarSeparator", &IID_IAppBarSeparatorFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IAppBarSeparatorFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*AppBarSeparator)(unsafe.Pointer(instance)), nil
+}
+
+// AppBarToggleButton is the Windows.UI.Xaml.Controls.AppBarToggleButton runtime class, surfaced through its
+// default interface IAppBarToggleButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AppBarToggleButton struct {
+	IAppBarToggleButton
+}
+
+// AsAppBarToggleButton3 queries the instance's IAppBarToggleButton3 interface.
+// The returned reference is owned by the caller.
+func (self *AppBarToggleButton) AsAppBarToggleButton3() (*IAppBarToggleButton3, error) {
+	return winrt.QueryInterface[IAppBarToggleButton3](unsafe.Pointer(self), &IID_IAppBarToggleButton3)
+}
+
+// AsAppBarToggleButton4 queries the instance's IAppBarToggleButton4 interface.
+// The returned reference is owned by the caller.
+func (self *AppBarToggleButton) AsAppBarToggleButton4() (*IAppBarToggleButton4, error) {
+	return winrt.QueryInterface[IAppBarToggleButton4](unsafe.Pointer(self), &IID_IAppBarToggleButton4)
+}
+
+// AsAppBarToggleButton5 queries the instance's IAppBarToggleButton5 interface.
+// The returned reference is owned by the caller.
+func (self *AppBarToggleButton) AsAppBarToggleButton5() (*IAppBarToggleButton5, error) {
+	return winrt.QueryInterface[IAppBarToggleButton5](unsafe.Pointer(self), &IID_IAppBarToggleButton5)
+}
+
+// AsCommandBarElement queries the instance's ICommandBarElement interface.
+// The returned reference is owned by the caller.
+func (self *AppBarToggleButton) AsCommandBarElement() (*ICommandBarElement, error) {
+	return winrt.QueryInterface[ICommandBarElement](unsafe.Pointer(self), &IID_ICommandBarElement)
+}
+
+// AsCommandBarElement2 queries the instance's ICommandBarElement2 interface.
+// The returned reference is owned by the caller.
+func (self *AppBarToggleButton) AsCommandBarElement2() (*ICommandBarElement2, error) {
+	return winrt.QueryInterface[ICommandBarElement2](unsafe.Pointer(self), &IID_ICommandBarElement2)
+}
+
+// AppBarToggleButtonStatics returns the Windows.UI.Xaml.Controls.IAppBarToggleButtonStatics statics of the
+// Windows.UI.Xaml.Controls.AppBarToggleButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarToggleButtonStatics() (*IAppBarToggleButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarToggleButton", &IID_IAppBarToggleButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarToggleButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// AppBarToggleButtonStatics3 returns the Windows.UI.Xaml.Controls.IAppBarToggleButtonStatics3 statics of the
+// Windows.UI.Xaml.Controls.AppBarToggleButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarToggleButtonStatics3() (*IAppBarToggleButtonStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarToggleButton", &IID_IAppBarToggleButtonStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarToggleButtonStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// AppBarToggleButtonStatics4 returns the Windows.UI.Xaml.Controls.IAppBarToggleButtonStatics4 statics of the
+// Windows.UI.Xaml.Controls.AppBarToggleButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AppBarToggleButtonStatics4() (*IAppBarToggleButtonStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarToggleButton", &IID_IAppBarToggleButtonStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAppBarToggleButtonStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// NewAppBarToggleButton constructs a Windows.UI.Xaml.Controls.AppBarToggleButton instance through
+// Windows.UI.Xaml.Controls.IAppBarToggleButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewAppBarToggleButton() (*AppBarToggleButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AppBarToggleButton", &IID_IAppBarToggleButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IAppBarToggleButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*AppBarToggleButton)(unsafe.Pointer(instance)), nil
+}
+
+// AutoSuggestBox is the Windows.UI.Xaml.Controls.AutoSuggestBox runtime class, surfaced through its
+// default interface IAutoSuggestBox. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AutoSuggestBox struct {
+	IAutoSuggestBox
+}
+
+// NewAutoSuggestBox activates Windows.UI.Xaml.Controls.AutoSuggestBox through its default
+// constructor.
+func NewAutoSuggestBox() (*AutoSuggestBox, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.AutoSuggestBox")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[AutoSuggestBox](unsafe.Pointer(instance), &IID_IAutoSuggestBox)
+}
+
+// AsAutoSuggestBox2 queries the instance's IAutoSuggestBox2 interface.
+// The returned reference is owned by the caller.
+func (self *AutoSuggestBox) AsAutoSuggestBox2() (*IAutoSuggestBox2, error) {
+	return winrt.QueryInterface[IAutoSuggestBox2](unsafe.Pointer(self), &IID_IAutoSuggestBox2)
+}
+
+// AsAutoSuggestBox3 queries the instance's IAutoSuggestBox3 interface.
+// The returned reference is owned by the caller.
+func (self *AutoSuggestBox) AsAutoSuggestBox3() (*IAutoSuggestBox3, error) {
+	return winrt.QueryInterface[IAutoSuggestBox3](unsafe.Pointer(self), &IID_IAutoSuggestBox3)
+}
+
+// AsAutoSuggestBox4 queries the instance's IAutoSuggestBox4 interface.
+// The returned reference is owned by the caller.
+func (self *AutoSuggestBox) AsAutoSuggestBox4() (*IAutoSuggestBox4, error) {
+	return winrt.QueryInterface[IAutoSuggestBox4](unsafe.Pointer(self), &IID_IAutoSuggestBox4)
+}
+
+// AutoSuggestBoxStatics returns the Windows.UI.Xaml.Controls.IAutoSuggestBoxStatics statics of the
+// Windows.UI.Xaml.Controls.AutoSuggestBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AutoSuggestBoxStatics() (*IAutoSuggestBoxStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AutoSuggestBox", &IID_IAutoSuggestBoxStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAutoSuggestBoxStatics)(unsafe.Pointer(factory)), nil
+}
+
+// AutoSuggestBoxStatics2 returns the Windows.UI.Xaml.Controls.IAutoSuggestBoxStatics2 statics of the
+// Windows.UI.Xaml.Controls.AutoSuggestBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AutoSuggestBoxStatics2() (*IAutoSuggestBoxStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AutoSuggestBox", &IID_IAutoSuggestBoxStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAutoSuggestBoxStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// AutoSuggestBoxStatics3 returns the Windows.UI.Xaml.Controls.IAutoSuggestBoxStatics3 statics of the
+// Windows.UI.Xaml.Controls.AutoSuggestBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AutoSuggestBoxStatics3() (*IAutoSuggestBoxStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AutoSuggestBox", &IID_IAutoSuggestBoxStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAutoSuggestBoxStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// AutoSuggestBoxStatics4 returns the Windows.UI.Xaml.Controls.IAutoSuggestBoxStatics4 statics of the
+// Windows.UI.Xaml.Controls.AutoSuggestBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AutoSuggestBoxStatics4() (*IAutoSuggestBoxStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AutoSuggestBox", &IID_IAutoSuggestBoxStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAutoSuggestBoxStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// AutoSuggestBoxQuerySubmittedEventArgs is the Windows.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs runtime class, surfaced through its
+// default interface IAutoSuggestBoxQuerySubmittedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AutoSuggestBoxQuerySubmittedEventArgs struct {
+	IAutoSuggestBoxQuerySubmittedEventArgs
+}
+
+// NewAutoSuggestBoxQuerySubmittedEventArgs activates Windows.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs through its default
+// constructor.
+func NewAutoSuggestBoxQuerySubmittedEventArgs() (*AutoSuggestBoxQuerySubmittedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[AutoSuggestBoxQuerySubmittedEventArgs](unsafe.Pointer(instance), &IID_IAutoSuggestBoxQuerySubmittedEventArgs)
+}
+
+// AutoSuggestBoxSuggestionChosenEventArgs is the Windows.UI.Xaml.Controls.AutoSuggestBoxSuggestionChosenEventArgs runtime class, surfaced through its
+// default interface IAutoSuggestBoxSuggestionChosenEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AutoSuggestBoxSuggestionChosenEventArgs struct {
+	IAutoSuggestBoxSuggestionChosenEventArgs
+}
+
+// NewAutoSuggestBoxSuggestionChosenEventArgs activates Windows.UI.Xaml.Controls.AutoSuggestBoxSuggestionChosenEventArgs through its default
+// constructor.
+func NewAutoSuggestBoxSuggestionChosenEventArgs() (*AutoSuggestBoxSuggestionChosenEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.AutoSuggestBoxSuggestionChosenEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[AutoSuggestBoxSuggestionChosenEventArgs](unsafe.Pointer(instance), &IID_IAutoSuggestBoxSuggestionChosenEventArgs)
+}
+
+// AutoSuggestBoxTextChangedEventArgs is the Windows.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs runtime class, surfaced through its
+// default interface IAutoSuggestBoxTextChangedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AutoSuggestBoxTextChangedEventArgs struct {
+	IAutoSuggestBoxTextChangedEventArgs
+}
+
+// NewAutoSuggestBoxTextChangedEventArgs activates Windows.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs through its default
+// constructor.
+func NewAutoSuggestBoxTextChangedEventArgs() (*AutoSuggestBoxTextChangedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[AutoSuggestBoxTextChangedEventArgs](unsafe.Pointer(instance), &IID_IAutoSuggestBoxTextChangedEventArgs)
+}
+
+// AutoSuggestBoxTextChangedEventArgsStatics returns the Windows.UI.Xaml.Controls.IAutoSuggestBoxTextChangedEventArgsStatics statics of the
+// Windows.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AutoSuggestBoxTextChangedEventArgsStatics() (*IAutoSuggestBoxTextChangedEventArgsStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs", &IID_IAutoSuggestBoxTextChangedEventArgsStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAutoSuggestBoxTextChangedEventArgsStatics)(unsafe.Pointer(factory)), nil
 }
 
 // BackClickEventArgs is the Windows.UI.Xaml.Controls.BackClickEventArgs runtime class, surfaced through its
@@ -37,11 +608,401 @@ func NewBackClickEventArgs() (*BackClickEventArgs, error) {
 	return winrt.QueryInterface[BackClickEventArgs](unsafe.Pointer(instance), &IID_IBackClickEventArgs)
 }
 
+// BitmapIcon is the Windows.UI.Xaml.Controls.BitmapIcon runtime class, surfaced through its
+// default interface IBitmapIcon. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BitmapIcon struct {
+	IBitmapIcon
+}
+
+// AsBitmapIcon2 queries the instance's IBitmapIcon2 interface.
+// The returned reference is owned by the caller.
+func (self *BitmapIcon) AsBitmapIcon2() (*IBitmapIcon2, error) {
+	return winrt.QueryInterface[IBitmapIcon2](unsafe.Pointer(self), &IID_IBitmapIcon2)
+}
+
+// BitmapIconStatics returns the Windows.UI.Xaml.Controls.IBitmapIconStatics statics of the
+// Windows.UI.Xaml.Controls.BitmapIcon runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BitmapIconStatics() (*IBitmapIconStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.BitmapIcon", &IID_IBitmapIconStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBitmapIconStatics)(unsafe.Pointer(factory)), nil
+}
+
+// BitmapIconStatics2 returns the Windows.UI.Xaml.Controls.IBitmapIconStatics2 statics of the
+// Windows.UI.Xaml.Controls.BitmapIcon runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BitmapIconStatics2() (*IBitmapIconStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.BitmapIcon", &IID_IBitmapIconStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBitmapIconStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewBitmapIcon constructs a Windows.UI.Xaml.Controls.BitmapIcon instance through
+// Windows.UI.Xaml.Controls.IBitmapIconFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewBitmapIcon() (*BitmapIcon, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.BitmapIcon", &IID_IBitmapIconFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBitmapIconFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*BitmapIcon)(unsafe.Pointer(instance)), nil
+}
+
+// BitmapIconSource is the Windows.UI.Xaml.Controls.BitmapIconSource runtime class, surfaced through its
+// default interface IBitmapIconSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BitmapIconSource struct {
+	IBitmapIconSource
+}
+
+// BitmapIconSourceStatics returns the Windows.UI.Xaml.Controls.IBitmapIconSourceStatics statics of the
+// Windows.UI.Xaml.Controls.BitmapIconSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BitmapIconSourceStatics() (*IBitmapIconSourceStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.BitmapIconSource", &IID_IBitmapIconSourceStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBitmapIconSourceStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewBitmapIconSource constructs a Windows.UI.Xaml.Controls.BitmapIconSource instance through
+// Windows.UI.Xaml.Controls.IBitmapIconSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewBitmapIconSource() (*BitmapIconSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.BitmapIconSource", &IID_IBitmapIconSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBitmapIconSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*BitmapIconSource)(unsafe.Pointer(instance)), nil
+}
+
+// Border is the Windows.UI.Xaml.Controls.Border runtime class, surfaced through its
+// default interface IBorder. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Border struct {
+	IBorder
+}
+
+// NewBorder activates Windows.UI.Xaml.Controls.Border through its default
+// constructor.
+func NewBorder() (*Border, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.Border")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Border](unsafe.Pointer(instance), &IID_IBorder)
+}
+
+// AsBorder2 queries the instance's IBorder2 interface.
+// The returned reference is owned by the caller.
+func (self *Border) AsBorder2() (*IBorder2, error) {
+	return winrt.QueryInterface[IBorder2](unsafe.Pointer(self), &IID_IBorder2)
+}
+
+// BorderStatics returns the Windows.UI.Xaml.Controls.IBorderStatics statics of the
+// Windows.UI.Xaml.Controls.Border runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BorderStatics() (*IBorderStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Border", &IID_IBorderStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBorderStatics)(unsafe.Pointer(factory)), nil
+}
+
+// BorderStatics2 returns the Windows.UI.Xaml.Controls.IBorderStatics2 statics of the
+// Windows.UI.Xaml.Controls.Border runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BorderStatics2() (*IBorderStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Border", &IID_IBorderStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBorderStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// Button is the Windows.UI.Xaml.Controls.Button runtime class, surfaced through its
+// default interface IButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Button struct {
+	IButton
+}
+
+// AsButtonWithFlyout queries the instance's IButtonWithFlyout interface.
+// The returned reference is owned by the caller.
+func (self *Button) AsButtonWithFlyout() (*IButtonWithFlyout, error) {
+	return winrt.QueryInterface[IButtonWithFlyout](unsafe.Pointer(self), &IID_IButtonWithFlyout)
+}
+
+// ButtonStaticsWithFlyout returns the Windows.UI.Xaml.Controls.IButtonStaticsWithFlyout statics of the
+// Windows.UI.Xaml.Controls.Button runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ButtonStaticsWithFlyout() (*IButtonStaticsWithFlyout, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Button", &IID_IButtonStaticsWithFlyout)
+	if err != nil {
+		return nil, err
+	}
+	return (*IButtonStaticsWithFlyout)(unsafe.Pointer(factory)), nil
+}
+
+// NewButton constructs a Windows.UI.Xaml.Controls.Button instance through
+// Windows.UI.Xaml.Controls.IButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewButton() (*Button, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Button", &IID_IButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Button)(unsafe.Pointer(instance)), nil
+}
+
+// CalendarDatePicker is the Windows.UI.Xaml.Controls.CalendarDatePicker runtime class, surfaced through its
+// default interface ICalendarDatePicker. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CalendarDatePicker struct {
+	ICalendarDatePicker
+}
+
+// AsCalendarDatePicker2 queries the instance's ICalendarDatePicker2 interface.
+// The returned reference is owned by the caller.
+func (self *CalendarDatePicker) AsCalendarDatePicker2() (*ICalendarDatePicker2, error) {
+	return winrt.QueryInterface[ICalendarDatePicker2](unsafe.Pointer(self), &IID_ICalendarDatePicker2)
+}
+
+// AsCalendarDatePicker3 queries the instance's ICalendarDatePicker3 interface.
+// The returned reference is owned by the caller.
+func (self *CalendarDatePicker) AsCalendarDatePicker3() (*ICalendarDatePicker3, error) {
+	return winrt.QueryInterface[ICalendarDatePicker3](unsafe.Pointer(self), &IID_ICalendarDatePicker3)
+}
+
+// CalendarDatePickerStatics returns the Windows.UI.Xaml.Controls.ICalendarDatePickerStatics statics of the
+// Windows.UI.Xaml.Controls.CalendarDatePicker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CalendarDatePickerStatics() (*ICalendarDatePickerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CalendarDatePicker", &IID_ICalendarDatePickerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICalendarDatePickerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CalendarDatePickerStatics2 returns the Windows.UI.Xaml.Controls.ICalendarDatePickerStatics2 statics of the
+// Windows.UI.Xaml.Controls.CalendarDatePicker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CalendarDatePickerStatics2() (*ICalendarDatePickerStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CalendarDatePicker", &IID_ICalendarDatePickerStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICalendarDatePickerStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// CalendarDatePickerStatics3 returns the Windows.UI.Xaml.Controls.ICalendarDatePickerStatics3 statics of the
+// Windows.UI.Xaml.Controls.CalendarDatePicker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CalendarDatePickerStatics3() (*ICalendarDatePickerStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CalendarDatePicker", &IID_ICalendarDatePickerStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICalendarDatePickerStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// NewCalendarDatePicker constructs a Windows.UI.Xaml.Controls.CalendarDatePicker instance through
+// Windows.UI.Xaml.Controls.ICalendarDatePickerFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCalendarDatePicker() (*CalendarDatePicker, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CalendarDatePicker", &IID_ICalendarDatePickerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICalendarDatePickerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CalendarDatePicker)(unsafe.Pointer(instance)), nil
+}
+
 // CalendarDatePickerDateChangedEventArgs is the Windows.UI.Xaml.Controls.CalendarDatePickerDateChangedEventArgs runtime class, surfaced through its
 // default interface ICalendarDatePickerDateChangedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type CalendarDatePickerDateChangedEventArgs struct {
 	ICalendarDatePickerDateChangedEventArgs
+}
+
+// CalendarView is the Windows.UI.Xaml.Controls.CalendarView runtime class, surfaced through its
+// default interface ICalendarView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CalendarView struct {
+	ICalendarView
+}
+
+// AsCalendarView2 queries the instance's ICalendarView2 interface.
+// The returned reference is owned by the caller.
+func (self *CalendarView) AsCalendarView2() (*ICalendarView2, error) {
+	return winrt.QueryInterface[ICalendarView2](unsafe.Pointer(self), &IID_ICalendarView2)
+}
+
+// CalendarViewStatics returns the Windows.UI.Xaml.Controls.ICalendarViewStatics statics of the
+// Windows.UI.Xaml.Controls.CalendarView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CalendarViewStatics() (*ICalendarViewStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CalendarView", &IID_ICalendarViewStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICalendarViewStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CalendarViewStatics2 returns the Windows.UI.Xaml.Controls.ICalendarViewStatics2 statics of the
+// Windows.UI.Xaml.Controls.CalendarView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CalendarViewStatics2() (*ICalendarViewStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CalendarView", &IID_ICalendarViewStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICalendarViewStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewCalendarView constructs a Windows.UI.Xaml.Controls.CalendarView instance through
+// Windows.UI.Xaml.Controls.ICalendarViewFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCalendarView() (*CalendarView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CalendarView", &IID_ICalendarViewFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICalendarViewFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CalendarView)(unsafe.Pointer(instance)), nil
+}
+
+// CalendarViewDayItem is the Windows.UI.Xaml.Controls.CalendarViewDayItem runtime class, surfaced through its
+// default interface ICalendarViewDayItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CalendarViewDayItem struct {
+	ICalendarViewDayItem
+}
+
+// CalendarViewDayItemStatics returns the Windows.UI.Xaml.Controls.ICalendarViewDayItemStatics statics of the
+// Windows.UI.Xaml.Controls.CalendarViewDayItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CalendarViewDayItemStatics() (*ICalendarViewDayItemStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CalendarViewDayItem", &IID_ICalendarViewDayItemStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICalendarViewDayItemStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewCalendarViewDayItem constructs a Windows.UI.Xaml.Controls.CalendarViewDayItem instance through
+// Windows.UI.Xaml.Controls.ICalendarViewDayItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCalendarViewDayItem() (*CalendarViewDayItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CalendarViewDayItem", &IID_ICalendarViewDayItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICalendarViewDayItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CalendarViewDayItem)(unsafe.Pointer(instance)), nil
 }
 
 // CalendarViewDayItemChangingEventArgs is the Windows.UI.Xaml.Controls.CalendarViewDayItemChangingEventArgs runtime class, surfaced through its
@@ -63,6 +1024,112 @@ type CalendarViewSelectedDatesChangedEventArgs struct {
 // the embedded IInspectable → IUnknown chain).
 type CandidateWindowBoundsChangedEventArgs struct {
 	ICandidateWindowBoundsChangedEventArgs
+}
+
+// Canvas is the Windows.UI.Xaml.Controls.Canvas runtime class, surfaced through its
+// default interface ICanvas. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Canvas struct {
+	ICanvas
+}
+
+// CanvasStatics returns the Windows.UI.Xaml.Controls.ICanvasStatics statics of the
+// Windows.UI.Xaml.Controls.Canvas runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CanvasStatics() (*ICanvasStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Canvas", &IID_ICanvasStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICanvasStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewCanvas constructs a Windows.UI.Xaml.Controls.Canvas instance through
+// Windows.UI.Xaml.Controls.ICanvasFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCanvas() (*Canvas, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Canvas", &IID_ICanvasFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICanvasFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Canvas)(unsafe.Pointer(instance)), nil
+}
+
+// CaptureElement is the Windows.UI.Xaml.Controls.CaptureElement runtime class, surfaced through its
+// default interface ICaptureElement. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CaptureElement struct {
+	ICaptureElement
+}
+
+// NewCaptureElement activates Windows.UI.Xaml.Controls.CaptureElement through its default
+// constructor.
+func NewCaptureElement() (*CaptureElement, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.CaptureElement")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[CaptureElement](unsafe.Pointer(instance), &IID_ICaptureElement)
+}
+
+// CaptureElementStatics returns the Windows.UI.Xaml.Controls.ICaptureElementStatics statics of the
+// Windows.UI.Xaml.Controls.CaptureElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CaptureElementStatics() (*ICaptureElementStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CaptureElement", &IID_ICaptureElementStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICaptureElementStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CheckBox is the Windows.UI.Xaml.Controls.CheckBox runtime class, surfaced through its
+// default interface ICheckBox. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CheckBox struct {
+	ICheckBox
+}
+
+// NewCheckBox constructs a Windows.UI.Xaml.Controls.CheckBox instance through
+// Windows.UI.Xaml.Controls.ICheckBoxFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCheckBox() (*CheckBox, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CheckBox", &IID_ICheckBoxFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICheckBoxFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CheckBox)(unsafe.Pointer(instance)), nil
 }
 
 // ChoosingGroupHeaderContainerEventArgs is the Windows.UI.Xaml.Controls.ChoosingGroupHeaderContainerEventArgs runtime class, surfaced through its
@@ -101,6 +1168,13 @@ func NewChoosingItemContainerEventArgs() (*ChoosingItemContainerEventArgs, error
 	return winrt.QueryInterface[ChoosingItemContainerEventArgs](unsafe.Pointer(instance), &IID_IChoosingItemContainerEventArgs)
 }
 
+// CleanUpVirtualizedItemEventArgs is the Windows.UI.Xaml.Controls.CleanUpVirtualizedItemEventArgs runtime class, surfaced through its
+// default interface ICleanUpVirtualizedItemEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CleanUpVirtualizedItemEventArgs struct {
+	ICleanUpVirtualizedItemEventArgs
+}
+
 // ColorChangedEventArgs is the Windows.UI.Xaml.Controls.ColorChangedEventArgs runtime class, surfaced through its
 // default interface IColorChangedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -108,11 +1182,401 @@ type ColorChangedEventArgs struct {
 	IColorChangedEventArgs
 }
 
+// ColorPicker is the Windows.UI.Xaml.Controls.ColorPicker runtime class, surfaced through its
+// default interface IColorPicker. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ColorPicker struct {
+	IColorPicker
+}
+
+// ColorPickerStatics returns the Windows.UI.Xaml.Controls.IColorPickerStatics statics of the
+// Windows.UI.Xaml.Controls.ColorPicker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ColorPickerStatics() (*IColorPickerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ColorPicker", &IID_IColorPickerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IColorPickerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewColorPicker constructs a Windows.UI.Xaml.Controls.ColorPicker instance through
+// Windows.UI.Xaml.Controls.IColorPickerFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewColorPicker() (*ColorPicker, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ColorPicker", &IID_IColorPickerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IColorPickerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ColorPicker)(unsafe.Pointer(instance)), nil
+}
+
+// ColumnDefinition is the Windows.UI.Xaml.Controls.ColumnDefinition runtime class, surfaced through its
+// default interface IColumnDefinition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ColumnDefinition struct {
+	IColumnDefinition
+}
+
+// NewColumnDefinition activates Windows.UI.Xaml.Controls.ColumnDefinition through its default
+// constructor.
+func NewColumnDefinition() (*ColumnDefinition, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ColumnDefinition")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ColumnDefinition](unsafe.Pointer(instance), &IID_IColumnDefinition)
+}
+
+// ColumnDefinitionStatics returns the Windows.UI.Xaml.Controls.IColumnDefinitionStatics statics of the
+// Windows.UI.Xaml.Controls.ColumnDefinition runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ColumnDefinitionStatics() (*IColumnDefinitionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ColumnDefinition", &IID_IColumnDefinitionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IColumnDefinitionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ComboBox is the Windows.UI.Xaml.Controls.ComboBox runtime class, surfaced through its
+// default interface IComboBox. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ComboBox struct {
+	IComboBox
+}
+
+// AsComboBox2 queries the instance's IComboBox2 interface.
+// The returned reference is owned by the caller.
+func (self *ComboBox) AsComboBox2() (*IComboBox2, error) {
+	return winrt.QueryInterface[IComboBox2](unsafe.Pointer(self), &IID_IComboBox2)
+}
+
+// AsComboBox3 queries the instance's IComboBox3 interface.
+// The returned reference is owned by the caller.
+func (self *ComboBox) AsComboBox3() (*IComboBox3, error) {
+	return winrt.QueryInterface[IComboBox3](unsafe.Pointer(self), &IID_IComboBox3)
+}
+
+// AsComboBox4 queries the instance's IComboBox4 interface.
+// The returned reference is owned by the caller.
+func (self *ComboBox) AsComboBox4() (*IComboBox4, error) {
+	return winrt.QueryInterface[IComboBox4](unsafe.Pointer(self), &IID_IComboBox4)
+}
+
+// AsComboBox5 queries the instance's IComboBox5 interface.
+// The returned reference is owned by the caller.
+func (self *ComboBox) AsComboBox5() (*IComboBox5, error) {
+	return winrt.QueryInterface[IComboBox5](unsafe.Pointer(self), &IID_IComboBox5)
+}
+
+// AsComboBox6 queries the instance's IComboBox6 interface.
+// The returned reference is owned by the caller.
+func (self *ComboBox) AsComboBox6() (*IComboBox6, error) {
+	return winrt.QueryInterface[IComboBox6](unsafe.Pointer(self), &IID_IComboBox6)
+}
+
+// AsComboBoxOverrides queries the instance's IComboBoxOverrides interface.
+// The returned reference is owned by the caller.
+func (self *ComboBox) AsComboBoxOverrides() (*IComboBoxOverrides, error) {
+	return winrt.QueryInterface[IComboBoxOverrides](unsafe.Pointer(self), &IID_IComboBoxOverrides)
+}
+
+// ComboBoxStatics returns the Windows.UI.Xaml.Controls.IComboBoxStatics statics of the
+// Windows.UI.Xaml.Controls.ComboBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ComboBoxStatics() (*IComboBoxStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ComboBox", &IID_IComboBoxStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IComboBoxStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ComboBoxStatics2 returns the Windows.UI.Xaml.Controls.IComboBoxStatics2 statics of the
+// Windows.UI.Xaml.Controls.ComboBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ComboBoxStatics2() (*IComboBoxStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ComboBox", &IID_IComboBoxStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IComboBoxStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// ComboBoxStatics3 returns the Windows.UI.Xaml.Controls.IComboBoxStatics3 statics of the
+// Windows.UI.Xaml.Controls.ComboBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ComboBoxStatics3() (*IComboBoxStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ComboBox", &IID_IComboBoxStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IComboBoxStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// ComboBoxStatics4 returns the Windows.UI.Xaml.Controls.IComboBoxStatics4 statics of the
+// Windows.UI.Xaml.Controls.ComboBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ComboBoxStatics4() (*IComboBoxStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ComboBox", &IID_IComboBoxStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IComboBoxStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// ComboBoxStatics5 returns the Windows.UI.Xaml.Controls.IComboBoxStatics5 statics of the
+// Windows.UI.Xaml.Controls.ComboBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ComboBoxStatics5() (*IComboBoxStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ComboBox", &IID_IComboBoxStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IComboBoxStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// ComboBoxStatics6 returns the Windows.UI.Xaml.Controls.IComboBoxStatics6 statics of the
+// Windows.UI.Xaml.Controls.ComboBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ComboBoxStatics6() (*IComboBoxStatics6, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ComboBox", &IID_IComboBoxStatics6)
+	if err != nil {
+		return nil, err
+	}
+	return (*IComboBoxStatics6)(unsafe.Pointer(factory)), nil
+}
+
+// NewComboBox constructs a Windows.UI.Xaml.Controls.ComboBox instance through
+// Windows.UI.Xaml.Controls.IComboBoxFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewComboBox() (*ComboBox, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ComboBox", &IID_IComboBoxFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IComboBoxFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ComboBox)(unsafe.Pointer(instance)), nil
+}
+
+// ComboBoxItem is the Windows.UI.Xaml.Controls.ComboBoxItem runtime class, surfaced through its
+// default interface IComboBoxItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ComboBoxItem struct {
+	IComboBoxItem
+}
+
+// NewComboBoxItem constructs a Windows.UI.Xaml.Controls.ComboBoxItem instance through
+// Windows.UI.Xaml.Controls.IComboBoxItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewComboBoxItem() (*ComboBoxItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ComboBoxItem", &IID_IComboBoxItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IComboBoxItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ComboBoxItem)(unsafe.Pointer(instance)), nil
+}
+
 // ComboBoxTextSubmittedEventArgs is the Windows.UI.Xaml.Controls.ComboBoxTextSubmittedEventArgs runtime class, surfaced through its
 // default interface IComboBoxTextSubmittedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type ComboBoxTextSubmittedEventArgs struct {
 	IComboBoxTextSubmittedEventArgs
+}
+
+// CommandBar is the Windows.UI.Xaml.Controls.CommandBar runtime class, surfaced through its
+// default interface ICommandBar. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CommandBar struct {
+	ICommandBar
+}
+
+// AsCommandBar2 queries the instance's ICommandBar2 interface.
+// The returned reference is owned by the caller.
+func (self *CommandBar) AsCommandBar2() (*ICommandBar2, error) {
+	return winrt.QueryInterface[ICommandBar2](unsafe.Pointer(self), &IID_ICommandBar2)
+}
+
+// AsCommandBar3 queries the instance's ICommandBar3 interface.
+// The returned reference is owned by the caller.
+func (self *CommandBar) AsCommandBar3() (*ICommandBar3, error) {
+	return winrt.QueryInterface[ICommandBar3](unsafe.Pointer(self), &IID_ICommandBar3)
+}
+
+// CommandBarStatics returns the Windows.UI.Xaml.Controls.ICommandBarStatics statics of the
+// Windows.UI.Xaml.Controls.CommandBar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CommandBarStatics() (*ICommandBarStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CommandBar", &IID_ICommandBarStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICommandBarStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CommandBarStatics2 returns the Windows.UI.Xaml.Controls.ICommandBarStatics2 statics of the
+// Windows.UI.Xaml.Controls.CommandBar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CommandBarStatics2() (*ICommandBarStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CommandBar", &IID_ICommandBarStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICommandBarStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// CommandBarStatics3 returns the Windows.UI.Xaml.Controls.ICommandBarStatics3 statics of the
+// Windows.UI.Xaml.Controls.CommandBar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CommandBarStatics3() (*ICommandBarStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CommandBar", &IID_ICommandBarStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICommandBarStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// NewCommandBar constructs a Windows.UI.Xaml.Controls.CommandBar instance through
+// Windows.UI.Xaml.Controls.ICommandBarFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCommandBar() (*CommandBar, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CommandBar", &IID_ICommandBarFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICommandBarFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CommandBar)(unsafe.Pointer(instance)), nil
+}
+
+// CommandBarFlyout is the Windows.UI.Xaml.Controls.CommandBarFlyout runtime class, surfaced through its
+// default interface ICommandBarFlyout. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CommandBarFlyout struct {
+	ICommandBarFlyout
+}
+
+// NewCommandBarFlyout constructs a Windows.UI.Xaml.Controls.CommandBarFlyout instance through
+// Windows.UI.Xaml.Controls.ICommandBarFlyoutFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCommandBarFlyout() (*CommandBarFlyout, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CommandBarFlyout", &IID_ICommandBarFlyoutFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICommandBarFlyoutFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CommandBarFlyout)(unsafe.Pointer(instance)), nil
+}
+
+// CommandBarOverflowPresenter is the Windows.UI.Xaml.Controls.CommandBarOverflowPresenter runtime class, surfaced through its
+// default interface ICommandBarOverflowPresenter. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CommandBarOverflowPresenter struct {
+	ICommandBarOverflowPresenter
+}
+
+// NewCommandBarOverflowPresenter constructs a Windows.UI.Xaml.Controls.CommandBarOverflowPresenter instance through
+// Windows.UI.Xaml.Controls.ICommandBarOverflowPresenterFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCommandBarOverflowPresenter() (*CommandBarOverflowPresenter, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.CommandBarOverflowPresenter", &IID_ICommandBarOverflowPresenterFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICommandBarOverflowPresenterFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CommandBarOverflowPresenter)(unsafe.Pointer(instance)), nil
 }
 
 // ContainerContentChangingEventArgs is the Windows.UI.Xaml.Controls.ContainerContentChangingEventArgs runtime class, surfaced through its
@@ -131,6 +1595,130 @@ func NewContainerContentChangingEventArgs() (*ContainerContentChangingEventArgs,
 	}
 	defer instance.Release()
 	return winrt.QueryInterface[ContainerContentChangingEventArgs](unsafe.Pointer(instance), &IID_IContainerContentChangingEventArgs)
+}
+
+// ContentControl is the Windows.UI.Xaml.Controls.ContentControl runtime class, surfaced through its
+// default interface IContentControl. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ContentControl struct {
+	IContentControl
+}
+
+// AsContentControl2 queries the instance's IContentControl2 interface.
+// The returned reference is owned by the caller.
+func (self *ContentControl) AsContentControl2() (*IContentControl2, error) {
+	return winrt.QueryInterface[IContentControl2](unsafe.Pointer(self), &IID_IContentControl2)
+}
+
+// AsContentControlOverrides queries the instance's IContentControlOverrides interface.
+// The returned reference is owned by the caller.
+func (self *ContentControl) AsContentControlOverrides() (*IContentControlOverrides, error) {
+	return winrt.QueryInterface[IContentControlOverrides](unsafe.Pointer(self), &IID_IContentControlOverrides)
+}
+
+// ContentControlStatics returns the Windows.UI.Xaml.Controls.IContentControlStatics statics of the
+// Windows.UI.Xaml.Controls.ContentControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ContentControlStatics() (*IContentControlStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ContentControl", &IID_IContentControlStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IContentControlStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewContentControl constructs a Windows.UI.Xaml.Controls.ContentControl instance through
+// Windows.UI.Xaml.Controls.IContentControlFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewContentControl() (*ContentControl, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ContentControl", &IID_IContentControlFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IContentControlFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ContentControl)(unsafe.Pointer(instance)), nil
+}
+
+// ContentDialog is the Windows.UI.Xaml.Controls.ContentDialog runtime class, surfaced through its
+// default interface IContentDialog. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ContentDialog struct {
+	IContentDialog
+}
+
+// AsContentDialog2 queries the instance's IContentDialog2 interface.
+// The returned reference is owned by the caller.
+func (self *ContentDialog) AsContentDialog2() (*IContentDialog2, error) {
+	return winrt.QueryInterface[IContentDialog2](unsafe.Pointer(self), &IID_IContentDialog2)
+}
+
+// AsContentDialog3 queries the instance's IContentDialog3 interface.
+// The returned reference is owned by the caller.
+func (self *ContentDialog) AsContentDialog3() (*IContentDialog3, error) {
+	return winrt.QueryInterface[IContentDialog3](unsafe.Pointer(self), &IID_IContentDialog3)
+}
+
+// ContentDialogStatics returns the Windows.UI.Xaml.Controls.IContentDialogStatics statics of the
+// Windows.UI.Xaml.Controls.ContentDialog runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ContentDialogStatics() (*IContentDialogStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ContentDialog", &IID_IContentDialogStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IContentDialogStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ContentDialogStatics2 returns the Windows.UI.Xaml.Controls.IContentDialogStatics2 statics of the
+// Windows.UI.Xaml.Controls.ContentDialog runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ContentDialogStatics2() (*IContentDialogStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ContentDialog", &IID_IContentDialogStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IContentDialogStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewContentDialog constructs a Windows.UI.Xaml.Controls.ContentDialog instance through
+// Windows.UI.Xaml.Controls.IContentDialogFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewContentDialog() (*ContentDialog, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ContentDialog", &IID_IContentDialogFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IContentDialogFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ContentDialog)(unsafe.Pointer(instance)), nil
 }
 
 // ContentDialogButtonClickDeferral is the Windows.UI.Xaml.Controls.ContentDialogButtonClickDeferral runtime class, surfaced through its
@@ -182,6 +1770,305 @@ type ContentLinkChangedEventArgs struct {
 	IContentLinkChangedEventArgs
 }
 
+// ContentPresenter is the Windows.UI.Xaml.Controls.ContentPresenter runtime class, surfaced through its
+// default interface IContentPresenter. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ContentPresenter struct {
+	IContentPresenter
+}
+
+// AsContentPresenter2 queries the instance's IContentPresenter2 interface.
+// The returned reference is owned by the caller.
+func (self *ContentPresenter) AsContentPresenter2() (*IContentPresenter2, error) {
+	return winrt.QueryInterface[IContentPresenter2](unsafe.Pointer(self), &IID_IContentPresenter2)
+}
+
+// AsContentPresenter3 queries the instance's IContentPresenter3 interface.
+// The returned reference is owned by the caller.
+func (self *ContentPresenter) AsContentPresenter3() (*IContentPresenter3, error) {
+	return winrt.QueryInterface[IContentPresenter3](unsafe.Pointer(self), &IID_IContentPresenter3)
+}
+
+// AsContentPresenter4 queries the instance's IContentPresenter4 interface.
+// The returned reference is owned by the caller.
+func (self *ContentPresenter) AsContentPresenter4() (*IContentPresenter4, error) {
+	return winrt.QueryInterface[IContentPresenter4](unsafe.Pointer(self), &IID_IContentPresenter4)
+}
+
+// AsContentPresenter5 queries the instance's IContentPresenter5 interface.
+// The returned reference is owned by the caller.
+func (self *ContentPresenter) AsContentPresenter5() (*IContentPresenter5, error) {
+	return winrt.QueryInterface[IContentPresenter5](unsafe.Pointer(self), &IID_IContentPresenter5)
+}
+
+// AsContentPresenterOverrides queries the instance's IContentPresenterOverrides interface.
+// The returned reference is owned by the caller.
+func (self *ContentPresenter) AsContentPresenterOverrides() (*IContentPresenterOverrides, error) {
+	return winrt.QueryInterface[IContentPresenterOverrides](unsafe.Pointer(self), &IID_IContentPresenterOverrides)
+}
+
+// ContentPresenterStatics returns the Windows.UI.Xaml.Controls.IContentPresenterStatics statics of the
+// Windows.UI.Xaml.Controls.ContentPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ContentPresenterStatics() (*IContentPresenterStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ContentPresenter", &IID_IContentPresenterStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IContentPresenterStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ContentPresenterStatics2 returns the Windows.UI.Xaml.Controls.IContentPresenterStatics2 statics of the
+// Windows.UI.Xaml.Controls.ContentPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ContentPresenterStatics2() (*IContentPresenterStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ContentPresenter", &IID_IContentPresenterStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IContentPresenterStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// ContentPresenterStatics3 returns the Windows.UI.Xaml.Controls.IContentPresenterStatics3 statics of the
+// Windows.UI.Xaml.Controls.ContentPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ContentPresenterStatics3() (*IContentPresenterStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ContentPresenter", &IID_IContentPresenterStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IContentPresenterStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// ContentPresenterStatics4 returns the Windows.UI.Xaml.Controls.IContentPresenterStatics4 statics of the
+// Windows.UI.Xaml.Controls.ContentPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ContentPresenterStatics4() (*IContentPresenterStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ContentPresenter", &IID_IContentPresenterStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IContentPresenterStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// ContentPresenterStatics5 returns the Windows.UI.Xaml.Controls.IContentPresenterStatics5 statics of the
+// Windows.UI.Xaml.Controls.ContentPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ContentPresenterStatics5() (*IContentPresenterStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ContentPresenter", &IID_IContentPresenterStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IContentPresenterStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// NewContentPresenter constructs a Windows.UI.Xaml.Controls.ContentPresenter instance through
+// Windows.UI.Xaml.Controls.IContentPresenterFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewContentPresenter() (*ContentPresenter, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ContentPresenter", &IID_IContentPresenterFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IContentPresenterFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ContentPresenter)(unsafe.Pointer(instance)), nil
+}
+
+// ContextMenuEventArgs is the Windows.UI.Xaml.Controls.ContextMenuEventArgs runtime class, surfaced through its
+// default interface IContextMenuEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ContextMenuEventArgs struct {
+	IContextMenuEventArgs
+}
+
+// Control is the Windows.UI.Xaml.Controls.Control runtime class, surfaced through its
+// default interface IControl. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Control struct {
+	IControl
+}
+
+// AsControl2 queries the instance's IControl2 interface.
+// The returned reference is owned by the caller.
+func (self *Control) AsControl2() (*IControl2, error) {
+	return winrt.QueryInterface[IControl2](unsafe.Pointer(self), &IID_IControl2)
+}
+
+// AsControl3 queries the instance's IControl3 interface.
+// The returned reference is owned by the caller.
+func (self *Control) AsControl3() (*IControl3, error) {
+	return winrt.QueryInterface[IControl3](unsafe.Pointer(self), &IID_IControl3)
+}
+
+// AsControl4 queries the instance's IControl4 interface.
+// The returned reference is owned by the caller.
+func (self *Control) AsControl4() (*IControl4, error) {
+	return winrt.QueryInterface[IControl4](unsafe.Pointer(self), &IID_IControl4)
+}
+
+// AsControl5 queries the instance's IControl5 interface.
+// The returned reference is owned by the caller.
+func (self *Control) AsControl5() (*IControl5, error) {
+	return winrt.QueryInterface[IControl5](unsafe.Pointer(self), &IID_IControl5)
+}
+
+// AsControl7 queries the instance's IControl7 interface.
+// The returned reference is owned by the caller.
+func (self *Control) AsControl7() (*IControl7, error) {
+	return winrt.QueryInterface[IControl7](unsafe.Pointer(self), &IID_IControl7)
+}
+
+// AsControlProtected queries the instance's IControlProtected interface.
+// The returned reference is owned by the caller.
+func (self *Control) AsControlProtected() (*IControlProtected, error) {
+	return winrt.QueryInterface[IControlProtected](unsafe.Pointer(self), &IID_IControlProtected)
+}
+
+// AsControlOverrides queries the instance's IControlOverrides interface.
+// The returned reference is owned by the caller.
+func (self *Control) AsControlOverrides() (*IControlOverrides, error) {
+	return winrt.QueryInterface[IControlOverrides](unsafe.Pointer(self), &IID_IControlOverrides)
+}
+
+// AsControlOverrides6 queries the instance's IControlOverrides6 interface.
+// The returned reference is owned by the caller.
+func (self *Control) AsControlOverrides6() (*IControlOverrides6, error) {
+	return winrt.QueryInterface[IControlOverrides6](unsafe.Pointer(self), &IID_IControlOverrides6)
+}
+
+// ControlStatics returns the Windows.UI.Xaml.Controls.IControlStatics statics of the
+// Windows.UI.Xaml.Controls.Control runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ControlStatics() (*IControlStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Control", &IID_IControlStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IControlStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ControlStatics2 returns the Windows.UI.Xaml.Controls.IControlStatics2 statics of the
+// Windows.UI.Xaml.Controls.Control runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ControlStatics2() (*IControlStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Control", &IID_IControlStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IControlStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// ControlStatics3 returns the Windows.UI.Xaml.Controls.IControlStatics3 statics of the
+// Windows.UI.Xaml.Controls.Control runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ControlStatics3() (*IControlStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Control", &IID_IControlStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IControlStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// ControlStatics4 returns the Windows.UI.Xaml.Controls.IControlStatics4 statics of the
+// Windows.UI.Xaml.Controls.Control runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ControlStatics4() (*IControlStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Control", &IID_IControlStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IControlStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// ControlStatics5 returns the Windows.UI.Xaml.Controls.IControlStatics5 statics of the
+// Windows.UI.Xaml.Controls.Control runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ControlStatics5() (*IControlStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Control", &IID_IControlStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IControlStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// ControlStatics7 returns the Windows.UI.Xaml.Controls.IControlStatics7 statics of the
+// Windows.UI.Xaml.Controls.Control runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ControlStatics7() (*IControlStatics7, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Control", &IID_IControlStatics7)
+	if err != nil {
+		return nil, err
+	}
+	return (*IControlStatics7)(unsafe.Pointer(factory)), nil
+}
+
+// NewControl constructs a Windows.UI.Xaml.Controls.Control instance through
+// Windows.UI.Xaml.Controls.IControlFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewControl() (*Control, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Control", &IID_IControlFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IControlFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Control)(unsafe.Pointer(instance)), nil
+}
+
+// ControlTemplate is the Windows.UI.Xaml.Controls.ControlTemplate runtime class, surfaced through its
+// default interface IControlTemplate. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ControlTemplate struct {
+	IControlTemplate
+}
+
+// NewControlTemplate activates Windows.UI.Xaml.Controls.ControlTemplate through its default
+// constructor.
+func NewControlTemplate() (*ControlTemplate, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ControlTemplate")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ControlTemplate](unsafe.Pointer(instance), &IID_IControlTemplate)
+}
+
 // DataTemplateSelector is the Windows.UI.Xaml.Controls.DataTemplateSelector runtime class, surfaced through its
 // default interface IDataTemplateSelector. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -211,6 +2098,227 @@ func (self *DataTemplateSelector) AsDataTemplateSelectorOverrides2() (*IDataTemp
 // The returned reference is owned by the caller.
 func (self *DataTemplateSelector) AsElementFactory() (*uixaml.IElementFactory, error) {
 	return winrt.QueryInterface[uixaml.IElementFactory](unsafe.Pointer(self), &uixaml.IID_IElementFactory)
+}
+
+// NewDataTemplateSelector constructs a Windows.UI.Xaml.Controls.DataTemplateSelector instance through
+// Windows.UI.Xaml.Controls.IDataTemplateSelectorFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewDataTemplateSelector() (*DataTemplateSelector, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.DataTemplateSelector", &IID_IDataTemplateSelectorFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IDataTemplateSelectorFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*DataTemplateSelector)(unsafe.Pointer(instance)), nil
+}
+
+// DatePickedEventArgs is the Windows.UI.Xaml.Controls.DatePickedEventArgs runtime class, surfaced through its
+// default interface IDatePickedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DatePickedEventArgs struct {
+	IDatePickedEventArgs
+}
+
+// NewDatePickedEventArgs activates Windows.UI.Xaml.Controls.DatePickedEventArgs through its default
+// constructor.
+func NewDatePickedEventArgs() (*DatePickedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.DatePickedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DatePickedEventArgs](unsafe.Pointer(instance), &IID_IDatePickedEventArgs)
+}
+
+// DatePicker is the Windows.UI.Xaml.Controls.DatePicker runtime class, surfaced through its
+// default interface IDatePicker. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DatePicker struct {
+	IDatePicker
+}
+
+// AsDatePicker2 queries the instance's IDatePicker2 interface.
+// The returned reference is owned by the caller.
+func (self *DatePicker) AsDatePicker2() (*IDatePicker2, error) {
+	return winrt.QueryInterface[IDatePicker2](unsafe.Pointer(self), &IID_IDatePicker2)
+}
+
+// AsDatePicker3 queries the instance's IDatePicker3 interface.
+// The returned reference is owned by the caller.
+func (self *DatePicker) AsDatePicker3() (*IDatePicker3, error) {
+	return winrt.QueryInterface[IDatePicker3](unsafe.Pointer(self), &IID_IDatePicker3)
+}
+
+// DatePickerStatics returns the Windows.UI.Xaml.Controls.IDatePickerStatics statics of the
+// Windows.UI.Xaml.Controls.DatePicker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DatePickerStatics() (*IDatePickerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.DatePicker", &IID_IDatePickerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDatePickerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// DatePickerStatics2 returns the Windows.UI.Xaml.Controls.IDatePickerStatics2 statics of the
+// Windows.UI.Xaml.Controls.DatePicker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DatePickerStatics2() (*IDatePickerStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.DatePicker", &IID_IDatePickerStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDatePickerStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// DatePickerStatics3 returns the Windows.UI.Xaml.Controls.IDatePickerStatics3 statics of the
+// Windows.UI.Xaml.Controls.DatePicker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DatePickerStatics3() (*IDatePickerStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.DatePicker", &IID_IDatePickerStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDatePickerStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// NewDatePicker constructs a Windows.UI.Xaml.Controls.DatePicker instance through
+// Windows.UI.Xaml.Controls.IDatePickerFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewDatePicker() (*DatePicker, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.DatePicker", &IID_IDatePickerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IDatePickerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*DatePicker)(unsafe.Pointer(instance)), nil
+}
+
+// DatePickerFlyout is the Windows.UI.Xaml.Controls.DatePickerFlyout runtime class, surfaced through its
+// default interface IDatePickerFlyout. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DatePickerFlyout struct {
+	IDatePickerFlyout
+}
+
+// NewDatePickerFlyout activates Windows.UI.Xaml.Controls.DatePickerFlyout through its default
+// constructor.
+func NewDatePickerFlyout() (*DatePickerFlyout, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.DatePickerFlyout")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DatePickerFlyout](unsafe.Pointer(instance), &IID_IDatePickerFlyout)
+}
+
+// AsDatePickerFlyout2 queries the instance's IDatePickerFlyout2 interface.
+// The returned reference is owned by the caller.
+func (self *DatePickerFlyout) AsDatePickerFlyout2() (*IDatePickerFlyout2, error) {
+	return winrt.QueryInterface[IDatePickerFlyout2](unsafe.Pointer(self), &IID_IDatePickerFlyout2)
+}
+
+// DatePickerFlyoutStatics returns the Windows.UI.Xaml.Controls.IDatePickerFlyoutStatics statics of the
+// Windows.UI.Xaml.Controls.DatePickerFlyout runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DatePickerFlyoutStatics() (*IDatePickerFlyoutStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.DatePickerFlyout", &IID_IDatePickerFlyoutStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDatePickerFlyoutStatics)(unsafe.Pointer(factory)), nil
+}
+
+// DatePickerFlyoutStatics2 returns the Windows.UI.Xaml.Controls.IDatePickerFlyoutStatics2 statics of the
+// Windows.UI.Xaml.Controls.DatePickerFlyout runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DatePickerFlyoutStatics2() (*IDatePickerFlyoutStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.DatePickerFlyout", &IID_IDatePickerFlyoutStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDatePickerFlyoutStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// DatePickerFlyoutItem is the Windows.UI.Xaml.Controls.DatePickerFlyoutItem runtime class, surfaced through its
+// default interface IDatePickerFlyoutItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DatePickerFlyoutItem struct {
+	IDatePickerFlyoutItem
+}
+
+// AsCustomPropertyProvider queries the instance's uixamldata.ICustomPropertyProvider interface.
+// The returned reference is owned by the caller.
+func (self *DatePickerFlyoutItem) AsCustomPropertyProvider() (*uixamldata.ICustomPropertyProvider, error) {
+	return winrt.QueryInterface[uixamldata.ICustomPropertyProvider](unsafe.Pointer(self), &uixamldata.IID_ICustomPropertyProvider)
+}
+
+// DatePickerFlyoutItemStatics returns the Windows.UI.Xaml.Controls.IDatePickerFlyoutItemStatics statics of the
+// Windows.UI.Xaml.Controls.DatePickerFlyoutItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DatePickerFlyoutItemStatics() (*IDatePickerFlyoutItemStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.DatePickerFlyoutItem", &IID_IDatePickerFlyoutItemStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDatePickerFlyoutItemStatics)(unsafe.Pointer(factory)), nil
+}
+
+// DatePickerFlyoutPresenter is the Windows.UI.Xaml.Controls.DatePickerFlyoutPresenter runtime class, surfaced through its
+// default interface IDatePickerFlyoutPresenter. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DatePickerFlyoutPresenter struct {
+	IDatePickerFlyoutPresenter
+}
+
+// AsDatePickerFlyoutPresenter2 queries the instance's IDatePickerFlyoutPresenter2 interface.
+// The returned reference is owned by the caller.
+func (self *DatePickerFlyoutPresenter) AsDatePickerFlyoutPresenter2() (*IDatePickerFlyoutPresenter2, error) {
+	return winrt.QueryInterface[IDatePickerFlyoutPresenter2](unsafe.Pointer(self), &IID_IDatePickerFlyoutPresenter2)
+}
+
+// DatePickerFlyoutPresenterStatics2 returns the Windows.UI.Xaml.Controls.IDatePickerFlyoutPresenterStatics2 statics of the
+// Windows.UI.Xaml.Controls.DatePickerFlyoutPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DatePickerFlyoutPresenterStatics2() (*IDatePickerFlyoutPresenterStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.DatePickerFlyoutPresenter", &IID_IDatePickerFlyoutPresenterStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDatePickerFlyoutPresenterStatics2)(unsafe.Pointer(factory)), nil
 }
 
 // DatePickerSelectedValueChangedEventArgs is the Windows.UI.Xaml.Controls.DatePickerSelectedValueChangedEventArgs runtime class, surfaced through its
@@ -252,6 +2360,76 @@ func NewDragItemsStartingEventArgs() (*DragItemsStartingEventArgs, error) {
 	return winrt.QueryInterface[DragItemsStartingEventArgs](unsafe.Pointer(instance), &IID_IDragItemsStartingEventArgs)
 }
 
+// DropDownButton is the Windows.UI.Xaml.Controls.DropDownButton runtime class, surfaced through its
+// default interface IDropDownButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DropDownButton struct {
+	IDropDownButton
+}
+
+// NewDropDownButton constructs a Windows.UI.Xaml.Controls.DropDownButton instance through
+// Windows.UI.Xaml.Controls.IDropDownButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewDropDownButton() (*DropDownButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.DropDownButton", &IID_IDropDownButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IDropDownButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*DropDownButton)(unsafe.Pointer(instance)), nil
+}
+
+// DropDownButtonAutomationPeer is the Windows.UI.Xaml.Controls.DropDownButtonAutomationPeer runtime class, surfaced through its
+// default interface IDropDownButtonAutomationPeer. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DropDownButtonAutomationPeer struct {
+	IDropDownButtonAutomationPeer
+}
+
+// AsExpandCollapseProvider queries the instance's uixamlautomationprovider.IExpandCollapseProvider interface.
+// The returned reference is owned by the caller.
+func (self *DropDownButtonAutomationPeer) AsExpandCollapseProvider() (*uixamlautomationprovider.IExpandCollapseProvider, error) {
+	return winrt.QueryInterface[uixamlautomationprovider.IExpandCollapseProvider](unsafe.Pointer(self), &uixamlautomationprovider.IID_IExpandCollapseProvider)
+}
+
+// NewDropDownButtonAutomationPeer constructs a Windows.UI.Xaml.Controls.DropDownButtonAutomationPeer instance through
+// Windows.UI.Xaml.Controls.IDropDownButtonAutomationPeerFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewDropDownButtonAutomationPeer(owner *IDropDownButton) (*DropDownButtonAutomationPeer, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.DropDownButtonAutomationPeer", &IID_IDropDownButtonAutomationPeerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IDropDownButtonAutomationPeerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(owner, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*DropDownButtonAutomationPeer)(unsafe.Pointer(instance)), nil
+}
+
 // DynamicOverflowItemsChangingEventArgs is the Windows.UI.Xaml.Controls.DynamicOverflowItemsChangingEventArgs runtime class, surfaced through its
 // default interface IDynamicOverflowItemsChangingEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -268,6 +2446,650 @@ func NewDynamicOverflowItemsChangingEventArgs() (*DynamicOverflowItemsChangingEv
 	}
 	defer instance.Release()
 	return winrt.QueryInterface[DynamicOverflowItemsChangingEventArgs](unsafe.Pointer(instance), &IID_IDynamicOverflowItemsChangingEventArgs)
+}
+
+// FlipView is the Windows.UI.Xaml.Controls.FlipView runtime class, surfaced through its
+// default interface IFlipView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type FlipView struct {
+	IFlipView
+}
+
+// AsFlipView2 queries the instance's IFlipView2 interface.
+// The returned reference is owned by the caller.
+func (self *FlipView) AsFlipView2() (*IFlipView2, error) {
+	return winrt.QueryInterface[IFlipView2](unsafe.Pointer(self), &IID_IFlipView2)
+}
+
+// FlipViewStatics2 returns the Windows.UI.Xaml.Controls.IFlipViewStatics2 statics of the
+// Windows.UI.Xaml.Controls.FlipView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FlipViewStatics2() (*IFlipViewStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.FlipView", &IID_IFlipViewStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFlipViewStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewFlipView constructs a Windows.UI.Xaml.Controls.FlipView instance through
+// Windows.UI.Xaml.Controls.IFlipViewFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewFlipView() (*FlipView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.FlipView", &IID_IFlipViewFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IFlipViewFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*FlipView)(unsafe.Pointer(instance)), nil
+}
+
+// FlipViewItem is the Windows.UI.Xaml.Controls.FlipViewItem runtime class, surfaced through its
+// default interface IFlipViewItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type FlipViewItem struct {
+	IFlipViewItem
+}
+
+// NewFlipViewItem constructs a Windows.UI.Xaml.Controls.FlipViewItem instance through
+// Windows.UI.Xaml.Controls.IFlipViewItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewFlipViewItem() (*FlipViewItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.FlipViewItem", &IID_IFlipViewItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IFlipViewItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*FlipViewItem)(unsafe.Pointer(instance)), nil
+}
+
+// Flyout is the Windows.UI.Xaml.Controls.Flyout runtime class, surfaced through its
+// default interface IFlyout. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Flyout struct {
+	IFlyout
+}
+
+// FlyoutStatics returns the Windows.UI.Xaml.Controls.IFlyoutStatics statics of the
+// Windows.UI.Xaml.Controls.Flyout runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FlyoutStatics() (*IFlyoutStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Flyout", &IID_IFlyoutStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFlyoutStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewFlyout constructs a Windows.UI.Xaml.Controls.Flyout instance through
+// Windows.UI.Xaml.Controls.IFlyoutFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewFlyout() (*Flyout, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Flyout", &IID_IFlyoutFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IFlyoutFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Flyout)(unsafe.Pointer(instance)), nil
+}
+
+// FlyoutPresenter is the Windows.UI.Xaml.Controls.FlyoutPresenter runtime class, surfaced through its
+// default interface IFlyoutPresenter. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type FlyoutPresenter struct {
+	IFlyoutPresenter
+}
+
+// AsFlyoutPresenter2 queries the instance's IFlyoutPresenter2 interface.
+// The returned reference is owned by the caller.
+func (self *FlyoutPresenter) AsFlyoutPresenter2() (*IFlyoutPresenter2, error) {
+	return winrt.QueryInterface[IFlyoutPresenter2](unsafe.Pointer(self), &IID_IFlyoutPresenter2)
+}
+
+// FlyoutPresenterStatics2 returns the Windows.UI.Xaml.Controls.IFlyoutPresenterStatics2 statics of the
+// Windows.UI.Xaml.Controls.FlyoutPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FlyoutPresenterStatics2() (*IFlyoutPresenterStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.FlyoutPresenter", &IID_IFlyoutPresenterStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFlyoutPresenterStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewFlyoutPresenter constructs a Windows.UI.Xaml.Controls.FlyoutPresenter instance through
+// Windows.UI.Xaml.Controls.IFlyoutPresenterFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewFlyoutPresenter() (*FlyoutPresenter, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.FlyoutPresenter", &IID_IFlyoutPresenterFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IFlyoutPresenterFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*FlyoutPresenter)(unsafe.Pointer(instance)), nil
+}
+
+// FocusDisengagedEventArgs is the Windows.UI.Xaml.Controls.FocusDisengagedEventArgs runtime class, surfaced through its
+// default interface IFocusDisengagedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type FocusDisengagedEventArgs struct {
+	IFocusDisengagedEventArgs
+}
+
+// FocusEngagedEventArgs is the Windows.UI.Xaml.Controls.FocusEngagedEventArgs runtime class, surfaced through its
+// default interface IFocusEngagedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type FocusEngagedEventArgs struct {
+	IFocusEngagedEventArgs
+}
+
+// AsFocusEngagedEventArgs2 queries the instance's IFocusEngagedEventArgs2 interface.
+// The returned reference is owned by the caller.
+func (self *FocusEngagedEventArgs) AsFocusEngagedEventArgs2() (*IFocusEngagedEventArgs2, error) {
+	return winrt.QueryInterface[IFocusEngagedEventArgs2](unsafe.Pointer(self), &IID_IFocusEngagedEventArgs2)
+}
+
+// FontIcon is the Windows.UI.Xaml.Controls.FontIcon runtime class, surfaced through its
+// default interface IFontIcon. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type FontIcon struct {
+	IFontIcon
+}
+
+// AsFontIcon2 queries the instance's IFontIcon2 interface.
+// The returned reference is owned by the caller.
+func (self *FontIcon) AsFontIcon2() (*IFontIcon2, error) {
+	return winrt.QueryInterface[IFontIcon2](unsafe.Pointer(self), &IID_IFontIcon2)
+}
+
+// AsFontIcon3 queries the instance's IFontIcon3 interface.
+// The returned reference is owned by the caller.
+func (self *FontIcon) AsFontIcon3() (*IFontIcon3, error) {
+	return winrt.QueryInterface[IFontIcon3](unsafe.Pointer(self), &IID_IFontIcon3)
+}
+
+// FontIconStatics returns the Windows.UI.Xaml.Controls.IFontIconStatics statics of the
+// Windows.UI.Xaml.Controls.FontIcon runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FontIconStatics() (*IFontIconStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.FontIcon", &IID_IFontIconStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFontIconStatics)(unsafe.Pointer(factory)), nil
+}
+
+// FontIconStatics2 returns the Windows.UI.Xaml.Controls.IFontIconStatics2 statics of the
+// Windows.UI.Xaml.Controls.FontIcon runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FontIconStatics2() (*IFontIconStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.FontIcon", &IID_IFontIconStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFontIconStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// FontIconStatics3 returns the Windows.UI.Xaml.Controls.IFontIconStatics3 statics of the
+// Windows.UI.Xaml.Controls.FontIcon runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FontIconStatics3() (*IFontIconStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.FontIcon", &IID_IFontIconStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFontIconStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// NewFontIcon constructs a Windows.UI.Xaml.Controls.FontIcon instance through
+// Windows.UI.Xaml.Controls.IFontIconFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewFontIcon() (*FontIcon, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.FontIcon", &IID_IFontIconFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IFontIconFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*FontIcon)(unsafe.Pointer(instance)), nil
+}
+
+// FontIconSource is the Windows.UI.Xaml.Controls.FontIconSource runtime class, surfaced through its
+// default interface IFontIconSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type FontIconSource struct {
+	IFontIconSource
+}
+
+// FontIconSourceStatics returns the Windows.UI.Xaml.Controls.IFontIconSourceStatics statics of the
+// Windows.UI.Xaml.Controls.FontIconSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FontIconSourceStatics() (*IFontIconSourceStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.FontIconSource", &IID_IFontIconSourceStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFontIconSourceStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewFontIconSource constructs a Windows.UI.Xaml.Controls.FontIconSource instance through
+// Windows.UI.Xaml.Controls.IFontIconSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewFontIconSource() (*FontIconSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.FontIconSource", &IID_IFontIconSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IFontIconSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*FontIconSource)(unsafe.Pointer(instance)), nil
+}
+
+// Frame is the Windows.UI.Xaml.Controls.Frame runtime class, surfaced through its
+// default interface IFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Frame struct {
+	IFrame
+}
+
+// AsFrame2 queries the instance's IFrame2 interface.
+// The returned reference is owned by the caller.
+func (self *Frame) AsFrame2() (*IFrame2, error) {
+	return winrt.QueryInterface[IFrame2](unsafe.Pointer(self), &IID_IFrame2)
+}
+
+// AsFrame3 queries the instance's IFrame3 interface.
+// The returned reference is owned by the caller.
+func (self *Frame) AsFrame3() (*IFrame3, error) {
+	return winrt.QueryInterface[IFrame3](unsafe.Pointer(self), &IID_IFrame3)
+}
+
+// AsFrame4 queries the instance's IFrame4 interface.
+// The returned reference is owned by the caller.
+func (self *Frame) AsFrame4() (*IFrame4, error) {
+	return winrt.QueryInterface[IFrame4](unsafe.Pointer(self), &IID_IFrame4)
+}
+
+// AsFrame5 queries the instance's IFrame5 interface.
+// The returned reference is owned by the caller.
+func (self *Frame) AsFrame5() (*IFrame5, error) {
+	return winrt.QueryInterface[IFrame5](unsafe.Pointer(self), &IID_IFrame5)
+}
+
+// AsNavigate queries the instance's INavigate interface.
+// The returned reference is owned by the caller.
+func (self *Frame) AsNavigate() (*INavigate, error) {
+	return winrt.QueryInterface[INavigate](unsafe.Pointer(self), &IID_INavigate)
+}
+
+// FrameStatics returns the Windows.UI.Xaml.Controls.IFrameStatics statics of the
+// Windows.UI.Xaml.Controls.Frame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FrameStatics() (*IFrameStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Frame", &IID_IFrameStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFrameStatics)(unsafe.Pointer(factory)), nil
+}
+
+// FrameStatics2 returns the Windows.UI.Xaml.Controls.IFrameStatics2 statics of the
+// Windows.UI.Xaml.Controls.Frame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FrameStatics2() (*IFrameStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Frame", &IID_IFrameStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFrameStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// FrameStatics5 returns the Windows.UI.Xaml.Controls.IFrameStatics5 statics of the
+// Windows.UI.Xaml.Controls.Frame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FrameStatics5() (*IFrameStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Frame", &IID_IFrameStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFrameStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// NewFrame constructs a Windows.UI.Xaml.Controls.Frame instance through
+// Windows.UI.Xaml.Controls.IFrameFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewFrame() (*Frame, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Frame", &IID_IFrameFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IFrameFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Frame)(unsafe.Pointer(instance)), nil
+}
+
+// Grid is the Windows.UI.Xaml.Controls.Grid runtime class, surfaced through its
+// default interface IGrid. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Grid struct {
+	IGrid
+}
+
+// AsGrid2 queries the instance's IGrid2 interface.
+// The returned reference is owned by the caller.
+func (self *Grid) AsGrid2() (*IGrid2, error) {
+	return winrt.QueryInterface[IGrid2](unsafe.Pointer(self), &IID_IGrid2)
+}
+
+// AsGrid3 queries the instance's IGrid3 interface.
+// The returned reference is owned by the caller.
+func (self *Grid) AsGrid3() (*IGrid3, error) {
+	return winrt.QueryInterface[IGrid3](unsafe.Pointer(self), &IID_IGrid3)
+}
+
+// AsGrid4 queries the instance's IGrid4 interface.
+// The returned reference is owned by the caller.
+func (self *Grid) AsGrid4() (*IGrid4, error) {
+	return winrt.QueryInterface[IGrid4](unsafe.Pointer(self), &IID_IGrid4)
+}
+
+// GridStatics returns the Windows.UI.Xaml.Controls.IGridStatics statics of the
+// Windows.UI.Xaml.Controls.Grid runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GridStatics() (*IGridStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Grid", &IID_IGridStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGridStatics)(unsafe.Pointer(factory)), nil
+}
+
+// GridStatics2 returns the Windows.UI.Xaml.Controls.IGridStatics2 statics of the
+// Windows.UI.Xaml.Controls.Grid runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GridStatics2() (*IGridStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Grid", &IID_IGridStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGridStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// GridStatics3 returns the Windows.UI.Xaml.Controls.IGridStatics3 statics of the
+// Windows.UI.Xaml.Controls.Grid runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GridStatics3() (*IGridStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Grid", &IID_IGridStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGridStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// GridStatics4 returns the Windows.UI.Xaml.Controls.IGridStatics4 statics of the
+// Windows.UI.Xaml.Controls.Grid runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GridStatics4() (*IGridStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Grid", &IID_IGridStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGridStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// NewGrid constructs a Windows.UI.Xaml.Controls.Grid instance through
+// Windows.UI.Xaml.Controls.IGridFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewGrid() (*Grid, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Grid", &IID_IGridFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGridFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Grid)(unsafe.Pointer(instance)), nil
+}
+
+// GridView is the Windows.UI.Xaml.Controls.GridView runtime class, surfaced through its
+// default interface IGridView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type GridView struct {
+	IGridView
+}
+
+// NewGridView constructs a Windows.UI.Xaml.Controls.GridView instance through
+// Windows.UI.Xaml.Controls.IGridViewFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewGridView() (*GridView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.GridView", &IID_IGridViewFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGridViewFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*GridView)(unsafe.Pointer(instance)), nil
+}
+
+// GridViewHeaderItem is the Windows.UI.Xaml.Controls.GridViewHeaderItem runtime class, surfaced through its
+// default interface IGridViewHeaderItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type GridViewHeaderItem struct {
+	IGridViewHeaderItem
+}
+
+// NewGridViewHeaderItem constructs a Windows.UI.Xaml.Controls.GridViewHeaderItem instance through
+// Windows.UI.Xaml.Controls.IGridViewHeaderItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewGridViewHeaderItem() (*GridViewHeaderItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.GridViewHeaderItem", &IID_IGridViewHeaderItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGridViewHeaderItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*GridViewHeaderItem)(unsafe.Pointer(instance)), nil
+}
+
+// GridViewItem is the Windows.UI.Xaml.Controls.GridViewItem runtime class, surfaced through its
+// default interface IGridViewItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type GridViewItem struct {
+	IGridViewItem
+}
+
+// NewGridViewItem constructs a Windows.UI.Xaml.Controls.GridViewItem instance through
+// Windows.UI.Xaml.Controls.IGridViewItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewGridViewItem() (*GridViewItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.GridViewItem", &IID_IGridViewItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGridViewItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*GridViewItem)(unsafe.Pointer(instance)), nil
+}
+
+// GroupItem is the Windows.UI.Xaml.Controls.GroupItem runtime class, surfaced through its
+// default interface IGroupItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type GroupItem struct {
+	IGroupItem
+}
+
+// NewGroupItem constructs a Windows.UI.Xaml.Controls.GroupItem instance through
+// Windows.UI.Xaml.Controls.IGroupItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewGroupItem() (*GroupItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.GroupItem", &IID_IGroupItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGroupItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*GroupItem)(unsafe.Pointer(instance)), nil
 }
 
 // GroupStyle is the Windows.UI.Xaml.Controls.GroupStyle runtime class, surfaced through its
@@ -289,6 +3111,31 @@ func (self *GroupStyle) AsNotifyPropertyChanged() (*uixamldata.INotifyPropertyCh
 	return winrt.QueryInterface[uixamldata.INotifyPropertyChanged](unsafe.Pointer(self), &uixamldata.IID_INotifyPropertyChanged)
 }
 
+// NewGroupStyle constructs a Windows.UI.Xaml.Controls.GroupStyle instance through
+// Windows.UI.Xaml.Controls.IGroupStyleFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewGroupStyle() (*GroupStyle, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.GroupStyle", &IID_IGroupStyleFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGroupStyleFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*GroupStyle)(unsafe.Pointer(instance)), nil
+}
+
 // GroupStyleSelector is the Windows.UI.Xaml.Controls.GroupStyleSelector runtime class, surfaced through its
 // default interface IGroupStyleSelector. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -300,6 +3147,31 @@ type GroupStyleSelector struct {
 // The returned reference is owned by the caller.
 func (self *GroupStyleSelector) AsGroupStyleSelectorOverrides() (*IGroupStyleSelectorOverrides, error) {
 	return winrt.QueryInterface[IGroupStyleSelectorOverrides](unsafe.Pointer(self), &IID_IGroupStyleSelectorOverrides)
+}
+
+// NewGroupStyleSelector constructs a Windows.UI.Xaml.Controls.GroupStyleSelector instance through
+// Windows.UI.Xaml.Controls.IGroupStyleSelectorFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewGroupStyleSelector() (*GroupStyleSelector, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.GroupStyleSelector", &IID_IGroupStyleSelectorFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGroupStyleSelectorFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*GroupStyleSelector)(unsafe.Pointer(instance)), nil
 }
 
 // HandwritingPanelClosedEventArgs is the Windows.UI.Xaml.Controls.HandwritingPanelClosedEventArgs runtime class, surfaced through its
@@ -316,6 +3188,68 @@ type HandwritingPanelOpenedEventArgs struct {
 	IHandwritingPanelOpenedEventArgs
 }
 
+// HandwritingView is the Windows.UI.Xaml.Controls.HandwritingView runtime class, surfaced through its
+// default interface IHandwritingView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type HandwritingView struct {
+	IHandwritingView
+}
+
+// AsHandwritingView2 queries the instance's IHandwritingView2 interface.
+// The returned reference is owned by the caller.
+func (self *HandwritingView) AsHandwritingView2() (*IHandwritingView2, error) {
+	return winrt.QueryInterface[IHandwritingView2](unsafe.Pointer(self), &IID_IHandwritingView2)
+}
+
+// HandwritingViewStatics returns the Windows.UI.Xaml.Controls.IHandwritingViewStatics statics of the
+// Windows.UI.Xaml.Controls.HandwritingView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func HandwritingViewStatics() (*IHandwritingViewStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.HandwritingView", &IID_IHandwritingViewStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IHandwritingViewStatics)(unsafe.Pointer(factory)), nil
+}
+
+// HandwritingViewStatics2 returns the Windows.UI.Xaml.Controls.IHandwritingViewStatics2 statics of the
+// Windows.UI.Xaml.Controls.HandwritingView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func HandwritingViewStatics2() (*IHandwritingViewStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.HandwritingView", &IID_IHandwritingViewStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IHandwritingViewStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewHandwritingView constructs a Windows.UI.Xaml.Controls.HandwritingView instance through
+// Windows.UI.Xaml.Controls.IHandwritingViewFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewHandwritingView() (*HandwritingView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.HandwritingView", &IID_IHandwritingViewFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IHandwritingViewFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*HandwritingView)(unsafe.Pointer(instance)), nil
+}
+
 // HandwritingViewCandidatesChangedEventArgs is the Windows.UI.Xaml.Controls.HandwritingViewCandidatesChangedEventArgs runtime class, surfaced through its
 // default interface IHandwritingViewCandidatesChangedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -328,6 +3262,100 @@ type HandwritingViewCandidatesChangedEventArgs struct {
 // the embedded IInspectable → IUnknown chain).
 type HandwritingViewTextSubmittedEventArgs struct {
 	IHandwritingViewTextSubmittedEventArgs
+}
+
+// Hub is the Windows.UI.Xaml.Controls.Hub runtime class, surfaced through its
+// default interface IHub. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Hub struct {
+	IHub
+}
+
+// AsSemanticZoomInformation queries the instance's ISemanticZoomInformation interface.
+// The returned reference is owned by the caller.
+func (self *Hub) AsSemanticZoomInformation() (*ISemanticZoomInformation, error) {
+	return winrt.QueryInterface[ISemanticZoomInformation](unsafe.Pointer(self), &IID_ISemanticZoomInformation)
+}
+
+// HubStatics returns the Windows.UI.Xaml.Controls.IHubStatics statics of the
+// Windows.UI.Xaml.Controls.Hub runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func HubStatics() (*IHubStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Hub", &IID_IHubStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IHubStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewHub constructs a Windows.UI.Xaml.Controls.Hub instance through
+// Windows.UI.Xaml.Controls.IHubFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewHub() (*Hub, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Hub", &IID_IHubFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IHubFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Hub)(unsafe.Pointer(instance)), nil
+}
+
+// HubSection is the Windows.UI.Xaml.Controls.HubSection runtime class, surfaced through its
+// default interface IHubSection. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type HubSection struct {
+	IHubSection
+}
+
+// HubSectionStatics returns the Windows.UI.Xaml.Controls.IHubSectionStatics statics of the
+// Windows.UI.Xaml.Controls.HubSection runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func HubSectionStatics() (*IHubSectionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.HubSection", &IID_IHubSectionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IHubSectionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewHubSection constructs a Windows.UI.Xaml.Controls.HubSection instance through
+// Windows.UI.Xaml.Controls.IHubSectionFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewHubSection() (*HubSection, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.HubSection", &IID_IHubSectionFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IHubSectionFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*HubSection)(unsafe.Pointer(instance)), nil
 }
 
 // HubSectionHeaderClickEventArgs is the Windows.UI.Xaml.Controls.HubSectionHeaderClickEventArgs runtime class, surfaced through its
@@ -348,6 +3376,602 @@ func NewHubSectionHeaderClickEventArgs() (*HubSectionHeaderClickEventArgs, error
 	return winrt.QueryInterface[HubSectionHeaderClickEventArgs](unsafe.Pointer(instance), &IID_IHubSectionHeaderClickEventArgs)
 }
 
+// HyperlinkButton is the Windows.UI.Xaml.Controls.HyperlinkButton runtime class, surfaced through its
+// default interface IHyperlinkButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type HyperlinkButton struct {
+	IHyperlinkButton
+}
+
+// HyperlinkButtonStatics returns the Windows.UI.Xaml.Controls.IHyperlinkButtonStatics statics of the
+// Windows.UI.Xaml.Controls.HyperlinkButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func HyperlinkButtonStatics() (*IHyperlinkButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.HyperlinkButton", &IID_IHyperlinkButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IHyperlinkButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewHyperlinkButton constructs a Windows.UI.Xaml.Controls.HyperlinkButton instance through
+// Windows.UI.Xaml.Controls.IHyperlinkButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewHyperlinkButton() (*HyperlinkButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.HyperlinkButton", &IID_IHyperlinkButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IHyperlinkButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*HyperlinkButton)(unsafe.Pointer(instance)), nil
+}
+
+// IconElement is the Windows.UI.Xaml.Controls.IconElement runtime class, surfaced through its
+// default interface IIconElement. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type IconElement struct {
+	IIconElement
+}
+
+// IconElementStatics returns the Windows.UI.Xaml.Controls.IIconElementStatics statics of the
+// Windows.UI.Xaml.Controls.IconElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func IconElementStatics() (*IIconElementStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.IconElement", &IID_IIconElementStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IIconElementStatics)(unsafe.Pointer(factory)), nil
+}
+
+// IconSource is the Windows.UI.Xaml.Controls.IconSource runtime class, surfaced through its
+// default interface IIconSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type IconSource struct {
+	IIconSource
+}
+
+// IconSourceStatics returns the Windows.UI.Xaml.Controls.IIconSourceStatics statics of the
+// Windows.UI.Xaml.Controls.IconSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func IconSourceStatics() (*IIconSourceStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.IconSource", &IID_IIconSourceStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IIconSourceStatics)(unsafe.Pointer(factory)), nil
+}
+
+// IconSourceElement is the Windows.UI.Xaml.Controls.IconSourceElement runtime class, surfaced through its
+// default interface IIconSourceElement. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type IconSourceElement struct {
+	IIconSourceElement
+}
+
+// IconSourceElementStatics returns the Windows.UI.Xaml.Controls.IIconSourceElementStatics statics of the
+// Windows.UI.Xaml.Controls.IconSourceElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func IconSourceElementStatics() (*IIconSourceElementStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.IconSourceElement", &IID_IIconSourceElementStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IIconSourceElementStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewIconSourceElement constructs a Windows.UI.Xaml.Controls.IconSourceElement instance through
+// Windows.UI.Xaml.Controls.IIconSourceElementFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewIconSourceElement() (*IconSourceElement, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.IconSourceElement", &IID_IIconSourceElementFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IIconSourceElementFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*IconSourceElement)(unsafe.Pointer(instance)), nil
+}
+
+// Image is the Windows.UI.Xaml.Controls.Image runtime class, surfaced through its
+// default interface IImage. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Image struct {
+	IImage
+}
+
+// NewImage activates Windows.UI.Xaml.Controls.Image through its default
+// constructor.
+func NewImage() (*Image, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.Image")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Image](unsafe.Pointer(instance), &IID_IImage)
+}
+
+// AsImage2 queries the instance's IImage2 interface.
+// The returned reference is owned by the caller.
+func (self *Image) AsImage2() (*IImage2, error) {
+	return winrt.QueryInterface[IImage2](unsafe.Pointer(self), &IID_IImage2)
+}
+
+// AsImage3 queries the instance's IImage3 interface.
+// The returned reference is owned by the caller.
+func (self *Image) AsImage3() (*IImage3, error) {
+	return winrt.QueryInterface[IImage3](unsafe.Pointer(self), &IID_IImage3)
+}
+
+// ImageStatics returns the Windows.UI.Xaml.Controls.IImageStatics statics of the
+// Windows.UI.Xaml.Controls.Image runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ImageStatics() (*IImageStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Image", &IID_IImageStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IImageStatics)(unsafe.Pointer(factory)), nil
+}
+
+// InkCanvas is the Windows.UI.Xaml.Controls.InkCanvas runtime class, surfaced through its
+// default interface IInkCanvas. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkCanvas struct {
+	IInkCanvas
+}
+
+// NewInkCanvas constructs a Windows.UI.Xaml.Controls.InkCanvas instance through
+// Windows.UI.Xaml.Controls.IInkCanvasFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkCanvas() (*InkCanvas, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkCanvas", &IID_IInkCanvasFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkCanvasFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkCanvas)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbar is the Windows.UI.Xaml.Controls.InkToolbar runtime class, surfaced through its
+// default interface IInkToolbar. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbar struct {
+	IInkToolbar
+}
+
+// AsInkToolbar2 queries the instance's IInkToolbar2 interface.
+// The returned reference is owned by the caller.
+func (self *InkToolbar) AsInkToolbar2() (*IInkToolbar2, error) {
+	return winrt.QueryInterface[IInkToolbar2](unsafe.Pointer(self), &IID_IInkToolbar2)
+}
+
+// AsInkToolbar3 queries the instance's IInkToolbar3 interface.
+// The returned reference is owned by the caller.
+func (self *InkToolbar) AsInkToolbar3() (*IInkToolbar3, error) {
+	return winrt.QueryInterface[IInkToolbar3](unsafe.Pointer(self), &IID_IInkToolbar3)
+}
+
+// InkToolbarStatics returns the Windows.UI.Xaml.Controls.IInkToolbarStatics statics of the
+// Windows.UI.Xaml.Controls.InkToolbar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarStatics() (*IInkToolbarStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbar", &IID_IInkToolbarStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarStatics)(unsafe.Pointer(factory)), nil
+}
+
+// InkToolbarStatics2 returns the Windows.UI.Xaml.Controls.IInkToolbarStatics2 statics of the
+// Windows.UI.Xaml.Controls.InkToolbar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarStatics2() (*IInkToolbarStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbar", &IID_IInkToolbarStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// InkToolbarStatics3 returns the Windows.UI.Xaml.Controls.IInkToolbarStatics3 statics of the
+// Windows.UI.Xaml.Controls.InkToolbar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarStatics3() (*IInkToolbarStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbar", &IID_IInkToolbarStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// NewInkToolbar constructs a Windows.UI.Xaml.Controls.InkToolbar instance through
+// Windows.UI.Xaml.Controls.IInkToolbarFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbar() (*InkToolbar, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbar", &IID_IInkToolbarFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbar)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarBallpointPenButton is the Windows.UI.Xaml.Controls.InkToolbarBallpointPenButton runtime class, surfaced through its
+// default interface IInkToolbarBallpointPenButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarBallpointPenButton struct {
+	IInkToolbarBallpointPenButton
+}
+
+// NewInkToolbarBallpointPenButton constructs a Windows.UI.Xaml.Controls.InkToolbarBallpointPenButton instance through
+// Windows.UI.Xaml.Controls.IInkToolbarBallpointPenButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarBallpointPenButton() (*InkToolbarBallpointPenButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarBallpointPenButton", &IID_IInkToolbarBallpointPenButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarBallpointPenButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarBallpointPenButton)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarCustomPen is the Windows.UI.Xaml.Controls.InkToolbarCustomPen runtime class, surfaced through its
+// default interface IInkToolbarCustomPen. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarCustomPen struct {
+	IInkToolbarCustomPen
+}
+
+// AsInkToolbarCustomPenOverrides queries the instance's IInkToolbarCustomPenOverrides interface.
+// The returned reference is owned by the caller.
+func (self *InkToolbarCustomPen) AsInkToolbarCustomPenOverrides() (*IInkToolbarCustomPenOverrides, error) {
+	return winrt.QueryInterface[IInkToolbarCustomPenOverrides](unsafe.Pointer(self), &IID_IInkToolbarCustomPenOverrides)
+}
+
+// NewInkToolbarCustomPen constructs a Windows.UI.Xaml.Controls.InkToolbarCustomPen instance through
+// Windows.UI.Xaml.Controls.IInkToolbarCustomPenFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarCustomPen() (*InkToolbarCustomPen, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarCustomPen", &IID_IInkToolbarCustomPenFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarCustomPenFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarCustomPen)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarCustomPenButton is the Windows.UI.Xaml.Controls.InkToolbarCustomPenButton runtime class, surfaced through its
+// default interface IInkToolbarCustomPenButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarCustomPenButton struct {
+	IInkToolbarCustomPenButton
+}
+
+// InkToolbarCustomPenButtonStatics returns the Windows.UI.Xaml.Controls.IInkToolbarCustomPenButtonStatics statics of the
+// Windows.UI.Xaml.Controls.InkToolbarCustomPenButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarCustomPenButtonStatics() (*IInkToolbarCustomPenButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarCustomPenButton", &IID_IInkToolbarCustomPenButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarCustomPenButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewInkToolbarCustomPenButton constructs a Windows.UI.Xaml.Controls.InkToolbarCustomPenButton instance through
+// Windows.UI.Xaml.Controls.IInkToolbarCustomPenButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarCustomPenButton() (*InkToolbarCustomPenButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarCustomPenButton", &IID_IInkToolbarCustomPenButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarCustomPenButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarCustomPenButton)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarCustomToggleButton is the Windows.UI.Xaml.Controls.InkToolbarCustomToggleButton runtime class, surfaced through its
+// default interface IInkToolbarCustomToggleButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarCustomToggleButton struct {
+	IInkToolbarCustomToggleButton
+}
+
+// NewInkToolbarCustomToggleButton constructs a Windows.UI.Xaml.Controls.InkToolbarCustomToggleButton instance through
+// Windows.UI.Xaml.Controls.IInkToolbarCustomToggleButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarCustomToggleButton() (*InkToolbarCustomToggleButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarCustomToggleButton", &IID_IInkToolbarCustomToggleButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarCustomToggleButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarCustomToggleButton)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarCustomToolButton is the Windows.UI.Xaml.Controls.InkToolbarCustomToolButton runtime class, surfaced through its
+// default interface IInkToolbarCustomToolButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarCustomToolButton struct {
+	IInkToolbarCustomToolButton
+}
+
+// InkToolbarCustomToolButtonStatics returns the Windows.UI.Xaml.Controls.IInkToolbarCustomToolButtonStatics statics of the
+// Windows.UI.Xaml.Controls.InkToolbarCustomToolButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarCustomToolButtonStatics() (*IInkToolbarCustomToolButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarCustomToolButton", &IID_IInkToolbarCustomToolButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarCustomToolButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewInkToolbarCustomToolButton constructs a Windows.UI.Xaml.Controls.InkToolbarCustomToolButton instance through
+// Windows.UI.Xaml.Controls.IInkToolbarCustomToolButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarCustomToolButton() (*InkToolbarCustomToolButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarCustomToolButton", &IID_IInkToolbarCustomToolButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarCustomToolButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarCustomToolButton)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarEraserButton is the Windows.UI.Xaml.Controls.InkToolbarEraserButton runtime class, surfaced through its
+// default interface IInkToolbarEraserButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarEraserButton struct {
+	IInkToolbarEraserButton
+}
+
+// AsInkToolbarEraserButton2 queries the instance's IInkToolbarEraserButton2 interface.
+// The returned reference is owned by the caller.
+func (self *InkToolbarEraserButton) AsInkToolbarEraserButton2() (*IInkToolbarEraserButton2, error) {
+	return winrt.QueryInterface[IInkToolbarEraserButton2](unsafe.Pointer(self), &IID_IInkToolbarEraserButton2)
+}
+
+// InkToolbarEraserButtonStatics2 returns the Windows.UI.Xaml.Controls.IInkToolbarEraserButtonStatics2 statics of the
+// Windows.UI.Xaml.Controls.InkToolbarEraserButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarEraserButtonStatics2() (*IInkToolbarEraserButtonStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarEraserButton", &IID_IInkToolbarEraserButtonStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarEraserButtonStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewInkToolbarEraserButton constructs a Windows.UI.Xaml.Controls.InkToolbarEraserButton instance through
+// Windows.UI.Xaml.Controls.IInkToolbarEraserButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarEraserButton() (*InkToolbarEraserButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarEraserButton", &IID_IInkToolbarEraserButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarEraserButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarEraserButton)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarFlyoutItem is the Windows.UI.Xaml.Controls.InkToolbarFlyoutItem runtime class, surfaced through its
+// default interface IInkToolbarFlyoutItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarFlyoutItem struct {
+	IInkToolbarFlyoutItem
+}
+
+// InkToolbarFlyoutItemStatics returns the Windows.UI.Xaml.Controls.IInkToolbarFlyoutItemStatics statics of the
+// Windows.UI.Xaml.Controls.InkToolbarFlyoutItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarFlyoutItemStatics() (*IInkToolbarFlyoutItemStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarFlyoutItem", &IID_IInkToolbarFlyoutItemStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarFlyoutItemStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewInkToolbarFlyoutItem constructs a Windows.UI.Xaml.Controls.InkToolbarFlyoutItem instance through
+// Windows.UI.Xaml.Controls.IInkToolbarFlyoutItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarFlyoutItem() (*InkToolbarFlyoutItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarFlyoutItem", &IID_IInkToolbarFlyoutItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarFlyoutItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarFlyoutItem)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarHighlighterButton is the Windows.UI.Xaml.Controls.InkToolbarHighlighterButton runtime class, surfaced through its
+// default interface IInkToolbarHighlighterButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarHighlighterButton struct {
+	IInkToolbarHighlighterButton
+}
+
+// NewInkToolbarHighlighterButton constructs a Windows.UI.Xaml.Controls.InkToolbarHighlighterButton instance through
+// Windows.UI.Xaml.Controls.IInkToolbarHighlighterButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarHighlighterButton() (*InkToolbarHighlighterButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarHighlighterButton", &IID_IInkToolbarHighlighterButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarHighlighterButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarHighlighterButton)(unsafe.Pointer(instance)), nil
+}
+
 // InkToolbarIsStencilButtonCheckedChangedEventArgs is the Windows.UI.Xaml.Controls.InkToolbarIsStencilButtonCheckedChangedEventArgs runtime class, surfaced through its
 // default interface IInkToolbarIsStencilButtonCheckedChangedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -366,6 +3990,234 @@ func NewInkToolbarIsStencilButtonCheckedChangedEventArgs() (*InkToolbarIsStencil
 	return winrt.QueryInterface[InkToolbarIsStencilButtonCheckedChangedEventArgs](unsafe.Pointer(instance), &IID_IInkToolbarIsStencilButtonCheckedChangedEventArgs)
 }
 
+// InkToolbarMenuButton is the Windows.UI.Xaml.Controls.InkToolbarMenuButton runtime class, surfaced through its
+// default interface IInkToolbarMenuButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarMenuButton struct {
+	IInkToolbarMenuButton
+}
+
+// InkToolbarMenuButtonStatics returns the Windows.UI.Xaml.Controls.IInkToolbarMenuButtonStatics statics of the
+// Windows.UI.Xaml.Controls.InkToolbarMenuButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarMenuButtonStatics() (*IInkToolbarMenuButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarMenuButton", &IID_IInkToolbarMenuButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarMenuButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// InkToolbarPenButton is the Windows.UI.Xaml.Controls.InkToolbarPenButton runtime class, surfaced through its
+// default interface IInkToolbarPenButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarPenButton struct {
+	IInkToolbarPenButton
+}
+
+// InkToolbarPenButtonStatics returns the Windows.UI.Xaml.Controls.IInkToolbarPenButtonStatics statics of the
+// Windows.UI.Xaml.Controls.InkToolbarPenButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarPenButtonStatics() (*IInkToolbarPenButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarPenButton", &IID_IInkToolbarPenButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarPenButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// InkToolbarPenConfigurationControl is the Windows.UI.Xaml.Controls.InkToolbarPenConfigurationControl runtime class, surfaced through its
+// default interface IInkToolbarPenConfigurationControl. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarPenConfigurationControl struct {
+	IInkToolbarPenConfigurationControl
+}
+
+// InkToolbarPenConfigurationControlStatics returns the Windows.UI.Xaml.Controls.IInkToolbarPenConfigurationControlStatics statics of the
+// Windows.UI.Xaml.Controls.InkToolbarPenConfigurationControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarPenConfigurationControlStatics() (*IInkToolbarPenConfigurationControlStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarPenConfigurationControl", &IID_IInkToolbarPenConfigurationControlStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarPenConfigurationControlStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewInkToolbarPenConfigurationControl constructs a Windows.UI.Xaml.Controls.InkToolbarPenConfigurationControl instance through
+// Windows.UI.Xaml.Controls.IInkToolbarPenConfigurationControlFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarPenConfigurationControl() (*InkToolbarPenConfigurationControl, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarPenConfigurationControl", &IID_IInkToolbarPenConfigurationControlFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarPenConfigurationControlFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarPenConfigurationControl)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarPencilButton is the Windows.UI.Xaml.Controls.InkToolbarPencilButton runtime class, surfaced through its
+// default interface IInkToolbarPencilButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarPencilButton struct {
+	IInkToolbarPencilButton
+}
+
+// NewInkToolbarPencilButton constructs a Windows.UI.Xaml.Controls.InkToolbarPencilButton instance through
+// Windows.UI.Xaml.Controls.IInkToolbarPencilButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarPencilButton() (*InkToolbarPencilButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarPencilButton", &IID_IInkToolbarPencilButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarPencilButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarPencilButton)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarRulerButton is the Windows.UI.Xaml.Controls.InkToolbarRulerButton runtime class, surfaced through its
+// default interface IInkToolbarRulerButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarRulerButton struct {
+	IInkToolbarRulerButton
+}
+
+// InkToolbarRulerButtonStatics returns the Windows.UI.Xaml.Controls.IInkToolbarRulerButtonStatics statics of the
+// Windows.UI.Xaml.Controls.InkToolbarRulerButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarRulerButtonStatics() (*IInkToolbarRulerButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarRulerButton", &IID_IInkToolbarRulerButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarRulerButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewInkToolbarRulerButton constructs a Windows.UI.Xaml.Controls.InkToolbarRulerButton instance through
+// Windows.UI.Xaml.Controls.IInkToolbarRulerButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarRulerButton() (*InkToolbarRulerButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarRulerButton", &IID_IInkToolbarRulerButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarRulerButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarRulerButton)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarStencilButton is the Windows.UI.Xaml.Controls.InkToolbarStencilButton runtime class, surfaced through its
+// default interface IInkToolbarStencilButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarStencilButton struct {
+	IInkToolbarStencilButton
+}
+
+// InkToolbarStencilButtonStatics returns the Windows.UI.Xaml.Controls.IInkToolbarStencilButtonStatics statics of the
+// Windows.UI.Xaml.Controls.InkToolbarStencilButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarStencilButtonStatics() (*IInkToolbarStencilButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarStencilButton", &IID_IInkToolbarStencilButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarStencilButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewInkToolbarStencilButton constructs a Windows.UI.Xaml.Controls.InkToolbarStencilButton instance through
+// Windows.UI.Xaml.Controls.IInkToolbarStencilButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewInkToolbarStencilButton() (*InkToolbarStencilButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarStencilButton", &IID_IInkToolbarStencilButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IInkToolbarStencilButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*InkToolbarStencilButton)(unsafe.Pointer(instance)), nil
+}
+
+// InkToolbarToggleButton is the Windows.UI.Xaml.Controls.InkToolbarToggleButton runtime class, surfaced through its
+// default interface IInkToolbarToggleButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarToggleButton struct {
+	IInkToolbarToggleButton
+}
+
+// InkToolbarToolButton is the Windows.UI.Xaml.Controls.InkToolbarToolButton runtime class, surfaced through its
+// default interface IInkToolbarToolButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InkToolbarToolButton struct {
+	IInkToolbarToolButton
+}
+
+// InkToolbarToolButtonStatics returns the Windows.UI.Xaml.Controls.IInkToolbarToolButtonStatics statics of the
+// Windows.UI.Xaml.Controls.InkToolbarToolButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InkToolbarToolButtonStatics() (*IInkToolbarToolButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.InkToolbarToolButton", &IID_IInkToolbarToolButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInkToolbarToolButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
 // IsTextTrimmedChangedEventArgs is the Windows.UI.Xaml.Controls.IsTextTrimmedChangedEventArgs runtime class, surfaced through its
 // default interface IIsTextTrimmedChangedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -373,11 +4225,645 @@ type IsTextTrimmedChangedEventArgs struct {
 	IIsTextTrimmedChangedEventArgs
 }
 
+// ItemClickEventArgs is the Windows.UI.Xaml.Controls.ItemClickEventArgs runtime class, surfaced through its
+// default interface IItemClickEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ItemClickEventArgs struct {
+	IItemClickEventArgs
+}
+
+// NewItemClickEventArgs activates Windows.UI.Xaml.Controls.ItemClickEventArgs through its default
+// constructor.
+func NewItemClickEventArgs() (*ItemClickEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ItemClickEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ItemClickEventArgs](unsafe.Pointer(instance), &IID_IItemClickEventArgs)
+}
+
 // ItemContainerGenerator is the Windows.UI.Xaml.Controls.ItemContainerGenerator runtime class, surfaced through its
 // default interface IItemContainerGenerator. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type ItemContainerGenerator struct {
 	IItemContainerGenerator
+}
+
+// ItemsControl is the Windows.UI.Xaml.Controls.ItemsControl runtime class, surfaced through its
+// default interface IItemsControl. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ItemsControl struct {
+	IItemsControl
+}
+
+// AsItemsControl2 queries the instance's IItemsControl2 interface.
+// The returned reference is owned by the caller.
+func (self *ItemsControl) AsItemsControl2() (*IItemsControl2, error) {
+	return winrt.QueryInterface[IItemsControl2](unsafe.Pointer(self), &IID_IItemsControl2)
+}
+
+// AsItemsControl3 queries the instance's IItemsControl3 interface.
+// The returned reference is owned by the caller.
+func (self *ItemsControl) AsItemsControl3() (*IItemsControl3, error) {
+	return winrt.QueryInterface[IItemsControl3](unsafe.Pointer(self), &IID_IItemsControl3)
+}
+
+// AsItemsControlOverrides queries the instance's IItemsControlOverrides interface.
+// The returned reference is owned by the caller.
+func (self *ItemsControl) AsItemsControlOverrides() (*IItemsControlOverrides, error) {
+	return winrt.QueryInterface[IItemsControlOverrides](unsafe.Pointer(self), &IID_IItemsControlOverrides)
+}
+
+// AsItemContainerMapping queries the instance's IItemContainerMapping interface.
+// The returned reference is owned by the caller.
+func (self *ItemsControl) AsItemContainerMapping() (*IItemContainerMapping, error) {
+	return winrt.QueryInterface[IItemContainerMapping](unsafe.Pointer(self), &IID_IItemContainerMapping)
+}
+
+// ItemsControlStatics returns the Windows.UI.Xaml.Controls.IItemsControlStatics statics of the
+// Windows.UI.Xaml.Controls.ItemsControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ItemsControlStatics() (*IItemsControlStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ItemsControl", &IID_IItemsControlStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IItemsControlStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewItemsControl constructs a Windows.UI.Xaml.Controls.ItemsControl instance through
+// Windows.UI.Xaml.Controls.IItemsControlFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewItemsControl() (*ItemsControl, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ItemsControl", &IID_IItemsControlFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IItemsControlFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ItemsControl)(unsafe.Pointer(instance)), nil
+}
+
+// ItemsPanelTemplate is the Windows.UI.Xaml.Controls.ItemsPanelTemplate runtime class, surfaced through its
+// default interface IItemsPanelTemplate. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ItemsPanelTemplate struct {
+	IItemsPanelTemplate
+}
+
+// NewItemsPanelTemplate activates Windows.UI.Xaml.Controls.ItemsPanelTemplate through its default
+// constructor.
+func NewItemsPanelTemplate() (*ItemsPanelTemplate, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ItemsPanelTemplate")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ItemsPanelTemplate](unsafe.Pointer(instance), &IID_IItemsPanelTemplate)
+}
+
+// ItemsPickedEventArgs is the Windows.UI.Xaml.Controls.ItemsPickedEventArgs runtime class, surfaced through its
+// default interface IItemsPickedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ItemsPickedEventArgs struct {
+	IItemsPickedEventArgs
+}
+
+// NewItemsPickedEventArgs activates Windows.UI.Xaml.Controls.ItemsPickedEventArgs through its default
+// constructor.
+func NewItemsPickedEventArgs() (*ItemsPickedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ItemsPickedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ItemsPickedEventArgs](unsafe.Pointer(instance), &IID_IItemsPickedEventArgs)
+}
+
+// ItemsPresenter is the Windows.UI.Xaml.Controls.ItemsPresenter runtime class, surfaced through its
+// default interface IItemsPresenter. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ItemsPresenter struct {
+	IItemsPresenter
+}
+
+// NewItemsPresenter activates Windows.UI.Xaml.Controls.ItemsPresenter through its default
+// constructor.
+func NewItemsPresenter() (*ItemsPresenter, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ItemsPresenter")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ItemsPresenter](unsafe.Pointer(instance), &IID_IItemsPresenter)
+}
+
+// AsItemsPresenter2 queries the instance's IItemsPresenter2 interface.
+// The returned reference is owned by the caller.
+func (self *ItemsPresenter) AsItemsPresenter2() (*IItemsPresenter2, error) {
+	return winrt.QueryInterface[IItemsPresenter2](unsafe.Pointer(self), &IID_IItemsPresenter2)
+}
+
+// AsScrollSnapPointsInfo queries the instance's uixamlcontrolsprimitives.IScrollSnapPointsInfo interface.
+// The returned reference is owned by the caller.
+func (self *ItemsPresenter) AsScrollSnapPointsInfo() (*uixamlcontrolsprimitives.IScrollSnapPointsInfo, error) {
+	return winrt.QueryInterface[uixamlcontrolsprimitives.IScrollSnapPointsInfo](unsafe.Pointer(self), &uixamlcontrolsprimitives.IID_IScrollSnapPointsInfo)
+}
+
+// ItemsPresenterStatics returns the Windows.UI.Xaml.Controls.IItemsPresenterStatics statics of the
+// Windows.UI.Xaml.Controls.ItemsPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ItemsPresenterStatics() (*IItemsPresenterStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ItemsPresenter", &IID_IItemsPresenterStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IItemsPresenterStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ItemsPresenterStatics2 returns the Windows.UI.Xaml.Controls.IItemsPresenterStatics2 statics of the
+// Windows.UI.Xaml.Controls.ItemsPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ItemsPresenterStatics2() (*IItemsPresenterStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ItemsPresenter", &IID_IItemsPresenterStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IItemsPresenterStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// ItemsStackPanel is the Windows.UI.Xaml.Controls.ItemsStackPanel runtime class, surfaced through its
+// default interface IItemsStackPanel. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ItemsStackPanel struct {
+	IItemsStackPanel
+}
+
+// NewItemsStackPanel activates Windows.UI.Xaml.Controls.ItemsStackPanel through its default
+// constructor.
+func NewItemsStackPanel() (*ItemsStackPanel, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ItemsStackPanel")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ItemsStackPanel](unsafe.Pointer(instance), &IID_IItemsStackPanel)
+}
+
+// AsItemsStackPanel2 queries the instance's IItemsStackPanel2 interface.
+// The returned reference is owned by the caller.
+func (self *ItemsStackPanel) AsItemsStackPanel2() (*IItemsStackPanel2, error) {
+	return winrt.QueryInterface[IItemsStackPanel2](unsafe.Pointer(self), &IID_IItemsStackPanel2)
+}
+
+// ItemsStackPanelStatics returns the Windows.UI.Xaml.Controls.IItemsStackPanelStatics statics of the
+// Windows.UI.Xaml.Controls.ItemsStackPanel runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ItemsStackPanelStatics() (*IItemsStackPanelStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ItemsStackPanel", &IID_IItemsStackPanelStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IItemsStackPanelStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ItemsStackPanelStatics2 returns the Windows.UI.Xaml.Controls.IItemsStackPanelStatics2 statics of the
+// Windows.UI.Xaml.Controls.ItemsStackPanel runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ItemsStackPanelStatics2() (*IItemsStackPanelStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ItemsStackPanel", &IID_IItemsStackPanelStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IItemsStackPanelStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// ItemsWrapGrid is the Windows.UI.Xaml.Controls.ItemsWrapGrid runtime class, surfaced through its
+// default interface IItemsWrapGrid. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ItemsWrapGrid struct {
+	IItemsWrapGrid
+}
+
+// NewItemsWrapGrid activates Windows.UI.Xaml.Controls.ItemsWrapGrid through its default
+// constructor.
+func NewItemsWrapGrid() (*ItemsWrapGrid, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ItemsWrapGrid")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ItemsWrapGrid](unsafe.Pointer(instance), &IID_IItemsWrapGrid)
+}
+
+// AsItemsWrapGrid2 queries the instance's IItemsWrapGrid2 interface.
+// The returned reference is owned by the caller.
+func (self *ItemsWrapGrid) AsItemsWrapGrid2() (*IItemsWrapGrid2, error) {
+	return winrt.QueryInterface[IItemsWrapGrid2](unsafe.Pointer(self), &IID_IItemsWrapGrid2)
+}
+
+// ItemsWrapGridStatics returns the Windows.UI.Xaml.Controls.IItemsWrapGridStatics statics of the
+// Windows.UI.Xaml.Controls.ItemsWrapGrid runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ItemsWrapGridStatics() (*IItemsWrapGridStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ItemsWrapGrid", &IID_IItemsWrapGridStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IItemsWrapGridStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ItemsWrapGridStatics2 returns the Windows.UI.Xaml.Controls.IItemsWrapGridStatics2 statics of the
+// Windows.UI.Xaml.Controls.ItemsWrapGrid runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ItemsWrapGridStatics2() (*IItemsWrapGridStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ItemsWrapGrid", &IID_IItemsWrapGridStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IItemsWrapGridStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// ListBox is the Windows.UI.Xaml.Controls.ListBox runtime class, surfaced through its
+// default interface IListBox. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ListBox struct {
+	IListBox
+}
+
+// AsListBox2 queries the instance's IListBox2 interface.
+// The returned reference is owned by the caller.
+func (self *ListBox) AsListBox2() (*IListBox2, error) {
+	return winrt.QueryInterface[IListBox2](unsafe.Pointer(self), &IID_IListBox2)
+}
+
+// ListBoxStatics returns the Windows.UI.Xaml.Controls.IListBoxStatics statics of the
+// Windows.UI.Xaml.Controls.ListBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ListBoxStatics() (*IListBoxStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListBox", &IID_IListBoxStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IListBoxStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ListBoxStatics2 returns the Windows.UI.Xaml.Controls.IListBoxStatics2 statics of the
+// Windows.UI.Xaml.Controls.ListBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ListBoxStatics2() (*IListBoxStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListBox", &IID_IListBoxStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IListBoxStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewListBox constructs a Windows.UI.Xaml.Controls.ListBox instance through
+// Windows.UI.Xaml.Controls.IListBoxFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewListBox() (*ListBox, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListBox", &IID_IListBoxFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IListBoxFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ListBox)(unsafe.Pointer(instance)), nil
+}
+
+// ListBoxItem is the Windows.UI.Xaml.Controls.ListBoxItem runtime class, surfaced through its
+// default interface IListBoxItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ListBoxItem struct {
+	IListBoxItem
+}
+
+// NewListBoxItem constructs a Windows.UI.Xaml.Controls.ListBoxItem instance through
+// Windows.UI.Xaml.Controls.IListBoxItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewListBoxItem() (*ListBoxItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListBoxItem", &IID_IListBoxItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IListBoxItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ListBoxItem)(unsafe.Pointer(instance)), nil
+}
+
+// ListPickerFlyout is the Windows.UI.Xaml.Controls.ListPickerFlyout runtime class, surfaced through its
+// default interface IListPickerFlyout. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ListPickerFlyout struct {
+	IListPickerFlyout
+}
+
+// NewListPickerFlyout activates Windows.UI.Xaml.Controls.ListPickerFlyout through its default
+// constructor.
+func NewListPickerFlyout() (*ListPickerFlyout, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ListPickerFlyout")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ListPickerFlyout](unsafe.Pointer(instance), &IID_IListPickerFlyout)
+}
+
+// ListPickerFlyoutStatics returns the Windows.UI.Xaml.Controls.IListPickerFlyoutStatics statics of the
+// Windows.UI.Xaml.Controls.ListPickerFlyout runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ListPickerFlyoutStatics() (*IListPickerFlyoutStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListPickerFlyout", &IID_IListPickerFlyoutStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IListPickerFlyoutStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ListPickerFlyoutPresenter is the Windows.UI.Xaml.Controls.ListPickerFlyoutPresenter runtime class, surfaced through its
+// default interface IListPickerFlyoutPresenter. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ListPickerFlyoutPresenter struct {
+	IListPickerFlyoutPresenter
+}
+
+// ListView is the Windows.UI.Xaml.Controls.ListView runtime class, surfaced through its
+// default interface IListView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ListView struct {
+	IListView
+}
+
+// NewListView constructs a Windows.UI.Xaml.Controls.ListView instance through
+// Windows.UI.Xaml.Controls.IListViewFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewListView() (*ListView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListView", &IID_IListViewFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IListViewFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ListView)(unsafe.Pointer(instance)), nil
+}
+
+// ListViewBase is the Windows.UI.Xaml.Controls.ListViewBase runtime class, surfaced through its
+// default interface IListViewBase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ListViewBase struct {
+	IListViewBase
+}
+
+// AsListViewBase2 queries the instance's IListViewBase2 interface.
+// The returned reference is owned by the caller.
+func (self *ListViewBase) AsListViewBase2() (*IListViewBase2, error) {
+	return winrt.QueryInterface[IListViewBase2](unsafe.Pointer(self), &IID_IListViewBase2)
+}
+
+// AsListViewBase3 queries the instance's IListViewBase3 interface.
+// The returned reference is owned by the caller.
+func (self *ListViewBase) AsListViewBase3() (*IListViewBase3, error) {
+	return winrt.QueryInterface[IListViewBase3](unsafe.Pointer(self), &IID_IListViewBase3)
+}
+
+// AsListViewBase4 queries the instance's IListViewBase4 interface.
+// The returned reference is owned by the caller.
+func (self *ListViewBase) AsListViewBase4() (*IListViewBase4, error) {
+	return winrt.QueryInterface[IListViewBase4](unsafe.Pointer(self), &IID_IListViewBase4)
+}
+
+// AsListViewBase5 queries the instance's IListViewBase5 interface.
+// The returned reference is owned by the caller.
+func (self *ListViewBase) AsListViewBase5() (*IListViewBase5, error) {
+	return winrt.QueryInterface[IListViewBase5](unsafe.Pointer(self), &IID_IListViewBase5)
+}
+
+// AsListViewBase6 queries the instance's IListViewBase6 interface.
+// The returned reference is owned by the caller.
+func (self *ListViewBase) AsListViewBase6() (*IListViewBase6, error) {
+	return winrt.QueryInterface[IListViewBase6](unsafe.Pointer(self), &IID_IListViewBase6)
+}
+
+// AsSemanticZoomInformation queries the instance's ISemanticZoomInformation interface.
+// The returned reference is owned by the caller.
+func (self *ListViewBase) AsSemanticZoomInformation() (*ISemanticZoomInformation, error) {
+	return winrt.QueryInterface[ISemanticZoomInformation](unsafe.Pointer(self), &IID_ISemanticZoomInformation)
+}
+
+// ListViewBaseStatics returns the Windows.UI.Xaml.Controls.IListViewBaseStatics statics of the
+// Windows.UI.Xaml.Controls.ListViewBase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ListViewBaseStatics() (*IListViewBaseStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListViewBase", &IID_IListViewBaseStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IListViewBaseStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ListViewBaseStatics2 returns the Windows.UI.Xaml.Controls.IListViewBaseStatics2 statics of the
+// Windows.UI.Xaml.Controls.ListViewBase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ListViewBaseStatics2() (*IListViewBaseStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListViewBase", &IID_IListViewBaseStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IListViewBaseStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// ListViewBaseStatics3 returns the Windows.UI.Xaml.Controls.IListViewBaseStatics3 statics of the
+// Windows.UI.Xaml.Controls.ListViewBase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ListViewBaseStatics3() (*IListViewBaseStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListViewBase", &IID_IListViewBaseStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IListViewBaseStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// ListViewBaseStatics4 returns the Windows.UI.Xaml.Controls.IListViewBaseStatics4 statics of the
+// Windows.UI.Xaml.Controls.ListViewBase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ListViewBaseStatics4() (*IListViewBaseStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListViewBase", &IID_IListViewBaseStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IListViewBaseStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// ListViewBaseStatics5 returns the Windows.UI.Xaml.Controls.IListViewBaseStatics5 statics of the
+// Windows.UI.Xaml.Controls.ListViewBase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ListViewBaseStatics5() (*IListViewBaseStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListViewBase", &IID_IListViewBaseStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IListViewBaseStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// NewListViewBase constructs a Windows.UI.Xaml.Controls.ListViewBase instance through
+// Windows.UI.Xaml.Controls.IListViewBaseFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewListViewBase() (*ListViewBase, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListViewBase", &IID_IListViewBaseFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IListViewBaseFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ListViewBase)(unsafe.Pointer(instance)), nil
+}
+
+// ListViewBaseHeaderItem is the Windows.UI.Xaml.Controls.ListViewBaseHeaderItem runtime class, surfaced through its
+// default interface IListViewBaseHeaderItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ListViewBaseHeaderItem struct {
+	IListViewBaseHeaderItem
+}
+
+// ListViewHeaderItem is the Windows.UI.Xaml.Controls.ListViewHeaderItem runtime class, surfaced through its
+// default interface IListViewHeaderItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ListViewHeaderItem struct {
+	IListViewHeaderItem
+}
+
+// NewListViewHeaderItem constructs a Windows.UI.Xaml.Controls.ListViewHeaderItem instance through
+// Windows.UI.Xaml.Controls.IListViewHeaderItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewListViewHeaderItem() (*ListViewHeaderItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListViewHeaderItem", &IID_IListViewHeaderItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IListViewHeaderItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ListViewHeaderItem)(unsafe.Pointer(instance)), nil
+}
+
+// ListViewItem is the Windows.UI.Xaml.Controls.ListViewItem runtime class, surfaced through its
+// default interface IListViewItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ListViewItem struct {
+	IListViewItem
+}
+
+// NewListViewItem constructs a Windows.UI.Xaml.Controls.ListViewItem instance through
+// Windows.UI.Xaml.Controls.IListViewItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewListViewItem() (*ListViewItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ListViewItem", &IID_IListViewItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IListViewItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ListViewItem)(unsafe.Pointer(instance)), nil
 }
 
 // ListViewPersistenceHelper is the Windows.UI.Xaml.Controls.ListViewPersistenceHelper runtime class, surfaced through its
@@ -399,6 +4885,246 @@ func ListViewPersistenceHelperStatics() (*IListViewPersistenceHelperStatics, err
 	return (*IListViewPersistenceHelperStatics)(unsafe.Pointer(factory)), nil
 }
 
+// MediaElement is the Windows.UI.Xaml.Controls.MediaElement runtime class, surfaced through its
+// default interface IMediaElement. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MediaElement struct {
+	IMediaElement
+}
+
+// NewMediaElement activates Windows.UI.Xaml.Controls.MediaElement through its default
+// constructor.
+func NewMediaElement() (*MediaElement, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.MediaElement")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[MediaElement](unsafe.Pointer(instance), &IID_IMediaElement)
+}
+
+// AsMediaElement2 queries the instance's IMediaElement2 interface.
+// The returned reference is owned by the caller.
+func (self *MediaElement) AsMediaElement2() (*IMediaElement2, error) {
+	return winrt.QueryInterface[IMediaElement2](unsafe.Pointer(self), &IID_IMediaElement2)
+}
+
+// AsMediaElement3 queries the instance's IMediaElement3 interface.
+// The returned reference is owned by the caller.
+func (self *MediaElement) AsMediaElement3() (*IMediaElement3, error) {
+	return winrt.QueryInterface[IMediaElement3](unsafe.Pointer(self), &IID_IMediaElement3)
+}
+
+// MediaElementStatics returns the Windows.UI.Xaml.Controls.IMediaElementStatics statics of the
+// Windows.UI.Xaml.Controls.MediaElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MediaElementStatics() (*IMediaElementStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MediaElement", &IID_IMediaElementStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMediaElementStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MediaElementStatics2 returns the Windows.UI.Xaml.Controls.IMediaElementStatics2 statics of the
+// Windows.UI.Xaml.Controls.MediaElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MediaElementStatics2() (*IMediaElementStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MediaElement", &IID_IMediaElementStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMediaElementStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// MediaPlayerElement is the Windows.UI.Xaml.Controls.MediaPlayerElement runtime class, surfaced through its
+// default interface IMediaPlayerElement. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MediaPlayerElement struct {
+	IMediaPlayerElement
+}
+
+// MediaPlayerElementStatics returns the Windows.UI.Xaml.Controls.IMediaPlayerElementStatics statics of the
+// Windows.UI.Xaml.Controls.MediaPlayerElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MediaPlayerElementStatics() (*IMediaPlayerElementStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MediaPlayerElement", &IID_IMediaPlayerElementStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMediaPlayerElementStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewMediaPlayerElement constructs a Windows.UI.Xaml.Controls.MediaPlayerElement instance through
+// Windows.UI.Xaml.Controls.IMediaPlayerElementFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMediaPlayerElement() (*MediaPlayerElement, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MediaPlayerElement", &IID_IMediaPlayerElementFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMediaPlayerElementFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MediaPlayerElement)(unsafe.Pointer(instance)), nil
+}
+
+// MediaPlayerPresenter is the Windows.UI.Xaml.Controls.MediaPlayerPresenter runtime class, surfaced through its
+// default interface IMediaPlayerPresenter. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MediaPlayerPresenter struct {
+	IMediaPlayerPresenter
+}
+
+// MediaPlayerPresenterStatics returns the Windows.UI.Xaml.Controls.IMediaPlayerPresenterStatics statics of the
+// Windows.UI.Xaml.Controls.MediaPlayerPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MediaPlayerPresenterStatics() (*IMediaPlayerPresenterStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MediaPlayerPresenter", &IID_IMediaPlayerPresenterStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMediaPlayerPresenterStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewMediaPlayerPresenter constructs a Windows.UI.Xaml.Controls.MediaPlayerPresenter instance through
+// Windows.UI.Xaml.Controls.IMediaPlayerPresenterFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMediaPlayerPresenter() (*MediaPlayerPresenter, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MediaPlayerPresenter", &IID_IMediaPlayerPresenterFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMediaPlayerPresenterFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MediaPlayerPresenter)(unsafe.Pointer(instance)), nil
+}
+
+// MediaTransportControls is the Windows.UI.Xaml.Controls.MediaTransportControls runtime class, surfaced through its
+// default interface IMediaTransportControls. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MediaTransportControls struct {
+	IMediaTransportControls
+}
+
+// AsMediaTransportControls2 queries the instance's IMediaTransportControls2 interface.
+// The returned reference is owned by the caller.
+func (self *MediaTransportControls) AsMediaTransportControls2() (*IMediaTransportControls2, error) {
+	return winrt.QueryInterface[IMediaTransportControls2](unsafe.Pointer(self), &IID_IMediaTransportControls2)
+}
+
+// AsMediaTransportControls3 queries the instance's IMediaTransportControls3 interface.
+// The returned reference is owned by the caller.
+func (self *MediaTransportControls) AsMediaTransportControls3() (*IMediaTransportControls3, error) {
+	return winrt.QueryInterface[IMediaTransportControls3](unsafe.Pointer(self), &IID_IMediaTransportControls3)
+}
+
+// AsMediaTransportControls4 queries the instance's IMediaTransportControls4 interface.
+// The returned reference is owned by the caller.
+func (self *MediaTransportControls) AsMediaTransportControls4() (*IMediaTransportControls4, error) {
+	return winrt.QueryInterface[IMediaTransportControls4](unsafe.Pointer(self), &IID_IMediaTransportControls4)
+}
+
+// MediaTransportControlsStatics returns the Windows.UI.Xaml.Controls.IMediaTransportControlsStatics statics of the
+// Windows.UI.Xaml.Controls.MediaTransportControls runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MediaTransportControlsStatics() (*IMediaTransportControlsStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MediaTransportControls", &IID_IMediaTransportControlsStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMediaTransportControlsStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MediaTransportControlsStatics2 returns the Windows.UI.Xaml.Controls.IMediaTransportControlsStatics2 statics of the
+// Windows.UI.Xaml.Controls.MediaTransportControls runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MediaTransportControlsStatics2() (*IMediaTransportControlsStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MediaTransportControls", &IID_IMediaTransportControlsStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMediaTransportControlsStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// MediaTransportControlsStatics3 returns the Windows.UI.Xaml.Controls.IMediaTransportControlsStatics3 statics of the
+// Windows.UI.Xaml.Controls.MediaTransportControls runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MediaTransportControlsStatics3() (*IMediaTransportControlsStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MediaTransportControls", &IID_IMediaTransportControlsStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMediaTransportControlsStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// MediaTransportControlsStatics4 returns the Windows.UI.Xaml.Controls.IMediaTransportControlsStatics4 statics of the
+// Windows.UI.Xaml.Controls.MediaTransportControls runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MediaTransportControlsStatics4() (*IMediaTransportControlsStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MediaTransportControls", &IID_IMediaTransportControlsStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMediaTransportControlsStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// NewMediaTransportControls constructs a Windows.UI.Xaml.Controls.MediaTransportControls instance through
+// Windows.UI.Xaml.Controls.IMediaTransportControlsFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMediaTransportControls() (*MediaTransportControls, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MediaTransportControls", &IID_IMediaTransportControlsFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMediaTransportControlsFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MediaTransportControls)(unsafe.Pointer(instance)), nil
+}
+
 // MediaTransportControlsHelper is the Windows.UI.Xaml.Controls.MediaTransportControlsHelper runtime class, surfaced through its
 // default interface IMediaTransportControlsHelper. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -418,6 +5144,479 @@ func MediaTransportControlsHelperStatics() (*IMediaTransportControlsHelperStatic
 	return (*IMediaTransportControlsHelperStatics)(unsafe.Pointer(factory)), nil
 }
 
+// MenuBar is the Windows.UI.Xaml.Controls.MenuBar runtime class, surfaced through its
+// default interface IMenuBar. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MenuBar struct {
+	IMenuBar
+}
+
+// MenuBarStatics returns the Windows.UI.Xaml.Controls.IMenuBarStatics statics of the
+// Windows.UI.Xaml.Controls.MenuBar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MenuBarStatics() (*IMenuBarStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuBar", &IID_IMenuBarStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMenuBarStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewMenuBar constructs a Windows.UI.Xaml.Controls.MenuBar instance through
+// Windows.UI.Xaml.Controls.IMenuBarFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMenuBar() (*MenuBar, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuBar", &IID_IMenuBarFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMenuBarFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MenuBar)(unsafe.Pointer(instance)), nil
+}
+
+// MenuBarItem is the Windows.UI.Xaml.Controls.MenuBarItem runtime class, surfaced through its
+// default interface IMenuBarItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MenuBarItem struct {
+	IMenuBarItem
+}
+
+// MenuBarItemStatics returns the Windows.UI.Xaml.Controls.IMenuBarItemStatics statics of the
+// Windows.UI.Xaml.Controls.MenuBarItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MenuBarItemStatics() (*IMenuBarItemStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuBarItem", &IID_IMenuBarItemStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMenuBarItemStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewMenuBarItem constructs a Windows.UI.Xaml.Controls.MenuBarItem instance through
+// Windows.UI.Xaml.Controls.IMenuBarItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMenuBarItem() (*MenuBarItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuBarItem", &IID_IMenuBarItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMenuBarItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MenuBarItem)(unsafe.Pointer(instance)), nil
+}
+
+// MenuBarItemFlyout is the Windows.UI.Xaml.Controls.MenuBarItemFlyout runtime class, surfaced through its
+// default interface IMenuBarItemFlyout. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MenuBarItemFlyout struct {
+	IMenuBarItemFlyout
+}
+
+// NewMenuBarItemFlyout constructs a Windows.UI.Xaml.Controls.MenuBarItemFlyout instance through
+// Windows.UI.Xaml.Controls.IMenuBarItemFlyoutFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMenuBarItemFlyout() (*MenuBarItemFlyout, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuBarItemFlyout", &IID_IMenuBarItemFlyoutFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMenuBarItemFlyoutFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MenuBarItemFlyout)(unsafe.Pointer(instance)), nil
+}
+
+// MenuFlyout is the Windows.UI.Xaml.Controls.MenuFlyout runtime class, surfaced through its
+// default interface IMenuFlyout. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MenuFlyout struct {
+	IMenuFlyout
+}
+
+// AsMenuFlyout2 queries the instance's IMenuFlyout2 interface.
+// The returned reference is owned by the caller.
+func (self *MenuFlyout) AsMenuFlyout2() (*IMenuFlyout2, error) {
+	return winrt.QueryInterface[IMenuFlyout2](unsafe.Pointer(self), &IID_IMenuFlyout2)
+}
+
+// MenuFlyoutStatics returns the Windows.UI.Xaml.Controls.IMenuFlyoutStatics statics of the
+// Windows.UI.Xaml.Controls.MenuFlyout runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MenuFlyoutStatics() (*IMenuFlyoutStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuFlyout", &IID_IMenuFlyoutStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMenuFlyoutStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewMenuFlyout constructs a Windows.UI.Xaml.Controls.MenuFlyout instance through
+// Windows.UI.Xaml.Controls.IMenuFlyoutFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMenuFlyout() (*MenuFlyout, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuFlyout", &IID_IMenuFlyoutFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMenuFlyoutFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MenuFlyout)(unsafe.Pointer(instance)), nil
+}
+
+// MenuFlyoutItem is the Windows.UI.Xaml.Controls.MenuFlyoutItem runtime class, surfaced through its
+// default interface IMenuFlyoutItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MenuFlyoutItem struct {
+	IMenuFlyoutItem
+}
+
+// AsMenuFlyoutItem2 queries the instance's IMenuFlyoutItem2 interface.
+// The returned reference is owned by the caller.
+func (self *MenuFlyoutItem) AsMenuFlyoutItem2() (*IMenuFlyoutItem2, error) {
+	return winrt.QueryInterface[IMenuFlyoutItem2](unsafe.Pointer(self), &IID_IMenuFlyoutItem2)
+}
+
+// AsMenuFlyoutItem3 queries the instance's IMenuFlyoutItem3 interface.
+// The returned reference is owned by the caller.
+func (self *MenuFlyoutItem) AsMenuFlyoutItem3() (*IMenuFlyoutItem3, error) {
+	return winrt.QueryInterface[IMenuFlyoutItem3](unsafe.Pointer(self), &IID_IMenuFlyoutItem3)
+}
+
+// MenuFlyoutItemStatics returns the Windows.UI.Xaml.Controls.IMenuFlyoutItemStatics statics of the
+// Windows.UI.Xaml.Controls.MenuFlyoutItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MenuFlyoutItemStatics() (*IMenuFlyoutItemStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuFlyoutItem", &IID_IMenuFlyoutItemStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMenuFlyoutItemStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MenuFlyoutItemStatics2 returns the Windows.UI.Xaml.Controls.IMenuFlyoutItemStatics2 statics of the
+// Windows.UI.Xaml.Controls.MenuFlyoutItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MenuFlyoutItemStatics2() (*IMenuFlyoutItemStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuFlyoutItem", &IID_IMenuFlyoutItemStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMenuFlyoutItemStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// MenuFlyoutItemStatics3 returns the Windows.UI.Xaml.Controls.IMenuFlyoutItemStatics3 statics of the
+// Windows.UI.Xaml.Controls.MenuFlyoutItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MenuFlyoutItemStatics3() (*IMenuFlyoutItemStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuFlyoutItem", &IID_IMenuFlyoutItemStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMenuFlyoutItemStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// NewMenuFlyoutItem constructs a Windows.UI.Xaml.Controls.MenuFlyoutItem instance through
+// Windows.UI.Xaml.Controls.IMenuFlyoutItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMenuFlyoutItem() (*MenuFlyoutItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuFlyoutItem", &IID_IMenuFlyoutItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMenuFlyoutItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MenuFlyoutItem)(unsafe.Pointer(instance)), nil
+}
+
+// MenuFlyoutItemBase is the Windows.UI.Xaml.Controls.MenuFlyoutItemBase runtime class, surfaced through its
+// default interface IMenuFlyoutItemBase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MenuFlyoutItemBase struct {
+	IMenuFlyoutItemBase
+}
+
+// MenuFlyoutPresenter is the Windows.UI.Xaml.Controls.MenuFlyoutPresenter runtime class, surfaced through its
+// default interface IMenuFlyoutPresenter. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MenuFlyoutPresenter struct {
+	IMenuFlyoutPresenter
+}
+
+// AsMenuFlyoutPresenter2 queries the instance's IMenuFlyoutPresenter2 interface.
+// The returned reference is owned by the caller.
+func (self *MenuFlyoutPresenter) AsMenuFlyoutPresenter2() (*IMenuFlyoutPresenter2, error) {
+	return winrt.QueryInterface[IMenuFlyoutPresenter2](unsafe.Pointer(self), &IID_IMenuFlyoutPresenter2)
+}
+
+// AsMenuFlyoutPresenter3 queries the instance's IMenuFlyoutPresenter3 interface.
+// The returned reference is owned by the caller.
+func (self *MenuFlyoutPresenter) AsMenuFlyoutPresenter3() (*IMenuFlyoutPresenter3, error) {
+	return winrt.QueryInterface[IMenuFlyoutPresenter3](unsafe.Pointer(self), &IID_IMenuFlyoutPresenter3)
+}
+
+// MenuFlyoutPresenterStatics3 returns the Windows.UI.Xaml.Controls.IMenuFlyoutPresenterStatics3 statics of the
+// Windows.UI.Xaml.Controls.MenuFlyoutPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MenuFlyoutPresenterStatics3() (*IMenuFlyoutPresenterStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuFlyoutPresenter", &IID_IMenuFlyoutPresenterStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMenuFlyoutPresenterStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// NewMenuFlyoutPresenter constructs a Windows.UI.Xaml.Controls.MenuFlyoutPresenter instance through
+// Windows.UI.Xaml.Controls.IMenuFlyoutPresenterFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMenuFlyoutPresenter() (*MenuFlyoutPresenter, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuFlyoutPresenter", &IID_IMenuFlyoutPresenterFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMenuFlyoutPresenterFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MenuFlyoutPresenter)(unsafe.Pointer(instance)), nil
+}
+
+// MenuFlyoutSeparator is the Windows.UI.Xaml.Controls.MenuFlyoutSeparator runtime class, surfaced through its
+// default interface IMenuFlyoutSeparator. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MenuFlyoutSeparator struct {
+	IMenuFlyoutSeparator
+}
+
+// NewMenuFlyoutSeparator constructs a Windows.UI.Xaml.Controls.MenuFlyoutSeparator instance through
+// Windows.UI.Xaml.Controls.IMenuFlyoutSeparatorFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMenuFlyoutSeparator() (*MenuFlyoutSeparator, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuFlyoutSeparator", &IID_IMenuFlyoutSeparatorFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMenuFlyoutSeparatorFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MenuFlyoutSeparator)(unsafe.Pointer(instance)), nil
+}
+
+// MenuFlyoutSubItem is the Windows.UI.Xaml.Controls.MenuFlyoutSubItem runtime class, surfaced through its
+// default interface IMenuFlyoutSubItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MenuFlyoutSubItem struct {
+	IMenuFlyoutSubItem
+}
+
+// NewMenuFlyoutSubItem activates Windows.UI.Xaml.Controls.MenuFlyoutSubItem through its default
+// constructor.
+func NewMenuFlyoutSubItem() (*MenuFlyoutSubItem, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.MenuFlyoutSubItem")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[MenuFlyoutSubItem](unsafe.Pointer(instance), &IID_IMenuFlyoutSubItem)
+}
+
+// AsMenuFlyoutSubItem2 queries the instance's IMenuFlyoutSubItem2 interface.
+// The returned reference is owned by the caller.
+func (self *MenuFlyoutSubItem) AsMenuFlyoutSubItem2() (*IMenuFlyoutSubItem2, error) {
+	return winrt.QueryInterface[IMenuFlyoutSubItem2](unsafe.Pointer(self), &IID_IMenuFlyoutSubItem2)
+}
+
+// MenuFlyoutSubItemStatics returns the Windows.UI.Xaml.Controls.IMenuFlyoutSubItemStatics statics of the
+// Windows.UI.Xaml.Controls.MenuFlyoutSubItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MenuFlyoutSubItemStatics() (*IMenuFlyoutSubItemStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuFlyoutSubItem", &IID_IMenuFlyoutSubItemStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMenuFlyoutSubItemStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MenuFlyoutSubItemStatics2 returns the Windows.UI.Xaml.Controls.IMenuFlyoutSubItemStatics2 statics of the
+// Windows.UI.Xaml.Controls.MenuFlyoutSubItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MenuFlyoutSubItemStatics2() (*IMenuFlyoutSubItemStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.MenuFlyoutSubItem", &IID_IMenuFlyoutSubItemStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMenuFlyoutSubItemStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NavigationView is the Windows.UI.Xaml.Controls.NavigationView runtime class, surfaced through its
+// default interface INavigationView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type NavigationView struct {
+	INavigationView
+}
+
+// AsNavigationView2 queries the instance's INavigationView2 interface.
+// The returned reference is owned by the caller.
+func (self *NavigationView) AsNavigationView2() (*INavigationView2, error) {
+	return winrt.QueryInterface[INavigationView2](unsafe.Pointer(self), &IID_INavigationView2)
+}
+
+// AsNavigationView3 queries the instance's INavigationView3 interface.
+// The returned reference is owned by the caller.
+func (self *NavigationView) AsNavigationView3() (*INavigationView3, error) {
+	return winrt.QueryInterface[INavigationView3](unsafe.Pointer(self), &IID_INavigationView3)
+}
+
+// NavigationViewStatics returns the Windows.UI.Xaml.Controls.INavigationViewStatics statics of the
+// Windows.UI.Xaml.Controls.NavigationView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func NavigationViewStatics() (*INavigationViewStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationView", &IID_INavigationViewStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*INavigationViewStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NavigationViewStatics2 returns the Windows.UI.Xaml.Controls.INavigationViewStatics2 statics of the
+// Windows.UI.Xaml.Controls.NavigationView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func NavigationViewStatics2() (*INavigationViewStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationView", &IID_INavigationViewStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*INavigationViewStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NavigationViewStatics3 returns the Windows.UI.Xaml.Controls.INavigationViewStatics3 statics of the
+// Windows.UI.Xaml.Controls.NavigationView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func NavigationViewStatics3() (*INavigationViewStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationView", &IID_INavigationViewStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*INavigationViewStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// NewNavigationView constructs a Windows.UI.Xaml.Controls.NavigationView instance through
+// Windows.UI.Xaml.Controls.INavigationViewFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewNavigationView() (*NavigationView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationView", &IID_INavigationViewFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*INavigationViewFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*NavigationView)(unsafe.Pointer(instance)), nil
+}
+
 // NavigationViewBackRequestedEventArgs is the Windows.UI.Xaml.Controls.NavigationViewBackRequestedEventArgs runtime class, surfaced through its
 // default interface INavigationViewBackRequestedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -430,6 +5629,107 @@ type NavigationViewBackRequestedEventArgs struct {
 // the embedded IInspectable → IUnknown chain).
 type NavigationViewDisplayModeChangedEventArgs struct {
 	INavigationViewDisplayModeChangedEventArgs
+}
+
+// NavigationViewItem is the Windows.UI.Xaml.Controls.NavigationViewItem runtime class, surfaced through its
+// default interface INavigationViewItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type NavigationViewItem struct {
+	INavigationViewItem
+}
+
+// AsNavigationViewItem2 queries the instance's INavigationViewItem2 interface.
+// The returned reference is owned by the caller.
+func (self *NavigationViewItem) AsNavigationViewItem2() (*INavigationViewItem2, error) {
+	return winrt.QueryInterface[INavigationViewItem2](unsafe.Pointer(self), &IID_INavigationViewItem2)
+}
+
+// NavigationViewItemStatics returns the Windows.UI.Xaml.Controls.INavigationViewItemStatics statics of the
+// Windows.UI.Xaml.Controls.NavigationViewItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func NavigationViewItemStatics() (*INavigationViewItemStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationViewItem", &IID_INavigationViewItemStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*INavigationViewItemStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NavigationViewItemStatics2 returns the Windows.UI.Xaml.Controls.INavigationViewItemStatics2 statics of the
+// Windows.UI.Xaml.Controls.NavigationViewItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func NavigationViewItemStatics2() (*INavigationViewItemStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationViewItem", &IID_INavigationViewItemStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*INavigationViewItemStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewNavigationViewItem constructs a Windows.UI.Xaml.Controls.NavigationViewItem instance through
+// Windows.UI.Xaml.Controls.INavigationViewItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewNavigationViewItem() (*NavigationViewItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationViewItem", &IID_INavigationViewItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*INavigationViewItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*NavigationViewItem)(unsafe.Pointer(instance)), nil
+}
+
+// NavigationViewItemBase is the Windows.UI.Xaml.Controls.NavigationViewItemBase runtime class, surfaced through its
+// default interface INavigationViewItemBase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type NavigationViewItemBase struct {
+	INavigationViewItemBase
+}
+
+// NavigationViewItemHeader is the Windows.UI.Xaml.Controls.NavigationViewItemHeader runtime class, surfaced through its
+// default interface INavigationViewItemHeader. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type NavigationViewItemHeader struct {
+	INavigationViewItemHeader
+}
+
+// NewNavigationViewItemHeader constructs a Windows.UI.Xaml.Controls.NavigationViewItemHeader instance through
+// Windows.UI.Xaml.Controls.INavigationViewItemHeaderFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewNavigationViewItemHeader() (*NavigationViewItemHeader, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationViewItemHeader", &IID_INavigationViewItemHeaderFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*INavigationViewItemHeaderFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*NavigationViewItemHeader)(unsafe.Pointer(instance)), nil
 }
 
 // NavigationViewItemInvokedEventArgs is the Windows.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs runtime class, surfaced through its
@@ -456,6 +5756,70 @@ func (self *NavigationViewItemInvokedEventArgs) AsNavigationViewItemInvokedEvent
 	return winrt.QueryInterface[INavigationViewItemInvokedEventArgs2](unsafe.Pointer(self), &IID_INavigationViewItemInvokedEventArgs2)
 }
 
+// NavigationViewItemSeparator is the Windows.UI.Xaml.Controls.NavigationViewItemSeparator runtime class, surfaced through its
+// default interface INavigationViewItemSeparator. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type NavigationViewItemSeparator struct {
+	INavigationViewItemSeparator
+}
+
+// NewNavigationViewItemSeparator constructs a Windows.UI.Xaml.Controls.NavigationViewItemSeparator instance through
+// Windows.UI.Xaml.Controls.INavigationViewItemSeparatorFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewNavigationViewItemSeparator() (*NavigationViewItemSeparator, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationViewItemSeparator", &IID_INavigationViewItemSeparatorFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*INavigationViewItemSeparatorFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*NavigationViewItemSeparator)(unsafe.Pointer(instance)), nil
+}
+
+// NavigationViewList is the Windows.UI.Xaml.Controls.NavigationViewList runtime class, surfaced through its
+// default interface INavigationViewList. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type NavigationViewList struct {
+	INavigationViewList
+}
+
+// NewNavigationViewList constructs a Windows.UI.Xaml.Controls.NavigationViewList instance through
+// Windows.UI.Xaml.Controls.INavigationViewListFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewNavigationViewList() (*NavigationViewList, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationViewList", &IID_INavigationViewListFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*INavigationViewListFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*NavigationViewList)(unsafe.Pointer(instance)), nil
+}
+
 // NavigationViewPaneClosingEventArgs is the Windows.UI.Xaml.Controls.NavigationViewPaneClosingEventArgs runtime class, surfaced through its
 // default interface INavigationViewPaneClosingEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -476,6 +5840,50 @@ func (self *NavigationViewSelectionChangedEventArgs) AsNavigationViewSelectionCh
 	return winrt.QueryInterface[INavigationViewSelectionChangedEventArgs2](unsafe.Pointer(self), &IID_INavigationViewSelectionChangedEventArgs2)
 }
 
+// NavigationViewTemplateSettings is the Windows.UI.Xaml.Controls.NavigationViewTemplateSettings runtime class, surfaced through its
+// default interface INavigationViewTemplateSettings. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type NavigationViewTemplateSettings struct {
+	INavigationViewTemplateSettings
+}
+
+// NavigationViewTemplateSettingsStatics returns the Windows.UI.Xaml.Controls.INavigationViewTemplateSettingsStatics statics of the
+// Windows.UI.Xaml.Controls.NavigationViewTemplateSettings runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func NavigationViewTemplateSettingsStatics() (*INavigationViewTemplateSettingsStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationViewTemplateSettings", &IID_INavigationViewTemplateSettingsStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*INavigationViewTemplateSettingsStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewNavigationViewTemplateSettings constructs a Windows.UI.Xaml.Controls.NavigationViewTemplateSettings instance through
+// Windows.UI.Xaml.Controls.INavigationViewTemplateSettingsFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewNavigationViewTemplateSettings() (*NavigationViewTemplateSettings, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.NavigationViewTemplateSettings", &IID_INavigationViewTemplateSettingsFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*INavigationViewTemplateSettingsFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*NavigationViewTemplateSettings)(unsafe.Pointer(instance)), nil
+}
+
 // NotifyEventArgs is the Windows.UI.Xaml.Controls.NotifyEventArgs runtime class, surfaced through its
 // default interface INotifyEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -489,11 +5897,556 @@ func (self *NotifyEventArgs) AsNotifyEventArgs2() (*INotifyEventArgs2, error) {
 	return winrt.QueryInterface[INotifyEventArgs2](unsafe.Pointer(self), &IID_INotifyEventArgs2)
 }
 
+// Page is the Windows.UI.Xaml.Controls.Page runtime class, surfaced through its
+// default interface IPage. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Page struct {
+	IPage
+}
+
+// AsPageOverrides queries the instance's IPageOverrides interface.
+// The returned reference is owned by the caller.
+func (self *Page) AsPageOverrides() (*IPageOverrides, error) {
+	return winrt.QueryInterface[IPageOverrides](unsafe.Pointer(self), &IID_IPageOverrides)
+}
+
+// PageStatics returns the Windows.UI.Xaml.Controls.IPageStatics statics of the
+// Windows.UI.Xaml.Controls.Page runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PageStatics() (*IPageStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Page", &IID_IPageStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPageStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewPage constructs a Windows.UI.Xaml.Controls.Page instance through
+// Windows.UI.Xaml.Controls.IPageFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewPage() (*Page, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Page", &IID_IPageFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPageFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Page)(unsafe.Pointer(instance)), nil
+}
+
+// Panel is the Windows.UI.Xaml.Controls.Panel runtime class, surfaced through its
+// default interface IPanel. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Panel struct {
+	IPanel
+}
+
+// AsPanel2 queries the instance's IPanel2 interface.
+// The returned reference is owned by the caller.
+func (self *Panel) AsPanel2() (*IPanel2, error) {
+	return winrt.QueryInterface[IPanel2](unsafe.Pointer(self), &IID_IPanel2)
+}
+
+// PanelStatics returns the Windows.UI.Xaml.Controls.IPanelStatics statics of the
+// Windows.UI.Xaml.Controls.Panel runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PanelStatics() (*IPanelStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Panel", &IID_IPanelStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPanelStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewPanel constructs a Windows.UI.Xaml.Controls.Panel instance through
+// Windows.UI.Xaml.Controls.IPanelFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewPanel() (*Panel, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Panel", &IID_IPanelFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPanelFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Panel)(unsafe.Pointer(instance)), nil
+}
+
+// ParallaxView is the Windows.UI.Xaml.Controls.ParallaxView runtime class, surfaced through its
+// default interface IParallaxView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ParallaxView struct {
+	IParallaxView
+}
+
+// ParallaxViewStatics returns the Windows.UI.Xaml.Controls.IParallaxViewStatics statics of the
+// Windows.UI.Xaml.Controls.ParallaxView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ParallaxViewStatics() (*IParallaxViewStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ParallaxView", &IID_IParallaxViewStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IParallaxViewStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewParallaxView constructs a Windows.UI.Xaml.Controls.ParallaxView instance through
+// Windows.UI.Xaml.Controls.IParallaxViewFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewParallaxView() (*ParallaxView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ParallaxView", &IID_IParallaxViewFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IParallaxViewFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ParallaxView)(unsafe.Pointer(instance)), nil
+}
+
+// PasswordBox is the Windows.UI.Xaml.Controls.PasswordBox runtime class, surfaced through its
+// default interface IPasswordBox. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PasswordBox struct {
+	IPasswordBox
+}
+
+// NewPasswordBox activates Windows.UI.Xaml.Controls.PasswordBox through its default
+// constructor.
+func NewPasswordBox() (*PasswordBox, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.PasswordBox")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PasswordBox](unsafe.Pointer(instance), &IID_IPasswordBox)
+}
+
+// AsPasswordBox2 queries the instance's IPasswordBox2 interface.
+// The returned reference is owned by the caller.
+func (self *PasswordBox) AsPasswordBox2() (*IPasswordBox2, error) {
+	return winrt.QueryInterface[IPasswordBox2](unsafe.Pointer(self), &IID_IPasswordBox2)
+}
+
+// AsPasswordBox3 queries the instance's IPasswordBox3 interface.
+// The returned reference is owned by the caller.
+func (self *PasswordBox) AsPasswordBox3() (*IPasswordBox3, error) {
+	return winrt.QueryInterface[IPasswordBox3](unsafe.Pointer(self), &IID_IPasswordBox3)
+}
+
+// AsPasswordBox4 queries the instance's IPasswordBox4 interface.
+// The returned reference is owned by the caller.
+func (self *PasswordBox) AsPasswordBox4() (*IPasswordBox4, error) {
+	return winrt.QueryInterface[IPasswordBox4](unsafe.Pointer(self), &IID_IPasswordBox4)
+}
+
+// AsPasswordBox5 queries the instance's IPasswordBox5 interface.
+// The returned reference is owned by the caller.
+func (self *PasswordBox) AsPasswordBox5() (*IPasswordBox5, error) {
+	return winrt.QueryInterface[IPasswordBox5](unsafe.Pointer(self), &IID_IPasswordBox5)
+}
+
+// PasswordBoxStatics returns the Windows.UI.Xaml.Controls.IPasswordBoxStatics statics of the
+// Windows.UI.Xaml.Controls.PasswordBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PasswordBoxStatics() (*IPasswordBoxStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PasswordBox", &IID_IPasswordBoxStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPasswordBoxStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PasswordBoxStatics2 returns the Windows.UI.Xaml.Controls.IPasswordBoxStatics2 statics of the
+// Windows.UI.Xaml.Controls.PasswordBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PasswordBoxStatics2() (*IPasswordBoxStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PasswordBox", &IID_IPasswordBoxStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPasswordBoxStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// PasswordBoxStatics3 returns the Windows.UI.Xaml.Controls.IPasswordBoxStatics3 statics of the
+// Windows.UI.Xaml.Controls.PasswordBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PasswordBoxStatics3() (*IPasswordBoxStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PasswordBox", &IID_IPasswordBoxStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPasswordBoxStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// PasswordBoxStatics5 returns the Windows.UI.Xaml.Controls.IPasswordBoxStatics5 statics of the
+// Windows.UI.Xaml.Controls.PasswordBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PasswordBoxStatics5() (*IPasswordBoxStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PasswordBox", &IID_IPasswordBoxStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPasswordBoxStatics5)(unsafe.Pointer(factory)), nil
+}
+
 // PasswordBoxPasswordChangingEventArgs is the Windows.UI.Xaml.Controls.PasswordBoxPasswordChangingEventArgs runtime class, surfaced through its
 // default interface IPasswordBoxPasswordChangingEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type PasswordBoxPasswordChangingEventArgs struct {
 	IPasswordBoxPasswordChangingEventArgs
+}
+
+// PathIcon is the Windows.UI.Xaml.Controls.PathIcon runtime class, surfaced through its
+// default interface IPathIcon. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PathIcon struct {
+	IPathIcon
+}
+
+// PathIconStatics returns the Windows.UI.Xaml.Controls.IPathIconStatics statics of the
+// Windows.UI.Xaml.Controls.PathIcon runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PathIconStatics() (*IPathIconStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PathIcon", &IID_IPathIconStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPathIconStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewPathIcon constructs a Windows.UI.Xaml.Controls.PathIcon instance through
+// Windows.UI.Xaml.Controls.IPathIconFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewPathIcon() (*PathIcon, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PathIcon", &IID_IPathIconFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPathIconFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*PathIcon)(unsafe.Pointer(instance)), nil
+}
+
+// PathIconSource is the Windows.UI.Xaml.Controls.PathIconSource runtime class, surfaced through its
+// default interface IPathIconSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PathIconSource struct {
+	IPathIconSource
+}
+
+// PathIconSourceStatics returns the Windows.UI.Xaml.Controls.IPathIconSourceStatics statics of the
+// Windows.UI.Xaml.Controls.PathIconSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PathIconSourceStatics() (*IPathIconSourceStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PathIconSource", &IID_IPathIconSourceStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPathIconSourceStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewPathIconSource constructs a Windows.UI.Xaml.Controls.PathIconSource instance through
+// Windows.UI.Xaml.Controls.IPathIconSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewPathIconSource() (*PathIconSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PathIconSource", &IID_IPathIconSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPathIconSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*PathIconSource)(unsafe.Pointer(instance)), nil
+}
+
+// PersonPicture is the Windows.UI.Xaml.Controls.PersonPicture runtime class, surfaced through its
+// default interface IPersonPicture. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PersonPicture struct {
+	IPersonPicture
+}
+
+// PersonPictureStatics returns the Windows.UI.Xaml.Controls.IPersonPictureStatics statics of the
+// Windows.UI.Xaml.Controls.PersonPicture runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PersonPictureStatics() (*IPersonPictureStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PersonPicture", &IID_IPersonPictureStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPersonPictureStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewPersonPicture constructs a Windows.UI.Xaml.Controls.PersonPicture instance through
+// Windows.UI.Xaml.Controls.IPersonPictureFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewPersonPicture() (*PersonPicture, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PersonPicture", &IID_IPersonPictureFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPersonPictureFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*PersonPicture)(unsafe.Pointer(instance)), nil
+}
+
+// PickerConfirmedEventArgs is the Windows.UI.Xaml.Controls.PickerConfirmedEventArgs runtime class, surfaced through its
+// default interface IPickerConfirmedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PickerConfirmedEventArgs struct {
+	IPickerConfirmedEventArgs
+}
+
+// NewPickerConfirmedEventArgs activates Windows.UI.Xaml.Controls.PickerConfirmedEventArgs through its default
+// constructor.
+func NewPickerConfirmedEventArgs() (*PickerConfirmedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.PickerConfirmedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PickerConfirmedEventArgs](unsafe.Pointer(instance), &IID_IPickerConfirmedEventArgs)
+}
+
+// PickerFlyout is the Windows.UI.Xaml.Controls.PickerFlyout runtime class, surfaced through its
+// default interface IPickerFlyout. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PickerFlyout struct {
+	IPickerFlyout
+}
+
+// NewPickerFlyout activates Windows.UI.Xaml.Controls.PickerFlyout through its default
+// constructor.
+func NewPickerFlyout() (*PickerFlyout, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.PickerFlyout")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PickerFlyout](unsafe.Pointer(instance), &IID_IPickerFlyout)
+}
+
+// PickerFlyoutStatics returns the Windows.UI.Xaml.Controls.IPickerFlyoutStatics statics of the
+// Windows.UI.Xaml.Controls.PickerFlyout runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PickerFlyoutStatics() (*IPickerFlyoutStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PickerFlyout", &IID_IPickerFlyoutStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPickerFlyoutStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PickerFlyoutPresenter is the Windows.UI.Xaml.Controls.PickerFlyoutPresenter runtime class, surfaced through its
+// default interface IPickerFlyoutPresenter. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PickerFlyoutPresenter struct {
+	IPickerFlyoutPresenter
+}
+
+// Pivot is the Windows.UI.Xaml.Controls.Pivot runtime class, surfaced through its
+// default interface IPivot. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Pivot struct {
+	IPivot
+}
+
+// AsPivot2 queries the instance's IPivot2 interface.
+// The returned reference is owned by the caller.
+func (self *Pivot) AsPivot2() (*IPivot2, error) {
+	return winrt.QueryInterface[IPivot2](unsafe.Pointer(self), &IID_IPivot2)
+}
+
+// AsPivot3 queries the instance's IPivot3 interface.
+// The returned reference is owned by the caller.
+func (self *Pivot) AsPivot3() (*IPivot3, error) {
+	return winrt.QueryInterface[IPivot3](unsafe.Pointer(self), &IID_IPivot3)
+}
+
+// PivotStatics returns the Windows.UI.Xaml.Controls.IPivotStatics statics of the
+// Windows.UI.Xaml.Controls.Pivot runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PivotStatics() (*IPivotStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Pivot", &IID_IPivotStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPivotStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PivotStatics2 returns the Windows.UI.Xaml.Controls.IPivotStatics2 statics of the
+// Windows.UI.Xaml.Controls.Pivot runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PivotStatics2() (*IPivotStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Pivot", &IID_IPivotStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPivotStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// PivotStatics3 returns the Windows.UI.Xaml.Controls.IPivotStatics3 statics of the
+// Windows.UI.Xaml.Controls.Pivot runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PivotStatics3() (*IPivotStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Pivot", &IID_IPivotStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPivotStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// NewPivot constructs a Windows.UI.Xaml.Controls.Pivot instance through
+// Windows.UI.Xaml.Controls.IPivotFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewPivot() (*Pivot, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Pivot", &IID_IPivotFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPivotFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Pivot)(unsafe.Pointer(instance)), nil
+}
+
+// PivotItem is the Windows.UI.Xaml.Controls.PivotItem runtime class, surfaced through its
+// default interface IPivotItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PivotItem struct {
+	IPivotItem
+}
+
+// PivotItemStatics returns the Windows.UI.Xaml.Controls.IPivotItemStatics statics of the
+// Windows.UI.Xaml.Controls.PivotItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PivotItemStatics() (*IPivotItemStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PivotItem", &IID_IPivotItemStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPivotItemStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewPivotItem constructs a Windows.UI.Xaml.Controls.PivotItem instance through
+// Windows.UI.Xaml.Controls.IPivotItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewPivotItem() (*PivotItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.PivotItem", &IID_IPivotItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPivotItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*PivotItem)(unsafe.Pointer(instance)), nil
 }
 
 // PivotItemEventArgs is the Windows.UI.Xaml.Controls.PivotItemEventArgs runtime class, surfaced through its
@@ -512,6 +6465,332 @@ func NewPivotItemEventArgs() (*PivotItemEventArgs, error) {
 	}
 	defer instance.Release()
 	return winrt.QueryInterface[PivotItemEventArgs](unsafe.Pointer(instance), &IID_IPivotItemEventArgs)
+}
+
+// ProgressBar is the Windows.UI.Xaml.Controls.ProgressBar runtime class, surfaced through its
+// default interface IProgressBar. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ProgressBar struct {
+	IProgressBar
+}
+
+// ProgressBarStatics returns the Windows.UI.Xaml.Controls.IProgressBarStatics statics of the
+// Windows.UI.Xaml.Controls.ProgressBar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ProgressBarStatics() (*IProgressBarStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ProgressBar", &IID_IProgressBarStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IProgressBarStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewProgressBar constructs a Windows.UI.Xaml.Controls.ProgressBar instance through
+// Windows.UI.Xaml.Controls.IProgressBarFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewProgressBar() (*ProgressBar, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ProgressBar", &IID_IProgressBarFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IProgressBarFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ProgressBar)(unsafe.Pointer(instance)), nil
+}
+
+// ProgressRing is the Windows.UI.Xaml.Controls.ProgressRing runtime class, surfaced through its
+// default interface IProgressRing. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ProgressRing struct {
+	IProgressRing
+}
+
+// NewProgressRing activates Windows.UI.Xaml.Controls.ProgressRing through its default
+// constructor.
+func NewProgressRing() (*ProgressRing, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ProgressRing")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ProgressRing](unsafe.Pointer(instance), &IID_IProgressRing)
+}
+
+// ProgressRingStatics returns the Windows.UI.Xaml.Controls.IProgressRingStatics statics of the
+// Windows.UI.Xaml.Controls.ProgressRing runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ProgressRingStatics() (*IProgressRingStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ProgressRing", &IID_IProgressRingStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IProgressRingStatics)(unsafe.Pointer(factory)), nil
+}
+
+// RadioButton is the Windows.UI.Xaml.Controls.RadioButton runtime class, surfaced through its
+// default interface IRadioButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RadioButton struct {
+	IRadioButton
+}
+
+// RadioButtonStatics returns the Windows.UI.Xaml.Controls.IRadioButtonStatics statics of the
+// Windows.UI.Xaml.Controls.RadioButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RadioButtonStatics() (*IRadioButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RadioButton", &IID_IRadioButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRadioButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewRadioButton constructs a Windows.UI.Xaml.Controls.RadioButton instance through
+// Windows.UI.Xaml.Controls.IRadioButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRadioButton() (*RadioButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RadioButton", &IID_IRadioButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRadioButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RadioButton)(unsafe.Pointer(instance)), nil
+}
+
+// RatingControl is the Windows.UI.Xaml.Controls.RatingControl runtime class, surfaced through its
+// default interface IRatingControl. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RatingControl struct {
+	IRatingControl
+}
+
+// RatingControlStatics returns the Windows.UI.Xaml.Controls.IRatingControlStatics statics of the
+// Windows.UI.Xaml.Controls.RatingControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RatingControlStatics() (*IRatingControlStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RatingControl", &IID_IRatingControlStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRatingControlStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewRatingControl constructs a Windows.UI.Xaml.Controls.RatingControl instance through
+// Windows.UI.Xaml.Controls.IRatingControlFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRatingControl() (*RatingControl, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RatingControl", &IID_IRatingControlFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRatingControlFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RatingControl)(unsafe.Pointer(instance)), nil
+}
+
+// RatingItemFontInfo is the Windows.UI.Xaml.Controls.RatingItemFontInfo runtime class, surfaced through its
+// default interface IRatingItemFontInfo. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RatingItemFontInfo struct {
+	IRatingItemFontInfo
+}
+
+// RatingItemFontInfoStatics returns the Windows.UI.Xaml.Controls.IRatingItemFontInfoStatics statics of the
+// Windows.UI.Xaml.Controls.RatingItemFontInfo runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RatingItemFontInfoStatics() (*IRatingItemFontInfoStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RatingItemFontInfo", &IID_IRatingItemFontInfoStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRatingItemFontInfoStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewRatingItemFontInfo constructs a Windows.UI.Xaml.Controls.RatingItemFontInfo instance through
+// Windows.UI.Xaml.Controls.IRatingItemFontInfoFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRatingItemFontInfo() (*RatingItemFontInfo, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RatingItemFontInfo", &IID_IRatingItemFontInfoFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRatingItemFontInfoFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RatingItemFontInfo)(unsafe.Pointer(instance)), nil
+}
+
+// RatingItemImageInfo is the Windows.UI.Xaml.Controls.RatingItemImageInfo runtime class, surfaced through its
+// default interface IRatingItemImageInfo. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RatingItemImageInfo struct {
+	IRatingItemImageInfo
+}
+
+// RatingItemImageInfoStatics returns the Windows.UI.Xaml.Controls.IRatingItemImageInfoStatics statics of the
+// Windows.UI.Xaml.Controls.RatingItemImageInfo runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RatingItemImageInfoStatics() (*IRatingItemImageInfoStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RatingItemImageInfo", &IID_IRatingItemImageInfoStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRatingItemImageInfoStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewRatingItemImageInfo constructs a Windows.UI.Xaml.Controls.RatingItemImageInfo instance through
+// Windows.UI.Xaml.Controls.IRatingItemImageInfoFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRatingItemImageInfo() (*RatingItemImageInfo, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RatingItemImageInfo", &IID_IRatingItemImageInfoFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRatingItemImageInfoFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RatingItemImageInfo)(unsafe.Pointer(instance)), nil
+}
+
+// RatingItemInfo is the Windows.UI.Xaml.Controls.RatingItemInfo runtime class, surfaced through its
+// default interface IRatingItemInfo. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RatingItemInfo struct {
+	IRatingItemInfo
+}
+
+// NewRatingItemInfo constructs a Windows.UI.Xaml.Controls.RatingItemInfo instance through
+// Windows.UI.Xaml.Controls.IRatingItemInfoFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRatingItemInfo() (*RatingItemInfo, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RatingItemInfo", &IID_IRatingItemInfoFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRatingItemInfoFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RatingItemInfo)(unsafe.Pointer(instance)), nil
+}
+
+// RefreshContainer is the Windows.UI.Xaml.Controls.RefreshContainer runtime class, surfaced through its
+// default interface IRefreshContainer. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RefreshContainer struct {
+	IRefreshContainer
+}
+
+// RefreshContainerStatics returns the Windows.UI.Xaml.Controls.IRefreshContainerStatics statics of the
+// Windows.UI.Xaml.Controls.RefreshContainer runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RefreshContainerStatics() (*IRefreshContainerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RefreshContainer", &IID_IRefreshContainerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRefreshContainerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewRefreshContainer constructs a Windows.UI.Xaml.Controls.RefreshContainer instance through
+// Windows.UI.Xaml.Controls.IRefreshContainerFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRefreshContainer() (*RefreshContainer, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RefreshContainer", &IID_IRefreshContainerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRefreshContainerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RefreshContainer)(unsafe.Pointer(instance)), nil
 }
 
 // RefreshInteractionRatioChangedEventArgs is the Windows.UI.Xaml.Controls.RefreshInteractionRatioChangedEventArgs runtime class, surfaced through its
@@ -535,6 +6814,282 @@ type RefreshStateChangedEventArgs struct {
 	IRefreshStateChangedEventArgs
 }
 
+// RefreshVisualizer is the Windows.UI.Xaml.Controls.RefreshVisualizer runtime class, surfaced through its
+// default interface IRefreshVisualizer. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RefreshVisualizer struct {
+	IRefreshVisualizer
+}
+
+// RefreshVisualizerStatics returns the Windows.UI.Xaml.Controls.IRefreshVisualizerStatics statics of the
+// Windows.UI.Xaml.Controls.RefreshVisualizer runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RefreshVisualizerStatics() (*IRefreshVisualizerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RefreshVisualizer", &IID_IRefreshVisualizerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRefreshVisualizerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewRefreshVisualizer constructs a Windows.UI.Xaml.Controls.RefreshVisualizer instance through
+// Windows.UI.Xaml.Controls.IRefreshVisualizerFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRefreshVisualizer() (*RefreshVisualizer, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RefreshVisualizer", &IID_IRefreshVisualizerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRefreshVisualizerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RefreshVisualizer)(unsafe.Pointer(instance)), nil
+}
+
+// RelativePanel is the Windows.UI.Xaml.Controls.RelativePanel runtime class, surfaced through its
+// default interface IRelativePanel. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RelativePanel struct {
+	IRelativePanel
+}
+
+// AsRelativePanel2 queries the instance's IRelativePanel2 interface.
+// The returned reference is owned by the caller.
+func (self *RelativePanel) AsRelativePanel2() (*IRelativePanel2, error) {
+	return winrt.QueryInterface[IRelativePanel2](unsafe.Pointer(self), &IID_IRelativePanel2)
+}
+
+// RelativePanelStatics returns the Windows.UI.Xaml.Controls.IRelativePanelStatics statics of the
+// Windows.UI.Xaml.Controls.RelativePanel runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RelativePanelStatics() (*IRelativePanelStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RelativePanel", &IID_IRelativePanelStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRelativePanelStatics)(unsafe.Pointer(factory)), nil
+}
+
+// RelativePanelStatics2 returns the Windows.UI.Xaml.Controls.IRelativePanelStatics2 statics of the
+// Windows.UI.Xaml.Controls.RelativePanel runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RelativePanelStatics2() (*IRelativePanelStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RelativePanel", &IID_IRelativePanelStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRelativePanelStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewRelativePanel constructs a Windows.UI.Xaml.Controls.RelativePanel instance through
+// Windows.UI.Xaml.Controls.IRelativePanelFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRelativePanel() (*RelativePanel, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RelativePanel", &IID_IRelativePanelFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRelativePanelFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RelativePanel)(unsafe.Pointer(instance)), nil
+}
+
+// RichEditBox is the Windows.UI.Xaml.Controls.RichEditBox runtime class, surfaced through its
+// default interface IRichEditBox. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RichEditBox struct {
+	IRichEditBox
+}
+
+// AsRichEditBox2 queries the instance's IRichEditBox2 interface.
+// The returned reference is owned by the caller.
+func (self *RichEditBox) AsRichEditBox2() (*IRichEditBox2, error) {
+	return winrt.QueryInterface[IRichEditBox2](unsafe.Pointer(self), &IID_IRichEditBox2)
+}
+
+// AsRichEditBox3 queries the instance's IRichEditBox3 interface.
+// The returned reference is owned by the caller.
+func (self *RichEditBox) AsRichEditBox3() (*IRichEditBox3, error) {
+	return winrt.QueryInterface[IRichEditBox3](unsafe.Pointer(self), &IID_IRichEditBox3)
+}
+
+// AsRichEditBox4 queries the instance's IRichEditBox4 interface.
+// The returned reference is owned by the caller.
+func (self *RichEditBox) AsRichEditBox4() (*IRichEditBox4, error) {
+	return winrt.QueryInterface[IRichEditBox4](unsafe.Pointer(self), &IID_IRichEditBox4)
+}
+
+// AsRichEditBox5 queries the instance's IRichEditBox5 interface.
+// The returned reference is owned by the caller.
+func (self *RichEditBox) AsRichEditBox5() (*IRichEditBox5, error) {
+	return winrt.QueryInterface[IRichEditBox5](unsafe.Pointer(self), &IID_IRichEditBox5)
+}
+
+// AsRichEditBox6 queries the instance's IRichEditBox6 interface.
+// The returned reference is owned by the caller.
+func (self *RichEditBox) AsRichEditBox6() (*IRichEditBox6, error) {
+	return winrt.QueryInterface[IRichEditBox6](unsafe.Pointer(self), &IID_IRichEditBox6)
+}
+
+// AsRichEditBox7 queries the instance's IRichEditBox7 interface.
+// The returned reference is owned by the caller.
+func (self *RichEditBox) AsRichEditBox7() (*IRichEditBox7, error) {
+	return winrt.QueryInterface[IRichEditBox7](unsafe.Pointer(self), &IID_IRichEditBox7)
+}
+
+// AsRichEditBox8 queries the instance's IRichEditBox8 interface.
+// The returned reference is owned by the caller.
+func (self *RichEditBox) AsRichEditBox8() (*IRichEditBox8, error) {
+	return winrt.QueryInterface[IRichEditBox8](unsafe.Pointer(self), &IID_IRichEditBox8)
+}
+
+// RichEditBoxStatics returns the Windows.UI.Xaml.Controls.IRichEditBoxStatics statics of the
+// Windows.UI.Xaml.Controls.RichEditBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichEditBoxStatics() (*IRichEditBoxStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichEditBox", &IID_IRichEditBoxStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichEditBoxStatics)(unsafe.Pointer(factory)), nil
+}
+
+// RichEditBoxStatics2 returns the Windows.UI.Xaml.Controls.IRichEditBoxStatics2 statics of the
+// Windows.UI.Xaml.Controls.RichEditBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichEditBoxStatics2() (*IRichEditBoxStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichEditBox", &IID_IRichEditBoxStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichEditBoxStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// RichEditBoxStatics3 returns the Windows.UI.Xaml.Controls.IRichEditBoxStatics3 statics of the
+// Windows.UI.Xaml.Controls.RichEditBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichEditBoxStatics3() (*IRichEditBoxStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichEditBox", &IID_IRichEditBoxStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichEditBoxStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// RichEditBoxStatics4 returns the Windows.UI.Xaml.Controls.IRichEditBoxStatics4 statics of the
+// Windows.UI.Xaml.Controls.RichEditBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichEditBoxStatics4() (*IRichEditBoxStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichEditBox", &IID_IRichEditBoxStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichEditBoxStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// RichEditBoxStatics5 returns the Windows.UI.Xaml.Controls.IRichEditBoxStatics5 statics of the
+// Windows.UI.Xaml.Controls.RichEditBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichEditBoxStatics5() (*IRichEditBoxStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichEditBox", &IID_IRichEditBoxStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichEditBoxStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// RichEditBoxStatics6 returns the Windows.UI.Xaml.Controls.IRichEditBoxStatics6 statics of the
+// Windows.UI.Xaml.Controls.RichEditBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichEditBoxStatics6() (*IRichEditBoxStatics6, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichEditBox", &IID_IRichEditBoxStatics6)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichEditBoxStatics6)(unsafe.Pointer(factory)), nil
+}
+
+// RichEditBoxStatics7 returns the Windows.UI.Xaml.Controls.IRichEditBoxStatics7 statics of the
+// Windows.UI.Xaml.Controls.RichEditBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichEditBoxStatics7() (*IRichEditBoxStatics7, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichEditBox", &IID_IRichEditBoxStatics7)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichEditBoxStatics7)(unsafe.Pointer(factory)), nil
+}
+
+// RichEditBoxStatics8 returns the Windows.UI.Xaml.Controls.IRichEditBoxStatics8 statics of the
+// Windows.UI.Xaml.Controls.RichEditBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichEditBoxStatics8() (*IRichEditBoxStatics8, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichEditBox", &IID_IRichEditBoxStatics8)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichEditBoxStatics8)(unsafe.Pointer(factory)), nil
+}
+
+// NewRichEditBox constructs a Windows.UI.Xaml.Controls.RichEditBox instance through
+// Windows.UI.Xaml.Controls.IRichEditBoxFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewRichEditBox() (*RichEditBox, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichEditBox", &IID_IRichEditBoxFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IRichEditBoxFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*RichEditBox)(unsafe.Pointer(instance)), nil
+}
+
 // RichEditBoxSelectionChangingEventArgs is the Windows.UI.Xaml.Controls.RichEditBoxSelectionChangingEventArgs runtime class, surfaced through its
 // default interface IRichEditBoxSelectionChangingEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -553,6 +7108,336 @@ type RichEditBoxTextChangingEventArgs struct {
 // The returned reference is owned by the caller.
 func (self *RichEditBoxTextChangingEventArgs) AsRichEditBoxTextChangingEventArgs2() (*IRichEditBoxTextChangingEventArgs2, error) {
 	return winrt.QueryInterface[IRichEditBoxTextChangingEventArgs2](unsafe.Pointer(self), &IID_IRichEditBoxTextChangingEventArgs2)
+}
+
+// RichTextBlock is the Windows.UI.Xaml.Controls.RichTextBlock runtime class, surfaced through its
+// default interface IRichTextBlock. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RichTextBlock struct {
+	IRichTextBlock
+}
+
+// NewRichTextBlock activates Windows.UI.Xaml.Controls.RichTextBlock through its default
+// constructor.
+func NewRichTextBlock() (*RichTextBlock, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.RichTextBlock")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[RichTextBlock](unsafe.Pointer(instance), &IID_IRichTextBlock)
+}
+
+// AsRichTextBlock2 queries the instance's IRichTextBlock2 interface.
+// The returned reference is owned by the caller.
+func (self *RichTextBlock) AsRichTextBlock2() (*IRichTextBlock2, error) {
+	return winrt.QueryInterface[IRichTextBlock2](unsafe.Pointer(self), &IID_IRichTextBlock2)
+}
+
+// AsRichTextBlock3 queries the instance's IRichTextBlock3 interface.
+// The returned reference is owned by the caller.
+func (self *RichTextBlock) AsRichTextBlock3() (*IRichTextBlock3, error) {
+	return winrt.QueryInterface[IRichTextBlock3](unsafe.Pointer(self), &IID_IRichTextBlock3)
+}
+
+// AsRichTextBlock4 queries the instance's IRichTextBlock4 interface.
+// The returned reference is owned by the caller.
+func (self *RichTextBlock) AsRichTextBlock4() (*IRichTextBlock4, error) {
+	return winrt.QueryInterface[IRichTextBlock4](unsafe.Pointer(self), &IID_IRichTextBlock4)
+}
+
+// AsRichTextBlock5 queries the instance's IRichTextBlock5 interface.
+// The returned reference is owned by the caller.
+func (self *RichTextBlock) AsRichTextBlock5() (*IRichTextBlock5, error) {
+	return winrt.QueryInterface[IRichTextBlock5](unsafe.Pointer(self), &IID_IRichTextBlock5)
+}
+
+// AsRichTextBlock6 queries the instance's IRichTextBlock6 interface.
+// The returned reference is owned by the caller.
+func (self *RichTextBlock) AsRichTextBlock6() (*IRichTextBlock6, error) {
+	return winrt.QueryInterface[IRichTextBlock6](unsafe.Pointer(self), &IID_IRichTextBlock6)
+}
+
+// RichTextBlockStatics returns the Windows.UI.Xaml.Controls.IRichTextBlockStatics statics of the
+// Windows.UI.Xaml.Controls.RichTextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichTextBlockStatics() (*IRichTextBlockStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichTextBlock", &IID_IRichTextBlockStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichTextBlockStatics)(unsafe.Pointer(factory)), nil
+}
+
+// RichTextBlockStatics2 returns the Windows.UI.Xaml.Controls.IRichTextBlockStatics2 statics of the
+// Windows.UI.Xaml.Controls.RichTextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichTextBlockStatics2() (*IRichTextBlockStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichTextBlock", &IID_IRichTextBlockStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichTextBlockStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// RichTextBlockStatics3 returns the Windows.UI.Xaml.Controls.IRichTextBlockStatics3 statics of the
+// Windows.UI.Xaml.Controls.RichTextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichTextBlockStatics3() (*IRichTextBlockStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichTextBlock", &IID_IRichTextBlockStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichTextBlockStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// RichTextBlockStatics4 returns the Windows.UI.Xaml.Controls.IRichTextBlockStatics4 statics of the
+// Windows.UI.Xaml.Controls.RichTextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichTextBlockStatics4() (*IRichTextBlockStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichTextBlock", &IID_IRichTextBlockStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichTextBlockStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// RichTextBlockStatics5 returns the Windows.UI.Xaml.Controls.IRichTextBlockStatics5 statics of the
+// Windows.UI.Xaml.Controls.RichTextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichTextBlockStatics5() (*IRichTextBlockStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichTextBlock", &IID_IRichTextBlockStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichTextBlockStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// RichTextBlockStatics6 returns the Windows.UI.Xaml.Controls.IRichTextBlockStatics6 statics of the
+// Windows.UI.Xaml.Controls.RichTextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichTextBlockStatics6() (*IRichTextBlockStatics6, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichTextBlock", &IID_IRichTextBlockStatics6)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichTextBlockStatics6)(unsafe.Pointer(factory)), nil
+}
+
+// RichTextBlockOverflow is the Windows.UI.Xaml.Controls.RichTextBlockOverflow runtime class, surfaced through its
+// default interface IRichTextBlockOverflow. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RichTextBlockOverflow struct {
+	IRichTextBlockOverflow
+}
+
+// NewRichTextBlockOverflow activates Windows.UI.Xaml.Controls.RichTextBlockOverflow through its default
+// constructor.
+func NewRichTextBlockOverflow() (*RichTextBlockOverflow, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.RichTextBlockOverflow")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[RichTextBlockOverflow](unsafe.Pointer(instance), &IID_IRichTextBlockOverflow)
+}
+
+// AsRichTextBlockOverflow2 queries the instance's IRichTextBlockOverflow2 interface.
+// The returned reference is owned by the caller.
+func (self *RichTextBlockOverflow) AsRichTextBlockOverflow2() (*IRichTextBlockOverflow2, error) {
+	return winrt.QueryInterface[IRichTextBlockOverflow2](unsafe.Pointer(self), &IID_IRichTextBlockOverflow2)
+}
+
+// AsRichTextBlockOverflow3 queries the instance's IRichTextBlockOverflow3 interface.
+// The returned reference is owned by the caller.
+func (self *RichTextBlockOverflow) AsRichTextBlockOverflow3() (*IRichTextBlockOverflow3, error) {
+	return winrt.QueryInterface[IRichTextBlockOverflow3](unsafe.Pointer(self), &IID_IRichTextBlockOverflow3)
+}
+
+// RichTextBlockOverflowStatics returns the Windows.UI.Xaml.Controls.IRichTextBlockOverflowStatics statics of the
+// Windows.UI.Xaml.Controls.RichTextBlockOverflow runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichTextBlockOverflowStatics() (*IRichTextBlockOverflowStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichTextBlockOverflow", &IID_IRichTextBlockOverflowStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichTextBlockOverflowStatics)(unsafe.Pointer(factory)), nil
+}
+
+// RichTextBlockOverflowStatics2 returns the Windows.UI.Xaml.Controls.IRichTextBlockOverflowStatics2 statics of the
+// Windows.UI.Xaml.Controls.RichTextBlockOverflow runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichTextBlockOverflowStatics2() (*IRichTextBlockOverflowStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichTextBlockOverflow", &IID_IRichTextBlockOverflowStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichTextBlockOverflowStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// RichTextBlockOverflowStatics3 returns the Windows.UI.Xaml.Controls.IRichTextBlockOverflowStatics3 statics of the
+// Windows.UI.Xaml.Controls.RichTextBlockOverflow runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RichTextBlockOverflowStatics3() (*IRichTextBlockOverflowStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RichTextBlockOverflow", &IID_IRichTextBlockOverflowStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRichTextBlockOverflowStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// RowDefinition is the Windows.UI.Xaml.Controls.RowDefinition runtime class, surfaced through its
+// default interface IRowDefinition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RowDefinition struct {
+	IRowDefinition
+}
+
+// NewRowDefinition activates Windows.UI.Xaml.Controls.RowDefinition through its default
+// constructor.
+func NewRowDefinition() (*RowDefinition, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.RowDefinition")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[RowDefinition](unsafe.Pointer(instance), &IID_IRowDefinition)
+}
+
+// RowDefinitionStatics returns the Windows.UI.Xaml.Controls.IRowDefinitionStatics statics of the
+// Windows.UI.Xaml.Controls.RowDefinition runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RowDefinitionStatics() (*IRowDefinitionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.RowDefinition", &IID_IRowDefinitionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRowDefinitionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ScrollContentPresenter is the Windows.UI.Xaml.Controls.ScrollContentPresenter runtime class, surfaced through its
+// default interface IScrollContentPresenter. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ScrollContentPresenter struct {
+	IScrollContentPresenter
+}
+
+// NewScrollContentPresenter activates Windows.UI.Xaml.Controls.ScrollContentPresenter through its default
+// constructor.
+func NewScrollContentPresenter() (*ScrollContentPresenter, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ScrollContentPresenter")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ScrollContentPresenter](unsafe.Pointer(instance), &IID_IScrollContentPresenter)
+}
+
+// AsScrollContentPresenter2 queries the instance's IScrollContentPresenter2 interface.
+// The returned reference is owned by the caller.
+func (self *ScrollContentPresenter) AsScrollContentPresenter2() (*IScrollContentPresenter2, error) {
+	return winrt.QueryInterface[IScrollContentPresenter2](unsafe.Pointer(self), &IID_IScrollContentPresenter2)
+}
+
+// ScrollContentPresenterStatics2 returns the Windows.UI.Xaml.Controls.IScrollContentPresenterStatics2 statics of the
+// Windows.UI.Xaml.Controls.ScrollContentPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ScrollContentPresenterStatics2() (*IScrollContentPresenterStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ScrollContentPresenter", &IID_IScrollContentPresenterStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IScrollContentPresenterStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// ScrollViewer is the Windows.UI.Xaml.Controls.ScrollViewer runtime class, surfaced through its
+// default interface IScrollViewer. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ScrollViewer struct {
+	IScrollViewer
+}
+
+// NewScrollViewer activates Windows.UI.Xaml.Controls.ScrollViewer through its default
+// constructor.
+func NewScrollViewer() (*ScrollViewer, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ScrollViewer")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ScrollViewer](unsafe.Pointer(instance), &IID_IScrollViewer)
+}
+
+// AsScrollViewer2 queries the instance's IScrollViewer2 interface.
+// The returned reference is owned by the caller.
+func (self *ScrollViewer) AsScrollViewer2() (*IScrollViewer2, error) {
+	return winrt.QueryInterface[IScrollViewer2](unsafe.Pointer(self), &IID_IScrollViewer2)
+}
+
+// AsScrollViewer3 queries the instance's IScrollViewer3 interface.
+// The returned reference is owned by the caller.
+func (self *ScrollViewer) AsScrollViewer3() (*IScrollViewer3, error) {
+	return winrt.QueryInterface[IScrollViewer3](unsafe.Pointer(self), &IID_IScrollViewer3)
+}
+
+// AsScrollViewer4 queries the instance's IScrollViewer4 interface.
+// The returned reference is owned by the caller.
+func (self *ScrollViewer) AsScrollViewer4() (*IScrollViewer4, error) {
+	return winrt.QueryInterface[IScrollViewer4](unsafe.Pointer(self), &IID_IScrollViewer4)
+}
+
+// AsScrollAnchorProvider queries the instance's IScrollAnchorProvider interface.
+// The returned reference is owned by the caller.
+func (self *ScrollViewer) AsScrollAnchorProvider() (*IScrollAnchorProvider, error) {
+	return winrt.QueryInterface[IScrollAnchorProvider](unsafe.Pointer(self), &IID_IScrollAnchorProvider)
+}
+
+// ScrollViewerStatics returns the Windows.UI.Xaml.Controls.IScrollViewerStatics statics of the
+// Windows.UI.Xaml.Controls.ScrollViewer runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ScrollViewerStatics() (*IScrollViewerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ScrollViewer", &IID_IScrollViewerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IScrollViewerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ScrollViewerStatics2 returns the Windows.UI.Xaml.Controls.IScrollViewerStatics2 statics of the
+// Windows.UI.Xaml.Controls.ScrollViewer runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ScrollViewerStatics2() (*IScrollViewerStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ScrollViewer", &IID_IScrollViewerStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IScrollViewerStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// ScrollViewerStatics4 returns the Windows.UI.Xaml.Controls.IScrollViewerStatics4 statics of the
+// Windows.UI.Xaml.Controls.ScrollViewer runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ScrollViewerStatics4() (*IScrollViewerStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ScrollViewer", &IID_IScrollViewerStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IScrollViewerStatics4)(unsafe.Pointer(factory)), nil
 }
 
 // ScrollViewerView is the Windows.UI.Xaml.Controls.ScrollViewerView runtime class, surfaced through its
@@ -585,6 +7470,50 @@ func NewScrollViewerViewChangedEventArgs() (*ScrollViewerViewChangedEventArgs, e
 // the embedded IInspectable → IUnknown chain).
 type ScrollViewerViewChangingEventArgs struct {
 	IScrollViewerViewChangingEventArgs
+}
+
+// SearchBox is the Windows.UI.Xaml.Controls.SearchBox runtime class, surfaced through its
+// default interface ISearchBox. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SearchBox struct {
+	ISearchBox
+}
+
+// SearchBoxStatics returns the Windows.UI.Xaml.Controls.ISearchBoxStatics statics of the
+// Windows.UI.Xaml.Controls.SearchBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SearchBoxStatics() (*ISearchBoxStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SearchBox", &IID_ISearchBoxStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISearchBoxStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewSearchBox constructs a Windows.UI.Xaml.Controls.SearchBox instance through
+// Windows.UI.Xaml.Controls.ISearchBoxFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSearchBox() (*SearchBox, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SearchBox", &IID_ISearchBoxFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISearchBoxFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SearchBox)(unsafe.Pointer(instance)), nil
 }
 
 // SearchBoxQueryChangedEventArgs is the Windows.UI.Xaml.Controls.SearchBoxQueryChangedEventArgs runtime class, surfaced through its
@@ -633,6 +7562,68 @@ type SectionsInViewChangedEventArgs struct {
 	ISectionsInViewChangedEventArgs
 }
 
+// SelectionChangedEventArgs is the Windows.UI.Xaml.Controls.SelectionChangedEventArgs runtime class, surfaced through its
+// default interface ISelectionChangedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SelectionChangedEventArgs struct {
+	ISelectionChangedEventArgs
+}
+
+// NewSelectionChangedEventArgsWithRemovedItemsAndAddedItems constructs a Windows.UI.Xaml.Controls.SelectionChangedEventArgs instance through
+// Windows.UI.Xaml.Controls.ISelectionChangedEventArgsFactory.CreateInstanceWithRemovedItemsAndAddedItems with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSelectionChangedEventArgsWithRemovedItemsAndAddedItems(removedItems *IVectorOfObject, addedItems *IVectorOfObject) (*SelectionChangedEventArgs, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SelectionChangedEventArgs", &IID_ISelectionChangedEventArgsFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISelectionChangedEventArgsFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstanceWithRemovedItemsAndAddedItems(removedItems, addedItems, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SelectionChangedEventArgs)(unsafe.Pointer(instance)), nil
+}
+
+// SemanticZoom is the Windows.UI.Xaml.Controls.SemanticZoom runtime class, surfaced through its
+// default interface ISemanticZoom. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SemanticZoom struct {
+	ISemanticZoom
+}
+
+// NewSemanticZoom activates Windows.UI.Xaml.Controls.SemanticZoom through its default
+// constructor.
+func NewSemanticZoom() (*SemanticZoom, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.SemanticZoom")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SemanticZoom](unsafe.Pointer(instance), &IID_ISemanticZoom)
+}
+
+// SemanticZoomStatics returns the Windows.UI.Xaml.Controls.ISemanticZoomStatics statics of the
+// Windows.UI.Xaml.Controls.SemanticZoom runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SemanticZoomStatics() (*ISemanticZoomStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SemanticZoom", &IID_ISemanticZoomStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISemanticZoomStatics)(unsafe.Pointer(factory)), nil
+}
+
 // SemanticZoomLocation is the Windows.UI.Xaml.Controls.SemanticZoomLocation runtime class, surfaced through its
 // default interface ISemanticZoomLocation. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -669,6 +7660,200 @@ func NewSemanticZoomViewChangedEventArgs() (*SemanticZoomViewChangedEventArgs, e
 	return winrt.QueryInterface[SemanticZoomViewChangedEventArgs](unsafe.Pointer(instance), &IID_ISemanticZoomViewChangedEventArgs)
 }
 
+// SettingsFlyout is the Windows.UI.Xaml.Controls.SettingsFlyout runtime class, surfaced through its
+// default interface ISettingsFlyout. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SettingsFlyout struct {
+	ISettingsFlyout
+}
+
+// SettingsFlyoutStatics returns the Windows.UI.Xaml.Controls.ISettingsFlyoutStatics statics of the
+// Windows.UI.Xaml.Controls.SettingsFlyout runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SettingsFlyoutStatics() (*ISettingsFlyoutStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SettingsFlyout", &IID_ISettingsFlyoutStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISettingsFlyoutStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewSettingsFlyout constructs a Windows.UI.Xaml.Controls.SettingsFlyout instance through
+// Windows.UI.Xaml.Controls.ISettingsFlyoutFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSettingsFlyout() (*SettingsFlyout, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SettingsFlyout", &IID_ISettingsFlyoutFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISettingsFlyoutFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SettingsFlyout)(unsafe.Pointer(instance)), nil
+}
+
+// Slider is the Windows.UI.Xaml.Controls.Slider runtime class, surfaced through its
+// default interface ISlider. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Slider struct {
+	ISlider
+}
+
+// AsSlider2 queries the instance's ISlider2 interface.
+// The returned reference is owned by the caller.
+func (self *Slider) AsSlider2() (*ISlider2, error) {
+	return winrt.QueryInterface[ISlider2](unsafe.Pointer(self), &IID_ISlider2)
+}
+
+// SliderStatics returns the Windows.UI.Xaml.Controls.ISliderStatics statics of the
+// Windows.UI.Xaml.Controls.Slider runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SliderStatics() (*ISliderStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Slider", &IID_ISliderStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISliderStatics)(unsafe.Pointer(factory)), nil
+}
+
+// SliderStatics2 returns the Windows.UI.Xaml.Controls.ISliderStatics2 statics of the
+// Windows.UI.Xaml.Controls.Slider runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SliderStatics2() (*ISliderStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Slider", &IID_ISliderStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISliderStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewSlider constructs a Windows.UI.Xaml.Controls.Slider instance through
+// Windows.UI.Xaml.Controls.ISliderFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSlider() (*Slider, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Slider", &IID_ISliderFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISliderFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Slider)(unsafe.Pointer(instance)), nil
+}
+
+// SplitButton is the Windows.UI.Xaml.Controls.SplitButton runtime class, surfaced through its
+// default interface ISplitButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SplitButton struct {
+	ISplitButton
+}
+
+// SplitButtonStatics returns the Windows.UI.Xaml.Controls.ISplitButtonStatics statics of the
+// Windows.UI.Xaml.Controls.SplitButton runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SplitButtonStatics() (*ISplitButtonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SplitButton", &IID_ISplitButtonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISplitButtonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewSplitButton constructs a Windows.UI.Xaml.Controls.SplitButton instance through
+// Windows.UI.Xaml.Controls.ISplitButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSplitButton() (*SplitButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SplitButton", &IID_ISplitButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISplitButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SplitButton)(unsafe.Pointer(instance)), nil
+}
+
+// SplitButtonAutomationPeer is the Windows.UI.Xaml.Controls.SplitButtonAutomationPeer runtime class, surfaced through its
+// default interface ISplitButtonAutomationPeer. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SplitButtonAutomationPeer struct {
+	ISplitButtonAutomationPeer
+}
+
+// AsExpandCollapseProvider queries the instance's uixamlautomationprovider.IExpandCollapseProvider interface.
+// The returned reference is owned by the caller.
+func (self *SplitButtonAutomationPeer) AsExpandCollapseProvider() (*uixamlautomationprovider.IExpandCollapseProvider, error) {
+	return winrt.QueryInterface[uixamlautomationprovider.IExpandCollapseProvider](unsafe.Pointer(self), &uixamlautomationprovider.IID_IExpandCollapseProvider)
+}
+
+// AsInvokeProvider queries the instance's uixamlautomationprovider.IInvokeProvider interface.
+// The returned reference is owned by the caller.
+func (self *SplitButtonAutomationPeer) AsInvokeProvider() (*uixamlautomationprovider.IInvokeProvider, error) {
+	return winrt.QueryInterface[uixamlautomationprovider.IInvokeProvider](unsafe.Pointer(self), &uixamlautomationprovider.IID_IInvokeProvider)
+}
+
+// NewSplitButtonAutomationPeer constructs a Windows.UI.Xaml.Controls.SplitButtonAutomationPeer instance through
+// Windows.UI.Xaml.Controls.ISplitButtonAutomationPeerFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSplitButtonAutomationPeer(owner *ISplitButton) (*SplitButtonAutomationPeer, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SplitButtonAutomationPeer", &IID_ISplitButtonAutomationPeerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISplitButtonAutomationPeerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(owner, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SplitButtonAutomationPeer)(unsafe.Pointer(instance)), nil
+}
+
 // SplitButtonClickEventArgs is the Windows.UI.Xaml.Controls.SplitButtonClickEventArgs runtime class, surfaced through its
 // default interface ISplitButtonClickEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -676,11 +7861,189 @@ type SplitButtonClickEventArgs struct {
 	ISplitButtonClickEventArgs
 }
 
+// SplitView is the Windows.UI.Xaml.Controls.SplitView runtime class, surfaced through its
+// default interface ISplitView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SplitView struct {
+	ISplitView
+}
+
+// AsSplitView2 queries the instance's ISplitView2 interface.
+// The returned reference is owned by the caller.
+func (self *SplitView) AsSplitView2() (*ISplitView2, error) {
+	return winrt.QueryInterface[ISplitView2](unsafe.Pointer(self), &IID_ISplitView2)
+}
+
+// AsSplitView3 queries the instance's ISplitView3 interface.
+// The returned reference is owned by the caller.
+func (self *SplitView) AsSplitView3() (*ISplitView3, error) {
+	return winrt.QueryInterface[ISplitView3](unsafe.Pointer(self), &IID_ISplitView3)
+}
+
+// SplitViewStatics returns the Windows.UI.Xaml.Controls.ISplitViewStatics statics of the
+// Windows.UI.Xaml.Controls.SplitView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SplitViewStatics() (*ISplitViewStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SplitView", &IID_ISplitViewStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISplitViewStatics)(unsafe.Pointer(factory)), nil
+}
+
+// SplitViewStatics2 returns the Windows.UI.Xaml.Controls.ISplitViewStatics2 statics of the
+// Windows.UI.Xaml.Controls.SplitView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SplitViewStatics2() (*ISplitViewStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SplitView", &IID_ISplitViewStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISplitViewStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewSplitView constructs a Windows.UI.Xaml.Controls.SplitView instance through
+// Windows.UI.Xaml.Controls.ISplitViewFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSplitView() (*SplitView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SplitView", &IID_ISplitViewFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISplitViewFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SplitView)(unsafe.Pointer(instance)), nil
+}
+
 // SplitViewPaneClosingEventArgs is the Windows.UI.Xaml.Controls.SplitViewPaneClosingEventArgs runtime class, surfaced through its
 // default interface ISplitViewPaneClosingEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type SplitViewPaneClosingEventArgs struct {
 	ISplitViewPaneClosingEventArgs
+}
+
+// StackPanel is the Windows.UI.Xaml.Controls.StackPanel runtime class, surfaced through its
+// default interface IStackPanel. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type StackPanel struct {
+	IStackPanel
+}
+
+// AsStackPanel2 queries the instance's IStackPanel2 interface.
+// The returned reference is owned by the caller.
+func (self *StackPanel) AsStackPanel2() (*IStackPanel2, error) {
+	return winrt.QueryInterface[IStackPanel2](unsafe.Pointer(self), &IID_IStackPanel2)
+}
+
+// AsStackPanel4 queries the instance's IStackPanel4 interface.
+// The returned reference is owned by the caller.
+func (self *StackPanel) AsStackPanel4() (*IStackPanel4, error) {
+	return winrt.QueryInterface[IStackPanel4](unsafe.Pointer(self), &IID_IStackPanel4)
+}
+
+// AsStackPanel5 queries the instance's IStackPanel5 interface.
+// The returned reference is owned by the caller.
+func (self *StackPanel) AsStackPanel5() (*IStackPanel5, error) {
+	return winrt.QueryInterface[IStackPanel5](unsafe.Pointer(self), &IID_IStackPanel5)
+}
+
+// AsScrollSnapPointsInfo queries the instance's uixamlcontrolsprimitives.IScrollSnapPointsInfo interface.
+// The returned reference is owned by the caller.
+func (self *StackPanel) AsScrollSnapPointsInfo() (*uixamlcontrolsprimitives.IScrollSnapPointsInfo, error) {
+	return winrt.QueryInterface[uixamlcontrolsprimitives.IScrollSnapPointsInfo](unsafe.Pointer(self), &uixamlcontrolsprimitives.IID_IScrollSnapPointsInfo)
+}
+
+// AsInsertionPanel queries the instance's IInsertionPanel interface.
+// The returned reference is owned by the caller.
+func (self *StackPanel) AsInsertionPanel() (*IInsertionPanel, error) {
+	return winrt.QueryInterface[IInsertionPanel](unsafe.Pointer(self), &IID_IInsertionPanel)
+}
+
+// StackPanelStatics returns the Windows.UI.Xaml.Controls.IStackPanelStatics statics of the
+// Windows.UI.Xaml.Controls.StackPanel runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func StackPanelStatics() (*IStackPanelStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.StackPanel", &IID_IStackPanelStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IStackPanelStatics)(unsafe.Pointer(factory)), nil
+}
+
+// StackPanelStatics2 returns the Windows.UI.Xaml.Controls.IStackPanelStatics2 statics of the
+// Windows.UI.Xaml.Controls.StackPanel runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func StackPanelStatics2() (*IStackPanelStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.StackPanel", &IID_IStackPanelStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IStackPanelStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// StackPanelStatics4 returns the Windows.UI.Xaml.Controls.IStackPanelStatics4 statics of the
+// Windows.UI.Xaml.Controls.StackPanel runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func StackPanelStatics4() (*IStackPanelStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.StackPanel", &IID_IStackPanelStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IStackPanelStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// StackPanelStatics5 returns the Windows.UI.Xaml.Controls.IStackPanelStatics5 statics of the
+// Windows.UI.Xaml.Controls.StackPanel runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func StackPanelStatics5() (*IStackPanelStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.StackPanel", &IID_IStackPanelStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IStackPanelStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// NewStackPanel constructs a Windows.UI.Xaml.Controls.StackPanel instance through
+// Windows.UI.Xaml.Controls.IStackPanelFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewStackPanel() (*StackPanel, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.StackPanel", &IID_IStackPanelFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IStackPanelFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*StackPanel)(unsafe.Pointer(instance)), nil
 }
 
 // StyleSelector is the Windows.UI.Xaml.Controls.StyleSelector runtime class, surfaced through its
@@ -696,11 +8059,637 @@ func (self *StyleSelector) AsStyleSelectorOverrides() (*IStyleSelectorOverrides,
 	return winrt.QueryInterface[IStyleSelectorOverrides](unsafe.Pointer(self), &IID_IStyleSelectorOverrides)
 }
 
+// NewStyleSelector constructs a Windows.UI.Xaml.Controls.StyleSelector instance through
+// Windows.UI.Xaml.Controls.IStyleSelectorFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewStyleSelector() (*StyleSelector, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.StyleSelector", &IID_IStyleSelectorFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IStyleSelectorFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*StyleSelector)(unsafe.Pointer(instance)), nil
+}
+
+// SwapChainBackgroundPanel is the Windows.UI.Xaml.Controls.SwapChainBackgroundPanel runtime class, surfaced through its
+// default interface ISwapChainBackgroundPanel. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SwapChainBackgroundPanel struct {
+	ISwapChainBackgroundPanel
+}
+
+// AsSwapChainBackgroundPanel2 queries the instance's ISwapChainBackgroundPanel2 interface.
+// The returned reference is owned by the caller.
+func (self *SwapChainBackgroundPanel) AsSwapChainBackgroundPanel2() (*ISwapChainBackgroundPanel2, error) {
+	return winrt.QueryInterface[ISwapChainBackgroundPanel2](unsafe.Pointer(self), &IID_ISwapChainBackgroundPanel2)
+}
+
+// NewSwapChainBackgroundPanel constructs a Windows.UI.Xaml.Controls.SwapChainBackgroundPanel instance through
+// Windows.UI.Xaml.Controls.ISwapChainBackgroundPanelFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSwapChainBackgroundPanel() (*SwapChainBackgroundPanel, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SwapChainBackgroundPanel", &IID_ISwapChainBackgroundPanelFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISwapChainBackgroundPanelFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SwapChainBackgroundPanel)(unsafe.Pointer(instance)), nil
+}
+
+// SwapChainPanel is the Windows.UI.Xaml.Controls.SwapChainPanel runtime class, surfaced through its
+// default interface ISwapChainPanel. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SwapChainPanel struct {
+	ISwapChainPanel
+}
+
+// SwapChainPanelStatics returns the Windows.UI.Xaml.Controls.ISwapChainPanelStatics statics of the
+// Windows.UI.Xaml.Controls.SwapChainPanel runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SwapChainPanelStatics() (*ISwapChainPanelStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SwapChainPanel", &IID_ISwapChainPanelStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISwapChainPanelStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewSwapChainPanel constructs a Windows.UI.Xaml.Controls.SwapChainPanel instance through
+// Windows.UI.Xaml.Controls.ISwapChainPanelFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSwapChainPanel() (*SwapChainPanel, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SwapChainPanel", &IID_ISwapChainPanelFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISwapChainPanelFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SwapChainPanel)(unsafe.Pointer(instance)), nil
+}
+
+// SwipeControl is the Windows.UI.Xaml.Controls.SwipeControl runtime class, surfaced through its
+// default interface ISwipeControl. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SwipeControl struct {
+	ISwipeControl
+}
+
+// SwipeControlStatics returns the Windows.UI.Xaml.Controls.ISwipeControlStatics statics of the
+// Windows.UI.Xaml.Controls.SwipeControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SwipeControlStatics() (*ISwipeControlStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SwipeControl", &IID_ISwipeControlStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISwipeControlStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewSwipeControl constructs a Windows.UI.Xaml.Controls.SwipeControl instance through
+// Windows.UI.Xaml.Controls.ISwipeControlFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSwipeControl() (*SwipeControl, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SwipeControl", &IID_ISwipeControlFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISwipeControlFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SwipeControl)(unsafe.Pointer(instance)), nil
+}
+
+// SwipeItem is the Windows.UI.Xaml.Controls.SwipeItem runtime class, surfaced through its
+// default interface ISwipeItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SwipeItem struct {
+	ISwipeItem
+}
+
+// SwipeItemStatics returns the Windows.UI.Xaml.Controls.ISwipeItemStatics statics of the
+// Windows.UI.Xaml.Controls.SwipeItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SwipeItemStatics() (*ISwipeItemStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SwipeItem", &IID_ISwipeItemStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISwipeItemStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewSwipeItem constructs a Windows.UI.Xaml.Controls.SwipeItem instance through
+// Windows.UI.Xaml.Controls.ISwipeItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSwipeItem() (*SwipeItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SwipeItem", &IID_ISwipeItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISwipeItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SwipeItem)(unsafe.Pointer(instance)), nil
+}
+
 // SwipeItemInvokedEventArgs is the Windows.UI.Xaml.Controls.SwipeItemInvokedEventArgs runtime class, surfaced through its
 // default interface ISwipeItemInvokedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type SwipeItemInvokedEventArgs struct {
 	ISwipeItemInvokedEventArgs
+}
+
+// SwipeItems is the Windows.UI.Xaml.Controls.SwipeItems runtime class, surfaced through its
+// default interface ISwipeItems. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SwipeItems struct {
+	ISwipeItems
+}
+
+// AsVectorOfSwipeItem queries the instance's IVectorOfSwipeItem interface.
+// The returned reference is owned by the caller.
+func (self *SwipeItems) AsVectorOfSwipeItem() (*IVectorOfSwipeItem, error) {
+	return winrt.QueryInterface[IVectorOfSwipeItem](unsafe.Pointer(self), &IID_IVectorOfSwipeItem)
+}
+
+// AsIterableOfSwipeItem queries the instance's IIterableOfSwipeItem interface.
+// The returned reference is owned by the caller.
+func (self *SwipeItems) AsIterableOfSwipeItem() (*IIterableOfSwipeItem, error) {
+	return winrt.QueryInterface[IIterableOfSwipeItem](unsafe.Pointer(self), &IID_IIterableOfSwipeItem)
+}
+
+// SwipeItemsStatics returns the Windows.UI.Xaml.Controls.ISwipeItemsStatics statics of the
+// Windows.UI.Xaml.Controls.SwipeItems runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SwipeItemsStatics() (*ISwipeItemsStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SwipeItems", &IID_ISwipeItemsStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISwipeItemsStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewSwipeItems constructs a Windows.UI.Xaml.Controls.SwipeItems instance through
+// Windows.UI.Xaml.Controls.ISwipeItemsFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSwipeItems() (*SwipeItems, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SwipeItems", &IID_ISwipeItemsFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISwipeItemsFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SwipeItems)(unsafe.Pointer(instance)), nil
+}
+
+// SymbolIcon is the Windows.UI.Xaml.Controls.SymbolIcon runtime class, surfaced through its
+// default interface ISymbolIcon. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SymbolIcon struct {
+	ISymbolIcon
+}
+
+// NewSymbolIcon activates Windows.UI.Xaml.Controls.SymbolIcon through its default
+// constructor.
+func NewSymbolIcon() (*SymbolIcon, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.SymbolIcon")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SymbolIcon](unsafe.Pointer(instance), &IID_ISymbolIcon)
+}
+
+// SymbolIconStatics returns the Windows.UI.Xaml.Controls.ISymbolIconStatics statics of the
+// Windows.UI.Xaml.Controls.SymbolIcon runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SymbolIconStatics() (*ISymbolIconStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SymbolIcon", &IID_ISymbolIconStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISymbolIconStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CreateInstanceWithSymbol constructs a Windows.UI.Xaml.Controls.SymbolIcon instance through
+// Windows.UI.Xaml.Controls.ISymbolIconFactory.CreateInstanceWithSymbol. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstanceWithSymbol(symbol Symbol) (*SymbolIcon, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SymbolIcon", &IID_ISymbolIconFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISymbolIconFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstanceWithSymbol(symbol)
+	if err != nil {
+		return nil, err
+	}
+	return (*SymbolIcon)(unsafe.Pointer(instance)), nil
+}
+
+// SymbolIconSource is the Windows.UI.Xaml.Controls.SymbolIconSource runtime class, surfaced through its
+// default interface ISymbolIconSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SymbolIconSource struct {
+	ISymbolIconSource
+}
+
+// SymbolIconSourceStatics returns the Windows.UI.Xaml.Controls.ISymbolIconSourceStatics statics of the
+// Windows.UI.Xaml.Controls.SymbolIconSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SymbolIconSourceStatics() (*ISymbolIconSourceStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SymbolIconSource", &IID_ISymbolIconSourceStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISymbolIconSourceStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewSymbolIconSource constructs a Windows.UI.Xaml.Controls.SymbolIconSource instance through
+// Windows.UI.Xaml.Controls.ISymbolIconSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewSymbolIconSource() (*SymbolIconSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.SymbolIconSource", &IID_ISymbolIconSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISymbolIconSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*SymbolIconSource)(unsafe.Pointer(instance)), nil
+}
+
+// TextBlock is the Windows.UI.Xaml.Controls.TextBlock runtime class, surfaced through its
+// default interface ITextBlock. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TextBlock struct {
+	ITextBlock
+}
+
+// NewTextBlock activates Windows.UI.Xaml.Controls.TextBlock through its default
+// constructor.
+func NewTextBlock() (*TextBlock, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.TextBlock")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[TextBlock](unsafe.Pointer(instance), &IID_ITextBlock)
+}
+
+// AsTextBlock2 queries the instance's ITextBlock2 interface.
+// The returned reference is owned by the caller.
+func (self *TextBlock) AsTextBlock2() (*ITextBlock2, error) {
+	return winrt.QueryInterface[ITextBlock2](unsafe.Pointer(self), &IID_ITextBlock2)
+}
+
+// AsTextBlock3 queries the instance's ITextBlock3 interface.
+// The returned reference is owned by the caller.
+func (self *TextBlock) AsTextBlock3() (*ITextBlock3, error) {
+	return winrt.QueryInterface[ITextBlock3](unsafe.Pointer(self), &IID_ITextBlock3)
+}
+
+// AsTextBlock4 queries the instance's ITextBlock4 interface.
+// The returned reference is owned by the caller.
+func (self *TextBlock) AsTextBlock4() (*ITextBlock4, error) {
+	return winrt.QueryInterface[ITextBlock4](unsafe.Pointer(self), &IID_ITextBlock4)
+}
+
+// AsTextBlock5 queries the instance's ITextBlock5 interface.
+// The returned reference is owned by the caller.
+func (self *TextBlock) AsTextBlock5() (*ITextBlock5, error) {
+	return winrt.QueryInterface[ITextBlock5](unsafe.Pointer(self), &IID_ITextBlock5)
+}
+
+// AsTextBlock6 queries the instance's ITextBlock6 interface.
+// The returned reference is owned by the caller.
+func (self *TextBlock) AsTextBlock6() (*ITextBlock6, error) {
+	return winrt.QueryInterface[ITextBlock6](unsafe.Pointer(self), &IID_ITextBlock6)
+}
+
+// AsTextBlock7 queries the instance's ITextBlock7 interface.
+// The returned reference is owned by the caller.
+func (self *TextBlock) AsTextBlock7() (*ITextBlock7, error) {
+	return winrt.QueryInterface[ITextBlock7](unsafe.Pointer(self), &IID_ITextBlock7)
+}
+
+// TextBlockStatics returns the Windows.UI.Xaml.Controls.ITextBlockStatics statics of the
+// Windows.UI.Xaml.Controls.TextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBlockStatics() (*ITextBlockStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBlock", &IID_ITextBlockStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBlockStatics)(unsafe.Pointer(factory)), nil
+}
+
+// TextBlockStatics2 returns the Windows.UI.Xaml.Controls.ITextBlockStatics2 statics of the
+// Windows.UI.Xaml.Controls.TextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBlockStatics2() (*ITextBlockStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBlock", &IID_ITextBlockStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBlockStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// TextBlockStatics3 returns the Windows.UI.Xaml.Controls.ITextBlockStatics3 statics of the
+// Windows.UI.Xaml.Controls.TextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBlockStatics3() (*ITextBlockStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBlock", &IID_ITextBlockStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBlockStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// TextBlockStatics5 returns the Windows.UI.Xaml.Controls.ITextBlockStatics5 statics of the
+// Windows.UI.Xaml.Controls.TextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBlockStatics5() (*ITextBlockStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBlock", &IID_ITextBlockStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBlockStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// TextBlockStatics6 returns the Windows.UI.Xaml.Controls.ITextBlockStatics6 statics of the
+// Windows.UI.Xaml.Controls.TextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBlockStatics6() (*ITextBlockStatics6, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBlock", &IID_ITextBlockStatics6)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBlockStatics6)(unsafe.Pointer(factory)), nil
+}
+
+// TextBlockStatics7 returns the Windows.UI.Xaml.Controls.ITextBlockStatics7 statics of the
+// Windows.UI.Xaml.Controls.TextBlock runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBlockStatics7() (*ITextBlockStatics7, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBlock", &IID_ITextBlockStatics7)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBlockStatics7)(unsafe.Pointer(factory)), nil
+}
+
+// TextBox is the Windows.UI.Xaml.Controls.TextBox runtime class, surfaced through its
+// default interface ITextBox. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TextBox struct {
+	ITextBox
+}
+
+// AsTextBox2 queries the instance's ITextBox2 interface.
+// The returned reference is owned by the caller.
+func (self *TextBox) AsTextBox2() (*ITextBox2, error) {
+	return winrt.QueryInterface[ITextBox2](unsafe.Pointer(self), &IID_ITextBox2)
+}
+
+// AsTextBox3 queries the instance's ITextBox3 interface.
+// The returned reference is owned by the caller.
+func (self *TextBox) AsTextBox3() (*ITextBox3, error) {
+	return winrt.QueryInterface[ITextBox3](unsafe.Pointer(self), &IID_ITextBox3)
+}
+
+// AsTextBox4 queries the instance's ITextBox4 interface.
+// The returned reference is owned by the caller.
+func (self *TextBox) AsTextBox4() (*ITextBox4, error) {
+	return winrt.QueryInterface[ITextBox4](unsafe.Pointer(self), &IID_ITextBox4)
+}
+
+// AsTextBox5 queries the instance's ITextBox5 interface.
+// The returned reference is owned by the caller.
+func (self *TextBox) AsTextBox5() (*ITextBox5, error) {
+	return winrt.QueryInterface[ITextBox5](unsafe.Pointer(self), &IID_ITextBox5)
+}
+
+// AsTextBox6 queries the instance's ITextBox6 interface.
+// The returned reference is owned by the caller.
+func (self *TextBox) AsTextBox6() (*ITextBox6, error) {
+	return winrt.QueryInterface[ITextBox6](unsafe.Pointer(self), &IID_ITextBox6)
+}
+
+// AsTextBox7 queries the instance's ITextBox7 interface.
+// The returned reference is owned by the caller.
+func (self *TextBox) AsTextBox7() (*ITextBox7, error) {
+	return winrt.QueryInterface[ITextBox7](unsafe.Pointer(self), &IID_ITextBox7)
+}
+
+// AsTextBox8 queries the instance's ITextBox8 interface.
+// The returned reference is owned by the caller.
+func (self *TextBox) AsTextBox8() (*ITextBox8, error) {
+	return winrt.QueryInterface[ITextBox8](unsafe.Pointer(self), &IID_ITextBox8)
+}
+
+// TextBoxStatics returns the Windows.UI.Xaml.Controls.ITextBoxStatics statics of the
+// Windows.UI.Xaml.Controls.TextBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBoxStatics() (*ITextBoxStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBox", &IID_ITextBoxStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBoxStatics)(unsafe.Pointer(factory)), nil
+}
+
+// TextBoxStatics2 returns the Windows.UI.Xaml.Controls.ITextBoxStatics2 statics of the
+// Windows.UI.Xaml.Controls.TextBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBoxStatics2() (*ITextBoxStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBox", &IID_ITextBoxStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBoxStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// TextBoxStatics3 returns the Windows.UI.Xaml.Controls.ITextBoxStatics3 statics of the
+// Windows.UI.Xaml.Controls.TextBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBoxStatics3() (*ITextBoxStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBox", &IID_ITextBoxStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBoxStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// TextBoxStatics5 returns the Windows.UI.Xaml.Controls.ITextBoxStatics5 statics of the
+// Windows.UI.Xaml.Controls.TextBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBoxStatics5() (*ITextBoxStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBox", &IID_ITextBoxStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBoxStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// TextBoxStatics6 returns the Windows.UI.Xaml.Controls.ITextBoxStatics6 statics of the
+// Windows.UI.Xaml.Controls.TextBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBoxStatics6() (*ITextBoxStatics6, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBox", &IID_ITextBoxStatics6)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBoxStatics6)(unsafe.Pointer(factory)), nil
+}
+
+// TextBoxStatics7 returns the Windows.UI.Xaml.Controls.ITextBoxStatics7 statics of the
+// Windows.UI.Xaml.Controls.TextBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBoxStatics7() (*ITextBoxStatics7, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBox", &IID_ITextBoxStatics7)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBoxStatics7)(unsafe.Pointer(factory)), nil
+}
+
+// TextBoxStatics8 returns the Windows.UI.Xaml.Controls.ITextBoxStatics8 statics of the
+// Windows.UI.Xaml.Controls.TextBox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TextBoxStatics8() (*ITextBoxStatics8, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBox", &IID_ITextBoxStatics8)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITextBoxStatics8)(unsafe.Pointer(factory)), nil
+}
+
+// NewTextBox constructs a Windows.UI.Xaml.Controls.TextBox instance through
+// Windows.UI.Xaml.Controls.ITextBoxFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTextBox() (*TextBox, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextBox", &IID_ITextBoxFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITextBoxFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*TextBox)(unsafe.Pointer(instance)), nil
 }
 
 // TextBoxBeforeTextChangingEventArgs is the Windows.UI.Xaml.Controls.TextBoxBeforeTextChangingEventArgs runtime class, surfaced through its
@@ -728,6 +8717,45 @@ type TextBoxTextChangingEventArgs struct {
 // The returned reference is owned by the caller.
 func (self *TextBoxTextChangingEventArgs) AsTextBoxTextChangingEventArgs2() (*ITextBoxTextChangingEventArgs2, error) {
 	return winrt.QueryInterface[ITextBoxTextChangingEventArgs2](unsafe.Pointer(self), &IID_ITextBoxTextChangingEventArgs2)
+}
+
+// TextChangedEventArgs is the Windows.UI.Xaml.Controls.TextChangedEventArgs runtime class, surfaced through its
+// default interface ITextChangedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TextChangedEventArgs struct {
+	ITextChangedEventArgs
+}
+
+// TextCommandBarFlyout is the Windows.UI.Xaml.Controls.TextCommandBarFlyout runtime class, surfaced through its
+// default interface ITextCommandBarFlyout. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TextCommandBarFlyout struct {
+	ITextCommandBarFlyout
+}
+
+// NewTextCommandBarFlyout constructs a Windows.UI.Xaml.Controls.TextCommandBarFlyout instance through
+// Windows.UI.Xaml.Controls.ITextCommandBarFlyoutFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTextCommandBarFlyout() (*TextCommandBarFlyout, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TextCommandBarFlyout", &IID_ITextCommandBarFlyoutFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITextCommandBarFlyoutFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*TextCommandBarFlyout)(unsafe.Pointer(instance)), nil
 }
 
 // TextCompositionChangedEventArgs is the Windows.UI.Xaml.Controls.TextCompositionChangedEventArgs runtime class, surfaced through its
@@ -772,6 +8800,159 @@ type TextControlPasteEventArgs struct {
 	ITextControlPasteEventArgs
 }
 
+// TimePickedEventArgs is the Windows.UI.Xaml.Controls.TimePickedEventArgs runtime class, surfaced through its
+// default interface ITimePickedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TimePickedEventArgs struct {
+	ITimePickedEventArgs
+}
+
+// NewTimePickedEventArgs activates Windows.UI.Xaml.Controls.TimePickedEventArgs through its default
+// constructor.
+func NewTimePickedEventArgs() (*TimePickedEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.TimePickedEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[TimePickedEventArgs](unsafe.Pointer(instance), &IID_ITimePickedEventArgs)
+}
+
+// TimePicker is the Windows.UI.Xaml.Controls.TimePicker runtime class, surfaced through its
+// default interface ITimePicker. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TimePicker struct {
+	ITimePicker
+}
+
+// AsTimePicker2 queries the instance's ITimePicker2 interface.
+// The returned reference is owned by the caller.
+func (self *TimePicker) AsTimePicker2() (*ITimePicker2, error) {
+	return winrt.QueryInterface[ITimePicker2](unsafe.Pointer(self), &IID_ITimePicker2)
+}
+
+// AsTimePicker3 queries the instance's ITimePicker3 interface.
+// The returned reference is owned by the caller.
+func (self *TimePicker) AsTimePicker3() (*ITimePicker3, error) {
+	return winrt.QueryInterface[ITimePicker3](unsafe.Pointer(self), &IID_ITimePicker3)
+}
+
+// TimePickerStatics returns the Windows.UI.Xaml.Controls.ITimePickerStatics statics of the
+// Windows.UI.Xaml.Controls.TimePicker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TimePickerStatics() (*ITimePickerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TimePicker", &IID_ITimePickerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITimePickerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// TimePickerStatics2 returns the Windows.UI.Xaml.Controls.ITimePickerStatics2 statics of the
+// Windows.UI.Xaml.Controls.TimePicker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TimePickerStatics2() (*ITimePickerStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TimePicker", &IID_ITimePickerStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITimePickerStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// TimePickerStatics3 returns the Windows.UI.Xaml.Controls.ITimePickerStatics3 statics of the
+// Windows.UI.Xaml.Controls.TimePicker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TimePickerStatics3() (*ITimePickerStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TimePicker", &IID_ITimePickerStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITimePickerStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// NewTimePicker constructs a Windows.UI.Xaml.Controls.TimePicker instance through
+// Windows.UI.Xaml.Controls.ITimePickerFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTimePicker() (*TimePicker, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TimePicker", &IID_ITimePickerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITimePickerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*TimePicker)(unsafe.Pointer(instance)), nil
+}
+
+// TimePickerFlyout is the Windows.UI.Xaml.Controls.TimePickerFlyout runtime class, surfaced through its
+// default interface ITimePickerFlyout. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TimePickerFlyout struct {
+	ITimePickerFlyout
+}
+
+// NewTimePickerFlyout activates Windows.UI.Xaml.Controls.TimePickerFlyout through its default
+// constructor.
+func NewTimePickerFlyout() (*TimePickerFlyout, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.TimePickerFlyout")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[TimePickerFlyout](unsafe.Pointer(instance), &IID_ITimePickerFlyout)
+}
+
+// TimePickerFlyoutStatics returns the Windows.UI.Xaml.Controls.ITimePickerFlyoutStatics statics of the
+// Windows.UI.Xaml.Controls.TimePickerFlyout runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TimePickerFlyoutStatics() (*ITimePickerFlyoutStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TimePickerFlyout", &IID_ITimePickerFlyoutStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITimePickerFlyoutStatics)(unsafe.Pointer(factory)), nil
+}
+
+// TimePickerFlyoutPresenter is the Windows.UI.Xaml.Controls.TimePickerFlyoutPresenter runtime class, surfaced through its
+// default interface ITimePickerFlyoutPresenter. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TimePickerFlyoutPresenter struct {
+	ITimePickerFlyoutPresenter
+}
+
+// AsTimePickerFlyoutPresenter2 queries the instance's ITimePickerFlyoutPresenter2 interface.
+// The returned reference is owned by the caller.
+func (self *TimePickerFlyoutPresenter) AsTimePickerFlyoutPresenter2() (*ITimePickerFlyoutPresenter2, error) {
+	return winrt.QueryInterface[ITimePickerFlyoutPresenter2](unsafe.Pointer(self), &IID_ITimePickerFlyoutPresenter2)
+}
+
+// TimePickerFlyoutPresenterStatics2 returns the Windows.UI.Xaml.Controls.ITimePickerFlyoutPresenterStatics2 statics of the
+// Windows.UI.Xaml.Controls.TimePickerFlyoutPresenter runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TimePickerFlyoutPresenterStatics2() (*ITimePickerFlyoutPresenterStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TimePickerFlyoutPresenter", &IID_ITimePickerFlyoutPresenterStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITimePickerFlyoutPresenterStatics2)(unsafe.Pointer(factory)), nil
+}
+
 // TimePickerSelectedValueChangedEventArgs is the Windows.UI.Xaml.Controls.TimePickerSelectedValueChangedEventArgs runtime class, surfaced through its
 // default interface ITimePickerSelectedValueChangedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -786,11 +8967,229 @@ type TimePickerValueChangedEventArgs struct {
 	ITimePickerValueChangedEventArgs
 }
 
+// ToggleMenuFlyoutItem is the Windows.UI.Xaml.Controls.ToggleMenuFlyoutItem runtime class, surfaced through its
+// default interface IToggleMenuFlyoutItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ToggleMenuFlyoutItem struct {
+	IToggleMenuFlyoutItem
+}
+
+// ToggleMenuFlyoutItemStatics returns the Windows.UI.Xaml.Controls.IToggleMenuFlyoutItemStatics statics of the
+// Windows.UI.Xaml.Controls.ToggleMenuFlyoutItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ToggleMenuFlyoutItemStatics() (*IToggleMenuFlyoutItemStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ToggleMenuFlyoutItem", &IID_IToggleMenuFlyoutItemStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IToggleMenuFlyoutItemStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewToggleMenuFlyoutItem constructs a Windows.UI.Xaml.Controls.ToggleMenuFlyoutItem instance through
+// Windows.UI.Xaml.Controls.IToggleMenuFlyoutItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewToggleMenuFlyoutItem() (*ToggleMenuFlyoutItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ToggleMenuFlyoutItem", &IID_IToggleMenuFlyoutItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IToggleMenuFlyoutItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ToggleMenuFlyoutItem)(unsafe.Pointer(instance)), nil
+}
+
+// ToggleSplitButton is the Windows.UI.Xaml.Controls.ToggleSplitButton runtime class, surfaced through its
+// default interface IToggleSplitButton. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ToggleSplitButton struct {
+	IToggleSplitButton
+}
+
+// NewToggleSplitButton constructs a Windows.UI.Xaml.Controls.ToggleSplitButton instance through
+// Windows.UI.Xaml.Controls.IToggleSplitButtonFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewToggleSplitButton() (*ToggleSplitButton, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ToggleSplitButton", &IID_IToggleSplitButtonFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IToggleSplitButtonFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ToggleSplitButton)(unsafe.Pointer(instance)), nil
+}
+
+// ToggleSplitButtonAutomationPeer is the Windows.UI.Xaml.Controls.ToggleSplitButtonAutomationPeer runtime class, surfaced through its
+// default interface IToggleSplitButtonAutomationPeer. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ToggleSplitButtonAutomationPeer struct {
+	IToggleSplitButtonAutomationPeer
+}
+
+// AsExpandCollapseProvider queries the instance's uixamlautomationprovider.IExpandCollapseProvider interface.
+// The returned reference is owned by the caller.
+func (self *ToggleSplitButtonAutomationPeer) AsExpandCollapseProvider() (*uixamlautomationprovider.IExpandCollapseProvider, error) {
+	return winrt.QueryInterface[uixamlautomationprovider.IExpandCollapseProvider](unsafe.Pointer(self), &uixamlautomationprovider.IID_IExpandCollapseProvider)
+}
+
+// AsToggleProvider queries the instance's uixamlautomationprovider.IToggleProvider interface.
+// The returned reference is owned by the caller.
+func (self *ToggleSplitButtonAutomationPeer) AsToggleProvider() (*uixamlautomationprovider.IToggleProvider, error) {
+	return winrt.QueryInterface[uixamlautomationprovider.IToggleProvider](unsafe.Pointer(self), &uixamlautomationprovider.IID_IToggleProvider)
+}
+
+// NewToggleSplitButtonAutomationPeer constructs a Windows.UI.Xaml.Controls.ToggleSplitButtonAutomationPeer instance through
+// Windows.UI.Xaml.Controls.IToggleSplitButtonAutomationPeerFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewToggleSplitButtonAutomationPeer(owner *IToggleSplitButton) (*ToggleSplitButtonAutomationPeer, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ToggleSplitButtonAutomationPeer", &IID_IToggleSplitButtonAutomationPeerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IToggleSplitButtonAutomationPeerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(owner, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ToggleSplitButtonAutomationPeer)(unsafe.Pointer(instance)), nil
+}
+
 // ToggleSplitButtonIsCheckedChangedEventArgs is the Windows.UI.Xaml.Controls.ToggleSplitButtonIsCheckedChangedEventArgs runtime class, surfaced through its
 // default interface IToggleSplitButtonIsCheckedChangedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type ToggleSplitButtonIsCheckedChangedEventArgs struct {
 	IToggleSplitButtonIsCheckedChangedEventArgs
+}
+
+// ToggleSwitch is the Windows.UI.Xaml.Controls.ToggleSwitch runtime class, surfaced through its
+// default interface IToggleSwitch. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ToggleSwitch struct {
+	IToggleSwitch
+}
+
+// NewToggleSwitch activates Windows.UI.Xaml.Controls.ToggleSwitch through its default
+// constructor.
+func NewToggleSwitch() (*ToggleSwitch, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.ToggleSwitch")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ToggleSwitch](unsafe.Pointer(instance), &IID_IToggleSwitch)
+}
+
+// AsToggleSwitchOverrides queries the instance's IToggleSwitchOverrides interface.
+// The returned reference is owned by the caller.
+func (self *ToggleSwitch) AsToggleSwitchOverrides() (*IToggleSwitchOverrides, error) {
+	return winrt.QueryInterface[IToggleSwitchOverrides](unsafe.Pointer(self), &IID_IToggleSwitchOverrides)
+}
+
+// ToggleSwitchStatics returns the Windows.UI.Xaml.Controls.IToggleSwitchStatics statics of the
+// Windows.UI.Xaml.Controls.ToggleSwitch runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ToggleSwitchStatics() (*IToggleSwitchStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ToggleSwitch", &IID_IToggleSwitchStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IToggleSwitchStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ToolTip is the Windows.UI.Xaml.Controls.ToolTip runtime class, surfaced through its
+// default interface IToolTip. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ToolTip struct {
+	IToolTip
+}
+
+// AsToolTip2 queries the instance's IToolTip2 interface.
+// The returned reference is owned by the caller.
+func (self *ToolTip) AsToolTip2() (*IToolTip2, error) {
+	return winrt.QueryInterface[IToolTip2](unsafe.Pointer(self), &IID_IToolTip2)
+}
+
+// ToolTipStatics returns the Windows.UI.Xaml.Controls.IToolTipStatics statics of the
+// Windows.UI.Xaml.Controls.ToolTip runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ToolTipStatics() (*IToolTipStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ToolTip", &IID_IToolTipStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IToolTipStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ToolTipStatics2 returns the Windows.UI.Xaml.Controls.IToolTipStatics2 statics of the
+// Windows.UI.Xaml.Controls.ToolTip runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ToolTipStatics2() (*IToolTipStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ToolTip", &IID_IToolTipStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IToolTipStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewToolTip constructs a Windows.UI.Xaml.Controls.ToolTip instance through
+// Windows.UI.Xaml.Controls.IToolTipFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewToolTip() (*ToolTip, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.ToolTip", &IID_IToolTipFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IToolTipFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ToolTip)(unsafe.Pointer(instance)), nil
 }
 
 // ToolTipService is the Windows.UI.Xaml.Controls.ToolTipService runtime class, surfaced through its
@@ -810,6 +9209,68 @@ func ToolTipServiceStatics() (*IToolTipServiceStatics, error) {
 		return nil, err
 	}
 	return (*IToolTipServiceStatics)(unsafe.Pointer(factory)), nil
+}
+
+// TreeView is the Windows.UI.Xaml.Controls.TreeView runtime class, surfaced through its
+// default interface ITreeView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TreeView struct {
+	ITreeView
+}
+
+// AsTreeView2 queries the instance's ITreeView2 interface.
+// The returned reference is owned by the caller.
+func (self *TreeView) AsTreeView2() (*ITreeView2, error) {
+	return winrt.QueryInterface[ITreeView2](unsafe.Pointer(self), &IID_ITreeView2)
+}
+
+// TreeViewStatics returns the Windows.UI.Xaml.Controls.ITreeViewStatics statics of the
+// Windows.UI.Xaml.Controls.TreeView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TreeViewStatics() (*ITreeViewStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TreeView", &IID_ITreeViewStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITreeViewStatics)(unsafe.Pointer(factory)), nil
+}
+
+// TreeViewStatics2 returns the Windows.UI.Xaml.Controls.ITreeViewStatics2 statics of the
+// Windows.UI.Xaml.Controls.TreeView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TreeViewStatics2() (*ITreeViewStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TreeView", &IID_ITreeViewStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITreeViewStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewTreeView constructs a Windows.UI.Xaml.Controls.TreeView instance through
+// Windows.UI.Xaml.Controls.ITreeViewFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTreeView() (*TreeView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TreeView", &IID_ITreeViewFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITreeViewFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*TreeView)(unsafe.Pointer(instance)), nil
 }
 
 // TreeViewCollapsedEventArgs is the Windows.UI.Xaml.Controls.TreeViewCollapsedEventArgs runtime class, surfaced through its
@@ -852,11 +9313,557 @@ func (self *TreeViewExpandingEventArgs) AsTreeViewExpandingEventArgs2() (*ITreeV
 	return winrt.QueryInterface[ITreeViewExpandingEventArgs2](unsafe.Pointer(self), &IID_ITreeViewExpandingEventArgs2)
 }
 
+// TreeViewItem is the Windows.UI.Xaml.Controls.TreeViewItem runtime class, surfaced through its
+// default interface ITreeViewItem. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TreeViewItem struct {
+	ITreeViewItem
+}
+
+// AsTreeViewItem2 queries the instance's ITreeViewItem2 interface.
+// The returned reference is owned by the caller.
+func (self *TreeViewItem) AsTreeViewItem2() (*ITreeViewItem2, error) {
+	return winrt.QueryInterface[ITreeViewItem2](unsafe.Pointer(self), &IID_ITreeViewItem2)
+}
+
+// TreeViewItemStatics returns the Windows.UI.Xaml.Controls.ITreeViewItemStatics statics of the
+// Windows.UI.Xaml.Controls.TreeViewItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TreeViewItemStatics() (*ITreeViewItemStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TreeViewItem", &IID_ITreeViewItemStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITreeViewItemStatics)(unsafe.Pointer(factory)), nil
+}
+
+// TreeViewItemStatics2 returns the Windows.UI.Xaml.Controls.ITreeViewItemStatics2 statics of the
+// Windows.UI.Xaml.Controls.TreeViewItem runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TreeViewItemStatics2() (*ITreeViewItemStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TreeViewItem", &IID_ITreeViewItemStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITreeViewItemStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewTreeViewItem constructs a Windows.UI.Xaml.Controls.TreeViewItem instance through
+// Windows.UI.Xaml.Controls.ITreeViewItemFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTreeViewItem() (*TreeViewItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TreeViewItem", &IID_ITreeViewItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITreeViewItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*TreeViewItem)(unsafe.Pointer(instance)), nil
+}
+
 // TreeViewItemInvokedEventArgs is the Windows.UI.Xaml.Controls.TreeViewItemInvokedEventArgs runtime class, surfaced through its
 // default interface ITreeViewItemInvokedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type TreeViewItemInvokedEventArgs struct {
 	ITreeViewItemInvokedEventArgs
+}
+
+// TreeViewItemTemplateSettings is the Windows.UI.Xaml.Controls.TreeViewItemTemplateSettings runtime class, surfaced through its
+// default interface ITreeViewItemTemplateSettings. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TreeViewItemTemplateSettings struct {
+	ITreeViewItemTemplateSettings
+}
+
+// TreeViewItemTemplateSettingsStatics returns the Windows.UI.Xaml.Controls.ITreeViewItemTemplateSettingsStatics statics of the
+// Windows.UI.Xaml.Controls.TreeViewItemTemplateSettings runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TreeViewItemTemplateSettingsStatics() (*ITreeViewItemTemplateSettingsStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TreeViewItemTemplateSettings", &IID_ITreeViewItemTemplateSettingsStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITreeViewItemTemplateSettingsStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewTreeViewItemTemplateSettings constructs a Windows.UI.Xaml.Controls.TreeViewItemTemplateSettings instance through
+// Windows.UI.Xaml.Controls.ITreeViewItemTemplateSettingsFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTreeViewItemTemplateSettings() (*TreeViewItemTemplateSettings, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TreeViewItemTemplateSettings", &IID_ITreeViewItemTemplateSettingsFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITreeViewItemTemplateSettingsFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*TreeViewItemTemplateSettings)(unsafe.Pointer(instance)), nil
+}
+
+// TreeViewList is the Windows.UI.Xaml.Controls.TreeViewList runtime class, surfaced through its
+// default interface ITreeViewList. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TreeViewList struct {
+	ITreeViewList
+}
+
+// NewTreeViewList constructs a Windows.UI.Xaml.Controls.TreeViewList instance through
+// Windows.UI.Xaml.Controls.ITreeViewListFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTreeViewList() (*TreeViewList, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TreeViewList", &IID_ITreeViewListFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITreeViewListFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*TreeViewList)(unsafe.Pointer(instance)), nil
+}
+
+// TreeViewNode is the Windows.UI.Xaml.Controls.TreeViewNode runtime class, surfaced through its
+// default interface ITreeViewNode. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TreeViewNode struct {
+	ITreeViewNode
+}
+
+// TreeViewNodeStatics returns the Windows.UI.Xaml.Controls.ITreeViewNodeStatics statics of the
+// Windows.UI.Xaml.Controls.TreeViewNode runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TreeViewNodeStatics() (*ITreeViewNodeStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TreeViewNode", &IID_ITreeViewNodeStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITreeViewNodeStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewTreeViewNode constructs a Windows.UI.Xaml.Controls.TreeViewNode instance through
+// Windows.UI.Xaml.Controls.ITreeViewNodeFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTreeViewNode() (*TreeViewNode, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TreeViewNode", &IID_ITreeViewNodeFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITreeViewNodeFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*TreeViewNode)(unsafe.Pointer(instance)), nil
+}
+
+// TwoPaneView is the Windows.UI.Xaml.Controls.TwoPaneView runtime class, surfaced through its
+// default interface ITwoPaneView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type TwoPaneView struct {
+	ITwoPaneView
+}
+
+// TwoPaneViewStatics returns the Windows.UI.Xaml.Controls.ITwoPaneViewStatics statics of the
+// Windows.UI.Xaml.Controls.TwoPaneView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TwoPaneViewStatics() (*ITwoPaneViewStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TwoPaneView", &IID_ITwoPaneViewStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITwoPaneViewStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewTwoPaneView constructs a Windows.UI.Xaml.Controls.TwoPaneView instance through
+// Windows.UI.Xaml.Controls.ITwoPaneViewFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTwoPaneView() (*TwoPaneView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.TwoPaneView", &IID_ITwoPaneViewFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITwoPaneViewFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*TwoPaneView)(unsafe.Pointer(instance)), nil
+}
+
+// UserControl is the Windows.UI.Xaml.Controls.UserControl runtime class, surfaced through its
+// default interface IUserControl. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type UserControl struct {
+	IUserControl
+}
+
+// UserControlStatics returns the Windows.UI.Xaml.Controls.IUserControlStatics statics of the
+// Windows.UI.Xaml.Controls.UserControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func UserControlStatics() (*IUserControlStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.UserControl", &IID_IUserControlStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IUserControlStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewUserControl constructs a Windows.UI.Xaml.Controls.UserControl instance through
+// Windows.UI.Xaml.Controls.IUserControlFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewUserControl() (*UserControl, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.UserControl", &IID_IUserControlFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IUserControlFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*UserControl)(unsafe.Pointer(instance)), nil
+}
+
+// VariableSizedWrapGrid is the Windows.UI.Xaml.Controls.VariableSizedWrapGrid runtime class, surfaced through its
+// default interface IVariableSizedWrapGrid. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type VariableSizedWrapGrid struct {
+	IVariableSizedWrapGrid
+}
+
+// NewVariableSizedWrapGrid activates Windows.UI.Xaml.Controls.VariableSizedWrapGrid through its default
+// constructor.
+func NewVariableSizedWrapGrid() (*VariableSizedWrapGrid, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.VariableSizedWrapGrid")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[VariableSizedWrapGrid](unsafe.Pointer(instance), &IID_IVariableSizedWrapGrid)
+}
+
+// VariableSizedWrapGridStatics returns the Windows.UI.Xaml.Controls.IVariableSizedWrapGridStatics statics of the
+// Windows.UI.Xaml.Controls.VariableSizedWrapGrid runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func VariableSizedWrapGridStatics() (*IVariableSizedWrapGridStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.VariableSizedWrapGrid", &IID_IVariableSizedWrapGridStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IVariableSizedWrapGridStatics)(unsafe.Pointer(factory)), nil
+}
+
+// Viewbox is the Windows.UI.Xaml.Controls.Viewbox runtime class, surfaced through its
+// default interface IViewbox. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Viewbox struct {
+	IViewbox
+}
+
+// NewViewbox activates Windows.UI.Xaml.Controls.Viewbox through its default
+// constructor.
+func NewViewbox() (*Viewbox, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.Viewbox")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Viewbox](unsafe.Pointer(instance), &IID_IViewbox)
+}
+
+// ViewboxStatics returns the Windows.UI.Xaml.Controls.IViewboxStatics statics of the
+// Windows.UI.Xaml.Controls.Viewbox runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ViewboxStatics() (*IViewboxStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Viewbox", &IID_IViewboxStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IViewboxStatics)(unsafe.Pointer(factory)), nil
+}
+
+// VirtualizingPanel is the Windows.UI.Xaml.Controls.VirtualizingPanel runtime class, surfaced through its
+// default interface IVirtualizingPanel. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type VirtualizingPanel struct {
+	IVirtualizingPanel
+}
+
+// AsVirtualizingPanelProtected queries the instance's IVirtualizingPanelProtected interface.
+// The returned reference is owned by the caller.
+func (self *VirtualizingPanel) AsVirtualizingPanelProtected() (*IVirtualizingPanelProtected, error) {
+	return winrt.QueryInterface[IVirtualizingPanelProtected](unsafe.Pointer(self), &IID_IVirtualizingPanelProtected)
+}
+
+// AsVirtualizingPanelOverrides queries the instance's IVirtualizingPanelOverrides interface.
+// The returned reference is owned by the caller.
+func (self *VirtualizingPanel) AsVirtualizingPanelOverrides() (*IVirtualizingPanelOverrides, error) {
+	return winrt.QueryInterface[IVirtualizingPanelOverrides](unsafe.Pointer(self), &IID_IVirtualizingPanelOverrides)
+}
+
+// VirtualizingStackPanel is the Windows.UI.Xaml.Controls.VirtualizingStackPanel runtime class, surfaced through its
+// default interface IVirtualizingStackPanel. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type VirtualizingStackPanel struct {
+	IVirtualizingStackPanel
+}
+
+// NewVirtualizingStackPanel activates Windows.UI.Xaml.Controls.VirtualizingStackPanel through its default
+// constructor.
+func NewVirtualizingStackPanel() (*VirtualizingStackPanel, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.VirtualizingStackPanel")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[VirtualizingStackPanel](unsafe.Pointer(instance), &IID_IVirtualizingStackPanel)
+}
+
+// AsVirtualizingStackPanelOverrides queries the instance's IVirtualizingStackPanelOverrides interface.
+// The returned reference is owned by the caller.
+func (self *VirtualizingStackPanel) AsVirtualizingStackPanelOverrides() (*IVirtualizingStackPanelOverrides, error) {
+	return winrt.QueryInterface[IVirtualizingStackPanelOverrides](unsafe.Pointer(self), &IID_IVirtualizingStackPanelOverrides)
+}
+
+// VirtualizingStackPanelStatics returns the Windows.UI.Xaml.Controls.IVirtualizingStackPanelStatics statics of the
+// Windows.UI.Xaml.Controls.VirtualizingStackPanel runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func VirtualizingStackPanelStatics() (*IVirtualizingStackPanelStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.VirtualizingStackPanel", &IID_IVirtualizingStackPanelStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IVirtualizingStackPanelStatics)(unsafe.Pointer(factory)), nil
+}
+
+// WebView is the Windows.UI.Xaml.Controls.WebView runtime class, surfaced through its
+// default interface IWebView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type WebView struct {
+	IWebView
+}
+
+// NewWebView activates Windows.UI.Xaml.Controls.WebView through its default
+// constructor.
+func NewWebView() (*WebView, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.WebView")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[WebView](unsafe.Pointer(instance), &IID_IWebView)
+}
+
+// AsWebView2 queries the instance's IWebView2 interface.
+// The returned reference is owned by the caller.
+func (self *WebView) AsWebView2() (*IWebView2, error) {
+	return winrt.QueryInterface[IWebView2](unsafe.Pointer(self), &IID_IWebView2)
+}
+
+// AsWebView3 queries the instance's IWebView3 interface.
+// The returned reference is owned by the caller.
+func (self *WebView) AsWebView3() (*IWebView3, error) {
+	return winrt.QueryInterface[IWebView3](unsafe.Pointer(self), &IID_IWebView3)
+}
+
+// AsWebView4 queries the instance's IWebView4 interface.
+// The returned reference is owned by the caller.
+func (self *WebView) AsWebView4() (*IWebView4, error) {
+	return winrt.QueryInterface[IWebView4](unsafe.Pointer(self), &IID_IWebView4)
+}
+
+// AsWebView5 queries the instance's IWebView5 interface.
+// The returned reference is owned by the caller.
+func (self *WebView) AsWebView5() (*IWebView5, error) {
+	return winrt.QueryInterface[IWebView5](unsafe.Pointer(self), &IID_IWebView5)
+}
+
+// AsWebView6 queries the instance's IWebView6 interface.
+// The returned reference is owned by the caller.
+func (self *WebView) AsWebView6() (*IWebView6, error) {
+	return winrt.QueryInterface[IWebView6](unsafe.Pointer(self), &IID_IWebView6)
+}
+
+// AsWebView7 queries the instance's IWebView7 interface.
+// The returned reference is owned by the caller.
+func (self *WebView) AsWebView7() (*IWebView7, error) {
+	return winrt.QueryInterface[IWebView7](unsafe.Pointer(self), &IID_IWebView7)
+}
+
+// WebViewStatics returns the Windows.UI.Xaml.Controls.IWebViewStatics statics of the
+// Windows.UI.Xaml.Controls.WebView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func WebViewStatics() (*IWebViewStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.WebView", &IID_IWebViewStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IWebViewStatics)(unsafe.Pointer(factory)), nil
+}
+
+// WebViewStatics2 returns the Windows.UI.Xaml.Controls.IWebViewStatics2 statics of the
+// Windows.UI.Xaml.Controls.WebView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func WebViewStatics2() (*IWebViewStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.WebView", &IID_IWebViewStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IWebViewStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// WebViewStatics3 returns the Windows.UI.Xaml.Controls.IWebViewStatics3 statics of the
+// Windows.UI.Xaml.Controls.WebView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func WebViewStatics3() (*IWebViewStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.WebView", &IID_IWebViewStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IWebViewStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// WebViewStatics4 returns the Windows.UI.Xaml.Controls.IWebViewStatics4 statics of the
+// Windows.UI.Xaml.Controls.WebView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func WebViewStatics4() (*IWebViewStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.WebView", &IID_IWebViewStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IWebViewStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// WebViewStatics5 returns the Windows.UI.Xaml.Controls.IWebViewStatics5 statics of the
+// Windows.UI.Xaml.Controls.WebView runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func WebViewStatics5() (*IWebViewStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.WebView", &IID_IWebViewStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IWebViewStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// CreateInstanceWithExecutionMode constructs a Windows.UI.Xaml.Controls.WebView instance through
+// Windows.UI.Xaml.Controls.IWebViewFactory4.CreateInstanceWithExecutionMode. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstanceWithExecutionMode(executionMode WebViewExecutionMode) (*WebView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.WebView", &IID_IWebViewFactory4)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IWebViewFactory4)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstanceWithExecutionMode(executionMode)
+	if err != nil {
+		return nil, err
+	}
+	return (*WebView)(unsafe.Pointer(instance)), nil
+}
+
+// WebViewBrush is the Windows.UI.Xaml.Controls.WebViewBrush runtime class, surfaced through its
+// default interface IWebViewBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type WebViewBrush struct {
+	IWebViewBrush
+}
+
+// NewWebViewBrush activates Windows.UI.Xaml.Controls.WebViewBrush through its default
+// constructor.
+func NewWebViewBrush() (*WebViewBrush, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.WebViewBrush")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[WebViewBrush](unsafe.Pointer(instance), &IID_IWebViewBrush)
+}
+
+// WebViewBrushStatics returns the Windows.UI.Xaml.Controls.IWebViewBrushStatics statics of the
+// Windows.UI.Xaml.Controls.WebViewBrush runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func WebViewBrushStatics() (*IWebViewBrushStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.WebViewBrush", &IID_IWebViewBrushStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IWebViewBrushStatics)(unsafe.Pointer(factory)), nil
 }
 
 // WebViewContentLoadingEventArgs is the Windows.UI.Xaml.Controls.WebViewContentLoadingEventArgs runtime class, surfaced through its
@@ -968,4 +9975,34 @@ func (self *WebViewUnviewableContentIdentifiedEventArgs) AsWebViewUnviewableCont
 // the embedded IInspectable → IUnknown chain).
 type WebViewWebResourceRequestedEventArgs struct {
 	IWebViewWebResourceRequestedEventArgs
+}
+
+// WrapGrid is the Windows.UI.Xaml.Controls.WrapGrid runtime class, surfaced through its
+// default interface IWrapGrid. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type WrapGrid struct {
+	IWrapGrid
+}
+
+// NewWrapGrid activates Windows.UI.Xaml.Controls.WrapGrid through its default
+// constructor.
+func NewWrapGrid() (*WrapGrid, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.WrapGrid")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[WrapGrid](unsafe.Pointer(instance), &IID_IWrapGrid)
+}
+
+// WrapGridStatics returns the Windows.UI.Xaml.Controls.IWrapGridStatics statics of the
+// Windows.UI.Xaml.Controls.WrapGrid runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func WrapGridStatics() (*IWrapGridStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.WrapGrid", &IID_IWrapGridStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IWrapGridStatics)(unsafe.Pointer(factory)), nil
 }

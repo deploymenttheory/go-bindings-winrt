@@ -13,6 +13,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 	foundationnumerics "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation/numerics"
+	uicomposition "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/composition"
 	uicore "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/core"
 	uiinputinking "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/input/inking"
 )
@@ -261,16 +262,14 @@ func (self *ICoreInkPresenterHost) InkPresenter() (*uiinputinking.IInkPresenter,
 }
 
 // RootVisual (propget get_RootVisual) dispatches through ICoreInkPresenterHost's vtable slot 7.
-// The return value's class Windows.UI.Composition.ContainerVisual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICoreInkPresenterHost) RootVisual() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICoreInkPresenterHost) RootVisual() (*uicomposition.IContainerVisual, error) {
+	result := new(*uicomposition.IContainerVisual)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetRootVisual (propput put_RootVisual) dispatches through ICoreInkPresenterHost's vtable slot 8.
-// Parameter value's class Windows.UI.Composition.ContainerVisual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICoreInkPresenterHost) SetRootVisual(value *syswinrt.IInspectable) error {
+func (self *ICoreInkPresenterHost) SetRootVisual(value *uicomposition.IContainerVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }

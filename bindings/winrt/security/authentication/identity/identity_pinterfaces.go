@@ -83,6 +83,73 @@ func (self *IAsyncOperationOfIVectorViewOfEnterpriseKeyCredentialRegistrationInf
 	return self.GetResults()
 }
 
+// IIterableOfEnterpriseKeyCredentialRegistrationInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo>.
+// IID: e7eea796-77f9-5473-a913-734ea0e3ff46
+type IIterableOfEnterpriseKeyCredentialRegistrationInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfEnterpriseKeyCredentialRegistrationInfo is the interface identifier for IIterableOfEnterpriseKeyCredentialRegistrationInfo.
+var IID_IIterableOfEnterpriseKeyCredentialRegistrationInfo = win32.GUID{Data1: 0xe7eea796, Data2: 0x77f9, Data3: 0x5473, Data4: [8]byte{0xa9, 0x13, 0x73, 0x4e, 0xa0, 0xe3, 0xff, 0x46}}
+
+// First dispatches through IIterableOfEnterpriseKeyCredentialRegistrationInfo's vtable slot 6.
+func (self *IIterableOfEnterpriseKeyCredentialRegistrationInfo) First() (*IIteratorOfEnterpriseKeyCredentialRegistrationInfo, error) {
+	result := new(*IIteratorOfEnterpriseKeyCredentialRegistrationInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfEnterpriseKeyCredentialRegistrationInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfEnterpriseKeyCredentialRegistrationInfo(items []*IEnterpriseKeyCredentialRegistrationInfo) *IIterableOfEnterpriseKeyCredentialRegistrationInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEnterpriseKeyCredentialRegistrationInfo, Iterator: IID_IIteratorOfEnterpriseKeyCredentialRegistrationInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfEnterpriseKeyCredentialRegistrationInfo)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfEnterpriseKeyCredentialRegistrationInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo>.
+// IID: e3497259-1737-5fad-803b-9d2d29273e3b
+type IIteratorOfEnterpriseKeyCredentialRegistrationInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfEnterpriseKeyCredentialRegistrationInfo is the interface identifier for IIteratorOfEnterpriseKeyCredentialRegistrationInfo.
+var IID_IIteratorOfEnterpriseKeyCredentialRegistrationInfo = win32.GUID{Data1: 0xe3497259, Data2: 0x1737, Data3: 0x5fad, Data4: [8]byte{0x80, 0x3b, 0x9d, 0x2d, 0x29, 0x27, 0x3e, 0x3b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfEnterpriseKeyCredentialRegistrationInfo's vtable slot 6.
+func (self *IIteratorOfEnterpriseKeyCredentialRegistrationInfo) Current() (*IEnterpriseKeyCredentialRegistrationInfo, error) {
+	result := new(*IEnterpriseKeyCredentialRegistrationInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfEnterpriseKeyCredentialRegistrationInfo's vtable slot 7.
+func (self *IIteratorOfEnterpriseKeyCredentialRegistrationInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfEnterpriseKeyCredentialRegistrationInfo's vtable slot 8.
+func (self *IIteratorOfEnterpriseKeyCredentialRegistrationInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfEnterpriseKeyCredentialRegistrationInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo>.
 // IID: 3b631cbb-63f8-5eff-8815-69c822c09ce1
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo>.
@@ -115,3 +182,22 @@ func (self *IVectorViewOfEnterpriseKeyCredentialRegistrationInfo) IndexOf(value 
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfEnterpriseKeyCredentialRegistrationInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfEnterpriseKeyCredentialRegistrationInfo(items []*IEnterpriseKeyCredentialRegistrationInfo) *IVectorViewOfEnterpriseKeyCredentialRegistrationInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEnterpriseKeyCredentialRegistrationInfo, Iterator: IID_IIteratorOfEnterpriseKeyCredentialRegistrationInfo, VectorView: IID_IVectorViewOfEnterpriseKeyCredentialRegistrationInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfEnterpriseKeyCredentialRegistrationInfo)(unsafe.Pointer(obj))
+}

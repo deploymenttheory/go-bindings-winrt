@@ -14,6 +14,73 @@ import (
 	storagestreams "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/storage/streams"
 )
 
+// IIterableOfIRandomAccessStream is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Storage.Streams.IRandomAccessStream>.
+// IID: ba666a00-1555-5df4-81a5-07d23f7ffceb
+type IIterableOfIRandomAccessStream struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIRandomAccessStream is the interface identifier for IIterableOfIRandomAccessStream.
+var IID_IIterableOfIRandomAccessStream = win32.GUID{Data1: 0xba666a00, Data2: 0x1555, Data3: 0x5df4, Data4: [8]byte{0x81, 0xa5, 0x07, 0xd2, 0x3f, 0x7f, 0xfc, 0xeb}}
+
+// First dispatches through IIterableOfIRandomAccessStream's vtable slot 6.
+func (self *IIterableOfIRandomAccessStream) First() (*IIteratorOfIRandomAccessStream, error) {
+	result := new(*IIteratorOfIRandomAccessStream)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIRandomAccessStream creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Storage.Streams.IRandomAccessStream>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIRandomAccessStream(items []*storagestreams.IRandomAccessStream) *IIterableOfIRandomAccessStream {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Storage.Streams.IRandomAccessStream>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIRandomAccessStream, Iterator: IID_IIteratorOfIRandomAccessStream}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIRandomAccessStream)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfIRandomAccessStream is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Storage.Streams.IRandomAccessStream>.
+// IID: c875446a-587f-58da-897e-3bbe5ec7c30b
+type IIteratorOfIRandomAccessStream struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIRandomAccessStream is the interface identifier for IIteratorOfIRandomAccessStream.
+var IID_IIteratorOfIRandomAccessStream = win32.GUID{Data1: 0xc875446a, Data2: 0x587f, Data3: 0x58da, Data4: [8]byte{0x89, 0x7e, 0x3b, 0xbe, 0x5e, 0xc7, 0xc3, 0x0b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIRandomAccessStream's vtable slot 6.
+func (self *IIteratorOfIRandomAccessStream) Current() (*storagestreams.IRandomAccessStream, error) {
+	result := new(*storagestreams.IRandomAccessStream)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIRandomAccessStream's vtable slot 7.
+func (self *IIteratorOfIRandomAccessStream) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIRandomAccessStream's vtable slot 8.
+func (self *IIteratorOfIRandomAccessStream) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfIRandomAccessStream is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Storage.Streams.IRandomAccessStream>.
 // IID: 2736b66b-daa3-5e0c-9842-6a0f44b5440b
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Storage.Streams.IRandomAccessStream>.
@@ -92,6 +159,28 @@ func (self *IVectorOfIRandomAccessStream) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfIRandomAccessStream creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Storage.Streams.IRandomAccessStream>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfIRandomAccessStream(items []*storagestreams.IRandomAccessStream) *IVectorOfIRandomAccessStream {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Storage.Streams.IRandomAccessStream>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIRandomAccessStream, Iterator: IID_IIteratorOfIRandomAccessStream, VectorView: IID_IVectorViewOfIRandomAccessStream, Vector: IID_IVectorOfIRandomAccessStream}, winrt.CodecInterface, boxed)
+	return (*IVectorOfIRandomAccessStream)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfIRandomAccessStream is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Storage.Streams.IRandomAccessStream>.
 // IID: 92cd0a46-2266-5cd6-9293-e111299f2793
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Storage.Streams.IRandomAccessStream>.
@@ -124,3 +213,22 @@ func (self *IVectorViewOfIRandomAccessStream) IndexOf(value *storagestreams.IRan
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfIRandomAccessStream creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Storage.Streams.IRandomAccessStream>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIRandomAccessStream(items []*storagestreams.IRandomAccessStream) *IVectorViewOfIRandomAccessStream {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Storage.Streams.IRandomAccessStream>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIRandomAccessStream, Iterator: IID_IIteratorOfIRandomAccessStream, VectorView: IID_IVectorViewOfIRandomAccessStream}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIRandomAccessStream)(unsafe.Pointer(obj))
+}

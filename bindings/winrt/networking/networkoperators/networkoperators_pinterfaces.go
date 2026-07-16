@@ -1223,6 +1223,185 @@ func (self *IAsyncOperationWithProgressOfESimOperationResultAndESimProfileInstal
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfESimOperationResultAndESimProfileInstallProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfESimOperationResultAndESimProfileInstallProgress) Await() (*IESimOperationResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfESimOperationResultAndESimProfileInstallProgress(func(_ *IAsyncOperationWithProgressOfESimOperationResultAndESimProfileInstallProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
+// IIterableOfConnectionProfile is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.Connectivity.ConnectionProfile>.
+// IID: 34dabef9-87d0-5b1c-a7ac-9d290adeb0c8
+type IIterableOfConnectionProfile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfConnectionProfile is the interface identifier for IIterableOfConnectionProfile.
+var IID_IIterableOfConnectionProfile = win32.GUID{Data1: 0x34dabef9, Data2: 0x87d0, Data3: 0x5b1c, Data4: [8]byte{0xa7, 0xac, 0x9d, 0x29, 0x0a, 0xde, 0xb0, 0xc8}}
+
+// First dispatches through IIterableOfConnectionProfile's vtable slot 6.
+func (self *IIterableOfConnectionProfile) First() (*IIteratorOfConnectionProfile, error) {
+	result := new(*IIteratorOfConnectionProfile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfConnectionProfile creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.Connectivity.ConnectionProfile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfConnectionProfile(items []*networkingconnectivity.IConnectionProfile) *IIterableOfConnectionProfile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.Connectivity.ConnectionProfile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfConnectionProfile, Iterator: IID_IIteratorOfConnectionProfile}, winrt.CodecInterface, boxed)
+	return (*IIterableOfConnectionProfile)(unsafe.Pointer(obj))
+}
+
+// IIterableOfESimDiscoverEvent is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.ESimDiscoverEvent>.
+// IID: 83504c13-a417-5601-9adb-f1ff18294dc9
+type IIterableOfESimDiscoverEvent struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfESimDiscoverEvent is the interface identifier for IIterableOfESimDiscoverEvent.
+var IID_IIterableOfESimDiscoverEvent = win32.GUID{Data1: 0x83504c13, Data2: 0xa417, Data3: 0x5601, Data4: [8]byte{0x9a, 0xdb, 0xf1, 0xff, 0x18, 0x29, 0x4d, 0xc9}}
+
+// First dispatches through IIterableOfESimDiscoverEvent's vtable slot 6.
+func (self *IIterableOfESimDiscoverEvent) First() (*IIteratorOfESimDiscoverEvent, error) {
+	result := new(*IIteratorOfESimDiscoverEvent)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfESimDiscoverEvent creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.ESimDiscoverEvent>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfESimDiscoverEvent(items []*IESimDiscoverEvent) *IIterableOfESimDiscoverEvent {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.ESimDiscoverEvent>", winrt.CollectionIIDs{Iterable: IID_IIterableOfESimDiscoverEvent, Iterator: IID_IIteratorOfESimDiscoverEvent}, winrt.CodecInterface, boxed)
+	return (*IIterableOfESimDiscoverEvent)(unsafe.Pointer(obj))
+}
+
+// IIterableOfESimProfile is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.ESimProfile>.
+// IID: 2ce4dd28-5154-57da-8e92-c1c9c964427b
+type IIterableOfESimProfile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfESimProfile is the interface identifier for IIterableOfESimProfile.
+var IID_IIterableOfESimProfile = win32.GUID{Data1: 0x2ce4dd28, Data2: 0x5154, Data3: 0x57da, Data4: [8]byte{0x8e, 0x92, 0xc1, 0xc9, 0xc9, 0x64, 0x42, 0x7b}}
+
+// First dispatches through IIterableOfESimProfile's vtable slot 6.
+func (self *IIterableOfESimProfile) First() (*IIteratorOfESimProfile, error) {
+	result := new(*IIteratorOfESimProfile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfESimProfile creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.ESimProfile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfESimProfile(items []*IESimProfile) *IIterableOfESimProfile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.ESimProfile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfESimProfile, Iterator: IID_IIteratorOfESimProfile}, winrt.CodecInterface, boxed)
+	return (*IIterableOfESimProfile)(unsafe.Pointer(obj))
+}
+
+// IIterableOfHostName is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.HostName>.
+// IID: 9e5f3ed0-cf1c-5d38-832c-acea6164bf5c
+type IIterableOfHostName struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHostName is the interface identifier for IIterableOfHostName.
+var IID_IIterableOfHostName = win32.GUID{Data1: 0x9e5f3ed0, Data2: 0xcf1c, Data3: 0x5d38, Data4: [8]byte{0x83, 0x2c, 0xac, 0xea, 0x61, 0x64, 0xbf, 0x5c}}
+
+// First dispatches through IIterableOfHostName's vtable slot 6.
+func (self *IIterableOfHostName) First() (*IIteratorOfHostName, error) {
+	result := new(*IIteratorOfHostName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHostName creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.HostName>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHostName(items []*networking.IHostName) *IIterableOfHostName {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.HostName>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHostName, Iterator: IID_IIteratorOfHostName}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHostName)(unsafe.Pointer(obj))
+}
+
 // IIterableOfMobileBroadbandAntennaSar is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar>.
 // IID: fd66b9ac-40dc-5ac7-aaf1-2d3403e5fcbb
 type IIterableOfMobileBroadbandAntennaSar struct {
@@ -1237,6 +1416,543 @@ func (self *IIterableOfMobileBroadbandAntennaSar) First() (*IIteratorOfMobileBro
 	result := new(*IIteratorOfMobileBroadbandAntennaSar)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandAntennaSar creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandAntennaSar(items []*IMobileBroadbandAntennaSar) *IIterableOfMobileBroadbandAntennaSar {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandAntennaSar, Iterator: IID_IIteratorOfMobileBroadbandAntennaSar}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandAntennaSar)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandCellCdma is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellCdma>.
+// IID: 46e83a22-4c40-5f27-bbcd-255dfd97ea93
+type IIterableOfMobileBroadbandCellCdma struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandCellCdma is the interface identifier for IIterableOfMobileBroadbandCellCdma.
+var IID_IIterableOfMobileBroadbandCellCdma = win32.GUID{Data1: 0x46e83a22, Data2: 0x4c40, Data3: 0x5f27, Data4: [8]byte{0xbb, 0xcd, 0x25, 0x5d, 0xfd, 0x97, 0xea, 0x93}}
+
+// First dispatches through IIterableOfMobileBroadbandCellCdma's vtable slot 6.
+func (self *IIterableOfMobileBroadbandCellCdma) First() (*IIteratorOfMobileBroadbandCellCdma, error) {
+	result := new(*IIteratorOfMobileBroadbandCellCdma)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandCellCdma creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellCdma>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandCellCdma(items []*IMobileBroadbandCellCdma) *IIterableOfMobileBroadbandCellCdma {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellCdma>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellCdma, Iterator: IID_IIteratorOfMobileBroadbandCellCdma}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandCellCdma)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandCellGsm is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellGsm>.
+// IID: 83e5eae8-3887-599e-bebf-8c51362db44c
+type IIterableOfMobileBroadbandCellGsm struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandCellGsm is the interface identifier for IIterableOfMobileBroadbandCellGsm.
+var IID_IIterableOfMobileBroadbandCellGsm = win32.GUID{Data1: 0x83e5eae8, Data2: 0x3887, Data3: 0x599e, Data4: [8]byte{0xbe, 0xbf, 0x8c, 0x51, 0x36, 0x2d, 0xb4, 0x4c}}
+
+// First dispatches through IIterableOfMobileBroadbandCellGsm's vtable slot 6.
+func (self *IIterableOfMobileBroadbandCellGsm) First() (*IIteratorOfMobileBroadbandCellGsm, error) {
+	result := new(*IIteratorOfMobileBroadbandCellGsm)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandCellGsm creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellGsm>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandCellGsm(items []*IMobileBroadbandCellGsm) *IIterableOfMobileBroadbandCellGsm {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellGsm>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellGsm, Iterator: IID_IIteratorOfMobileBroadbandCellGsm}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandCellGsm)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandCellLte is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellLte>.
+// IID: 45d961d3-e228-5afd-b18c-d4cfa3903432
+type IIterableOfMobileBroadbandCellLte struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandCellLte is the interface identifier for IIterableOfMobileBroadbandCellLte.
+var IID_IIterableOfMobileBroadbandCellLte = win32.GUID{Data1: 0x45d961d3, Data2: 0xe228, Data3: 0x5afd, Data4: [8]byte{0xb1, 0x8c, 0xd4, 0xcf, 0xa3, 0x90, 0x34, 0x32}}
+
+// First dispatches through IIterableOfMobileBroadbandCellLte's vtable slot 6.
+func (self *IIterableOfMobileBroadbandCellLte) First() (*IIteratorOfMobileBroadbandCellLte, error) {
+	result := new(*IIteratorOfMobileBroadbandCellLte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandCellLte creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellLte>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandCellLte(items []*IMobileBroadbandCellLte) *IIterableOfMobileBroadbandCellLte {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellLte>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellLte, Iterator: IID_IIteratorOfMobileBroadbandCellLte}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandCellLte)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandCellNR is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellNR>.
+// IID: f7c1a3a9-b0cd-5158-ab79-6c99f3cb7a4f
+type IIterableOfMobileBroadbandCellNR struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandCellNR is the interface identifier for IIterableOfMobileBroadbandCellNR.
+var IID_IIterableOfMobileBroadbandCellNR = win32.GUID{Data1: 0xf7c1a3a9, Data2: 0xb0cd, Data3: 0x5158, Data4: [8]byte{0xab, 0x79, 0x6c, 0x99, 0xf3, 0xcb, 0x7a, 0x4f}}
+
+// First dispatches through IIterableOfMobileBroadbandCellNR's vtable slot 6.
+func (self *IIterableOfMobileBroadbandCellNR) First() (*IIteratorOfMobileBroadbandCellNR, error) {
+	result := new(*IIteratorOfMobileBroadbandCellNR)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandCellNR creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellNR>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandCellNR(items []*IMobileBroadbandCellNR) *IIterableOfMobileBroadbandCellNR {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellNR>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellNR, Iterator: IID_IIteratorOfMobileBroadbandCellNR}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandCellNR)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandCellTdscdma is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma>.
+// IID: 6e1e543f-1cf0-5cb3-b3fc-b559213c58e2
+type IIterableOfMobileBroadbandCellTdscdma struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandCellTdscdma is the interface identifier for IIterableOfMobileBroadbandCellTdscdma.
+var IID_IIterableOfMobileBroadbandCellTdscdma = win32.GUID{Data1: 0x6e1e543f, Data2: 0x1cf0, Data3: 0x5cb3, Data4: [8]byte{0xb3, 0xfc, 0xb5, 0x59, 0x21, 0x3c, 0x58, 0xe2}}
+
+// First dispatches through IIterableOfMobileBroadbandCellTdscdma's vtable slot 6.
+func (self *IIterableOfMobileBroadbandCellTdscdma) First() (*IIteratorOfMobileBroadbandCellTdscdma, error) {
+	result := new(*IIteratorOfMobileBroadbandCellTdscdma)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandCellTdscdma creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandCellTdscdma(items []*IMobileBroadbandCellTdscdma) *IIterableOfMobileBroadbandCellTdscdma {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellTdscdma, Iterator: IID_IIteratorOfMobileBroadbandCellTdscdma}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandCellTdscdma)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandCellUmts is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellUmts>.
+// IID: 20392566-69cb-5eda-b641-5510e7ed1a12
+type IIterableOfMobileBroadbandCellUmts struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandCellUmts is the interface identifier for IIterableOfMobileBroadbandCellUmts.
+var IID_IIterableOfMobileBroadbandCellUmts = win32.GUID{Data1: 0x20392566, Data2: 0x69cb, Data3: 0x5eda, Data4: [8]byte{0xb6, 0x41, 0x55, 0x10, 0xe7, 0xed, 0x1a, 0x12}}
+
+// First dispatches through IIterableOfMobileBroadbandCellUmts's vtable slot 6.
+func (self *IIterableOfMobileBroadbandCellUmts) First() (*IIteratorOfMobileBroadbandCellUmts, error) {
+	result := new(*IIteratorOfMobileBroadbandCellUmts)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandCellUmts creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellUmts>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandCellUmts(items []*IMobileBroadbandCellUmts) *IIterableOfMobileBroadbandCellUmts {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellUmts>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellUmts, Iterator: IID_IIteratorOfMobileBroadbandCellUmts}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandCellUmts)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandDeviceServiceInformation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation>.
+// IID: 88511855-6fe6-5694-83a7-991e29033de5
+type IIterableOfMobileBroadbandDeviceServiceInformation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandDeviceServiceInformation is the interface identifier for IIterableOfMobileBroadbandDeviceServiceInformation.
+var IID_IIterableOfMobileBroadbandDeviceServiceInformation = win32.GUID{Data1: 0x88511855, Data2: 0x6fe6, Data3: 0x5694, Data4: [8]byte{0x83, 0xa7, 0x99, 0x1e, 0x29, 0x03, 0x3d, 0xe5}}
+
+// First dispatches through IIterableOfMobileBroadbandDeviceServiceInformation's vtable slot 6.
+func (self *IIterableOfMobileBroadbandDeviceServiceInformation) First() (*IIteratorOfMobileBroadbandDeviceServiceInformation, error) {
+	result := new(*IIteratorOfMobileBroadbandDeviceServiceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandDeviceServiceInformation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandDeviceServiceInformation(items []*IMobileBroadbandDeviceServiceInformation) *IIterableOfMobileBroadbandDeviceServiceInformation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandDeviceServiceInformation, Iterator: IID_IIteratorOfMobileBroadbandDeviceServiceInformation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandDeviceServiceInformation)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandNetworkRegistrationStateChange is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange>.
+// IID: 0b90bb30-660c-51c6-9b8c-31dd8486e10e
+type IIterableOfMobileBroadbandNetworkRegistrationStateChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandNetworkRegistrationStateChange is the interface identifier for IIterableOfMobileBroadbandNetworkRegistrationStateChange.
+var IID_IIterableOfMobileBroadbandNetworkRegistrationStateChange = win32.GUID{Data1: 0x0b90bb30, Data2: 0x660c, Data3: 0x51c6, Data4: [8]byte{0x9b, 0x8c, 0x31, 0xdd, 0x84, 0x86, 0xe1, 0x0e}}
+
+// First dispatches through IIterableOfMobileBroadbandNetworkRegistrationStateChange's vtable slot 6.
+func (self *IIterableOfMobileBroadbandNetworkRegistrationStateChange) First() (*IIteratorOfMobileBroadbandNetworkRegistrationStateChange, error) {
+	result := new(*IIteratorOfMobileBroadbandNetworkRegistrationStateChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandNetworkRegistrationStateChange creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandNetworkRegistrationStateChange(items []*IMobileBroadbandNetworkRegistrationStateChange) *IIterableOfMobileBroadbandNetworkRegistrationStateChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandNetworkRegistrationStateChange, Iterator: IID_IIteratorOfMobileBroadbandNetworkRegistrationStateChange}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandNetworkRegistrationStateChange)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandPinLockStateChange is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange>.
+// IID: aa4a8700-9943-59a3-8647-d373fd5e0e2b
+type IIterableOfMobileBroadbandPinLockStateChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandPinLockStateChange is the interface identifier for IIterableOfMobileBroadbandPinLockStateChange.
+var IID_IIterableOfMobileBroadbandPinLockStateChange = win32.GUID{Data1: 0xaa4a8700, Data2: 0x9943, Data3: 0x59a3, Data4: [8]byte{0x86, 0x47, 0xd3, 0x73, 0xfd, 0x5e, 0x0e, 0x2b}}
+
+// First dispatches through IIterableOfMobileBroadbandPinLockStateChange's vtable slot 6.
+func (self *IIterableOfMobileBroadbandPinLockStateChange) First() (*IIteratorOfMobileBroadbandPinLockStateChange, error) {
+	result := new(*IIteratorOfMobileBroadbandPinLockStateChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandPinLockStateChange creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandPinLockStateChange(items []*IMobileBroadbandPinLockStateChange) *IIterableOfMobileBroadbandPinLockStateChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandPinLockStateChange, Iterator: IID_IIteratorOfMobileBroadbandPinLockStateChange}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandPinLockStateChange)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandPinType is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandPinType>.
+// IID: 9d55726d-813e-50fb-9498-87aa872dd6ca
+type IIterableOfMobileBroadbandPinType struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandPinType is the interface identifier for IIterableOfMobileBroadbandPinType.
+var IID_IIterableOfMobileBroadbandPinType = win32.GUID{Data1: 0x9d55726d, Data2: 0x813e, Data3: 0x50fb, Data4: [8]byte{0x94, 0x98, 0x87, 0xaa, 0x87, 0x2d, 0xd6, 0xca}}
+
+// First dispatches through IIterableOfMobileBroadbandPinType's vtable slot 6.
+func (self *IIterableOfMobileBroadbandPinType) First() (*IIteratorOfMobileBroadbandPinType, error) {
+	result := new(*IIteratorOfMobileBroadbandPinType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandPinType creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandPinType>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfMobileBroadbandPinType(items []MobileBroadbandPinType) *IIterableOfMobileBroadbandPinType {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandPinType>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandPinType, Iterator: IID_IIteratorOfMobileBroadbandPinType}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfMobileBroadbandPinType)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandRadioStateChange is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange>.
+// IID: c385adaa-574c-5ad8-98c2-61309525132d
+type IIterableOfMobileBroadbandRadioStateChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandRadioStateChange is the interface identifier for IIterableOfMobileBroadbandRadioStateChange.
+var IID_IIterableOfMobileBroadbandRadioStateChange = win32.GUID{Data1: 0xc385adaa, Data2: 0x574c, Data3: 0x5ad8, Data4: [8]byte{0x98, 0xc2, 0x61, 0x30, 0x95, 0x25, 0x13, 0x2d}}
+
+// First dispatches through IIterableOfMobileBroadbandRadioStateChange's vtable slot 6.
+func (self *IIterableOfMobileBroadbandRadioStateChange) First() (*IIteratorOfMobileBroadbandRadioStateChange, error) {
+	result := new(*IIteratorOfMobileBroadbandRadioStateChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandRadioStateChange creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandRadioStateChange(items []*IMobileBroadbandRadioStateChange) *IIterableOfMobileBroadbandRadioStateChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandRadioStateChange, Iterator: IID_IIteratorOfMobileBroadbandRadioStateChange}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandRadioStateChange)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandSlotInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo>.
+// IID: 30f9a178-40f1-5c82-865b-06660e680c35
+type IIterableOfMobileBroadbandSlotInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandSlotInfo is the interface identifier for IIterableOfMobileBroadbandSlotInfo.
+var IID_IIterableOfMobileBroadbandSlotInfo = win32.GUID{Data1: 0x30f9a178, Data2: 0x40f1, Data3: 0x5c82, Data4: [8]byte{0x86, 0x5b, 0x06, 0x66, 0x0e, 0x68, 0x0c, 0x35}}
+
+// First dispatches through IIterableOfMobileBroadbandSlotInfo's vtable slot 6.
+func (self *IIterableOfMobileBroadbandSlotInfo) First() (*IIteratorOfMobileBroadbandSlotInfo, error) {
+	result := new(*IIteratorOfMobileBroadbandSlotInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandSlotInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandSlotInfo(items []*IMobileBroadbandSlotInfo) *IIterableOfMobileBroadbandSlotInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandSlotInfo, Iterator: IID_IIteratorOfMobileBroadbandSlotInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandSlotInfo)(unsafe.Pointer(obj))
+}
+
+// IIterableOfMobileBroadbandUiccApp is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandUiccApp>.
+// IID: af538114-bd14-53b0-b1d1-841dcaa451ad
+type IIterableOfMobileBroadbandUiccApp struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMobileBroadbandUiccApp is the interface identifier for IIterableOfMobileBroadbandUiccApp.
+var IID_IIterableOfMobileBroadbandUiccApp = win32.GUID{Data1: 0xaf538114, Data2: 0xbd14, Data3: 0x53b0, Data4: [8]byte{0xb1, 0xd1, 0x84, 0x1d, 0xca, 0xa4, 0x51, 0xad}}
+
+// First dispatches through IIterableOfMobileBroadbandUiccApp's vtable slot 6.
+func (self *IIterableOfMobileBroadbandUiccApp) First() (*IIteratorOfMobileBroadbandUiccApp, error) {
+	result := new(*IIteratorOfMobileBroadbandUiccApp)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMobileBroadbandUiccApp creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandUiccApp>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMobileBroadbandUiccApp(items []*IMobileBroadbandUiccApp) *IIterableOfMobileBroadbandUiccApp {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandUiccApp>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandUiccApp, Iterator: IID_IIteratorOfMobileBroadbandUiccApp}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMobileBroadbandUiccApp)(unsafe.Pointer(obj))
+}
+
+// IIterableOfNetworkOperatorTetheringClient is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient>.
+// IID: 4762ecb3-af48-5b63-89b7-78a42056549f
+type IIterableOfNetworkOperatorTetheringClient struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfNetworkOperatorTetheringClient is the interface identifier for IIterableOfNetworkOperatorTetheringClient.
+var IID_IIterableOfNetworkOperatorTetheringClient = win32.GUID{Data1: 0x4762ecb3, Data2: 0xaf48, Data3: 0x5b63, Data4: [8]byte{0x89, 0xb7, 0x78, 0xa4, 0x20, 0x56, 0x54, 0x9f}}
+
+// First dispatches through IIterableOfNetworkOperatorTetheringClient's vtable slot 6.
+func (self *IIterableOfNetworkOperatorTetheringClient) First() (*IIteratorOfNetworkOperatorTetheringClient, error) {
+	result := new(*IIteratorOfNetworkOperatorTetheringClient)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfNetworkOperatorTetheringClient creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfNetworkOperatorTetheringClient(items []*INetworkOperatorTetheringClient) *IIterableOfNetworkOperatorTetheringClient {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient>", winrt.CollectionIIDs{Iterable: IID_IIterableOfNetworkOperatorTetheringClient, Iterator: IID_IIteratorOfNetworkOperatorTetheringClient}, winrt.CodecInterface, boxed)
+	return (*IIterableOfNetworkOperatorTetheringClient)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
 }
 
 // IIterableOfUInt32 is the WinRT interface Windows.Foundation.Collections.IIterable`1<UInt32>.
@@ -1254,6 +1970,149 @@ func (self *IIterableOfUInt32) First() (*IIteratorOfUInt32, error) {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfUInt32 creates a Go-implemented Windows.Foundation.Collections.IIterable`1<UInt32>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfUInt32(items []uint32) *IIterableOfUInt32 {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<UInt32>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUInt32, Iterator: IID_IIteratorOfUInt32}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfUInt32)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfConnectionProfile is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.Connectivity.ConnectionProfile>.
+// IID: 89913732-a08b-5cb2-af16-bbbb2223839e
+type IIteratorOfConnectionProfile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfConnectionProfile is the interface identifier for IIteratorOfConnectionProfile.
+var IID_IIteratorOfConnectionProfile = win32.GUID{Data1: 0x89913732, Data2: 0xa08b, Data3: 0x5cb2, Data4: [8]byte{0xaf, 0x16, 0xbb, 0xbb, 0x22, 0x23, 0x83, 0x9e}}
+
+// Current (propget get_Current) dispatches through IIteratorOfConnectionProfile's vtable slot 6.
+func (self *IIteratorOfConnectionProfile) Current() (*networkingconnectivity.IConnectionProfile, error) {
+	result := new(*networkingconnectivity.IConnectionProfile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfConnectionProfile's vtable slot 7.
+func (self *IIteratorOfConnectionProfile) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfConnectionProfile's vtable slot 8.
+func (self *IIteratorOfConnectionProfile) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfESimDiscoverEvent is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.ESimDiscoverEvent>.
+// IID: 1f822f34-b003-55c5-b0f9-891743128cf3
+type IIteratorOfESimDiscoverEvent struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfESimDiscoverEvent is the interface identifier for IIteratorOfESimDiscoverEvent.
+var IID_IIteratorOfESimDiscoverEvent = win32.GUID{Data1: 0x1f822f34, Data2: 0xb003, Data3: 0x55c5, Data4: [8]byte{0xb0, 0xf9, 0x89, 0x17, 0x43, 0x12, 0x8c, 0xf3}}
+
+// Current (propget get_Current) dispatches through IIteratorOfESimDiscoverEvent's vtable slot 6.
+func (self *IIteratorOfESimDiscoverEvent) Current() (*IESimDiscoverEvent, error) {
+	result := new(*IESimDiscoverEvent)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfESimDiscoverEvent's vtable slot 7.
+func (self *IIteratorOfESimDiscoverEvent) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfESimDiscoverEvent's vtable slot 8.
+func (self *IIteratorOfESimDiscoverEvent) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfESimProfile is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.ESimProfile>.
+// IID: c480cd48-5922-5ab1-bb58-f149ae515431
+type IIteratorOfESimProfile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfESimProfile is the interface identifier for IIteratorOfESimProfile.
+var IID_IIteratorOfESimProfile = win32.GUID{Data1: 0xc480cd48, Data2: 0x5922, Data3: 0x5ab1, Data4: [8]byte{0xbb, 0x58, 0xf1, 0x49, 0xae, 0x51, 0x54, 0x31}}
+
+// Current (propget get_Current) dispatches through IIteratorOfESimProfile's vtable slot 6.
+func (self *IIteratorOfESimProfile) Current() (*IESimProfile, error) {
+	result := new(*IESimProfile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfESimProfile's vtable slot 7.
+func (self *IIteratorOfESimProfile) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfESimProfile's vtable slot 8.
+func (self *IIteratorOfESimProfile) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfHostName is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.HostName>.
+// IID: 557bf83c-a428-5dbd-a0fe-05f6ee543d45
+type IIteratorOfHostName struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHostName is the interface identifier for IIteratorOfHostName.
+var IID_IIteratorOfHostName = win32.GUID{Data1: 0x557bf83c, Data2: 0xa428, Data3: 0x5dbd, Data4: [8]byte{0xa0, 0xfe, 0x05, 0xf6, 0xee, 0x54, 0x3d, 0x45}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHostName's vtable slot 6.
+func (self *IIteratorOfHostName) Current() (*networking.IHostName, error) {
+	result := new(*networking.IHostName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHostName's vtable slot 7.
+func (self *IIteratorOfHostName) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHostName's vtable slot 8.
+func (self *IIteratorOfHostName) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfMobileBroadbandAntennaSar is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar>.
 // IID: 03327f15-e40f-52d1-bb6c-bebbd8155134
@@ -1280,6 +2139,489 @@ func (self *IIteratorOfMobileBroadbandAntennaSar) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfMobileBroadbandAntennaSar's vtable slot 8.
 func (self *IIteratorOfMobileBroadbandAntennaSar) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandCellCdma is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandCellCdma>.
+// IID: b86379f2-5369-508f-a2df-deb3b72c3378
+type IIteratorOfMobileBroadbandCellCdma struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandCellCdma is the interface identifier for IIteratorOfMobileBroadbandCellCdma.
+var IID_IIteratorOfMobileBroadbandCellCdma = win32.GUID{Data1: 0xb86379f2, Data2: 0x5369, Data3: 0x508f, Data4: [8]byte{0xa2, 0xdf, 0xde, 0xb3, 0xb7, 0x2c, 0x33, 0x78}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandCellCdma's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandCellCdma) Current() (*IMobileBroadbandCellCdma, error) {
+	result := new(*IMobileBroadbandCellCdma)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandCellCdma's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandCellCdma) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandCellCdma's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandCellCdma) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandCellGsm is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandCellGsm>.
+// IID: 8be60634-4021-5ac2-bd8a-a969b090b58d
+type IIteratorOfMobileBroadbandCellGsm struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandCellGsm is the interface identifier for IIteratorOfMobileBroadbandCellGsm.
+var IID_IIteratorOfMobileBroadbandCellGsm = win32.GUID{Data1: 0x8be60634, Data2: 0x4021, Data3: 0x5ac2, Data4: [8]byte{0xbd, 0x8a, 0xa9, 0x69, 0xb0, 0x90, 0xb5, 0x8d}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandCellGsm's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandCellGsm) Current() (*IMobileBroadbandCellGsm, error) {
+	result := new(*IMobileBroadbandCellGsm)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandCellGsm's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandCellGsm) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandCellGsm's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandCellGsm) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandCellLte is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandCellLte>.
+// IID: 186b9d0b-ef0c-540a-8fe7-4dbc5c1d14da
+type IIteratorOfMobileBroadbandCellLte struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandCellLte is the interface identifier for IIteratorOfMobileBroadbandCellLte.
+var IID_IIteratorOfMobileBroadbandCellLte = win32.GUID{Data1: 0x186b9d0b, Data2: 0xef0c, Data3: 0x540a, Data4: [8]byte{0x8f, 0xe7, 0x4d, 0xbc, 0x5c, 0x1d, 0x14, 0xda}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandCellLte's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandCellLte) Current() (*IMobileBroadbandCellLte, error) {
+	result := new(*IMobileBroadbandCellLte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandCellLte's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandCellLte) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandCellLte's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandCellLte) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandCellNR is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandCellNR>.
+// IID: 2969b288-e445-5dcd-818f-fcd9616a80e6
+type IIteratorOfMobileBroadbandCellNR struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandCellNR is the interface identifier for IIteratorOfMobileBroadbandCellNR.
+var IID_IIteratorOfMobileBroadbandCellNR = win32.GUID{Data1: 0x2969b288, Data2: 0xe445, Data3: 0x5dcd, Data4: [8]byte{0x81, 0x8f, 0xfc, 0xd9, 0x61, 0x6a, 0x80, 0xe6}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandCellNR's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandCellNR) Current() (*IMobileBroadbandCellNR, error) {
+	result := new(*IMobileBroadbandCellNR)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandCellNR's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandCellNR) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandCellNR's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandCellNR) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandCellTdscdma is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma>.
+// IID: dd0aeb24-0efe-5548-8448-e153d4903df7
+type IIteratorOfMobileBroadbandCellTdscdma struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandCellTdscdma is the interface identifier for IIteratorOfMobileBroadbandCellTdscdma.
+var IID_IIteratorOfMobileBroadbandCellTdscdma = win32.GUID{Data1: 0xdd0aeb24, Data2: 0x0efe, Data3: 0x5548, Data4: [8]byte{0x84, 0x48, 0xe1, 0x53, 0xd4, 0x90, 0x3d, 0xf7}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandCellTdscdma's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandCellTdscdma) Current() (*IMobileBroadbandCellTdscdma, error) {
+	result := new(*IMobileBroadbandCellTdscdma)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandCellTdscdma's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandCellTdscdma) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandCellTdscdma's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandCellTdscdma) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandCellUmts is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandCellUmts>.
+// IID: dc24cdb5-15f5-5a1d-a60b-ae12f9f42f06
+type IIteratorOfMobileBroadbandCellUmts struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandCellUmts is the interface identifier for IIteratorOfMobileBroadbandCellUmts.
+var IID_IIteratorOfMobileBroadbandCellUmts = win32.GUID{Data1: 0xdc24cdb5, Data2: 0x15f5, Data3: 0x5a1d, Data4: [8]byte{0xa6, 0x0b, 0xae, 0x12, 0xf9, 0xf4, 0x2f, 0x06}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandCellUmts's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandCellUmts) Current() (*IMobileBroadbandCellUmts, error) {
+	result := new(*IMobileBroadbandCellUmts)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandCellUmts's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandCellUmts) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandCellUmts's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandCellUmts) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandDeviceServiceInformation is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation>.
+// IID: d8d776f6-4692-5461-9155-816e63bac874
+type IIteratorOfMobileBroadbandDeviceServiceInformation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandDeviceServiceInformation is the interface identifier for IIteratorOfMobileBroadbandDeviceServiceInformation.
+var IID_IIteratorOfMobileBroadbandDeviceServiceInformation = win32.GUID{Data1: 0xd8d776f6, Data2: 0x4692, Data3: 0x5461, Data4: [8]byte{0x91, 0x55, 0x81, 0x6e, 0x63, 0xba, 0xc8, 0x74}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandDeviceServiceInformation's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandDeviceServiceInformation) Current() (*IMobileBroadbandDeviceServiceInformation, error) {
+	result := new(*IMobileBroadbandDeviceServiceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandDeviceServiceInformation's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandDeviceServiceInformation) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandDeviceServiceInformation's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandDeviceServiceInformation) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandNetworkRegistrationStateChange is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange>.
+// IID: 9cb0f858-e589-57a7-9d01-2c6291567cc7
+type IIteratorOfMobileBroadbandNetworkRegistrationStateChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandNetworkRegistrationStateChange is the interface identifier for IIteratorOfMobileBroadbandNetworkRegistrationStateChange.
+var IID_IIteratorOfMobileBroadbandNetworkRegistrationStateChange = win32.GUID{Data1: 0x9cb0f858, Data2: 0xe589, Data3: 0x57a7, Data4: [8]byte{0x9d, 0x01, 0x2c, 0x62, 0x91, 0x56, 0x7c, 0xc7}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandNetworkRegistrationStateChange's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandNetworkRegistrationStateChange) Current() (*IMobileBroadbandNetworkRegistrationStateChange, error) {
+	result := new(*IMobileBroadbandNetworkRegistrationStateChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandNetworkRegistrationStateChange's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandNetworkRegistrationStateChange) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandNetworkRegistrationStateChange's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandNetworkRegistrationStateChange) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandPinLockStateChange is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange>.
+// IID: e61b479f-7bd9-5550-bc69-f9c2f71c6a05
+type IIteratorOfMobileBroadbandPinLockStateChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandPinLockStateChange is the interface identifier for IIteratorOfMobileBroadbandPinLockStateChange.
+var IID_IIteratorOfMobileBroadbandPinLockStateChange = win32.GUID{Data1: 0xe61b479f, Data2: 0x7bd9, Data3: 0x5550, Data4: [8]byte{0xbc, 0x69, 0xf9, 0xc2, 0xf7, 0x1c, 0x6a, 0x05}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandPinLockStateChange's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandPinLockStateChange) Current() (*IMobileBroadbandPinLockStateChange, error) {
+	result := new(*IMobileBroadbandPinLockStateChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandPinLockStateChange's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandPinLockStateChange) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandPinLockStateChange's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandPinLockStateChange) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandPinType is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandPinType>.
+// IID: 23efcf0c-1f8e-5bd9-8b57-f0850121201c
+type IIteratorOfMobileBroadbandPinType struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandPinType is the interface identifier for IIteratorOfMobileBroadbandPinType.
+var IID_IIteratorOfMobileBroadbandPinType = win32.GUID{Data1: 0x23efcf0c, Data2: 0x1f8e, Data3: 0x5bd9, Data4: [8]byte{0x8b, 0x57, 0xf0, 0x85, 0x01, 0x21, 0x20, 0x1c}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandPinType's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandPinType) Current() (MobileBroadbandPinType, error) {
+	result := new(MobileBroadbandPinType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandPinType's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandPinType) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandPinType's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandPinType) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandRadioStateChange is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange>.
+// IID: c088cec3-08e5-5f35-a2b9-0900d028c83b
+type IIteratorOfMobileBroadbandRadioStateChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandRadioStateChange is the interface identifier for IIteratorOfMobileBroadbandRadioStateChange.
+var IID_IIteratorOfMobileBroadbandRadioStateChange = win32.GUID{Data1: 0xc088cec3, Data2: 0x08e5, Data3: 0x5f35, Data4: [8]byte{0xa2, 0xb9, 0x09, 0x00, 0xd0, 0x28, 0xc8, 0x3b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandRadioStateChange's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandRadioStateChange) Current() (*IMobileBroadbandRadioStateChange, error) {
+	result := new(*IMobileBroadbandRadioStateChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandRadioStateChange's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandRadioStateChange) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandRadioStateChange's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandRadioStateChange) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandSlotInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo>.
+// IID: 78b3b291-eedb-5101-b310-06ae8adf439f
+type IIteratorOfMobileBroadbandSlotInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandSlotInfo is the interface identifier for IIteratorOfMobileBroadbandSlotInfo.
+var IID_IIteratorOfMobileBroadbandSlotInfo = win32.GUID{Data1: 0x78b3b291, Data2: 0xeedb, Data3: 0x5101, Data4: [8]byte{0xb3, 0x10, 0x06, 0xae, 0x8a, 0xdf, 0x43, 0x9f}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandSlotInfo's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandSlotInfo) Current() (*IMobileBroadbandSlotInfo, error) {
+	result := new(*IMobileBroadbandSlotInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandSlotInfo's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandSlotInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandSlotInfo's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandSlotInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfMobileBroadbandUiccApp is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.MobileBroadbandUiccApp>.
+// IID: 4bb2066f-1b75-57cf-a722-1e58bfc5ae50
+type IIteratorOfMobileBroadbandUiccApp struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMobileBroadbandUiccApp is the interface identifier for IIteratorOfMobileBroadbandUiccApp.
+var IID_IIteratorOfMobileBroadbandUiccApp = win32.GUID{Data1: 0x4bb2066f, Data2: 0x1b75, Data3: 0x57cf, Data4: [8]byte{0xa7, 0x22, 0x1e, 0x58, 0xbf, 0xc5, 0xae, 0x50}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMobileBroadbandUiccApp's vtable slot 6.
+func (self *IIteratorOfMobileBroadbandUiccApp) Current() (*IMobileBroadbandUiccApp, error) {
+	result := new(*IMobileBroadbandUiccApp)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMobileBroadbandUiccApp's vtable slot 7.
+func (self *IIteratorOfMobileBroadbandUiccApp) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMobileBroadbandUiccApp's vtable slot 8.
+func (self *IIteratorOfMobileBroadbandUiccApp) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfNetworkOperatorTetheringClient is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient>.
+// IID: 5653d065-c708-5341-bc05-d3b9cecd2ac7
+type IIteratorOfNetworkOperatorTetheringClient struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfNetworkOperatorTetheringClient is the interface identifier for IIteratorOfNetworkOperatorTetheringClient.
+var IID_IIteratorOfNetworkOperatorTetheringClient = win32.GUID{Data1: 0x5653d065, Data2: 0xc708, Data3: 0x5341, Data4: [8]byte{0xbc, 0x05, 0xd3, 0xb9, 0xce, 0xcd, 0x2a, 0xc7}}
+
+// Current (propget get_Current) dispatches through IIteratorOfNetworkOperatorTetheringClient's vtable slot 6.
+func (self *IIteratorOfNetworkOperatorTetheringClient) Current() (*INetworkOperatorTetheringClient, error) {
+	result := new(*INetworkOperatorTetheringClient)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfNetworkOperatorTetheringClient's vtable slot 7.
+func (self *IIteratorOfNetworkOperatorTetheringClient) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfNetworkOperatorTetheringClient's vtable slot 8.
+func (self *IIteratorOfNetworkOperatorTetheringClient) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -1415,6 +2757,25 @@ func (self *IVectorViewOfConnectionProfile) IndexOf(value *networkingconnectivit
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfConnectionProfile creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Connectivity.ConnectionProfile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfConnectionProfile(items []*networkingconnectivity.IConnectionProfile) *IVectorViewOfConnectionProfile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.Connectivity.ConnectionProfile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfConnectionProfile, Iterator: IID_IIteratorOfConnectionProfile, VectorView: IID_IVectorViewOfConnectionProfile}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfConnectionProfile)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfESimDiscoverEvent is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.ESimDiscoverEvent>.
 // IID: 21277446-c556-5fcf-8d2d-f2cd061f2603
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.ESimDiscoverEvent>.
@@ -1447,6 +2808,25 @@ func (self *IVectorViewOfESimDiscoverEvent) IndexOf(value *IESimDiscoverEvent, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfESimDiscoverEvent creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.ESimDiscoverEvent>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfESimDiscoverEvent(items []*IESimDiscoverEvent) *IVectorViewOfESimDiscoverEvent {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.ESimDiscoverEvent>", winrt.CollectionIIDs{Iterable: IID_IIterableOfESimDiscoverEvent, Iterator: IID_IIteratorOfESimDiscoverEvent, VectorView: IID_IVectorViewOfESimDiscoverEvent}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfESimDiscoverEvent)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfESimProfile is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.ESimProfile>.
 // IID: c776f3a9-6e7f-5144-89f7-8f5ec1165ba4
@@ -1481,6 +2861,25 @@ func (self *IVectorViewOfESimProfile) IndexOf(value *IESimProfile, index *uint32
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfESimProfile creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.ESimProfile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfESimProfile(items []*IESimProfile) *IVectorViewOfESimProfile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.ESimProfile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfESimProfile, Iterator: IID_IIteratorOfESimProfile, VectorView: IID_IVectorViewOfESimProfile}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfESimProfile)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHostName is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.HostName>.
 // IID: f4706ab1-55a3-5270-afb2-732988fe8227
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.HostName>.
@@ -1513,6 +2912,25 @@ func (self *IVectorViewOfHostName) IndexOf(value *networking.IHostName, index *u
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHostName creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.HostName>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHostName(items []*networking.IHostName) *IVectorViewOfHostName {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.HostName>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHostName, Iterator: IID_IIteratorOfHostName, VectorView: IID_IVectorViewOfHostName}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHostName)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfMobileBroadbandAntennaSar is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar>.
 // IID: 8a4ad36c-8b24-5f2c-ad6f-6a936a17bfc6
@@ -1547,6 +2965,25 @@ func (self *IVectorViewOfMobileBroadbandAntennaSar) IndexOf(value *IMobileBroadb
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMobileBroadbandAntennaSar creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandAntennaSar(items []*IMobileBroadbandAntennaSar) *IVectorViewOfMobileBroadbandAntennaSar {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandAntennaSar, Iterator: IID_IIteratorOfMobileBroadbandAntennaSar, VectorView: IID_IVectorViewOfMobileBroadbandAntennaSar}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandAntennaSar)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMobileBroadbandCellCdma is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellCdma>.
 // IID: 2896bc34-7401-5d22-bf9f-db825d09c951
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellCdma>.
@@ -1579,6 +3016,25 @@ func (self *IVectorViewOfMobileBroadbandCellCdma) IndexOf(value *IMobileBroadban
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMobileBroadbandCellCdma creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellCdma>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandCellCdma(items []*IMobileBroadbandCellCdma) *IVectorViewOfMobileBroadbandCellCdma {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellCdma>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellCdma, Iterator: IID_IIteratorOfMobileBroadbandCellCdma, VectorView: IID_IVectorViewOfMobileBroadbandCellCdma}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandCellCdma)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfMobileBroadbandCellGsm is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellGsm>.
 // IID: f77a0168-0396-5111-a487-a795f24646b7
@@ -1613,6 +3069,25 @@ func (self *IVectorViewOfMobileBroadbandCellGsm) IndexOf(value *IMobileBroadband
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMobileBroadbandCellGsm creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellGsm>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandCellGsm(items []*IMobileBroadbandCellGsm) *IVectorViewOfMobileBroadbandCellGsm {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellGsm>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellGsm, Iterator: IID_IIteratorOfMobileBroadbandCellGsm, VectorView: IID_IVectorViewOfMobileBroadbandCellGsm}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandCellGsm)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMobileBroadbandCellLte is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellLte>.
 // IID: 2270ad53-49a0-55b3-9356-007c3b8c2de3
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellLte>.
@@ -1645,6 +3120,25 @@ func (self *IVectorViewOfMobileBroadbandCellLte) IndexOf(value *IMobileBroadband
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMobileBroadbandCellLte creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellLte>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandCellLte(items []*IMobileBroadbandCellLte) *IVectorViewOfMobileBroadbandCellLte {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellLte>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellLte, Iterator: IID_IIteratorOfMobileBroadbandCellLte, VectorView: IID_IVectorViewOfMobileBroadbandCellLte}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandCellLte)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfMobileBroadbandCellNR is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellNR>.
 // IID: 66a9879f-9612-5e02-9c3d-943b09db4d35
@@ -1679,6 +3173,25 @@ func (self *IVectorViewOfMobileBroadbandCellNR) IndexOf(value *IMobileBroadbandC
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMobileBroadbandCellNR creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellNR>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandCellNR(items []*IMobileBroadbandCellNR) *IVectorViewOfMobileBroadbandCellNR {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellNR>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellNR, Iterator: IID_IIteratorOfMobileBroadbandCellNR, VectorView: IID_IVectorViewOfMobileBroadbandCellNR}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandCellNR)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMobileBroadbandCellTdscdma is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma>.
 // IID: 4ae9135f-6029-54af-8ae6-432c12afcedf
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma>.
@@ -1711,6 +3224,25 @@ func (self *IVectorViewOfMobileBroadbandCellTdscdma) IndexOf(value *IMobileBroad
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMobileBroadbandCellTdscdma creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandCellTdscdma(items []*IMobileBroadbandCellTdscdma) *IVectorViewOfMobileBroadbandCellTdscdma {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellTdscdma, Iterator: IID_IIteratorOfMobileBroadbandCellTdscdma, VectorView: IID_IVectorViewOfMobileBroadbandCellTdscdma}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandCellTdscdma)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfMobileBroadbandCellUmts is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellUmts>.
 // IID: b0e94bd2-2dd2-532d-960f-4d1a8185b021
@@ -1745,6 +3277,25 @@ func (self *IVectorViewOfMobileBroadbandCellUmts) IndexOf(value *IMobileBroadban
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMobileBroadbandCellUmts creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellUmts>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandCellUmts(items []*IMobileBroadbandCellUmts) *IVectorViewOfMobileBroadbandCellUmts {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandCellUmts>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandCellUmts, Iterator: IID_IIteratorOfMobileBroadbandCellUmts, VectorView: IID_IVectorViewOfMobileBroadbandCellUmts}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandCellUmts)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMobileBroadbandDeviceServiceInformation is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation>.
 // IID: aca7ee14-414a-509c-9d63-361e6631fc84
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation>.
@@ -1777,6 +3328,25 @@ func (self *IVectorViewOfMobileBroadbandDeviceServiceInformation) IndexOf(value 
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMobileBroadbandDeviceServiceInformation creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandDeviceServiceInformation(items []*IMobileBroadbandDeviceServiceInformation) *IVectorViewOfMobileBroadbandDeviceServiceInformation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandDeviceServiceInformation, Iterator: IID_IIteratorOfMobileBroadbandDeviceServiceInformation, VectorView: IID_IVectorViewOfMobileBroadbandDeviceServiceInformation}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandDeviceServiceInformation)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfMobileBroadbandNetworkRegistrationStateChange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange>.
 // IID: 077679f5-6948-5328-8ab4-72e63a7529bd
@@ -1811,6 +3381,25 @@ func (self *IVectorViewOfMobileBroadbandNetworkRegistrationStateChange) IndexOf(
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMobileBroadbandNetworkRegistrationStateChange creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandNetworkRegistrationStateChange(items []*IMobileBroadbandNetworkRegistrationStateChange) *IVectorViewOfMobileBroadbandNetworkRegistrationStateChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandNetworkRegistrationStateChange, Iterator: IID_IIteratorOfMobileBroadbandNetworkRegistrationStateChange, VectorView: IID_IVectorViewOfMobileBroadbandNetworkRegistrationStateChange}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandNetworkRegistrationStateChange)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMobileBroadbandPinLockStateChange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange>.
 // IID: 2078b5f0-9fa1-5056-81c7-490246a5bc13
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange>.
@@ -1843,6 +3432,25 @@ func (self *IVectorViewOfMobileBroadbandPinLockStateChange) IndexOf(value *IMobi
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMobileBroadbandPinLockStateChange creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandPinLockStateChange(items []*IMobileBroadbandPinLockStateChange) *IVectorViewOfMobileBroadbandPinLockStateChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandPinLockStateChange, Iterator: IID_IIteratorOfMobileBroadbandPinLockStateChange, VectorView: IID_IVectorViewOfMobileBroadbandPinLockStateChange}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandPinLockStateChange)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfMobileBroadbandPinType is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandPinType>.
 // IID: 33394c13-028c-553e-867b-3c7c21b6f22d
@@ -1877,6 +3485,21 @@ func (self *IVectorViewOfMobileBroadbandPinType) IndexOf(value MobileBroadbandPi
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMobileBroadbandPinType creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandPinType>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfMobileBroadbandPinType(items []MobileBroadbandPinType) *IVectorViewOfMobileBroadbandPinType {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandPinType>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandPinType, Iterator: IID_IIteratorOfMobileBroadbandPinType, VectorView: IID_IVectorViewOfMobileBroadbandPinType}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfMobileBroadbandPinType)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMobileBroadbandRadioStateChange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange>.
 // IID: ca3d0221-58c8-516a-addf-d0a869fbaa49
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange>.
@@ -1909,6 +3532,25 @@ func (self *IVectorViewOfMobileBroadbandRadioStateChange) IndexOf(value *IMobile
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMobileBroadbandRadioStateChange creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandRadioStateChange(items []*IMobileBroadbandRadioStateChange) *IVectorViewOfMobileBroadbandRadioStateChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandRadioStateChange, Iterator: IID_IIteratorOfMobileBroadbandRadioStateChange, VectorView: IID_IVectorViewOfMobileBroadbandRadioStateChange}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandRadioStateChange)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfMobileBroadbandSlotInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo>.
 // IID: c72d12ee-6a4a-5980-ad00-8bf7fc854855
@@ -1943,6 +3585,25 @@ func (self *IVectorViewOfMobileBroadbandSlotInfo) IndexOf(value *IMobileBroadban
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMobileBroadbandSlotInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandSlotInfo(items []*IMobileBroadbandSlotInfo) *IVectorViewOfMobileBroadbandSlotInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandSlotInfo, Iterator: IID_IIteratorOfMobileBroadbandSlotInfo, VectorView: IID_IVectorViewOfMobileBroadbandSlotInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandSlotInfo)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMobileBroadbandUiccApp is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandUiccApp>.
 // IID: d1e341f3-4e36-58c5-92bf-dd33092e390c
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.MobileBroadbandUiccApp>.
@@ -1976,6 +3637,25 @@ func (self *IVectorViewOfMobileBroadbandUiccApp) IndexOf(value *IMobileBroadband
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMobileBroadbandUiccApp creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandUiccApp>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMobileBroadbandUiccApp(items []*IMobileBroadbandUiccApp) *IVectorViewOfMobileBroadbandUiccApp {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.MobileBroadbandUiccApp>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMobileBroadbandUiccApp, Iterator: IID_IIteratorOfMobileBroadbandUiccApp, VectorView: IID_IVectorViewOfMobileBroadbandUiccApp}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMobileBroadbandUiccApp)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfNetworkOperatorTetheringClient is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient>.
 // IID: e21d6797-4ef6-553f-b7f9-5ed74bcebd7e
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient>.
@@ -2008,6 +3688,25 @@ func (self *IVectorViewOfNetworkOperatorTetheringClient) IndexOf(value *INetwork
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfNetworkOperatorTetheringClient creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfNetworkOperatorTetheringClient(items []*INetworkOperatorTetheringClient) *IVectorViewOfNetworkOperatorTetheringClient {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient>", winrt.CollectionIIDs{Iterable: IID_IIterableOfNetworkOperatorTetheringClient, Iterator: IID_IIteratorOfNetworkOperatorTetheringClient, VectorView: IID_IVectorViewOfNetworkOperatorTetheringClient}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfNetworkOperatorTetheringClient)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -2050,6 +3749,22 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUInt32 is the WinRT interface Windows.Foundation.Collections.IVectorView`1<UInt32>.
 // IID: e5ce1a07-8d33-5007-ba64-7d2508ccf85c
 // Requires: Windows.Foundation.Collections.IIterable`1<UInt32>.
@@ -2082,3 +3797,18 @@ func (self *IVectorViewOfUInt32) IndexOf(value uint32, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUInt32 creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<UInt32>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfUInt32(items []uint32) *IVectorViewOfUInt32 {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<UInt32>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUInt32, Iterator: IID_IIteratorOfUInt32, VectorView: IID_IVectorViewOfUInt32}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfUInt32)(unsafe.Pointer(obj))
+}

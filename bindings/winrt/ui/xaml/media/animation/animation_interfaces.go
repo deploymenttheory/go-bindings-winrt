@@ -80,9 +80,8 @@ type IBasicConnectedAnimationConfigurationFactory struct {
 var IID_IBasicConnectedAnimationConfigurationFactory = win32.GUID{Data1: 0x95e6844a, Data2: 0x4377, Data3: 0x503c, Data4: [8]byte{0xbe, 0xe2, 0x11, 0xdf, 0xcd, 0x55, 0x70, 0xe6}}
 
 // CreateInstance dispatches through IBasicConnectedAnimationConfigurationFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration is projected as IInspectable (the class is not emitted this wave).
-func (self *IBasicConnectedAnimationConfigurationFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IBasicConnectedAnimationConfigurationFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IBasicConnectedAnimationConfiguration, error) {
+	result := new(*IBasicConnectedAnimationConfiguration)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -98,16 +97,14 @@ type IBeginStoryboard struct {
 var IID_IBeginStoryboard = win32.GUID{Data1: 0x64189fcd, Data2: 0x49ec, Data3: 0x4e52, Data4: [8]byte{0xa6, 0xf6, 0x55, 0x32, 0x4c, 0x92, 0x10, 0x53}}
 
 // Storyboard (propget get_Storyboard) dispatches through IBeginStoryboard's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.Storyboard is projected as IInspectable (the class is not emitted this wave).
-func (self *IBeginStoryboard) Storyboard() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IBeginStoryboard) Storyboard() (*IStoryboard, error) {
+	result := new(*IStoryboard)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetStoryboard (propput put_Storyboard) dispatches through IBeginStoryboard's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.Storyboard is projected as IInspectable (the class is not emitted this wave).
-func (self *IBeginStoryboard) SetStoryboard(value *syswinrt.IInspectable) error {
+func (self *IBeginStoryboard) SetStoryboard(value *IStoryboard) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -240,16 +237,14 @@ func (self *IColorAnimation) SetBy(value *IReferenceOfColor) error {
 }
 
 // EasingFunction (propget get_EasingFunction) dispatches through IColorAnimation's vtable slot 12.
-// The return value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IColorAnimation) EasingFunction() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IColorAnimation) EasingFunction() (*IEasingFunctionBase, error) {
+	result := new(*IEasingFunctionBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetEasingFunction (propput put_EasingFunction) dispatches through IColorAnimation's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IColorAnimation) SetEasingFunction(value *syswinrt.IInspectable) error {
+func (self *IColorAnimation) SetEasingFunction(value *IEasingFunctionBase) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -327,7 +322,7 @@ type IColorAnimationUsingKeyFrames struct {
 var IID_IColorAnimationUsingKeyFrames = win32.GUID{Data1: 0xf5c82640, Data2: 0x13c3, Data3: 0x42aa, Data4: [8]byte{0x9a, 0xe2, 0x7e, 0x6b, 0x51, 0xc9, 0x2f, 0x95}}
 
 // KeyFrames (propget get_KeyFrames) dispatches through IColorAnimationUsingKeyFrames's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.ColorKeyFrameCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Xaml.Media.Animation.ColorKeyFrameCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IColorAnimationUsingKeyFrames) KeyFrames() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -407,9 +402,8 @@ type IColorKeyFrameFactory struct {
 var IID_IColorKeyFrameFactory = win32.GUID{Data1: 0x769bd88a, Data2: 0x9cfb, Data3: 0x4a7d, Data4: [8]byte{0x96, 0xc4, 0xa1, 0xe7, 0xde, 0x6f, 0xdb, 0x4b}}
 
 // CreateInstance dispatches through IColorKeyFrameFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.ColorKeyFrame is projected as IInspectable (the class is not emitted this wave).
-func (self *IColorKeyFrameFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IColorKeyFrameFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IColorKeyFrame, error) {
+	result := new(*IColorKeyFrame)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -490,16 +484,14 @@ func (self *ICommonNavigationTransitionInfoStatics) IsStaggerElementProperty() (
 }
 
 // GetIsStaggerElement dispatches through ICommonNavigationTransitionInfoStatics's vtable slot 8.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *ICommonNavigationTransitionInfoStatics) GetIsStaggerElement(element *syswinrt.IInspectable) (bool, error) {
+func (self *ICommonNavigationTransitionInfoStatics) GetIsStaggerElement(element *uixaml.IUIElement) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetIsStaggerElement dispatches through ICommonNavigationTransitionInfoStatics's vtable slot 9.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *ICommonNavigationTransitionInfoStatics) SetIsStaggerElement(element *syswinrt.IInspectable, value bool) error {
+func (self *ICommonNavigationTransitionInfoStatics) SetIsStaggerElement(element *uixaml.IUIElement, value bool) error {
 	_value := uintptr(0)
 	if value {
 		_value = 1
@@ -535,8 +527,7 @@ func (self *IConnectedAnimation) RemoveCompleted(token syswinrt.EventRegistratio
 }
 
 // TryStart dispatches through IConnectedAnimation's vtable slot 8.
-// Parameter destination's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IConnectedAnimation) TryStart(destination *syswinrt.IInspectable) (bool, error) {
+func (self *IConnectedAnimation) TryStart(destination *uixaml.IUIElement) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(destination)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -576,8 +567,7 @@ func (self *IConnectedAnimation2) SetIsScaleAnimationEnabled(value bool) error {
 }
 
 // TryStartWithCoordinatedElements dispatches through IConnectedAnimation2's vtable slot 8.
-// Parameter destination's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IConnectedAnimation2) TryStartWithCoordinatedElements(destination *syswinrt.IInspectable, coordinatedElements *IIterableOfUIElement) (bool, error) {
+func (self *IConnectedAnimation2) TryStartWithCoordinatedElements(destination *uixaml.IUIElement, coordinatedElements *IIterableOfUIElement) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(destination)), uintptr(unsafe.Pointer(coordinatedElements)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -656,23 +646,20 @@ func (self *IConnectedAnimationService) SetDefaultDuration(value foundation.Time
 }
 
 // DefaultEasingFunction (propget get_DefaultEasingFunction) dispatches through IConnectedAnimationService's vtable slot 8.
-// The return value's class Windows.UI.Composition.CompositionEasingFunction is projected as IInspectable (the class is not emitted this wave).
-func (self *IConnectedAnimationService) DefaultEasingFunction() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IConnectedAnimationService) DefaultEasingFunction() (*uicomposition.ICompositionEasingFunction, error) {
+	result := new(*uicomposition.ICompositionEasingFunction)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDefaultEasingFunction (propput put_DefaultEasingFunction) dispatches through IConnectedAnimationService's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.CompositionEasingFunction is projected as IInspectable (the class is not emitted this wave).
-func (self *IConnectedAnimationService) SetDefaultEasingFunction(value *syswinrt.IInspectable) error {
+func (self *IConnectedAnimationService) SetDefaultEasingFunction(value *uicomposition.ICompositionEasingFunction) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // PrepareToAnimate dispatches through IConnectedAnimationService's vtable slot 10.
-// Parameter source's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IConnectedAnimationService) PrepareToAnimate(key string, source *syswinrt.IInspectable) (*IConnectedAnimation, error) {
+func (self *IConnectedAnimationService) PrepareToAnimate(key string, source *uixaml.IUIElement) (*IConnectedAnimation, error) {
 	hKey, err := winrt.NewHString(key)
 	if err != nil {
 		return nil, err
@@ -765,16 +752,14 @@ type IContinuumNavigationTransitionInfo struct {
 var IID_IContinuumNavigationTransitionInfo = win32.GUID{Data1: 0x4be1dbad, Data2: 0x8ba6, Data3: 0x4004, Data4: [8]byte{0x84, 0x38, 0x8a, 0x90, 0x17, 0x97, 0x85, 0x43}}
 
 // ExitElement (propget get_ExitElement) dispatches through IContinuumNavigationTransitionInfo's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IContinuumNavigationTransitionInfo) ExitElement() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IContinuumNavigationTransitionInfo) ExitElement() (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetExitElement (propput put_ExitElement) dispatches through IContinuumNavigationTransitionInfo's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IContinuumNavigationTransitionInfo) SetExitElement(value *syswinrt.IInspectable) error {
+func (self *IContinuumNavigationTransitionInfo) SetExitElement(value *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -804,16 +789,14 @@ func (self *IContinuumNavigationTransitionInfoStatics) IsEntranceElementProperty
 }
 
 // GetIsEntranceElement dispatches through IContinuumNavigationTransitionInfoStatics's vtable slot 8.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IContinuumNavigationTransitionInfoStatics) GetIsEntranceElement(element *syswinrt.IInspectable) (bool, error) {
+func (self *IContinuumNavigationTransitionInfoStatics) GetIsEntranceElement(element *uixaml.IUIElement) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetIsEntranceElement dispatches through IContinuumNavigationTransitionInfoStatics's vtable slot 9.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IContinuumNavigationTransitionInfoStatics) SetIsEntranceElement(element *syswinrt.IInspectable, value bool) error {
+func (self *IContinuumNavigationTransitionInfoStatics) SetIsEntranceElement(element *uixaml.IUIElement, value bool) error {
 	_value := uintptr(0)
 	if value {
 		_value = 1
@@ -830,16 +813,14 @@ func (self *IContinuumNavigationTransitionInfoStatics) IsExitElementProperty() (
 }
 
 // GetIsExitElement dispatches through IContinuumNavigationTransitionInfoStatics's vtable slot 11.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IContinuumNavigationTransitionInfoStatics) GetIsExitElement(element *syswinrt.IInspectable) (bool, error) {
+func (self *IContinuumNavigationTransitionInfoStatics) GetIsExitElement(element *uixaml.IUIElement) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetIsExitElement dispatches through IContinuumNavigationTransitionInfoStatics's vtable slot 12.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IContinuumNavigationTransitionInfoStatics) SetIsExitElement(element *syswinrt.IInspectable, value bool) error {
+func (self *IContinuumNavigationTransitionInfoStatics) SetIsExitElement(element *uixaml.IUIElement, value bool) error {
 	_value := uintptr(0)
 	if value {
 		_value = 1
@@ -890,9 +871,8 @@ type IDirectConnectedAnimationConfigurationFactory struct {
 var IID_IDirectConnectedAnimationConfigurationFactory = win32.GUID{Data1: 0x059263e9, Data2: 0xd2b3, Data3: 0x5a77, Data4: [8]byte{0x9c, 0xf4, 0xe2, 0x6d, 0x8b, 0x54, 0x26, 0x08}}
 
 // CreateInstance dispatches through IDirectConnectedAnimationConfigurationFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration is projected as IInspectable (the class is not emitted this wave).
-func (self *IDirectConnectedAnimationConfigurationFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IDirectConnectedAnimationConfigurationFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IDirectConnectedAnimationConfiguration, error) {
+	result := new(*IDirectConnectedAnimationConfiguration)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -987,16 +967,14 @@ func (self *IDoubleAnimation) SetBy(value *IReferenceOfDouble) error {
 }
 
 // EasingFunction (propget get_EasingFunction) dispatches through IDoubleAnimation's vtable slot 12.
-// The return value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IDoubleAnimation) EasingFunction() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IDoubleAnimation) EasingFunction() (*IEasingFunctionBase, error) {
+	result := new(*IEasingFunctionBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetEasingFunction (propput put_EasingFunction) dispatches through IDoubleAnimation's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IDoubleAnimation) SetEasingFunction(value *syswinrt.IInspectable) error {
+func (self *IDoubleAnimation) SetEasingFunction(value *IEasingFunctionBase) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1074,7 +1052,7 @@ type IDoubleAnimationUsingKeyFrames struct {
 var IID_IDoubleAnimationUsingKeyFrames = win32.GUID{Data1: 0x4fee628f, Data2: 0xbfee, Data3: 0x4f75, Data4: [8]byte{0x83, 0xc2, 0xa9, 0x3b, 0x39, 0x48, 0x84, 0x73}}
 
 // KeyFrames (propget get_KeyFrames) dispatches through IDoubleAnimationUsingKeyFrames's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.DoubleKeyFrameCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Xaml.Media.Animation.DoubleKeyFrameCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IDoubleAnimationUsingKeyFrames) KeyFrames() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -1149,9 +1127,8 @@ type IDoubleKeyFrameFactory struct {
 var IID_IDoubleKeyFrameFactory = win32.GUID{Data1: 0xac97dec3, Data2: 0x7538, Data3: 0x40b9, Data4: [8]byte{0xb1, 0x52, 0x69, 0x6f, 0x7f, 0xbf, 0x47, 0x22}}
 
 // CreateInstance dispatches through IDoubleKeyFrameFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.DoubleKeyFrame is projected as IInspectable (the class is not emitted this wave).
-func (self *IDoubleKeyFrameFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IDoubleKeyFrameFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IDoubleKeyFrame, error) {
+	result := new(*IDoubleKeyFrame)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -1608,16 +1585,14 @@ type IEasingColorKeyFrame struct {
 var IID_IEasingColorKeyFrame = win32.GUID{Data1: 0xc733d630, Data2: 0xf4b9, Data3: 0x4934, Data4: [8]byte{0x9b, 0xdd, 0x27, 0xac, 0x5e, 0xd1, 0xcf, 0xd8}}
 
 // EasingFunction (propget get_EasingFunction) dispatches through IEasingColorKeyFrame's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IEasingColorKeyFrame) EasingFunction() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IEasingColorKeyFrame) EasingFunction() (*IEasingFunctionBase, error) {
+	result := new(*IEasingFunctionBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetEasingFunction (propput put_EasingFunction) dispatches through IEasingColorKeyFrame's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IEasingColorKeyFrame) SetEasingFunction(value *syswinrt.IInspectable) error {
+func (self *IEasingColorKeyFrame) SetEasingFunction(value *IEasingFunctionBase) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1650,16 +1625,14 @@ type IEasingDoubleKeyFrame struct {
 var IID_IEasingDoubleKeyFrame = win32.GUID{Data1: 0x965adb8d, Data2: 0x9a54, Data3: 0x4108, Data4: [8]byte{0xb4, 0xff, 0xb5, 0xa5, 0x21, 0x2c, 0xb3, 0x38}}
 
 // EasingFunction (propget get_EasingFunction) dispatches through IEasingDoubleKeyFrame's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IEasingDoubleKeyFrame) EasingFunction() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IEasingDoubleKeyFrame) EasingFunction() (*IEasingFunctionBase, error) {
+	result := new(*IEasingFunctionBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetEasingFunction (propput put_EasingFunction) dispatches through IEasingDoubleKeyFrame's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IEasingDoubleKeyFrame) SetEasingFunction(value *syswinrt.IInspectable) error {
+func (self *IEasingDoubleKeyFrame) SetEasingFunction(value *IEasingFunctionBase) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1744,16 +1717,14 @@ type IEasingPointKeyFrame struct {
 var IID_IEasingPointKeyFrame = win32.GUID{Data1: 0xb3c91380, Data2: 0x6868, Data3: 0x4225, Data4: [8]byte{0xa7, 0x0b, 0x39, 0x81, 0xcc, 0x0b, 0x29, 0x47}}
 
 // EasingFunction (propget get_EasingFunction) dispatches through IEasingPointKeyFrame's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IEasingPointKeyFrame) EasingFunction() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IEasingPointKeyFrame) EasingFunction() (*IEasingFunctionBase, error) {
+	result := new(*IEasingFunctionBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetEasingFunction (propput put_EasingFunction) dispatches through IEasingPointKeyFrame's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IEasingPointKeyFrame) SetEasingFunction(value *syswinrt.IInspectable) error {
+func (self *IEasingPointKeyFrame) SetEasingFunction(value *IEasingFunctionBase) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -1894,16 +1865,14 @@ func (self *IEntranceNavigationTransitionInfoStatics) IsTargetElementProperty() 
 }
 
 // GetIsTargetElement dispatches through IEntranceNavigationTransitionInfoStatics's vtable slot 7.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IEntranceNavigationTransitionInfoStatics) GetIsTargetElement(element *syswinrt.IInspectable) (bool, error) {
+func (self *IEntranceNavigationTransitionInfoStatics) GetIsTargetElement(element *uixaml.IUIElement) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetIsTargetElement dispatches through IEntranceNavigationTransitionInfoStatics's vtable slot 8.
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IEntranceNavigationTransitionInfoStatics) SetIsTargetElement(element *syswinrt.IInspectable, value bool) error {
+func (self *IEntranceNavigationTransitionInfoStatics) SetIsTargetElement(element *uixaml.IUIElement, value bool) error {
 	_value := uintptr(0)
 	if value {
 		_value = 1
@@ -2153,9 +2122,8 @@ type IGravityConnectedAnimationConfigurationFactory struct {
 var IID_IGravityConnectedAnimationConfigurationFactory = win32.GUID{Data1: 0xe822c41f, Data2: 0x3656, Data3: 0x5090, Data4: [8]byte{0x92, 0xf5, 0xc2, 0x17, 0xea, 0xac, 0xb6, 0x82}}
 
 // CreateInstance dispatches through IGravityConnectedAnimationConfigurationFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration is projected as IInspectable (the class is not emitted this wave).
-func (self *IGravityConnectedAnimationConfigurationFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGravityConnectedAnimationConfigurationFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IGravityConnectedAnimationConfiguration, error) {
+	result := new(*IGravityConnectedAnimationConfiguration)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2256,16 +2224,14 @@ type INavigationThemeTransition struct {
 var IID_INavigationThemeTransition = win32.GUID{Data1: 0x8833848c, Data2: 0x4eb7, Data3: 0x41f2, Data4: [8]byte{0x87, 0x99, 0x9e, 0xef, 0x0a, 0x21, 0x3b, 0x73}}
 
 // DefaultNavigationTransitionInfo (propget get_DefaultNavigationTransitionInfo) dispatches through INavigationThemeTransition's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo is projected as IInspectable (the class is not emitted this wave).
-func (self *INavigationThemeTransition) DefaultNavigationTransitionInfo() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *INavigationThemeTransition) DefaultNavigationTransitionInfo() (*INavigationTransitionInfo, error) {
+	result := new(*INavigationTransitionInfo)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetDefaultNavigationTransitionInfo (propput put_DefaultNavigationTransitionInfo) dispatches through INavigationThemeTransition's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo is projected as IInspectable (the class is not emitted this wave).
-func (self *INavigationThemeTransition) SetDefaultNavigationTransitionInfo(value *syswinrt.IInspectable) error {
+func (self *INavigationThemeTransition) SetDefaultNavigationTransitionInfo(value *INavigationTransitionInfo) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2308,9 +2274,8 @@ type INavigationTransitionInfoFactory struct {
 var IID_INavigationTransitionInfoFactory = win32.GUID{Data1: 0xedf4f8d5, Data2: 0xaf63, Data3: 0x4fab, Data4: [8]byte{0x9d, 0x4a, 0x87, 0x92, 0x7f, 0x82, 0xdd, 0x6b}}
 
 // CreateInstance dispatches through INavigationTransitionInfoFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo is projected as IInspectable (the class is not emitted this wave).
-func (self *INavigationTransitionInfoFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *INavigationTransitionInfoFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*INavigationTransitionInfo, error) {
+	result := new(*INavigationTransitionInfo)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2357,7 +2322,7 @@ type IObjectAnimationUsingKeyFrames struct {
 var IID_IObjectAnimationUsingKeyFrames = win32.GUID{Data1: 0x334a2d92, Data2: 0xb74a, Data3: 0x4c64, Data4: [8]byte{0xb9, 0xa6, 0x58, 0xbc, 0xfa, 0x31, 0x4f, 0x22}}
 
 // KeyFrames (propget get_KeyFrames) dispatches through IObjectAnimationUsingKeyFrames's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IObjectAnimationUsingKeyFrames) KeyFrames() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -2441,9 +2406,8 @@ type IObjectKeyFrameFactory struct {
 var IID_IObjectKeyFrameFactory = win32.GUID{Data1: 0x1626143e, Data2: 0x3e6d, Data3: 0x44d8, Data4: [8]byte{0x9b, 0x9a, 0x04, 0xae, 0xa7, 0x0f, 0x84, 0x92}}
 
 // CreateInstance dispatches through IObjectKeyFrameFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.ObjectKeyFrame is projected as IInspectable (the class is not emitted this wave).
-func (self *IObjectKeyFrameFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IObjectKeyFrameFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IObjectKeyFrame, error) {
+	result := new(*IObjectKeyFrame)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -2562,16 +2526,14 @@ func (self *IPointAnimation) SetBy(value *IReferenceOfPoint) error {
 }
 
 // EasingFunction (propget get_EasingFunction) dispatches through IPointAnimation's vtable slot 12.
-// The return value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IPointAnimation) EasingFunction() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPointAnimation) EasingFunction() (*IEasingFunctionBase, error) {
+	result := new(*IEasingFunctionBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetEasingFunction (propput put_EasingFunction) dispatches through IPointAnimation's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.EasingFunctionBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IPointAnimation) SetEasingFunction(value *syswinrt.IInspectable) error {
+func (self *IPointAnimation) SetEasingFunction(value *IEasingFunctionBase) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -2649,7 +2611,7 @@ type IPointAnimationUsingKeyFrames struct {
 var IID_IPointAnimationUsingKeyFrames = win32.GUID{Data1: 0x9b944f72, Data2: 0x446a, Data3: 0x41d0, Data4: [8]byte{0xa1, 0x29, 0x41, 0xa6, 0x20, 0xf4, 0x59, 0x5d}}
 
 // KeyFrames (propget get_KeyFrames) dispatches through IPointAnimationUsingKeyFrames's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.PointKeyFrameCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Xaml.Media.Animation.PointKeyFrameCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IPointAnimationUsingKeyFrames) KeyFrames() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -2729,9 +2691,8 @@ type IPointKeyFrameFactory struct {
 var IID_IPointKeyFrameFactory = win32.GUID{Data1: 0xcb214bdf, Data2: 0x426a, Data3: 0x4392, Data4: [8]byte{0x83, 0x55, 0xc2, 0xae, 0x52, 0x85, 0x26, 0x23}}
 
 // CreateInstance dispatches through IPointKeyFrameFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.PointKeyFrame is projected as IInspectable (the class is not emitted this wave).
-func (self *IPointKeyFrameFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPointKeyFrameFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IPointKeyFrame, error) {
+	result := new(*IPointKeyFrame)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -3324,16 +3285,14 @@ type ISplineColorKeyFrame struct {
 var IID_ISplineColorKeyFrame = win32.GUID{Data1: 0x1a4a5941, Data2: 0x1fe0, Data3: 0x473a, Data4: [8]byte{0x8e, 0xfe, 0x43, 0x16, 0xd8, 0xc8, 0x62, 0x29}}
 
 // KeySpline (propget get_KeySpline) dispatches through ISplineColorKeyFrame's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.KeySpline is projected as IInspectable (the class is not emitted this wave).
-func (self *ISplineColorKeyFrame) KeySpline() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISplineColorKeyFrame) KeySpline() (*IKeySpline, error) {
+	result := new(*IKeySpline)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetKeySpline (propput put_KeySpline) dispatches through ISplineColorKeyFrame's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.KeySpline is projected as IInspectable (the class is not emitted this wave).
-func (self *ISplineColorKeyFrame) SetKeySpline(value *syswinrt.IInspectable) error {
+func (self *ISplineColorKeyFrame) SetKeySpline(value *IKeySpline) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -3366,16 +3325,14 @@ type ISplineDoubleKeyFrame struct {
 var IID_ISplineDoubleKeyFrame = win32.GUID{Data1: 0x00d72d38, Data2: 0x6b2b, Data3: 0x4843, Data4: [8]byte{0x83, 0x8e, 0xc8, 0xb1, 0x15, 0xee, 0xc8, 0x01}}
 
 // KeySpline (propget get_KeySpline) dispatches through ISplineDoubleKeyFrame's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.KeySpline is projected as IInspectable (the class is not emitted this wave).
-func (self *ISplineDoubleKeyFrame) KeySpline() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISplineDoubleKeyFrame) KeySpline() (*IKeySpline, error) {
+	result := new(*IKeySpline)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetKeySpline (propput put_KeySpline) dispatches through ISplineDoubleKeyFrame's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.KeySpline is projected as IInspectable (the class is not emitted this wave).
-func (self *ISplineDoubleKeyFrame) SetKeySpline(value *syswinrt.IInspectable) error {
+func (self *ISplineDoubleKeyFrame) SetKeySpline(value *IKeySpline) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -3408,16 +3365,14 @@ type ISplinePointKeyFrame struct {
 var IID_ISplinePointKeyFrame = win32.GUID{Data1: 0x0f19f306, Data2: 0x7036, Data3: 0x494f, Data4: [8]byte{0xbc, 0x3c, 0x78, 0x0d, 0xf0, 0xcc, 0x52, 0x4a}}
 
 // KeySpline (propget get_KeySpline) dispatches through ISplinePointKeyFrame's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.KeySpline is projected as IInspectable (the class is not emitted this wave).
-func (self *ISplinePointKeyFrame) KeySpline() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISplinePointKeyFrame) KeySpline() (*IKeySpline, error) {
+	result := new(*IKeySpline)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetKeySpline (propput put_KeySpline) dispatches through ISplinePointKeyFrame's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.KeySpline is projected as IInspectable (the class is not emitted this wave).
-func (self *ISplinePointKeyFrame) SetKeySpline(value *syswinrt.IInspectable) error {
+func (self *ISplinePointKeyFrame) SetKeySpline(value *IKeySpline) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -3906,7 +3861,7 @@ type IStoryboard struct {
 var IID_IStoryboard = win32.GUID{Data1: 0xd45c1e6e, Data2: 0x3594, Data3: 0x460e, Data4: [8]byte{0x98, 0x1a, 0x32, 0x27, 0x1b, 0xd3, 0xaa, 0x06}}
 
 // Children (propget get_Children) dispatches through IStoryboard's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.TimelineCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Xaml.Media.Animation.TimelineCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IStoryboard) Children() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -3987,8 +3942,7 @@ func (self *IStoryboardStatics) TargetPropertyProperty() (*uixaml.IDependencyPro
 }
 
 // GetTargetProperty dispatches through IStoryboardStatics's vtable slot 7.
-// Parameter element's class Windows.UI.Xaml.Media.Animation.Timeline is projected as IInspectable (the class is not emitted this wave).
-func (self *IStoryboardStatics) GetTargetProperty(element *syswinrt.IInspectable) (string, error) {
+func (self *IStoryboardStatics) GetTargetProperty(element *ITimeline) (string, error) {
 	result := new(syswinrt.HSTRING)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
@@ -3998,8 +3952,7 @@ func (self *IStoryboardStatics) GetTargetProperty(element *syswinrt.IInspectable
 }
 
 // SetTargetProperty dispatches through IStoryboardStatics's vtable slot 8.
-// Parameter element's class Windows.UI.Xaml.Media.Animation.Timeline is projected as IInspectable (the class is not emitted this wave).
-func (self *IStoryboardStatics) SetTargetProperty(element *syswinrt.IInspectable, path string) error {
+func (self *IStoryboardStatics) SetTargetProperty(element *ITimeline, path string) error {
 	hPath, err := winrt.NewHString(path)
 	if err != nil {
 		return err
@@ -4017,8 +3970,7 @@ func (self *IStoryboardStatics) TargetNameProperty() (*uixaml.IDependencyPropert
 }
 
 // GetTargetName dispatches through IStoryboardStatics's vtable slot 10.
-// Parameter element's class Windows.UI.Xaml.Media.Animation.Timeline is projected as IInspectable (the class is not emitted this wave).
-func (self *IStoryboardStatics) GetTargetName(element *syswinrt.IInspectable) (string, error) {
+func (self *IStoryboardStatics) GetTargetName(element *ITimeline) (string, error) {
 	result := new(syswinrt.HSTRING)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	if err := win32.ErrIfFailed(int32(r1)); err != nil {
@@ -4028,8 +3980,7 @@ func (self *IStoryboardStatics) GetTargetName(element *syswinrt.IInspectable) (s
 }
 
 // SetTargetName dispatches through IStoryboardStatics's vtable slot 11.
-// Parameter element's class Windows.UI.Xaml.Media.Animation.Timeline is projected as IInspectable (the class is not emitted this wave).
-func (self *IStoryboardStatics) SetTargetName(element *syswinrt.IInspectable, name string) error {
+func (self *IStoryboardStatics) SetTargetName(element *ITimeline, name string) error {
 	hName, err := winrt.NewHString(name)
 	if err != nil {
 		return err
@@ -4040,8 +3991,7 @@ func (self *IStoryboardStatics) SetTargetName(element *syswinrt.IInspectable, na
 }
 
 // SetTarget dispatches through IStoryboardStatics's vtable slot 12.
-// Parameter timeline's class Windows.UI.Xaml.Media.Animation.Timeline is projected as IInspectable (the class is not emitted this wave).
-func (self *IStoryboardStatics) SetTarget(timeline *syswinrt.IInspectable, target *uixaml.IDependencyObject) error {
+func (self *IStoryboardStatics) SetTarget(timeline *ITimeline, target *uixaml.IDependencyObject) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(timeline)), uintptr(unsafe.Pointer(target)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -4298,9 +4248,8 @@ type ITimelineFactory struct {
 var IID_ITimelineFactory = win32.GUID{Data1: 0x1d56bb07, Data2: 0xbda4, Data3: 0x478b, Data4: [8]byte{0x8a, 0xda, 0xeb, 0x04, 0xd5, 0x80, 0xcd, 0x5e}}
 
 // CreateInstance dispatches through ITimelineFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.Timeline is projected as IInspectable (the class is not emitted this wave).
-func (self *ITimelineFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ITimelineFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*ITimeline, error) {
+	result := new(*ITimeline)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

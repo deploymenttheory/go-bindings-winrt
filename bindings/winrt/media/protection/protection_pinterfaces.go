@@ -83,6 +83,73 @@ func (self *IAsyncOperationOfHdcpSetProtectionResult) Await() (HdcpSetProtection
 	return self.GetResults()
 }
 
+// IIterableOfRevocationAndRenewalItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Protection.RevocationAndRenewalItem>.
+// IID: 07015868-578c-556b-8a35-4039a35d1d92
+type IIterableOfRevocationAndRenewalItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfRevocationAndRenewalItem is the interface identifier for IIterableOfRevocationAndRenewalItem.
+var IID_IIterableOfRevocationAndRenewalItem = win32.GUID{Data1: 0x07015868, Data2: 0x578c, Data3: 0x556b, Data4: [8]byte{0x8a, 0x35, 0x40, 0x39, 0xa3, 0x5d, 0x1d, 0x92}}
+
+// First dispatches through IIterableOfRevocationAndRenewalItem's vtable slot 6.
+func (self *IIterableOfRevocationAndRenewalItem) First() (*IIteratorOfRevocationAndRenewalItem, error) {
+	result := new(*IIteratorOfRevocationAndRenewalItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfRevocationAndRenewalItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Protection.RevocationAndRenewalItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfRevocationAndRenewalItem(items []*IRevocationAndRenewalItem) *IIterableOfRevocationAndRenewalItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Protection.RevocationAndRenewalItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRevocationAndRenewalItem, Iterator: IID_IIteratorOfRevocationAndRenewalItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfRevocationAndRenewalItem)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfRevocationAndRenewalItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Protection.RevocationAndRenewalItem>.
+// IID: dfb9655c-8b22-511f-8eaf-3aea7521802b
+type IIteratorOfRevocationAndRenewalItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfRevocationAndRenewalItem is the interface identifier for IIteratorOfRevocationAndRenewalItem.
+var IID_IIteratorOfRevocationAndRenewalItem = win32.GUID{Data1: 0xdfb9655c, Data2: 0x8b22, Data3: 0x511f, Data4: [8]byte{0x8e, 0xaf, 0x3a, 0xea, 0x75, 0x21, 0x80, 0x2b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfRevocationAndRenewalItem's vtable slot 6.
+func (self *IIteratorOfRevocationAndRenewalItem) Current() (*IRevocationAndRenewalItem, error) {
+	result := new(*IRevocationAndRenewalItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfRevocationAndRenewalItem's vtable slot 7.
+func (self *IIteratorOfRevocationAndRenewalItem) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfRevocationAndRenewalItem's vtable slot 8.
+func (self *IIteratorOfRevocationAndRenewalItem) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfHdcpProtection is the WinRT interface Windows.Foundation.IReference`1<Windows.Media.Protection.HdcpProtection>.
 // IID: 8e330979-2fef-5d68-88aa-a9ee6697d117
 // Requires: Windows.Foundation.IPropertyValue.
@@ -178,6 +245,28 @@ func (self *IVectorOfRevocationAndRenewalItem) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfRevocationAndRenewalItem creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Media.Protection.RevocationAndRenewalItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfRevocationAndRenewalItem(items []*IRevocationAndRenewalItem) *IVectorOfRevocationAndRenewalItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Media.Protection.RevocationAndRenewalItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRevocationAndRenewalItem, Iterator: IID_IIteratorOfRevocationAndRenewalItem, VectorView: IID_IVectorViewOfRevocationAndRenewalItem, Vector: IID_IVectorOfRevocationAndRenewalItem}, winrt.CodecInterface, boxed)
+	return (*IVectorOfRevocationAndRenewalItem)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfRevocationAndRenewalItem is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Protection.RevocationAndRenewalItem>.
 // IID: 4a8793e2-33b8-5850-9943-6a94375caa89
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Protection.RevocationAndRenewalItem>.
@@ -210,3 +299,22 @@ func (self *IVectorViewOfRevocationAndRenewalItem) IndexOf(value *IRevocationAnd
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfRevocationAndRenewalItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Protection.RevocationAndRenewalItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfRevocationAndRenewalItem(items []*IRevocationAndRenewalItem) *IVectorViewOfRevocationAndRenewalItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Protection.RevocationAndRenewalItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRevocationAndRenewalItem, Iterator: IID_IIteratorOfRevocationAndRenewalItem, VectorView: IID_IVectorViewOfRevocationAndRenewalItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfRevocationAndRenewalItem)(unsafe.Pointer(obj))
+}

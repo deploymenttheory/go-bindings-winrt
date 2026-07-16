@@ -7,8 +7,301 @@ package animation
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
+
+// AddDeleteThemeTransition is the Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition runtime class, surfaced through its
+// default interface IAddDeleteThemeTransition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AddDeleteThemeTransition struct {
+	IAddDeleteThemeTransition
+}
+
+// NewAddDeleteThemeTransition activates Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition through its default
+// constructor.
+func NewAddDeleteThemeTransition() (*AddDeleteThemeTransition, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[AddDeleteThemeTransition](unsafe.Pointer(instance), &IID_IAddDeleteThemeTransition)
+}
+
+// BackEase is the Windows.UI.Xaml.Media.Animation.BackEase runtime class, surfaced through its
+// default interface IBackEase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BackEase struct {
+	IBackEase
+}
+
+// NewBackEase activates Windows.UI.Xaml.Media.Animation.BackEase through its default
+// constructor.
+func NewBackEase() (*BackEase, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.BackEase")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[BackEase](unsafe.Pointer(instance), &IID_IBackEase)
+}
+
+// BackEaseStatics returns the Windows.UI.Xaml.Media.Animation.IBackEaseStatics statics of the
+// Windows.UI.Xaml.Media.Animation.BackEase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BackEaseStatics() (*IBackEaseStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.BackEase", &IID_IBackEaseStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBackEaseStatics)(unsafe.Pointer(factory)), nil
+}
+
+// BasicConnectedAnimationConfiguration is the Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration runtime class, surfaced through its
+// default interface IBasicConnectedAnimationConfiguration. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BasicConnectedAnimationConfiguration struct {
+	IBasicConnectedAnimationConfiguration
+}
+
+// NewBasicConnectedAnimationConfiguration constructs a Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration instance through
+// Windows.UI.Xaml.Media.Animation.IBasicConnectedAnimationConfigurationFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewBasicConnectedAnimationConfiguration() (*BasicConnectedAnimationConfiguration, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration", &IID_IBasicConnectedAnimationConfigurationFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IBasicConnectedAnimationConfigurationFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*BasicConnectedAnimationConfiguration)(unsafe.Pointer(instance)), nil
+}
+
+// BeginStoryboard is the Windows.UI.Xaml.Media.Animation.BeginStoryboard runtime class, surfaced through its
+// default interface IBeginStoryboard. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BeginStoryboard struct {
+	IBeginStoryboard
+}
+
+// NewBeginStoryboard activates Windows.UI.Xaml.Media.Animation.BeginStoryboard through its default
+// constructor.
+func NewBeginStoryboard() (*BeginStoryboard, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.BeginStoryboard")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[BeginStoryboard](unsafe.Pointer(instance), &IID_IBeginStoryboard)
+}
+
+// BeginStoryboardStatics returns the Windows.UI.Xaml.Media.Animation.IBeginStoryboardStatics statics of the
+// Windows.UI.Xaml.Media.Animation.BeginStoryboard runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BeginStoryboardStatics() (*IBeginStoryboardStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.BeginStoryboard", &IID_IBeginStoryboardStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBeginStoryboardStatics)(unsafe.Pointer(factory)), nil
+}
+
+// BounceEase is the Windows.UI.Xaml.Media.Animation.BounceEase runtime class, surfaced through its
+// default interface IBounceEase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BounceEase struct {
+	IBounceEase
+}
+
+// NewBounceEase activates Windows.UI.Xaml.Media.Animation.BounceEase through its default
+// constructor.
+func NewBounceEase() (*BounceEase, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.BounceEase")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[BounceEase](unsafe.Pointer(instance), &IID_IBounceEase)
+}
+
+// BounceEaseStatics returns the Windows.UI.Xaml.Media.Animation.IBounceEaseStatics statics of the
+// Windows.UI.Xaml.Media.Animation.BounceEase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func BounceEaseStatics() (*IBounceEaseStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.BounceEase", &IID_IBounceEaseStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IBounceEaseStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CircleEase is the Windows.UI.Xaml.Media.Animation.CircleEase runtime class, surfaced through its
+// default interface ICircleEase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CircleEase struct {
+	ICircleEase
+}
+
+// NewCircleEase activates Windows.UI.Xaml.Media.Animation.CircleEase through its default
+// constructor.
+func NewCircleEase() (*CircleEase, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.CircleEase")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[CircleEase](unsafe.Pointer(instance), &IID_ICircleEase)
+}
+
+// ColorAnimation is the Windows.UI.Xaml.Media.Animation.ColorAnimation runtime class, surfaced through its
+// default interface IColorAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ColorAnimation struct {
+	IColorAnimation
+}
+
+// NewColorAnimation activates Windows.UI.Xaml.Media.Animation.ColorAnimation through its default
+// constructor.
+func NewColorAnimation() (*ColorAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.ColorAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ColorAnimation](unsafe.Pointer(instance), &IID_IColorAnimation)
+}
+
+// ColorAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IColorAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.ColorAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ColorAnimationStatics() (*IColorAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.ColorAnimation", &IID_IColorAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IColorAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ColorAnimationUsingKeyFrames is the Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames runtime class, surfaced through its
+// default interface IColorAnimationUsingKeyFrames. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ColorAnimationUsingKeyFrames struct {
+	IColorAnimationUsingKeyFrames
+}
+
+// NewColorAnimationUsingKeyFrames activates Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames through its default
+// constructor.
+func NewColorAnimationUsingKeyFrames() (*ColorAnimationUsingKeyFrames, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ColorAnimationUsingKeyFrames](unsafe.Pointer(instance), &IID_IColorAnimationUsingKeyFrames)
+}
+
+// ColorAnimationUsingKeyFramesStatics returns the Windows.UI.Xaml.Media.Animation.IColorAnimationUsingKeyFramesStatics statics of the
+// Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ColorAnimationUsingKeyFramesStatics() (*IColorAnimationUsingKeyFramesStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames", &IID_IColorAnimationUsingKeyFramesStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IColorAnimationUsingKeyFramesStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ColorKeyFrame is the Windows.UI.Xaml.Media.Animation.ColorKeyFrame runtime class, surfaced through its
+// default interface IColorKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ColorKeyFrame struct {
+	IColorKeyFrame
+}
+
+// ColorKeyFrameStatics returns the Windows.UI.Xaml.Media.Animation.IColorKeyFrameStatics statics of the
+// Windows.UI.Xaml.Media.Animation.ColorKeyFrame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ColorKeyFrameStatics() (*IColorKeyFrameStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.ColorKeyFrame", &IID_IColorKeyFrameStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IColorKeyFrameStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewColorKeyFrame constructs a Windows.UI.Xaml.Media.Animation.ColorKeyFrame instance through
+// Windows.UI.Xaml.Media.Animation.IColorKeyFrameFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewColorKeyFrame() (*ColorKeyFrame, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.ColorKeyFrame", &IID_IColorKeyFrameFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IColorKeyFrameFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ColorKeyFrame)(unsafe.Pointer(instance)), nil
+}
+
+// CommonNavigationTransitionInfo is the Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo runtime class, surfaced through its
+// default interface ICommonNavigationTransitionInfo. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CommonNavigationTransitionInfo struct {
+	ICommonNavigationTransitionInfo
+}
+
+// NewCommonNavigationTransitionInfo activates Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo through its default
+// constructor.
+func NewCommonNavigationTransitionInfo() (*CommonNavigationTransitionInfo, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[CommonNavigationTransitionInfo](unsafe.Pointer(instance), &IID_ICommonNavigationTransitionInfo)
+}
+
+// CommonNavigationTransitionInfoStatics returns the Windows.UI.Xaml.Media.Animation.ICommonNavigationTransitionInfoStatics statics of the
+// Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CommonNavigationTransitionInfoStatics() (*ICommonNavigationTransitionInfoStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo", &IID_ICommonNavigationTransitionInfoStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICommonNavigationTransitionInfoStatics)(unsafe.Pointer(factory)), nil
+}
 
 // ConnectedAnimation is the Windows.UI.Xaml.Media.Animation.ConnectedAnimation runtime class, surfaced through its
 // default interface IConnectedAnimation. Release when done (promoted from
@@ -55,6 +348,835 @@ func ConnectedAnimationServiceStatics() (*IConnectedAnimationServiceStatics, err
 	return (*IConnectedAnimationServiceStatics)(unsafe.Pointer(factory)), nil
 }
 
+// ContentThemeTransition is the Windows.UI.Xaml.Media.Animation.ContentThemeTransition runtime class, surfaced through its
+// default interface IContentThemeTransition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ContentThemeTransition struct {
+	IContentThemeTransition
+}
+
+// NewContentThemeTransition activates Windows.UI.Xaml.Media.Animation.ContentThemeTransition through its default
+// constructor.
+func NewContentThemeTransition() (*ContentThemeTransition, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.ContentThemeTransition")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ContentThemeTransition](unsafe.Pointer(instance), &IID_IContentThemeTransition)
+}
+
+// ContentThemeTransitionStatics returns the Windows.UI.Xaml.Media.Animation.IContentThemeTransitionStatics statics of the
+// Windows.UI.Xaml.Media.Animation.ContentThemeTransition runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ContentThemeTransitionStatics() (*IContentThemeTransitionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.ContentThemeTransition", &IID_IContentThemeTransitionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IContentThemeTransitionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ContinuumNavigationTransitionInfo is the Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo runtime class, surfaced through its
+// default interface IContinuumNavigationTransitionInfo. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ContinuumNavigationTransitionInfo struct {
+	IContinuumNavigationTransitionInfo
+}
+
+// NewContinuumNavigationTransitionInfo activates Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo through its default
+// constructor.
+func NewContinuumNavigationTransitionInfo() (*ContinuumNavigationTransitionInfo, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ContinuumNavigationTransitionInfo](unsafe.Pointer(instance), &IID_IContinuumNavigationTransitionInfo)
+}
+
+// ContinuumNavigationTransitionInfoStatics returns the Windows.UI.Xaml.Media.Animation.IContinuumNavigationTransitionInfoStatics statics of the
+// Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ContinuumNavigationTransitionInfoStatics() (*IContinuumNavigationTransitionInfoStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo", &IID_IContinuumNavigationTransitionInfoStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IContinuumNavigationTransitionInfoStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CubicEase is the Windows.UI.Xaml.Media.Animation.CubicEase runtime class, surfaced through its
+// default interface ICubicEase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CubicEase struct {
+	ICubicEase
+}
+
+// NewCubicEase activates Windows.UI.Xaml.Media.Animation.CubicEase through its default
+// constructor.
+func NewCubicEase() (*CubicEase, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.CubicEase")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[CubicEase](unsafe.Pointer(instance), &IID_ICubicEase)
+}
+
+// DirectConnectedAnimationConfiguration is the Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration runtime class, surfaced through its
+// default interface IDirectConnectedAnimationConfiguration. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DirectConnectedAnimationConfiguration struct {
+	IDirectConnectedAnimationConfiguration
+}
+
+// NewDirectConnectedAnimationConfiguration constructs a Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration instance through
+// Windows.UI.Xaml.Media.Animation.IDirectConnectedAnimationConfigurationFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewDirectConnectedAnimationConfiguration() (*DirectConnectedAnimationConfiguration, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration", &IID_IDirectConnectedAnimationConfigurationFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IDirectConnectedAnimationConfigurationFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*DirectConnectedAnimationConfiguration)(unsafe.Pointer(instance)), nil
+}
+
+// DiscreteColorKeyFrame is the Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame runtime class, surfaced through its
+// default interface IDiscreteColorKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DiscreteColorKeyFrame struct {
+	IDiscreteColorKeyFrame
+}
+
+// NewDiscreteColorKeyFrame activates Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame through its default
+// constructor.
+func NewDiscreteColorKeyFrame() (*DiscreteColorKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DiscreteColorKeyFrame](unsafe.Pointer(instance), &IID_IDiscreteColorKeyFrame)
+}
+
+// DiscreteDoubleKeyFrame is the Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame runtime class, surfaced through its
+// default interface IDiscreteDoubleKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DiscreteDoubleKeyFrame struct {
+	IDiscreteDoubleKeyFrame
+}
+
+// NewDiscreteDoubleKeyFrame activates Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame through its default
+// constructor.
+func NewDiscreteDoubleKeyFrame() (*DiscreteDoubleKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DiscreteDoubleKeyFrame](unsafe.Pointer(instance), &IID_IDiscreteDoubleKeyFrame)
+}
+
+// DiscreteObjectKeyFrame is the Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame runtime class, surfaced through its
+// default interface IDiscreteObjectKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DiscreteObjectKeyFrame struct {
+	IDiscreteObjectKeyFrame
+}
+
+// NewDiscreteObjectKeyFrame activates Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame through its default
+// constructor.
+func NewDiscreteObjectKeyFrame() (*DiscreteObjectKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DiscreteObjectKeyFrame](unsafe.Pointer(instance), &IID_IDiscreteObjectKeyFrame)
+}
+
+// DiscretePointKeyFrame is the Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame runtime class, surfaced through its
+// default interface IDiscretePointKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DiscretePointKeyFrame struct {
+	IDiscretePointKeyFrame
+}
+
+// NewDiscretePointKeyFrame activates Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame through its default
+// constructor.
+func NewDiscretePointKeyFrame() (*DiscretePointKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DiscretePointKeyFrame](unsafe.Pointer(instance), &IID_IDiscretePointKeyFrame)
+}
+
+// DoubleAnimation is the Windows.UI.Xaml.Media.Animation.DoubleAnimation runtime class, surfaced through its
+// default interface IDoubleAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DoubleAnimation struct {
+	IDoubleAnimation
+}
+
+// NewDoubleAnimation activates Windows.UI.Xaml.Media.Animation.DoubleAnimation through its default
+// constructor.
+func NewDoubleAnimation() (*DoubleAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DoubleAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DoubleAnimation](unsafe.Pointer(instance), &IID_IDoubleAnimation)
+}
+
+// DoubleAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IDoubleAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.DoubleAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DoubleAnimationStatics() (*IDoubleAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.DoubleAnimation", &IID_IDoubleAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDoubleAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// DoubleAnimationUsingKeyFrames is the Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames runtime class, surfaced through its
+// default interface IDoubleAnimationUsingKeyFrames. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DoubleAnimationUsingKeyFrames struct {
+	IDoubleAnimationUsingKeyFrames
+}
+
+// NewDoubleAnimationUsingKeyFrames activates Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames through its default
+// constructor.
+func NewDoubleAnimationUsingKeyFrames() (*DoubleAnimationUsingKeyFrames, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DoubleAnimationUsingKeyFrames](unsafe.Pointer(instance), &IID_IDoubleAnimationUsingKeyFrames)
+}
+
+// DoubleAnimationUsingKeyFramesStatics returns the Windows.UI.Xaml.Media.Animation.IDoubleAnimationUsingKeyFramesStatics statics of the
+// Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DoubleAnimationUsingKeyFramesStatics() (*IDoubleAnimationUsingKeyFramesStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames", &IID_IDoubleAnimationUsingKeyFramesStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDoubleAnimationUsingKeyFramesStatics)(unsafe.Pointer(factory)), nil
+}
+
+// DoubleKeyFrame is the Windows.UI.Xaml.Media.Animation.DoubleKeyFrame runtime class, surfaced through its
+// default interface IDoubleKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DoubleKeyFrame struct {
+	IDoubleKeyFrame
+}
+
+// DoubleKeyFrameStatics returns the Windows.UI.Xaml.Media.Animation.IDoubleKeyFrameStatics statics of the
+// Windows.UI.Xaml.Media.Animation.DoubleKeyFrame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DoubleKeyFrameStatics() (*IDoubleKeyFrameStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.DoubleKeyFrame", &IID_IDoubleKeyFrameStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDoubleKeyFrameStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewDoubleKeyFrame constructs a Windows.UI.Xaml.Media.Animation.DoubleKeyFrame instance through
+// Windows.UI.Xaml.Media.Animation.IDoubleKeyFrameFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewDoubleKeyFrame() (*DoubleKeyFrame, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.DoubleKeyFrame", &IID_IDoubleKeyFrameFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IDoubleKeyFrameFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*DoubleKeyFrame)(unsafe.Pointer(instance)), nil
+}
+
+// DragItemThemeAnimation is the Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation runtime class, surfaced through its
+// default interface IDragItemThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DragItemThemeAnimation struct {
+	IDragItemThemeAnimation
+}
+
+// NewDragItemThemeAnimation activates Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation through its default
+// constructor.
+func NewDragItemThemeAnimation() (*DragItemThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DragItemThemeAnimation](unsafe.Pointer(instance), &IID_IDragItemThemeAnimation)
+}
+
+// DragItemThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IDragItemThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DragItemThemeAnimationStatics() (*IDragItemThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation", &IID_IDragItemThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDragItemThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// DragOverThemeAnimation is the Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation runtime class, surfaced through its
+// default interface IDragOverThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DragOverThemeAnimation struct {
+	IDragOverThemeAnimation
+}
+
+// NewDragOverThemeAnimation activates Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation through its default
+// constructor.
+func NewDragOverThemeAnimation() (*DragOverThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DragOverThemeAnimation](unsafe.Pointer(instance), &IID_IDragOverThemeAnimation)
+}
+
+// DragOverThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IDragOverThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DragOverThemeAnimationStatics() (*IDragOverThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation", &IID_IDragOverThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDragOverThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// DrillInNavigationTransitionInfo is the Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo runtime class, surfaced through its
+// default interface IDrillInNavigationTransitionInfo. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DrillInNavigationTransitionInfo struct {
+	IDrillInNavigationTransitionInfo
+}
+
+// NewDrillInNavigationTransitionInfo activates Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo through its default
+// constructor.
+func NewDrillInNavigationTransitionInfo() (*DrillInNavigationTransitionInfo, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DrillInNavigationTransitionInfo](unsafe.Pointer(instance), &IID_IDrillInNavigationTransitionInfo)
+}
+
+// DrillInThemeAnimation is the Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation runtime class, surfaced through its
+// default interface IDrillInThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DrillInThemeAnimation struct {
+	IDrillInThemeAnimation
+}
+
+// NewDrillInThemeAnimation activates Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation through its default
+// constructor.
+func NewDrillInThemeAnimation() (*DrillInThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DrillInThemeAnimation](unsafe.Pointer(instance), &IID_IDrillInThemeAnimation)
+}
+
+// DrillInThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IDrillInThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DrillInThemeAnimationStatics() (*IDrillInThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation", &IID_IDrillInThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDrillInThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// DrillOutThemeAnimation is the Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation runtime class, surfaced through its
+// default interface IDrillOutThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DrillOutThemeAnimation struct {
+	IDrillOutThemeAnimation
+}
+
+// NewDrillOutThemeAnimation activates Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation through its default
+// constructor.
+func NewDrillOutThemeAnimation() (*DrillOutThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DrillOutThemeAnimation](unsafe.Pointer(instance), &IID_IDrillOutThemeAnimation)
+}
+
+// DrillOutThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IDrillOutThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DrillOutThemeAnimationStatics() (*IDrillOutThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation", &IID_IDrillOutThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDrillOutThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// DropTargetItemThemeAnimation is the Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation runtime class, surfaced through its
+// default interface IDropTargetItemThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DropTargetItemThemeAnimation struct {
+	IDropTargetItemThemeAnimation
+}
+
+// NewDropTargetItemThemeAnimation activates Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation through its default
+// constructor.
+func NewDropTargetItemThemeAnimation() (*DropTargetItemThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DropTargetItemThemeAnimation](unsafe.Pointer(instance), &IID_IDropTargetItemThemeAnimation)
+}
+
+// DropTargetItemThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IDropTargetItemThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DropTargetItemThemeAnimationStatics() (*IDropTargetItemThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation", &IID_IDropTargetItemThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDropTargetItemThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// EasingColorKeyFrame is the Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame runtime class, surfaced through its
+// default interface IEasingColorKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type EasingColorKeyFrame struct {
+	IEasingColorKeyFrame
+}
+
+// NewEasingColorKeyFrame activates Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame through its default
+// constructor.
+func NewEasingColorKeyFrame() (*EasingColorKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[EasingColorKeyFrame](unsafe.Pointer(instance), &IID_IEasingColorKeyFrame)
+}
+
+// EasingColorKeyFrameStatics returns the Windows.UI.Xaml.Media.Animation.IEasingColorKeyFrameStatics statics of the
+// Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func EasingColorKeyFrameStatics() (*IEasingColorKeyFrameStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame", &IID_IEasingColorKeyFrameStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IEasingColorKeyFrameStatics)(unsafe.Pointer(factory)), nil
+}
+
+// EasingDoubleKeyFrame is the Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame runtime class, surfaced through its
+// default interface IEasingDoubleKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type EasingDoubleKeyFrame struct {
+	IEasingDoubleKeyFrame
+}
+
+// NewEasingDoubleKeyFrame activates Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame through its default
+// constructor.
+func NewEasingDoubleKeyFrame() (*EasingDoubleKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[EasingDoubleKeyFrame](unsafe.Pointer(instance), &IID_IEasingDoubleKeyFrame)
+}
+
+// EasingDoubleKeyFrameStatics returns the Windows.UI.Xaml.Media.Animation.IEasingDoubleKeyFrameStatics statics of the
+// Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func EasingDoubleKeyFrameStatics() (*IEasingDoubleKeyFrameStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame", &IID_IEasingDoubleKeyFrameStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IEasingDoubleKeyFrameStatics)(unsafe.Pointer(factory)), nil
+}
+
+// EasingFunctionBase is the Windows.UI.Xaml.Media.Animation.EasingFunctionBase runtime class, surfaced through its
+// default interface IEasingFunctionBase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type EasingFunctionBase struct {
+	IEasingFunctionBase
+}
+
+// EasingFunctionBaseStatics returns the Windows.UI.Xaml.Media.Animation.IEasingFunctionBaseStatics statics of the
+// Windows.UI.Xaml.Media.Animation.EasingFunctionBase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func EasingFunctionBaseStatics() (*IEasingFunctionBaseStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.EasingFunctionBase", &IID_IEasingFunctionBaseStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IEasingFunctionBaseStatics)(unsafe.Pointer(factory)), nil
+}
+
+// EasingPointKeyFrame is the Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame runtime class, surfaced through its
+// default interface IEasingPointKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type EasingPointKeyFrame struct {
+	IEasingPointKeyFrame
+}
+
+// NewEasingPointKeyFrame activates Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame through its default
+// constructor.
+func NewEasingPointKeyFrame() (*EasingPointKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[EasingPointKeyFrame](unsafe.Pointer(instance), &IID_IEasingPointKeyFrame)
+}
+
+// EasingPointKeyFrameStatics returns the Windows.UI.Xaml.Media.Animation.IEasingPointKeyFrameStatics statics of the
+// Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func EasingPointKeyFrameStatics() (*IEasingPointKeyFrameStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame", &IID_IEasingPointKeyFrameStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IEasingPointKeyFrameStatics)(unsafe.Pointer(factory)), nil
+}
+
+// EdgeUIThemeTransition is the Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition runtime class, surfaced through its
+// default interface IEdgeUIThemeTransition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type EdgeUIThemeTransition struct {
+	IEdgeUIThemeTransition
+}
+
+// NewEdgeUIThemeTransition activates Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition through its default
+// constructor.
+func NewEdgeUIThemeTransition() (*EdgeUIThemeTransition, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[EdgeUIThemeTransition](unsafe.Pointer(instance), &IID_IEdgeUIThemeTransition)
+}
+
+// EdgeUIThemeTransitionStatics returns the Windows.UI.Xaml.Media.Animation.IEdgeUIThemeTransitionStatics statics of the
+// Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func EdgeUIThemeTransitionStatics() (*IEdgeUIThemeTransitionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition", &IID_IEdgeUIThemeTransitionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IEdgeUIThemeTransitionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ElasticEase is the Windows.UI.Xaml.Media.Animation.ElasticEase runtime class, surfaced through its
+// default interface IElasticEase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ElasticEase struct {
+	IElasticEase
+}
+
+// NewElasticEase activates Windows.UI.Xaml.Media.Animation.ElasticEase through its default
+// constructor.
+func NewElasticEase() (*ElasticEase, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.ElasticEase")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ElasticEase](unsafe.Pointer(instance), &IID_IElasticEase)
+}
+
+// ElasticEaseStatics returns the Windows.UI.Xaml.Media.Animation.IElasticEaseStatics statics of the
+// Windows.UI.Xaml.Media.Animation.ElasticEase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ElasticEaseStatics() (*IElasticEaseStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.ElasticEase", &IID_IElasticEaseStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IElasticEaseStatics)(unsafe.Pointer(factory)), nil
+}
+
+// EntranceNavigationTransitionInfo is the Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo runtime class, surfaced through its
+// default interface IEntranceNavigationTransitionInfo. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type EntranceNavigationTransitionInfo struct {
+	IEntranceNavigationTransitionInfo
+}
+
+// NewEntranceNavigationTransitionInfo activates Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo through its default
+// constructor.
+func NewEntranceNavigationTransitionInfo() (*EntranceNavigationTransitionInfo, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[EntranceNavigationTransitionInfo](unsafe.Pointer(instance), &IID_IEntranceNavigationTransitionInfo)
+}
+
+// EntranceNavigationTransitionInfoStatics returns the Windows.UI.Xaml.Media.Animation.IEntranceNavigationTransitionInfoStatics statics of the
+// Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func EntranceNavigationTransitionInfoStatics() (*IEntranceNavigationTransitionInfoStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo", &IID_IEntranceNavigationTransitionInfoStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IEntranceNavigationTransitionInfoStatics)(unsafe.Pointer(factory)), nil
+}
+
+// EntranceThemeTransition is the Windows.UI.Xaml.Media.Animation.EntranceThemeTransition runtime class, surfaced through its
+// default interface IEntranceThemeTransition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type EntranceThemeTransition struct {
+	IEntranceThemeTransition
+}
+
+// NewEntranceThemeTransition activates Windows.UI.Xaml.Media.Animation.EntranceThemeTransition through its default
+// constructor.
+func NewEntranceThemeTransition() (*EntranceThemeTransition, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.EntranceThemeTransition")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[EntranceThemeTransition](unsafe.Pointer(instance), &IID_IEntranceThemeTransition)
+}
+
+// EntranceThemeTransitionStatics returns the Windows.UI.Xaml.Media.Animation.IEntranceThemeTransitionStatics statics of the
+// Windows.UI.Xaml.Media.Animation.EntranceThemeTransition runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func EntranceThemeTransitionStatics() (*IEntranceThemeTransitionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.EntranceThemeTransition", &IID_IEntranceThemeTransitionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IEntranceThemeTransitionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ExponentialEase is the Windows.UI.Xaml.Media.Animation.ExponentialEase runtime class, surfaced through its
+// default interface IExponentialEase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ExponentialEase struct {
+	IExponentialEase
+}
+
+// NewExponentialEase activates Windows.UI.Xaml.Media.Animation.ExponentialEase through its default
+// constructor.
+func NewExponentialEase() (*ExponentialEase, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.ExponentialEase")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ExponentialEase](unsafe.Pointer(instance), &IID_IExponentialEase)
+}
+
+// ExponentialEaseStatics returns the Windows.UI.Xaml.Media.Animation.IExponentialEaseStatics statics of the
+// Windows.UI.Xaml.Media.Animation.ExponentialEase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ExponentialEaseStatics() (*IExponentialEaseStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.ExponentialEase", &IID_IExponentialEaseStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IExponentialEaseStatics)(unsafe.Pointer(factory)), nil
+}
+
+// FadeInThemeAnimation is the Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation runtime class, surfaced through its
+// default interface IFadeInThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type FadeInThemeAnimation struct {
+	IFadeInThemeAnimation
+}
+
+// NewFadeInThemeAnimation activates Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation through its default
+// constructor.
+func NewFadeInThemeAnimation() (*FadeInThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[FadeInThemeAnimation](unsafe.Pointer(instance), &IID_IFadeInThemeAnimation)
+}
+
+// FadeInThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IFadeInThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FadeInThemeAnimationStatics() (*IFadeInThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation", &IID_IFadeInThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFadeInThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// FadeOutThemeAnimation is the Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation runtime class, surfaced through its
+// default interface IFadeOutThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type FadeOutThemeAnimation struct {
+	IFadeOutThemeAnimation
+}
+
+// NewFadeOutThemeAnimation activates Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation through its default
+// constructor.
+func NewFadeOutThemeAnimation() (*FadeOutThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[FadeOutThemeAnimation](unsafe.Pointer(instance), &IID_IFadeOutThemeAnimation)
+}
+
+// FadeOutThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IFadeOutThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func FadeOutThemeAnimationStatics() (*IFadeOutThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation", &IID_IFadeOutThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IFadeOutThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// GravityConnectedAnimationConfiguration is the Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration runtime class, surfaced through its
+// default interface IGravityConnectedAnimationConfiguration. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type GravityConnectedAnimationConfiguration struct {
+	IGravityConnectedAnimationConfiguration
+}
+
+// AsGravityConnectedAnimationConfiguration2 queries the instance's IGravityConnectedAnimationConfiguration2 interface.
+// The returned reference is owned by the caller.
+func (self *GravityConnectedAnimationConfiguration) AsGravityConnectedAnimationConfiguration2() (*IGravityConnectedAnimationConfiguration2, error) {
+	return winrt.QueryInterface[IGravityConnectedAnimationConfiguration2](unsafe.Pointer(self), &IID_IGravityConnectedAnimationConfiguration2)
+}
+
+// NewGravityConnectedAnimationConfiguration constructs a Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration instance through
+// Windows.UI.Xaml.Media.Animation.IGravityConnectedAnimationConfigurationFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewGravityConnectedAnimationConfiguration() (*GravityConnectedAnimationConfiguration, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration", &IID_IGravityConnectedAnimationConfigurationFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGravityConnectedAnimationConfigurationFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*GravityConnectedAnimationConfiguration)(unsafe.Pointer(instance)), nil
+}
+
+// KeySpline is the Windows.UI.Xaml.Media.Animation.KeySpline runtime class, surfaced through its
+// default interface IKeySpline. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type KeySpline struct {
+	IKeySpline
+}
+
+// NewKeySpline activates Windows.UI.Xaml.Media.Animation.KeySpline through its default
+// constructor.
+func NewKeySpline() (*KeySpline, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.KeySpline")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[KeySpline](unsafe.Pointer(instance), &IID_IKeySpline)
+}
+
 // KeyTimeHelper is the Windows.UI.Xaml.Media.Animation.KeyTimeHelper runtime class, surfaced through its
 // default interface IKeyTimeHelper. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -74,6 +1196,588 @@ func KeyTimeHelperStatics() (*IKeyTimeHelperStatics, error) {
 	return (*IKeyTimeHelperStatics)(unsafe.Pointer(factory)), nil
 }
 
+// LinearColorKeyFrame is the Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame runtime class, surfaced through its
+// default interface ILinearColorKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type LinearColorKeyFrame struct {
+	ILinearColorKeyFrame
+}
+
+// NewLinearColorKeyFrame activates Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame through its default
+// constructor.
+func NewLinearColorKeyFrame() (*LinearColorKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[LinearColorKeyFrame](unsafe.Pointer(instance), &IID_ILinearColorKeyFrame)
+}
+
+// LinearDoubleKeyFrame is the Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame runtime class, surfaced through its
+// default interface ILinearDoubleKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type LinearDoubleKeyFrame struct {
+	ILinearDoubleKeyFrame
+}
+
+// NewLinearDoubleKeyFrame activates Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame through its default
+// constructor.
+func NewLinearDoubleKeyFrame() (*LinearDoubleKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[LinearDoubleKeyFrame](unsafe.Pointer(instance), &IID_ILinearDoubleKeyFrame)
+}
+
+// LinearPointKeyFrame is the Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame runtime class, surfaced through its
+// default interface ILinearPointKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type LinearPointKeyFrame struct {
+	ILinearPointKeyFrame
+}
+
+// NewLinearPointKeyFrame activates Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame through its default
+// constructor.
+func NewLinearPointKeyFrame() (*LinearPointKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[LinearPointKeyFrame](unsafe.Pointer(instance), &IID_ILinearPointKeyFrame)
+}
+
+// NavigationThemeTransition is the Windows.UI.Xaml.Media.Animation.NavigationThemeTransition runtime class, surfaced through its
+// default interface INavigationThemeTransition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type NavigationThemeTransition struct {
+	INavigationThemeTransition
+}
+
+// NewNavigationThemeTransition activates Windows.UI.Xaml.Media.Animation.NavigationThemeTransition through its default
+// constructor.
+func NewNavigationThemeTransition() (*NavigationThemeTransition, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.NavigationThemeTransition")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[NavigationThemeTransition](unsafe.Pointer(instance), &IID_INavigationThemeTransition)
+}
+
+// NavigationThemeTransitionStatics returns the Windows.UI.Xaml.Media.Animation.INavigationThemeTransitionStatics statics of the
+// Windows.UI.Xaml.Media.Animation.NavigationThemeTransition runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func NavigationThemeTransitionStatics() (*INavigationThemeTransitionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.NavigationThemeTransition", &IID_INavigationThemeTransitionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*INavigationThemeTransitionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NavigationTransitionInfo is the Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo runtime class, surfaced through its
+// default interface INavigationTransitionInfo. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type NavigationTransitionInfo struct {
+	INavigationTransitionInfo
+}
+
+// AsNavigationTransitionInfoOverrides queries the instance's INavigationTransitionInfoOverrides interface.
+// The returned reference is owned by the caller.
+func (self *NavigationTransitionInfo) AsNavigationTransitionInfoOverrides() (*INavigationTransitionInfoOverrides, error) {
+	return winrt.QueryInterface[INavigationTransitionInfoOverrides](unsafe.Pointer(self), &IID_INavigationTransitionInfoOverrides)
+}
+
+// NewNavigationTransitionInfo constructs a Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo instance through
+// Windows.UI.Xaml.Media.Animation.INavigationTransitionInfoFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewNavigationTransitionInfo() (*NavigationTransitionInfo, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo", &IID_INavigationTransitionInfoFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*INavigationTransitionInfoFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*NavigationTransitionInfo)(unsafe.Pointer(instance)), nil
+}
+
+// ObjectAnimationUsingKeyFrames is the Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames runtime class, surfaced through its
+// default interface IObjectAnimationUsingKeyFrames. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ObjectAnimationUsingKeyFrames struct {
+	IObjectAnimationUsingKeyFrames
+}
+
+// NewObjectAnimationUsingKeyFrames activates Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames through its default
+// constructor.
+func NewObjectAnimationUsingKeyFrames() (*ObjectAnimationUsingKeyFrames, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ObjectAnimationUsingKeyFrames](unsafe.Pointer(instance), &IID_IObjectAnimationUsingKeyFrames)
+}
+
+// ObjectAnimationUsingKeyFramesStatics returns the Windows.UI.Xaml.Media.Animation.IObjectAnimationUsingKeyFramesStatics statics of the
+// Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ObjectAnimationUsingKeyFramesStatics() (*IObjectAnimationUsingKeyFramesStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames", &IID_IObjectAnimationUsingKeyFramesStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IObjectAnimationUsingKeyFramesStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ObjectKeyFrame is the Windows.UI.Xaml.Media.Animation.ObjectKeyFrame runtime class, surfaced through its
+// default interface IObjectKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ObjectKeyFrame struct {
+	IObjectKeyFrame
+}
+
+// ObjectKeyFrameStatics returns the Windows.UI.Xaml.Media.Animation.IObjectKeyFrameStatics statics of the
+// Windows.UI.Xaml.Media.Animation.ObjectKeyFrame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ObjectKeyFrameStatics() (*IObjectKeyFrameStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.ObjectKeyFrame", &IID_IObjectKeyFrameStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IObjectKeyFrameStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewObjectKeyFrame constructs a Windows.UI.Xaml.Media.Animation.ObjectKeyFrame instance through
+// Windows.UI.Xaml.Media.Animation.IObjectKeyFrameFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewObjectKeyFrame() (*ObjectKeyFrame, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.ObjectKeyFrame", &IID_IObjectKeyFrameFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IObjectKeyFrameFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*ObjectKeyFrame)(unsafe.Pointer(instance)), nil
+}
+
+// PaneThemeTransition is the Windows.UI.Xaml.Media.Animation.PaneThemeTransition runtime class, surfaced through its
+// default interface IPaneThemeTransition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PaneThemeTransition struct {
+	IPaneThemeTransition
+}
+
+// NewPaneThemeTransition activates Windows.UI.Xaml.Media.Animation.PaneThemeTransition through its default
+// constructor.
+func NewPaneThemeTransition() (*PaneThemeTransition, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.PaneThemeTransition")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PaneThemeTransition](unsafe.Pointer(instance), &IID_IPaneThemeTransition)
+}
+
+// PaneThemeTransitionStatics returns the Windows.UI.Xaml.Media.Animation.IPaneThemeTransitionStatics statics of the
+// Windows.UI.Xaml.Media.Animation.PaneThemeTransition runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PaneThemeTransitionStatics() (*IPaneThemeTransitionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.PaneThemeTransition", &IID_IPaneThemeTransitionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPaneThemeTransitionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PointAnimation is the Windows.UI.Xaml.Media.Animation.PointAnimation runtime class, surfaced through its
+// default interface IPointAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PointAnimation struct {
+	IPointAnimation
+}
+
+// NewPointAnimation activates Windows.UI.Xaml.Media.Animation.PointAnimation through its default
+// constructor.
+func NewPointAnimation() (*PointAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.PointAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PointAnimation](unsafe.Pointer(instance), &IID_IPointAnimation)
+}
+
+// PointAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IPointAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.PointAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PointAnimationStatics() (*IPointAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.PointAnimation", &IID_IPointAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPointAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PointAnimationUsingKeyFrames is the Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames runtime class, surfaced through its
+// default interface IPointAnimationUsingKeyFrames. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PointAnimationUsingKeyFrames struct {
+	IPointAnimationUsingKeyFrames
+}
+
+// NewPointAnimationUsingKeyFrames activates Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames through its default
+// constructor.
+func NewPointAnimationUsingKeyFrames() (*PointAnimationUsingKeyFrames, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PointAnimationUsingKeyFrames](unsafe.Pointer(instance), &IID_IPointAnimationUsingKeyFrames)
+}
+
+// PointAnimationUsingKeyFramesStatics returns the Windows.UI.Xaml.Media.Animation.IPointAnimationUsingKeyFramesStatics statics of the
+// Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PointAnimationUsingKeyFramesStatics() (*IPointAnimationUsingKeyFramesStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames", &IID_IPointAnimationUsingKeyFramesStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPointAnimationUsingKeyFramesStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PointKeyFrame is the Windows.UI.Xaml.Media.Animation.PointKeyFrame runtime class, surfaced through its
+// default interface IPointKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PointKeyFrame struct {
+	IPointKeyFrame
+}
+
+// PointKeyFrameStatics returns the Windows.UI.Xaml.Media.Animation.IPointKeyFrameStatics statics of the
+// Windows.UI.Xaml.Media.Animation.PointKeyFrame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PointKeyFrameStatics() (*IPointKeyFrameStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.PointKeyFrame", &IID_IPointKeyFrameStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPointKeyFrameStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewPointKeyFrame constructs a Windows.UI.Xaml.Media.Animation.PointKeyFrame instance through
+// Windows.UI.Xaml.Media.Animation.IPointKeyFrameFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewPointKeyFrame() (*PointKeyFrame, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.PointKeyFrame", &IID_IPointKeyFrameFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPointKeyFrameFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*PointKeyFrame)(unsafe.Pointer(instance)), nil
+}
+
+// PointerDownThemeAnimation is the Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation runtime class, surfaced through its
+// default interface IPointerDownThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PointerDownThemeAnimation struct {
+	IPointerDownThemeAnimation
+}
+
+// NewPointerDownThemeAnimation activates Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation through its default
+// constructor.
+func NewPointerDownThemeAnimation() (*PointerDownThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PointerDownThemeAnimation](unsafe.Pointer(instance), &IID_IPointerDownThemeAnimation)
+}
+
+// PointerDownThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IPointerDownThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PointerDownThemeAnimationStatics() (*IPointerDownThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation", &IID_IPointerDownThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPointerDownThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PointerUpThemeAnimation is the Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation runtime class, surfaced through its
+// default interface IPointerUpThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PointerUpThemeAnimation struct {
+	IPointerUpThemeAnimation
+}
+
+// NewPointerUpThemeAnimation activates Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation through its default
+// constructor.
+func NewPointerUpThemeAnimation() (*PointerUpThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PointerUpThemeAnimation](unsafe.Pointer(instance), &IID_IPointerUpThemeAnimation)
+}
+
+// PointerUpThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IPointerUpThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PointerUpThemeAnimationStatics() (*IPointerUpThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation", &IID_IPointerUpThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPointerUpThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PopInThemeAnimation is the Windows.UI.Xaml.Media.Animation.PopInThemeAnimation runtime class, surfaced through its
+// default interface IPopInThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PopInThemeAnimation struct {
+	IPopInThemeAnimation
+}
+
+// NewPopInThemeAnimation activates Windows.UI.Xaml.Media.Animation.PopInThemeAnimation through its default
+// constructor.
+func NewPopInThemeAnimation() (*PopInThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.PopInThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PopInThemeAnimation](unsafe.Pointer(instance), &IID_IPopInThemeAnimation)
+}
+
+// PopInThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IPopInThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.PopInThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PopInThemeAnimationStatics() (*IPopInThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.PopInThemeAnimation", &IID_IPopInThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPopInThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PopOutThemeAnimation is the Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation runtime class, surfaced through its
+// default interface IPopOutThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PopOutThemeAnimation struct {
+	IPopOutThemeAnimation
+}
+
+// NewPopOutThemeAnimation activates Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation through its default
+// constructor.
+func NewPopOutThemeAnimation() (*PopOutThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PopOutThemeAnimation](unsafe.Pointer(instance), &IID_IPopOutThemeAnimation)
+}
+
+// PopOutThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IPopOutThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PopOutThemeAnimationStatics() (*IPopOutThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation", &IID_IPopOutThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPopOutThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PopupThemeTransition is the Windows.UI.Xaml.Media.Animation.PopupThemeTransition runtime class, surfaced through its
+// default interface IPopupThemeTransition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PopupThemeTransition struct {
+	IPopupThemeTransition
+}
+
+// NewPopupThemeTransition activates Windows.UI.Xaml.Media.Animation.PopupThemeTransition through its default
+// constructor.
+func NewPopupThemeTransition() (*PopupThemeTransition, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.PopupThemeTransition")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PopupThemeTransition](unsafe.Pointer(instance), &IID_IPopupThemeTransition)
+}
+
+// PopupThemeTransitionStatics returns the Windows.UI.Xaml.Media.Animation.IPopupThemeTransitionStatics statics of the
+// Windows.UI.Xaml.Media.Animation.PopupThemeTransition runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PopupThemeTransitionStatics() (*IPopupThemeTransitionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.PopupThemeTransition", &IID_IPopupThemeTransitionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPopupThemeTransitionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// PowerEase is the Windows.UI.Xaml.Media.Animation.PowerEase runtime class, surfaced through its
+// default interface IPowerEase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PowerEase struct {
+	IPowerEase
+}
+
+// NewPowerEase activates Windows.UI.Xaml.Media.Animation.PowerEase through its default
+// constructor.
+func NewPowerEase() (*PowerEase, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.PowerEase")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[PowerEase](unsafe.Pointer(instance), &IID_IPowerEase)
+}
+
+// PowerEaseStatics returns the Windows.UI.Xaml.Media.Animation.IPowerEaseStatics statics of the
+// Windows.UI.Xaml.Media.Animation.PowerEase runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PowerEaseStatics() (*IPowerEaseStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.PowerEase", &IID_IPowerEaseStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPowerEaseStatics)(unsafe.Pointer(factory)), nil
+}
+
+// QuadraticEase is the Windows.UI.Xaml.Media.Animation.QuadraticEase runtime class, surfaced through its
+// default interface IQuadraticEase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type QuadraticEase struct {
+	IQuadraticEase
+}
+
+// NewQuadraticEase activates Windows.UI.Xaml.Media.Animation.QuadraticEase through its default
+// constructor.
+func NewQuadraticEase() (*QuadraticEase, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.QuadraticEase")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[QuadraticEase](unsafe.Pointer(instance), &IID_IQuadraticEase)
+}
+
+// QuarticEase is the Windows.UI.Xaml.Media.Animation.QuarticEase runtime class, surfaced through its
+// default interface IQuarticEase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type QuarticEase struct {
+	IQuarticEase
+}
+
+// NewQuarticEase activates Windows.UI.Xaml.Media.Animation.QuarticEase through its default
+// constructor.
+func NewQuarticEase() (*QuarticEase, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.QuarticEase")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[QuarticEase](unsafe.Pointer(instance), &IID_IQuarticEase)
+}
+
+// QuinticEase is the Windows.UI.Xaml.Media.Animation.QuinticEase runtime class, surfaced through its
+// default interface IQuinticEase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type QuinticEase struct {
+	IQuinticEase
+}
+
+// NewQuinticEase activates Windows.UI.Xaml.Media.Animation.QuinticEase through its default
+// constructor.
+func NewQuinticEase() (*QuinticEase, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.QuinticEase")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[QuinticEase](unsafe.Pointer(instance), &IID_IQuinticEase)
+}
+
+// ReorderThemeTransition is the Windows.UI.Xaml.Media.Animation.ReorderThemeTransition runtime class, surfaced through its
+// default interface IReorderThemeTransition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ReorderThemeTransition struct {
+	IReorderThemeTransition
+}
+
+// NewReorderThemeTransition activates Windows.UI.Xaml.Media.Animation.ReorderThemeTransition through its default
+// constructor.
+func NewReorderThemeTransition() (*ReorderThemeTransition, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.ReorderThemeTransition")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[ReorderThemeTransition](unsafe.Pointer(instance), &IID_IReorderThemeTransition)
+}
+
 // RepeatBehaviorHelper is the Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper runtime class, surfaced through its
 // default interface IRepeatBehaviorHelper. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -91,4 +1795,433 @@ func RepeatBehaviorHelperStatics() (*IRepeatBehaviorHelperStatics, error) {
 		return nil, err
 	}
 	return (*IRepeatBehaviorHelperStatics)(unsafe.Pointer(factory)), nil
+}
+
+// RepositionThemeAnimation is the Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation runtime class, surfaced through its
+// default interface IRepositionThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RepositionThemeAnimation struct {
+	IRepositionThemeAnimation
+}
+
+// NewRepositionThemeAnimation activates Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation through its default
+// constructor.
+func NewRepositionThemeAnimation() (*RepositionThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[RepositionThemeAnimation](unsafe.Pointer(instance), &IID_IRepositionThemeAnimation)
+}
+
+// RepositionThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.IRepositionThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RepositionThemeAnimationStatics() (*IRepositionThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation", &IID_IRepositionThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRepositionThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// RepositionThemeTransition is the Windows.UI.Xaml.Media.Animation.RepositionThemeTransition runtime class, surfaced through its
+// default interface IRepositionThemeTransition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RepositionThemeTransition struct {
+	IRepositionThemeTransition
+}
+
+// NewRepositionThemeTransition activates Windows.UI.Xaml.Media.Animation.RepositionThemeTransition through its default
+// constructor.
+func NewRepositionThemeTransition() (*RepositionThemeTransition, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.RepositionThemeTransition")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[RepositionThemeTransition](unsafe.Pointer(instance), &IID_IRepositionThemeTransition)
+}
+
+// AsRepositionThemeTransition2 queries the instance's IRepositionThemeTransition2 interface.
+// The returned reference is owned by the caller.
+func (self *RepositionThemeTransition) AsRepositionThemeTransition2() (*IRepositionThemeTransition2, error) {
+	return winrt.QueryInterface[IRepositionThemeTransition2](unsafe.Pointer(self), &IID_IRepositionThemeTransition2)
+}
+
+// RepositionThemeTransitionStatics2 returns the Windows.UI.Xaml.Media.Animation.IRepositionThemeTransitionStatics2 statics of the
+// Windows.UI.Xaml.Media.Animation.RepositionThemeTransition runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RepositionThemeTransitionStatics2() (*IRepositionThemeTransitionStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.RepositionThemeTransition", &IID_IRepositionThemeTransitionStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRepositionThemeTransitionStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// SineEase is the Windows.UI.Xaml.Media.Animation.SineEase runtime class, surfaced through its
+// default interface ISineEase. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SineEase struct {
+	ISineEase
+}
+
+// NewSineEase activates Windows.UI.Xaml.Media.Animation.SineEase through its default
+// constructor.
+func NewSineEase() (*SineEase, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.SineEase")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SineEase](unsafe.Pointer(instance), &IID_ISineEase)
+}
+
+// SlideNavigationTransitionInfo is the Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo runtime class, surfaced through its
+// default interface ISlideNavigationTransitionInfo. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SlideNavigationTransitionInfo struct {
+	ISlideNavigationTransitionInfo
+}
+
+// NewSlideNavigationTransitionInfo activates Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo through its default
+// constructor.
+func NewSlideNavigationTransitionInfo() (*SlideNavigationTransitionInfo, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SlideNavigationTransitionInfo](unsafe.Pointer(instance), &IID_ISlideNavigationTransitionInfo)
+}
+
+// AsSlideNavigationTransitionInfo2 queries the instance's ISlideNavigationTransitionInfo2 interface.
+// The returned reference is owned by the caller.
+func (self *SlideNavigationTransitionInfo) AsSlideNavigationTransitionInfo2() (*ISlideNavigationTransitionInfo2, error) {
+	return winrt.QueryInterface[ISlideNavigationTransitionInfo2](unsafe.Pointer(self), &IID_ISlideNavigationTransitionInfo2)
+}
+
+// SlideNavigationTransitionInfoStatics2 returns the Windows.UI.Xaml.Media.Animation.ISlideNavigationTransitionInfoStatics2 statics of the
+// Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SlideNavigationTransitionInfoStatics2() (*ISlideNavigationTransitionInfoStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo", &IID_ISlideNavigationTransitionInfoStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISlideNavigationTransitionInfoStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// SplineColorKeyFrame is the Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame runtime class, surfaced through its
+// default interface ISplineColorKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SplineColorKeyFrame struct {
+	ISplineColorKeyFrame
+}
+
+// NewSplineColorKeyFrame activates Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame through its default
+// constructor.
+func NewSplineColorKeyFrame() (*SplineColorKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SplineColorKeyFrame](unsafe.Pointer(instance), &IID_ISplineColorKeyFrame)
+}
+
+// SplineColorKeyFrameStatics returns the Windows.UI.Xaml.Media.Animation.ISplineColorKeyFrameStatics statics of the
+// Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SplineColorKeyFrameStatics() (*ISplineColorKeyFrameStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame", &IID_ISplineColorKeyFrameStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISplineColorKeyFrameStatics)(unsafe.Pointer(factory)), nil
+}
+
+// SplineDoubleKeyFrame is the Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame runtime class, surfaced through its
+// default interface ISplineDoubleKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SplineDoubleKeyFrame struct {
+	ISplineDoubleKeyFrame
+}
+
+// NewSplineDoubleKeyFrame activates Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame through its default
+// constructor.
+func NewSplineDoubleKeyFrame() (*SplineDoubleKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SplineDoubleKeyFrame](unsafe.Pointer(instance), &IID_ISplineDoubleKeyFrame)
+}
+
+// SplineDoubleKeyFrameStatics returns the Windows.UI.Xaml.Media.Animation.ISplineDoubleKeyFrameStatics statics of the
+// Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SplineDoubleKeyFrameStatics() (*ISplineDoubleKeyFrameStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame", &IID_ISplineDoubleKeyFrameStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISplineDoubleKeyFrameStatics)(unsafe.Pointer(factory)), nil
+}
+
+// SplinePointKeyFrame is the Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame runtime class, surfaced through its
+// default interface ISplinePointKeyFrame. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SplinePointKeyFrame struct {
+	ISplinePointKeyFrame
+}
+
+// NewSplinePointKeyFrame activates Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame through its default
+// constructor.
+func NewSplinePointKeyFrame() (*SplinePointKeyFrame, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SplinePointKeyFrame](unsafe.Pointer(instance), &IID_ISplinePointKeyFrame)
+}
+
+// SplinePointKeyFrameStatics returns the Windows.UI.Xaml.Media.Animation.ISplinePointKeyFrameStatics statics of the
+// Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SplinePointKeyFrameStatics() (*ISplinePointKeyFrameStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame", &IID_ISplinePointKeyFrameStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISplinePointKeyFrameStatics)(unsafe.Pointer(factory)), nil
+}
+
+// SplitCloseThemeAnimation is the Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation runtime class, surfaced through its
+// default interface ISplitCloseThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SplitCloseThemeAnimation struct {
+	ISplitCloseThemeAnimation
+}
+
+// NewSplitCloseThemeAnimation activates Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation through its default
+// constructor.
+func NewSplitCloseThemeAnimation() (*SplitCloseThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SplitCloseThemeAnimation](unsafe.Pointer(instance), &IID_ISplitCloseThemeAnimation)
+}
+
+// SplitCloseThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.ISplitCloseThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SplitCloseThemeAnimationStatics() (*ISplitCloseThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation", &IID_ISplitCloseThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISplitCloseThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// SplitOpenThemeAnimation is the Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation runtime class, surfaced through its
+// default interface ISplitOpenThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SplitOpenThemeAnimation struct {
+	ISplitOpenThemeAnimation
+}
+
+// NewSplitOpenThemeAnimation activates Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation through its default
+// constructor.
+func NewSplitOpenThemeAnimation() (*SplitOpenThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SplitOpenThemeAnimation](unsafe.Pointer(instance), &IID_ISplitOpenThemeAnimation)
+}
+
+// SplitOpenThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.ISplitOpenThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SplitOpenThemeAnimationStatics() (*ISplitOpenThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation", &IID_ISplitOpenThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISplitOpenThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// Storyboard is the Windows.UI.Xaml.Media.Animation.Storyboard runtime class, surfaced through its
+// default interface IStoryboard. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Storyboard struct {
+	IStoryboard
+}
+
+// NewStoryboard activates Windows.UI.Xaml.Media.Animation.Storyboard through its default
+// constructor.
+func NewStoryboard() (*Storyboard, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.Storyboard")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[Storyboard](unsafe.Pointer(instance), &IID_IStoryboard)
+}
+
+// StoryboardStatics returns the Windows.UI.Xaml.Media.Animation.IStoryboardStatics statics of the
+// Windows.UI.Xaml.Media.Animation.Storyboard runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func StoryboardStatics() (*IStoryboardStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.Storyboard", &IID_IStoryboardStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IStoryboardStatics)(unsafe.Pointer(factory)), nil
+}
+
+// SuppressNavigationTransitionInfo is the Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo runtime class, surfaced through its
+// default interface ISuppressNavigationTransitionInfo. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SuppressNavigationTransitionInfo struct {
+	ISuppressNavigationTransitionInfo
+}
+
+// NewSuppressNavigationTransitionInfo activates Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo through its default
+// constructor.
+func NewSuppressNavigationTransitionInfo() (*SuppressNavigationTransitionInfo, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SuppressNavigationTransitionInfo](unsafe.Pointer(instance), &IID_ISuppressNavigationTransitionInfo)
+}
+
+// SwipeBackThemeAnimation is the Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation runtime class, surfaced through its
+// default interface ISwipeBackThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SwipeBackThemeAnimation struct {
+	ISwipeBackThemeAnimation
+}
+
+// NewSwipeBackThemeAnimation activates Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation through its default
+// constructor.
+func NewSwipeBackThemeAnimation() (*SwipeBackThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SwipeBackThemeAnimation](unsafe.Pointer(instance), &IID_ISwipeBackThemeAnimation)
+}
+
+// SwipeBackThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.ISwipeBackThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SwipeBackThemeAnimationStatics() (*ISwipeBackThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation", &IID_ISwipeBackThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISwipeBackThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// SwipeHintThemeAnimation is the Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation runtime class, surfaced through its
+// default interface ISwipeHintThemeAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SwipeHintThemeAnimation struct {
+	ISwipeHintThemeAnimation
+}
+
+// NewSwipeHintThemeAnimation activates Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation through its default
+// constructor.
+func NewSwipeHintThemeAnimation() (*SwipeHintThemeAnimation, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[SwipeHintThemeAnimation](unsafe.Pointer(instance), &IID_ISwipeHintThemeAnimation)
+}
+
+// SwipeHintThemeAnimationStatics returns the Windows.UI.Xaml.Media.Animation.ISwipeHintThemeAnimationStatics statics of the
+// Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SwipeHintThemeAnimationStatics() (*ISwipeHintThemeAnimationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation", &IID_ISwipeHintThemeAnimationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISwipeHintThemeAnimationStatics)(unsafe.Pointer(factory)), nil
+}
+
+// Timeline is the Windows.UI.Xaml.Media.Animation.Timeline runtime class, surfaced through its
+// default interface ITimeline. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Timeline struct {
+	ITimeline
+}
+
+// TimelineStatics returns the Windows.UI.Xaml.Media.Animation.ITimelineStatics statics of the
+// Windows.UI.Xaml.Media.Animation.Timeline runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func TimelineStatics() (*ITimelineStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.Timeline", &IID_ITimelineStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ITimelineStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewTimeline constructs a Windows.UI.Xaml.Media.Animation.Timeline instance through
+// Windows.UI.Xaml.Media.Animation.ITimelineFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewTimeline() (*Timeline, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Media.Animation.Timeline", &IID_ITimelineFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ITimelineFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*Timeline)(unsafe.Pointer(instance)), nil
+}
+
+// Transition is the Windows.UI.Xaml.Media.Animation.Transition runtime class, surfaced through its
+// default interface ITransition. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Transition struct {
+	ITransition
 }

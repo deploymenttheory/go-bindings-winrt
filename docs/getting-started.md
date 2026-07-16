@@ -104,6 +104,28 @@ operation, err := statics.GetFileFromPathAsync(path)
 Statics-only classes (`ApplicationLanguages`, `MdmAllowPolicy`) have no class
 type at all — just their accessors.
 
+**Composable classes** (`[Composable]` — the XAML-style hierarchy under
+`Windows.UI.*`) are projected **instantiate-only**: you can create and use
+them, but Go-side derivation (subclassing a `Button` from Go) is out of
+scope. A `[Composable]` factory method becomes a `New<Class>` /
+`New<Class>With<Suffix>` constructor that composes with a NULL controlling
+outer — the class is created as itself:
+
+```go
+button, err := controls.NewButton() // IButtonFactory.CreateInstance, null outer
+config, err := windowmanagement.NewFullScreenPresentationConfiguration() // direct
+```
+
+Direct-activatable composables use plain `NewFoo()` (RoActivateInstance
+composes null-outer internally). Factory-less composables (`SpriteVisual`)
+are created by other APIs (`Compositor.CreateSpriteVisual`) and still get
+their class type, `As<Name>()` queries, and statics. Members a composable
+class inherits from its base classes live on the BASE's interfaces: reach
+them with `winrt.QueryInterface` (e.g. a `Button`'s `IControl`/
+`IFrameworkElement` surface). Note that XAML controls additionally require
+an initialized XAML runtime — in a bare unpackaged process `NewButton`
+fails with a well-formed HRESULT.
+
 ## Classes, interfaces, and QueryInterface
 
 A runtime class is a struct embedding its **default interface** by value:

@@ -83,6 +83,73 @@ func (self *IAsyncOperationOfLoadMoreItemsResult) Await() (LoadMoreItemsResult, 
 	return self.GetResults()
 }
 
+// IIterableOfItemIndexRange is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Data.ItemIndexRange>.
+// IID: 273b8073-8c16-59c2-a616-0a534483c612
+type IIterableOfItemIndexRange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfItemIndexRange is the interface identifier for IIterableOfItemIndexRange.
+var IID_IIterableOfItemIndexRange = win32.GUID{Data1: 0x273b8073, Data2: 0x8c16, Data3: 0x59c2, Data4: [8]byte{0xa6, 0x16, 0x0a, 0x53, 0x44, 0x83, 0xc6, 0x12}}
+
+// First dispatches through IIterableOfItemIndexRange's vtable slot 6.
+func (self *IIterableOfItemIndexRange) First() (*IIteratorOfItemIndexRange, error) {
+	result := new(*IIteratorOfItemIndexRange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfItemIndexRange creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Data.ItemIndexRange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfItemIndexRange(items []*IItemIndexRange) *IIterableOfItemIndexRange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Data.ItemIndexRange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfItemIndexRange, Iterator: IID_IIteratorOfItemIndexRange}, winrt.CodecInterface, boxed)
+	return (*IIterableOfItemIndexRange)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfItemIndexRange is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Data.ItemIndexRange>.
+// IID: 9c223a26-0c81-59f6-a909-ba4966b4cf24
+type IIteratorOfItemIndexRange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfItemIndexRange is the interface identifier for IIteratorOfItemIndexRange.
+var IID_IIteratorOfItemIndexRange = win32.GUID{Data1: 0x9c223a26, Data2: 0x0c81, Data3: 0x59f6, Data4: [8]byte{0xa9, 0x09, 0xba, 0x49, 0x66, 0xb4, 0xcf, 0x24}}
+
+// Current (propget get_Current) dispatches through IIteratorOfItemIndexRange's vtable slot 6.
+func (self *IIteratorOfItemIndexRange) Current() (*IItemIndexRange, error) {
+	result := new(*IItemIndexRange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfItemIndexRange's vtable slot 7.
+func (self *IIteratorOfItemIndexRange) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfItemIndexRange's vtable slot 8.
+func (self *IIteratorOfItemIndexRange) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IObservableVectorOfObject is the WinRT interface Windows.Foundation.Collections.IObservableVector`1<Object>.
 // IID: 7b81c56a-0985-518d-baa9-0da9ae009f65
 // Requires: Windows.Foundation.Collections.IVector`1<Object>.
@@ -141,3 +208,22 @@ func (self *IVectorViewOfItemIndexRange) IndexOf(value *IItemIndexRange, index *
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfItemIndexRange creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Data.ItemIndexRange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfItemIndexRange(items []*IItemIndexRange) *IVectorViewOfItemIndexRange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Data.ItemIndexRange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfItemIndexRange, Iterator: IID_IIteratorOfItemIndexRange, VectorView: IID_IVectorViewOfItemIndexRange}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfItemIndexRange)(unsafe.Pointer(obj))
+}

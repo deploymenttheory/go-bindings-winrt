@@ -221,6 +221,41 @@ func (self *IAsyncOperationOfPaymentRequestSubmitResult) Await() (*IPaymentReque
 	return self.GetResults()
 }
 
+// IIterableOfPaymentDetailsModifier is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentDetailsModifier>.
+// IID: 585d2b3d-cb34-58c4-81f4-1ea157996def
+type IIterableOfPaymentDetailsModifier struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPaymentDetailsModifier is the interface identifier for IIterableOfPaymentDetailsModifier.
+var IID_IIterableOfPaymentDetailsModifier = win32.GUID{Data1: 0x585d2b3d, Data2: 0xcb34, Data3: 0x58c4, Data4: [8]byte{0x81, 0xf4, 0x1e, 0xa1, 0x57, 0x99, 0x6d, 0xef}}
+
+// First dispatches through IIterableOfPaymentDetailsModifier's vtable slot 6.
+func (self *IIterableOfPaymentDetailsModifier) First() (*IIteratorOfPaymentDetailsModifier, error) {
+	result := new(*IIteratorOfPaymentDetailsModifier)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPaymentDetailsModifier creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentDetailsModifier>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPaymentDetailsModifier(items []*IPaymentDetailsModifier) *IIterableOfPaymentDetailsModifier {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentDetailsModifier>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPaymentDetailsModifier, Iterator: IID_IIteratorOfPaymentDetailsModifier}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPaymentDetailsModifier)(unsafe.Pointer(obj))
+}
+
 // IIterableOfPaymentItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentItem>.
 // IID: b61b704c-e5fa-5524-8b95-7d03f5d36ae9
 type IIterableOfPaymentItem struct {
@@ -235,6 +270,25 @@ func (self *IIterableOfPaymentItem) First() (*IIteratorOfPaymentItem, error) {
 	result := new(*IIteratorOfPaymentItem)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPaymentItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPaymentItem(items []*IPaymentItem) *IIterableOfPaymentItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPaymentItem, Iterator: IID_IIteratorOfPaymentItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPaymentItem)(unsafe.Pointer(obj))
 }
 
 // IIterableOfPaymentMethodData is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentMethodData>.
@@ -253,6 +307,60 @@ func (self *IIterableOfPaymentMethodData) First() (*IIteratorOfPaymentMethodData
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfPaymentMethodData creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentMethodData>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPaymentMethodData(items []*IPaymentMethodData) *IIterableOfPaymentMethodData {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentMethodData>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPaymentMethodData, Iterator: IID_IIteratorOfPaymentMethodData}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPaymentMethodData)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPaymentShippingOption is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentShippingOption>.
+// IID: de881c69-6642-54de-a8f7-d1a88b2404cf
+type IIterableOfPaymentShippingOption struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPaymentShippingOption is the interface identifier for IIterableOfPaymentShippingOption.
+var IID_IIterableOfPaymentShippingOption = win32.GUID{Data1: 0xde881c69, Data2: 0x6642, Data3: 0x54de, Data4: [8]byte{0xa8, 0xf7, 0xd1, 0xa8, 0x8b, 0x24, 0x04, 0xcf}}
+
+// First dispatches through IIterableOfPaymentShippingOption's vtable slot 6.
+func (self *IIterableOfPaymentShippingOption) First() (*IIteratorOfPaymentShippingOption, error) {
+	result := new(*IIteratorOfPaymentShippingOption)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPaymentShippingOption creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentShippingOption>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPaymentShippingOption(items []*IPaymentShippingOption) *IIterableOfPaymentShippingOption {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentShippingOption>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPaymentShippingOption, Iterator: IID_IIteratorOfPaymentShippingOption}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPaymentShippingOption)(unsafe.Pointer(obj))
+}
+
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
 // IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
 type IIterableOfString struct {
@@ -268,6 +376,54 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfPaymentDetailsModifier is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Payments.PaymentDetailsModifier>.
+// IID: fafb6774-b665-5b8b-b1ef-95038c3aabe1
+type IIteratorOfPaymentDetailsModifier struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPaymentDetailsModifier is the interface identifier for IIteratorOfPaymentDetailsModifier.
+var IID_IIteratorOfPaymentDetailsModifier = win32.GUID{Data1: 0xfafb6774, Data2: 0xb665, Data3: 0x5b8b, Data4: [8]byte{0xb1, 0xef, 0x95, 0x03, 0x8c, 0x3a, 0xab, 0xe1}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPaymentDetailsModifier's vtable slot 6.
+func (self *IIteratorOfPaymentDetailsModifier) Current() (*IPaymentDetailsModifier, error) {
+	result := new(*IPaymentDetailsModifier)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPaymentDetailsModifier's vtable slot 7.
+func (self *IIteratorOfPaymentDetailsModifier) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPaymentDetailsModifier's vtable slot 8.
+func (self *IIteratorOfPaymentDetailsModifier) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfPaymentItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Payments.PaymentItem>.
 // IID: 93c12cc3-6a0b-5f02-ac74-056007472731
@@ -326,6 +482,38 @@ func (self *IIteratorOfPaymentMethodData) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfPaymentMethodData's vtable slot 8.
 func (self *IIteratorOfPaymentMethodData) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPaymentShippingOption is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Payments.PaymentShippingOption>.
+// IID: 49edc9f4-2ce6-534c-b529-5ceec705def5
+type IIteratorOfPaymentShippingOption struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPaymentShippingOption is the interface identifier for IIteratorOfPaymentShippingOption.
+var IID_IIteratorOfPaymentShippingOption = win32.GUID{Data1: 0x49edc9f4, Data2: 0x2ce6, Data3: 0x534c, Data4: [8]byte{0xb5, 0x29, 0x5c, 0xee, 0xc7, 0x05, 0xde, 0xf5}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPaymentShippingOption's vtable slot 6.
+func (self *IIteratorOfPaymentShippingOption) Current() (*IPaymentShippingOption, error) {
+	result := new(*IPaymentShippingOption)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPaymentShippingOption's vtable slot 7.
+func (self *IIteratorOfPaymentShippingOption) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPaymentShippingOption's vtable slot 8.
+func (self *IIteratorOfPaymentShippingOption) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -401,6 +589,25 @@ func (self *IVectorViewOfPaymentDetailsModifier) IndexOf(value *IPaymentDetailsM
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfPaymentDetailsModifier creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Payments.PaymentDetailsModifier>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPaymentDetailsModifier(items []*IPaymentDetailsModifier) *IVectorViewOfPaymentDetailsModifier {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Payments.PaymentDetailsModifier>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPaymentDetailsModifier, Iterator: IID_IIteratorOfPaymentDetailsModifier, VectorView: IID_IVectorViewOfPaymentDetailsModifier}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPaymentDetailsModifier)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfPaymentItem is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Payments.PaymentItem>.
 // IID: 6baf1241-1fa6-5c22-83ef-415e93cdf7b1
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentItem>.
@@ -433,6 +640,25 @@ func (self *IVectorViewOfPaymentItem) IndexOf(value *IPaymentItem, index *uint32
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPaymentItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Payments.PaymentItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPaymentItem(items []*IPaymentItem) *IVectorViewOfPaymentItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Payments.PaymentItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPaymentItem, Iterator: IID_IIteratorOfPaymentItem, VectorView: IID_IVectorViewOfPaymentItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPaymentItem)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfPaymentMethodData is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Payments.PaymentMethodData>.
 // IID: 1011b9ba-6a05-5b16-82cf-0175085105e0
@@ -467,6 +693,25 @@ func (self *IVectorViewOfPaymentMethodData) IndexOf(value *IPaymentMethodData, i
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfPaymentMethodData creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Payments.PaymentMethodData>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPaymentMethodData(items []*IPaymentMethodData) *IVectorViewOfPaymentMethodData {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Payments.PaymentMethodData>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPaymentMethodData, Iterator: IID_IIteratorOfPaymentMethodData, VectorView: IID_IVectorViewOfPaymentMethodData}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPaymentMethodData)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfPaymentShippingOption is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Payments.PaymentShippingOption>.
 // IID: 8c8128eb-8c33-56dd-9648-39e8040312d4
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Payments.PaymentShippingOption>.
@@ -499,6 +744,25 @@ func (self *IVectorViewOfPaymentShippingOption) IndexOf(value *IPaymentShippingO
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPaymentShippingOption creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Payments.PaymentShippingOption>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPaymentShippingOption(items []*IPaymentShippingOption) *IVectorViewOfPaymentShippingOption {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Payments.PaymentShippingOption>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPaymentShippingOption, Iterator: IID_IIteratorOfPaymentShippingOption, VectorView: IID_IVectorViewOfPaymentShippingOption}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPaymentShippingOption)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -540,3 +804,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

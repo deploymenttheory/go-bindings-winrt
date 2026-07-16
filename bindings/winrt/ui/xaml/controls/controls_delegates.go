@@ -385,10 +385,9 @@ var IID_CalendarViewDayItemChangingEventHandler = win32.GUID{Data1: 0x8d745891, 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.CalendarView is projected as IInspectable (the class is not emitted this wave).
-func NewCalendarViewDayItemChangingEventHandler(fn func(sender *syswinrt.IInspectable, e *ICalendarViewDayItemChangingEventArgs)) (*CalendarViewDayItemChangingEventHandler, error) {
+func NewCalendarViewDayItemChangingEventHandler(fn func(sender *ICalendarView, e *ICalendarViewDayItemChangingEventArgs)) (*CalendarViewDayItemChangingEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_CalendarViewDayItemChangingEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ICalendarViewDayItemChangingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ICalendarView)(unsafe.Pointer(raw[0])), (*ICalendarViewDayItemChangingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -421,10 +420,9 @@ var IID_CleanUpVirtualizedItemEventHandler = win32.GUID{Data1: 0xcacad0d6, Data2
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Controls.CleanUpVirtualizedItemEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewCleanUpVirtualizedItemEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*CleanUpVirtualizedItemEventHandler, error) {
+func NewCleanUpVirtualizedItemEventHandler(fn func(sender *syswinrt.IInspectable, e *ICleanUpVirtualizedItemEventArgs)) (*CleanUpVirtualizedItemEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_CleanUpVirtualizedItemEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ICleanUpVirtualizedItemEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -457,10 +455,9 @@ var IID_ContextMenuOpeningEventHandler = win32.GUID{Data1: 0xdf945151, Data2: 0x
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Controls.ContextMenuEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewContextMenuOpeningEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*ContextMenuOpeningEventHandler, error) {
+func NewContextMenuOpeningEventHandler(fn func(sender *syswinrt.IInspectable, e *IContextMenuEventArgs)) (*ContextMenuOpeningEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_ContextMenuOpeningEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IContextMenuEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -738,10 +735,9 @@ var IID_ExceptionRoutedEventHandler = win32.GUID{Data1: 0x68e0e810, Data2: 0xf6e
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.ExceptionRoutedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewExceptionRoutedEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*ExceptionRoutedEventHandler, error) {
+func NewExceptionRoutedEventHandler(fn func(sender *syswinrt.IInspectable, e *uixaml.IExceptionRoutedEventArgs)) (*ExceptionRoutedEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_ExceptionRoutedEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixaml.IExceptionRoutedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -809,10 +805,9 @@ var IID_ItemClickEventHandler = win32.GUID{Data1: 0x3df6d14e, Data2: 0xe18a, Dat
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Controls.ItemClickEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewItemClickEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*ItemClickEventHandler, error) {
+func NewItemClickEventHandler(fn func(sender *syswinrt.IInspectable, e *IItemClickEventArgs)) (*ItemClickEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_ItemClickEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IItemClickEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1090,10 +1085,9 @@ var IID_RateChangedRoutedEventHandler = win32.GUID{Data1: 0x08e9a257, Data2: 0xa
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Media.RateChangedRoutedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewRateChangedRoutedEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*RateChangedRoutedEventHandler, error) {
+func NewRateChangedRoutedEventHandler(fn func(sender *syswinrt.IInspectable, e *uixamlmedia.IRateChangedRoutedEventArgs)) (*RateChangedRoutedEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_RateChangedRoutedEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixamlmedia.IRateChangedRoutedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1196,10 +1190,9 @@ var IID_SelectionChangedEventHandler = win32.GUID{Data1: 0xe1a05352, Data2: 0x5a
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Controls.SelectionChangedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewSelectionChangedEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*SelectionChangedEventHandler, error) {
+func NewSelectionChangedEventHandler(fn func(sender *syswinrt.IInspectable, e *ISelectionChangedEventArgs)) (*SelectionChangedEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_SelectionChangedEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISelectionChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1267,10 +1260,9 @@ var IID_TextChangedEventHandler = win32.GUID{Data1: 0x8eb35b97, Data2: 0xad87, D
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Controls.TextChangedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTextChangedEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*TextChangedEventHandler, error) {
+func NewTextChangedEventHandler(fn func(sender *syswinrt.IInspectable, e *ITextChangedEventArgs)) (*TextChangedEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_TextChangedEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1338,10 +1330,9 @@ var IID_TimelineMarkerRoutedEventHandler = win32.GUID{Data1: 0x72e2fa9c, Data2: 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.Media.TimelineMarkerRoutedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTimelineMarkerRoutedEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*TimelineMarkerRoutedEventHandler, error) {
+func NewTimelineMarkerRoutedEventHandler(fn func(sender *syswinrt.IInspectable, e *uixamlmedia.ITimelineMarkerRoutedEventArgs)) (*TimelineMarkerRoutedEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_TimelineMarkerRoutedEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixamlmedia.ITimelineMarkerRoutedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1374,11 +1365,9 @@ var IID_TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxQuerySubmittedEventArg
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.AutoSuggestBox is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Xaml.Controls.AutoSuggestBoxQuerySubmittedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxQuerySubmittedEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxQuerySubmittedEventArgs, error) {
+func NewTypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxQuerySubmittedEventArgs(fn func(sender *IAutoSuggestBox, args *IAutoSuggestBoxQuerySubmittedEventArgs)) (*TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxQuerySubmittedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxQuerySubmittedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IAutoSuggestBox)(unsafe.Pointer(raw[0])), (*IAutoSuggestBoxQuerySubmittedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1415,11 +1404,9 @@ var IID_TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxSuggestionChosenEventA
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.AutoSuggestBox is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Xaml.Controls.AutoSuggestBoxSuggestionChosenEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxSuggestionChosenEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxSuggestionChosenEventArgs, error) {
+func NewTypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxSuggestionChosenEventArgs(fn func(sender *IAutoSuggestBox, args *IAutoSuggestBoxSuggestionChosenEventArgs)) (*TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxSuggestionChosenEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxSuggestionChosenEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IAutoSuggestBox)(unsafe.Pointer(raw[0])), (*IAutoSuggestBoxSuggestionChosenEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1456,11 +1443,9 @@ var IID_TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxTextChangedEventArgs =
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.AutoSuggestBox is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Xaml.Controls.AutoSuggestBoxTextChangedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxTextChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxTextChangedEventArgs, error) {
+func NewTypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxTextChangedEventArgs(fn func(sender *IAutoSuggestBox, args *IAutoSuggestBoxTextChangedEventArgs)) (*TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxTextChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfAutoSuggestBoxAndAutoSuggestBoxTextChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IAutoSuggestBox)(unsafe.Pointer(raw[0])), (*IAutoSuggestBoxTextChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1497,10 +1482,9 @@ var IID_TypedEventHandlerOfCalendarDatePickerAndCalendarDatePickerDateChangedEve
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.CalendarDatePicker is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfCalendarDatePickerAndCalendarDatePickerDateChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *ICalendarDatePickerDateChangedEventArgs)) (*TypedEventHandlerOfCalendarDatePickerAndCalendarDatePickerDateChangedEventArgs, error) {
+func NewTypedEventHandlerOfCalendarDatePickerAndCalendarDatePickerDateChangedEventArgs(fn func(sender *ICalendarDatePicker, args *ICalendarDatePickerDateChangedEventArgs)) (*TypedEventHandlerOfCalendarDatePickerAndCalendarDatePickerDateChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfCalendarDatePickerAndCalendarDatePickerDateChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ICalendarDatePickerDateChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ICalendarDatePicker)(unsafe.Pointer(raw[0])), (*ICalendarDatePickerDateChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1537,10 +1521,9 @@ var IID_TypedEventHandlerOfCalendarViewAndCalendarViewDayItemChangingEventArgs =
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.CalendarView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfCalendarViewAndCalendarViewDayItemChangingEventArgs(fn func(sender *syswinrt.IInspectable, args *ICalendarViewDayItemChangingEventArgs)) (*TypedEventHandlerOfCalendarViewAndCalendarViewDayItemChangingEventArgs, error) {
+func NewTypedEventHandlerOfCalendarViewAndCalendarViewDayItemChangingEventArgs(fn func(sender *ICalendarView, args *ICalendarViewDayItemChangingEventArgs)) (*TypedEventHandlerOfCalendarViewAndCalendarViewDayItemChangingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfCalendarViewAndCalendarViewDayItemChangingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ICalendarViewDayItemChangingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ICalendarView)(unsafe.Pointer(raw[0])), (*ICalendarViewDayItemChangingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1577,10 +1560,9 @@ var IID_TypedEventHandlerOfCalendarViewAndCalendarViewSelectedDatesChangedEventA
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.CalendarView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfCalendarViewAndCalendarViewSelectedDatesChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *ICalendarViewSelectedDatesChangedEventArgs)) (*TypedEventHandlerOfCalendarViewAndCalendarViewSelectedDatesChangedEventArgs, error) {
+func NewTypedEventHandlerOfCalendarViewAndCalendarViewSelectedDatesChangedEventArgs(fn func(sender *ICalendarView, args *ICalendarViewSelectedDatesChangedEventArgs)) (*TypedEventHandlerOfCalendarViewAndCalendarViewSelectedDatesChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfCalendarViewAndCalendarViewSelectedDatesChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ICalendarViewSelectedDatesChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ICalendarView)(unsafe.Pointer(raw[0])), (*ICalendarViewSelectedDatesChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1617,10 +1599,9 @@ var IID_TypedEventHandlerOfColorPickerAndColorChangedEventArgs = win32.GUID{Data
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ColorPicker is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfColorPickerAndColorChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IColorChangedEventArgs)) (*TypedEventHandlerOfColorPickerAndColorChangedEventArgs, error) {
+func NewTypedEventHandlerOfColorPickerAndColorChangedEventArgs(fn func(sender *IColorPicker, args *IColorChangedEventArgs)) (*TypedEventHandlerOfColorPickerAndColorChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfColorPickerAndColorChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IColorChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IColorPicker)(unsafe.Pointer(raw[0])), (*IColorChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1655,10 +1636,9 @@ var IID_TypedEventHandlerOfComboBoxAndComboBoxTextSubmittedEventArgs = win32.GUI
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ComboBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfComboBoxAndComboBoxTextSubmittedEventArgs(fn func(sender *syswinrt.IInspectable, args *IComboBoxTextSubmittedEventArgs)) (*TypedEventHandlerOfComboBoxAndComboBoxTextSubmittedEventArgs, error) {
+func NewTypedEventHandlerOfComboBoxAndComboBoxTextSubmittedEventArgs(fn func(sender *IComboBox, args *IComboBoxTextSubmittedEventArgs)) (*TypedEventHandlerOfComboBoxAndComboBoxTextSubmittedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfComboBoxAndComboBoxTextSubmittedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IComboBoxTextSubmittedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IComboBox)(unsafe.Pointer(raw[0])), (*IComboBoxTextSubmittedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1693,10 +1673,9 @@ var IID_TypedEventHandlerOfCommandBarAndDynamicOverflowItemsChangingEventArgs = 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.CommandBar is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfCommandBarAndDynamicOverflowItemsChangingEventArgs(fn func(sender *syswinrt.IInspectable, args *IDynamicOverflowItemsChangingEventArgs)) (*TypedEventHandlerOfCommandBarAndDynamicOverflowItemsChangingEventArgs, error) {
+func NewTypedEventHandlerOfCommandBarAndDynamicOverflowItemsChangingEventArgs(fn func(sender *ICommandBar, args *IDynamicOverflowItemsChangingEventArgs)) (*TypedEventHandlerOfCommandBarAndDynamicOverflowItemsChangingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfCommandBarAndDynamicOverflowItemsChangingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IDynamicOverflowItemsChangingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ICommandBar)(unsafe.Pointer(raw[0])), (*IDynamicOverflowItemsChangingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1733,10 +1712,9 @@ var IID_TypedEventHandlerOfContentDialogAndContentDialogButtonClickEventArgs = w
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ContentDialog is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfContentDialogAndContentDialogButtonClickEventArgs(fn func(sender *syswinrt.IInspectable, args *IContentDialogButtonClickEventArgs)) (*TypedEventHandlerOfContentDialogAndContentDialogButtonClickEventArgs, error) {
+func NewTypedEventHandlerOfContentDialogAndContentDialogButtonClickEventArgs(fn func(sender *IContentDialog, args *IContentDialogButtonClickEventArgs)) (*TypedEventHandlerOfContentDialogAndContentDialogButtonClickEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfContentDialogAndContentDialogButtonClickEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IContentDialogButtonClickEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IContentDialog)(unsafe.Pointer(raw[0])), (*IContentDialogButtonClickEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1773,10 +1751,9 @@ var IID_TypedEventHandlerOfContentDialogAndContentDialogClosedEventArgs = win32.
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ContentDialog is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfContentDialogAndContentDialogClosedEventArgs(fn func(sender *syswinrt.IInspectable, args *IContentDialogClosedEventArgs)) (*TypedEventHandlerOfContentDialogAndContentDialogClosedEventArgs, error) {
+func NewTypedEventHandlerOfContentDialogAndContentDialogClosedEventArgs(fn func(sender *IContentDialog, args *IContentDialogClosedEventArgs)) (*TypedEventHandlerOfContentDialogAndContentDialogClosedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfContentDialogAndContentDialogClosedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IContentDialogClosedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IContentDialog)(unsafe.Pointer(raw[0])), (*IContentDialogClosedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1813,10 +1790,9 @@ var IID_TypedEventHandlerOfContentDialogAndContentDialogClosingEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ContentDialog is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfContentDialogAndContentDialogClosingEventArgs(fn func(sender *syswinrt.IInspectable, args *IContentDialogClosingEventArgs)) (*TypedEventHandlerOfContentDialogAndContentDialogClosingEventArgs, error) {
+func NewTypedEventHandlerOfContentDialogAndContentDialogClosingEventArgs(fn func(sender *IContentDialog, args *IContentDialogClosingEventArgs)) (*TypedEventHandlerOfContentDialogAndContentDialogClosingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfContentDialogAndContentDialogClosingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IContentDialogClosingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IContentDialog)(unsafe.Pointer(raw[0])), (*IContentDialogClosingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1853,10 +1829,9 @@ var IID_TypedEventHandlerOfContentDialogAndContentDialogOpenedEventArgs = win32.
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ContentDialog is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfContentDialogAndContentDialogOpenedEventArgs(fn func(sender *syswinrt.IInspectable, args *IContentDialogOpenedEventArgs)) (*TypedEventHandlerOfContentDialogAndContentDialogOpenedEventArgs, error) {
+func NewTypedEventHandlerOfContentDialogAndContentDialogOpenedEventArgs(fn func(sender *IContentDialog, args *IContentDialogOpenedEventArgs)) (*TypedEventHandlerOfContentDialogAndContentDialogOpenedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfContentDialogAndContentDialogOpenedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IContentDialogOpenedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IContentDialog)(unsafe.Pointer(raw[0])), (*IContentDialogOpenedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1893,11 +1868,9 @@ var IID_TypedEventHandlerOfControlAndFocusDisengagedEventArgs = win32.GUID{Data1
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Control is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Xaml.Controls.FocusDisengagedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfControlAndFocusDisengagedEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfControlAndFocusDisengagedEventArgs, error) {
+func NewTypedEventHandlerOfControlAndFocusDisengagedEventArgs(fn func(sender *IControl, args *IFocusDisengagedEventArgs)) (*TypedEventHandlerOfControlAndFocusDisengagedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfControlAndFocusDisengagedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IControl)(unsafe.Pointer(raw[0])), (*IFocusDisengagedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1932,11 +1905,9 @@ var IID_TypedEventHandlerOfControlAndFocusEngagedEventArgs = win32.GUID{Data1: 0
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Control is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Xaml.Controls.FocusEngagedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfControlAndFocusEngagedEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfControlAndFocusEngagedEventArgs, error) {
+func NewTypedEventHandlerOfControlAndFocusEngagedEventArgs(fn func(sender *IControl, args *IFocusEngagedEventArgs)) (*TypedEventHandlerOfControlAndFocusEngagedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfControlAndFocusEngagedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IControl)(unsafe.Pointer(raw[0])), (*IFocusEngagedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1969,10 +1940,9 @@ var IID_TypedEventHandlerOfDatePickerAndDatePickerSelectedValueChangedEventArgs 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.DatePicker is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfDatePickerAndDatePickerSelectedValueChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IDatePickerSelectedValueChangedEventArgs)) (*TypedEventHandlerOfDatePickerAndDatePickerSelectedValueChangedEventArgs, error) {
+func NewTypedEventHandlerOfDatePickerAndDatePickerSelectedValueChangedEventArgs(fn func(sender *IDatePicker, args *IDatePickerSelectedValueChangedEventArgs)) (*TypedEventHandlerOfDatePickerAndDatePickerSelectedValueChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfDatePickerAndDatePickerSelectedValueChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IDatePickerSelectedValueChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IDatePicker)(unsafe.Pointer(raw[0])), (*IDatePickerSelectedValueChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2009,11 +1979,9 @@ var IID_TypedEventHandlerOfDatePickerFlyoutAndDatePickedEventArgs = win32.GUID{D
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.DatePickerFlyout is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Xaml.Controls.DatePickedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfDatePickerFlyoutAndDatePickedEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfDatePickerFlyoutAndDatePickedEventArgs, error) {
+func NewTypedEventHandlerOfDatePickerFlyoutAndDatePickedEventArgs(fn func(sender *IDatePickerFlyout, args *IDatePickedEventArgs)) (*TypedEventHandlerOfDatePickerFlyoutAndDatePickedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfDatePickerFlyoutAndDatePickedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IDatePickerFlyout)(unsafe.Pointer(raw[0])), (*IDatePickedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2048,10 +2016,9 @@ var IID_TypedEventHandlerOfHandwritingViewAndHandwritingPanelClosedEventArgs = w
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.HandwritingView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfHandwritingViewAndHandwritingPanelClosedEventArgs(fn func(sender *syswinrt.IInspectable, args *IHandwritingPanelClosedEventArgs)) (*TypedEventHandlerOfHandwritingViewAndHandwritingPanelClosedEventArgs, error) {
+func NewTypedEventHandlerOfHandwritingViewAndHandwritingPanelClosedEventArgs(fn func(sender *IHandwritingView, args *IHandwritingPanelClosedEventArgs)) (*TypedEventHandlerOfHandwritingViewAndHandwritingPanelClosedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfHandwritingViewAndHandwritingPanelClosedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IHandwritingPanelClosedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IHandwritingView)(unsafe.Pointer(raw[0])), (*IHandwritingPanelClosedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2088,10 +2055,9 @@ var IID_TypedEventHandlerOfHandwritingViewAndHandwritingPanelOpenedEventArgs = w
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.HandwritingView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfHandwritingViewAndHandwritingPanelOpenedEventArgs(fn func(sender *syswinrt.IInspectable, args *IHandwritingPanelOpenedEventArgs)) (*TypedEventHandlerOfHandwritingViewAndHandwritingPanelOpenedEventArgs, error) {
+func NewTypedEventHandlerOfHandwritingViewAndHandwritingPanelOpenedEventArgs(fn func(sender *IHandwritingView, args *IHandwritingPanelOpenedEventArgs)) (*TypedEventHandlerOfHandwritingViewAndHandwritingPanelOpenedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfHandwritingViewAndHandwritingPanelOpenedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IHandwritingPanelOpenedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IHandwritingView)(unsafe.Pointer(raw[0])), (*IHandwritingPanelOpenedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2128,10 +2094,9 @@ var IID_TypedEventHandlerOfHandwritingViewAndHandwritingViewCandidatesChangedEve
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.HandwritingView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfHandwritingViewAndHandwritingViewCandidatesChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IHandwritingViewCandidatesChangedEventArgs)) (*TypedEventHandlerOfHandwritingViewAndHandwritingViewCandidatesChangedEventArgs, error) {
+func NewTypedEventHandlerOfHandwritingViewAndHandwritingViewCandidatesChangedEventArgs(fn func(sender *IHandwritingView, args *IHandwritingViewCandidatesChangedEventArgs)) (*TypedEventHandlerOfHandwritingViewAndHandwritingViewCandidatesChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfHandwritingViewAndHandwritingViewCandidatesChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IHandwritingViewCandidatesChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IHandwritingView)(unsafe.Pointer(raw[0])), (*IHandwritingViewCandidatesChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2168,10 +2133,9 @@ var IID_TypedEventHandlerOfHandwritingViewAndHandwritingViewTextSubmittedEventAr
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.HandwritingView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfHandwritingViewAndHandwritingViewTextSubmittedEventArgs(fn func(sender *syswinrt.IInspectable, args *IHandwritingViewTextSubmittedEventArgs)) (*TypedEventHandlerOfHandwritingViewAndHandwritingViewTextSubmittedEventArgs, error) {
+func NewTypedEventHandlerOfHandwritingViewAndHandwritingViewTextSubmittedEventArgs(fn func(sender *IHandwritingView, args *IHandwritingViewTextSubmittedEventArgs)) (*TypedEventHandlerOfHandwritingViewAndHandwritingViewTextSubmittedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfHandwritingViewAndHandwritingViewTextSubmittedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IHandwritingViewTextSubmittedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IHandwritingView)(unsafe.Pointer(raw[0])), (*IHandwritingViewTextSubmittedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2208,10 +2172,9 @@ var IID_TypedEventHandlerOfInkToolbarAndInkToolbarIsStencilButtonCheckedChangedE
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.InkToolbar is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfInkToolbarAndInkToolbarIsStencilButtonCheckedChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IInkToolbarIsStencilButtonCheckedChangedEventArgs)) (*TypedEventHandlerOfInkToolbarAndInkToolbarIsStencilButtonCheckedChangedEventArgs, error) {
+func NewTypedEventHandlerOfInkToolbarAndInkToolbarIsStencilButtonCheckedChangedEventArgs(fn func(sender *IInkToolbar, args *IInkToolbarIsStencilButtonCheckedChangedEventArgs)) (*TypedEventHandlerOfInkToolbarAndInkToolbarIsStencilButtonCheckedChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfInkToolbarAndInkToolbarIsStencilButtonCheckedChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IInkToolbarIsStencilButtonCheckedChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IInkToolbar)(unsafe.Pointer(raw[0])), (*IInkToolbarIsStencilButtonCheckedChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2248,10 +2211,9 @@ var IID_TypedEventHandlerOfInkToolbarAndObject = win32.GUID{Data1: 0xeea8b7be, D
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.InkToolbar is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfInkToolbarAndObject(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfInkToolbarAndObject, error) {
+func NewTypedEventHandlerOfInkToolbarAndObject(fn func(sender *IInkToolbar, args *syswinrt.IInspectable)) (*TypedEventHandlerOfInkToolbarAndObject, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfInkToolbarAndObject, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IInkToolbar)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2284,10 +2246,9 @@ var IID_TypedEventHandlerOfInkToolbarFlyoutItemAndObject = win32.GUID{Data1: 0x1
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.InkToolbarFlyoutItem is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfInkToolbarFlyoutItemAndObject(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfInkToolbarFlyoutItemAndObject, error) {
+func NewTypedEventHandlerOfInkToolbarFlyoutItemAndObject(fn func(sender *IInkToolbarFlyoutItem, args *syswinrt.IInspectable)) (*TypedEventHandlerOfInkToolbarFlyoutItemAndObject, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfInkToolbarFlyoutItemAndObject, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IInkToolbarFlyoutItem)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2320,11 +2281,9 @@ var IID_TypedEventHandlerOfListPickerFlyoutAndItemsPickedEventArgs = win32.GUID{
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ListPickerFlyout is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Xaml.Controls.ItemsPickedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfListPickerFlyoutAndItemsPickedEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfListPickerFlyoutAndItemsPickedEventArgs, error) {
+func NewTypedEventHandlerOfListPickerFlyoutAndItemsPickedEventArgs(fn func(sender *IListPickerFlyout, args *IItemsPickedEventArgs)) (*TypedEventHandlerOfListPickerFlyoutAndItemsPickedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfListPickerFlyoutAndItemsPickedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IListPickerFlyout)(unsafe.Pointer(raw[0])), (*IItemsPickedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2359,10 +2318,9 @@ var IID_TypedEventHandlerOfListViewBaseAndChoosingGroupHeaderContainerEventArgs 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ListViewBase is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfListViewBaseAndChoosingGroupHeaderContainerEventArgs(fn func(sender *syswinrt.IInspectable, args *IChoosingGroupHeaderContainerEventArgs)) (*TypedEventHandlerOfListViewBaseAndChoosingGroupHeaderContainerEventArgs, error) {
+func NewTypedEventHandlerOfListViewBaseAndChoosingGroupHeaderContainerEventArgs(fn func(sender *IListViewBase, args *IChoosingGroupHeaderContainerEventArgs)) (*TypedEventHandlerOfListViewBaseAndChoosingGroupHeaderContainerEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfListViewBaseAndChoosingGroupHeaderContainerEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IChoosingGroupHeaderContainerEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IListViewBase)(unsafe.Pointer(raw[0])), (*IChoosingGroupHeaderContainerEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2399,10 +2357,9 @@ var IID_TypedEventHandlerOfListViewBaseAndChoosingItemContainerEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ListViewBase is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfListViewBaseAndChoosingItemContainerEventArgs(fn func(sender *syswinrt.IInspectable, args *IChoosingItemContainerEventArgs)) (*TypedEventHandlerOfListViewBaseAndChoosingItemContainerEventArgs, error) {
+func NewTypedEventHandlerOfListViewBaseAndChoosingItemContainerEventArgs(fn func(sender *IListViewBase, args *IChoosingItemContainerEventArgs)) (*TypedEventHandlerOfListViewBaseAndChoosingItemContainerEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfListViewBaseAndChoosingItemContainerEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IChoosingItemContainerEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IListViewBase)(unsafe.Pointer(raw[0])), (*IChoosingItemContainerEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2439,10 +2396,9 @@ var IID_TypedEventHandlerOfListViewBaseAndContainerContentChangingEventArgs = wi
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ListViewBase is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfListViewBaseAndContainerContentChangingEventArgs(fn func(sender *syswinrt.IInspectable, args *IContainerContentChangingEventArgs)) (*TypedEventHandlerOfListViewBaseAndContainerContentChangingEventArgs, error) {
+func NewTypedEventHandlerOfListViewBaseAndContainerContentChangingEventArgs(fn func(sender *IListViewBase, args *IContainerContentChangingEventArgs)) (*TypedEventHandlerOfListViewBaseAndContainerContentChangingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfListViewBaseAndContainerContentChangingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IContainerContentChangingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IListViewBase)(unsafe.Pointer(raw[0])), (*IContainerContentChangingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2479,10 +2435,9 @@ var IID_TypedEventHandlerOfListViewBaseAndDragItemsCompletedEventArgs = win32.GU
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ListViewBase is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfListViewBaseAndDragItemsCompletedEventArgs(fn func(sender *syswinrt.IInspectable, args *IDragItemsCompletedEventArgs)) (*TypedEventHandlerOfListViewBaseAndDragItemsCompletedEventArgs, error) {
+func NewTypedEventHandlerOfListViewBaseAndDragItemsCompletedEventArgs(fn func(sender *IListViewBase, args *IDragItemsCompletedEventArgs)) (*TypedEventHandlerOfListViewBaseAndDragItemsCompletedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfListViewBaseAndDragItemsCompletedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IDragItemsCompletedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IListViewBase)(unsafe.Pointer(raw[0])), (*IDragItemsCompletedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2517,10 +2472,9 @@ var IID_TypedEventHandlerOfMediaElementAndPartialMediaFailureDetectedEventArgs =
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.MediaElement is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMediaElementAndPartialMediaFailureDetectedEventArgs(fn func(sender *syswinrt.IInspectable, args *uixamlmedia.IPartialMediaFailureDetectedEventArgs)) (*TypedEventHandlerOfMediaElementAndPartialMediaFailureDetectedEventArgs, error) {
+func NewTypedEventHandlerOfMediaElementAndPartialMediaFailureDetectedEventArgs(fn func(sender *IMediaElement, args *uixamlmedia.IPartialMediaFailureDetectedEventArgs)) (*TypedEventHandlerOfMediaElementAndPartialMediaFailureDetectedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMediaElementAndPartialMediaFailureDetectedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixamlmedia.IPartialMediaFailureDetectedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMediaElement)(unsafe.Pointer(raw[0])), (*uixamlmedia.IPartialMediaFailureDetectedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2557,10 +2511,9 @@ var IID_TypedEventHandlerOfMediaTransportControlsAndMediaTransportControlsThumbn
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.MediaTransportControls is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfMediaTransportControlsAndMediaTransportControlsThumbnailRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *uixamlmedia.IMediaTransportControlsThumbnailRequestedEventArgs)) (*TypedEventHandlerOfMediaTransportControlsAndMediaTransportControlsThumbnailRequestedEventArgs, error) {
+func NewTypedEventHandlerOfMediaTransportControlsAndMediaTransportControlsThumbnailRequestedEventArgs(fn func(sender *IMediaTransportControls, args *uixamlmedia.IMediaTransportControlsThumbnailRequestedEventArgs)) (*TypedEventHandlerOfMediaTransportControlsAndMediaTransportControlsThumbnailRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfMediaTransportControlsAndMediaTransportControlsThumbnailRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixamlmedia.IMediaTransportControlsThumbnailRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IMediaTransportControls)(unsafe.Pointer(raw[0])), (*uixamlmedia.IMediaTransportControlsThumbnailRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2597,10 +2550,9 @@ var IID_TypedEventHandlerOfNavigationViewAndNavigationViewBackRequestedEventArgs
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.NavigationView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfNavigationViewAndNavigationViewBackRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *INavigationViewBackRequestedEventArgs)) (*TypedEventHandlerOfNavigationViewAndNavigationViewBackRequestedEventArgs, error) {
+func NewTypedEventHandlerOfNavigationViewAndNavigationViewBackRequestedEventArgs(fn func(sender *INavigationView, args *INavigationViewBackRequestedEventArgs)) (*TypedEventHandlerOfNavigationViewAndNavigationViewBackRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfNavigationViewAndNavigationViewBackRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*INavigationViewBackRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*INavigationView)(unsafe.Pointer(raw[0])), (*INavigationViewBackRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2637,10 +2589,9 @@ var IID_TypedEventHandlerOfNavigationViewAndNavigationViewDisplayModeChangedEven
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.NavigationView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfNavigationViewAndNavigationViewDisplayModeChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *INavigationViewDisplayModeChangedEventArgs)) (*TypedEventHandlerOfNavigationViewAndNavigationViewDisplayModeChangedEventArgs, error) {
+func NewTypedEventHandlerOfNavigationViewAndNavigationViewDisplayModeChangedEventArgs(fn func(sender *INavigationView, args *INavigationViewDisplayModeChangedEventArgs)) (*TypedEventHandlerOfNavigationViewAndNavigationViewDisplayModeChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfNavigationViewAndNavigationViewDisplayModeChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*INavigationViewDisplayModeChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*INavigationView)(unsafe.Pointer(raw[0])), (*INavigationViewDisplayModeChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2677,10 +2628,9 @@ var IID_TypedEventHandlerOfNavigationViewAndNavigationViewItemInvokedEventArgs =
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.NavigationView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfNavigationViewAndNavigationViewItemInvokedEventArgs(fn func(sender *syswinrt.IInspectable, args *INavigationViewItemInvokedEventArgs)) (*TypedEventHandlerOfNavigationViewAndNavigationViewItemInvokedEventArgs, error) {
+func NewTypedEventHandlerOfNavigationViewAndNavigationViewItemInvokedEventArgs(fn func(sender *INavigationView, args *INavigationViewItemInvokedEventArgs)) (*TypedEventHandlerOfNavigationViewAndNavigationViewItemInvokedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfNavigationViewAndNavigationViewItemInvokedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*INavigationViewItemInvokedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*INavigationView)(unsafe.Pointer(raw[0])), (*INavigationViewItemInvokedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2717,10 +2667,9 @@ var IID_TypedEventHandlerOfNavigationViewAndNavigationViewPaneClosingEventArgs =
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.NavigationView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfNavigationViewAndNavigationViewPaneClosingEventArgs(fn func(sender *syswinrt.IInspectable, args *INavigationViewPaneClosingEventArgs)) (*TypedEventHandlerOfNavigationViewAndNavigationViewPaneClosingEventArgs, error) {
+func NewTypedEventHandlerOfNavigationViewAndNavigationViewPaneClosingEventArgs(fn func(sender *INavigationView, args *INavigationViewPaneClosingEventArgs)) (*TypedEventHandlerOfNavigationViewAndNavigationViewPaneClosingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfNavigationViewAndNavigationViewPaneClosingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*INavigationViewPaneClosingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*INavigationView)(unsafe.Pointer(raw[0])), (*INavigationViewPaneClosingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2757,10 +2706,9 @@ var IID_TypedEventHandlerOfNavigationViewAndNavigationViewSelectionChangedEventA
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.NavigationView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfNavigationViewAndNavigationViewSelectionChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *INavigationViewSelectionChangedEventArgs)) (*TypedEventHandlerOfNavigationViewAndNavigationViewSelectionChangedEventArgs, error) {
+func NewTypedEventHandlerOfNavigationViewAndNavigationViewSelectionChangedEventArgs(fn func(sender *INavigationView, args *INavigationViewSelectionChangedEventArgs)) (*TypedEventHandlerOfNavigationViewAndNavigationViewSelectionChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfNavigationViewAndNavigationViewSelectionChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*INavigationViewSelectionChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*INavigationView)(unsafe.Pointer(raw[0])), (*INavigationViewSelectionChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2797,10 +2745,9 @@ var IID_TypedEventHandlerOfNavigationViewAndObject = win32.GUID{Data1: 0xaa2752a
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.NavigationView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfNavigationViewAndObject(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfNavigationViewAndObject, error) {
+func NewTypedEventHandlerOfNavigationViewAndObject(fn func(sender *INavigationView, args *syswinrt.IInspectable)) (*TypedEventHandlerOfNavigationViewAndObject, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfNavigationViewAndObject, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*INavigationView)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2833,10 +2780,9 @@ var IID_TypedEventHandlerOfPasswordBoxAndPasswordBoxPasswordChangingEventArgs = 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.PasswordBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfPasswordBoxAndPasswordBoxPasswordChangingEventArgs(fn func(sender *syswinrt.IInspectable, args *IPasswordBoxPasswordChangingEventArgs)) (*TypedEventHandlerOfPasswordBoxAndPasswordBoxPasswordChangingEventArgs, error) {
+func NewTypedEventHandlerOfPasswordBoxAndPasswordBoxPasswordChangingEventArgs(fn func(sender *IPasswordBox, args *IPasswordBoxPasswordChangingEventArgs)) (*TypedEventHandlerOfPasswordBoxAndPasswordBoxPasswordChangingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfPasswordBoxAndPasswordBoxPasswordChangingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IPasswordBoxPasswordChangingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IPasswordBox)(unsafe.Pointer(raw[0])), (*IPasswordBoxPasswordChangingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2873,11 +2819,9 @@ var IID_TypedEventHandlerOfPickerFlyoutAndPickerConfirmedEventArgs = win32.GUID{
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.PickerFlyout is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Xaml.Controls.PickerConfirmedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfPickerFlyoutAndPickerConfirmedEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfPickerFlyoutAndPickerConfirmedEventArgs, error) {
+func NewTypedEventHandlerOfPickerFlyoutAndPickerConfirmedEventArgs(fn func(sender *IPickerFlyout, args *IPickerConfirmedEventArgs)) (*TypedEventHandlerOfPickerFlyoutAndPickerConfirmedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfPickerFlyoutAndPickerConfirmedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IPickerFlyout)(unsafe.Pointer(raw[0])), (*IPickerConfirmedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2912,10 +2856,9 @@ var IID_TypedEventHandlerOfPivotAndPivotItemEventArgs = win32.GUID{Data1: 0x6b0c
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.Pivot is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfPivotAndPivotItemEventArgs(fn func(sender *syswinrt.IInspectable, args *IPivotItemEventArgs)) (*TypedEventHandlerOfPivotAndPivotItemEventArgs, error) {
+func NewTypedEventHandlerOfPivotAndPivotItemEventArgs(fn func(sender *IPivot, args *IPivotItemEventArgs)) (*TypedEventHandlerOfPivotAndPivotItemEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfPivotAndPivotItemEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IPivotItemEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IPivot)(unsafe.Pointer(raw[0])), (*IPivotItemEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2948,10 +2891,9 @@ var IID_TypedEventHandlerOfRatingControlAndObject = win32.GUID{Data1: 0x180be111
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RatingControl is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRatingControlAndObject(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfRatingControlAndObject, error) {
+func NewTypedEventHandlerOfRatingControlAndObject(fn func(sender *IRatingControl, args *syswinrt.IInspectable)) (*TypedEventHandlerOfRatingControlAndObject, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRatingControlAndObject, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IRatingControl)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -2984,10 +2926,9 @@ var IID_TypedEventHandlerOfRefreshContainerAndRefreshRequestedEventArgs = win32.
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RefreshContainer is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRefreshContainerAndRefreshRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IRefreshRequestedEventArgs)) (*TypedEventHandlerOfRefreshContainerAndRefreshRequestedEventArgs, error) {
+func NewTypedEventHandlerOfRefreshContainerAndRefreshRequestedEventArgs(fn func(sender *IRefreshContainer, args *IRefreshRequestedEventArgs)) (*TypedEventHandlerOfRefreshContainerAndRefreshRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRefreshContainerAndRefreshRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IRefreshRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRefreshContainer)(unsafe.Pointer(raw[0])), (*IRefreshRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3024,10 +2965,9 @@ var IID_TypedEventHandlerOfRefreshVisualizerAndRefreshRequestedEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RefreshVisualizer is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRefreshVisualizerAndRefreshRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IRefreshRequestedEventArgs)) (*TypedEventHandlerOfRefreshVisualizerAndRefreshRequestedEventArgs, error) {
+func NewTypedEventHandlerOfRefreshVisualizerAndRefreshRequestedEventArgs(fn func(sender *IRefreshVisualizer, args *IRefreshRequestedEventArgs)) (*TypedEventHandlerOfRefreshVisualizerAndRefreshRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRefreshVisualizerAndRefreshRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IRefreshRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRefreshVisualizer)(unsafe.Pointer(raw[0])), (*IRefreshRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3064,10 +3004,9 @@ var IID_TypedEventHandlerOfRefreshVisualizerAndRefreshStateChangedEventArgs = wi
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RefreshVisualizer is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRefreshVisualizerAndRefreshStateChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IRefreshStateChangedEventArgs)) (*TypedEventHandlerOfRefreshVisualizerAndRefreshStateChangedEventArgs, error) {
+func NewTypedEventHandlerOfRefreshVisualizerAndRefreshStateChangedEventArgs(fn func(sender *IRefreshVisualizer, args *IRefreshStateChangedEventArgs)) (*TypedEventHandlerOfRefreshVisualizerAndRefreshStateChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRefreshVisualizerAndRefreshStateChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IRefreshStateChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRefreshVisualizer)(unsafe.Pointer(raw[0])), (*IRefreshStateChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3104,10 +3043,9 @@ var IID_TypedEventHandlerOfRichEditBoxAndCandidateWindowBoundsChangedEventArgs =
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichEditBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichEditBoxAndCandidateWindowBoundsChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *ICandidateWindowBoundsChangedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndCandidateWindowBoundsChangedEventArgs, error) {
+func NewTypedEventHandlerOfRichEditBoxAndCandidateWindowBoundsChangedEventArgs(fn func(sender *IRichEditBox, args *ICandidateWindowBoundsChangedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndCandidateWindowBoundsChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichEditBoxAndCandidateWindowBoundsChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ICandidateWindowBoundsChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichEditBox)(unsafe.Pointer(raw[0])), (*ICandidateWindowBoundsChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3144,10 +3082,9 @@ var IID_TypedEventHandlerOfRichEditBoxAndContentLinkChangedEventArgs = win32.GUI
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichEditBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichEditBoxAndContentLinkChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IContentLinkChangedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndContentLinkChangedEventArgs, error) {
+func NewTypedEventHandlerOfRichEditBoxAndContentLinkChangedEventArgs(fn func(sender *IRichEditBox, args *IContentLinkChangedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndContentLinkChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichEditBoxAndContentLinkChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IContentLinkChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichEditBox)(unsafe.Pointer(raw[0])), (*IContentLinkChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3182,10 +3119,9 @@ var IID_TypedEventHandlerOfRichEditBoxAndContentLinkInvokedEventArgs = win32.GUI
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichEditBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichEditBoxAndContentLinkInvokedEventArgs(fn func(sender *syswinrt.IInspectable, args *uixamldocuments.IContentLinkInvokedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndContentLinkInvokedEventArgs, error) {
+func NewTypedEventHandlerOfRichEditBoxAndContentLinkInvokedEventArgs(fn func(sender *IRichEditBox, args *uixamldocuments.IContentLinkInvokedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndContentLinkInvokedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichEditBoxAndContentLinkInvokedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixamldocuments.IContentLinkInvokedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichEditBox)(unsafe.Pointer(raw[0])), (*uixamldocuments.IContentLinkInvokedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3220,10 +3156,9 @@ var IID_TypedEventHandlerOfRichEditBoxAndRichEditBoxSelectionChangingEventArgs =
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichEditBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichEditBoxAndRichEditBoxSelectionChangingEventArgs(fn func(sender *syswinrt.IInspectable, args *IRichEditBoxSelectionChangingEventArgs)) (*TypedEventHandlerOfRichEditBoxAndRichEditBoxSelectionChangingEventArgs, error) {
+func NewTypedEventHandlerOfRichEditBoxAndRichEditBoxSelectionChangingEventArgs(fn func(sender *IRichEditBox, args *IRichEditBoxSelectionChangingEventArgs)) (*TypedEventHandlerOfRichEditBoxAndRichEditBoxSelectionChangingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichEditBoxAndRichEditBoxSelectionChangingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IRichEditBoxSelectionChangingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichEditBox)(unsafe.Pointer(raw[0])), (*IRichEditBoxSelectionChangingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3260,10 +3195,9 @@ var IID_TypedEventHandlerOfRichEditBoxAndRichEditBoxTextChangingEventArgs = win3
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichEditBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichEditBoxAndRichEditBoxTextChangingEventArgs(fn func(sender *syswinrt.IInspectable, args *IRichEditBoxTextChangingEventArgs)) (*TypedEventHandlerOfRichEditBoxAndRichEditBoxTextChangingEventArgs, error) {
+func NewTypedEventHandlerOfRichEditBoxAndRichEditBoxTextChangingEventArgs(fn func(sender *IRichEditBox, args *IRichEditBoxTextChangingEventArgs)) (*TypedEventHandlerOfRichEditBoxAndRichEditBoxTextChangingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichEditBoxAndRichEditBoxTextChangingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IRichEditBoxTextChangingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichEditBox)(unsafe.Pointer(raw[0])), (*IRichEditBoxTextChangingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3300,10 +3234,9 @@ var IID_TypedEventHandlerOfRichEditBoxAndTextCompositionChangedEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichEditBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichEditBoxAndTextCompositionChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextCompositionChangedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndTextCompositionChangedEventArgs, error) {
+func NewTypedEventHandlerOfRichEditBoxAndTextCompositionChangedEventArgs(fn func(sender *IRichEditBox, args *ITextCompositionChangedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndTextCompositionChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichEditBoxAndTextCompositionChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextCompositionChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichEditBox)(unsafe.Pointer(raw[0])), (*ITextCompositionChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3340,10 +3273,9 @@ var IID_TypedEventHandlerOfRichEditBoxAndTextCompositionEndedEventArgs = win32.G
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichEditBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichEditBoxAndTextCompositionEndedEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextCompositionEndedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndTextCompositionEndedEventArgs, error) {
+func NewTypedEventHandlerOfRichEditBoxAndTextCompositionEndedEventArgs(fn func(sender *IRichEditBox, args *ITextCompositionEndedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndTextCompositionEndedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichEditBoxAndTextCompositionEndedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextCompositionEndedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichEditBox)(unsafe.Pointer(raw[0])), (*ITextCompositionEndedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3380,10 +3312,9 @@ var IID_TypedEventHandlerOfRichEditBoxAndTextCompositionStartedEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichEditBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichEditBoxAndTextCompositionStartedEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextCompositionStartedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndTextCompositionStartedEventArgs, error) {
+func NewTypedEventHandlerOfRichEditBoxAndTextCompositionStartedEventArgs(fn func(sender *IRichEditBox, args *ITextCompositionStartedEventArgs)) (*TypedEventHandlerOfRichEditBoxAndTextCompositionStartedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichEditBoxAndTextCompositionStartedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextCompositionStartedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichEditBox)(unsafe.Pointer(raw[0])), (*ITextCompositionStartedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3420,10 +3351,9 @@ var IID_TypedEventHandlerOfRichEditBoxAndTextControlCopyingToClipboardEventArgs 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichEditBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichEditBoxAndTextControlCopyingToClipboardEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextControlCopyingToClipboardEventArgs)) (*TypedEventHandlerOfRichEditBoxAndTextControlCopyingToClipboardEventArgs, error) {
+func NewTypedEventHandlerOfRichEditBoxAndTextControlCopyingToClipboardEventArgs(fn func(sender *IRichEditBox, args *ITextControlCopyingToClipboardEventArgs)) (*TypedEventHandlerOfRichEditBoxAndTextControlCopyingToClipboardEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichEditBoxAndTextControlCopyingToClipboardEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextControlCopyingToClipboardEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichEditBox)(unsafe.Pointer(raw[0])), (*ITextControlCopyingToClipboardEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3460,10 +3390,9 @@ var IID_TypedEventHandlerOfRichEditBoxAndTextControlCuttingToClipboardEventArgs 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichEditBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichEditBoxAndTextControlCuttingToClipboardEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextControlCuttingToClipboardEventArgs)) (*TypedEventHandlerOfRichEditBoxAndTextControlCuttingToClipboardEventArgs, error) {
+func NewTypedEventHandlerOfRichEditBoxAndTextControlCuttingToClipboardEventArgs(fn func(sender *IRichEditBox, args *ITextControlCuttingToClipboardEventArgs)) (*TypedEventHandlerOfRichEditBoxAndTextControlCuttingToClipboardEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichEditBoxAndTextControlCuttingToClipboardEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextControlCuttingToClipboardEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichEditBox)(unsafe.Pointer(raw[0])), (*ITextControlCuttingToClipboardEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3500,10 +3429,9 @@ var IID_TypedEventHandlerOfRichTextBlockAndIsTextTrimmedChangedEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichTextBlock is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichTextBlockAndIsTextTrimmedChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IIsTextTrimmedChangedEventArgs)) (*TypedEventHandlerOfRichTextBlockAndIsTextTrimmedChangedEventArgs, error) {
+func NewTypedEventHandlerOfRichTextBlockAndIsTextTrimmedChangedEventArgs(fn func(sender *IRichTextBlock, args *IIsTextTrimmedChangedEventArgs)) (*TypedEventHandlerOfRichTextBlockAndIsTextTrimmedChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichTextBlockAndIsTextTrimmedChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IIsTextTrimmedChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichTextBlock)(unsafe.Pointer(raw[0])), (*IIsTextTrimmedChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3540,10 +3468,9 @@ var IID_TypedEventHandlerOfRichTextBlockOverflowAndIsTextTrimmedChangedEventArgs
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.RichTextBlockOverflow is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfRichTextBlockOverflowAndIsTextTrimmedChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IIsTextTrimmedChangedEventArgs)) (*TypedEventHandlerOfRichTextBlockOverflowAndIsTextTrimmedChangedEventArgs, error) {
+func NewTypedEventHandlerOfRichTextBlockOverflowAndIsTextTrimmedChangedEventArgs(fn func(sender *IRichTextBlockOverflow, args *IIsTextTrimmedChangedEventArgs)) (*TypedEventHandlerOfRichTextBlockOverflowAndIsTextTrimmedChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfRichTextBlockOverflowAndIsTextTrimmedChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IIsTextTrimmedChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IRichTextBlockOverflow)(unsafe.Pointer(raw[0])), (*IIsTextTrimmedChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3580,10 +3507,9 @@ var IID_TypedEventHandlerOfScrollViewerAndAnchorRequestedEventArgs = win32.GUID{
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ScrollViewer is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfScrollViewerAndAnchorRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IAnchorRequestedEventArgs)) (*TypedEventHandlerOfScrollViewerAndAnchorRequestedEventArgs, error) {
+func NewTypedEventHandlerOfScrollViewerAndAnchorRequestedEventArgs(fn func(sender *IScrollViewer, args *IAnchorRequestedEventArgs)) (*TypedEventHandlerOfScrollViewerAndAnchorRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfScrollViewerAndAnchorRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IAnchorRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IScrollViewer)(unsafe.Pointer(raw[0])), (*IAnchorRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3618,10 +3544,9 @@ var IID_TypedEventHandlerOfSearchBoxAndRoutedEventArgs = win32.GUID{Data1: 0xa16
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.SearchBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSearchBoxAndRoutedEventArgs(fn func(sender *syswinrt.IInspectable, args *uixaml.IRoutedEventArgs)) (*TypedEventHandlerOfSearchBoxAndRoutedEventArgs, error) {
+func NewTypedEventHandlerOfSearchBoxAndRoutedEventArgs(fn func(sender *ISearchBox, args *uixaml.IRoutedEventArgs)) (*TypedEventHandlerOfSearchBoxAndRoutedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSearchBoxAndRoutedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixaml.IRoutedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISearchBox)(unsafe.Pointer(raw[0])), (*uixaml.IRoutedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3654,10 +3579,9 @@ var IID_TypedEventHandlerOfSearchBoxAndSearchBoxQueryChangedEventArgs = win32.GU
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.SearchBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSearchBoxAndSearchBoxQueryChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *ISearchBoxQueryChangedEventArgs)) (*TypedEventHandlerOfSearchBoxAndSearchBoxQueryChangedEventArgs, error) {
+func NewTypedEventHandlerOfSearchBoxAndSearchBoxQueryChangedEventArgs(fn func(sender *ISearchBox, args *ISearchBoxQueryChangedEventArgs)) (*TypedEventHandlerOfSearchBoxAndSearchBoxQueryChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSearchBoxAndSearchBoxQueryChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISearchBoxQueryChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISearchBox)(unsafe.Pointer(raw[0])), (*ISearchBoxQueryChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3692,10 +3616,9 @@ var IID_TypedEventHandlerOfSearchBoxAndSearchBoxQuerySubmittedEventArgs = win32.
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.SearchBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSearchBoxAndSearchBoxQuerySubmittedEventArgs(fn func(sender *syswinrt.IInspectable, args *ISearchBoxQuerySubmittedEventArgs)) (*TypedEventHandlerOfSearchBoxAndSearchBoxQuerySubmittedEventArgs, error) {
+func NewTypedEventHandlerOfSearchBoxAndSearchBoxQuerySubmittedEventArgs(fn func(sender *ISearchBox, args *ISearchBoxQuerySubmittedEventArgs)) (*TypedEventHandlerOfSearchBoxAndSearchBoxQuerySubmittedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSearchBoxAndSearchBoxQuerySubmittedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISearchBoxQuerySubmittedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISearchBox)(unsafe.Pointer(raw[0])), (*ISearchBoxQuerySubmittedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3732,10 +3655,9 @@ var IID_TypedEventHandlerOfSearchBoxAndSearchBoxResultSuggestionChosenEventArgs 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.SearchBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSearchBoxAndSearchBoxResultSuggestionChosenEventArgs(fn func(sender *syswinrt.IInspectable, args *ISearchBoxResultSuggestionChosenEventArgs)) (*TypedEventHandlerOfSearchBoxAndSearchBoxResultSuggestionChosenEventArgs, error) {
+func NewTypedEventHandlerOfSearchBoxAndSearchBoxResultSuggestionChosenEventArgs(fn func(sender *ISearchBox, args *ISearchBoxResultSuggestionChosenEventArgs)) (*TypedEventHandlerOfSearchBoxAndSearchBoxResultSuggestionChosenEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSearchBoxAndSearchBoxResultSuggestionChosenEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISearchBoxResultSuggestionChosenEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISearchBox)(unsafe.Pointer(raw[0])), (*ISearchBoxResultSuggestionChosenEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3772,10 +3694,9 @@ var IID_TypedEventHandlerOfSearchBoxAndSearchBoxSuggestionsRequestedEventArgs = 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.SearchBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSearchBoxAndSearchBoxSuggestionsRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *ISearchBoxSuggestionsRequestedEventArgs)) (*TypedEventHandlerOfSearchBoxAndSearchBoxSuggestionsRequestedEventArgs, error) {
+func NewTypedEventHandlerOfSearchBoxAndSearchBoxSuggestionsRequestedEventArgs(fn func(sender *ISearchBox, args *ISearchBoxSuggestionsRequestedEventArgs)) (*TypedEventHandlerOfSearchBoxAndSearchBoxSuggestionsRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSearchBoxAndSearchBoxSuggestionsRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISearchBoxSuggestionsRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISearchBox)(unsafe.Pointer(raw[0])), (*ISearchBoxSuggestionsRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3812,10 +3733,9 @@ var IID_TypedEventHandlerOfSplitButtonAndSplitButtonClickEventArgs = win32.GUID{
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.SplitButton is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSplitButtonAndSplitButtonClickEventArgs(fn func(sender *syswinrt.IInspectable, args *ISplitButtonClickEventArgs)) (*TypedEventHandlerOfSplitButtonAndSplitButtonClickEventArgs, error) {
+func NewTypedEventHandlerOfSplitButtonAndSplitButtonClickEventArgs(fn func(sender *ISplitButton, args *ISplitButtonClickEventArgs)) (*TypedEventHandlerOfSplitButtonAndSplitButtonClickEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSplitButtonAndSplitButtonClickEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISplitButtonClickEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISplitButton)(unsafe.Pointer(raw[0])), (*ISplitButtonClickEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3850,10 +3770,9 @@ var IID_TypedEventHandlerOfSplitViewAndObject = win32.GUID{Data1: 0xe277bfe5, Da
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.SplitView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSplitViewAndObject(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfSplitViewAndObject, error) {
+func NewTypedEventHandlerOfSplitViewAndObject(fn func(sender *ISplitView, args *syswinrt.IInspectable)) (*TypedEventHandlerOfSplitViewAndObject, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSplitViewAndObject, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*ISplitView)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3886,10 +3805,9 @@ var IID_TypedEventHandlerOfSplitViewAndSplitViewPaneClosingEventArgs = win32.GUI
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.SplitView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSplitViewAndSplitViewPaneClosingEventArgs(fn func(sender *syswinrt.IInspectable, args *ISplitViewPaneClosingEventArgs)) (*TypedEventHandlerOfSplitViewAndSplitViewPaneClosingEventArgs, error) {
+func NewTypedEventHandlerOfSplitViewAndSplitViewPaneClosingEventArgs(fn func(sender *ISplitView, args *ISplitViewPaneClosingEventArgs)) (*TypedEventHandlerOfSplitViewAndSplitViewPaneClosingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSplitViewAndSplitViewPaneClosingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISplitViewPaneClosingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISplitView)(unsafe.Pointer(raw[0])), (*ISplitViewPaneClosingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3924,10 +3842,9 @@ var IID_TypedEventHandlerOfSwapChainPanelAndObject = win32.GUID{Data1: 0xa8bbf14
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.SwapChainPanel is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSwapChainPanelAndObject(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfSwapChainPanelAndObject, error) {
+func NewTypedEventHandlerOfSwapChainPanelAndObject(fn func(sender *ISwapChainPanel, args *syswinrt.IInspectable)) (*TypedEventHandlerOfSwapChainPanelAndObject, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSwapChainPanelAndObject, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*ISwapChainPanel)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3960,10 +3877,9 @@ var IID_TypedEventHandlerOfSwipeItemAndSwipeItemInvokedEventArgs = win32.GUID{Da
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.SwipeItem is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSwipeItemAndSwipeItemInvokedEventArgs(fn func(sender *syswinrt.IInspectable, args *ISwipeItemInvokedEventArgs)) (*TypedEventHandlerOfSwipeItemAndSwipeItemInvokedEventArgs, error) {
+func NewTypedEventHandlerOfSwipeItemAndSwipeItemInvokedEventArgs(fn func(sender *ISwipeItem, args *ISwipeItemInvokedEventArgs)) (*TypedEventHandlerOfSwipeItemAndSwipeItemInvokedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSwipeItemAndSwipeItemInvokedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISwipeItemInvokedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISwipeItem)(unsafe.Pointer(raw[0])), (*ISwipeItemInvokedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -3998,10 +3914,9 @@ var IID_TypedEventHandlerOfTextBlockAndIsTextTrimmedChangedEventArgs = win32.GUI
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TextBlock is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextBlockAndIsTextTrimmedChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IIsTextTrimmedChangedEventArgs)) (*TypedEventHandlerOfTextBlockAndIsTextTrimmedChangedEventArgs, error) {
+func NewTypedEventHandlerOfTextBlockAndIsTextTrimmedChangedEventArgs(fn func(sender *ITextBlock, args *IIsTextTrimmedChangedEventArgs)) (*TypedEventHandlerOfTextBlockAndIsTextTrimmedChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextBlockAndIsTextTrimmedChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IIsTextTrimmedChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextBlock)(unsafe.Pointer(raw[0])), (*IIsTextTrimmedChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4036,10 +3951,9 @@ var IID_TypedEventHandlerOfTextBoxAndCandidateWindowBoundsChangedEventArgs = win
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TextBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextBoxAndCandidateWindowBoundsChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *ICandidateWindowBoundsChangedEventArgs)) (*TypedEventHandlerOfTextBoxAndCandidateWindowBoundsChangedEventArgs, error) {
+func NewTypedEventHandlerOfTextBoxAndCandidateWindowBoundsChangedEventArgs(fn func(sender *ITextBox, args *ICandidateWindowBoundsChangedEventArgs)) (*TypedEventHandlerOfTextBoxAndCandidateWindowBoundsChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextBoxAndCandidateWindowBoundsChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ICandidateWindowBoundsChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextBox)(unsafe.Pointer(raw[0])), (*ICandidateWindowBoundsChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4076,10 +3990,9 @@ var IID_TypedEventHandlerOfTextBoxAndTextBoxBeforeTextChangingEventArgs = win32.
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TextBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextBoxAndTextBoxBeforeTextChangingEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextBoxBeforeTextChangingEventArgs)) (*TypedEventHandlerOfTextBoxAndTextBoxBeforeTextChangingEventArgs, error) {
+func NewTypedEventHandlerOfTextBoxAndTextBoxBeforeTextChangingEventArgs(fn func(sender *ITextBox, args *ITextBoxBeforeTextChangingEventArgs)) (*TypedEventHandlerOfTextBoxAndTextBoxBeforeTextChangingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextBoxAndTextBoxBeforeTextChangingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextBoxBeforeTextChangingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextBox)(unsafe.Pointer(raw[0])), (*ITextBoxBeforeTextChangingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4116,10 +4029,9 @@ var IID_TypedEventHandlerOfTextBoxAndTextBoxSelectionChangingEventArgs = win32.G
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TextBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextBoxAndTextBoxSelectionChangingEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextBoxSelectionChangingEventArgs)) (*TypedEventHandlerOfTextBoxAndTextBoxSelectionChangingEventArgs, error) {
+func NewTypedEventHandlerOfTextBoxAndTextBoxSelectionChangingEventArgs(fn func(sender *ITextBox, args *ITextBoxSelectionChangingEventArgs)) (*TypedEventHandlerOfTextBoxAndTextBoxSelectionChangingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextBoxAndTextBoxSelectionChangingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextBoxSelectionChangingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextBox)(unsafe.Pointer(raw[0])), (*ITextBoxSelectionChangingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4156,10 +4068,9 @@ var IID_TypedEventHandlerOfTextBoxAndTextBoxTextChangingEventArgs = win32.GUID{D
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TextBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextBoxAndTextBoxTextChangingEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextBoxTextChangingEventArgs)) (*TypedEventHandlerOfTextBoxAndTextBoxTextChangingEventArgs, error) {
+func NewTypedEventHandlerOfTextBoxAndTextBoxTextChangingEventArgs(fn func(sender *ITextBox, args *ITextBoxTextChangingEventArgs)) (*TypedEventHandlerOfTextBoxAndTextBoxTextChangingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextBoxAndTextBoxTextChangingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextBoxTextChangingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextBox)(unsafe.Pointer(raw[0])), (*ITextBoxTextChangingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4194,10 +4105,9 @@ var IID_TypedEventHandlerOfTextBoxAndTextCompositionChangedEventArgs = win32.GUI
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TextBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextBoxAndTextCompositionChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextCompositionChangedEventArgs)) (*TypedEventHandlerOfTextBoxAndTextCompositionChangedEventArgs, error) {
+func NewTypedEventHandlerOfTextBoxAndTextCompositionChangedEventArgs(fn func(sender *ITextBox, args *ITextCompositionChangedEventArgs)) (*TypedEventHandlerOfTextBoxAndTextCompositionChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextBoxAndTextCompositionChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextCompositionChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextBox)(unsafe.Pointer(raw[0])), (*ITextCompositionChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4232,10 +4142,9 @@ var IID_TypedEventHandlerOfTextBoxAndTextCompositionEndedEventArgs = win32.GUID{
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TextBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextBoxAndTextCompositionEndedEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextCompositionEndedEventArgs)) (*TypedEventHandlerOfTextBoxAndTextCompositionEndedEventArgs, error) {
+func NewTypedEventHandlerOfTextBoxAndTextCompositionEndedEventArgs(fn func(sender *ITextBox, args *ITextCompositionEndedEventArgs)) (*TypedEventHandlerOfTextBoxAndTextCompositionEndedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextBoxAndTextCompositionEndedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextCompositionEndedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextBox)(unsafe.Pointer(raw[0])), (*ITextCompositionEndedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4270,10 +4179,9 @@ var IID_TypedEventHandlerOfTextBoxAndTextCompositionStartedEventArgs = win32.GUI
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TextBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextBoxAndTextCompositionStartedEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextCompositionStartedEventArgs)) (*TypedEventHandlerOfTextBoxAndTextCompositionStartedEventArgs, error) {
+func NewTypedEventHandlerOfTextBoxAndTextCompositionStartedEventArgs(fn func(sender *ITextBox, args *ITextCompositionStartedEventArgs)) (*TypedEventHandlerOfTextBoxAndTextCompositionStartedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextBoxAndTextCompositionStartedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextCompositionStartedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextBox)(unsafe.Pointer(raw[0])), (*ITextCompositionStartedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4308,10 +4216,9 @@ var IID_TypedEventHandlerOfTextBoxAndTextControlCopyingToClipboardEventArgs = wi
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TextBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextBoxAndTextControlCopyingToClipboardEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextControlCopyingToClipboardEventArgs)) (*TypedEventHandlerOfTextBoxAndTextControlCopyingToClipboardEventArgs, error) {
+func NewTypedEventHandlerOfTextBoxAndTextControlCopyingToClipboardEventArgs(fn func(sender *ITextBox, args *ITextControlCopyingToClipboardEventArgs)) (*TypedEventHandlerOfTextBoxAndTextControlCopyingToClipboardEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextBoxAndTextControlCopyingToClipboardEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextControlCopyingToClipboardEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextBox)(unsafe.Pointer(raw[0])), (*ITextControlCopyingToClipboardEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4348,10 +4255,9 @@ var IID_TypedEventHandlerOfTextBoxAndTextControlCuttingToClipboardEventArgs = wi
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TextBox is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTextBoxAndTextControlCuttingToClipboardEventArgs(fn func(sender *syswinrt.IInspectable, args *ITextControlCuttingToClipboardEventArgs)) (*TypedEventHandlerOfTextBoxAndTextControlCuttingToClipboardEventArgs, error) {
+func NewTypedEventHandlerOfTextBoxAndTextControlCuttingToClipboardEventArgs(fn func(sender *ITextBox, args *ITextControlCuttingToClipboardEventArgs)) (*TypedEventHandlerOfTextBoxAndTextControlCuttingToClipboardEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTextBoxAndTextControlCuttingToClipboardEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITextControlCuttingToClipboardEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITextBox)(unsafe.Pointer(raw[0])), (*ITextControlCuttingToClipboardEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4388,10 +4294,9 @@ var IID_TypedEventHandlerOfTimePickerAndTimePickerSelectedValueChangedEventArgs 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TimePicker is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTimePickerAndTimePickerSelectedValueChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *ITimePickerSelectedValueChangedEventArgs)) (*TypedEventHandlerOfTimePickerAndTimePickerSelectedValueChangedEventArgs, error) {
+func NewTypedEventHandlerOfTimePickerAndTimePickerSelectedValueChangedEventArgs(fn func(sender *ITimePicker, args *ITimePickerSelectedValueChangedEventArgs)) (*TypedEventHandlerOfTimePickerAndTimePickerSelectedValueChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTimePickerAndTimePickerSelectedValueChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITimePickerSelectedValueChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITimePicker)(unsafe.Pointer(raw[0])), (*ITimePickerSelectedValueChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4428,11 +4333,9 @@ var IID_TypedEventHandlerOfTimePickerFlyoutAndTimePickedEventArgs = win32.GUID{D
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TimePickerFlyout is projected as IInspectable (the class is not emitted this wave).
-// Parameter args's class Windows.UI.Xaml.Controls.TimePickedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTimePickerFlyoutAndTimePickedEventArgs(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfTimePickerFlyoutAndTimePickedEventArgs, error) {
+func NewTypedEventHandlerOfTimePickerFlyoutAndTimePickedEventArgs(fn func(sender *ITimePickerFlyout, args *ITimePickedEventArgs)) (*TypedEventHandlerOfTimePickerFlyoutAndTimePickedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTimePickerFlyoutAndTimePickedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*ITimePickerFlyout)(unsafe.Pointer(raw[0])), (*ITimePickedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4467,10 +4370,9 @@ var IID_TypedEventHandlerOfToggleSplitButtonAndToggleSplitButtonIsCheckedChanged
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.ToggleSplitButton is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfToggleSplitButtonAndToggleSplitButtonIsCheckedChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IToggleSplitButtonIsCheckedChangedEventArgs)) (*TypedEventHandlerOfToggleSplitButtonAndToggleSplitButtonIsCheckedChangedEventArgs, error) {
+func NewTypedEventHandlerOfToggleSplitButtonAndToggleSplitButtonIsCheckedChangedEventArgs(fn func(sender *IToggleSplitButton, args *IToggleSplitButtonIsCheckedChangedEventArgs)) (*TypedEventHandlerOfToggleSplitButtonAndToggleSplitButtonIsCheckedChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfToggleSplitButtonAndToggleSplitButtonIsCheckedChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IToggleSplitButtonIsCheckedChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IToggleSplitButton)(unsafe.Pointer(raw[0])), (*IToggleSplitButtonIsCheckedChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4507,10 +4409,9 @@ var IID_TypedEventHandlerOfTreeViewAndTreeViewCollapsedEventArgs = win32.GUID{Da
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TreeView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTreeViewAndTreeViewCollapsedEventArgs(fn func(sender *syswinrt.IInspectable, args *ITreeViewCollapsedEventArgs)) (*TypedEventHandlerOfTreeViewAndTreeViewCollapsedEventArgs, error) {
+func NewTypedEventHandlerOfTreeViewAndTreeViewCollapsedEventArgs(fn func(sender *ITreeView, args *ITreeViewCollapsedEventArgs)) (*TypedEventHandlerOfTreeViewAndTreeViewCollapsedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTreeViewAndTreeViewCollapsedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITreeViewCollapsedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITreeView)(unsafe.Pointer(raw[0])), (*ITreeViewCollapsedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4545,10 +4446,9 @@ var IID_TypedEventHandlerOfTreeViewAndTreeViewDragItemsCompletedEventArgs = win3
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TreeView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTreeViewAndTreeViewDragItemsCompletedEventArgs(fn func(sender *syswinrt.IInspectable, args *ITreeViewDragItemsCompletedEventArgs)) (*TypedEventHandlerOfTreeViewAndTreeViewDragItemsCompletedEventArgs, error) {
+func NewTypedEventHandlerOfTreeViewAndTreeViewDragItemsCompletedEventArgs(fn func(sender *ITreeView, args *ITreeViewDragItemsCompletedEventArgs)) (*TypedEventHandlerOfTreeViewAndTreeViewDragItemsCompletedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTreeViewAndTreeViewDragItemsCompletedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITreeViewDragItemsCompletedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITreeView)(unsafe.Pointer(raw[0])), (*ITreeViewDragItemsCompletedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4585,10 +4485,9 @@ var IID_TypedEventHandlerOfTreeViewAndTreeViewDragItemsStartingEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TreeView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTreeViewAndTreeViewDragItemsStartingEventArgs(fn func(sender *syswinrt.IInspectable, args *ITreeViewDragItemsStartingEventArgs)) (*TypedEventHandlerOfTreeViewAndTreeViewDragItemsStartingEventArgs, error) {
+func NewTypedEventHandlerOfTreeViewAndTreeViewDragItemsStartingEventArgs(fn func(sender *ITreeView, args *ITreeViewDragItemsStartingEventArgs)) (*TypedEventHandlerOfTreeViewAndTreeViewDragItemsStartingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTreeViewAndTreeViewDragItemsStartingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITreeViewDragItemsStartingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITreeView)(unsafe.Pointer(raw[0])), (*ITreeViewDragItemsStartingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4625,10 +4524,9 @@ var IID_TypedEventHandlerOfTreeViewAndTreeViewExpandingEventArgs = win32.GUID{Da
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TreeView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTreeViewAndTreeViewExpandingEventArgs(fn func(sender *syswinrt.IInspectable, args *ITreeViewExpandingEventArgs)) (*TypedEventHandlerOfTreeViewAndTreeViewExpandingEventArgs, error) {
+func NewTypedEventHandlerOfTreeViewAndTreeViewExpandingEventArgs(fn func(sender *ITreeView, args *ITreeViewExpandingEventArgs)) (*TypedEventHandlerOfTreeViewAndTreeViewExpandingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTreeViewAndTreeViewExpandingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITreeViewExpandingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITreeView)(unsafe.Pointer(raw[0])), (*ITreeViewExpandingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4663,10 +4561,9 @@ var IID_TypedEventHandlerOfTreeViewAndTreeViewItemInvokedEventArgs = win32.GUID{
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TreeView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTreeViewAndTreeViewItemInvokedEventArgs(fn func(sender *syswinrt.IInspectable, args *ITreeViewItemInvokedEventArgs)) (*TypedEventHandlerOfTreeViewAndTreeViewItemInvokedEventArgs, error) {
+func NewTypedEventHandlerOfTreeViewAndTreeViewItemInvokedEventArgs(fn func(sender *ITreeView, args *ITreeViewItemInvokedEventArgs)) (*TypedEventHandlerOfTreeViewAndTreeViewItemInvokedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTreeViewAndTreeViewItemInvokedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ITreeViewItemInvokedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ITreeView)(unsafe.Pointer(raw[0])), (*ITreeViewItemInvokedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4701,10 +4598,9 @@ var IID_TypedEventHandlerOfTwoPaneViewAndObject = win32.GUID{Data1: 0x223d4a57, 
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.TwoPaneView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfTwoPaneViewAndObject(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfTwoPaneViewAndObject, error) {
+func NewTypedEventHandlerOfTwoPaneViewAndObject(fn func(sender *ITwoPaneView, args *syswinrt.IInspectable)) (*TypedEventHandlerOfTwoPaneViewAndObject, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfTwoPaneViewAndObject, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*ITwoPaneView)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4737,10 +4633,9 @@ var IID_TypedEventHandlerOfWebViewAndObject = win32.GUID{Data1: 0xd9f52e0d, Data
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndObject(fn func(sender *syswinrt.IInspectable, args *syswinrt.IInspectable)) (*TypedEventHandlerOfWebViewAndObject, error) {
+func NewTypedEventHandlerOfWebViewAndObject(fn func(sender *IWebView, args *syswinrt.IInspectable)) (*TypedEventHandlerOfWebViewAndObject, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndObject, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4773,10 +4668,9 @@ var IID_TypedEventHandlerOfWebViewAndWebViewContentLoadingEventArgs = win32.GUID
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndWebViewContentLoadingEventArgs(fn func(sender *syswinrt.IInspectable, args *IWebViewContentLoadingEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewContentLoadingEventArgs, error) {
+func NewTypedEventHandlerOfWebViewAndWebViewContentLoadingEventArgs(fn func(sender *IWebView, args *IWebViewContentLoadingEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewContentLoadingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndWebViewContentLoadingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IWebViewContentLoadingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*IWebViewContentLoadingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4811,10 +4705,9 @@ var IID_TypedEventHandlerOfWebViewAndWebViewDOMContentLoadedEventArgs = win32.GU
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndWebViewDOMContentLoadedEventArgs(fn func(sender *syswinrt.IInspectable, args *IWebViewDOMContentLoadedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewDOMContentLoadedEventArgs, error) {
+func NewTypedEventHandlerOfWebViewAndWebViewDOMContentLoadedEventArgs(fn func(sender *IWebView, args *IWebViewDOMContentLoadedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewDOMContentLoadedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndWebViewDOMContentLoadedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IWebViewDOMContentLoadedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*IWebViewDOMContentLoadedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4849,10 +4742,9 @@ var IID_TypedEventHandlerOfWebViewAndWebViewLongRunningScriptDetectedEventArgs =
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndWebViewLongRunningScriptDetectedEventArgs(fn func(sender *syswinrt.IInspectable, args *IWebViewLongRunningScriptDetectedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewLongRunningScriptDetectedEventArgs, error) {
+func NewTypedEventHandlerOfWebViewAndWebViewLongRunningScriptDetectedEventArgs(fn func(sender *IWebView, args *IWebViewLongRunningScriptDetectedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewLongRunningScriptDetectedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndWebViewLongRunningScriptDetectedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IWebViewLongRunningScriptDetectedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*IWebViewLongRunningScriptDetectedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4889,10 +4781,9 @@ var IID_TypedEventHandlerOfWebViewAndWebViewNavigationCompletedEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndWebViewNavigationCompletedEventArgs(fn func(sender *syswinrt.IInspectable, args *IWebViewNavigationCompletedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewNavigationCompletedEventArgs, error) {
+func NewTypedEventHandlerOfWebViewAndWebViewNavigationCompletedEventArgs(fn func(sender *IWebView, args *IWebViewNavigationCompletedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewNavigationCompletedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndWebViewNavigationCompletedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IWebViewNavigationCompletedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*IWebViewNavigationCompletedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4929,10 +4820,9 @@ var IID_TypedEventHandlerOfWebViewAndWebViewNavigationStartingEventArgs = win32.
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndWebViewNavigationStartingEventArgs(fn func(sender *syswinrt.IInspectable, args *IWebViewNavigationStartingEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewNavigationStartingEventArgs, error) {
+func NewTypedEventHandlerOfWebViewAndWebViewNavigationStartingEventArgs(fn func(sender *IWebView, args *IWebViewNavigationStartingEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewNavigationStartingEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndWebViewNavigationStartingEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IWebViewNavigationStartingEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*IWebViewNavigationStartingEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -4969,10 +4859,9 @@ var IID_TypedEventHandlerOfWebViewAndWebViewNewWindowRequestedEventArgs = win32.
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndWebViewNewWindowRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IWebViewNewWindowRequestedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewNewWindowRequestedEventArgs, error) {
+func NewTypedEventHandlerOfWebViewAndWebViewNewWindowRequestedEventArgs(fn func(sender *IWebView, args *IWebViewNewWindowRequestedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewNewWindowRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndWebViewNewWindowRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IWebViewNewWindowRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*IWebViewNewWindowRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -5009,10 +4898,9 @@ var IID_TypedEventHandlerOfWebViewAndWebViewPermissionRequestedEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndWebViewPermissionRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IWebViewPermissionRequestedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewPermissionRequestedEventArgs, error) {
+func NewTypedEventHandlerOfWebViewAndWebViewPermissionRequestedEventArgs(fn func(sender *IWebView, args *IWebViewPermissionRequestedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewPermissionRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndWebViewPermissionRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IWebViewPermissionRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*IWebViewPermissionRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -5049,10 +4937,9 @@ var IID_TypedEventHandlerOfWebViewAndWebViewSeparateProcessLostEventArgs = win32
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndWebViewSeparateProcessLostEventArgs(fn func(sender *syswinrt.IInspectable, args *IWebViewSeparateProcessLostEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewSeparateProcessLostEventArgs, error) {
+func NewTypedEventHandlerOfWebViewAndWebViewSeparateProcessLostEventArgs(fn func(sender *IWebView, args *IWebViewSeparateProcessLostEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewSeparateProcessLostEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndWebViewSeparateProcessLostEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IWebViewSeparateProcessLostEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*IWebViewSeparateProcessLostEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -5089,10 +4976,9 @@ var IID_TypedEventHandlerOfWebViewAndWebViewUnsupportedUriSchemeIdentifiedEventA
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndWebViewUnsupportedUriSchemeIdentifiedEventArgs(fn func(sender *syswinrt.IInspectable, args *IWebViewUnsupportedUriSchemeIdentifiedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewUnsupportedUriSchemeIdentifiedEventArgs, error) {
+func NewTypedEventHandlerOfWebViewAndWebViewUnsupportedUriSchemeIdentifiedEventArgs(fn func(sender *IWebView, args *IWebViewUnsupportedUriSchemeIdentifiedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewUnsupportedUriSchemeIdentifiedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndWebViewUnsupportedUriSchemeIdentifiedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IWebViewUnsupportedUriSchemeIdentifiedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*IWebViewUnsupportedUriSchemeIdentifiedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -5129,10 +5015,9 @@ var IID_TypedEventHandlerOfWebViewAndWebViewUnviewableContentIdentifiedEventArgs
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndWebViewUnviewableContentIdentifiedEventArgs(fn func(sender *syswinrt.IInspectable, args *IWebViewUnviewableContentIdentifiedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewUnviewableContentIdentifiedEventArgs, error) {
+func NewTypedEventHandlerOfWebViewAndWebViewUnviewableContentIdentifiedEventArgs(fn func(sender *IWebView, args *IWebViewUnviewableContentIdentifiedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewUnviewableContentIdentifiedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndWebViewUnviewableContentIdentifiedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IWebViewUnviewableContentIdentifiedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*IWebViewUnviewableContentIdentifiedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -5169,10 +5054,9 @@ var IID_TypedEventHandlerOfWebViewAndWebViewWebResourceRequestedEventArgs = win3
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Xaml.Controls.WebView is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfWebViewAndWebViewWebResourceRequestedEventArgs(fn func(sender *syswinrt.IInspectable, args *IWebViewWebResourceRequestedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewWebResourceRequestedEventArgs, error) {
+func NewTypedEventHandlerOfWebViewAndWebViewWebResourceRequestedEventArgs(fn func(sender *IWebView, args *IWebViewWebResourceRequestedEventArgs)) (*TypedEventHandlerOfWebViewAndWebViewWebResourceRequestedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfWebViewAndWebViewWebResourceRequestedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IWebViewWebResourceRequestedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IWebView)(unsafe.Pointer(raw[0])), (*IWebViewWebResourceRequestedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {

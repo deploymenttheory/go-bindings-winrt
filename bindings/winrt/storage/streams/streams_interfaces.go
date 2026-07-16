@@ -260,7 +260,7 @@ func (self *IDataReader) ReadTimeSpan() (foundation.TimeSpan, error) {
 }
 
 // LoadAsync dispatches through IDataReader's vtable slot 29.
-// The return value's class Windows.Storage.Streams.DataReaderLoadOperation is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Storage.Streams.DataReaderLoadOperation is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IDataReader) LoadAsync(count uint32) (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(count), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -466,7 +466,7 @@ func (self *IDataWriter) MeasureString(value string) (uint32, error) {
 }
 
 // StoreAsync dispatches through IDataWriter's vtable slot 29.
-// The return value's class Windows.Storage.Streams.DataWriterStoreOperation is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Storage.Streams.DataWriterStoreOperation is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IDataWriter) StoreAsync() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))

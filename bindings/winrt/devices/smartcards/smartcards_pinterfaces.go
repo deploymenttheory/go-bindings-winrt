@@ -777,6 +777,73 @@ func (self *IAsyncOperationOfString) Await() (string, error) {
 	return self.GetResults()
 }
 
+// IIterableOfSmartCard is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.SmartCards.SmartCard>.
+// IID: a32c5202-d113-535f-880e-50f3e5121ef8
+type IIterableOfSmartCard struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSmartCard is the interface identifier for IIterableOfSmartCard.
+var IID_IIterableOfSmartCard = win32.GUID{Data1: 0xa32c5202, Data2: 0xd113, Data3: 0x535f, Data4: [8]byte{0x88, 0x0e, 0x50, 0xf3, 0xe5, 0x12, 0x1e, 0xf8}}
+
+// First dispatches through IIterableOfSmartCard's vtable slot 6.
+func (self *IIterableOfSmartCard) First() (*IIteratorOfSmartCard, error) {
+	result := new(*IIteratorOfSmartCard)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSmartCard creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.SmartCards.SmartCard>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSmartCard(items []*ISmartCard) *IIterableOfSmartCard {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.SmartCards.SmartCard>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSmartCard, Iterator: IID_IIteratorOfSmartCard}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSmartCard)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfSmartCard is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.SmartCards.SmartCard>.
+// IID: 86b29903-916e-5817-bc96-df324475e31a
+type IIteratorOfSmartCard struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSmartCard is the interface identifier for IIteratorOfSmartCard.
+var IID_IIteratorOfSmartCard = win32.GUID{Data1: 0x86b29903, Data2: 0x916e, Data3: 0x5817, Data4: [8]byte{0xbc, 0x96, 0xdf, 0x32, 0x44, 0x75, 0xe3, 0x1a}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSmartCard's vtable slot 6.
+func (self *IIteratorOfSmartCard) Current() (*ISmartCard, error) {
+	result := new(*ISmartCard)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSmartCard's vtable slot 7.
+func (self *IIteratorOfSmartCard) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSmartCard's vtable slot 8.
+func (self *IIteratorOfSmartCard) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfSmartCard is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.SmartCards.SmartCard>.
 // IID: 4bee6991-3508-5f03-a2f4-90a5ddb26bd8
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.SmartCards.SmartCard>.
@@ -809,3 +876,22 @@ func (self *IVectorViewOfSmartCard) IndexOf(value *ISmartCard, index *uint32) (b
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfSmartCard creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.SmartCards.SmartCard>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSmartCard(items []*ISmartCard) *IVectorViewOfSmartCard {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.SmartCards.SmartCard>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSmartCard, Iterator: IID_IIteratorOfSmartCard, VectorView: IID_IVectorViewOfSmartCard}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSmartCard)(unsafe.Pointer(obj))
+}

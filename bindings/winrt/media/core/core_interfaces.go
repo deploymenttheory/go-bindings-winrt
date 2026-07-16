@@ -1972,7 +1972,7 @@ func (self *IMediaStreamSample) Timestamp() (foundation.TimeSpan, error) {
 }
 
 // ExtendedProperties (propget get_ExtendedProperties) dispatches through IMediaStreamSample's vtable slot 10.
-// The return value's class Windows.Media.Core.MediaStreamSamplePropertySet is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Media.Core.MediaStreamSamplePropertySet is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IMediaStreamSample) ExtendedProperties() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))

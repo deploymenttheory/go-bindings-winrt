@@ -47,6 +47,45 @@ func (self *IAsyncActionWithProgressOfDouble) GetResults() error {
 	return win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncActionWithProgressOfDouble reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncActionWithProgressOfDouble) Await() error {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncActionWithProgressCompletedHandlerOfDouble(func(_ *IAsyncActionWithProgressOfDouble, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return err
+		}
+		return winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationOfPrepareTranscodeResult is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Media.Transcoding.PrepareTranscodeResult>.
 // IID: f5f07c13-3047-5bab-8eb7-6e5d7d14afae
 // Requires: Windows.Foundation.IAsyncInfo.

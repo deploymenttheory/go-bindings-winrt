@@ -237,6 +237,22 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
 // IIterableOfVoiceCommandContentTile is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile>.
 // IID: bd13249b-8099-5573-bf74-7457796e92e5
 type IIterableOfVoiceCommandContentTile struct {
@@ -251,6 +267,25 @@ func (self *IIterableOfVoiceCommandContentTile) First() (*IIteratorOfVoiceComman
 	result := new(*IIteratorOfVoiceCommandContentTile)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVoiceCommandContentTile creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfVoiceCommandContentTile(items []*IVoiceCommandContentTile) *IIterableOfVoiceCommandContentTile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVoiceCommandContentTile, Iterator: IID_IIteratorOfVoiceCommandContentTile}, winrt.CodecInterface, boxed)
+	return (*IIterableOfVoiceCommandContentTile)(unsafe.Pointer(obj))
 }
 
 // IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
@@ -492,6 +527,28 @@ func (self *IVectorOfVoiceCommandContentTile) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfVoiceCommandContentTile creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfVoiceCommandContentTile(items []*IVoiceCommandContentTile) *IVectorOfVoiceCommandContentTile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVoiceCommandContentTile, Iterator: IID_IIteratorOfVoiceCommandContentTile, VectorView: IID_IVectorViewOfVoiceCommandContentTile, Vector: IID_IVectorOfVoiceCommandContentTile}, winrt.CodecInterface, boxed)
+	return (*IVectorOfVoiceCommandContentTile)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
 // Requires: Windows.Foundation.Collections.IIterable`1<String>.
@@ -533,6 +590,22 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfVoiceCommandContentTile is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile>.
 // IID: cb2c6693-1fc9-5b95-99b5-7239679619b9
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile>.
@@ -565,3 +638,22 @@ func (self *IVectorViewOfVoiceCommandContentTile) IndexOf(value *IVoiceCommandCo
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfVoiceCommandContentTile creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfVoiceCommandContentTile(items []*IVoiceCommandContentTile) *IVectorViewOfVoiceCommandContentTile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVoiceCommandContentTile, Iterator: IID_IIteratorOfVoiceCommandContentTile, VectorView: IID_IVectorViewOfVoiceCommandContentTile}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfVoiceCommandContentTile)(unsafe.Pointer(obj))
+}

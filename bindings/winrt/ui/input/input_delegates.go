@@ -407,10 +407,9 @@ var IID_TypedEventHandlerOfInputActivationListenerAndInputActivationListenerActi
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Input.InputActivationListener is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfInputActivationListenerAndInputActivationListenerActivationChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *IInputActivationListenerActivationChangedEventArgs)) (*TypedEventHandlerOfInputActivationListenerAndInputActivationListenerActivationChangedEventArgs, error) {
+func NewTypedEventHandlerOfInputActivationListenerAndInputActivationListenerActivationChangedEventArgs(fn func(sender *IInputActivationListener, args *IInputActivationListenerActivationChangedEventArgs)) (*TypedEventHandlerOfInputActivationListenerAndInputActivationListenerActivationChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfInputActivationListenerAndInputActivationListenerActivationChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*IInputActivationListenerActivationChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*IInputActivationListener)(unsafe.Pointer(raw[0])), (*IInputActivationListenerActivationChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1061,10 +1060,9 @@ var IID_TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionButtonEve
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Input.SystemButtonEventController is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionButtonEventArgs(fn func(sender *syswinrt.IInspectable, args *ISystemFunctionButtonEventArgs)) (*TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionButtonEventArgs, error) {
+func NewTypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionButtonEventArgs(fn func(sender *ISystemButtonEventController, args *ISystemFunctionButtonEventArgs)) (*TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionButtonEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionButtonEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISystemFunctionButtonEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISystemButtonEventController)(unsafe.Pointer(raw[0])), (*ISystemFunctionButtonEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1101,10 +1099,9 @@ var IID_TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockChang
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Input.SystemButtonEventController is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *ISystemFunctionLockChangedEventArgs)) (*TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockChangedEventArgs, error) {
+func NewTypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockChangedEventArgs(fn func(sender *ISystemButtonEventController, args *ISystemFunctionLockChangedEventArgs)) (*TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISystemFunctionLockChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISystemButtonEventController)(unsafe.Pointer(raw[0])), (*ISystemFunctionLockChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {
@@ -1141,10 +1138,9 @@ var IID_TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockIndic
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter sender's class Windows.UI.Input.SystemButtonEventController is projected as IInspectable (the class is not emitted this wave).
-func NewTypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockIndicatorChangedEventArgs(fn func(sender *syswinrt.IInspectable, args *ISystemFunctionLockIndicatorChangedEventArgs)) (*TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockIndicatorChangedEventArgs, error) {
+func NewTypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockIndicatorChangedEventArgs(fn func(sender *ISystemButtonEventController, args *ISystemFunctionLockIndicatorChangedEventArgs)) (*TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockIndicatorChangedEventArgs, error) {
 	delegate, err := winrt.NewDelegate(IID_TypedEventHandlerOfSystemButtonEventControllerAndSystemFunctionLockIndicatorChangedEventArgs, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*ISystemFunctionLockIndicatorChangedEventArgs)(unsafe.Pointer(raw[1])))
+		fn((*ISystemButtonEventController)(unsafe.Pointer(raw[0])), (*ISystemFunctionLockIndicatorChangedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {

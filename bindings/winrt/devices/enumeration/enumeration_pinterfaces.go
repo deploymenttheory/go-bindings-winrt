@@ -108,7 +108,7 @@ func (self *IAsyncOperationOfDeviceInformationCollection) SetCompleted(handler *
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
 // GetResults dispatches through IAsyncOperationOfDeviceInformationCollection's vtable slot 8.
-// The return value's class Windows.Devices.Enumeration.DeviceInformationCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Devices.Enumeration.DeviceInformationCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IAsyncOperationOfDeviceInformationCollection) GetResults() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -361,6 +361,107 @@ func (self *IAsyncOperationOfDeviceUnpairingResult) Await() (*IDeviceUnpairingRe
 	return self.GetResults()
 }
 
+// IIterableOfDeviceClass is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Enumeration.DeviceClass>.
+// IID: 47d4be05-58f1-522e-81c6-975eb4131bb9
+type IIterableOfDeviceClass struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDeviceClass is the interface identifier for IIterableOfDeviceClass.
+var IID_IIterableOfDeviceClass = win32.GUID{Data1: 0x47d4be05, Data2: 0x58f1, Data3: 0x522e, Data4: [8]byte{0x81, 0xc6, 0x97, 0x5e, 0xb4, 0x13, 0x1b, 0xb9}}
+
+// First dispatches through IIterableOfDeviceClass's vtable slot 6.
+func (self *IIterableOfDeviceClass) First() (*IIteratorOfDeviceClass, error) {
+	result := new(*IIteratorOfDeviceClass)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDeviceClass creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Enumeration.DeviceClass>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfDeviceClass(items []DeviceClass) *IIterableOfDeviceClass {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Enumeration.DeviceClass>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeviceClass, Iterator: IID_IIteratorOfDeviceClass}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfDeviceClass)(unsafe.Pointer(obj))
+}
+
+// IIterableOfDeviceInformation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Enumeration.DeviceInformation>.
+// IID: dd9f8a5d-ec98-5f4b-a3ea-9c8b5ad53c4b
+type IIterableOfDeviceInformation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDeviceInformation is the interface identifier for IIterableOfDeviceInformation.
+var IID_IIterableOfDeviceInformation = win32.GUID{Data1: 0xdd9f8a5d, Data2: 0xec98, Data3: 0x5f4b, Data4: [8]byte{0xa3, 0xea, 0x9c, 0x8b, 0x5a, 0xd5, 0x3c, 0x4b}}
+
+// First dispatches through IIterableOfDeviceInformation's vtable slot 6.
+func (self *IIterableOfDeviceInformation) First() (*IIteratorOfDeviceInformation, error) {
+	result := new(*IIteratorOfDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDeviceInformation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Enumeration.DeviceInformation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDeviceInformation(items []*IDeviceInformation) *IIterableOfDeviceInformation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Enumeration.DeviceInformation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeviceInformation, Iterator: IID_IIteratorOfDeviceInformation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDeviceInformation)(unsafe.Pointer(obj))
+}
+
+// IIterableOfDeviceWatcherEvent is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Enumeration.DeviceWatcherEvent>.
+// IID: b48fd051-eafa-523f-a66e-9d4151c5d522
+type IIterableOfDeviceWatcherEvent struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDeviceWatcherEvent is the interface identifier for IIterableOfDeviceWatcherEvent.
+var IID_IIterableOfDeviceWatcherEvent = win32.GUID{Data1: 0xb48fd051, Data2: 0xeafa, Data3: 0x523f, Data4: [8]byte{0xa6, 0x6e, 0x9d, 0x41, 0x51, 0xc5, 0xd5, 0x22}}
+
+// First dispatches through IIterableOfDeviceWatcherEvent's vtable slot 6.
+func (self *IIterableOfDeviceWatcherEvent) First() (*IIteratorOfDeviceWatcherEvent, error) {
+	result := new(*IIteratorOfDeviceWatcherEvent)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDeviceWatcherEvent creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Enumeration.DeviceWatcherEvent>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDeviceWatcherEvent(items []*IDeviceWatcherEvent) *IIterableOfDeviceWatcherEvent {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Enumeration.DeviceWatcherEvent>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeviceWatcherEvent, Iterator: IID_IIteratorOfDeviceWatcherEvent}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDeviceWatcherEvent)(unsafe.Pointer(obj))
+}
+
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
 // IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
 type IIterableOfString struct {
@@ -376,6 +477,118 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfDeviceClass is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Enumeration.DeviceClass>.
+// IID: c3807283-1416-593c-955c-0b4a286ff7bb
+type IIteratorOfDeviceClass struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDeviceClass is the interface identifier for IIteratorOfDeviceClass.
+var IID_IIteratorOfDeviceClass = win32.GUID{Data1: 0xc3807283, Data2: 0x1416, Data3: 0x593c, Data4: [8]byte{0x95, 0x5c, 0x0b, 0x4a, 0x28, 0x6f, 0xf7, 0xbb}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDeviceClass's vtable slot 6.
+func (self *IIteratorOfDeviceClass) Current() (DeviceClass, error) {
+	result := new(DeviceClass)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDeviceClass's vtable slot 7.
+func (self *IIteratorOfDeviceClass) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDeviceClass's vtable slot 8.
+func (self *IIteratorOfDeviceClass) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfDeviceInformation is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Enumeration.DeviceInformation>.
+// IID: 6f85d843-e8ab-5b46-85d7-327c58d18712
+type IIteratorOfDeviceInformation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDeviceInformation is the interface identifier for IIteratorOfDeviceInformation.
+var IID_IIteratorOfDeviceInformation = win32.GUID{Data1: 0x6f85d843, Data2: 0xe8ab, Data3: 0x5b46, Data4: [8]byte{0x85, 0xd7, 0x32, 0x7c, 0x58, 0xd1, 0x87, 0x12}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDeviceInformation's vtable slot 6.
+func (self *IIteratorOfDeviceInformation) Current() (*IDeviceInformation, error) {
+	result := new(*IDeviceInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDeviceInformation's vtable slot 7.
+func (self *IIteratorOfDeviceInformation) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDeviceInformation's vtable slot 8.
+func (self *IIteratorOfDeviceInformation) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfDeviceWatcherEvent is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Enumeration.DeviceWatcherEvent>.
+// IID: 74f7d6cc-9c20-5bb9-bace-b2ffa38687f9
+type IIteratorOfDeviceWatcherEvent struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDeviceWatcherEvent is the interface identifier for IIteratorOfDeviceWatcherEvent.
+var IID_IIteratorOfDeviceWatcherEvent = win32.GUID{Data1: 0x74f7d6cc, Data2: 0x9c20, Data3: 0x5bb9, Data4: [8]byte{0xba, 0xce, 0xb2, 0xff, 0xa3, 0x86, 0x87, 0xf9}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDeviceWatcherEvent's vtable slot 6.
+func (self *IIteratorOfDeviceWatcherEvent) Current() (*IDeviceWatcherEvent, error) {
+	result := new(*IDeviceWatcherEvent)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDeviceWatcherEvent's vtable slot 7.
+func (self *IIteratorOfDeviceWatcherEvent) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDeviceWatcherEvent's vtable slot 8.
+func (self *IIteratorOfDeviceWatcherEvent) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
 // IID: 8c304ebb-6615-50a4-8829-879ecd443236
@@ -537,6 +750,24 @@ func (self *IVectorOfDeviceClass) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfDeviceClass creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Enumeration.DeviceClass>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfDeviceClass(items []DeviceClass) *IVectorOfDeviceClass {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Enumeration.DeviceClass>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeviceClass, Iterator: IID_IIteratorOfDeviceClass, VectorView: IID_IVectorViewOfDeviceClass, Vector: IID_IVectorOfDeviceClass}, winrt.CodecScalar(4), boxed)
+	return (*IVectorOfDeviceClass)(unsafe.Pointer(obj))
+}
+
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
 // Requires: Windows.Foundation.Collections.IIterable`1<String>.
@@ -638,6 +869,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfDeviceClass is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Enumeration.DeviceClass>.
 // IID: 01a80a97-bd87-5c8a-97fd-d449c98bdac6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Enumeration.DeviceClass>.
@@ -670,6 +920,21 @@ func (self *IVectorViewOfDeviceClass) IndexOf(value DeviceClass, index *uint32) 
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfDeviceClass creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Enumeration.DeviceClass>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfDeviceClass(items []DeviceClass) *IVectorViewOfDeviceClass {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Enumeration.DeviceClass>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeviceClass, Iterator: IID_IIteratorOfDeviceClass, VectorView: IID_IVectorViewOfDeviceClass}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfDeviceClass)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfDeviceInformation is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Enumeration.DeviceInformation>.
 // IID: e170688f-3495-5bf6-aab5-9cac17e0f10f
@@ -704,6 +969,25 @@ func (self *IVectorViewOfDeviceInformation) IndexOf(value *IDeviceInformation, i
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfDeviceInformation creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Enumeration.DeviceInformation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDeviceInformation(items []*IDeviceInformation) *IVectorViewOfDeviceInformation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Enumeration.DeviceInformation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeviceInformation, Iterator: IID_IIteratorOfDeviceInformation, VectorView: IID_IVectorViewOfDeviceInformation}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDeviceInformation)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfDeviceWatcherEvent is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Enumeration.DeviceWatcherEvent>.
 // IID: 8f994d37-8fab-51c6-a1e0-c93f68a20ef0
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Enumeration.DeviceWatcherEvent>.
@@ -736,6 +1020,25 @@ func (self *IVectorViewOfDeviceWatcherEvent) IndexOf(value *IDeviceWatcherEvent,
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfDeviceWatcherEvent creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Enumeration.DeviceWatcherEvent>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDeviceWatcherEvent(items []*IDeviceWatcherEvent) *IVectorViewOfDeviceWatcherEvent {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Enumeration.DeviceWatcherEvent>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeviceWatcherEvent, Iterator: IID_IIteratorOfDeviceWatcherEvent, VectorView: IID_IVectorViewOfDeviceWatcherEvent}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDeviceWatcherEvent)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -777,3 +1080,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

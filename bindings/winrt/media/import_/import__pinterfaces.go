@@ -255,6 +255,45 @@ func (self *IAsyncOperationWithProgressOfPhotoImportDeleteImportedItemsFromSourc
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfPhotoImportDeleteImportedItemsFromSourceResultAndDouble reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfPhotoImportDeleteImportedItemsFromSourceResultAndDouble) Await() (*IPhotoImportDeleteImportedItemsFromSourceResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfPhotoImportDeleteImportedItemsFromSourceResultAndDouble(func(_ *IAsyncOperationWithProgressOfPhotoImportDeleteImportedItemsFromSourceResultAndDouble, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationWithProgressOfPhotoImportFindItemsResultAndUInt32 is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Media.Import.PhotoImportFindItemsResult, UInt32>.
 // IID: 6e6f9b4e-c6e1-5364-a650-11c35211bead
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -298,6 +337,45 @@ func (self *IAsyncOperationWithProgressOfPhotoImportFindItemsResultAndUInt32) Ge
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfPhotoImportFindItemsResultAndUInt32 reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfPhotoImportFindItemsResultAndUInt32) Await() (*IPhotoImportFindItemsResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfPhotoImportFindItemsResultAndUInt32(func(_ *IAsyncOperationWithProgressOfPhotoImportFindItemsResultAndUInt32, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationWithProgressOfPhotoImportImportItemsResultAndPhotoImportProgress is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Media.Import.PhotoImportImportItemsResult, Windows.Media.Import.PhotoImportProgress>.
 // IID: d874ec64-0951-5459-a0dd-0f8bf3917eb1
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -331,6 +409,514 @@ func (self *IAsyncOperationWithProgressOfPhotoImportImportItemsResultAndPhotoImp
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfPhotoImportImportItemsResultAndPhotoImportProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfPhotoImportImportItemsResultAndPhotoImportProgress) Await() (*IPhotoImportImportItemsResult, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfPhotoImportImportItemsResultAndPhotoImportProgress(func(_ *IAsyncOperationWithProgressOfPhotoImportImportItemsResultAndPhotoImportProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
+// IIterableOfPhotoImportItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportItem>.
+// IID: 82347483-3b75-5e95-bba4-abc0b8a320aa
+type IIterableOfPhotoImportItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPhotoImportItem is the interface identifier for IIterableOfPhotoImportItem.
+var IID_IIterableOfPhotoImportItem = win32.GUID{Data1: 0x82347483, Data2: 0x3b75, Data3: 0x5e95, Data4: [8]byte{0xbb, 0xa4, 0xab, 0xc0, 0xb8, 0xa3, 0x20, 0xaa}}
+
+// First dispatches through IIterableOfPhotoImportItem's vtable slot 6.
+func (self *IIterableOfPhotoImportItem) First() (*IIteratorOfPhotoImportItem, error) {
+	result := new(*IIteratorOfPhotoImportItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPhotoImportItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPhotoImportItem(items []*IPhotoImportItem) *IIterableOfPhotoImportItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportItem, Iterator: IID_IIteratorOfPhotoImportItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPhotoImportItem)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPhotoImportOperation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportOperation>.
+// IID: 94f33a8f-115a-50cb-b59d-ab8483a84842
+type IIterableOfPhotoImportOperation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPhotoImportOperation is the interface identifier for IIterableOfPhotoImportOperation.
+var IID_IIterableOfPhotoImportOperation = win32.GUID{Data1: 0x94f33a8f, Data2: 0x115a, Data3: 0x50cb, Data4: [8]byte{0xb5, 0x9d, 0xab, 0x84, 0x83, 0xa8, 0x48, 0x42}}
+
+// First dispatches through IIterableOfPhotoImportOperation's vtable slot 6.
+func (self *IIterableOfPhotoImportOperation) First() (*IIteratorOfPhotoImportOperation, error) {
+	result := new(*IIteratorOfPhotoImportOperation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPhotoImportOperation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportOperation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPhotoImportOperation(items []*IPhotoImportOperation) *IIterableOfPhotoImportOperation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportOperation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportOperation, Iterator: IID_IIteratorOfPhotoImportOperation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPhotoImportOperation)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPhotoImportSidecar is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportSidecar>.
+// IID: 2b7f92ad-e596-5669-b622-fbfbc7040e89
+type IIterableOfPhotoImportSidecar struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPhotoImportSidecar is the interface identifier for IIterableOfPhotoImportSidecar.
+var IID_IIterableOfPhotoImportSidecar = win32.GUID{Data1: 0x2b7f92ad, Data2: 0xe596, Data3: 0x5669, Data4: [8]byte{0xb6, 0x22, 0xfb, 0xfb, 0xc7, 0x04, 0x0e, 0x89}}
+
+// First dispatches through IIterableOfPhotoImportSidecar's vtable slot 6.
+func (self *IIterableOfPhotoImportSidecar) First() (*IIteratorOfPhotoImportSidecar, error) {
+	result := new(*IIteratorOfPhotoImportSidecar)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPhotoImportSidecar creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportSidecar>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPhotoImportSidecar(items []*IPhotoImportSidecar) *IIterableOfPhotoImportSidecar {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportSidecar>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportSidecar, Iterator: IID_IIteratorOfPhotoImportSidecar}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPhotoImportSidecar)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPhotoImportSource is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportSource>.
+// IID: 40e01d62-b413-5b43-ab07-ab28b23fc886
+type IIterableOfPhotoImportSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPhotoImportSource is the interface identifier for IIterableOfPhotoImportSource.
+var IID_IIterableOfPhotoImportSource = win32.GUID{Data1: 0x40e01d62, Data2: 0xb413, Data3: 0x5b43, Data4: [8]byte{0xab, 0x07, 0xab, 0x28, 0xb2, 0x3f, 0xc8, 0x86}}
+
+// First dispatches through IIterableOfPhotoImportSource's vtable slot 6.
+func (self *IIterableOfPhotoImportSource) First() (*IIteratorOfPhotoImportSource, error) {
+	result := new(*IIteratorOfPhotoImportSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPhotoImportSource creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPhotoImportSource(items []*IPhotoImportSource) *IIterableOfPhotoImportSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportSource, Iterator: IID_IIteratorOfPhotoImportSource}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPhotoImportSource)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPhotoImportStorageMedium is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportStorageMedium>.
+// IID: 3233cbfe-f9ee-560f-bd0f-e36abe6cda7f
+type IIterableOfPhotoImportStorageMedium struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPhotoImportStorageMedium is the interface identifier for IIterableOfPhotoImportStorageMedium.
+var IID_IIterableOfPhotoImportStorageMedium = win32.GUID{Data1: 0x3233cbfe, Data2: 0xf9ee, Data3: 0x560f, Data4: [8]byte{0xbd, 0x0f, 0xe3, 0x6a, 0xbe, 0x6c, 0xda, 0x7f}}
+
+// First dispatches through IIterableOfPhotoImportStorageMedium's vtable slot 6.
+func (self *IIterableOfPhotoImportStorageMedium) First() (*IIteratorOfPhotoImportStorageMedium, error) {
+	result := new(*IIteratorOfPhotoImportStorageMedium)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPhotoImportStorageMedium creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportStorageMedium>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPhotoImportStorageMedium(items []*IPhotoImportStorageMedium) *IIterableOfPhotoImportStorageMedium {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportStorageMedium>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportStorageMedium, Iterator: IID_IIteratorOfPhotoImportStorageMedium}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPhotoImportStorageMedium)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPhotoImportVideoSegment is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportVideoSegment>.
+// IID: 94dd3b44-da03-5d79-bbfb-1beaf2ede482
+type IIterableOfPhotoImportVideoSegment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPhotoImportVideoSegment is the interface identifier for IIterableOfPhotoImportVideoSegment.
+var IID_IIterableOfPhotoImportVideoSegment = win32.GUID{Data1: 0x94dd3b44, Data2: 0xda03, Data3: 0x5d79, Data4: [8]byte{0xbb, 0xfb, 0x1b, 0xea, 0xf2, 0xed, 0xe4, 0x82}}
+
+// First dispatches through IIterableOfPhotoImportVideoSegment's vtable slot 6.
+func (self *IIterableOfPhotoImportVideoSegment) First() (*IIteratorOfPhotoImportVideoSegment, error) {
+	result := new(*IIteratorOfPhotoImportVideoSegment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPhotoImportVideoSegment creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportVideoSegment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPhotoImportVideoSegment(items []*IPhotoImportVideoSegment) *IIterableOfPhotoImportVideoSegment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportVideoSegment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportVideoSegment, Iterator: IID_IIteratorOfPhotoImportVideoSegment}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPhotoImportVideoSegment)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfPhotoImportItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Import.PhotoImportItem>.
+// IID: d04d6068-b5a3-508e-bc6b-1dcdfcfb0d08
+type IIteratorOfPhotoImportItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPhotoImportItem is the interface identifier for IIteratorOfPhotoImportItem.
+var IID_IIteratorOfPhotoImportItem = win32.GUID{Data1: 0xd04d6068, Data2: 0xb5a3, Data3: 0x508e, Data4: [8]byte{0xbc, 0x6b, 0x1d, 0xcd, 0xfc, 0xfb, 0x0d, 0x08}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPhotoImportItem's vtable slot 6.
+func (self *IIteratorOfPhotoImportItem) Current() (*IPhotoImportItem, error) {
+	result := new(*IPhotoImportItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPhotoImportItem's vtable slot 7.
+func (self *IIteratorOfPhotoImportItem) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPhotoImportItem's vtable slot 8.
+func (self *IIteratorOfPhotoImportItem) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPhotoImportOperation is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Import.PhotoImportOperation>.
+// IID: 7c9dde1a-a8a1-5957-8e0d-c401d19c9237
+type IIteratorOfPhotoImportOperation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPhotoImportOperation is the interface identifier for IIteratorOfPhotoImportOperation.
+var IID_IIteratorOfPhotoImportOperation = win32.GUID{Data1: 0x7c9dde1a, Data2: 0xa8a1, Data3: 0x5957, Data4: [8]byte{0x8e, 0x0d, 0xc4, 0x01, 0xd1, 0x9c, 0x92, 0x37}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPhotoImportOperation's vtable slot 6.
+func (self *IIteratorOfPhotoImportOperation) Current() (*IPhotoImportOperation, error) {
+	result := new(*IPhotoImportOperation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPhotoImportOperation's vtable slot 7.
+func (self *IIteratorOfPhotoImportOperation) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPhotoImportOperation's vtable slot 8.
+func (self *IIteratorOfPhotoImportOperation) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPhotoImportSidecar is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Import.PhotoImportSidecar>.
+// IID: aef5ebf0-1363-593a-86d5-f92bc230bfd6
+type IIteratorOfPhotoImportSidecar struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPhotoImportSidecar is the interface identifier for IIteratorOfPhotoImportSidecar.
+var IID_IIteratorOfPhotoImportSidecar = win32.GUID{Data1: 0xaef5ebf0, Data2: 0x1363, Data3: 0x593a, Data4: [8]byte{0x86, 0xd5, 0xf9, 0x2b, 0xc2, 0x30, 0xbf, 0xd6}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPhotoImportSidecar's vtable slot 6.
+func (self *IIteratorOfPhotoImportSidecar) Current() (*IPhotoImportSidecar, error) {
+	result := new(*IPhotoImportSidecar)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPhotoImportSidecar's vtable slot 7.
+func (self *IIteratorOfPhotoImportSidecar) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPhotoImportSidecar's vtable slot 8.
+func (self *IIteratorOfPhotoImportSidecar) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPhotoImportSource is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Import.PhotoImportSource>.
+// IID: 7d70f831-6ee4-5130-a7b8-253a21154e82
+type IIteratorOfPhotoImportSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPhotoImportSource is the interface identifier for IIteratorOfPhotoImportSource.
+var IID_IIteratorOfPhotoImportSource = win32.GUID{Data1: 0x7d70f831, Data2: 0x6ee4, Data3: 0x5130, Data4: [8]byte{0xa7, 0xb8, 0x25, 0x3a, 0x21, 0x15, 0x4e, 0x82}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPhotoImportSource's vtable slot 6.
+func (self *IIteratorOfPhotoImportSource) Current() (*IPhotoImportSource, error) {
+	result := new(*IPhotoImportSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPhotoImportSource's vtable slot 7.
+func (self *IIteratorOfPhotoImportSource) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPhotoImportSource's vtable slot 8.
+func (self *IIteratorOfPhotoImportSource) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPhotoImportStorageMedium is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Import.PhotoImportStorageMedium>.
+// IID: 985cb948-9769-55dc-85d9-125a5d03d6bb
+type IIteratorOfPhotoImportStorageMedium struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPhotoImportStorageMedium is the interface identifier for IIteratorOfPhotoImportStorageMedium.
+var IID_IIteratorOfPhotoImportStorageMedium = win32.GUID{Data1: 0x985cb948, Data2: 0x9769, Data3: 0x55dc, Data4: [8]byte{0x85, 0xd9, 0x12, 0x5a, 0x5d, 0x03, 0xd6, 0xbb}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPhotoImportStorageMedium's vtable slot 6.
+func (self *IIteratorOfPhotoImportStorageMedium) Current() (*IPhotoImportStorageMedium, error) {
+	result := new(*IPhotoImportStorageMedium)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPhotoImportStorageMedium's vtable slot 7.
+func (self *IIteratorOfPhotoImportStorageMedium) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPhotoImportStorageMedium's vtable slot 8.
+func (self *IIteratorOfPhotoImportStorageMedium) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPhotoImportVideoSegment is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Import.PhotoImportVideoSegment>.
+// IID: c4c16a75-3310-5ab9-9307-78755ab1094d
+type IIteratorOfPhotoImportVideoSegment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPhotoImportVideoSegment is the interface identifier for IIteratorOfPhotoImportVideoSegment.
+var IID_IIteratorOfPhotoImportVideoSegment = win32.GUID{Data1: 0xc4c16a75, Data2: 0x3310, Data3: 0x5ab9, Data4: [8]byte{0x93, 0x07, 0x78, 0x75, 0x5a, 0xb1, 0x09, 0x4d}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPhotoImportVideoSegment's vtable slot 6.
+func (self *IIteratorOfPhotoImportVideoSegment) Current() (*IPhotoImportVideoSegment, error) {
+	result := new(*IPhotoImportVideoSegment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPhotoImportVideoSegment's vtable slot 7.
+func (self *IIteratorOfPhotoImportVideoSegment) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPhotoImportVideoSegment's vtable slot 8.
+func (self *IIteratorOfPhotoImportVideoSegment) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IReferenceOfBool is the WinRT interface Windows.Foundation.IReference`1<Bool>.
 // IID: 3c00fd60-2950-5939-a21a-2d12c5a01b8a
@@ -416,6 +1002,25 @@ func (self *IVectorViewOfPhotoImportItem) IndexOf(value *IPhotoImportItem, index
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfPhotoImportItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPhotoImportItem(items []*IPhotoImportItem) *IVectorViewOfPhotoImportItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportItem, Iterator: IID_IIteratorOfPhotoImportItem, VectorView: IID_IVectorViewOfPhotoImportItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPhotoImportItem)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfPhotoImportOperation is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportOperation>.
 // IID: a5b07808-7d18-5300-9f01-1d85149546d2
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportOperation>.
@@ -448,6 +1053,25 @@ func (self *IVectorViewOfPhotoImportOperation) IndexOf(value *IPhotoImportOperat
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPhotoImportOperation creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportOperation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPhotoImportOperation(items []*IPhotoImportOperation) *IVectorViewOfPhotoImportOperation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportOperation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportOperation, Iterator: IID_IIteratorOfPhotoImportOperation, VectorView: IID_IVectorViewOfPhotoImportOperation}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPhotoImportOperation)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfPhotoImportSidecar is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportSidecar>.
 // IID: a6fa3abe-cdb9-5054-bf3d-525607f9c2d2
@@ -482,6 +1106,25 @@ func (self *IVectorViewOfPhotoImportSidecar) IndexOf(value *IPhotoImportSidecar,
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfPhotoImportSidecar creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportSidecar>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPhotoImportSidecar(items []*IPhotoImportSidecar) *IVectorViewOfPhotoImportSidecar {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportSidecar>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportSidecar, Iterator: IID_IIteratorOfPhotoImportSidecar, VectorView: IID_IVectorViewOfPhotoImportSidecar}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPhotoImportSidecar)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfPhotoImportSource is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportSource>.
 // IID: 8b7e83fc-e035-59dc-8100-fcb935c2d7e4
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportSource>.
@@ -514,6 +1157,25 @@ func (self *IVectorViewOfPhotoImportSource) IndexOf(value *IPhotoImportSource, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPhotoImportSource creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPhotoImportSource(items []*IPhotoImportSource) *IVectorViewOfPhotoImportSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportSource, Iterator: IID_IIteratorOfPhotoImportSource, VectorView: IID_IVectorViewOfPhotoImportSource}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPhotoImportSource)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfPhotoImportStorageMedium is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportStorageMedium>.
 // IID: 35499439-e03e-5711-a955-f7c45928bc90
@@ -548,6 +1210,25 @@ func (self *IVectorViewOfPhotoImportStorageMedium) IndexOf(value *IPhotoImportSt
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfPhotoImportStorageMedium creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportStorageMedium>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPhotoImportStorageMedium(items []*IPhotoImportStorageMedium) *IVectorViewOfPhotoImportStorageMedium {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportStorageMedium>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportStorageMedium, Iterator: IID_IIteratorOfPhotoImportStorageMedium, VectorView: IID_IVectorViewOfPhotoImportStorageMedium}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPhotoImportStorageMedium)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfPhotoImportVideoSegment is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportVideoSegment>.
 // IID: db5493cd-6915-5682-8dd5-1de144ec599d
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Import.PhotoImportVideoSegment>.
@@ -580,6 +1261,25 @@ func (self *IVectorViewOfPhotoImportVideoSegment) IndexOf(value *IPhotoImportVid
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPhotoImportVideoSegment creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportVideoSegment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPhotoImportVideoSegment(items []*IPhotoImportVideoSegment) *IVectorViewOfPhotoImportVideoSegment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Import.PhotoImportVideoSegment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPhotoImportVideoSegment, Iterator: IID_IIteratorOfPhotoImportVideoSegment, VectorView: IID_IVectorViewOfPhotoImportVideoSegment}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPhotoImportVideoSegment)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -621,3 +1321,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

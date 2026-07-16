@@ -246,7 +246,7 @@ func (self *IAsyncOperationOfBitmapPropertySet) SetCompleted(handler *AsyncOpera
 // slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
 
 // GetResults dispatches through IAsyncOperationOfBitmapPropertySet's vtable slot 8.
-// The return value's class Windows.Graphics.Imaging.BitmapPropertySet is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Graphics.Imaging.BitmapPropertySet is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IAsyncOperationOfBitmapPropertySet) GetResults() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -499,6 +499,41 @@ func (self *IAsyncOperationOfSoftwareBitmap) Await() (*ISoftwareBitmap, error) {
 	return self.GetResults()
 }
 
+// IIterableOfBitmapCodecInformation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.BitmapCodecInformation>.
+// IID: 2b6bdb90-a4eb-5142-b582-3ccb1edc5789
+type IIterableOfBitmapCodecInformation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfBitmapCodecInformation is the interface identifier for IIterableOfBitmapCodecInformation.
+var IID_IIterableOfBitmapCodecInformation = win32.GUID{Data1: 0x2b6bdb90, Data2: 0xa4eb, Data3: 0x5142, Data4: [8]byte{0xb5, 0x82, 0x3c, 0xcb, 0x1e, 0xdc, 0x57, 0x89}}
+
+// First dispatches through IIterableOfBitmapCodecInformation's vtable slot 6.
+func (self *IIterableOfBitmapCodecInformation) First() (*IIteratorOfBitmapCodecInformation, error) {
+	result := new(*IIteratorOfBitmapCodecInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfBitmapCodecInformation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.BitmapCodecInformation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfBitmapCodecInformation(items []*IBitmapCodecInformation) *IIterableOfBitmapCodecInformation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.BitmapCodecInformation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBitmapCodecInformation, Iterator: IID_IIteratorOfBitmapCodecInformation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfBitmapCodecInformation)(unsafe.Pointer(obj))
+}
+
 // IIterableOfIKeyValuePairOfStringAndBitmapTypedValue is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Graphics.Imaging.BitmapTypedValue>>.
 // IID: 05f9430c-2f22-5638-aa89-8c9abcd54ff9
 type IIterableOfIKeyValuePairOfStringAndBitmapTypedValue struct {
@@ -513,6 +548,25 @@ func (self *IIterableOfIKeyValuePairOfStringAndBitmapTypedValue) First() (*IIter
 	result := new(*IIteratorOfIKeyValuePairOfStringAndBitmapTypedValue)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIKeyValuePairOfStringAndBitmapTypedValue creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Graphics.Imaging.BitmapTypedValue>>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIKeyValuePairOfStringAndBitmapTypedValue(items []*IKeyValuePairOfStringAndBitmapTypedValue) *IIterableOfIKeyValuePairOfStringAndBitmapTypedValue {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Graphics.Imaging.BitmapTypedValue>>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIKeyValuePairOfStringAndBitmapTypedValue, Iterator: IID_IIteratorOfIKeyValuePairOfStringAndBitmapTypedValue}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIKeyValuePairOfStringAndBitmapTypedValue)(unsafe.Pointer(obj))
 }
 
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
@@ -530,6 +584,54 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfBitmapCodecInformation is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Imaging.BitmapCodecInformation>.
+// IID: 4ff2b2db-9326-537f-b8dc-4c93d77fbb84
+type IIteratorOfBitmapCodecInformation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfBitmapCodecInformation is the interface identifier for IIteratorOfBitmapCodecInformation.
+var IID_IIteratorOfBitmapCodecInformation = win32.GUID{Data1: 0x4ff2b2db, Data2: 0x9326, Data3: 0x537f, Data4: [8]byte{0xb8, 0xdc, 0x4c, 0x93, 0xd7, 0x7f, 0xbb, 0x84}}
+
+// Current (propget get_Current) dispatches through IIteratorOfBitmapCodecInformation's vtable slot 6.
+func (self *IIteratorOfBitmapCodecInformation) Current() (*IBitmapCodecInformation, error) {
+	result := new(*IBitmapCodecInformation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfBitmapCodecInformation's vtable slot 7.
+func (self *IIteratorOfBitmapCodecInformation) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfBitmapCodecInformation's vtable slot 8.
+func (self *IIteratorOfBitmapCodecInformation) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfIKeyValuePairOfStringAndBitmapTypedValue is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.Graphics.Imaging.BitmapTypedValue>>.
 // IID: 2ad3fb0c-0656-5302-b504-3153be845161
@@ -657,6 +759,25 @@ func (self *IVectorViewOfBitmapCodecInformation) IndexOf(value *IBitmapCodecInfo
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfBitmapCodecInformation creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Imaging.BitmapCodecInformation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfBitmapCodecInformation(items []*IBitmapCodecInformation) *IVectorViewOfBitmapCodecInformation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Imaging.BitmapCodecInformation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBitmapCodecInformation, Iterator: IID_IIteratorOfBitmapCodecInformation, VectorView: IID_IVectorViewOfBitmapCodecInformation}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfBitmapCodecInformation)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
 // Requires: Windows.Foundation.Collections.IIterable`1<String>.
@@ -697,3 +818,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

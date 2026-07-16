@@ -93,16 +93,14 @@ func (self *IAutomationAnnotation) SetType(value AnnotationType) error {
 }
 
 // Element (propget get_Element) dispatches through IAutomationAnnotation's vtable slot 8.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationAnnotation) Element() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationAnnotation) Element() (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetElement (propput put_Element) dispatches through IAutomationAnnotation's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationAnnotation) SetElement(value *syswinrt.IInspectable) error {
+func (self *IAutomationAnnotation) SetElement(value *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -118,18 +116,15 @@ type IAutomationAnnotationFactory struct {
 var IID_IAutomationAnnotationFactory = win32.GUID{Data1: 0x4906fa52, Data2: 0xddc0, Data3: 0x4e69, Data4: [8]byte{0xb7, 0x6b, 0x01, 0x9d, 0x92, 0x8d, 0x82, 0x2f}}
 
 // CreateInstance dispatches through IAutomationAnnotationFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationAnnotationFactory) CreateInstance(type_ AnnotationType) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationAnnotationFactory) CreateInstance(type_ AnnotationType) (*IAutomationAnnotation, error) {
+	result := new(*IAutomationAnnotation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // CreateWithElementParameter dispatches through IAutomationAnnotationFactory's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-// Parameter element's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationAnnotationFactory) CreateWithElementParameter(type_ AnnotationType, element *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationAnnotationFactory) CreateWithElementParameter(type_ AnnotationType, element *uixaml.IUIElement) (*IAutomationAnnotation, error) {
+	result := new(*IAutomationAnnotation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(type_), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -741,16 +736,14 @@ func (self *IAutomationPropertiesStatics) LabeledByProperty() (*uixaml.IDependen
 }
 
 // GetLabeledBy dispatches through IAutomationPropertiesStatics's vtable slot 28.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPropertiesStatics) GetLabeledBy(element *uixaml.IDependencyObject) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAutomationPropertiesStatics) GetLabeledBy(element *uixaml.IDependencyObject) (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetLabeledBy dispatches through IAutomationPropertiesStatics's vtable slot 29.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IAutomationPropertiesStatics) SetLabeledBy(element *uixaml.IDependencyObject, value *syswinrt.IInspectable) error {
+func (self *IAutomationPropertiesStatics) SetLabeledBy(element *uixaml.IDependencyObject, value *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[29], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(element)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }

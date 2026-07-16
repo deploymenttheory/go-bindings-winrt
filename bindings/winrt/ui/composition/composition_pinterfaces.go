@@ -84,6 +84,41 @@ func (self *IAsyncOperationOfICompositionSurface) Await() (*ICompositionSurface,
 	return self.GetResults()
 }
 
+// IIterableOfCompositionAnimation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionAnimation>.
+// IID: 0cb59942-c6f3-585f-9a92-b47e8dd38ebf
+type IIterableOfCompositionAnimation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCompositionAnimation is the interface identifier for IIterableOfCompositionAnimation.
+var IID_IIterableOfCompositionAnimation = win32.GUID{Data1: 0x0cb59942, Data2: 0xc6f3, Data3: 0x585f, Data4: [8]byte{0x9a, 0x92, 0xb4, 0x7e, 0x8d, 0xd3, 0x8e, 0xbf}}
+
+// First dispatches through IIterableOfCompositionAnimation's vtable slot 6.
+func (self *IIterableOfCompositionAnimation) First() (*IIteratorOfCompositionAnimation, error) {
+	result := new(*IIteratorOfCompositionAnimation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCompositionAnimation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionAnimation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCompositionAnimation(items []*ICompositionAnimation) *IIterableOfCompositionAnimation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionAnimation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCompositionAnimation, Iterator: IID_IIteratorOfCompositionAnimation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCompositionAnimation)(unsafe.Pointer(obj))
+}
+
 // IIterableOfCompositionColorGradientStop is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionColorGradientStop>.
 // IID: 0f2cfac1-cdbc-5c4e-a7d2-a3914fb63426
 type IIterableOfCompositionColorGradientStop struct {
@@ -98,6 +133,130 @@ func (self *IIterableOfCompositionColorGradientStop) First() (*IIteratorOfCompos
 	result := new(*IIteratorOfCompositionColorGradientStop)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCompositionColorGradientStop creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionColorGradientStop>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCompositionColorGradientStop(items []*ICompositionColorGradientStop) *IIterableOfCompositionColorGradientStop {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionColorGradientStop>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCompositionColorGradientStop, Iterator: IID_IIteratorOfCompositionColorGradientStop}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCompositionColorGradientStop)(unsafe.Pointer(obj))
+}
+
+// IIterableOfCompositionProjectedShadowCaster is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionProjectedShadowCaster>.
+// IID: b8301b02-429b-5d71-ab0c-8d1141b12ac3
+type IIterableOfCompositionProjectedShadowCaster struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCompositionProjectedShadowCaster is the interface identifier for IIterableOfCompositionProjectedShadowCaster.
+var IID_IIterableOfCompositionProjectedShadowCaster = win32.GUID{Data1: 0xb8301b02, Data2: 0x429b, Data3: 0x5d71, Data4: [8]byte{0xab, 0x0c, 0x8d, 0x11, 0x41, 0xb1, 0x2a, 0xc3}}
+
+// First dispatches through IIterableOfCompositionProjectedShadowCaster's vtable slot 6.
+func (self *IIterableOfCompositionProjectedShadowCaster) First() (*IIteratorOfCompositionProjectedShadowCaster, error) {
+	result := new(*IIteratorOfCompositionProjectedShadowCaster)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCompositionProjectedShadowCaster creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionProjectedShadowCaster>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCompositionProjectedShadowCaster(items []*ICompositionProjectedShadowCaster) *IIterableOfCompositionProjectedShadowCaster {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionProjectedShadowCaster>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCompositionProjectedShadowCaster, Iterator: IID_IIteratorOfCompositionProjectedShadowCaster}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCompositionProjectedShadowCaster)(unsafe.Pointer(obj))
+}
+
+// IIterableOfCompositionProjectedShadowReceiver is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionProjectedShadowReceiver>.
+// IID: e2775a28-ec48-5cb8-b352-76f7f981d7a4
+type IIterableOfCompositionProjectedShadowReceiver struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCompositionProjectedShadowReceiver is the interface identifier for IIterableOfCompositionProjectedShadowReceiver.
+var IID_IIterableOfCompositionProjectedShadowReceiver = win32.GUID{Data1: 0xe2775a28, Data2: 0xec48, Data3: 0x5cb8, Data4: [8]byte{0xb3, 0x52, 0x76, 0xf7, 0xf9, 0x81, 0xd7, 0xa4}}
+
+// First dispatches through IIterableOfCompositionProjectedShadowReceiver's vtable slot 6.
+func (self *IIterableOfCompositionProjectedShadowReceiver) First() (*IIteratorOfCompositionProjectedShadowReceiver, error) {
+	result := new(*IIteratorOfCompositionProjectedShadowReceiver)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCompositionProjectedShadowReceiver creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionProjectedShadowReceiver>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCompositionProjectedShadowReceiver(items []*ICompositionProjectedShadowReceiver) *IIterableOfCompositionProjectedShadowReceiver {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionProjectedShadowReceiver>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCompositionProjectedShadowReceiver, Iterator: IID_IIteratorOfCompositionProjectedShadowReceiver}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCompositionProjectedShadowReceiver)(unsafe.Pointer(obj))
+}
+
+// IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.UI.Composition.ICompositionAnimationBase>>.
+// IID: c739c420-64b2-53f2-89b9-05906aba7cb0
+type IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase is the interface identifier for IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase.
+var IID_IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase = win32.GUID{Data1: 0xc739c420, Data2: 0x64b2, Data3: 0x53f2, Data4: [8]byte{0x89, 0xb9, 0x05, 0x90, 0x6a, 0xba, 0x7c, 0xb0}}
+
+// First dispatches through IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase's vtable slot 6.
+func (self *IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase) First() (*IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase, error) {
+	result := new(*IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIKeyValuePairOfStringAndICompositionAnimationBase creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.UI.Composition.ICompositionAnimationBase>>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIKeyValuePairOfStringAndICompositionAnimationBase(items []*IKeyValuePairOfStringAndICompositionAnimationBase) *IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.UI.Composition.ICompositionAnimationBase>>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase, Iterator: IID_IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase)(unsafe.Pointer(obj))
 }
 
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
@@ -116,6 +275,89 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIterableOfVisual is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.Visual>.
+// IID: 4eed7dce-e4ac-5891-9b52-799d70df47fe
+type IIterableOfVisual struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfVisual is the interface identifier for IIterableOfVisual.
+var IID_IIterableOfVisual = win32.GUID{Data1: 0x4eed7dce, Data2: 0xe4ac, Data3: 0x5891, Data4: [8]byte{0x9b, 0x52, 0x79, 0x9d, 0x70, 0xdf, 0x47, 0xfe}}
+
+// First dispatches through IIterableOfVisual's vtable slot 6.
+func (self *IIterableOfVisual) First() (*IIteratorOfVisual, error) {
+	result := new(*IIteratorOfVisual)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVisual creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.Visual>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfVisual(items []*IVisual) *IIterableOfVisual {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.Visual>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVisual, Iterator: IID_IIteratorOfVisual}, winrt.CodecInterface, boxed)
+	return (*IIterableOfVisual)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfCompositionAnimation is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Composition.CompositionAnimation>.
+// IID: 98efbe55-0a66-556a-9adc-4ab59c696846
+type IIteratorOfCompositionAnimation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCompositionAnimation is the interface identifier for IIteratorOfCompositionAnimation.
+var IID_IIteratorOfCompositionAnimation = win32.GUID{Data1: 0x98efbe55, Data2: 0x0a66, Data3: 0x556a, Data4: [8]byte{0x9a, 0xdc, 0x4a, 0xb5, 0x9c, 0x69, 0x68, 0x46}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCompositionAnimation's vtable slot 6.
+func (self *IIteratorOfCompositionAnimation) Current() (*ICompositionAnimation, error) {
+	result := new(*ICompositionAnimation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCompositionAnimation's vtable slot 7.
+func (self *IIteratorOfCompositionAnimation) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCompositionAnimation's vtable slot 8.
+func (self *IIteratorOfCompositionAnimation) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IIteratorOfCompositionColorGradientStop is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Composition.CompositionColorGradientStop>.
 // IID: 746a0f51-47f4-5395-8edd-8ae1e93a8183
 type IIteratorOfCompositionColorGradientStop struct {
@@ -126,9 +368,8 @@ type IIteratorOfCompositionColorGradientStop struct {
 var IID_IIteratorOfCompositionColorGradientStop = win32.GUID{Data1: 0x746a0f51, Data2: 0x47f4, Data3: 0x5395, Data4: [8]byte{0x8e, 0xdd, 0x8a, 0xe1, 0xe9, 0x3a, 0x81, 0x83}}
 
 // Current (propget get_Current) dispatches through IIteratorOfCompositionColorGradientStop's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionColorGradientStop is projected as IInspectable (the class is not emitted this wave).
-func (self *IIteratorOfCompositionColorGradientStop) Current() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IIteratorOfCompositionColorGradientStop) Current() (*ICompositionColorGradientStop, error) {
+	result := new(*ICompositionColorGradientStop)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -142,6 +383,102 @@ func (self *IIteratorOfCompositionColorGradientStop) HasCurrent() (bool, error) 
 
 // MoveNext dispatches through IIteratorOfCompositionColorGradientStop's vtable slot 8.
 func (self *IIteratorOfCompositionColorGradientStop) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfCompositionProjectedShadowCaster is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Composition.CompositionProjectedShadowCaster>.
+// IID: 6563b1b1-4b53-53df-a0c0-d3ca1dbbfe59
+type IIteratorOfCompositionProjectedShadowCaster struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCompositionProjectedShadowCaster is the interface identifier for IIteratorOfCompositionProjectedShadowCaster.
+var IID_IIteratorOfCompositionProjectedShadowCaster = win32.GUID{Data1: 0x6563b1b1, Data2: 0x4b53, Data3: 0x53df, Data4: [8]byte{0xa0, 0xc0, 0xd3, 0xca, 0x1d, 0xbb, 0xfe, 0x59}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCompositionProjectedShadowCaster's vtable slot 6.
+func (self *IIteratorOfCompositionProjectedShadowCaster) Current() (*ICompositionProjectedShadowCaster, error) {
+	result := new(*ICompositionProjectedShadowCaster)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCompositionProjectedShadowCaster's vtable slot 7.
+func (self *IIteratorOfCompositionProjectedShadowCaster) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCompositionProjectedShadowCaster's vtable slot 8.
+func (self *IIteratorOfCompositionProjectedShadowCaster) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfCompositionProjectedShadowReceiver is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Composition.CompositionProjectedShadowReceiver>.
+// IID: d2452315-9a6e-5033-9e8f-c25941adbe71
+type IIteratorOfCompositionProjectedShadowReceiver struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCompositionProjectedShadowReceiver is the interface identifier for IIteratorOfCompositionProjectedShadowReceiver.
+var IID_IIteratorOfCompositionProjectedShadowReceiver = win32.GUID{Data1: 0xd2452315, Data2: 0x9a6e, Data3: 0x5033, Data4: [8]byte{0x9e, 0x8f, 0xc2, 0x59, 0x41, 0xad, 0xbe, 0x71}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCompositionProjectedShadowReceiver's vtable slot 6.
+func (self *IIteratorOfCompositionProjectedShadowReceiver) Current() (*ICompositionProjectedShadowReceiver, error) {
+	result := new(*ICompositionProjectedShadowReceiver)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCompositionProjectedShadowReceiver's vtable slot 7.
+func (self *IIteratorOfCompositionProjectedShadowReceiver) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCompositionProjectedShadowReceiver's vtable slot 8.
+func (self *IIteratorOfCompositionProjectedShadowReceiver) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.UI.Composition.ICompositionAnimationBase>>.
+// IID: 85924e77-fc46-5a0d-bdaf-463c4f86c172
+type IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase is the interface identifier for IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase.
+var IID_IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase = win32.GUID{Data1: 0x85924e77, Data2: 0xfc46, Data3: 0x5a0d, Data4: [8]byte{0xbd, 0xaf, 0x46, 0x3c, 0x4f, 0x86, 0xc1, 0x72}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase's vtable slot 6.
+func (self *IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase) Current() (*IKeyValuePairOfStringAndICompositionAnimationBase, error) {
+	result := new(*IKeyValuePairOfStringAndICompositionAnimationBase)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase's vtable slot 7.
+func (self *IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase's vtable slot 8.
+func (self *IIteratorOfIKeyValuePairOfStringAndICompositionAnimationBase) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -183,6 +520,188 @@ func (self *IIteratorOfString) MoveNext() (bool, error) {
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// IIteratorOfVisual is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Composition.Visual>.
+// IID: eca15496-dcaa-5095-a898-f8602a40e10a
+type IIteratorOfVisual struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfVisual is the interface identifier for IIteratorOfVisual.
+var IID_IIteratorOfVisual = win32.GUID{Data1: 0xeca15496, Data2: 0xdcaa, Data3: 0x5095, Data4: [8]byte{0xa8, 0x98, 0xf8, 0x60, 0x2a, 0x40, 0xe1, 0x0a}}
+
+// Current (propget get_Current) dispatches through IIteratorOfVisual's vtable slot 6.
+func (self *IIteratorOfVisual) Current() (*IVisual, error) {
+	result := new(*IVisual)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfVisual's vtable slot 7.
+func (self *IIteratorOfVisual) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfVisual's vtable slot 8.
+func (self *IIteratorOfVisual) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IKeyValuePairOfStringAndICompositionAnimationBase is the WinRT interface Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.UI.Composition.ICompositionAnimationBase>.
+// IID: 3b9a274f-891d-5208-96bb-e3f40c809e9b
+type IKeyValuePairOfStringAndICompositionAnimationBase struct {
+	syswinrt.IInspectable
+}
+
+// IID_IKeyValuePairOfStringAndICompositionAnimationBase is the interface identifier for IKeyValuePairOfStringAndICompositionAnimationBase.
+var IID_IKeyValuePairOfStringAndICompositionAnimationBase = win32.GUID{Data1: 0x3b9a274f, Data2: 0x891d, Data3: 0x5208, Data4: [8]byte{0x96, 0xbb, 0xe3, 0xf4, 0x0c, 0x80, 0x9e, 0x9b}}
+
+// Key (propget get_Key) dispatches through IKeyValuePairOfStringAndICompositionAnimationBase's vtable slot 6.
+func (self *IKeyValuePairOfStringAndICompositionAnimationBase) Key() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// Value (propget get_Value) dispatches through IKeyValuePairOfStringAndICompositionAnimationBase's vtable slot 7.
+func (self *IKeyValuePairOfStringAndICompositionAnimationBase) Value() (*ICompositionAnimationBase, error) {
+	result := new(*ICompositionAnimationBase)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// IMapOfStringAndICompositionAnimationBase is the WinRT interface Windows.Foundation.Collections.IMap`2<String, Windows.UI.Composition.ICompositionAnimationBase>.
+// IID: 4ba9aa1d-57ac-54de-a807-b52e689bfc04
+// Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.UI.Composition.ICompositionAnimationBase>>.
+type IMapOfStringAndICompositionAnimationBase struct {
+	syswinrt.IInspectable
+}
+
+// IID_IMapOfStringAndICompositionAnimationBase is the interface identifier for IMapOfStringAndICompositionAnimationBase.
+var IID_IMapOfStringAndICompositionAnimationBase = win32.GUID{Data1: 0x4ba9aa1d, Data2: 0x57ac, Data3: 0x54de, Data4: [8]byte{0xa8, 0x07, 0xb5, 0x2e, 0x68, 0x9b, 0xfc, 0x04}}
+
+// Lookup dispatches through IMapOfStringAndICompositionAnimationBase's vtable slot 6.
+func (self *IMapOfStringAndICompositionAnimationBase) Lookup(key string) (*ICompositionAnimationBase, error) {
+	hKey, err := winrt.NewHString(key)
+	if err != nil {
+		return nil, err
+	}
+	defer hKey.Close()
+	result := new(*ICompositionAnimationBase)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Size (propget get_Size) dispatches through IMapOfStringAndICompositionAnimationBase's vtable slot 7.
+func (self *IMapOfStringAndICompositionAnimationBase) Size() (uint32, error) {
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasKey dispatches through IMapOfStringAndICompositionAnimationBase's vtable slot 8.
+func (self *IMapOfStringAndICompositionAnimationBase) HasKey(key string) (bool, error) {
+	hKey, err := winrt.NewHString(key)
+	if err != nil {
+		return false, err
+	}
+	defer hKey.Close()
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// GetView dispatches through IMapOfStringAndICompositionAnimationBase's vtable slot 9.
+func (self *IMapOfStringAndICompositionAnimationBase) GetView() (*IMapViewOfStringAndICompositionAnimationBase, error) {
+	result := new(*IMapViewOfStringAndICompositionAnimationBase)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Insert dispatches through IMapOfStringAndICompositionAnimationBase's vtable slot 10.
+func (self *IMapOfStringAndICompositionAnimationBase) Insert(key string, value *ICompositionAnimationBase) (bool, error) {
+	hKey, err := winrt.NewHString(key)
+	if err != nil {
+		return false, err
+	}
+	defer hKey.Close()
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// Remove dispatches through IMapOfStringAndICompositionAnimationBase's vtable slot 11.
+func (self *IMapOfStringAndICompositionAnimationBase) Remove(key string) error {
+	hKey, err := winrt.NewHString(key)
+	if err != nil {
+		return err
+	}
+	defer hKey.Close()
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()))
+	return win32.ErrIfFailed(int32(r1))
+}
+
+// Clear dispatches through IMapOfStringAndICompositionAnimationBase's vtable slot 12.
+func (self *IMapOfStringAndICompositionAnimationBase) Clear() error {
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)))
+	return win32.ErrIfFailed(int32(r1))
+}
+
+// IMapViewOfStringAndICompositionAnimationBase is the WinRT interface Windows.Foundation.Collections.IMapView`2<String, Windows.UI.Composition.ICompositionAnimationBase>.
+// IID: b65e6ece-d9af-5d4a-abaa-c08e34a5f815
+// Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Windows.UI.Composition.ICompositionAnimationBase>>.
+type IMapViewOfStringAndICompositionAnimationBase struct {
+	syswinrt.IInspectable
+}
+
+// IID_IMapViewOfStringAndICompositionAnimationBase is the interface identifier for IMapViewOfStringAndICompositionAnimationBase.
+var IID_IMapViewOfStringAndICompositionAnimationBase = win32.GUID{Data1: 0xb65e6ece, Data2: 0xd9af, Data3: 0x5d4a, Data4: [8]byte{0xab, 0xaa, 0xc0, 0x8e, 0x34, 0xa5, 0xf8, 0x15}}
+
+// Lookup dispatches through IMapViewOfStringAndICompositionAnimationBase's vtable slot 6.
+func (self *IMapViewOfStringAndICompositionAnimationBase) Lookup(key string) (*ICompositionAnimationBase, error) {
+	hKey, err := winrt.NewHString(key)
+	if err != nil {
+		return nil, err
+	}
+	defer hKey.Close()
+	result := new(*ICompositionAnimationBase)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Size (propget get_Size) dispatches through IMapViewOfStringAndICompositionAnimationBase's vtable slot 7.
+func (self *IMapViewOfStringAndICompositionAnimationBase) Size() (uint32, error) {
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasKey dispatches through IMapViewOfStringAndICompositionAnimationBase's vtable slot 8.
+func (self *IMapViewOfStringAndICompositionAnimationBase) HasKey(key string) (bool, error) {
+	hKey, err := winrt.NewHString(key)
+	if err != nil {
+		return false, err
+	}
+	defer hKey.Close()
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hKey.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// Split dispatches through IMapViewOfStringAndICompositionAnimationBase's vtable slot 9.
+func (self *IMapViewOfStringAndICompositionAnimationBase) Split(first **IMapViewOfStringAndICompositionAnimationBase, second **IMapViewOfStringAndICompositionAnimationBase) error {
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(first))), uintptr(winrt.OutParam(unsafe.Pointer(second))))
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // IReferenceOfSingle is the WinRT interface Windows.Foundation.IReference`1<Single>.
 // IID: 719cc2ba-3e76-5def-9f1a-38d85a145ea8
@@ -241,9 +760,8 @@ type IVectorOfCompositionColorGradientStop struct {
 var IID_IVectorOfCompositionColorGradientStop = win32.GUID{Data1: 0xbf2e107e, Data2: 0xf3db, Data3: 0x56cd, Data4: [8]byte{0x91, 0xed, 0xc1, 0x12, 0x94, 0x06, 0xd5, 0x52}}
 
 // GetAt dispatches through IVectorOfCompositionColorGradientStop's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionColorGradientStop is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfCompositionColorGradientStop) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfCompositionColorGradientStop) GetAt(index uint32) (*ICompositionColorGradientStop, error) {
+	result := new(*ICompositionColorGradientStop)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -263,23 +781,20 @@ func (self *IVectorOfCompositionColorGradientStop) GetView() (*IVectorViewOfComp
 }
 
 // IndexOf dispatches through IVectorOfCompositionColorGradientStop's vtable slot 9.
-// Parameter value's class Windows.UI.Composition.CompositionColorGradientStop is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfCompositionColorGradientStop) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfCompositionColorGradientStop) IndexOf(value *ICompositionColorGradientStop, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfCompositionColorGradientStop's vtable slot 10.
-// Parameter value's class Windows.UI.Composition.CompositionColorGradientStop is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfCompositionColorGradientStop) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfCompositionColorGradientStop) SetAt(index uint32, value *ICompositionColorGradientStop) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfCompositionColorGradientStop's vtable slot 11.
-// Parameter value's class Windows.UI.Composition.CompositionColorGradientStop is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfCompositionColorGradientStop) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfCompositionColorGradientStop) InsertAt(index uint32, value *ICompositionColorGradientStop) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -291,8 +806,7 @@ func (self *IVectorOfCompositionColorGradientStop) RemoveAt(index uint32) error 
 }
 
 // Append dispatches through IVectorOfCompositionColorGradientStop's vtable slot 13.
-// Parameter value's class Windows.UI.Composition.CompositionColorGradientStop is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfCompositionColorGradientStop) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfCompositionColorGradientStop) Append(value *ICompositionColorGradientStop) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -313,6 +827,28 @@ func (self *IVectorOfCompositionColorGradientStop) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfCompositionColorGradientStop creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Composition.CompositionColorGradientStop>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfCompositionColorGradientStop(items []*ICompositionColorGradientStop) *IVectorOfCompositionColorGradientStop {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Composition.CompositionColorGradientStop>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCompositionColorGradientStop, Iterator: IID_IIteratorOfCompositionColorGradientStop, VectorView: IID_IVectorViewOfCompositionColorGradientStop, Vector: IID_IVectorOfCompositionColorGradientStop}, winrt.CodecInterface, boxed)
+	return (*IVectorOfCompositionColorGradientStop)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfCompositionColorGradientStop is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Composition.CompositionColorGradientStop>.
 // IID: 801d95c7-7ce2-55d7-a62f-2ff94c544034
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Composition.CompositionColorGradientStop>.
@@ -324,9 +860,8 @@ type IVectorViewOfCompositionColorGradientStop struct {
 var IID_IVectorViewOfCompositionColorGradientStop = win32.GUID{Data1: 0x801d95c7, Data2: 0x7ce2, Data3: 0x55d7, Data4: [8]byte{0xa6, 0x2f, 0x2f, 0xf9, 0x4c, 0x54, 0x40, 0x34}}
 
 // GetAt dispatches through IVectorViewOfCompositionColorGradientStop's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionColorGradientStop is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfCompositionColorGradientStop) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfCompositionColorGradientStop) GetAt(index uint32) (*ICompositionColorGradientStop, error) {
+	result := new(*ICompositionColorGradientStop)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -339,11 +874,29 @@ func (self *IVectorViewOfCompositionColorGradientStop) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfCompositionColorGradientStop's vtable slot 8.
-// Parameter value's class Windows.UI.Composition.CompositionColorGradientStop is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfCompositionColorGradientStop) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfCompositionColorGradientStop) IndexOf(value *ICompositionColorGradientStop, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfCompositionColorGradientStop creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Composition.CompositionColorGradientStop>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCompositionColorGradientStop(items []*ICompositionColorGradientStop) *IVectorViewOfCompositionColorGradientStop {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Composition.CompositionColorGradientStop>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCompositionColorGradientStop, Iterator: IID_IIteratorOfCompositionColorGradientStop, VectorView: IID_IVectorViewOfCompositionColorGradientStop}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCompositionColorGradientStop)(unsafe.Pointer(obj))
+}

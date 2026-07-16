@@ -84,6 +84,421 @@ func (self *IAsyncOperationOfModuleCommandResult) Await() (*IModuleCommandResult
 	return self.GetResults()
 }
 
+// IIterableOfAdvancedPhotoMode is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.AdvancedPhotoMode>.
+// IID: 7d090784-70a9-570c-be82-0d0890318975
+type IIterableOfAdvancedPhotoMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAdvancedPhotoMode is the interface identifier for IIterableOfAdvancedPhotoMode.
+var IID_IIterableOfAdvancedPhotoMode = win32.GUID{Data1: 0x7d090784, Data2: 0x70a9, Data3: 0x570c, Data4: [8]byte{0xbe, 0x82, 0x0d, 0x08, 0x90, 0x31, 0x89, 0x75}}
+
+// First dispatches through IIterableOfAdvancedPhotoMode's vtable slot 6.
+func (self *IIterableOfAdvancedPhotoMode) First() (*IIteratorOfAdvancedPhotoMode, error) {
+	result := new(*IIteratorOfAdvancedPhotoMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAdvancedPhotoMode creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.AdvancedPhotoMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfAdvancedPhotoMode(items []AdvancedPhotoMode) *IIterableOfAdvancedPhotoMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.AdvancedPhotoMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAdvancedPhotoMode, Iterator: IID_IIteratorOfAdvancedPhotoMode}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfAdvancedPhotoMode)(unsafe.Pointer(obj))
+}
+
+// IIterableOfAudioDeviceModule is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.AudioDeviceModule>.
+// IID: 7eeb51c3-d70e-548a-85c2-3cf71b4a124c
+type IIterableOfAudioDeviceModule struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAudioDeviceModule is the interface identifier for IIterableOfAudioDeviceModule.
+var IID_IIterableOfAudioDeviceModule = win32.GUID{Data1: 0x7eeb51c3, Data2: 0xd70e, Data3: 0x548a, Data4: [8]byte{0x85, 0xc2, 0x3c, 0xf7, 0x1b, 0x4a, 0x12, 0x4c}}
+
+// First dispatches through IIterableOfAudioDeviceModule's vtable slot 6.
+func (self *IIterableOfAudioDeviceModule) First() (*IIteratorOfAudioDeviceModule, error) {
+	result := new(*IIteratorOfAudioDeviceModule)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAudioDeviceModule creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.AudioDeviceModule>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAudioDeviceModule(items []*IAudioDeviceModule) *IIterableOfAudioDeviceModule {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.AudioDeviceModule>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAudioDeviceModule, Iterator: IID_IIteratorOfAudioDeviceModule}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAudioDeviceModule)(unsafe.Pointer(obj))
+}
+
+// IIterableOfAutoFocusRange is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.AutoFocusRange>.
+// IID: 751664c6-f8d6-50a3-ab80-137c6d908c55
+type IIterableOfAutoFocusRange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAutoFocusRange is the interface identifier for IIterableOfAutoFocusRange.
+var IID_IIterableOfAutoFocusRange = win32.GUID{Data1: 0x751664c6, Data2: 0xf8d6, Data3: 0x50a3, Data4: [8]byte{0xab, 0x80, 0x13, 0x7c, 0x6d, 0x90, 0x8c, 0x55}}
+
+// First dispatches through IIterableOfAutoFocusRange's vtable slot 6.
+func (self *IIterableOfAutoFocusRange) First() (*IIteratorOfAutoFocusRange, error) {
+	result := new(*IIteratorOfAutoFocusRange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAutoFocusRange creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.AutoFocusRange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfAutoFocusRange(items []AutoFocusRange) *IIterableOfAutoFocusRange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.AutoFocusRange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAutoFocusRange, Iterator: IID_IIteratorOfAutoFocusRange}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfAutoFocusRange)(unsafe.Pointer(obj))
+}
+
+// IIterableOfCaptureSceneMode is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.CaptureSceneMode>.
+// IID: 16d26b98-2cbc-52f0-ab64-1723714418e9
+type IIterableOfCaptureSceneMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCaptureSceneMode is the interface identifier for IIterableOfCaptureSceneMode.
+var IID_IIterableOfCaptureSceneMode = win32.GUID{Data1: 0x16d26b98, Data2: 0x2cbc, Data3: 0x52f0, Data4: [8]byte{0xab, 0x64, 0x17, 0x23, 0x71, 0x44, 0x18, 0xe9}}
+
+// First dispatches through IIterableOfCaptureSceneMode's vtable slot 6.
+func (self *IIterableOfCaptureSceneMode) First() (*IIteratorOfCaptureSceneMode, error) {
+	result := new(*IIteratorOfCaptureSceneMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCaptureSceneMode creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.CaptureSceneMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfCaptureSceneMode(items []CaptureSceneMode) *IIterableOfCaptureSceneMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.CaptureSceneMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCaptureSceneMode, Iterator: IID_IIteratorOfCaptureSceneMode}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfCaptureSceneMode)(unsafe.Pointer(obj))
+}
+
+// IIterableOfDigitalWindowCapability is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.DigitalWindowCapability>.
+// IID: a4f28d49-fb50-5c0d-ba48-6695e4612500
+type IIterableOfDigitalWindowCapability struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDigitalWindowCapability is the interface identifier for IIterableOfDigitalWindowCapability.
+var IID_IIterableOfDigitalWindowCapability = win32.GUID{Data1: 0xa4f28d49, Data2: 0xfb50, Data3: 0x5c0d, Data4: [8]byte{0xba, 0x48, 0x66, 0x95, 0xe4, 0x61, 0x25, 0x00}}
+
+// First dispatches through IIterableOfDigitalWindowCapability's vtable slot 6.
+func (self *IIterableOfDigitalWindowCapability) First() (*IIteratorOfDigitalWindowCapability, error) {
+	result := new(*IIteratorOfDigitalWindowCapability)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDigitalWindowCapability creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.DigitalWindowCapability>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDigitalWindowCapability(items []*IDigitalWindowCapability) *IIterableOfDigitalWindowCapability {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.DigitalWindowCapability>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDigitalWindowCapability, Iterator: IID_IIteratorOfDigitalWindowCapability}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDigitalWindowCapability)(unsafe.Pointer(obj))
+}
+
+// IIterableOfFocusMode is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.FocusMode>.
+// IID: 561bc21f-4ae2-580a-a216-0ad48f373a4c
+type IIterableOfFocusMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfFocusMode is the interface identifier for IIterableOfFocusMode.
+var IID_IIterableOfFocusMode = win32.GUID{Data1: 0x561bc21f, Data2: 0x4ae2, Data3: 0x580a, Data4: [8]byte{0xa2, 0x16, 0x0a, 0xd4, 0x8f, 0x37, 0x3a, 0x4c}}
+
+// First dispatches through IIterableOfFocusMode's vtable slot 6.
+func (self *IIterableOfFocusMode) First() (*IIteratorOfFocusMode, error) {
+	result := new(*IIteratorOfFocusMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfFocusMode creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.FocusMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfFocusMode(items []FocusMode) *IIterableOfFocusMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.FocusMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfFocusMode, Iterator: IID_IIteratorOfFocusMode}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfFocusMode)(unsafe.Pointer(obj))
+}
+
+// IIterableOfFocusPreset is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.FocusPreset>.
+// IID: 26ba711b-3a32-5216-bc34-61ecafbebdc1
+type IIterableOfFocusPreset struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfFocusPreset is the interface identifier for IIterableOfFocusPreset.
+var IID_IIterableOfFocusPreset = win32.GUID{Data1: 0x26ba711b, Data2: 0x3a32, Data3: 0x5216, Data4: [8]byte{0xbc, 0x34, 0x61, 0xec, 0xaf, 0xbe, 0xbd, 0xc1}}
+
+// First dispatches through IIterableOfFocusPreset's vtable slot 6.
+func (self *IIterableOfFocusPreset) First() (*IIteratorOfFocusPreset, error) {
+	result := new(*IIteratorOfFocusPreset)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfFocusPreset creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.FocusPreset>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfFocusPreset(items []FocusPreset) *IIterableOfFocusPreset {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.FocusPreset>", winrt.CollectionIIDs{Iterable: IID_IIterableOfFocusPreset, Iterator: IID_IIteratorOfFocusPreset}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfFocusPreset)(unsafe.Pointer(obj))
+}
+
+// IIterableOfHdrVideoMode is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.HdrVideoMode>.
+// IID: 1d9679a7-2d06-5294-ac67-f9cd3561dcb8
+type IIterableOfHdrVideoMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHdrVideoMode is the interface identifier for IIterableOfHdrVideoMode.
+var IID_IIterableOfHdrVideoMode = win32.GUID{Data1: 0x1d9679a7, Data2: 0x2d06, Data3: 0x5294, Data4: [8]byte{0xac, 0x67, 0xf9, 0xcd, 0x35, 0x61, 0xdc, 0xb8}}
+
+// First dispatches through IIterableOfHdrVideoMode's vtable slot 6.
+func (self *IIterableOfHdrVideoMode) First() (*IIteratorOfHdrVideoMode, error) {
+	result := new(*IIteratorOfHdrVideoMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHdrVideoMode creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.HdrVideoMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfHdrVideoMode(items []HdrVideoMode) *IIterableOfHdrVideoMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.HdrVideoMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHdrVideoMode, Iterator: IID_IIteratorOfHdrVideoMode}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfHdrVideoMode)(unsafe.Pointer(obj))
+}
+
+// IIterableOfIMediaEncodingProperties is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.MediaProperties.IMediaEncodingProperties>.
+// IID: d7fc75d5-3492-5bbb-9b34-dac3e24e79d0
+type IIterableOfIMediaEncodingProperties struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIMediaEncodingProperties is the interface identifier for IIterableOfIMediaEncodingProperties.
+var IID_IIterableOfIMediaEncodingProperties = win32.GUID{Data1: 0xd7fc75d5, Data2: 0x3492, Data3: 0x5bbb, Data4: [8]byte{0x9b, 0x34, 0xda, 0xc3, 0xe2, 0x4e, 0x79, 0xd0}}
+
+// First dispatches through IIterableOfIMediaEncodingProperties's vtable slot 6.
+func (self *IIterableOfIMediaEncodingProperties) First() (*IIteratorOfIMediaEncodingProperties, error) {
+	result := new(*IIteratorOfIMediaEncodingProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIMediaEncodingProperties creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.MediaProperties.IMediaEncodingProperties>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIMediaEncodingProperties(items []*mediamediaproperties.IMediaEncodingProperties) *IIterableOfIMediaEncodingProperties {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.MediaProperties.IMediaEncodingProperties>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIMediaEncodingProperties, Iterator: IID_IIteratorOfIMediaEncodingProperties}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIMediaEncodingProperties)(unsafe.Pointer(obj))
+}
+
+// IIterableOfInfraredTorchMode is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.InfraredTorchMode>.
+// IID: 58a4b7b6-36c3-5541-b383-3690d7293c10
+type IIterableOfInfraredTorchMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfInfraredTorchMode is the interface identifier for IIterableOfInfraredTorchMode.
+var IID_IIterableOfInfraredTorchMode = win32.GUID{Data1: 0x58a4b7b6, Data2: 0x36c3, Data3: 0x5541, Data4: [8]byte{0xb3, 0x83, 0x36, 0x90, 0xd7, 0x29, 0x3c, 0x10}}
+
+// First dispatches through IIterableOfInfraredTorchMode's vtable slot 6.
+func (self *IIterableOfInfraredTorchMode) First() (*IIteratorOfInfraredTorchMode, error) {
+	result := new(*IIteratorOfInfraredTorchMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfInfraredTorchMode creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.InfraredTorchMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfInfraredTorchMode(items []InfraredTorchMode) *IIterableOfInfraredTorchMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.InfraredTorchMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInfraredTorchMode, Iterator: IID_IIteratorOfInfraredTorchMode}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfInfraredTorchMode)(unsafe.Pointer(obj))
+}
+
+// IIterableOfIsoSpeedPreset is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.IsoSpeedPreset>.
+// IID: 94839abe-9712-545a-a94d-a567a3e8dfb7
+type IIterableOfIsoSpeedPreset struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIsoSpeedPreset is the interface identifier for IIterableOfIsoSpeedPreset.
+var IID_IIterableOfIsoSpeedPreset = win32.GUID{Data1: 0x94839abe, Data2: 0x9712, Data3: 0x545a, Data4: [8]byte{0xa9, 0x4d, 0xa5, 0x67, 0xa3, 0xe8, 0xdf, 0xb7}}
+
+// First dispatches through IIterableOfIsoSpeedPreset's vtable slot 6.
+func (self *IIterableOfIsoSpeedPreset) First() (*IIteratorOfIsoSpeedPreset, error) {
+	result := new(*IIteratorOfIsoSpeedPreset)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIsoSpeedPreset creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.IsoSpeedPreset>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfIsoSpeedPreset(items []IsoSpeedPreset) *IIterableOfIsoSpeedPreset {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.IsoSpeedPreset>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIsoSpeedPreset, Iterator: IID_IIteratorOfIsoSpeedPreset}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfIsoSpeedPreset)(unsafe.Pointer(obj))
+}
+
+// IIterableOfManualFocusDistance is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.ManualFocusDistance>.
+// IID: cf8cbeb1-2a4c-522d-962f-84c31a598d68
+type IIterableOfManualFocusDistance struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfManualFocusDistance is the interface identifier for IIterableOfManualFocusDistance.
+var IID_IIterableOfManualFocusDistance = win32.GUID{Data1: 0xcf8cbeb1, Data2: 0x2a4c, Data3: 0x522d, Data4: [8]byte{0x96, 0x2f, 0x84, 0xc3, 0x1a, 0x59, 0x8d, 0x68}}
+
+// First dispatches through IIterableOfManualFocusDistance's vtable slot 6.
+func (self *IIterableOfManualFocusDistance) First() (*IIteratorOfManualFocusDistance, error) {
+	result := new(*IIteratorOfManualFocusDistance)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfManualFocusDistance creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.ManualFocusDistance>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfManualFocusDistance(items []ManualFocusDistance) *IIterableOfManualFocusDistance {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.ManualFocusDistance>", winrt.CollectionIIDs{Iterable: IID_IIterableOfManualFocusDistance, Iterator: IID_IIteratorOfManualFocusDistance}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfManualFocusDistance)(unsafe.Pointer(obj))
+}
+
+// IIterableOfOpticalImageStabilizationMode is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.OpticalImageStabilizationMode>.
+// IID: 323d7734-94c2-544d-a560-56560fe68819
+type IIterableOfOpticalImageStabilizationMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfOpticalImageStabilizationMode is the interface identifier for IIterableOfOpticalImageStabilizationMode.
+var IID_IIterableOfOpticalImageStabilizationMode = win32.GUID{Data1: 0x323d7734, Data2: 0x94c2, Data3: 0x544d, Data4: [8]byte{0xa5, 0x60, 0x56, 0x56, 0x0f, 0xe6, 0x88, 0x19}}
+
+// First dispatches through IIterableOfOpticalImageStabilizationMode's vtable slot 6.
+func (self *IIterableOfOpticalImageStabilizationMode) First() (*IIteratorOfOpticalImageStabilizationMode, error) {
+	result := new(*IIteratorOfOpticalImageStabilizationMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfOpticalImageStabilizationMode creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.OpticalImageStabilizationMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfOpticalImageStabilizationMode(items []OpticalImageStabilizationMode) *IIterableOfOpticalImageStabilizationMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.OpticalImageStabilizationMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfOpticalImageStabilizationMode, Iterator: IID_IIteratorOfOpticalImageStabilizationMode}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfOpticalImageStabilizationMode)(unsafe.Pointer(obj))
+}
+
 // IIterableOfRegionOfInterest is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.RegionOfInterest>.
 // IID: d73144c7-9d75-5dfb-8040-626202dcf454
 type IIterableOfRegionOfInterest struct {
@@ -99,6 +514,503 @@ func (self *IIterableOfRegionOfInterest) First() (*IIteratorOfRegionOfInterest, 
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfRegionOfInterest creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.RegionOfInterest>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfRegionOfInterest(items []*IRegionOfInterest) *IIterableOfRegionOfInterest {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.RegionOfInterest>", winrt.CollectionIIDs{Iterable: IID_IIterableOfRegionOfInterest, Iterator: IID_IIteratorOfRegionOfInterest}, winrt.CodecInterface, boxed)
+	return (*IIterableOfRegionOfInterest)(unsafe.Pointer(obj))
+}
+
+// IIterableOfVideoTemporalDenoisingMode is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.VideoTemporalDenoisingMode>.
+// IID: caf26629-ee84-5d4c-ae37-9dc4b26978eb
+type IIterableOfVideoTemporalDenoisingMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfVideoTemporalDenoisingMode is the interface identifier for IIterableOfVideoTemporalDenoisingMode.
+var IID_IIterableOfVideoTemporalDenoisingMode = win32.GUID{Data1: 0xcaf26629, Data2: 0xee84, Data3: 0x5d4c, Data4: [8]byte{0xae, 0x37, 0x9d, 0xc4, 0xb2, 0x69, 0x78, 0xeb}}
+
+// First dispatches through IIterableOfVideoTemporalDenoisingMode's vtable slot 6.
+func (self *IIterableOfVideoTemporalDenoisingMode) First() (*IIteratorOfVideoTemporalDenoisingMode, error) {
+	result := new(*IIteratorOfVideoTemporalDenoisingMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfVideoTemporalDenoisingMode creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.VideoTemporalDenoisingMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfVideoTemporalDenoisingMode(items []VideoTemporalDenoisingMode) *IIterableOfVideoTemporalDenoisingMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.VideoTemporalDenoisingMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVideoTemporalDenoisingMode, Iterator: IID_IIteratorOfVideoTemporalDenoisingMode}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfVideoTemporalDenoisingMode)(unsafe.Pointer(obj))
+}
+
+// IIterableOfZoomTransitionMode is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.ZoomTransitionMode>.
+// IID: db656915-8fac-5fb2-98e0-0e97421656c5
+type IIterableOfZoomTransitionMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfZoomTransitionMode is the interface identifier for IIterableOfZoomTransitionMode.
+var IID_IIterableOfZoomTransitionMode = win32.GUID{Data1: 0xdb656915, Data2: 0x8fac, Data3: 0x5fb2, Data4: [8]byte{0x98, 0xe0, 0x0e, 0x97, 0x42, 0x16, 0x56, 0xc5}}
+
+// First dispatches through IIterableOfZoomTransitionMode's vtable slot 6.
+func (self *IIterableOfZoomTransitionMode) First() (*IIteratorOfZoomTransitionMode, error) {
+	result := new(*IIteratorOfZoomTransitionMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfZoomTransitionMode creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.ZoomTransitionMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfZoomTransitionMode(items []ZoomTransitionMode) *IIterableOfZoomTransitionMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.ZoomTransitionMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfZoomTransitionMode, Iterator: IID_IIteratorOfZoomTransitionMode}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfZoomTransitionMode)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfAdvancedPhotoMode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.AdvancedPhotoMode>.
+// IID: e6d0bc9d-e1cb-5ed0-8ede-7d037bcc2e07
+type IIteratorOfAdvancedPhotoMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAdvancedPhotoMode is the interface identifier for IIteratorOfAdvancedPhotoMode.
+var IID_IIteratorOfAdvancedPhotoMode = win32.GUID{Data1: 0xe6d0bc9d, Data2: 0xe1cb, Data3: 0x5ed0, Data4: [8]byte{0x8e, 0xde, 0x7d, 0x03, 0x7b, 0xcc, 0x2e, 0x07}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAdvancedPhotoMode's vtable slot 6.
+func (self *IIteratorOfAdvancedPhotoMode) Current() (AdvancedPhotoMode, error) {
+	result := new(AdvancedPhotoMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAdvancedPhotoMode's vtable slot 7.
+func (self *IIteratorOfAdvancedPhotoMode) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAdvancedPhotoMode's vtable slot 8.
+func (self *IIteratorOfAdvancedPhotoMode) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfAudioDeviceModule is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.AudioDeviceModule>.
+// IID: b4cbbfb7-9851-56c9-839d-a10a8b1bb234
+type IIteratorOfAudioDeviceModule struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAudioDeviceModule is the interface identifier for IIteratorOfAudioDeviceModule.
+var IID_IIteratorOfAudioDeviceModule = win32.GUID{Data1: 0xb4cbbfb7, Data2: 0x9851, Data3: 0x56c9, Data4: [8]byte{0x83, 0x9d, 0xa1, 0x0a, 0x8b, 0x1b, 0xb2, 0x34}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAudioDeviceModule's vtable slot 6.
+func (self *IIteratorOfAudioDeviceModule) Current() (*IAudioDeviceModule, error) {
+	result := new(*IAudioDeviceModule)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAudioDeviceModule's vtable slot 7.
+func (self *IIteratorOfAudioDeviceModule) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAudioDeviceModule's vtable slot 8.
+func (self *IIteratorOfAudioDeviceModule) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfAutoFocusRange is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.AutoFocusRange>.
+// IID: 07489ac5-3c71-59c6-b7dc-7f21341c2f71
+type IIteratorOfAutoFocusRange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAutoFocusRange is the interface identifier for IIteratorOfAutoFocusRange.
+var IID_IIteratorOfAutoFocusRange = win32.GUID{Data1: 0x07489ac5, Data2: 0x3c71, Data3: 0x59c6, Data4: [8]byte{0xb7, 0xdc, 0x7f, 0x21, 0x34, 0x1c, 0x2f, 0x71}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAutoFocusRange's vtable slot 6.
+func (self *IIteratorOfAutoFocusRange) Current() (AutoFocusRange, error) {
+	result := new(AutoFocusRange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAutoFocusRange's vtable slot 7.
+func (self *IIteratorOfAutoFocusRange) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAutoFocusRange's vtable slot 8.
+func (self *IIteratorOfAutoFocusRange) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfCaptureSceneMode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.CaptureSceneMode>.
+// IID: aafa6d7a-2f7f-5dd7-aa0a-265731a2b3b3
+type IIteratorOfCaptureSceneMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCaptureSceneMode is the interface identifier for IIteratorOfCaptureSceneMode.
+var IID_IIteratorOfCaptureSceneMode = win32.GUID{Data1: 0xaafa6d7a, Data2: 0x2f7f, Data3: 0x5dd7, Data4: [8]byte{0xaa, 0x0a, 0x26, 0x57, 0x31, 0xa2, 0xb3, 0xb3}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCaptureSceneMode's vtable slot 6.
+func (self *IIteratorOfCaptureSceneMode) Current() (CaptureSceneMode, error) {
+	result := new(CaptureSceneMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCaptureSceneMode's vtable slot 7.
+func (self *IIteratorOfCaptureSceneMode) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCaptureSceneMode's vtable slot 8.
+func (self *IIteratorOfCaptureSceneMode) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfDigitalWindowCapability is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.DigitalWindowCapability>.
+// IID: d1780c06-073e-5075-99e2-e12649268c03
+type IIteratorOfDigitalWindowCapability struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDigitalWindowCapability is the interface identifier for IIteratorOfDigitalWindowCapability.
+var IID_IIteratorOfDigitalWindowCapability = win32.GUID{Data1: 0xd1780c06, Data2: 0x073e, Data3: 0x5075, Data4: [8]byte{0x99, 0xe2, 0xe1, 0x26, 0x49, 0x26, 0x8c, 0x03}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDigitalWindowCapability's vtable slot 6.
+func (self *IIteratorOfDigitalWindowCapability) Current() (*IDigitalWindowCapability, error) {
+	result := new(*IDigitalWindowCapability)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDigitalWindowCapability's vtable slot 7.
+func (self *IIteratorOfDigitalWindowCapability) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDigitalWindowCapability's vtable slot 8.
+func (self *IIteratorOfDigitalWindowCapability) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfFocusMode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.FocusMode>.
+// IID: f9a43cd4-b300-541f-af79-3de3400e16af
+type IIteratorOfFocusMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfFocusMode is the interface identifier for IIteratorOfFocusMode.
+var IID_IIteratorOfFocusMode = win32.GUID{Data1: 0xf9a43cd4, Data2: 0xb300, Data3: 0x541f, Data4: [8]byte{0xaf, 0x79, 0x3d, 0xe3, 0x40, 0x0e, 0x16, 0xaf}}
+
+// Current (propget get_Current) dispatches through IIteratorOfFocusMode's vtable slot 6.
+func (self *IIteratorOfFocusMode) Current() (FocusMode, error) {
+	result := new(FocusMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfFocusMode's vtable slot 7.
+func (self *IIteratorOfFocusMode) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfFocusMode's vtable slot 8.
+func (self *IIteratorOfFocusMode) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfFocusPreset is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.FocusPreset>.
+// IID: d3ebc8e9-f0c5-51c0-bb86-bdea0a6946fb
+type IIteratorOfFocusPreset struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfFocusPreset is the interface identifier for IIteratorOfFocusPreset.
+var IID_IIteratorOfFocusPreset = win32.GUID{Data1: 0xd3ebc8e9, Data2: 0xf0c5, Data3: 0x51c0, Data4: [8]byte{0xbb, 0x86, 0xbd, 0xea, 0x0a, 0x69, 0x46, 0xfb}}
+
+// Current (propget get_Current) dispatches through IIteratorOfFocusPreset's vtable slot 6.
+func (self *IIteratorOfFocusPreset) Current() (FocusPreset, error) {
+	result := new(FocusPreset)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfFocusPreset's vtable slot 7.
+func (self *IIteratorOfFocusPreset) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfFocusPreset's vtable slot 8.
+func (self *IIteratorOfFocusPreset) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfHdrVideoMode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.HdrVideoMode>.
+// IID: 3db61d13-0f30-5d2d-99cb-30c7b9009878
+type IIteratorOfHdrVideoMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHdrVideoMode is the interface identifier for IIteratorOfHdrVideoMode.
+var IID_IIteratorOfHdrVideoMode = win32.GUID{Data1: 0x3db61d13, Data2: 0x0f30, Data3: 0x5d2d, Data4: [8]byte{0x99, 0xcb, 0x30, 0xc7, 0xb9, 0x00, 0x98, 0x78}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHdrVideoMode's vtable slot 6.
+func (self *IIteratorOfHdrVideoMode) Current() (HdrVideoMode, error) {
+	result := new(HdrVideoMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHdrVideoMode's vtable slot 7.
+func (self *IIteratorOfHdrVideoMode) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHdrVideoMode's vtable slot 8.
+func (self *IIteratorOfHdrVideoMode) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfIMediaEncodingProperties is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.MediaProperties.IMediaEncodingProperties>.
+// IID: 7c094aec-c8f3-5f49-99c7-b66d8414200e
+type IIteratorOfIMediaEncodingProperties struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIMediaEncodingProperties is the interface identifier for IIteratorOfIMediaEncodingProperties.
+var IID_IIteratorOfIMediaEncodingProperties = win32.GUID{Data1: 0x7c094aec, Data2: 0xc8f3, Data3: 0x5f49, Data4: [8]byte{0x99, 0xc7, 0xb6, 0x6d, 0x84, 0x14, 0x20, 0x0e}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIMediaEncodingProperties's vtable slot 6.
+func (self *IIteratorOfIMediaEncodingProperties) Current() (*mediamediaproperties.IMediaEncodingProperties, error) {
+	result := new(*mediamediaproperties.IMediaEncodingProperties)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIMediaEncodingProperties's vtable slot 7.
+func (self *IIteratorOfIMediaEncodingProperties) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIMediaEncodingProperties's vtable slot 8.
+func (self *IIteratorOfIMediaEncodingProperties) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfInfraredTorchMode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.InfraredTorchMode>.
+// IID: 42a9e83e-1786-57f4-906e-2f9b6f9f849a
+type IIteratorOfInfraredTorchMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfInfraredTorchMode is the interface identifier for IIteratorOfInfraredTorchMode.
+var IID_IIteratorOfInfraredTorchMode = win32.GUID{Data1: 0x42a9e83e, Data2: 0x1786, Data3: 0x57f4, Data4: [8]byte{0x90, 0x6e, 0x2f, 0x9b, 0x6f, 0x9f, 0x84, 0x9a}}
+
+// Current (propget get_Current) dispatches through IIteratorOfInfraredTorchMode's vtable slot 6.
+func (self *IIteratorOfInfraredTorchMode) Current() (InfraredTorchMode, error) {
+	result := new(InfraredTorchMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfInfraredTorchMode's vtable slot 7.
+func (self *IIteratorOfInfraredTorchMode) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfInfraredTorchMode's vtable slot 8.
+func (self *IIteratorOfInfraredTorchMode) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfIsoSpeedPreset is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.IsoSpeedPreset>.
+// IID: 1b33af76-980b-5348-916a-793f61b555a0
+type IIteratorOfIsoSpeedPreset struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIsoSpeedPreset is the interface identifier for IIteratorOfIsoSpeedPreset.
+var IID_IIteratorOfIsoSpeedPreset = win32.GUID{Data1: 0x1b33af76, Data2: 0x980b, Data3: 0x5348, Data4: [8]byte{0x91, 0x6a, 0x79, 0x3f, 0x61, 0xb5, 0x55, 0xa0}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIsoSpeedPreset's vtable slot 6.
+func (self *IIteratorOfIsoSpeedPreset) Current() (IsoSpeedPreset, error) {
+	result := new(IsoSpeedPreset)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIsoSpeedPreset's vtable slot 7.
+func (self *IIteratorOfIsoSpeedPreset) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIsoSpeedPreset's vtable slot 8.
+func (self *IIteratorOfIsoSpeedPreset) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfManualFocusDistance is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.ManualFocusDistance>.
+// IID: b02944e1-f649-511e-80dd-2e2b20379deb
+type IIteratorOfManualFocusDistance struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfManualFocusDistance is the interface identifier for IIteratorOfManualFocusDistance.
+var IID_IIteratorOfManualFocusDistance = win32.GUID{Data1: 0xb02944e1, Data2: 0xf649, Data3: 0x511e, Data4: [8]byte{0x80, 0xdd, 0x2e, 0x2b, 0x20, 0x37, 0x9d, 0xeb}}
+
+// Current (propget get_Current) dispatches through IIteratorOfManualFocusDistance's vtable slot 6.
+func (self *IIteratorOfManualFocusDistance) Current() (ManualFocusDistance, error) {
+	result := new(ManualFocusDistance)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfManualFocusDistance's vtable slot 7.
+func (self *IIteratorOfManualFocusDistance) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfManualFocusDistance's vtable slot 8.
+func (self *IIteratorOfManualFocusDistance) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfOpticalImageStabilizationMode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.OpticalImageStabilizationMode>.
+// IID: 4a165d46-cf19-5a03-bb54-63fc2b4ed39b
+type IIteratorOfOpticalImageStabilizationMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfOpticalImageStabilizationMode is the interface identifier for IIteratorOfOpticalImageStabilizationMode.
+var IID_IIteratorOfOpticalImageStabilizationMode = win32.GUID{Data1: 0x4a165d46, Data2: 0xcf19, Data3: 0x5a03, Data4: [8]byte{0xbb, 0x54, 0x63, 0xfc, 0x2b, 0x4e, 0xd3, 0x9b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfOpticalImageStabilizationMode's vtable slot 6.
+func (self *IIteratorOfOpticalImageStabilizationMode) Current() (OpticalImageStabilizationMode, error) {
+	result := new(OpticalImageStabilizationMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfOpticalImageStabilizationMode's vtable slot 7.
+func (self *IIteratorOfOpticalImageStabilizationMode) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfOpticalImageStabilizationMode's vtable slot 8.
+func (self *IIteratorOfOpticalImageStabilizationMode) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfRegionOfInterest is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.RegionOfInterest>.
 // IID: 8eb80e4e-9691-594f-8b3d-f52ecc0f7837
@@ -125,6 +1037,70 @@ func (self *IIteratorOfRegionOfInterest) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfRegionOfInterest's vtable slot 8.
 func (self *IIteratorOfRegionOfInterest) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfVideoTemporalDenoisingMode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.VideoTemporalDenoisingMode>.
+// IID: 9b062552-e75c-515e-a2a4-1b081b640614
+type IIteratorOfVideoTemporalDenoisingMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfVideoTemporalDenoisingMode is the interface identifier for IIteratorOfVideoTemporalDenoisingMode.
+var IID_IIteratorOfVideoTemporalDenoisingMode = win32.GUID{Data1: 0x9b062552, Data2: 0xe75c, Data3: 0x515e, Data4: [8]byte{0xa2, 0xa4, 0x1b, 0x08, 0x1b, 0x64, 0x06, 0x14}}
+
+// Current (propget get_Current) dispatches through IIteratorOfVideoTemporalDenoisingMode's vtable slot 6.
+func (self *IIteratorOfVideoTemporalDenoisingMode) Current() (VideoTemporalDenoisingMode, error) {
+	result := new(VideoTemporalDenoisingMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfVideoTemporalDenoisingMode's vtable slot 7.
+func (self *IIteratorOfVideoTemporalDenoisingMode) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfVideoTemporalDenoisingMode's vtable slot 8.
+func (self *IIteratorOfVideoTemporalDenoisingMode) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfZoomTransitionMode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Devices.ZoomTransitionMode>.
+// IID: 80eb468a-fdc4-5c89-99b8-8d476264e211
+type IIteratorOfZoomTransitionMode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfZoomTransitionMode is the interface identifier for IIteratorOfZoomTransitionMode.
+var IID_IIteratorOfZoomTransitionMode = win32.GUID{Data1: 0x80eb468a, Data2: 0xfdc4, Data3: 0x5c89, Data4: [8]byte{0x99, 0xb8, 0x8d, 0x47, 0x62, 0x64, 0xe2, 0x11}}
+
+// Current (propget get_Current) dispatches through IIteratorOfZoomTransitionMode's vtable slot 6.
+func (self *IIteratorOfZoomTransitionMode) Current() (ZoomTransitionMode, error) {
+	result := new(ZoomTransitionMode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfZoomTransitionMode's vtable slot 7.
+func (self *IIteratorOfZoomTransitionMode) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfZoomTransitionMode's vtable slot 8.
+func (self *IIteratorOfZoomTransitionMode) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -199,6 +1175,21 @@ func (self *IVectorViewOfAdvancedPhotoMode) IndexOf(value AdvancedPhotoMode, ind
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfAdvancedPhotoMode creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.AdvancedPhotoMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfAdvancedPhotoMode(items []AdvancedPhotoMode) *IVectorViewOfAdvancedPhotoMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.AdvancedPhotoMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAdvancedPhotoMode, Iterator: IID_IIteratorOfAdvancedPhotoMode, VectorView: IID_IVectorViewOfAdvancedPhotoMode}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfAdvancedPhotoMode)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfAudioDeviceModule is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.AudioDeviceModule>.
 // IID: b9f55617-48ec-5ad7-95ca-33395284f28b
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.AudioDeviceModule>.
@@ -231,6 +1222,25 @@ func (self *IVectorViewOfAudioDeviceModule) IndexOf(value *IAudioDeviceModule, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfAudioDeviceModule creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.AudioDeviceModule>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAudioDeviceModule(items []*IAudioDeviceModule) *IVectorViewOfAudioDeviceModule {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.AudioDeviceModule>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAudioDeviceModule, Iterator: IID_IIteratorOfAudioDeviceModule, VectorView: IID_IVectorViewOfAudioDeviceModule}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAudioDeviceModule)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfAutoFocusRange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.AutoFocusRange>.
 // IID: 5df64825-c9e1-525f-9aeb-3c0f5f805f26
@@ -265,6 +1275,21 @@ func (self *IVectorViewOfAutoFocusRange) IndexOf(value AutoFocusRange, index *ui
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfAutoFocusRange creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.AutoFocusRange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfAutoFocusRange(items []AutoFocusRange) *IVectorViewOfAutoFocusRange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.AutoFocusRange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAutoFocusRange, Iterator: IID_IIteratorOfAutoFocusRange, VectorView: IID_IVectorViewOfAutoFocusRange}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfAutoFocusRange)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfCaptureSceneMode is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.CaptureSceneMode>.
 // IID: 9b915d69-e718-5b48-bb94-54bdf3737ea5
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.CaptureSceneMode>.
@@ -297,6 +1322,21 @@ func (self *IVectorViewOfCaptureSceneMode) IndexOf(value CaptureSceneMode, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfCaptureSceneMode creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.CaptureSceneMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfCaptureSceneMode(items []CaptureSceneMode) *IVectorViewOfCaptureSceneMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.CaptureSceneMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCaptureSceneMode, Iterator: IID_IIteratorOfCaptureSceneMode, VectorView: IID_IVectorViewOfCaptureSceneMode}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfCaptureSceneMode)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfDigitalWindowCapability is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.DigitalWindowCapability>.
 // IID: 18cb0c91-2753-542f-a33a-e4f9410f923b
@@ -331,6 +1371,25 @@ func (self *IVectorViewOfDigitalWindowCapability) IndexOf(value *IDigitalWindowC
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfDigitalWindowCapability creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.DigitalWindowCapability>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDigitalWindowCapability(items []*IDigitalWindowCapability) *IVectorViewOfDigitalWindowCapability {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.DigitalWindowCapability>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDigitalWindowCapability, Iterator: IID_IIteratorOfDigitalWindowCapability, VectorView: IID_IVectorViewOfDigitalWindowCapability}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDigitalWindowCapability)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfFocusMode is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.FocusMode>.
 // IID: c877975c-f3c3-5b3d-93e4-5787be9b7f58
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.FocusMode>.
@@ -363,6 +1422,21 @@ func (self *IVectorViewOfFocusMode) IndexOf(value FocusMode, index *uint32) (boo
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfFocusMode creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.FocusMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfFocusMode(items []FocusMode) *IVectorViewOfFocusMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.FocusMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfFocusMode, Iterator: IID_IIteratorOfFocusMode, VectorView: IID_IVectorViewOfFocusMode}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfFocusMode)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfFocusPreset is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.FocusPreset>.
 // IID: d8a495e3-d7d4-5e9f-a9c2-6b250655a2e0
@@ -397,6 +1471,21 @@ func (self *IVectorViewOfFocusPreset) IndexOf(value FocusPreset, index *uint32) 
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfFocusPreset creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.FocusPreset>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfFocusPreset(items []FocusPreset) *IVectorViewOfFocusPreset {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.FocusPreset>", winrt.CollectionIIDs{Iterable: IID_IIterableOfFocusPreset, Iterator: IID_IIteratorOfFocusPreset, VectorView: IID_IVectorViewOfFocusPreset}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfFocusPreset)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHdrVideoMode is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.HdrVideoMode>.
 // IID: ad0a4bbd-7630-53a4-aa9b-35a8c7d4958c
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.HdrVideoMode>.
@@ -429,6 +1518,21 @@ func (self *IVectorViewOfHdrVideoMode) IndexOf(value HdrVideoMode, index *uint32
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHdrVideoMode creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.HdrVideoMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfHdrVideoMode(items []HdrVideoMode) *IVectorViewOfHdrVideoMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.HdrVideoMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHdrVideoMode, Iterator: IID_IIteratorOfHdrVideoMode, VectorView: IID_IVectorViewOfHdrVideoMode}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfHdrVideoMode)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfIMediaEncodingProperties is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.MediaProperties.IMediaEncodingProperties>.
 // IID: 0f6c3b8b-5818-5cbf-bf26-6616bfc308c4
@@ -463,6 +1567,25 @@ func (self *IVectorViewOfIMediaEncodingProperties) IndexOf(value *mediamediaprop
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfIMediaEncodingProperties creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.MediaProperties.IMediaEncodingProperties>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIMediaEncodingProperties(items []*mediamediaproperties.IMediaEncodingProperties) *IVectorViewOfIMediaEncodingProperties {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.MediaProperties.IMediaEncodingProperties>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIMediaEncodingProperties, Iterator: IID_IIteratorOfIMediaEncodingProperties, VectorView: IID_IVectorViewOfIMediaEncodingProperties}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIMediaEncodingProperties)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfInfraredTorchMode is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.InfraredTorchMode>.
 // IID: b5af65de-bdf4-5155-b2b6-3139978e9c24
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.InfraredTorchMode>.
@@ -495,6 +1618,21 @@ func (self *IVectorViewOfInfraredTorchMode) IndexOf(value InfraredTorchMode, ind
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfInfraredTorchMode creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.InfraredTorchMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfInfraredTorchMode(items []InfraredTorchMode) *IVectorViewOfInfraredTorchMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.InfraredTorchMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInfraredTorchMode, Iterator: IID_IIteratorOfInfraredTorchMode, VectorView: IID_IVectorViewOfInfraredTorchMode}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfInfraredTorchMode)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfIsoSpeedPreset is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.IsoSpeedPreset>.
 // IID: ef6c9fe3-06f9-5eff-98a8-917d9644c946
@@ -529,6 +1667,21 @@ func (self *IVectorViewOfIsoSpeedPreset) IndexOf(value IsoSpeedPreset, index *ui
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfIsoSpeedPreset creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.IsoSpeedPreset>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfIsoSpeedPreset(items []IsoSpeedPreset) *IVectorViewOfIsoSpeedPreset {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.IsoSpeedPreset>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIsoSpeedPreset, Iterator: IID_IIteratorOfIsoSpeedPreset, VectorView: IID_IVectorViewOfIsoSpeedPreset}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfIsoSpeedPreset)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfManualFocusDistance is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.ManualFocusDistance>.
 // IID: 85f7663b-5467-5736-8d34-34395aa6d123
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.ManualFocusDistance>.
@@ -561,6 +1714,21 @@ func (self *IVectorViewOfManualFocusDistance) IndexOf(value ManualFocusDistance,
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfManualFocusDistance creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.ManualFocusDistance>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfManualFocusDistance(items []ManualFocusDistance) *IVectorViewOfManualFocusDistance {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.ManualFocusDistance>", winrt.CollectionIIDs{Iterable: IID_IIterableOfManualFocusDistance, Iterator: IID_IIteratorOfManualFocusDistance, VectorView: IID_IVectorViewOfManualFocusDistance}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfManualFocusDistance)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfOpticalImageStabilizationMode is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.OpticalImageStabilizationMode>.
 // IID: 8c2658d8-acaa-5a80-b259-1ba0697c6138
@@ -595,6 +1763,21 @@ func (self *IVectorViewOfOpticalImageStabilizationMode) IndexOf(value OpticalIma
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfOpticalImageStabilizationMode creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.OpticalImageStabilizationMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfOpticalImageStabilizationMode(items []OpticalImageStabilizationMode) *IVectorViewOfOpticalImageStabilizationMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.OpticalImageStabilizationMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfOpticalImageStabilizationMode, Iterator: IID_IIteratorOfOpticalImageStabilizationMode, VectorView: IID_IVectorViewOfOpticalImageStabilizationMode}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfOpticalImageStabilizationMode)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfVideoTemporalDenoisingMode is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.VideoTemporalDenoisingMode>.
 // IID: 094d5da9-91cc-55d8-b7b7-52e597156987
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.VideoTemporalDenoisingMode>.
@@ -628,6 +1811,21 @@ func (self *IVectorViewOfVideoTemporalDenoisingMode) IndexOf(value VideoTemporal
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfVideoTemporalDenoisingMode creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.VideoTemporalDenoisingMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfVideoTemporalDenoisingMode(items []VideoTemporalDenoisingMode) *IVectorViewOfVideoTemporalDenoisingMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.VideoTemporalDenoisingMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfVideoTemporalDenoisingMode, Iterator: IID_IIteratorOfVideoTemporalDenoisingMode, VectorView: IID_IVectorViewOfVideoTemporalDenoisingMode}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfVideoTemporalDenoisingMode)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfZoomTransitionMode is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.ZoomTransitionMode>.
 // IID: 4d556155-d021-5a46-9a1c-f401d61b8529
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Devices.ZoomTransitionMode>.
@@ -660,3 +1858,18 @@ func (self *IVectorViewOfZoomTransitionMode) IndexOf(value ZoomTransitionMode, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfZoomTransitionMode creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.ZoomTransitionMode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfZoomTransitionMode(items []ZoomTransitionMode) *IVectorViewOfZoomTransitionMode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Devices.ZoomTransitionMode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfZoomTransitionMode, Iterator: IID_IIteratorOfZoomTransitionMode, VectorView: IID_IVectorViewOfZoomTransitionMode}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfZoomTransitionMode)(unsafe.Pointer(obj))
+}

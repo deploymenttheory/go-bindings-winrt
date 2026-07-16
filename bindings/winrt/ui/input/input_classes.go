@@ -113,6 +113,13 @@ func (self *HoldingEventArgs) AsHoldingEventArgs2() (*IHoldingEventArgs2, error)
 	return winrt.QueryInterface[IHoldingEventArgs2](unsafe.Pointer(self), &IID_IHoldingEventArgs2)
 }
 
+// InputActivationListener is the Windows.UI.Input.InputActivationListener runtime class, surfaced through its
+// default interface IInputActivationListener. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InputActivationListener struct {
+	IInputActivationListener
+}
+
 // InputActivationListenerActivationChangedEventArgs is the Windows.UI.Input.InputActivationListenerActivationChangedEventArgs runtime class, surfaced through its
 // default interface IInputActivationListenerActivationChangedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -484,6 +491,25 @@ type RightTappedEventArgs struct {
 // The returned reference is owned by the caller.
 func (self *RightTappedEventArgs) AsRightTappedEventArgs2() (*IRightTappedEventArgs2, error) {
 	return winrt.QueryInterface[IRightTappedEventArgs2](unsafe.Pointer(self), &IID_IRightTappedEventArgs2)
+}
+
+// SystemButtonEventController is the Windows.UI.Input.SystemButtonEventController runtime class, surfaced through its
+// default interface ISystemButtonEventController. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SystemButtonEventController struct {
+	ISystemButtonEventController
+}
+
+// SystemButtonEventControllerStatics returns the Windows.UI.Input.ISystemButtonEventControllerStatics statics of the
+// Windows.UI.Input.SystemButtonEventController runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func SystemButtonEventControllerStatics() (*ISystemButtonEventControllerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Input.SystemButtonEventController", &IID_ISystemButtonEventControllerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ISystemButtonEventControllerStatics)(unsafe.Pointer(factory)), nil
 }
 
 // SystemFunctionButtonEventArgs is the Windows.UI.Input.SystemFunctionButtonEventArgs runtime class, surfaced through its

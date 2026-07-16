@@ -378,6 +378,57 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUnfulfilledConsumable is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.UnfulfilledConsumable>.
+// IID: 2f4d1483-dd86-5fdb-8c44-06c98844bf3d
+type IIterableOfUnfulfilledConsumable struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUnfulfilledConsumable is the interface identifier for IIterableOfUnfulfilledConsumable.
+var IID_IIterableOfUnfulfilledConsumable = win32.GUID{Data1: 0x2f4d1483, Data2: 0xdd86, Data3: 0x5fdb, Data4: [8]byte{0x8c, 0x44, 0x06, 0xc9, 0x88, 0x44, 0xbf, 0x3d}}
+
+// First dispatches through IIterableOfUnfulfilledConsumable's vtable slot 6.
+func (self *IIterableOfUnfulfilledConsumable) First() (*IIteratorOfUnfulfilledConsumable, error) {
+	result := new(*IIteratorOfUnfulfilledConsumable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUnfulfilledConsumable creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.UnfulfilledConsumable>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUnfulfilledConsumable(items []*IUnfulfilledConsumable) *IIterableOfUnfulfilledConsumable {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Store.UnfulfilledConsumable>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUnfulfilledConsumable, Iterator: IID_IIteratorOfUnfulfilledConsumable}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUnfulfilledConsumable)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
 // IID: 8c304ebb-6615-50a4-8829-879ecd443236
 type IIteratorOfString struct {
@@ -406,6 +457,38 @@ func (self *IIteratorOfString) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfString's vtable slot 8.
 func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUnfulfilledConsumable is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Store.UnfulfilledConsumable>.
+// IID: cb77cf2e-ef57-5256-9753-214baada2301
+type IIteratorOfUnfulfilledConsumable struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUnfulfilledConsumable is the interface identifier for IIteratorOfUnfulfilledConsumable.
+var IID_IIteratorOfUnfulfilledConsumable = win32.GUID{Data1: 0xcb77cf2e, Data2: 0xef57, Data3: 0x5256, Data4: [8]byte{0x97, 0x53, 0x21, 0x4b, 0xaa, 0xda, 0x23, 0x01}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUnfulfilledConsumable's vtable slot 6.
+func (self *IIteratorOfUnfulfilledConsumable) Current() (*IUnfulfilledConsumable, error) {
+	result := new(*IUnfulfilledConsumable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUnfulfilledConsumable's vtable slot 7.
+func (self *IIteratorOfUnfulfilledConsumable) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUnfulfilledConsumable's vtable slot 8.
+func (self *IIteratorOfUnfulfilledConsumable) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -539,3 +622,22 @@ func (self *IVectorViewOfUnfulfilledConsumable) IndexOf(value *IUnfulfilledConsu
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUnfulfilledConsumable creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.UnfulfilledConsumable>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUnfulfilledConsumable(items []*IUnfulfilledConsumable) *IVectorViewOfUnfulfilledConsumable {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Store.UnfulfilledConsumable>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUnfulfilledConsumable, Iterator: IID_IIteratorOfUnfulfilledConsumable, VectorView: IID_IVectorViewOfUnfulfilledConsumable}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUnfulfilledConsumable)(unsafe.Pointer(obj))
+}

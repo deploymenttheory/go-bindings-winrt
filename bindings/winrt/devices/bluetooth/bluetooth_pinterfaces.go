@@ -412,6 +412,73 @@ func (self *IAsyncOperationOfRfcommDeviceServicesResult) SetCompleted(handler *A
 
 // slot 8: GetResults skipped: reference to Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult crosses a severed import edge
 
+// IIterableOfIBuffer is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Storage.Streams.IBuffer>.
+// IID: 902972bf-a984-5443-b1c5-2f04a99e1fca
+type IIterableOfIBuffer struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfIBuffer is the interface identifier for IIterableOfIBuffer.
+var IID_IIterableOfIBuffer = win32.GUID{Data1: 0x902972bf, Data2: 0xa984, Data3: 0x5443, Data4: [8]byte{0xb1, 0xc5, 0x2f, 0x04, 0xa9, 0x9e, 0x1f, 0xca}}
+
+// First dispatches through IIterableOfIBuffer's vtable slot 6.
+func (self *IIterableOfIBuffer) First() (*IIteratorOfIBuffer, error) {
+	result := new(*IIteratorOfIBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfIBuffer creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Storage.Streams.IBuffer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfIBuffer(items []*storagestreams.IBuffer) *IIterableOfIBuffer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Storage.Streams.IBuffer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIBuffer, Iterator: IID_IIteratorOfIBuffer}, winrt.CodecInterface, boxed)
+	return (*IIterableOfIBuffer)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfIBuffer is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Storage.Streams.IBuffer>.
+// IID: afee38e0-f882-5f10-9655-1fc98cc8cce5
+type IIteratorOfIBuffer struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfIBuffer is the interface identifier for IIteratorOfIBuffer.
+var IID_IIteratorOfIBuffer = win32.GUID{Data1: 0xafee38e0, Data2: 0xf882, Data3: 0x5f10, Data4: [8]byte{0x96, 0x55, 0x1f, 0xc9, 0x8c, 0xc8, 0xcc, 0xe5}}
+
+// Current (propget get_Current) dispatches through IIteratorOfIBuffer's vtable slot 6.
+func (self *IIteratorOfIBuffer) Current() (*storagestreams.IBuffer, error) {
+	result := new(*storagestreams.IBuffer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfIBuffer's vtable slot 7.
+func (self *IIteratorOfIBuffer) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfIBuffer's vtable slot 8.
+func (self *IIteratorOfIBuffer) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfInt16 is the WinRT interface Windows.Foundation.IReference`1<Int16>.
 // IID: 6ec9e41b-6709-5647-9918-a1270110fc4e
 // Requires: Windows.Foundation.IPropertyValue.
@@ -518,6 +585,25 @@ func (self *IVectorViewOfIBuffer) IndexOf(value *storagestreams.IBuffer, index *
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfIBuffer creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Storage.Streams.IBuffer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfIBuffer(items []*storagestreams.IBuffer) *IVectorViewOfIBuffer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Storage.Streams.IBuffer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfIBuffer, Iterator: IID_IIteratorOfIBuffer, VectorView: IID_IVectorViewOfIBuffer}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfIBuffer)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfRfcommDeviceService is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService>.
 // IID: 97df6b82-d15c-597e-ba69-492207a1c108

@@ -13,6 +13,136 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
+// IIterableOfGuid is the WinRT interface Windows.Foundation.Collections.IIterable`1<Guid>.
+// IID: f4ca3045-5dd7-54be-982e-d88d8ca0876e
+type IIterableOfGuid struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGuid is the interface identifier for IIterableOfGuid.
+var IID_IIterableOfGuid = win32.GUID{Data1: 0xf4ca3045, Data2: 0x5dd7, Data3: 0x54be, Data4: [8]byte{0x98, 0x2e, 0xd8, 0x8d, 0x8c, 0xa0, 0x87, 0x6e}}
+
+// First dispatches through IIterableOfGuid's vtable slot 6.
+func (self *IIterableOfGuid) First() (*IIteratorOfGuid, error) {
+	result := new(*IIteratorOfGuid)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGuid creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Guid>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfGuid(items []win32.GUID) *IIterableOfGuid {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Guid>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGuid, Iterator: IID_IIteratorOfGuid}, winrt.CodecGuid, boxed)
+	return (*IIterableOfGuid)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPlatformDiagnosticTraceInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo>.
+// IID: ecb0c107-c97b-52fe-a5e6-a33e93493769
+type IIterableOfPlatformDiagnosticTraceInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPlatformDiagnosticTraceInfo is the interface identifier for IIterableOfPlatformDiagnosticTraceInfo.
+var IID_IIterableOfPlatformDiagnosticTraceInfo = win32.GUID{Data1: 0xecb0c107, Data2: 0xc97b, Data3: 0x52fe, Data4: [8]byte{0xa5, 0xe6, 0xa3, 0x3e, 0x93, 0x49, 0x37, 0x69}}
+
+// First dispatches through IIterableOfPlatformDiagnosticTraceInfo's vtable slot 6.
+func (self *IIterableOfPlatformDiagnosticTraceInfo) First() (*IIteratorOfPlatformDiagnosticTraceInfo, error) {
+	result := new(*IIteratorOfPlatformDiagnosticTraceInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPlatformDiagnosticTraceInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPlatformDiagnosticTraceInfo(items []*IPlatformDiagnosticTraceInfo) *IIterableOfPlatformDiagnosticTraceInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPlatformDiagnosticTraceInfo, Iterator: IID_IIteratorOfPlatformDiagnosticTraceInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPlatformDiagnosticTraceInfo)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfGuid is the WinRT interface Windows.Foundation.Collections.IIterator`1<Guid>.
+// IID: d3d64048-82b3-53c7-9285-b0be18368482
+type IIteratorOfGuid struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGuid is the interface identifier for IIteratorOfGuid.
+var IID_IIteratorOfGuid = win32.GUID{Data1: 0xd3d64048, Data2: 0x82b3, Data3: 0x53c7, Data4: [8]byte{0x92, 0x85, 0xb0, 0xbe, 0x18, 0x36, 0x84, 0x82}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGuid's vtable slot 6.
+func (self *IIteratorOfGuid) Current() (win32.GUID, error) {
+	result := new(win32.GUID)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGuid's vtable slot 7.
+func (self *IIteratorOfGuid) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGuid's vtable slot 8.
+func (self *IIteratorOfGuid) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPlatformDiagnosticTraceInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo>.
+// IID: 1af4598d-98bb-5e51-842b-cf691925b6c2
+type IIteratorOfPlatformDiagnosticTraceInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPlatformDiagnosticTraceInfo is the interface identifier for IIteratorOfPlatformDiagnosticTraceInfo.
+var IID_IIteratorOfPlatformDiagnosticTraceInfo = win32.GUID{Data1: 0x1af4598d, Data2: 0x98bb, Data3: 0x5e51, Data4: [8]byte{0x84, 0x2b, 0xcf, 0x69, 0x19, 0x25, 0xb6, 0xc2}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPlatformDiagnosticTraceInfo's vtable slot 6.
+func (self *IIteratorOfPlatformDiagnosticTraceInfo) Current() (*IPlatformDiagnosticTraceInfo, error) {
+	result := new(*IPlatformDiagnosticTraceInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPlatformDiagnosticTraceInfo's vtable slot 7.
+func (self *IIteratorOfPlatformDiagnosticTraceInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPlatformDiagnosticTraceInfo's vtable slot 8.
+func (self *IIteratorOfPlatformDiagnosticTraceInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfGuid is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Guid>.
 // IID: 9520e64b-15b2-52a6-98ed-3191fa6cf68a
 // Requires: Windows.Foundation.Collections.IIterable`1<Guid>.
@@ -40,6 +170,21 @@ func (self *IVectorViewOfGuid) Size() (uint32, error) {
 // slot 8: IndexOf skipped: by-value GUID parameter value has divergent amd64/arm64 ABIs
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfGuid creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Guid>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfGuid(items []win32.GUID) *IVectorViewOfGuid {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Guid>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGuid, Iterator: IID_IIteratorOfGuid, VectorView: IID_IVectorViewOfGuid}, winrt.CodecGuid, boxed)
+	return (*IVectorViewOfGuid)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfPlatformDiagnosticTraceInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo>.
 // IID: 8f1b3397-4dc3-5b72-91fa-0fdc915d950c
@@ -73,3 +218,22 @@ func (self *IVectorViewOfPlatformDiagnosticTraceInfo) IndexOf(value *IPlatformDi
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPlatformDiagnosticTraceInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPlatformDiagnosticTraceInfo(items []*IPlatformDiagnosticTraceInfo) *IVectorViewOfPlatformDiagnosticTraceInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPlatformDiagnosticTraceInfo, Iterator: IID_IIteratorOfPlatformDiagnosticTraceInfo, VectorView: IID_IVectorViewOfPlatformDiagnosticTraceInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPlatformDiagnosticTraceInfo)(unsafe.Pointer(obj))
+}

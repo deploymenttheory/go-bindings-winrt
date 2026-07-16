@@ -172,6 +172,57 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIterableOfWebViewControlDeferredPermissionRequest is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.UI.WebViewControlDeferredPermissionRequest>.
+// IID: 91805f3f-13cb-5483-b592-b9ae0e334f17
+type IIterableOfWebViewControlDeferredPermissionRequest struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfWebViewControlDeferredPermissionRequest is the interface identifier for IIterableOfWebViewControlDeferredPermissionRequest.
+var IID_IIterableOfWebViewControlDeferredPermissionRequest = win32.GUID{Data1: 0x91805f3f, Data2: 0x13cb, Data3: 0x5483, Data4: [8]byte{0xb5, 0x92, 0xb9, 0xae, 0x0e, 0x33, 0x4f, 0x17}}
+
+// First dispatches through IIterableOfWebViewControlDeferredPermissionRequest's vtable slot 6.
+func (self *IIterableOfWebViewControlDeferredPermissionRequest) First() (*IIteratorOfWebViewControlDeferredPermissionRequest, error) {
+	result := new(*IIteratorOfWebViewControlDeferredPermissionRequest)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfWebViewControlDeferredPermissionRequest creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.UI.WebViewControlDeferredPermissionRequest>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfWebViewControlDeferredPermissionRequest(items []*IWebViewControlDeferredPermissionRequest) *IIterableOfWebViewControlDeferredPermissionRequest {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.UI.WebViewControlDeferredPermissionRequest>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebViewControlDeferredPermissionRequest, Iterator: IID_IIteratorOfWebViewControlDeferredPermissionRequest}, winrt.CodecInterface, boxed)
+	return (*IIterableOfWebViewControlDeferredPermissionRequest)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
 // IID: 8c304ebb-6615-50a4-8829-879ecd443236
 type IIteratorOfString struct {
@@ -200,6 +251,38 @@ func (self *IIteratorOfString) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfString's vtable slot 8.
 func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfWebViewControlDeferredPermissionRequest is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.UI.WebViewControlDeferredPermissionRequest>.
+// IID: 277a80bd-3e2a-5fe8-95d2-cc86f723bf42
+type IIteratorOfWebViewControlDeferredPermissionRequest struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfWebViewControlDeferredPermissionRequest is the interface identifier for IIteratorOfWebViewControlDeferredPermissionRequest.
+var IID_IIteratorOfWebViewControlDeferredPermissionRequest = win32.GUID{Data1: 0x277a80bd, Data2: 0x3e2a, Data3: 0x5fe8, Data4: [8]byte{0x95, 0xd2, 0xcc, 0x86, 0xf7, 0x23, 0xbf, 0x42}}
+
+// Current (propget get_Current) dispatches through IIteratorOfWebViewControlDeferredPermissionRequest's vtable slot 6.
+func (self *IIteratorOfWebViewControlDeferredPermissionRequest) Current() (*IWebViewControlDeferredPermissionRequest, error) {
+	result := new(*IWebViewControlDeferredPermissionRequest)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfWebViewControlDeferredPermissionRequest's vtable slot 7.
+func (self *IIteratorOfWebViewControlDeferredPermissionRequest) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfWebViewControlDeferredPermissionRequest's vtable slot 8.
+func (self *IIteratorOfWebViewControlDeferredPermissionRequest) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -239,3 +322,22 @@ func (self *IVectorViewOfWebViewControlDeferredPermissionRequest) IndexOf(value 
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfWebViewControlDeferredPermissionRequest creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.UI.WebViewControlDeferredPermissionRequest>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfWebViewControlDeferredPermissionRequest(items []*IWebViewControlDeferredPermissionRequest) *IVectorViewOfWebViewControlDeferredPermissionRequest {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.UI.WebViewControlDeferredPermissionRequest>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebViewControlDeferredPermissionRequest, Iterator: IID_IIteratorOfWebViewControlDeferredPermissionRequest, VectorView: IID_IVectorViewOfWebViewControlDeferredPermissionRequest}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfWebViewControlDeferredPermissionRequest)(unsafe.Pointer(obj))
+}

@@ -29,6 +29,25 @@ func (self *IIterableOfInjectedInputKeyboardInfo) First() (*IIteratorOfInjectedI
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfInjectedInputKeyboardInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInjectedInputKeyboardInfo(items []*IInjectedInputKeyboardInfo) *IIterableOfInjectedInputKeyboardInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInjectedInputKeyboardInfo, Iterator: IID_IIteratorOfInjectedInputKeyboardInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInjectedInputKeyboardInfo)(unsafe.Pointer(obj))
+}
+
 // IIterableOfInjectedInputMouseInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo>.
 // IID: 6c34e5bd-0fa4-5244-89fb-04bfd480ecd8
 type IIterableOfInjectedInputMouseInfo struct {
@@ -45,6 +64,25 @@ func (self *IIterableOfInjectedInputMouseInfo) First() (*IIteratorOfInjectedInpu
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfInjectedInputMouseInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInjectedInputMouseInfo(items []*IInjectedInputMouseInfo) *IIterableOfInjectedInputMouseInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInjectedInputMouseInfo, Iterator: IID_IIteratorOfInjectedInputMouseInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInjectedInputMouseInfo)(unsafe.Pointer(obj))
+}
+
 // IIterableOfInjectedInputTouchInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo>.
 // IID: ac5fac0b-82a0-5436-9284-e7db0bf4e615
 type IIterableOfInjectedInputTouchInfo struct {
@@ -59,6 +97,25 @@ func (self *IIterableOfInjectedInputTouchInfo) First() (*IIteratorOfInjectedInpu
 	result := new(*IIteratorOfInjectedInputTouchInfo)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfInjectedInputTouchInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInjectedInputTouchInfo(items []*IInjectedInputTouchInfo) *IIterableOfInjectedInputTouchInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInjectedInputTouchInfo, Iterator: IID_IIteratorOfInjectedInputTouchInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInjectedInputTouchInfo)(unsafe.Pointer(obj))
 }
 
 // IIteratorOfInjectedInputKeyboardInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo>.

@@ -403,6 +403,45 @@ func (self *IAsyncOperationWithProgressOfDownloadOperationAndDownloadOperation) 
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfDownloadOperationAndDownloadOperation reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfDownloadOperationAndDownloadOperation) Await() (*IDownloadOperation, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfDownloadOperationAndDownloadOperation(func(_ *IAsyncOperationWithProgressOfDownloadOperationAndDownloadOperation, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationWithProgressOfUploadOperationAndUploadOperation is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Networking.BackgroundTransfer.UploadOperation, Windows.Networking.BackgroundTransfer.UploadOperation>.
 // IID: 35ddaefa-db6a-5d0d-ba54-a0728401171e
 // Requires: Windows.Foundation.IAsyncInfo.
@@ -446,6 +485,45 @@ func (self *IAsyncOperationWithProgressOfUploadOperationAndUploadOperation) GetR
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfUploadOperationAndUploadOperation reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfUploadOperationAndUploadOperation) Await() (*IUploadOperation, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfUploadOperationAndUploadOperation(func(_ *IAsyncOperationWithProgressOfUploadOperationAndUploadOperation, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IIterableOfBackgroundTransferContentPart is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart>.
 // IID: cf303199-de3b-5dac-a703-6c57d80821c4
 type IIterableOfBackgroundTransferContentPart struct {
@@ -460,6 +538,25 @@ func (self *IIterableOfBackgroundTransferContentPart) First() (*IIteratorOfBackg
 	result := new(*IIteratorOfBackgroundTransferContentPart)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfBackgroundTransferContentPart creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfBackgroundTransferContentPart(items []*IBackgroundTransferContentPart) *IIterableOfBackgroundTransferContentPart {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBackgroundTransferContentPart, Iterator: IID_IIteratorOfBackgroundTransferContentPart}, winrt.CodecInterface, boxed)
+	return (*IIterableOfBackgroundTransferContentPart)(unsafe.Pointer(obj))
 }
 
 // IIterableOfDownloadOperation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.BackgroundTransfer.DownloadOperation>.
@@ -478,6 +575,25 @@ func (self *IIterableOfDownloadOperation) First() (*IIteratorOfDownloadOperation
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfDownloadOperation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.BackgroundTransfer.DownloadOperation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDownloadOperation(items []*IDownloadOperation) *IIterableOfDownloadOperation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.BackgroundTransfer.DownloadOperation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDownloadOperation, Iterator: IID_IIteratorOfDownloadOperation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDownloadOperation)(unsafe.Pointer(obj))
+}
+
 // IIterableOfUploadOperation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Networking.BackgroundTransfer.UploadOperation>.
 // IID: 79778799-38cc-5b67-9cd0-043fc47a9ef7
 type IIterableOfUploadOperation struct {
@@ -492,6 +608,91 @@ func (self *IIterableOfUploadOperation) First() (*IIteratorOfUploadOperation, er
 	result := new(*IIteratorOfUploadOperation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUploadOperation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Networking.BackgroundTransfer.UploadOperation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUploadOperation(items []*IUploadOperation) *IIterableOfUploadOperation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Networking.BackgroundTransfer.UploadOperation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUploadOperation, Iterator: IID_IIteratorOfUploadOperation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUploadOperation)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUri is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>.
+// IID: b0d63b78-78ad-5e31-b6d8-e32a0e16c447
+type IIterableOfUri struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUri is the interface identifier for IIterableOfUri.
+var IID_IIterableOfUri = win32.GUID{Data1: 0xb0d63b78, Data2: 0x78ad, Data3: 0x5e31, Data4: [8]byte{0xb6, 0xd8, 0xe3, 0x2a, 0x0e, 0x16, 0xc4, 0x47}}
+
+// First dispatches through IIterableOfUri's vtable slot 6.
+func (self *IIterableOfUri) First() (*IIteratorOfUri, error) {
+	result := new(*IIteratorOfUri)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUri creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUri(items []*foundation.IUriRuntimeClass) *IIterableOfUri {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Uri>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUri, Iterator: IID_IIteratorOfUri}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUri)(unsafe.Pointer(obj))
+}
+
+// IIterableOfWebErrorStatus is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.WebErrorStatus>.
+// IID: 7b7f182e-a6ce-556b-9a2e-ef97662f2aee
+type IIterableOfWebErrorStatus struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfWebErrorStatus is the interface identifier for IIterableOfWebErrorStatus.
+var IID_IIterableOfWebErrorStatus = win32.GUID{Data1: 0x7b7f182e, Data2: 0xa6ce, Data3: 0x556b, Data4: [8]byte{0x9a, 0x2e, 0xef, 0x97, 0x66, 0x2f, 0x2a, 0xee}}
+
+// First dispatches through IIterableOfWebErrorStatus's vtable slot 6.
+func (self *IIterableOfWebErrorStatus) First() (*IIteratorOfWebErrorStatus, error) {
+	result := new(*IIteratorOfWebErrorStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfWebErrorStatus creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.WebErrorStatus>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfWebErrorStatus(items []web.WebErrorStatus) *IIterableOfWebErrorStatus {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.WebErrorStatus>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebErrorStatus, Iterator: IID_IIteratorOfWebErrorStatus}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfWebErrorStatus)(unsafe.Pointer(obj))
 }
 
 // IIteratorOfBackgroundTransferContentPart is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart>.
@@ -583,6 +784,70 @@ func (self *IIteratorOfUploadOperation) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfUploadOperation's vtable slot 8.
 func (self *IIteratorOfUploadOperation) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUri is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Uri>.
+// IID: 1c157d0f-5efe-5cec-bbd6-0c6ce9af07a5
+type IIteratorOfUri struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUri is the interface identifier for IIteratorOfUri.
+var IID_IIteratorOfUri = win32.GUID{Data1: 0x1c157d0f, Data2: 0x5efe, Data3: 0x5cec, Data4: [8]byte{0xbb, 0xd6, 0x0c, 0x6c, 0xe9, 0xaf, 0x07, 0xa5}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUri's vtable slot 6.
+func (self *IIteratorOfUri) Current() (*foundation.IUriRuntimeClass, error) {
+	result := new(*foundation.IUriRuntimeClass)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUri's vtable slot 7.
+func (self *IIteratorOfUri) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUri's vtable slot 8.
+func (self *IIteratorOfUri) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfWebErrorStatus is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.WebErrorStatus>.
+// IID: fa704929-0761-5dd6-9675-052a8c61e2c2
+type IIteratorOfWebErrorStatus struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfWebErrorStatus is the interface identifier for IIteratorOfWebErrorStatus.
+var IID_IIteratorOfWebErrorStatus = win32.GUID{Data1: 0xfa704929, Data2: 0x0761, Data3: 0x5dd6, Data4: [8]byte{0x96, 0x75, 0x05, 0x2a, 0x8c, 0x61, 0xe2, 0xc2}}
+
+// Current (propget get_Current) dispatches through IIteratorOfWebErrorStatus's vtable slot 6.
+func (self *IIteratorOfWebErrorStatus) Current() (web.WebErrorStatus, error) {
+	result := new(web.WebErrorStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfWebErrorStatus's vtable slot 7.
+func (self *IIteratorOfWebErrorStatus) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfWebErrorStatus's vtable slot 8.
+func (self *IIteratorOfWebErrorStatus) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -813,6 +1078,28 @@ func (self *IVectorOfUri) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfUri creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Foundation.Uri>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfUri(items []*foundation.IUriRuntimeClass) *IVectorOfUri {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Foundation.Uri>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUri, Iterator: IID_IIteratorOfUri, VectorView: IID_IVectorViewOfUri, Vector: IID_IVectorOfUri}, winrt.CodecInterface, boxed)
+	return (*IVectorOfUri)(unsafe.Pointer(obj))
+}
+
 // IVectorOfWebErrorStatus is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.WebErrorStatus>.
 // IID: 61bc06e3-b752-5b56-8374-3b45a214693f
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.WebErrorStatus>.
@@ -891,6 +1178,24 @@ func (self *IVectorOfWebErrorStatus) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfWebErrorStatus creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.WebErrorStatus>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfWebErrorStatus(items []web.WebErrorStatus) *IVectorOfWebErrorStatus {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.WebErrorStatus>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebErrorStatus, Iterator: IID_IIteratorOfWebErrorStatus, VectorView: IID_IVectorViewOfWebErrorStatus, Vector: IID_IVectorOfWebErrorStatus}, winrt.CodecScalar(4), boxed)
+	return (*IVectorOfWebErrorStatus)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfBackgroundTransferFileRange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.BackgroundTransfer.BackgroundTransferFileRange>.
 // IID: 5be7934b-d9fc-540a-8ffe-5fb9c88c6558
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.BackgroundTransfer.BackgroundTransferFileRange>.
@@ -952,6 +1257,25 @@ func (self *IVectorViewOfDownloadOperation) IndexOf(value *IDownloadOperation, i
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfDownloadOperation creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.BackgroundTransfer.DownloadOperation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDownloadOperation(items []*IDownloadOperation) *IVectorViewOfDownloadOperation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.BackgroundTransfer.DownloadOperation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDownloadOperation, Iterator: IID_IIteratorOfDownloadOperation, VectorView: IID_IVectorViewOfDownloadOperation}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDownloadOperation)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUploadOperation is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Networking.BackgroundTransfer.UploadOperation>.
 // IID: 8e96d4b0-f0ae-51cb-b7c4-024251bd16d8
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Networking.BackgroundTransfer.UploadOperation>.
@@ -984,6 +1308,25 @@ func (self *IVectorViewOfUploadOperation) IndexOf(value *IUploadOperation, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUploadOperation creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Networking.BackgroundTransfer.UploadOperation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUploadOperation(items []*IUploadOperation) *IVectorViewOfUploadOperation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Networking.BackgroundTransfer.UploadOperation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUploadOperation, Iterator: IID_IIteratorOfUploadOperation, VectorView: IID_IVectorViewOfUploadOperation}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUploadOperation)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfUri is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.Uri>.
 // IID: 4b8385bd-a2cd-5ff1-bf74-7ea580423e50
@@ -1018,6 +1361,25 @@ func (self *IVectorViewOfUri) IndexOf(value *foundation.IUriRuntimeClass, index 
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfUri creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.Uri>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUri(items []*foundation.IUriRuntimeClass) *IVectorViewOfUri {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Foundation.Uri>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUri, Iterator: IID_IIteratorOfUri, VectorView: IID_IVectorViewOfUri}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUri)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfWebErrorStatus is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.WebErrorStatus>.
 // IID: f5d10d42-a776-533a-8f4b-2e1c6e5bbf24
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.WebErrorStatus>.
@@ -1050,3 +1412,18 @@ func (self *IVectorViewOfWebErrorStatus) IndexOf(value web.WebErrorStatus, index
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfWebErrorStatus creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.WebErrorStatus>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfWebErrorStatus(items []web.WebErrorStatus) *IVectorViewOfWebErrorStatus {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.WebErrorStatus>", winrt.CollectionIIDs{Iterable: IID_IIterableOfWebErrorStatus, Iterator: IID_IIteratorOfWebErrorStatus, VectorView: IID_IVectorViewOfWebErrorStatus}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfWebErrorStatus)(unsafe.Pointer(obj))
+}

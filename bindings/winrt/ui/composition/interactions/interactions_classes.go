@@ -10,6 +10,100 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
+// CompositionConditionalValue is the Windows.UI.Composition.Interactions.CompositionConditionalValue runtime class, surfaced through its
+// default interface ICompositionConditionalValue. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionConditionalValue struct {
+	ICompositionConditionalValue
+}
+
+// CompositionConditionalValueStatics returns the Windows.UI.Composition.Interactions.ICompositionConditionalValueStatics statics of the
+// Windows.UI.Composition.Interactions.CompositionConditionalValue runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CompositionConditionalValueStatics() (*ICompositionConditionalValueStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.Interactions.CompositionConditionalValue", &IID_ICompositionConditionalValueStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICompositionConditionalValueStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CompositionInteractionSourceCollection is the Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection runtime class, surfaced through its
+// default interface ICompositionInteractionSourceCollection. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionInteractionSourceCollection struct {
+	ICompositionInteractionSourceCollection
+}
+
+// AsIterableOfICompositionInteractionSource queries the instance's IIterableOfICompositionInteractionSource interface.
+// The returned reference is owned by the caller.
+func (self *CompositionInteractionSourceCollection) AsIterableOfICompositionInteractionSource() (*IIterableOfICompositionInteractionSource, error) {
+	return winrt.QueryInterface[IIterableOfICompositionInteractionSource](unsafe.Pointer(self), &IID_IIterableOfICompositionInteractionSource)
+}
+
+// InteractionSourceConfiguration is the Windows.UI.Composition.Interactions.InteractionSourceConfiguration runtime class, surfaced through its
+// default interface IInteractionSourceConfiguration. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InteractionSourceConfiguration struct {
+	IInteractionSourceConfiguration
+}
+
+// InteractionTracker is the Windows.UI.Composition.Interactions.InteractionTracker runtime class, surfaced through its
+// default interface IInteractionTracker. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InteractionTracker struct {
+	IInteractionTracker
+}
+
+// AsInteractionTracker2 queries the instance's IInteractionTracker2 interface.
+// The returned reference is owned by the caller.
+func (self *InteractionTracker) AsInteractionTracker2() (*IInteractionTracker2, error) {
+	return winrt.QueryInterface[IInteractionTracker2](unsafe.Pointer(self), &IID_IInteractionTracker2)
+}
+
+// AsInteractionTracker3 queries the instance's IInteractionTracker3 interface.
+// The returned reference is owned by the caller.
+func (self *InteractionTracker) AsInteractionTracker3() (*IInteractionTracker3, error) {
+	return winrt.QueryInterface[IInteractionTracker3](unsafe.Pointer(self), &IID_IInteractionTracker3)
+}
+
+// AsInteractionTracker4 queries the instance's IInteractionTracker4 interface.
+// The returned reference is owned by the caller.
+func (self *InteractionTracker) AsInteractionTracker4() (*IInteractionTracker4, error) {
+	return winrt.QueryInterface[IInteractionTracker4](unsafe.Pointer(self), &IID_IInteractionTracker4)
+}
+
+// AsInteractionTracker5 queries the instance's IInteractionTracker5 interface.
+// The returned reference is owned by the caller.
+func (self *InteractionTracker) AsInteractionTracker5() (*IInteractionTracker5, error) {
+	return winrt.QueryInterface[IInteractionTracker5](unsafe.Pointer(self), &IID_IInteractionTracker5)
+}
+
+// InteractionTrackerStatics returns the Windows.UI.Composition.Interactions.IInteractionTrackerStatics statics of the
+// Windows.UI.Composition.Interactions.InteractionTracker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InteractionTrackerStatics() (*IInteractionTrackerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.Interactions.InteractionTracker", &IID_IInteractionTrackerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInteractionTrackerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// InteractionTrackerStatics2 returns the Windows.UI.Composition.Interactions.IInteractionTrackerStatics2 statics of the
+// Windows.UI.Composition.Interactions.InteractionTracker runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InteractionTrackerStatics2() (*IInteractionTrackerStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.Interactions.InteractionTracker", &IID_IInteractionTrackerStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInteractionTrackerStatics2)(unsafe.Pointer(factory)), nil
+}
+
 // InteractionTrackerCustomAnimationStateEnteredArgs is the Windows.UI.Composition.Interactions.InteractionTrackerCustomAnimationStateEnteredArgs runtime class, surfaced through its
 // default interface IInteractionTrackerCustomAnimationStateEnteredArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -34,6 +128,70 @@ type InteractionTrackerIdleStateEnteredArgs struct {
 // The returned reference is owned by the caller.
 func (self *InteractionTrackerIdleStateEnteredArgs) AsInteractionTrackerIdleStateEnteredArgs2() (*IInteractionTrackerIdleStateEnteredArgs2, error) {
 	return winrt.QueryInterface[IInteractionTrackerIdleStateEnteredArgs2](unsafe.Pointer(self), &IID_IInteractionTrackerIdleStateEnteredArgs2)
+}
+
+// InteractionTrackerInertiaModifier is the Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier runtime class, surfaced through its
+// default interface IInteractionTrackerInertiaModifier. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InteractionTrackerInertiaModifier struct {
+	IInteractionTrackerInertiaModifier
+}
+
+// InteractionTrackerInertiaMotion is the Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion runtime class, surfaced through its
+// default interface IInteractionTrackerInertiaMotion. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InteractionTrackerInertiaMotion struct {
+	IInteractionTrackerInertiaMotion
+}
+
+// InteractionTrackerInertiaMotionStatics returns the Windows.UI.Composition.Interactions.IInteractionTrackerInertiaMotionStatics statics of the
+// Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InteractionTrackerInertiaMotionStatics() (*IInteractionTrackerInertiaMotionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion", &IID_IInteractionTrackerInertiaMotionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInteractionTrackerInertiaMotionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// InteractionTrackerInertiaNaturalMotion is the Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion runtime class, surfaced through its
+// default interface IInteractionTrackerInertiaNaturalMotion. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InteractionTrackerInertiaNaturalMotion struct {
+	IInteractionTrackerInertiaNaturalMotion
+}
+
+// InteractionTrackerInertiaNaturalMotionStatics returns the Windows.UI.Composition.Interactions.IInteractionTrackerInertiaNaturalMotionStatics statics of the
+// Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InteractionTrackerInertiaNaturalMotionStatics() (*IInteractionTrackerInertiaNaturalMotionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion", &IID_IInteractionTrackerInertiaNaturalMotionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInteractionTrackerInertiaNaturalMotionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// InteractionTrackerInertiaRestingValue is the Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue runtime class, surfaced through its
+// default interface IInteractionTrackerInertiaRestingValue. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InteractionTrackerInertiaRestingValue struct {
+	IInteractionTrackerInertiaRestingValue
+}
+
+// InteractionTrackerInertiaRestingValueStatics returns the Windows.UI.Composition.Interactions.IInteractionTrackerInertiaRestingValueStatics statics of the
+// Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InteractionTrackerInertiaRestingValueStatics() (*IInteractionTrackerInertiaRestingValueStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue", &IID_IInteractionTrackerInertiaRestingValueStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInteractionTrackerInertiaRestingValueStatics)(unsafe.Pointer(factory)), nil
 }
 
 // InteractionTrackerInertiaStateEnteredArgs is the Windows.UI.Composition.Interactions.InteractionTrackerInertiaStateEnteredArgs runtime class, surfaced through its
@@ -80,4 +238,79 @@ type InteractionTrackerRequestIgnoredArgs struct {
 // the embedded IInspectable → IUnknown chain).
 type InteractionTrackerValuesChangedArgs struct {
 	IInteractionTrackerValuesChangedArgs
+}
+
+// InteractionTrackerVector2InertiaModifier is the Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier runtime class, surfaced through its
+// default interface IInteractionTrackerVector2InertiaModifier. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InteractionTrackerVector2InertiaModifier struct {
+	IInteractionTrackerVector2InertiaModifier
+}
+
+// InteractionTrackerVector2InertiaNaturalMotion is the Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion runtime class, surfaced through its
+// default interface IInteractionTrackerVector2InertiaNaturalMotion. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InteractionTrackerVector2InertiaNaturalMotion struct {
+	IInteractionTrackerVector2InertiaNaturalMotion
+}
+
+// InteractionTrackerVector2InertiaNaturalMotionStatics returns the Windows.UI.Composition.Interactions.IInteractionTrackerVector2InertiaNaturalMotionStatics statics of the
+// Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func InteractionTrackerVector2InertiaNaturalMotionStatics() (*IInteractionTrackerVector2InertiaNaturalMotionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion", &IID_IInteractionTrackerVector2InertiaNaturalMotionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IInteractionTrackerVector2InertiaNaturalMotionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// VisualInteractionSource is the Windows.UI.Composition.Interactions.VisualInteractionSource runtime class, surfaced through its
+// default interface IVisualInteractionSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type VisualInteractionSource struct {
+	IVisualInteractionSource
+}
+
+// AsVisualInteractionSource2 queries the instance's IVisualInteractionSource2 interface.
+// The returned reference is owned by the caller.
+func (self *VisualInteractionSource) AsVisualInteractionSource2() (*IVisualInteractionSource2, error) {
+	return winrt.QueryInterface[IVisualInteractionSource2](unsafe.Pointer(self), &IID_IVisualInteractionSource2)
+}
+
+// AsVisualInteractionSource3 queries the instance's IVisualInteractionSource3 interface.
+// The returned reference is owned by the caller.
+func (self *VisualInteractionSource) AsVisualInteractionSource3() (*IVisualInteractionSource3, error) {
+	return winrt.QueryInterface[IVisualInteractionSource3](unsafe.Pointer(self), &IID_IVisualInteractionSource3)
+}
+
+// AsCompositionInteractionSource queries the instance's ICompositionInteractionSource interface.
+// The returned reference is owned by the caller.
+func (self *VisualInteractionSource) AsCompositionInteractionSource() (*ICompositionInteractionSource, error) {
+	return winrt.QueryInterface[ICompositionInteractionSource](unsafe.Pointer(self), &IID_ICompositionInteractionSource)
+}
+
+// VisualInteractionSourceStatics returns the Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics statics of the
+// Windows.UI.Composition.Interactions.VisualInteractionSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func VisualInteractionSourceStatics() (*IVisualInteractionSourceStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.Interactions.VisualInteractionSource", &IID_IVisualInteractionSourceStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IVisualInteractionSourceStatics)(unsafe.Pointer(factory)), nil
+}
+
+// VisualInteractionSourceStatics2 returns the Windows.UI.Composition.Interactions.IVisualInteractionSourceStatics2 statics of the
+// Windows.UI.Composition.Interactions.VisualInteractionSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func VisualInteractionSourceStatics2() (*IVisualInteractionSourceStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.Interactions.VisualInteractionSource", &IID_IVisualInteractionSourceStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IVisualInteractionSourceStatics2)(unsafe.Pointer(factory)), nil
 }

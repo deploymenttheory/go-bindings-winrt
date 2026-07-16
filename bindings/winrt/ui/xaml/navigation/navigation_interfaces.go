@@ -13,6 +13,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
+	uixamlmediaanimation "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/media/animation"
 )
 
 // IFrameNavigationOptions is the WinRT interface Windows.UI.Xaml.Navigation.IFrameNavigationOptions.
@@ -43,16 +44,14 @@ func (self *IFrameNavigationOptions) SetIsNavigationStackEnabled(value bool) err
 }
 
 // TransitionInfoOverride (propget get_TransitionInfoOverride) dispatches through IFrameNavigationOptions's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameNavigationOptions) TransitionInfoOverride() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IFrameNavigationOptions) TransitionInfoOverride() (*uixamlmediaanimation.INavigationTransitionInfo, error) {
+	result := new(*uixamlmediaanimation.INavigationTransitionInfo)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetTransitionInfoOverride (propput put_TransitionInfoOverride) dispatches through IFrameNavigationOptions's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo is projected as IInspectable (the class is not emitted this wave).
-func (self *IFrameNavigationOptions) SetTransitionInfoOverride(value *syswinrt.IInspectable) error {
+func (self *IFrameNavigationOptions) SetTransitionInfoOverride(value *uixamlmediaanimation.INavigationTransitionInfo) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -128,9 +127,8 @@ func (self *INavigatingCancelEventArgs2) Parameter() (*syswinrt.IInspectable, er
 }
 
 // NavigationTransitionInfo (propget get_NavigationTransitionInfo) dispatches through INavigatingCancelEventArgs2's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo is projected as IInspectable (the class is not emitted this wave).
-func (self *INavigatingCancelEventArgs2) NavigationTransitionInfo() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *INavigatingCancelEventArgs2) NavigationTransitionInfo() (*uixamlmediaanimation.INavigationTransitionInfo, error) {
+	result := new(*uixamlmediaanimation.INavigationTransitionInfo)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -192,9 +190,8 @@ type INavigationEventArgs2 struct {
 var IID_INavigationEventArgs2 = win32.GUID{Data1: 0xdbff71d9, Data2: 0x979a, Data3: 0x4b2e, Data4: [8]byte{0xa4, 0x9b, 0x3b, 0xb1, 0x7f, 0xde, 0xf5, 0x74}}
 
 // NavigationTransitionInfo (propget get_NavigationTransitionInfo) dispatches through INavigationEventArgs2's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo is projected as IInspectable (the class is not emitted this wave).
-func (self *INavigationEventArgs2) NavigationTransitionInfo() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *INavigationEventArgs2) NavigationTransitionInfo() (*uixamlmediaanimation.INavigationTransitionInfo, error) {
+	result := new(*uixamlmediaanimation.INavigationTransitionInfo)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -255,9 +252,8 @@ func (self *IPageStackEntry) Parameter() (*syswinrt.IInspectable, error) {
 }
 
 // NavigationTransitionInfo (propget get_NavigationTransitionInfo) dispatches through IPageStackEntry's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo is projected as IInspectable (the class is not emitted this wave).
-func (self *IPageStackEntry) NavigationTransitionInfo() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPageStackEntry) NavigationTransitionInfo() (*uixamlmediaanimation.INavigationTransitionInfo, error) {
+	result := new(*uixamlmediaanimation.INavigationTransitionInfo)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

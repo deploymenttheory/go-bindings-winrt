@@ -13,6 +13,178 @@ import (
 	graphicseffects "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/graphics/effects"
 )
 
+// AmbientLight is the Windows.UI.Composition.AmbientLight runtime class, surfaced through its
+// default interface IAmbientLight. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AmbientLight struct {
+	IAmbientLight
+}
+
+// AsAmbientLight2 queries the instance's IAmbientLight2 interface.
+// The returned reference is owned by the caller.
+func (self *AmbientLight) AsAmbientLight2() (*IAmbientLight2, error) {
+	return winrt.QueryInterface[IAmbientLight2](unsafe.Pointer(self), &IID_IAmbientLight2)
+}
+
+// AnimationController is the Windows.UI.Composition.AnimationController runtime class, surfaced through its
+// default interface IAnimationController. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AnimationController struct {
+	IAnimationController
+}
+
+// AnimationControllerStatics returns the Windows.UI.Composition.IAnimationControllerStatics statics of the
+// Windows.UI.Composition.AnimationController runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func AnimationControllerStatics() (*IAnimationControllerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.AnimationController", &IID_IAnimationControllerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IAnimationControllerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// AnimationPropertyInfo is the Windows.UI.Composition.AnimationPropertyInfo runtime class, surfaced through its
+// default interface IAnimationPropertyInfo. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type AnimationPropertyInfo struct {
+	IAnimationPropertyInfo
+}
+
+// AsAnimationPropertyInfo2 queries the instance's IAnimationPropertyInfo2 interface.
+// The returned reference is owned by the caller.
+func (self *AnimationPropertyInfo) AsAnimationPropertyInfo2() (*IAnimationPropertyInfo2, error) {
+	return winrt.QueryInterface[IAnimationPropertyInfo2](unsafe.Pointer(self), &IID_IAnimationPropertyInfo2)
+}
+
+// BackEasingFunction is the Windows.UI.Composition.BackEasingFunction runtime class, surfaced through its
+// default interface IBackEasingFunction. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BackEasingFunction struct {
+	IBackEasingFunction
+}
+
+// BooleanKeyFrameAnimation is the Windows.UI.Composition.BooleanKeyFrameAnimation runtime class, surfaced through its
+// default interface IBooleanKeyFrameAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BooleanKeyFrameAnimation struct {
+	IBooleanKeyFrameAnimation
+}
+
+// BounceEasingFunction is the Windows.UI.Composition.BounceEasingFunction runtime class, surfaced through its
+// default interface IBounceEasingFunction. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BounceEasingFunction struct {
+	IBounceEasingFunction
+}
+
+// BounceScalarNaturalMotionAnimation is the Windows.UI.Composition.BounceScalarNaturalMotionAnimation runtime class, surfaced through its
+// default interface IBounceScalarNaturalMotionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BounceScalarNaturalMotionAnimation struct {
+	IBounceScalarNaturalMotionAnimation
+}
+
+// BounceVector2NaturalMotionAnimation is the Windows.UI.Composition.BounceVector2NaturalMotionAnimation runtime class, surfaced through its
+// default interface IBounceVector2NaturalMotionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BounceVector2NaturalMotionAnimation struct {
+	IBounceVector2NaturalMotionAnimation
+}
+
+// BounceVector3NaturalMotionAnimation is the Windows.UI.Composition.BounceVector3NaturalMotionAnimation runtime class, surfaced through its
+// default interface IBounceVector3NaturalMotionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type BounceVector3NaturalMotionAnimation struct {
+	IBounceVector3NaturalMotionAnimation
+}
+
+// CircleEasingFunction is the Windows.UI.Composition.CircleEasingFunction runtime class, surfaced through its
+// default interface ICircleEasingFunction. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CircleEasingFunction struct {
+	ICircleEasingFunction
+}
+
+// ColorKeyFrameAnimation is the Windows.UI.Composition.ColorKeyFrameAnimation runtime class, surfaced through its
+// default interface IColorKeyFrameAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ColorKeyFrameAnimation struct {
+	IColorKeyFrameAnimation
+}
+
+// CompositionAnimation is the Windows.UI.Composition.CompositionAnimation runtime class, surfaced through its
+// default interface ICompositionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionAnimation struct {
+	ICompositionAnimation
+}
+
+// AsCompositionAnimation2 queries the instance's ICompositionAnimation2 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionAnimation) AsCompositionAnimation2() (*ICompositionAnimation2, error) {
+	return winrt.QueryInterface[ICompositionAnimation2](unsafe.Pointer(self), &IID_ICompositionAnimation2)
+}
+
+// AsCompositionAnimation3 queries the instance's ICompositionAnimation3 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionAnimation) AsCompositionAnimation3() (*ICompositionAnimation3, error) {
+	return winrt.QueryInterface[ICompositionAnimation3](unsafe.Pointer(self), &IID_ICompositionAnimation3)
+}
+
+// AsCompositionAnimation4 queries the instance's ICompositionAnimation4 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionAnimation) AsCompositionAnimation4() (*ICompositionAnimation4, error) {
+	return winrt.QueryInterface[ICompositionAnimation4](unsafe.Pointer(self), &IID_ICompositionAnimation4)
+}
+
+// AsCompositionAnimationBase queries the instance's ICompositionAnimationBase interface.
+// The returned reference is owned by the caller.
+func (self *CompositionAnimation) AsCompositionAnimationBase() (*ICompositionAnimationBase, error) {
+	return winrt.QueryInterface[ICompositionAnimationBase](unsafe.Pointer(self), &IID_ICompositionAnimationBase)
+}
+
+// CompositionAnimationGroup is the Windows.UI.Composition.CompositionAnimationGroup runtime class, surfaced through its
+// default interface ICompositionAnimationGroup. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionAnimationGroup struct {
+	ICompositionAnimationGroup
+}
+
+// AsIterableOfCompositionAnimation queries the instance's IIterableOfCompositionAnimation interface.
+// The returned reference is owned by the caller.
+func (self *CompositionAnimationGroup) AsIterableOfCompositionAnimation() (*IIterableOfCompositionAnimation, error) {
+	return winrt.QueryInterface[IIterableOfCompositionAnimation](unsafe.Pointer(self), &IID_IIterableOfCompositionAnimation)
+}
+
+// AsCompositionAnimationBase queries the instance's ICompositionAnimationBase interface.
+// The returned reference is owned by the caller.
+func (self *CompositionAnimationGroup) AsCompositionAnimationBase() (*ICompositionAnimationBase, error) {
+	return winrt.QueryInterface[ICompositionAnimationBase](unsafe.Pointer(self), &IID_ICompositionAnimationBase)
+}
+
+// CompositionBackdropBrush is the Windows.UI.Composition.CompositionBackdropBrush runtime class, surfaced through its
+// default interface ICompositionBackdropBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionBackdropBrush struct {
+	ICompositionBackdropBrush
+}
+
+// CompositionBatchCompletedEventArgs is the Windows.UI.Composition.CompositionBatchCompletedEventArgs runtime class, surfaced through its
+// default interface ICompositionBatchCompletedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionBatchCompletedEventArgs struct {
+	ICompositionBatchCompletedEventArgs
+}
+
+// CompositionBrush is the Windows.UI.Composition.CompositionBrush runtime class, surfaced through its
+// default interface ICompositionBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionBrush struct {
+	ICompositionBrush
+}
+
 // CompositionCapabilities is the Windows.UI.Composition.CompositionCapabilities runtime class, surfaced through its
 // default interface ICompositionCapabilities. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -32,6 +204,33 @@ func CompositionCapabilitiesStatics() (*ICompositionCapabilitiesStatics, error) 
 	return (*ICompositionCapabilitiesStatics)(unsafe.Pointer(factory)), nil
 }
 
+// CompositionClip is the Windows.UI.Composition.CompositionClip runtime class, surfaced through its
+// default interface ICompositionClip. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionClip struct {
+	ICompositionClip
+}
+
+// AsCompositionClip2 queries the instance's ICompositionClip2 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionClip) AsCompositionClip2() (*ICompositionClip2, error) {
+	return winrt.QueryInterface[ICompositionClip2](unsafe.Pointer(self), &IID_ICompositionClip2)
+}
+
+// CompositionColorBrush is the Windows.UI.Composition.CompositionColorBrush runtime class, surfaced through its
+// default interface ICompositionColorBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionColorBrush struct {
+	ICompositionColorBrush
+}
+
+// CompositionColorGradientStop is the Windows.UI.Composition.CompositionColorGradientStop runtime class, surfaced through its
+// default interface ICompositionColorGradientStop. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionColorGradientStop struct {
+	ICompositionColorGradientStop
+}
+
 // CompositionColorGradientStopCollection is the Windows.UI.Composition.CompositionColorGradientStopCollection runtime class, surfaced through its
 // default interface ICompositionColorGradientStopCollection. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -49,6 +248,72 @@ func (self *CompositionColorGradientStopCollection) AsIterableOfCompositionColor
 // The returned reference is owned by the caller.
 func (self *CompositionColorGradientStopCollection) AsVectorOfCompositionColorGradientStop() (*IVectorOfCompositionColorGradientStop, error) {
 	return winrt.QueryInterface[IVectorOfCompositionColorGradientStop](unsafe.Pointer(self), &IID_IVectorOfCompositionColorGradientStop)
+}
+
+// CompositionCommitBatch is the Windows.UI.Composition.CompositionCommitBatch runtime class, surfaced through its
+// default interface ICompositionCommitBatch. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionCommitBatch struct {
+	ICompositionCommitBatch
+}
+
+// CompositionContainerShape is the Windows.UI.Composition.CompositionContainerShape runtime class, surfaced through its
+// default interface ICompositionContainerShape. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionContainerShape struct {
+	ICompositionContainerShape
+}
+
+// CompositionDrawingSurface is the Windows.UI.Composition.CompositionDrawingSurface runtime class, surfaced through its
+// default interface ICompositionDrawingSurface. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionDrawingSurface struct {
+	ICompositionDrawingSurface
+}
+
+// AsCompositionDrawingSurface2 queries the instance's ICompositionDrawingSurface2 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionDrawingSurface) AsCompositionDrawingSurface2() (*ICompositionDrawingSurface2, error) {
+	return winrt.QueryInterface[ICompositionDrawingSurface2](unsafe.Pointer(self), &IID_ICompositionDrawingSurface2)
+}
+
+// AsCompositionSurface queries the instance's ICompositionSurface interface.
+// The returned reference is owned by the caller.
+func (self *CompositionDrawingSurface) AsCompositionSurface() (*ICompositionSurface, error) {
+	return winrt.QueryInterface[ICompositionSurface](unsafe.Pointer(self), &IID_ICompositionSurface)
+}
+
+// CompositionEasingFunction is the Windows.UI.Composition.CompositionEasingFunction runtime class, surfaced through its
+// default interface ICompositionEasingFunction. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionEasingFunction struct {
+	ICompositionEasingFunction
+}
+
+// CompositionEasingFunctionStatics returns the Windows.UI.Composition.ICompositionEasingFunctionStatics statics of the
+// Windows.UI.Composition.CompositionEasingFunction runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CompositionEasingFunctionStatics() (*ICompositionEasingFunctionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.CompositionEasingFunction", &IID_ICompositionEasingFunctionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICompositionEasingFunctionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CompositionEffectBrush is the Windows.UI.Composition.CompositionEffectBrush runtime class, surfaced through its
+// default interface ICompositionEffectBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionEffectBrush struct {
+	ICompositionEffectBrush
+}
+
+// CompositionEffectFactory is the Windows.UI.Composition.CompositionEffectFactory runtime class, surfaced through its
+// default interface ICompositionEffectFactory. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionEffectFactory struct {
+	ICompositionEffectFactory
 }
 
 // CompositionEffectSourceParameter is the Windows.UI.Composition.CompositionEffectSourceParameter runtime class, surfaced through its
@@ -79,6 +344,125 @@ func Create(name string) (*CompositionEffectSourceParameter, error) {
 		return nil, err
 	}
 	return (*CompositionEffectSourceParameter)(unsafe.Pointer(instance)), nil
+}
+
+// CompositionEllipseGeometry is the Windows.UI.Composition.CompositionEllipseGeometry runtime class, surfaced through its
+// default interface ICompositionEllipseGeometry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionEllipseGeometry struct {
+	ICompositionEllipseGeometry
+}
+
+// CompositionGeometricClip is the Windows.UI.Composition.CompositionGeometricClip runtime class, surfaced through its
+// default interface ICompositionGeometricClip. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionGeometricClip struct {
+	ICompositionGeometricClip
+}
+
+// CompositionGeometry is the Windows.UI.Composition.CompositionGeometry runtime class, surfaced through its
+// default interface ICompositionGeometry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionGeometry struct {
+	ICompositionGeometry
+}
+
+// CompositionGradientBrush is the Windows.UI.Composition.CompositionGradientBrush runtime class, surfaced through its
+// default interface ICompositionGradientBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionGradientBrush struct {
+	ICompositionGradientBrush
+}
+
+// AsCompositionGradientBrush2 queries the instance's ICompositionGradientBrush2 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionGradientBrush) AsCompositionGradientBrush2() (*ICompositionGradientBrush2, error) {
+	return winrt.QueryInterface[ICompositionGradientBrush2](unsafe.Pointer(self), &IID_ICompositionGradientBrush2)
+}
+
+// CompositionGraphicsDevice is the Windows.UI.Composition.CompositionGraphicsDevice runtime class, surfaced through its
+// default interface ICompositionGraphicsDevice. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionGraphicsDevice struct {
+	ICompositionGraphicsDevice
+}
+
+// AsCompositionGraphicsDevice2 queries the instance's ICompositionGraphicsDevice2 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionGraphicsDevice) AsCompositionGraphicsDevice2() (*ICompositionGraphicsDevice2, error) {
+	return winrt.QueryInterface[ICompositionGraphicsDevice2](unsafe.Pointer(self), &IID_ICompositionGraphicsDevice2)
+}
+
+// AsCompositionGraphicsDevice3 queries the instance's ICompositionGraphicsDevice3 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionGraphicsDevice) AsCompositionGraphicsDevice3() (*ICompositionGraphicsDevice3, error) {
+	return winrt.QueryInterface[ICompositionGraphicsDevice3](unsafe.Pointer(self), &IID_ICompositionGraphicsDevice3)
+}
+
+// AsCompositionGraphicsDevice4 queries the instance's ICompositionGraphicsDevice4 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionGraphicsDevice) AsCompositionGraphicsDevice4() (*ICompositionGraphicsDevice4, error) {
+	return winrt.QueryInterface[ICompositionGraphicsDevice4](unsafe.Pointer(self), &IID_ICompositionGraphicsDevice4)
+}
+
+// CompositionLight is the Windows.UI.Composition.CompositionLight runtime class, surfaced through its
+// default interface ICompositionLight. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionLight struct {
+	ICompositionLight
+}
+
+// AsCompositionLight2 queries the instance's ICompositionLight2 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionLight) AsCompositionLight2() (*ICompositionLight2, error) {
+	return winrt.QueryInterface[ICompositionLight2](unsafe.Pointer(self), &IID_ICompositionLight2)
+}
+
+// AsCompositionLight3 queries the instance's ICompositionLight3 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionLight) AsCompositionLight3() (*ICompositionLight3, error) {
+	return winrt.QueryInterface[ICompositionLight3](unsafe.Pointer(self), &IID_ICompositionLight3)
+}
+
+// CompositionLineGeometry is the Windows.UI.Composition.CompositionLineGeometry runtime class, surfaced through its
+// default interface ICompositionLineGeometry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionLineGeometry struct {
+	ICompositionLineGeometry
+}
+
+// CompositionLinearGradientBrush is the Windows.UI.Composition.CompositionLinearGradientBrush runtime class, surfaced through its
+// default interface ICompositionLinearGradientBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionLinearGradientBrush struct {
+	ICompositionLinearGradientBrush
+}
+
+// CompositionMaskBrush is the Windows.UI.Composition.CompositionMaskBrush runtime class, surfaced through its
+// default interface ICompositionMaskBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionMaskBrush struct {
+	ICompositionMaskBrush
+}
+
+// CompositionMipmapSurface is the Windows.UI.Composition.CompositionMipmapSurface runtime class, surfaced through its
+// default interface ICompositionMipmapSurface. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionMipmapSurface struct {
+	ICompositionMipmapSurface
+}
+
+// AsCompositionSurface queries the instance's ICompositionSurface interface.
+// The returned reference is owned by the caller.
+func (self *CompositionMipmapSurface) AsCompositionSurface() (*ICompositionSurface, error) {
+	return winrt.QueryInterface[ICompositionSurface](unsafe.Pointer(self), &IID_ICompositionSurface)
+}
+
+// CompositionNineGridBrush is the Windows.UI.Composition.CompositionNineGridBrush runtime class, surfaced through its
+// default interface ICompositionNineGridBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionNineGridBrush struct {
+	ICompositionNineGridBrush
 }
 
 // CompositionObject is the Windows.UI.Composition.CompositionObject runtime class, surfaced through its
@@ -164,6 +548,207 @@ func CreateCompositionPath(source *graphics.IGeometrySource2D) (*CompositionPath
 		return nil, err
 	}
 	return (*CompositionPath)(unsafe.Pointer(instance)), nil
+}
+
+// CompositionPathGeometry is the Windows.UI.Composition.CompositionPathGeometry runtime class, surfaced through its
+// default interface ICompositionPathGeometry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionPathGeometry struct {
+	ICompositionPathGeometry
+}
+
+// CompositionProjectedShadow is the Windows.UI.Composition.CompositionProjectedShadow runtime class, surfaced through its
+// default interface ICompositionProjectedShadow. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionProjectedShadow struct {
+	ICompositionProjectedShadow
+}
+
+// CompositionProjectedShadowCaster is the Windows.UI.Composition.CompositionProjectedShadowCaster runtime class, surfaced through its
+// default interface ICompositionProjectedShadowCaster. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionProjectedShadowCaster struct {
+	ICompositionProjectedShadowCaster
+}
+
+// CompositionProjectedShadowCasterCollection is the Windows.UI.Composition.CompositionProjectedShadowCasterCollection runtime class, surfaced through its
+// default interface ICompositionProjectedShadowCasterCollection. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionProjectedShadowCasterCollection struct {
+	ICompositionProjectedShadowCasterCollection
+}
+
+// AsIterableOfCompositionProjectedShadowCaster queries the instance's IIterableOfCompositionProjectedShadowCaster interface.
+// The returned reference is owned by the caller.
+func (self *CompositionProjectedShadowCasterCollection) AsIterableOfCompositionProjectedShadowCaster() (*IIterableOfCompositionProjectedShadowCaster, error) {
+	return winrt.QueryInterface[IIterableOfCompositionProjectedShadowCaster](unsafe.Pointer(self), &IID_IIterableOfCompositionProjectedShadowCaster)
+}
+
+// CompositionProjectedShadowCasterCollectionStatics returns the Windows.UI.Composition.ICompositionProjectedShadowCasterCollectionStatics statics of the
+// Windows.UI.Composition.CompositionProjectedShadowCasterCollection runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func CompositionProjectedShadowCasterCollectionStatics() (*ICompositionProjectedShadowCasterCollectionStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.CompositionProjectedShadowCasterCollection", &IID_ICompositionProjectedShadowCasterCollectionStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*ICompositionProjectedShadowCasterCollectionStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CompositionProjectedShadowReceiver is the Windows.UI.Composition.CompositionProjectedShadowReceiver runtime class, surfaced through its
+// default interface ICompositionProjectedShadowReceiver. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionProjectedShadowReceiver struct {
+	ICompositionProjectedShadowReceiver
+}
+
+// CompositionProjectedShadowReceiverUnorderedCollection is the Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection runtime class, surfaced through its
+// default interface ICompositionProjectedShadowReceiverUnorderedCollection. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionProjectedShadowReceiverUnorderedCollection struct {
+	ICompositionProjectedShadowReceiverUnorderedCollection
+}
+
+// AsIterableOfCompositionProjectedShadowReceiver queries the instance's IIterableOfCompositionProjectedShadowReceiver interface.
+// The returned reference is owned by the caller.
+func (self *CompositionProjectedShadowReceiverUnorderedCollection) AsIterableOfCompositionProjectedShadowReceiver() (*IIterableOfCompositionProjectedShadowReceiver, error) {
+	return winrt.QueryInterface[IIterableOfCompositionProjectedShadowReceiver](unsafe.Pointer(self), &IID_IIterableOfCompositionProjectedShadowReceiver)
+}
+
+// CompositionPropertySet is the Windows.UI.Composition.CompositionPropertySet runtime class, surfaced through its
+// default interface ICompositionPropertySet. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionPropertySet struct {
+	ICompositionPropertySet
+}
+
+// AsCompositionPropertySet2 queries the instance's ICompositionPropertySet2 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionPropertySet) AsCompositionPropertySet2() (*ICompositionPropertySet2, error) {
+	return winrt.QueryInterface[ICompositionPropertySet2](unsafe.Pointer(self), &IID_ICompositionPropertySet2)
+}
+
+// CompositionRadialGradientBrush is the Windows.UI.Composition.CompositionRadialGradientBrush runtime class, surfaced through its
+// default interface ICompositionRadialGradientBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionRadialGradientBrush struct {
+	ICompositionRadialGradientBrush
+}
+
+// CompositionRectangleGeometry is the Windows.UI.Composition.CompositionRectangleGeometry runtime class, surfaced through its
+// default interface ICompositionRectangleGeometry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionRectangleGeometry struct {
+	ICompositionRectangleGeometry
+}
+
+// CompositionRoundedRectangleGeometry is the Windows.UI.Composition.CompositionRoundedRectangleGeometry runtime class, surfaced through its
+// default interface ICompositionRoundedRectangleGeometry. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionRoundedRectangleGeometry struct {
+	ICompositionRoundedRectangleGeometry
+}
+
+// CompositionScopedBatch is the Windows.UI.Composition.CompositionScopedBatch runtime class, surfaced through its
+// default interface ICompositionScopedBatch. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionScopedBatch struct {
+	ICompositionScopedBatch
+}
+
+// CompositionShadow is the Windows.UI.Composition.CompositionShadow runtime class, surfaced through its
+// default interface ICompositionShadow. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionShadow struct {
+	ICompositionShadow
+}
+
+// CompositionShape is the Windows.UI.Composition.CompositionShape runtime class, surfaced through its
+// default interface ICompositionShape. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionShape struct {
+	ICompositionShape
+}
+
+// CompositionSpriteShape is the Windows.UI.Composition.CompositionSpriteShape runtime class, surfaced through its
+// default interface ICompositionSpriteShape. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionSpriteShape struct {
+	ICompositionSpriteShape
+}
+
+// CompositionSurfaceBrush is the Windows.UI.Composition.CompositionSurfaceBrush runtime class, surfaced through its
+// default interface ICompositionSurfaceBrush. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionSurfaceBrush struct {
+	ICompositionSurfaceBrush
+}
+
+// AsCompositionSurfaceBrush2 queries the instance's ICompositionSurfaceBrush2 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionSurfaceBrush) AsCompositionSurfaceBrush2() (*ICompositionSurfaceBrush2, error) {
+	return winrt.QueryInterface[ICompositionSurfaceBrush2](unsafe.Pointer(self), &IID_ICompositionSurfaceBrush2)
+}
+
+// AsCompositionSurfaceBrush3 queries the instance's ICompositionSurfaceBrush3 interface.
+// The returned reference is owned by the caller.
+func (self *CompositionSurfaceBrush) AsCompositionSurfaceBrush3() (*ICompositionSurfaceBrush3, error) {
+	return winrt.QueryInterface[ICompositionSurfaceBrush3](unsafe.Pointer(self), &IID_ICompositionSurfaceBrush3)
+}
+
+// CompositionTarget is the Windows.UI.Composition.CompositionTarget runtime class, surfaced through its
+// default interface ICompositionTarget. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionTarget struct {
+	ICompositionTarget
+}
+
+// CompositionTexture is the Windows.UI.Composition.CompositionTexture runtime class, surfaced through its
+// default interface ICompositionTexture. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionTexture struct {
+	ICompositionTexture
+}
+
+// AsCompositionSurface queries the instance's ICompositionSurface interface.
+// The returned reference is owned by the caller.
+func (self *CompositionTexture) AsCompositionSurface() (*ICompositionSurface, error) {
+	return winrt.QueryInterface[ICompositionSurface](unsafe.Pointer(self), &IID_ICompositionSurface)
+}
+
+// CompositionTransform is the Windows.UI.Composition.CompositionTransform runtime class, surfaced through its
+// default interface ICompositionTransform. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionTransform struct {
+	ICompositionTransform
+}
+
+// CompositionViewBox is the Windows.UI.Composition.CompositionViewBox runtime class, surfaced through its
+// default interface ICompositionViewBox. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionViewBox struct {
+	ICompositionViewBox
+}
+
+// CompositionVirtualDrawingSurface is the Windows.UI.Composition.CompositionVirtualDrawingSurface runtime class, surfaced through its
+// default interface ICompositionVirtualDrawingSurface. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionVirtualDrawingSurface struct {
+	ICompositionVirtualDrawingSurface
+}
+
+// CompositionVisualSurface is the Windows.UI.Composition.CompositionVisualSurface runtime class, surfaced through its
+// default interface ICompositionVisualSurface. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompositionVisualSurface struct {
+	ICompositionVisualSurface
+}
+
+// AsCompositionSurface queries the instance's ICompositionSurface interface.
+// The returned reference is owned by the caller.
+func (self *CompositionVisualSurface) AsCompositionSurface() (*ICompositionSurface, error) {
+	return winrt.QueryInterface[ICompositionSurface](unsafe.Pointer(self), &IID_ICompositionSurface)
 }
 
 // Compositor is the Windows.UI.Composition.Compositor runtime class, surfaced through its
@@ -266,4 +851,391 @@ func CompositorStatics() (*ICompositorStatics, error) {
 		return nil, err
 	}
 	return (*ICompositorStatics)(unsafe.Pointer(factory)), nil
+}
+
+// ContainerVisual is the Windows.UI.Composition.ContainerVisual runtime class, surfaced through its
+// default interface IContainerVisual. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ContainerVisual struct {
+	IContainerVisual
+}
+
+// CubicBezierEasingFunction is the Windows.UI.Composition.CubicBezierEasingFunction runtime class, surfaced through its
+// default interface ICubicBezierEasingFunction. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CubicBezierEasingFunction struct {
+	ICubicBezierEasingFunction
+}
+
+// DelegatedInkTrailVisual is the Windows.UI.Composition.DelegatedInkTrailVisual runtime class, surfaced through its
+// default interface IDelegatedInkTrailVisual. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DelegatedInkTrailVisual struct {
+	IDelegatedInkTrailVisual
+}
+
+// DelegatedInkTrailVisualStatics returns the Windows.UI.Composition.IDelegatedInkTrailVisualStatics statics of the
+// Windows.UI.Composition.DelegatedInkTrailVisual runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func DelegatedInkTrailVisualStatics() (*IDelegatedInkTrailVisualStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Composition.DelegatedInkTrailVisual", &IID_IDelegatedInkTrailVisualStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IDelegatedInkTrailVisualStatics)(unsafe.Pointer(factory)), nil
+}
+
+// DistantLight is the Windows.UI.Composition.DistantLight runtime class, surfaced through its
+// default interface IDistantLight. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DistantLight struct {
+	IDistantLight
+}
+
+// AsDistantLight2 queries the instance's IDistantLight2 interface.
+// The returned reference is owned by the caller.
+func (self *DistantLight) AsDistantLight2() (*IDistantLight2, error) {
+	return winrt.QueryInterface[IDistantLight2](unsafe.Pointer(self), &IID_IDistantLight2)
+}
+
+// DropShadow is the Windows.UI.Composition.DropShadow runtime class, surfaced through its
+// default interface IDropShadow. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DropShadow struct {
+	IDropShadow
+}
+
+// AsDropShadow2 queries the instance's IDropShadow2 interface.
+// The returned reference is owned by the caller.
+func (self *DropShadow) AsDropShadow2() (*IDropShadow2, error) {
+	return winrt.QueryInterface[IDropShadow2](unsafe.Pointer(self), &IID_IDropShadow2)
+}
+
+// ElasticEasingFunction is the Windows.UI.Composition.ElasticEasingFunction runtime class, surfaced through its
+// default interface IElasticEasingFunction. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ElasticEasingFunction struct {
+	IElasticEasingFunction
+}
+
+// ExponentialEasingFunction is the Windows.UI.Composition.ExponentialEasingFunction runtime class, surfaced through its
+// default interface IExponentialEasingFunction. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ExponentialEasingFunction struct {
+	IExponentialEasingFunction
+}
+
+// ExpressionAnimation is the Windows.UI.Composition.ExpressionAnimation runtime class, surfaced through its
+// default interface IExpressionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ExpressionAnimation struct {
+	IExpressionAnimation
+}
+
+// ImplicitAnimationCollection is the Windows.UI.Composition.ImplicitAnimationCollection runtime class, surfaced through its
+// default interface IImplicitAnimationCollection. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ImplicitAnimationCollection struct {
+	IImplicitAnimationCollection
+}
+
+// AsIterableOfIKeyValuePairOfStringAndICompositionAnimationBase queries the instance's IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase interface.
+// The returned reference is owned by the caller.
+func (self *ImplicitAnimationCollection) AsIterableOfIKeyValuePairOfStringAndICompositionAnimationBase() (*IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase, error) {
+	return winrt.QueryInterface[IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase](unsafe.Pointer(self), &IID_IIterableOfIKeyValuePairOfStringAndICompositionAnimationBase)
+}
+
+// AsMapOfStringAndICompositionAnimationBase queries the instance's IMapOfStringAndICompositionAnimationBase interface.
+// The returned reference is owned by the caller.
+func (self *ImplicitAnimationCollection) AsMapOfStringAndICompositionAnimationBase() (*IMapOfStringAndICompositionAnimationBase, error) {
+	return winrt.QueryInterface[IMapOfStringAndICompositionAnimationBase](unsafe.Pointer(self), &IID_IMapOfStringAndICompositionAnimationBase)
+}
+
+// InsetClip is the Windows.UI.Composition.InsetClip runtime class, surfaced through its
+// default interface IInsetClip. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type InsetClip struct {
+	IInsetClip
+}
+
+// KeyFrameAnimation is the Windows.UI.Composition.KeyFrameAnimation runtime class, surfaced through its
+// default interface IKeyFrameAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type KeyFrameAnimation struct {
+	IKeyFrameAnimation
+}
+
+// AsKeyFrameAnimation2 queries the instance's IKeyFrameAnimation2 interface.
+// The returned reference is owned by the caller.
+func (self *KeyFrameAnimation) AsKeyFrameAnimation2() (*IKeyFrameAnimation2, error) {
+	return winrt.QueryInterface[IKeyFrameAnimation2](unsafe.Pointer(self), &IID_IKeyFrameAnimation2)
+}
+
+// AsKeyFrameAnimation3 queries the instance's IKeyFrameAnimation3 interface.
+// The returned reference is owned by the caller.
+func (self *KeyFrameAnimation) AsKeyFrameAnimation3() (*IKeyFrameAnimation3, error) {
+	return winrt.QueryInterface[IKeyFrameAnimation3](unsafe.Pointer(self), &IID_IKeyFrameAnimation3)
+}
+
+// LayerVisual is the Windows.UI.Composition.LayerVisual runtime class, surfaced through its
+// default interface ILayerVisual. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type LayerVisual struct {
+	ILayerVisual
+}
+
+// AsLayerVisual2 queries the instance's ILayerVisual2 interface.
+// The returned reference is owned by the caller.
+func (self *LayerVisual) AsLayerVisual2() (*ILayerVisual2, error) {
+	return winrt.QueryInterface[ILayerVisual2](unsafe.Pointer(self), &IID_ILayerVisual2)
+}
+
+// LinearEasingFunction is the Windows.UI.Composition.LinearEasingFunction runtime class, surfaced through its
+// default interface ILinearEasingFunction. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type LinearEasingFunction struct {
+	ILinearEasingFunction
+}
+
+// NaturalMotionAnimation is the Windows.UI.Composition.NaturalMotionAnimation runtime class, surfaced through its
+// default interface INaturalMotionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type NaturalMotionAnimation struct {
+	INaturalMotionAnimation
+}
+
+// PathKeyFrameAnimation is the Windows.UI.Composition.PathKeyFrameAnimation runtime class, surfaced through its
+// default interface IPathKeyFrameAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PathKeyFrameAnimation struct {
+	IPathKeyFrameAnimation
+}
+
+// PointLight is the Windows.UI.Composition.PointLight runtime class, surfaced through its
+// default interface IPointLight. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PointLight struct {
+	IPointLight
+}
+
+// AsPointLight2 queries the instance's IPointLight2 interface.
+// The returned reference is owned by the caller.
+func (self *PointLight) AsPointLight2() (*IPointLight2, error) {
+	return winrt.QueryInterface[IPointLight2](unsafe.Pointer(self), &IID_IPointLight2)
+}
+
+// AsPointLight3 queries the instance's IPointLight3 interface.
+// The returned reference is owned by the caller.
+func (self *PointLight) AsPointLight3() (*IPointLight3, error) {
+	return winrt.QueryInterface[IPointLight3](unsafe.Pointer(self), &IID_IPointLight3)
+}
+
+// PowerEasingFunction is the Windows.UI.Composition.PowerEasingFunction runtime class, surfaced through its
+// default interface IPowerEasingFunction. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type PowerEasingFunction struct {
+	IPowerEasingFunction
+}
+
+// QuaternionKeyFrameAnimation is the Windows.UI.Composition.QuaternionKeyFrameAnimation runtime class, surfaced through its
+// default interface IQuaternionKeyFrameAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type QuaternionKeyFrameAnimation struct {
+	IQuaternionKeyFrameAnimation
+}
+
+// RectangleClip is the Windows.UI.Composition.RectangleClip runtime class, surfaced through its
+// default interface IRectangleClip. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RectangleClip struct {
+	IRectangleClip
+}
+
+// RedirectVisual is the Windows.UI.Composition.RedirectVisual runtime class, surfaced through its
+// default interface IRedirectVisual. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RedirectVisual struct {
+	IRedirectVisual
+}
+
+// RenderingDeviceReplacedEventArgs is the Windows.UI.Composition.RenderingDeviceReplacedEventArgs runtime class, surfaced through its
+// default interface IRenderingDeviceReplacedEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type RenderingDeviceReplacedEventArgs struct {
+	IRenderingDeviceReplacedEventArgs
+}
+
+// ScalarKeyFrameAnimation is the Windows.UI.Composition.ScalarKeyFrameAnimation runtime class, surfaced through its
+// default interface IScalarKeyFrameAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ScalarKeyFrameAnimation struct {
+	IScalarKeyFrameAnimation
+}
+
+// ScalarNaturalMotionAnimation is the Windows.UI.Composition.ScalarNaturalMotionAnimation runtime class, surfaced through its
+// default interface IScalarNaturalMotionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ScalarNaturalMotionAnimation struct {
+	IScalarNaturalMotionAnimation
+}
+
+// ShapeVisual is the Windows.UI.Composition.ShapeVisual runtime class, surfaced through its
+// default interface IShapeVisual. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type ShapeVisual struct {
+	IShapeVisual
+}
+
+// SineEasingFunction is the Windows.UI.Composition.SineEasingFunction runtime class, surfaced through its
+// default interface ISineEasingFunction. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SineEasingFunction struct {
+	ISineEasingFunction
+}
+
+// SpotLight is the Windows.UI.Composition.SpotLight runtime class, surfaced through its
+// default interface ISpotLight. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SpotLight struct {
+	ISpotLight
+}
+
+// AsSpotLight2 queries the instance's ISpotLight2 interface.
+// The returned reference is owned by the caller.
+func (self *SpotLight) AsSpotLight2() (*ISpotLight2, error) {
+	return winrt.QueryInterface[ISpotLight2](unsafe.Pointer(self), &IID_ISpotLight2)
+}
+
+// AsSpotLight3 queries the instance's ISpotLight3 interface.
+// The returned reference is owned by the caller.
+func (self *SpotLight) AsSpotLight3() (*ISpotLight3, error) {
+	return winrt.QueryInterface[ISpotLight3](unsafe.Pointer(self), &IID_ISpotLight3)
+}
+
+// SpringScalarNaturalMotionAnimation is the Windows.UI.Composition.SpringScalarNaturalMotionAnimation runtime class, surfaced through its
+// default interface ISpringScalarNaturalMotionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SpringScalarNaturalMotionAnimation struct {
+	ISpringScalarNaturalMotionAnimation
+}
+
+// SpringVector2NaturalMotionAnimation is the Windows.UI.Composition.SpringVector2NaturalMotionAnimation runtime class, surfaced through its
+// default interface ISpringVector2NaturalMotionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SpringVector2NaturalMotionAnimation struct {
+	ISpringVector2NaturalMotionAnimation
+}
+
+// SpringVector3NaturalMotionAnimation is the Windows.UI.Composition.SpringVector3NaturalMotionAnimation runtime class, surfaced through its
+// default interface ISpringVector3NaturalMotionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SpringVector3NaturalMotionAnimation struct {
+	ISpringVector3NaturalMotionAnimation
+}
+
+// SpriteVisual is the Windows.UI.Composition.SpriteVisual runtime class, surfaced through its
+// default interface ISpriteVisual. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type SpriteVisual struct {
+	ISpriteVisual
+}
+
+// AsSpriteVisual2 queries the instance's ISpriteVisual2 interface.
+// The returned reference is owned by the caller.
+func (self *SpriteVisual) AsSpriteVisual2() (*ISpriteVisual2, error) {
+	return winrt.QueryInterface[ISpriteVisual2](unsafe.Pointer(self), &IID_ISpriteVisual2)
+}
+
+// StepEasingFunction is the Windows.UI.Composition.StepEasingFunction runtime class, surfaced through its
+// default interface IStepEasingFunction. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type StepEasingFunction struct {
+	IStepEasingFunction
+}
+
+// Vector2KeyFrameAnimation is the Windows.UI.Composition.Vector2KeyFrameAnimation runtime class, surfaced through its
+// default interface IVector2KeyFrameAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Vector2KeyFrameAnimation struct {
+	IVector2KeyFrameAnimation
+}
+
+// Vector2NaturalMotionAnimation is the Windows.UI.Composition.Vector2NaturalMotionAnimation runtime class, surfaced through its
+// default interface IVector2NaturalMotionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Vector2NaturalMotionAnimation struct {
+	IVector2NaturalMotionAnimation
+}
+
+// Vector3KeyFrameAnimation is the Windows.UI.Composition.Vector3KeyFrameAnimation runtime class, surfaced through its
+// default interface IVector3KeyFrameAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Vector3KeyFrameAnimation struct {
+	IVector3KeyFrameAnimation
+}
+
+// Vector3NaturalMotionAnimation is the Windows.UI.Composition.Vector3NaturalMotionAnimation runtime class, surfaced through its
+// default interface IVector3NaturalMotionAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Vector3NaturalMotionAnimation struct {
+	IVector3NaturalMotionAnimation
+}
+
+// Vector4KeyFrameAnimation is the Windows.UI.Composition.Vector4KeyFrameAnimation runtime class, surfaced through its
+// default interface IVector4KeyFrameAnimation. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Vector4KeyFrameAnimation struct {
+	IVector4KeyFrameAnimation
+}
+
+// Visual is the Windows.UI.Composition.Visual runtime class, surfaced through its
+// default interface IVisual. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type Visual struct {
+	IVisual
+}
+
+// AsVisual2 queries the instance's IVisual2 interface.
+// The returned reference is owned by the caller.
+func (self *Visual) AsVisual2() (*IVisual2, error) {
+	return winrt.QueryInterface[IVisual2](unsafe.Pointer(self), &IID_IVisual2)
+}
+
+// AsVisual3 queries the instance's IVisual3 interface.
+// The returned reference is owned by the caller.
+func (self *Visual) AsVisual3() (*IVisual3, error) {
+	return winrt.QueryInterface[IVisual3](unsafe.Pointer(self), &IID_IVisual3)
+}
+
+// AsVisual4 queries the instance's IVisual4 interface.
+// The returned reference is owned by the caller.
+func (self *Visual) AsVisual4() (*IVisual4, error) {
+	return winrt.QueryInterface[IVisual4](unsafe.Pointer(self), &IID_IVisual4)
+}
+
+// VisualCollection is the Windows.UI.Composition.VisualCollection runtime class, surfaced through its
+// default interface IVisualCollection. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type VisualCollection struct {
+	IVisualCollection
+}
+
+// AsIterableOfVisual queries the instance's IIterableOfVisual interface.
+// The returned reference is owned by the caller.
+func (self *VisualCollection) AsIterableOfVisual() (*IIterableOfVisual, error) {
+	return winrt.QueryInterface[IIterableOfVisual](unsafe.Pointer(self), &IID_IIterableOfVisual)
+}
+
+// VisualUnorderedCollection is the Windows.UI.Composition.VisualUnorderedCollection runtime class, surfaced through its
+// default interface IVisualUnorderedCollection. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type VisualUnorderedCollection struct {
+	IVisualUnorderedCollection
+}
+
+// AsIterableOfVisual queries the instance's IIterableOfVisual interface.
+// The returned reference is owned by the caller.
+func (self *VisualUnorderedCollection) AsIterableOfVisual() (*IIterableOfVisual, error) {
+	return winrt.QueryInterface[IIterableOfVisual](unsafe.Pointer(self), &IID_IIterableOfVisual)
 }

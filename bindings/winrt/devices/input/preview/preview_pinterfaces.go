@@ -84,6 +84,207 @@ func (self *IAsyncOperationOfBool) Await() (bool, error) {
 	return self.GetResults()
 }
 
+// IIterableOfGazePointPreview is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Input.Preview.GazePointPreview>.
+// IID: 1cf68266-3eb7-5336-840a-3c1d9fdf5349
+type IIterableOfGazePointPreview struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfGazePointPreview is the interface identifier for IIterableOfGazePointPreview.
+var IID_IIterableOfGazePointPreview = win32.GUID{Data1: 0x1cf68266, Data2: 0x3eb7, Data3: 0x5336, Data4: [8]byte{0x84, 0x0a, 0x3c, 0x1d, 0x9f, 0xdf, 0x53, 0x49}}
+
+// First dispatches through IIterableOfGazePointPreview's vtable slot 6.
+func (self *IIterableOfGazePointPreview) First() (*IIteratorOfGazePointPreview, error) {
+	result := new(*IIteratorOfGazePointPreview)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfGazePointPreview creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Input.Preview.GazePointPreview>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfGazePointPreview(items []*IGazePointPreview) *IIterableOfGazePointPreview {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Input.Preview.GazePointPreview>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGazePointPreview, Iterator: IID_IIteratorOfGazePointPreview}, winrt.CodecInterface, boxed)
+	return (*IIterableOfGazePointPreview)(unsafe.Pointer(obj))
+}
+
+// IIterableOfHidBooleanControlDescription is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription>.
+// IID: d0ff0fed-a156-58bf-9411-5777df9d57bf
+type IIterableOfHidBooleanControlDescription struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHidBooleanControlDescription is the interface identifier for IIterableOfHidBooleanControlDescription.
+var IID_IIterableOfHidBooleanControlDescription = win32.GUID{Data1: 0xd0ff0fed, Data2: 0xa156, Data3: 0x58bf, Data4: [8]byte{0x94, 0x11, 0x57, 0x77, 0xdf, 0x9d, 0x57, 0xbf}}
+
+// First dispatches through IIterableOfHidBooleanControlDescription's vtable slot 6.
+func (self *IIterableOfHidBooleanControlDescription) First() (*IIteratorOfHidBooleanControlDescription, error) {
+	result := new(*IIteratorOfHidBooleanControlDescription)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHidBooleanControlDescription creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHidBooleanControlDescription(items []*deviceshumaninterfacedevice.IHidBooleanControlDescription) *IIterableOfHidBooleanControlDescription {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHidBooleanControlDescription, Iterator: IID_IIteratorOfHidBooleanControlDescription}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHidBooleanControlDescription)(unsafe.Pointer(obj))
+}
+
+// IIterableOfHidNumericControlDescription is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription>.
+// IID: 868f060d-e0d4-571b-b2f7-431d6984a513
+type IIterableOfHidNumericControlDescription struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHidNumericControlDescription is the interface identifier for IIterableOfHidNumericControlDescription.
+var IID_IIterableOfHidNumericControlDescription = win32.GUID{Data1: 0x868f060d, Data2: 0xe0d4, Data3: 0x571b, Data4: [8]byte{0xb2, 0xf7, 0x43, 0x1d, 0x69, 0x84, 0xa5, 0x13}}
+
+// First dispatches through IIterableOfHidNumericControlDescription's vtable slot 6.
+func (self *IIterableOfHidNumericControlDescription) First() (*IIteratorOfHidNumericControlDescription, error) {
+	result := new(*IIteratorOfHidNumericControlDescription)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHidNumericControlDescription creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHidNumericControlDescription(items []*deviceshumaninterfacedevice.IHidNumericControlDescription) *IIterableOfHidNumericControlDescription {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHidNumericControlDescription, Iterator: IID_IIteratorOfHidNumericControlDescription}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHidNumericControlDescription)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfGazePointPreview is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Input.Preview.GazePointPreview>.
+// IID: ad015c81-2d80-501e-bc9a-a63f05f93bac
+type IIteratorOfGazePointPreview struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfGazePointPreview is the interface identifier for IIteratorOfGazePointPreview.
+var IID_IIteratorOfGazePointPreview = win32.GUID{Data1: 0xad015c81, Data2: 0x2d80, Data3: 0x501e, Data4: [8]byte{0xbc, 0x9a, 0xa6, 0x3f, 0x05, 0xf9, 0x3b, 0xac}}
+
+// Current (propget get_Current) dispatches through IIteratorOfGazePointPreview's vtable slot 6.
+func (self *IIteratorOfGazePointPreview) Current() (*IGazePointPreview, error) {
+	result := new(*IGazePointPreview)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfGazePointPreview's vtable slot 7.
+func (self *IIteratorOfGazePointPreview) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfGazePointPreview's vtable slot 8.
+func (self *IIteratorOfGazePointPreview) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfHidBooleanControlDescription is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription>.
+// IID: 203203b0-b7f4-542d-b0d0-9caa1fb55d7f
+type IIteratorOfHidBooleanControlDescription struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHidBooleanControlDescription is the interface identifier for IIteratorOfHidBooleanControlDescription.
+var IID_IIteratorOfHidBooleanControlDescription = win32.GUID{Data1: 0x203203b0, Data2: 0xb7f4, Data3: 0x542d, Data4: [8]byte{0xb0, 0xd0, 0x9c, 0xaa, 0x1f, 0xb5, 0x5d, 0x7f}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHidBooleanControlDescription's vtable slot 6.
+func (self *IIteratorOfHidBooleanControlDescription) Current() (*deviceshumaninterfacedevice.IHidBooleanControlDescription, error) {
+	result := new(*deviceshumaninterfacedevice.IHidBooleanControlDescription)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHidBooleanControlDescription's vtable slot 7.
+func (self *IIteratorOfHidBooleanControlDescription) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHidBooleanControlDescription's vtable slot 8.
+func (self *IIteratorOfHidBooleanControlDescription) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfHidNumericControlDescription is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription>.
+// IID: 52b9c36e-7d95-5d1c-acab-23c19ea76f01
+type IIteratorOfHidNumericControlDescription struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHidNumericControlDescription is the interface identifier for IIteratorOfHidNumericControlDescription.
+var IID_IIteratorOfHidNumericControlDescription = win32.GUID{Data1: 0x52b9c36e, Data2: 0x7d95, Data3: 0x5d1c, Data4: [8]byte{0xac, 0xab, 0x23, 0xc1, 0x9e, 0xa7, 0x6f, 0x01}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHidNumericControlDescription's vtable slot 6.
+func (self *IIteratorOfHidNumericControlDescription) Current() (*deviceshumaninterfacedevice.IHidNumericControlDescription, error) {
+	result := new(*deviceshumaninterfacedevice.IHidNumericControlDescription)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHidNumericControlDescription's vtable slot 7.
+func (self *IIteratorOfHidNumericControlDescription) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHidNumericControlDescription's vtable slot 8.
+func (self *IIteratorOfHidNumericControlDescription) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfPoint is the WinRT interface Windows.Foundation.IReference`1<Windows.Foundation.Point>.
 // IID: 84f14c22-a00a-5272-8d3d-82112e66df00
 // Requires: Windows.Foundation.IPropertyValue.
@@ -179,6 +380,28 @@ func (self *IVectorOfGazePointPreview) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfGazePointPreview creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Input.Preview.GazePointPreview>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfGazePointPreview(items []*IGazePointPreview) *IVectorOfGazePointPreview {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Input.Preview.GazePointPreview>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGazePointPreview, Iterator: IID_IIteratorOfGazePointPreview, VectorView: IID_IVectorViewOfGazePointPreview, Vector: IID_IVectorOfGazePointPreview}, winrt.CodecInterface, boxed)
+	return (*IVectorOfGazePointPreview)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfGazePointPreview is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Input.Preview.GazePointPreview>.
 // IID: 3d3d6148-ad02-56eb-acaf-0ea9e47c0298
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Input.Preview.GazePointPreview>.
@@ -211,6 +434,25 @@ func (self *IVectorViewOfGazePointPreview) IndexOf(value *IGazePointPreview, ind
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfGazePointPreview creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Input.Preview.GazePointPreview>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfGazePointPreview(items []*IGazePointPreview) *IVectorViewOfGazePointPreview {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Input.Preview.GazePointPreview>", winrt.CollectionIIDs{Iterable: IID_IIterableOfGazePointPreview, Iterator: IID_IIteratorOfGazePointPreview, VectorView: IID_IVectorViewOfGazePointPreview}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfGazePointPreview)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfHidBooleanControlDescription is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription>.
 // IID: aab72786-ec34-536f-a7c5-27394753df2c
@@ -245,6 +487,25 @@ func (self *IVectorViewOfHidBooleanControlDescription) IndexOf(value *deviceshum
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfHidBooleanControlDescription creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHidBooleanControlDescription(items []*deviceshumaninterfacedevice.IHidBooleanControlDescription) *IVectorViewOfHidBooleanControlDescription {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHidBooleanControlDescription, Iterator: IID_IIteratorOfHidBooleanControlDescription, VectorView: IID_IVectorViewOfHidBooleanControlDescription}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHidBooleanControlDescription)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHidNumericControlDescription is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription>.
 // IID: e02ca66c-610a-51b4-aef9-3707b697b985
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription>.
@@ -277,3 +538,22 @@ func (self *IVectorViewOfHidNumericControlDescription) IndexOf(value *deviceshum
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHidNumericControlDescription creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHidNumericControlDescription(items []*deviceshumaninterfacedevice.IHidNumericControlDescription) *IVectorViewOfHidNumericControlDescription {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHidNumericControlDescription, Iterator: IID_IIteratorOfHidNumericControlDescription, VectorView: IID_IVectorViewOfHidNumericControlDescription}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHidNumericControlDescription)(unsafe.Pointer(obj))
+}

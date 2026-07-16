@@ -84,6 +84,207 @@ func (self *IAsyncOperationOfFocusMovementResult) Await() (*IFocusMovementResult
 	return self.GetResults()
 }
 
+// IIterableOfInputScopeName is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Input.InputScopeName>.
+// IID: 81416296-95d0-5100-b59b-bea1c27d2002
+type IIterableOfInputScopeName struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfInputScopeName is the interface identifier for IIterableOfInputScopeName.
+var IID_IIterableOfInputScopeName = win32.GUID{Data1: 0x81416296, Data2: 0x95d0, Data3: 0x5100, Data4: [8]byte{0xb5, 0x9b, 0xbe, 0xa1, 0xc2, 0x7d, 0x20, 0x02}}
+
+// First dispatches through IIterableOfInputScopeName's vtable slot 6.
+func (self *IIterableOfInputScopeName) First() (*IIteratorOfInputScopeName, error) {
+	result := new(*IIteratorOfInputScopeName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfInputScopeName creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Input.InputScopeName>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfInputScopeName(items []*IInputScopeName) *IIterableOfInputScopeName {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Input.InputScopeName>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInputScopeName, Iterator: IID_IIteratorOfInputScopeName}, winrt.CodecInterface, boxed)
+	return (*IIterableOfInputScopeName)(unsafe.Pointer(obj))
+}
+
+// IIterableOfKeyboardAccelerator is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Input.KeyboardAccelerator>.
+// IID: af1e5ff1-d518-5521-b40e-6f524d04c129
+type IIterableOfKeyboardAccelerator struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfKeyboardAccelerator is the interface identifier for IIterableOfKeyboardAccelerator.
+var IID_IIterableOfKeyboardAccelerator = win32.GUID{Data1: 0xaf1e5ff1, Data2: 0xd518, Data3: 0x5521, Data4: [8]byte{0xb4, 0x0e, 0x6f, 0x52, 0x4d, 0x04, 0xc1, 0x29}}
+
+// First dispatches through IIterableOfKeyboardAccelerator's vtable slot 6.
+func (self *IIterableOfKeyboardAccelerator) First() (*IIteratorOfKeyboardAccelerator, error) {
+	result := new(*IIteratorOfKeyboardAccelerator)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfKeyboardAccelerator creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Input.KeyboardAccelerator>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfKeyboardAccelerator(items []*IKeyboardAccelerator) *IIterableOfKeyboardAccelerator {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Input.KeyboardAccelerator>", winrt.CollectionIIDs{Iterable: IID_IIterableOfKeyboardAccelerator, Iterator: IID_IIteratorOfKeyboardAccelerator}, winrt.CodecInterface, boxed)
+	return (*IIterableOfKeyboardAccelerator)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPointerPoint is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.PointerPoint>.
+// IID: f6f2cba6-7076-5b59-9631-f6ac32b57695
+type IIterableOfPointerPoint struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPointerPoint is the interface identifier for IIterableOfPointerPoint.
+var IID_IIterableOfPointerPoint = win32.GUID{Data1: 0xf6f2cba6, Data2: 0x7076, Data3: 0x5b59, Data4: [8]byte{0x96, 0x31, 0xf6, 0xac, 0x32, 0xb5, 0x76, 0x95}}
+
+// First dispatches through IIterableOfPointerPoint's vtable slot 6.
+func (self *IIterableOfPointerPoint) First() (*IIteratorOfPointerPoint, error) {
+	result := new(*IIteratorOfPointerPoint)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPointerPoint creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.PointerPoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPointerPoint(items []*uiinput.IPointerPoint) *IIterableOfPointerPoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Input.PointerPoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPointerPoint, Iterator: IID_IIteratorOfPointerPoint}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPointerPoint)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfInputScopeName is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Input.InputScopeName>.
+// IID: 7ac16ff4-5857-5001-b87f-327093f68392
+type IIteratorOfInputScopeName struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfInputScopeName is the interface identifier for IIteratorOfInputScopeName.
+var IID_IIteratorOfInputScopeName = win32.GUID{Data1: 0x7ac16ff4, Data2: 0x5857, Data3: 0x5001, Data4: [8]byte{0xb8, 0x7f, 0x32, 0x70, 0x93, 0xf6, 0x83, 0x92}}
+
+// Current (propget get_Current) dispatches through IIteratorOfInputScopeName's vtable slot 6.
+func (self *IIteratorOfInputScopeName) Current() (*IInputScopeName, error) {
+	result := new(*IInputScopeName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfInputScopeName's vtable slot 7.
+func (self *IIteratorOfInputScopeName) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfInputScopeName's vtable slot 8.
+func (self *IIteratorOfInputScopeName) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfKeyboardAccelerator is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Input.KeyboardAccelerator>.
+// IID: 8b6ac198-eaa0-50e6-9a35-32dfdf1f59e1
+type IIteratorOfKeyboardAccelerator struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfKeyboardAccelerator is the interface identifier for IIteratorOfKeyboardAccelerator.
+var IID_IIteratorOfKeyboardAccelerator = win32.GUID{Data1: 0x8b6ac198, Data2: 0xeaa0, Data3: 0x50e6, Data4: [8]byte{0x9a, 0x35, 0x32, 0xdf, 0xdf, 0x1f, 0x59, 0xe1}}
+
+// Current (propget get_Current) dispatches through IIteratorOfKeyboardAccelerator's vtable slot 6.
+func (self *IIteratorOfKeyboardAccelerator) Current() (*IKeyboardAccelerator, error) {
+	result := new(*IKeyboardAccelerator)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfKeyboardAccelerator's vtable slot 7.
+func (self *IIteratorOfKeyboardAccelerator) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfKeyboardAccelerator's vtable slot 8.
+func (self *IIteratorOfKeyboardAccelerator) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPointerPoint is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Input.PointerPoint>.
+// IID: 721fe01c-5ad4-5262-b078-3ab345105db8
+type IIteratorOfPointerPoint struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPointerPoint is the interface identifier for IIteratorOfPointerPoint.
+var IID_IIteratorOfPointerPoint = win32.GUID{Data1: 0x721fe01c, Data2: 0x5ad4, Data3: 0x5262, Data4: [8]byte{0xb0, 0x78, 0x3a, 0xb3, 0x45, 0x10, 0x5d, 0xb8}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPointerPoint's vtable slot 6.
+func (self *IIteratorOfPointerPoint) Current() (*uiinput.IPointerPoint, error) {
+	result := new(*uiinput.IPointerPoint)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPointerPoint's vtable slot 7.
+func (self *IIteratorOfPointerPoint) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPointerPoint's vtable slot 8.
+func (self *IIteratorOfPointerPoint) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfInputScopeName is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Input.InputScopeName>.
 // IID: 703fe123-d766-562f-b210-1980bb2a0d33
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Input.InputScopeName>.
@@ -95,9 +296,8 @@ type IVectorOfInputScopeName struct {
 var IID_IVectorOfInputScopeName = win32.GUID{Data1: 0x703fe123, Data2: 0xd766, Data3: 0x562f, Data4: [8]byte{0xb2, 0x10, 0x19, 0x80, 0xbb, 0x2a, 0x0d, 0x33}}
 
 // GetAt dispatches through IVectorOfInputScopeName's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfInputScopeName) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfInputScopeName) GetAt(index uint32) (*IInputScopeName, error) {
+	result := new(*IInputScopeName)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -117,23 +317,20 @@ func (self *IVectorOfInputScopeName) GetView() (*IVectorViewOfInputScopeName, er
 }
 
 // IndexOf dispatches through IVectorOfInputScopeName's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfInputScopeName) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfInputScopeName) IndexOf(value *IInputScopeName, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfInputScopeName's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfInputScopeName) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfInputScopeName) SetAt(index uint32, value *IInputScopeName) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfInputScopeName's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfInputScopeName) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfInputScopeName) InsertAt(index uint32, value *IInputScopeName) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -145,8 +342,7 @@ func (self *IVectorOfInputScopeName) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfInputScopeName's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfInputScopeName) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfInputScopeName) Append(value *IInputScopeName) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -167,6 +363,28 @@ func (self *IVectorOfInputScopeName) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfInputScopeName creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Input.InputScopeName>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfInputScopeName(items []*IInputScopeName) *IVectorOfInputScopeName {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Input.InputScopeName>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInputScopeName, Iterator: IID_IIteratorOfInputScopeName, VectorView: IID_IVectorViewOfInputScopeName, Vector: IID_IVectorOfInputScopeName}, winrt.CodecInterface, boxed)
+	return (*IVectorOfInputScopeName)(unsafe.Pointer(obj))
+}
+
 // IVectorOfKeyboardAccelerator is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Input.KeyboardAccelerator>.
 // IID: e4927feb-1e4a-5be3-bda3-62cf4e520258
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Input.KeyboardAccelerator>.
@@ -178,9 +396,8 @@ type IVectorOfKeyboardAccelerator struct {
 var IID_IVectorOfKeyboardAccelerator = win32.GUID{Data1: 0xe4927feb, Data2: 0x1e4a, Data3: 0x5be3, Data4: [8]byte{0xbd, 0xa3, 0x62, 0xcf, 0x4e, 0x52, 0x02, 0x58}}
 
 // GetAt dispatches through IVectorOfKeyboardAccelerator's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfKeyboardAccelerator) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfKeyboardAccelerator) GetAt(index uint32) (*IKeyboardAccelerator, error) {
+	result := new(*IKeyboardAccelerator)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -200,23 +417,20 @@ func (self *IVectorOfKeyboardAccelerator) GetView() (*IVectorViewOfKeyboardAccel
 }
 
 // IndexOf dispatches through IVectorOfKeyboardAccelerator's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfKeyboardAccelerator) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfKeyboardAccelerator) IndexOf(value *IKeyboardAccelerator, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfKeyboardAccelerator's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfKeyboardAccelerator) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfKeyboardAccelerator) SetAt(index uint32, value *IKeyboardAccelerator) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfKeyboardAccelerator's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfKeyboardAccelerator) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfKeyboardAccelerator) InsertAt(index uint32, value *IKeyboardAccelerator) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -228,8 +442,7 @@ func (self *IVectorOfKeyboardAccelerator) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfKeyboardAccelerator's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfKeyboardAccelerator) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfKeyboardAccelerator) Append(value *IKeyboardAccelerator) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -249,6 +462,28 @@ func (self *IVectorOfKeyboardAccelerator) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfKeyboardAccelerator creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Input.KeyboardAccelerator>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfKeyboardAccelerator(items []*IKeyboardAccelerator) *IVectorOfKeyboardAccelerator {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Input.KeyboardAccelerator>", winrt.CollectionIIDs{Iterable: IID_IIterableOfKeyboardAccelerator, Iterator: IID_IIteratorOfKeyboardAccelerator, VectorView: IID_IVectorViewOfKeyboardAccelerator, Vector: IID_IVectorOfKeyboardAccelerator}, winrt.CodecInterface, boxed)
+	return (*IVectorOfKeyboardAccelerator)(unsafe.Pointer(obj))
+}
 
 // IVectorOfPointerPoint is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Input.PointerPoint>.
 // IID: dfa655cf-fde7-5048-b4bf-c909231b7edb
@@ -328,6 +563,28 @@ func (self *IVectorOfPointerPoint) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfPointerPoint creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Input.PointerPoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfPointerPoint(items []*uiinput.IPointerPoint) *IVectorOfPointerPoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Input.PointerPoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPointerPoint, Iterator: IID_IIteratorOfPointerPoint, VectorView: IID_IVectorViewOfPointerPoint, Vector: IID_IVectorOfPointerPoint}, winrt.CodecInterface, boxed)
+	return (*IVectorOfPointerPoint)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfInputScopeName is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Input.InputScopeName>.
 // IID: fcd65a82-5328-53bc-a884-c209aafabf78
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Input.InputScopeName>.
@@ -339,9 +596,8 @@ type IVectorViewOfInputScopeName struct {
 var IID_IVectorViewOfInputScopeName = win32.GUID{Data1: 0xfcd65a82, Data2: 0x5328, Data3: 0x53bc, Data4: [8]byte{0xa8, 0x84, 0xc2, 0x09, 0xaa, 0xfa, 0xbf, 0x78}}
 
 // GetAt dispatches through IVectorViewOfInputScopeName's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfInputScopeName) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfInputScopeName) GetAt(index uint32) (*IInputScopeName, error) {
+	result := new(*IInputScopeName)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -354,14 +610,32 @@ func (self *IVectorViewOfInputScopeName) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfInputScopeName's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Input.InputScopeName is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfInputScopeName) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfInputScopeName) IndexOf(value *IInputScopeName, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfInputScopeName creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Input.InputScopeName>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfInputScopeName(items []*IInputScopeName) *IVectorViewOfInputScopeName {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Input.InputScopeName>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInputScopeName, Iterator: IID_IIteratorOfInputScopeName, VectorView: IID_IVectorViewOfInputScopeName}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfInputScopeName)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfKeyboardAccelerator is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Input.KeyboardAccelerator>.
 // IID: 4d5e3d08-e27c-5d05-a1dc-9885a51c3721
@@ -374,9 +648,8 @@ type IVectorViewOfKeyboardAccelerator struct {
 var IID_IVectorViewOfKeyboardAccelerator = win32.GUID{Data1: 0x4d5e3d08, Data2: 0xe27c, Data3: 0x5d05, Data4: [8]byte{0xa1, 0xdc, 0x98, 0x85, 0xa5, 0x1c, 0x37, 0x21}}
 
 // GetAt dispatches through IVectorViewOfKeyboardAccelerator's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfKeyboardAccelerator) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfKeyboardAccelerator) GetAt(index uint32) (*IKeyboardAccelerator, error) {
+	result := new(*IKeyboardAccelerator)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -389,14 +662,32 @@ func (self *IVectorViewOfKeyboardAccelerator) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfKeyboardAccelerator's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Input.KeyboardAccelerator is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfKeyboardAccelerator) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfKeyboardAccelerator) IndexOf(value *IKeyboardAccelerator, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfKeyboardAccelerator creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Input.KeyboardAccelerator>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfKeyboardAccelerator(items []*IKeyboardAccelerator) *IVectorViewOfKeyboardAccelerator {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Input.KeyboardAccelerator>", winrt.CollectionIIDs{Iterable: IID_IIterableOfKeyboardAccelerator, Iterator: IID_IIteratorOfKeyboardAccelerator, VectorView: IID_IVectorViewOfKeyboardAccelerator}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfKeyboardAccelerator)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfPointerPoint is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.PointerPoint>.
 // IID: f0f57411-7786-5174-8752-4c5e834b6da2
@@ -430,3 +721,22 @@ func (self *IVectorViewOfPointerPoint) IndexOf(value *uiinput.IPointerPoint, ind
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPointerPoint creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.PointerPoint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPointerPoint(items []*uiinput.IPointerPoint) *IVectorViewOfPointerPoint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Input.PointerPoint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPointerPoint, Iterator: IID_IIteratorOfPointerPoint, VectorView: IID_IVectorViewOfPointerPoint}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPointerPoint)(unsafe.Pointer(obj))
+}

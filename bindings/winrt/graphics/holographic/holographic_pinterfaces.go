@@ -15,6 +15,467 @@ import (
 	perceptionspatial "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/perception/spatial"
 )
 
+// IIterableOfDirectXPixelFormat is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.DirectX.DirectXPixelFormat>.
+// IID: 3908f2c6-1aee-5129-b9a6-2a6e01d9507e
+type IIterableOfDirectXPixelFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDirectXPixelFormat is the interface identifier for IIterableOfDirectXPixelFormat.
+var IID_IIterableOfDirectXPixelFormat = win32.GUID{Data1: 0x3908f2c6, Data2: 0x1aee, Data3: 0x5129, Data4: [8]byte{0xb9, 0xa6, 0x2a, 0x6e, 0x01, 0xd9, 0x50, 0x7e}}
+
+// First dispatches through IIterableOfDirectXPixelFormat's vtable slot 6.
+func (self *IIterableOfDirectXPixelFormat) First() (*IIteratorOfDirectXPixelFormat, error) {
+	result := new(*IIteratorOfDirectXPixelFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDirectXPixelFormat creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.DirectX.DirectXPixelFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfDirectXPixelFormat(items []graphicsdirectx.DirectXPixelFormat) *IIterableOfDirectXPixelFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.DirectX.DirectXPixelFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDirectXPixelFormat, Iterator: IID_IIteratorOfDirectXPixelFormat}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfDirectXPixelFormat)(unsafe.Pointer(obj))
+}
+
+// IIterableOfHolographicCamera is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicCamera>.
+// IID: b2afd154-8db0-5bb2-ad7a-684afd479264
+type IIterableOfHolographicCamera struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHolographicCamera is the interface identifier for IIterableOfHolographicCamera.
+var IID_IIterableOfHolographicCamera = win32.GUID{Data1: 0xb2afd154, Data2: 0x8db0, Data3: 0x5bb2, Data4: [8]byte{0xad, 0x7a, 0x68, 0x4a, 0xfd, 0x47, 0x92, 0x64}}
+
+// First dispatches through IIterableOfHolographicCamera's vtable slot 6.
+func (self *IIterableOfHolographicCamera) First() (*IIteratorOfHolographicCamera, error) {
+	result := new(*IIteratorOfHolographicCamera)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHolographicCamera creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicCamera>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHolographicCamera(items []*IHolographicCamera) *IIterableOfHolographicCamera {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicCamera>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicCamera, Iterator: IID_IIteratorOfHolographicCamera}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHolographicCamera)(unsafe.Pointer(obj))
+}
+
+// IIterableOfHolographicCameraPose is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicCameraPose>.
+// IID: 92111aff-8dcc-538e-ae3d-31fd252a0ad5
+type IIterableOfHolographicCameraPose struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHolographicCameraPose is the interface identifier for IIterableOfHolographicCameraPose.
+var IID_IIterableOfHolographicCameraPose = win32.GUID{Data1: 0x92111aff, Data2: 0x8dcc, Data3: 0x538e, Data4: [8]byte{0xae, 0x3d, 0x31, 0xfd, 0x25, 0x2a, 0x0a, 0xd5}}
+
+// First dispatches through IIterableOfHolographicCameraPose's vtable slot 6.
+func (self *IIterableOfHolographicCameraPose) First() (*IIteratorOfHolographicCameraPose, error) {
+	result := new(*IIteratorOfHolographicCameraPose)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHolographicCameraPose creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicCameraPose>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHolographicCameraPose(items []*IHolographicCameraPose) *IIterableOfHolographicCameraPose {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicCameraPose>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicCameraPose, Iterator: IID_IIteratorOfHolographicCameraPose}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHolographicCameraPose)(unsafe.Pointer(obj))
+}
+
+// IIterableOfHolographicDepthReprojectionMethod is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicDepthReprojectionMethod>.
+// IID: 2803c19f-8082-52c0-aad1-68ab51ed287f
+type IIterableOfHolographicDepthReprojectionMethod struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHolographicDepthReprojectionMethod is the interface identifier for IIterableOfHolographicDepthReprojectionMethod.
+var IID_IIterableOfHolographicDepthReprojectionMethod = win32.GUID{Data1: 0x2803c19f, Data2: 0x8082, Data3: 0x52c0, Data4: [8]byte{0xaa, 0xd1, 0x68, 0xab, 0x51, 0xed, 0x28, 0x7f}}
+
+// First dispatches through IIterableOfHolographicDepthReprojectionMethod's vtable slot 6.
+func (self *IIterableOfHolographicDepthReprojectionMethod) First() (*IIteratorOfHolographicDepthReprojectionMethod, error) {
+	result := new(*IIteratorOfHolographicDepthReprojectionMethod)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHolographicDepthReprojectionMethod creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicDepthReprojectionMethod>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfHolographicDepthReprojectionMethod(items []HolographicDepthReprojectionMethod) *IIterableOfHolographicDepthReprojectionMethod {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicDepthReprojectionMethod>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicDepthReprojectionMethod, Iterator: IID_IIteratorOfHolographicDepthReprojectionMethod}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfHolographicDepthReprojectionMethod)(unsafe.Pointer(obj))
+}
+
+// IIterableOfHolographicFramePresentationReport is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicFramePresentationReport>.
+// IID: d0fe1cdf-33ad-5051-8c5b-ab9a2b2c24bf
+type IIterableOfHolographicFramePresentationReport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHolographicFramePresentationReport is the interface identifier for IIterableOfHolographicFramePresentationReport.
+var IID_IIterableOfHolographicFramePresentationReport = win32.GUID{Data1: 0xd0fe1cdf, Data2: 0x33ad, Data3: 0x5051, Data4: [8]byte{0x8c, 0x5b, 0xab, 0x9a, 0x2b, 0x2c, 0x24, 0xbf}}
+
+// First dispatches through IIterableOfHolographicFramePresentationReport's vtable slot 6.
+func (self *IIterableOfHolographicFramePresentationReport) First() (*IIteratorOfHolographicFramePresentationReport, error) {
+	result := new(*IIteratorOfHolographicFramePresentationReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHolographicFramePresentationReport creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicFramePresentationReport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHolographicFramePresentationReport(items []*IHolographicFramePresentationReport) *IIterableOfHolographicFramePresentationReport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicFramePresentationReport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicFramePresentationReport, Iterator: IID_IIteratorOfHolographicFramePresentationReport}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHolographicFramePresentationReport)(unsafe.Pointer(obj))
+}
+
+// IIterableOfHolographicFrameScanoutReport is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicFrameScanoutReport>.
+// IID: cfa9ea14-4803-5001-9eda-cb4ffcd270e9
+type IIterableOfHolographicFrameScanoutReport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHolographicFrameScanoutReport is the interface identifier for IIterableOfHolographicFrameScanoutReport.
+var IID_IIterableOfHolographicFrameScanoutReport = win32.GUID{Data1: 0xcfa9ea14, Data2: 0x4803, Data3: 0x5001, Data4: [8]byte{0x9e, 0xda, 0xcb, 0x4f, 0xfc, 0xd2, 0x70, 0xe9}}
+
+// First dispatches through IIterableOfHolographicFrameScanoutReport's vtable slot 6.
+func (self *IIterableOfHolographicFrameScanoutReport) First() (*IIteratorOfHolographicFrameScanoutReport, error) {
+	result := new(*IIteratorOfHolographicFrameScanoutReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHolographicFrameScanoutReport creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicFrameScanoutReport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHolographicFrameScanoutReport(items []*IHolographicFrameScanoutReport) *IIterableOfHolographicFrameScanoutReport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicFrameScanoutReport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicFrameScanoutReport, Iterator: IID_IIteratorOfHolographicFrameScanoutReport}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHolographicFrameScanoutReport)(unsafe.Pointer(obj))
+}
+
+// IIterableOfHolographicQuadLayer is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicQuadLayer>.
+// IID: 84744661-94de-5866-a15d-9efb19a99a54
+type IIterableOfHolographicQuadLayer struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfHolographicQuadLayer is the interface identifier for IIterableOfHolographicQuadLayer.
+var IID_IIterableOfHolographicQuadLayer = win32.GUID{Data1: 0x84744661, Data2: 0x94de, Data3: 0x5866, Data4: [8]byte{0xa1, 0x5d, 0x9e, 0xfb, 0x19, 0xa9, 0x9a, 0x54}}
+
+// First dispatches through IIterableOfHolographicQuadLayer's vtable slot 6.
+func (self *IIterableOfHolographicQuadLayer) First() (*IIteratorOfHolographicQuadLayer, error) {
+	result := new(*IIteratorOfHolographicQuadLayer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfHolographicQuadLayer creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicQuadLayer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfHolographicQuadLayer(items []*IHolographicQuadLayer) *IIterableOfHolographicQuadLayer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicQuadLayer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicQuadLayer, Iterator: IID_IIteratorOfHolographicQuadLayer}, winrt.CodecInterface, boxed)
+	return (*IIterableOfHolographicQuadLayer)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfDirectXPixelFormat is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.DirectX.DirectXPixelFormat>.
+// IID: ea016190-ac80-5840-8f58-ff434c7b2907
+type IIteratorOfDirectXPixelFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDirectXPixelFormat is the interface identifier for IIteratorOfDirectXPixelFormat.
+var IID_IIteratorOfDirectXPixelFormat = win32.GUID{Data1: 0xea016190, Data2: 0xac80, Data3: 0x5840, Data4: [8]byte{0x8f, 0x58, 0xff, 0x43, 0x4c, 0x7b, 0x29, 0x07}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDirectXPixelFormat's vtable slot 6.
+func (self *IIteratorOfDirectXPixelFormat) Current() (graphicsdirectx.DirectXPixelFormat, error) {
+	result := new(graphicsdirectx.DirectXPixelFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDirectXPixelFormat's vtable slot 7.
+func (self *IIteratorOfDirectXPixelFormat) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDirectXPixelFormat's vtable slot 8.
+func (self *IIteratorOfDirectXPixelFormat) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfHolographicCamera is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Holographic.HolographicCamera>.
+// IID: 6acc8576-2fea-561d-84dd-4a1ab05fc7ed
+type IIteratorOfHolographicCamera struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHolographicCamera is the interface identifier for IIteratorOfHolographicCamera.
+var IID_IIteratorOfHolographicCamera = win32.GUID{Data1: 0x6acc8576, Data2: 0x2fea, Data3: 0x561d, Data4: [8]byte{0x84, 0xdd, 0x4a, 0x1a, 0xb0, 0x5f, 0xc7, 0xed}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHolographicCamera's vtable slot 6.
+func (self *IIteratorOfHolographicCamera) Current() (*IHolographicCamera, error) {
+	result := new(*IHolographicCamera)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHolographicCamera's vtable slot 7.
+func (self *IIteratorOfHolographicCamera) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHolographicCamera's vtable slot 8.
+func (self *IIteratorOfHolographicCamera) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfHolographicCameraPose is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Holographic.HolographicCameraPose>.
+// IID: 93e27fb4-332b-591e-ae6b-6192fa0a1009
+type IIteratorOfHolographicCameraPose struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHolographicCameraPose is the interface identifier for IIteratorOfHolographicCameraPose.
+var IID_IIteratorOfHolographicCameraPose = win32.GUID{Data1: 0x93e27fb4, Data2: 0x332b, Data3: 0x591e, Data4: [8]byte{0xae, 0x6b, 0x61, 0x92, 0xfa, 0x0a, 0x10, 0x09}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHolographicCameraPose's vtable slot 6.
+func (self *IIteratorOfHolographicCameraPose) Current() (*IHolographicCameraPose, error) {
+	result := new(*IHolographicCameraPose)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHolographicCameraPose's vtable slot 7.
+func (self *IIteratorOfHolographicCameraPose) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHolographicCameraPose's vtable slot 8.
+func (self *IIteratorOfHolographicCameraPose) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfHolographicDepthReprojectionMethod is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Holographic.HolographicDepthReprojectionMethod>.
+// IID: e2486838-8e17-52a2-b3b2-8db3de6412b7
+type IIteratorOfHolographicDepthReprojectionMethod struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHolographicDepthReprojectionMethod is the interface identifier for IIteratorOfHolographicDepthReprojectionMethod.
+var IID_IIteratorOfHolographicDepthReprojectionMethod = win32.GUID{Data1: 0xe2486838, Data2: 0x8e17, Data3: 0x52a2, Data4: [8]byte{0xb3, 0xb2, 0x8d, 0xb3, 0xde, 0x64, 0x12, 0xb7}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHolographicDepthReprojectionMethod's vtable slot 6.
+func (self *IIteratorOfHolographicDepthReprojectionMethod) Current() (HolographicDepthReprojectionMethod, error) {
+	result := new(HolographicDepthReprojectionMethod)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHolographicDepthReprojectionMethod's vtable slot 7.
+func (self *IIteratorOfHolographicDepthReprojectionMethod) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHolographicDepthReprojectionMethod's vtable slot 8.
+func (self *IIteratorOfHolographicDepthReprojectionMethod) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfHolographicFramePresentationReport is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Holographic.HolographicFramePresentationReport>.
+// IID: f81cb835-d690-55d7-adfb-7b92b96e29a0
+type IIteratorOfHolographicFramePresentationReport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHolographicFramePresentationReport is the interface identifier for IIteratorOfHolographicFramePresentationReport.
+var IID_IIteratorOfHolographicFramePresentationReport = win32.GUID{Data1: 0xf81cb835, Data2: 0xd690, Data3: 0x55d7, Data4: [8]byte{0xad, 0xfb, 0x7b, 0x92, 0xb9, 0x6e, 0x29, 0xa0}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHolographicFramePresentationReport's vtable slot 6.
+func (self *IIteratorOfHolographicFramePresentationReport) Current() (*IHolographicFramePresentationReport, error) {
+	result := new(*IHolographicFramePresentationReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHolographicFramePresentationReport's vtable slot 7.
+func (self *IIteratorOfHolographicFramePresentationReport) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHolographicFramePresentationReport's vtable slot 8.
+func (self *IIteratorOfHolographicFramePresentationReport) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfHolographicFrameScanoutReport is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Holographic.HolographicFrameScanoutReport>.
+// IID: 6a7de579-05db-58f6-a371-97fd19922130
+type IIteratorOfHolographicFrameScanoutReport struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHolographicFrameScanoutReport is the interface identifier for IIteratorOfHolographicFrameScanoutReport.
+var IID_IIteratorOfHolographicFrameScanoutReport = win32.GUID{Data1: 0x6a7de579, Data2: 0x05db, Data3: 0x58f6, Data4: [8]byte{0xa3, 0x71, 0x97, 0xfd, 0x19, 0x92, 0x21, 0x30}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHolographicFrameScanoutReport's vtable slot 6.
+func (self *IIteratorOfHolographicFrameScanoutReport) Current() (*IHolographicFrameScanoutReport, error) {
+	result := new(*IHolographicFrameScanoutReport)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHolographicFrameScanoutReport's vtable slot 7.
+func (self *IIteratorOfHolographicFrameScanoutReport) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHolographicFrameScanoutReport's vtable slot 8.
+func (self *IIteratorOfHolographicFrameScanoutReport) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfHolographicQuadLayer is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Holographic.HolographicQuadLayer>.
+// IID: 85765170-495b-541c-aef0-7492856de3df
+type IIteratorOfHolographicQuadLayer struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfHolographicQuadLayer is the interface identifier for IIteratorOfHolographicQuadLayer.
+var IID_IIteratorOfHolographicQuadLayer = win32.GUID{Data1: 0x85765170, Data2: 0x495b, Data3: 0x541c, Data4: [8]byte{0xae, 0xf0, 0x74, 0x92, 0x85, 0x6d, 0xe3, 0xdf}}
+
+// Current (propget get_Current) dispatches through IIteratorOfHolographicQuadLayer's vtable slot 6.
+func (self *IIteratorOfHolographicQuadLayer) Current() (*IHolographicQuadLayer, error) {
+	result := new(*IHolographicQuadLayer)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfHolographicQuadLayer's vtable slot 7.
+func (self *IIteratorOfHolographicQuadLayer) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfHolographicQuadLayer's vtable slot 8.
+func (self *IIteratorOfHolographicQuadLayer) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfHolographicStereoTransform is the WinRT interface Windows.Foundation.IReference`1<Windows.Graphics.Holographic.HolographicStereoTransform>.
 // IID: 6e67ce78-cc67-52c0-b635-991db0bff5ca
 // Requires: Windows.Foundation.IPropertyValue.
@@ -127,6 +588,28 @@ func (self *IVectorOfHolographicFrameScanoutReport) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfHolographicFrameScanoutReport creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Graphics.Holographic.HolographicFrameScanoutReport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHolographicFrameScanoutReport(items []*IHolographicFrameScanoutReport) *IVectorOfHolographicFrameScanoutReport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Graphics.Holographic.HolographicFrameScanoutReport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicFrameScanoutReport, Iterator: IID_IIteratorOfHolographicFrameScanoutReport, VectorView: IID_IVectorViewOfHolographicFrameScanoutReport, Vector: IID_IVectorOfHolographicFrameScanoutReport}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHolographicFrameScanoutReport)(unsafe.Pointer(obj))
+}
+
 // IVectorOfHolographicQuadLayer is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Graphics.Holographic.HolographicQuadLayer>.
 // IID: da24dfcc-4c54-5193-921d-c685b57de559
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicQuadLayer>.
@@ -205,6 +688,28 @@ func (self *IVectorOfHolographicQuadLayer) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfHolographicQuadLayer creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Graphics.Holographic.HolographicQuadLayer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfHolographicQuadLayer(items []*IHolographicQuadLayer) *IVectorOfHolographicQuadLayer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Graphics.Holographic.HolographicQuadLayer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicQuadLayer, Iterator: IID_IIteratorOfHolographicQuadLayer, VectorView: IID_IVectorViewOfHolographicQuadLayer, Vector: IID_IVectorOfHolographicQuadLayer}, winrt.CodecInterface, boxed)
+	return (*IVectorOfHolographicQuadLayer)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfDirectXPixelFormat is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.DirectX.DirectXPixelFormat>.
 // IID: 1edda1c2-0f6e-516c-80b8-7687dcd1280e
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.DirectX.DirectXPixelFormat>.
@@ -237,6 +742,21 @@ func (self *IVectorViewOfDirectXPixelFormat) IndexOf(value graphicsdirectx.Direc
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfDirectXPixelFormat creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.DirectX.DirectXPixelFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfDirectXPixelFormat(items []graphicsdirectx.DirectXPixelFormat) *IVectorViewOfDirectXPixelFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.DirectX.DirectXPixelFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDirectXPixelFormat, Iterator: IID_IIteratorOfDirectXPixelFormat, VectorView: IID_IVectorViewOfDirectXPixelFormat}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfDirectXPixelFormat)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfHolographicCamera is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicCamera>.
 // IID: 01d6c0ae-ada5-50b0-8562-41fb1205bb4a
@@ -271,6 +791,25 @@ func (self *IVectorViewOfHolographicCamera) IndexOf(value *IHolographicCamera, i
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfHolographicCamera creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicCamera>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHolographicCamera(items []*IHolographicCamera) *IVectorViewOfHolographicCamera {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicCamera>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicCamera, Iterator: IID_IIteratorOfHolographicCamera, VectorView: IID_IVectorViewOfHolographicCamera}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHolographicCamera)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHolographicCameraPose is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicCameraPose>.
 // IID: 17c5dfb1-6e87-5a17-a791-ac07f8ee9292
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicCameraPose>.
@@ -303,6 +842,25 @@ func (self *IVectorViewOfHolographicCameraPose) IndexOf(value *IHolographicCamer
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHolographicCameraPose creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicCameraPose>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHolographicCameraPose(items []*IHolographicCameraPose) *IVectorViewOfHolographicCameraPose {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicCameraPose>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicCameraPose, Iterator: IID_IIteratorOfHolographicCameraPose, VectorView: IID_IVectorViewOfHolographicCameraPose}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHolographicCameraPose)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfHolographicDepthReprojectionMethod is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicDepthReprojectionMethod>.
 // IID: 7ac6dc9e-ea0b-594a-b0ed-2d1764ec58e9
@@ -337,6 +895,21 @@ func (self *IVectorViewOfHolographicDepthReprojectionMethod) IndexOf(value Holog
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfHolographicDepthReprojectionMethod creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicDepthReprojectionMethod>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfHolographicDepthReprojectionMethod(items []HolographicDepthReprojectionMethod) *IVectorViewOfHolographicDepthReprojectionMethod {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicDepthReprojectionMethod>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicDepthReprojectionMethod, Iterator: IID_IIteratorOfHolographicDepthReprojectionMethod, VectorView: IID_IVectorViewOfHolographicDepthReprojectionMethod}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfHolographicDepthReprojectionMethod)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHolographicFramePresentationReport is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicFramePresentationReport>.
 // IID: 014f37ba-abc1-5d85-855e-ec053183a635
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicFramePresentationReport>.
@@ -369,6 +942,25 @@ func (self *IVectorViewOfHolographicFramePresentationReport) IndexOf(value *IHol
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHolographicFramePresentationReport creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicFramePresentationReport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHolographicFramePresentationReport(items []*IHolographicFramePresentationReport) *IVectorViewOfHolographicFramePresentationReport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicFramePresentationReport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicFramePresentationReport, Iterator: IID_IIteratorOfHolographicFramePresentationReport, VectorView: IID_IVectorViewOfHolographicFramePresentationReport}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHolographicFramePresentationReport)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfHolographicFrameScanoutReport is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicFrameScanoutReport>.
 // IID: a127f0f1-fb53-50e2-8a98-0ecaea62e32b
@@ -403,6 +995,25 @@ func (self *IVectorViewOfHolographicFrameScanoutReport) IndexOf(value *IHolograp
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfHolographicFrameScanoutReport creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicFrameScanoutReport>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHolographicFrameScanoutReport(items []*IHolographicFrameScanoutReport) *IVectorViewOfHolographicFrameScanoutReport {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicFrameScanoutReport>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicFrameScanoutReport, Iterator: IID_IIteratorOfHolographicFrameScanoutReport, VectorView: IID_IVectorViewOfHolographicFrameScanoutReport}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHolographicFrameScanoutReport)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfHolographicQuadLayer is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicQuadLayer>.
 // IID: 1f51ecdf-cf2d-5b7e-aae9-d6628a518dbe
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Holographic.HolographicQuadLayer>.
@@ -435,3 +1046,22 @@ func (self *IVectorViewOfHolographicQuadLayer) IndexOf(value *IHolographicQuadLa
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfHolographicQuadLayer creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicQuadLayer>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfHolographicQuadLayer(items []*IHolographicQuadLayer) *IVectorViewOfHolographicQuadLayer {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Holographic.HolographicQuadLayer>", winrt.CollectionIIDs{Iterable: IID_IIterableOfHolographicQuadLayer, Iterator: IID_IIteratorOfHolographicQuadLayer, VectorView: IID_IVectorViewOfHolographicQuadLayer}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfHolographicQuadLayer)(unsafe.Pointer(obj))
+}

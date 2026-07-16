@@ -7,8 +7,157 @@ package maps
 import (
 	"unsafe"
 
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	devicesgeolocation "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/devices/geolocation"
+	servicesmaps "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/services/maps"
 )
+
+// CustomMapTileDataSource is the Windows.UI.Xaml.Controls.Maps.CustomMapTileDataSource runtime class, surfaced through its
+// default interface ICustomMapTileDataSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CustomMapTileDataSource struct {
+	ICustomMapTileDataSource
+}
+
+// NewCustomMapTileDataSource constructs a Windows.UI.Xaml.Controls.Maps.CustomMapTileDataSource instance through
+// Windows.UI.Xaml.Controls.Maps.ICustomMapTileDataSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewCustomMapTileDataSource() (*CustomMapTileDataSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.CustomMapTileDataSource", &IID_ICustomMapTileDataSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICustomMapTileDataSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*CustomMapTileDataSource)(unsafe.Pointer(instance)), nil
+}
+
+// HttpMapTileDataSource is the Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource runtime class, surfaced through its
+// default interface IHttpMapTileDataSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type HttpMapTileDataSource struct {
+	IHttpMapTileDataSource
+}
+
+// NewHttpMapTileDataSource constructs a Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource instance through
+// Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewHttpMapTileDataSource() (*HttpMapTileDataSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource", &IID_IHttpMapTileDataSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IHttpMapTileDataSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*HttpMapTileDataSource)(unsafe.Pointer(instance)), nil
+}
+
+// NewHttpMapTileDataSourceWithUriFormatString constructs a Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource instance through
+// Windows.UI.Xaml.Controls.Maps.IHttpMapTileDataSourceFactory.CreateInstanceWithUriFormatString with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewHttpMapTileDataSourceWithUriFormatString(uriFormatString string) (*HttpMapTileDataSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource", &IID_IHttpMapTileDataSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IHttpMapTileDataSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstanceWithUriFormatString(uriFormatString, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*HttpMapTileDataSource)(unsafe.Pointer(instance)), nil
+}
+
+// LocalMapTileDataSource is the Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource runtime class, surfaced through its
+// default interface ILocalMapTileDataSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type LocalMapTileDataSource struct {
+	ILocalMapTileDataSource
+}
+
+// NewLocalMapTileDataSource constructs a Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource instance through
+// Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewLocalMapTileDataSource() (*LocalMapTileDataSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource", &IID_ILocalMapTileDataSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ILocalMapTileDataSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*LocalMapTileDataSource)(unsafe.Pointer(instance)), nil
+}
+
+// NewLocalMapTileDataSourceWithUriFormatString constructs a Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource instance through
+// Windows.UI.Xaml.Controls.Maps.ILocalMapTileDataSourceFactory.CreateInstanceWithUriFormatString with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewLocalMapTileDataSourceWithUriFormatString(uriFormatString string) (*LocalMapTileDataSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource", &IID_ILocalMapTileDataSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ILocalMapTileDataSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstanceWithUriFormatString(uriFormatString, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*LocalMapTileDataSource)(unsafe.Pointer(instance)), nil
+}
 
 // MapActualCameraChangedEventArgs is the Windows.UI.Xaml.Controls.Maps.MapActualCameraChangedEventArgs runtime class, surfaced through its
 // default interface IMapActualCameraChangedEventArgs. Release when done (promoted from
@@ -58,6 +207,66 @@ func (self *MapActualCameraChangingEventArgs) AsMapActualCameraChangingEventArgs
 	return winrt.QueryInterface[IMapActualCameraChangingEventArgs2](unsafe.Pointer(self), &IID_IMapActualCameraChangingEventArgs2)
 }
 
+// MapBillboard is the Windows.UI.Xaml.Controls.Maps.MapBillboard runtime class, surfaced through its
+// default interface IMapBillboard. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapBillboard struct {
+	IMapBillboard
+}
+
+// MapBillboardStatics returns the Windows.UI.Xaml.Controls.Maps.IMapBillboardStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapBillboard runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapBillboardStatics() (*IMapBillboardStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapBillboard", &IID_IMapBillboardStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapBillboardStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CreateInstanceFromCamera constructs a Windows.UI.Xaml.Controls.Maps.MapBillboard instance through
+// Windows.UI.Xaml.Controls.Maps.IMapBillboardFactory.CreateInstanceFromCamera. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstanceFromCamera(camera *IMapCamera) (*MapBillboard, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapBillboard", &IID_IMapBillboardFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMapBillboardFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstanceFromCamera(camera)
+	if err != nil {
+		return nil, err
+	}
+	return (*MapBillboard)(unsafe.Pointer(instance)), nil
+}
+
+// MapCamera is the Windows.UI.Xaml.Controls.Maps.MapCamera runtime class, surfaced through its
+// default interface IMapCamera. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapCamera struct {
+	IMapCamera
+}
+
+// CreateInstanceWithLocation constructs a Windows.UI.Xaml.Controls.Maps.MapCamera instance through
+// Windows.UI.Xaml.Controls.Maps.IMapCameraFactory.CreateInstanceWithLocation. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstanceWithLocation(location *devicesgeolocation.IGeopoint) (*MapCamera, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapCamera", &IID_IMapCameraFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMapCameraFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstanceWithLocation(location)
+	if err != nil {
+		return nil, err
+	}
+	return (*MapCamera)(unsafe.Pointer(instance)), nil
+}
+
 // MapContextRequestedEventArgs is the Windows.UI.Xaml.Controls.Maps.MapContextRequestedEventArgs runtime class, surfaced through its
 // default interface IMapContextRequestedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -76,6 +285,182 @@ func NewMapContextRequestedEventArgs() (*MapContextRequestedEventArgs, error) {
 	return winrt.QueryInterface[MapContextRequestedEventArgs](unsafe.Pointer(instance), &IID_IMapContextRequestedEventArgs)
 }
 
+// MapControl is the Windows.UI.Xaml.Controls.Maps.MapControl runtime class, surfaced through its
+// default interface IMapControl. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapControl struct {
+	IMapControl
+}
+
+// NewMapControl activates Windows.UI.Xaml.Controls.Maps.MapControl through its default
+// constructor.
+func NewMapControl() (*MapControl, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.Maps.MapControl")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[MapControl](unsafe.Pointer(instance), &IID_IMapControl)
+}
+
+// AsMapControl2 queries the instance's IMapControl2 interface.
+// The returned reference is owned by the caller.
+func (self *MapControl) AsMapControl2() (*IMapControl2, error) {
+	return winrt.QueryInterface[IMapControl2](unsafe.Pointer(self), &IID_IMapControl2)
+}
+
+// AsMapControl3 queries the instance's IMapControl3 interface.
+// The returned reference is owned by the caller.
+func (self *MapControl) AsMapControl3() (*IMapControl3, error) {
+	return winrt.QueryInterface[IMapControl3](unsafe.Pointer(self), &IID_IMapControl3)
+}
+
+// AsMapControl4 queries the instance's IMapControl4 interface.
+// The returned reference is owned by the caller.
+func (self *MapControl) AsMapControl4() (*IMapControl4, error) {
+	return winrt.QueryInterface[IMapControl4](unsafe.Pointer(self), &IID_IMapControl4)
+}
+
+// AsMapControl5 queries the instance's IMapControl5 interface.
+// The returned reference is owned by the caller.
+func (self *MapControl) AsMapControl5() (*IMapControl5, error) {
+	return winrt.QueryInterface[IMapControl5](unsafe.Pointer(self), &IID_IMapControl5)
+}
+
+// AsMapControl6 queries the instance's IMapControl6 interface.
+// The returned reference is owned by the caller.
+func (self *MapControl) AsMapControl6() (*IMapControl6, error) {
+	return winrt.QueryInterface[IMapControl6](unsafe.Pointer(self), &IID_IMapControl6)
+}
+
+// AsMapControl7 queries the instance's IMapControl7 interface.
+// The returned reference is owned by the caller.
+func (self *MapControl) AsMapControl7() (*IMapControl7, error) {
+	return winrt.QueryInterface[IMapControl7](unsafe.Pointer(self), &IID_IMapControl7)
+}
+
+// AsMapControl8 queries the instance's IMapControl8 interface.
+// The returned reference is owned by the caller.
+func (self *MapControl) AsMapControl8() (*IMapControl8, error) {
+	return winrt.QueryInterface[IMapControl8](unsafe.Pointer(self), &IID_IMapControl8)
+}
+
+// MapControlStatics returns the Windows.UI.Xaml.Controls.Maps.IMapControlStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapControlStatics() (*IMapControlStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapControl", &IID_IMapControlStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapControlStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MapControlStatics2 returns the Windows.UI.Xaml.Controls.Maps.IMapControlStatics2 statics of the
+// Windows.UI.Xaml.Controls.Maps.MapControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapControlStatics2() (*IMapControlStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapControl", &IID_IMapControlStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapControlStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// MapControlStatics4 returns the Windows.UI.Xaml.Controls.Maps.IMapControlStatics4 statics of the
+// Windows.UI.Xaml.Controls.Maps.MapControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapControlStatics4() (*IMapControlStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapControl", &IID_IMapControlStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapControlStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// MapControlStatics5 returns the Windows.UI.Xaml.Controls.Maps.IMapControlStatics5 statics of the
+// Windows.UI.Xaml.Controls.Maps.MapControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapControlStatics5() (*IMapControlStatics5, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapControl", &IID_IMapControlStatics5)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapControlStatics5)(unsafe.Pointer(factory)), nil
+}
+
+// MapControlStatics6 returns the Windows.UI.Xaml.Controls.Maps.IMapControlStatics6 statics of the
+// Windows.UI.Xaml.Controls.Maps.MapControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapControlStatics6() (*IMapControlStatics6, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapControl", &IID_IMapControlStatics6)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapControlStatics6)(unsafe.Pointer(factory)), nil
+}
+
+// MapControlStatics7 returns the Windows.UI.Xaml.Controls.Maps.IMapControlStatics7 statics of the
+// Windows.UI.Xaml.Controls.Maps.MapControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapControlStatics7() (*IMapControlStatics7, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapControl", &IID_IMapControlStatics7)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapControlStatics7)(unsafe.Pointer(factory)), nil
+}
+
+// MapControlStatics8 returns the Windows.UI.Xaml.Controls.Maps.IMapControlStatics8 statics of the
+// Windows.UI.Xaml.Controls.Maps.MapControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapControlStatics8() (*IMapControlStatics8, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapControl", &IID_IMapControlStatics8)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapControlStatics8)(unsafe.Pointer(factory)), nil
+}
+
+// MapCustomExperience is the Windows.UI.Xaml.Controls.Maps.MapCustomExperience runtime class, surfaced through its
+// default interface IMapCustomExperience. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapCustomExperience struct {
+	IMapCustomExperience
+}
+
+// NewMapCustomExperience constructs a Windows.UI.Xaml.Controls.Maps.MapCustomExperience instance through
+// Windows.UI.Xaml.Controls.Maps.IMapCustomExperienceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMapCustomExperience() (*MapCustomExperience, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapCustomExperience", &IID_IMapCustomExperienceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMapCustomExperienceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MapCustomExperience)(unsafe.Pointer(instance)), nil
+}
+
 // MapCustomExperienceChangedEventArgs is the Windows.UI.Xaml.Controls.Maps.MapCustomExperienceChangedEventArgs runtime class, surfaced through its
 // default interface IMapCustomExperienceChangedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -92,6 +477,134 @@ func NewMapCustomExperienceChangedEventArgs() (*MapCustomExperienceChangedEventA
 	}
 	defer instance.Release()
 	return winrt.QueryInterface[MapCustomExperienceChangedEventArgs](unsafe.Pointer(instance), &IID_IMapCustomExperienceChangedEventArgs)
+}
+
+// MapElement is the Windows.UI.Xaml.Controls.Maps.MapElement runtime class, surfaced through its
+// default interface IMapElement. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapElement struct {
+	IMapElement
+}
+
+// AsMapElement2 queries the instance's IMapElement2 interface.
+// The returned reference is owned by the caller.
+func (self *MapElement) AsMapElement2() (*IMapElement2, error) {
+	return winrt.QueryInterface[IMapElement2](unsafe.Pointer(self), &IID_IMapElement2)
+}
+
+// AsMapElement3 queries the instance's IMapElement3 interface.
+// The returned reference is owned by the caller.
+func (self *MapElement) AsMapElement3() (*IMapElement3, error) {
+	return winrt.QueryInterface[IMapElement3](unsafe.Pointer(self), &IID_IMapElement3)
+}
+
+// AsMapElement4 queries the instance's IMapElement4 interface.
+// The returned reference is owned by the caller.
+func (self *MapElement) AsMapElement4() (*IMapElement4, error) {
+	return winrt.QueryInterface[IMapElement4](unsafe.Pointer(self), &IID_IMapElement4)
+}
+
+// MapElementStatics returns the Windows.UI.Xaml.Controls.Maps.IMapElementStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapElementStatics() (*IMapElementStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapElement", &IID_IMapElementStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapElementStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MapElementStatics2 returns the Windows.UI.Xaml.Controls.Maps.IMapElementStatics2 statics of the
+// Windows.UI.Xaml.Controls.Maps.MapElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapElementStatics2() (*IMapElementStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapElement", &IID_IMapElementStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapElementStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// MapElementStatics3 returns the Windows.UI.Xaml.Controls.Maps.IMapElementStatics3 statics of the
+// Windows.UI.Xaml.Controls.Maps.MapElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapElementStatics3() (*IMapElementStatics3, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapElement", &IID_IMapElementStatics3)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapElementStatics3)(unsafe.Pointer(factory)), nil
+}
+
+// MapElementStatics4 returns the Windows.UI.Xaml.Controls.Maps.IMapElementStatics4 statics of the
+// Windows.UI.Xaml.Controls.Maps.MapElement runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapElementStatics4() (*IMapElementStatics4, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapElement", &IID_IMapElementStatics4)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapElementStatics4)(unsafe.Pointer(factory)), nil
+}
+
+// NewMapElement constructs a Windows.UI.Xaml.Controls.Maps.MapElement instance through
+// Windows.UI.Xaml.Controls.Maps.IMapElementFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMapElement() (*MapElement, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapElement", &IID_IMapElementFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMapElementFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MapElement)(unsafe.Pointer(instance)), nil
+}
+
+// MapElement3D is the Windows.UI.Xaml.Controls.Maps.MapElement3D runtime class, surfaced through its
+// default interface IMapElement3D. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapElement3D struct {
+	IMapElement3D
+}
+
+// NewMapElement3D activates Windows.UI.Xaml.Controls.Maps.MapElement3D through its default
+// constructor.
+func NewMapElement3D() (*MapElement3D, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.Maps.MapElement3D")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[MapElement3D](unsafe.Pointer(instance), &IID_IMapElement3D)
+}
+
+// MapElement3DStatics returns the Windows.UI.Xaml.Controls.Maps.IMapElement3DStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapElement3D runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapElement3DStatics() (*IMapElement3DStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapElement3D", &IID_IMapElement3DStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapElement3DStatics)(unsafe.Pointer(factory)), nil
 }
 
 // MapElementClickEventArgs is the Windows.UI.Xaml.Controls.Maps.MapElementClickEventArgs runtime class, surfaced through its
@@ -146,6 +659,36 @@ func NewMapElementPointerExitedEventArgs() (*MapElementPointerExitedEventArgs, e
 	}
 	defer instance.Release()
 	return winrt.QueryInterface[MapElementPointerExitedEventArgs](unsafe.Pointer(instance), &IID_IMapElementPointerExitedEventArgs)
+}
+
+// MapElementsLayer is the Windows.UI.Xaml.Controls.Maps.MapElementsLayer runtime class, surfaced through its
+// default interface IMapElementsLayer. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapElementsLayer struct {
+	IMapElementsLayer
+}
+
+// NewMapElementsLayer activates Windows.UI.Xaml.Controls.Maps.MapElementsLayer through its default
+// constructor.
+func NewMapElementsLayer() (*MapElementsLayer, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.Maps.MapElementsLayer")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[MapElementsLayer](unsafe.Pointer(instance), &IID_IMapElementsLayer)
+}
+
+// MapElementsLayerStatics returns the Windows.UI.Xaml.Controls.Maps.IMapElementsLayerStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapElementsLayer runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapElementsLayerStatics() (*IMapElementsLayerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapElementsLayer", &IID_IMapElementsLayerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapElementsLayerStatics)(unsafe.Pointer(factory)), nil
 }
 
 // MapElementsLayerClickEventArgs is the Windows.UI.Xaml.Controls.Maps.MapElementsLayerClickEventArgs runtime class, surfaced through its
@@ -220,6 +763,256 @@ func NewMapElementsLayerPointerExitedEventArgs() (*MapElementsLayerPointerExited
 	return winrt.QueryInterface[MapElementsLayerPointerExitedEventArgs](unsafe.Pointer(instance), &IID_IMapElementsLayerPointerExitedEventArgs)
 }
 
+// MapIcon is the Windows.UI.Xaml.Controls.Maps.MapIcon runtime class, surfaced through its
+// default interface IMapIcon. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapIcon struct {
+	IMapIcon
+}
+
+// NewMapIcon activates Windows.UI.Xaml.Controls.Maps.MapIcon through its default
+// constructor.
+func NewMapIcon() (*MapIcon, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.Maps.MapIcon")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[MapIcon](unsafe.Pointer(instance), &IID_IMapIcon)
+}
+
+// AsMapIcon2 queries the instance's IMapIcon2 interface.
+// The returned reference is owned by the caller.
+func (self *MapIcon) AsMapIcon2() (*IMapIcon2, error) {
+	return winrt.QueryInterface[IMapIcon2](unsafe.Pointer(self), &IID_IMapIcon2)
+}
+
+// MapIconStatics returns the Windows.UI.Xaml.Controls.Maps.IMapIconStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapIcon runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapIconStatics() (*IMapIconStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapIcon", &IID_IMapIconStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapIconStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MapIconStatics2 returns the Windows.UI.Xaml.Controls.Maps.IMapIconStatics2 statics of the
+// Windows.UI.Xaml.Controls.Maps.MapIcon runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapIconStatics2() (*IMapIconStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapIcon", &IID_IMapIconStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapIconStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// MapInputEventArgs is the Windows.UI.Xaml.Controls.Maps.MapInputEventArgs runtime class, surfaced through its
+// default interface IMapInputEventArgs. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapInputEventArgs struct {
+	IMapInputEventArgs
+}
+
+// NewMapInputEventArgs activates Windows.UI.Xaml.Controls.Maps.MapInputEventArgs through its default
+// constructor.
+func NewMapInputEventArgs() (*MapInputEventArgs, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.Maps.MapInputEventArgs")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[MapInputEventArgs](unsafe.Pointer(instance), &IID_IMapInputEventArgs)
+}
+
+// MapItemsControl is the Windows.UI.Xaml.Controls.Maps.MapItemsControl runtime class, surfaced through its
+// default interface IMapItemsControl. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapItemsControl struct {
+	IMapItemsControl
+}
+
+// NewMapItemsControl activates Windows.UI.Xaml.Controls.Maps.MapItemsControl through its default
+// constructor.
+func NewMapItemsControl() (*MapItemsControl, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.Maps.MapItemsControl")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[MapItemsControl](unsafe.Pointer(instance), &IID_IMapItemsControl)
+}
+
+// MapItemsControlStatics returns the Windows.UI.Xaml.Controls.Maps.IMapItemsControlStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapItemsControl runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapItemsControlStatics() (*IMapItemsControlStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapItemsControl", &IID_IMapItemsControlStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapItemsControlStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MapLayer is the Windows.UI.Xaml.Controls.Maps.MapLayer runtime class, surfaced through its
+// default interface IMapLayer. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapLayer struct {
+	IMapLayer
+}
+
+// MapLayerStatics returns the Windows.UI.Xaml.Controls.Maps.IMapLayerStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapLayer runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapLayerStatics() (*IMapLayerStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapLayer", &IID_IMapLayerStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapLayerStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewMapLayer constructs a Windows.UI.Xaml.Controls.Maps.MapLayer instance through
+// Windows.UI.Xaml.Controls.Maps.IMapLayerFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMapLayer() (*MapLayer, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapLayer", &IID_IMapLayerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMapLayerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MapLayer)(unsafe.Pointer(instance)), nil
+}
+
+// MapModel3D is the Windows.UI.Xaml.Controls.Maps.MapModel3D runtime class, surfaced through its
+// default interface IMapModel3D. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapModel3D struct {
+	IMapModel3D
+}
+
+// MapModel3DStatics returns the Windows.UI.Xaml.Controls.Maps.IMapModel3DStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapModel3D runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapModel3DStatics() (*IMapModel3DStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapModel3D", &IID_IMapModel3DStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapModel3DStatics)(unsafe.Pointer(factory)), nil
+}
+
+// NewMapModel3D constructs a Windows.UI.Xaml.Controls.Maps.MapModel3D instance through
+// Windows.UI.Xaml.Controls.Maps.IMapModel3DFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMapModel3D() (*MapModel3D, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapModel3D", &IID_IMapModel3DFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMapModel3DFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MapModel3D)(unsafe.Pointer(instance)), nil
+}
+
+// MapPolygon is the Windows.UI.Xaml.Controls.Maps.MapPolygon runtime class, surfaced through its
+// default interface IMapPolygon. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapPolygon struct {
+	IMapPolygon
+}
+
+// NewMapPolygon activates Windows.UI.Xaml.Controls.Maps.MapPolygon through its default
+// constructor.
+func NewMapPolygon() (*MapPolygon, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.Maps.MapPolygon")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[MapPolygon](unsafe.Pointer(instance), &IID_IMapPolygon)
+}
+
+// AsMapPolygon2 queries the instance's IMapPolygon2 interface.
+// The returned reference is owned by the caller.
+func (self *MapPolygon) AsMapPolygon2() (*IMapPolygon2, error) {
+	return winrt.QueryInterface[IMapPolygon2](unsafe.Pointer(self), &IID_IMapPolygon2)
+}
+
+// MapPolygonStatics returns the Windows.UI.Xaml.Controls.Maps.IMapPolygonStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapPolygon runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapPolygonStatics() (*IMapPolygonStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapPolygon", &IID_IMapPolygonStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapPolygonStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MapPolyline is the Windows.UI.Xaml.Controls.Maps.MapPolyline runtime class, surfaced through its
+// default interface IMapPolyline. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapPolyline struct {
+	IMapPolyline
+}
+
+// NewMapPolyline activates Windows.UI.Xaml.Controls.Maps.MapPolyline through its default
+// constructor.
+func NewMapPolyline() (*MapPolyline, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.Xaml.Controls.Maps.MapPolyline")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[MapPolyline](unsafe.Pointer(instance), &IID_IMapPolyline)
+}
+
+// MapPolylineStatics returns the Windows.UI.Xaml.Controls.Maps.IMapPolylineStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapPolyline runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapPolylineStatics() (*IMapPolylineStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapPolyline", &IID_IMapPolylineStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapPolylineStatics)(unsafe.Pointer(factory)), nil
+}
+
 // MapRightTappedEventArgs is the Windows.UI.Xaml.Controls.Maps.MapRightTappedEventArgs runtime class, surfaced through its
 // default interface IMapRightTappedEventArgs. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -236,6 +1029,76 @@ func NewMapRightTappedEventArgs() (*MapRightTappedEventArgs, error) {
 	}
 	defer instance.Release()
 	return winrt.QueryInterface[MapRightTappedEventArgs](unsafe.Pointer(instance), &IID_IMapRightTappedEventArgs)
+}
+
+// MapRouteView is the Windows.UI.Xaml.Controls.Maps.MapRouteView runtime class, surfaced through its
+// default interface IMapRouteView. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapRouteView struct {
+	IMapRouteView
+}
+
+// NewMapRouteViewWithMapRoute constructs a Windows.UI.Xaml.Controls.Maps.MapRouteView instance through
+// Windows.UI.Xaml.Controls.Maps.IMapRouteViewFactory.CreateInstanceWithMapRoute with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMapRouteViewWithMapRoute(route *servicesmaps.IMapRoute) (*MapRouteView, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapRouteView", &IID_IMapRouteViewFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMapRouteViewFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstanceWithMapRoute(route, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MapRouteView)(unsafe.Pointer(instance)), nil
+}
+
+// MapScene is the Windows.UI.Xaml.Controls.Maps.MapScene runtime class, surfaced through its
+// default interface IMapScene. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapScene struct {
+	IMapScene
+}
+
+// MapSceneStatics returns the Windows.UI.Xaml.Controls.Maps.IMapSceneStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapScene runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapSceneStatics() (*IMapSceneStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapScene", &IID_IMapSceneStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapSceneStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MapStyleSheet is the Windows.UI.Xaml.Controls.Maps.MapStyleSheet runtime class, surfaced through its
+// default interface IMapStyleSheet. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapStyleSheet struct {
+	IMapStyleSheet
+}
+
+// MapStyleSheetStatics returns the Windows.UI.Xaml.Controls.Maps.IMapStyleSheetStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapStyleSheet runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapStyleSheetStatics() (*IMapStyleSheetStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapStyleSheet", &IID_IMapStyleSheetStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapStyleSheetStatics)(unsafe.Pointer(factory)), nil
 }
 
 // MapStyleSheetEntriesStatics returns the Windows.UI.Xaml.Controls.Maps.IMapStyleSheetEntriesStatics statics of the
@@ -346,6 +1209,125 @@ func (self *MapTileBitmapRequestedEventArgs) AsMapTileBitmapRequestedEventArgs2(
 	return winrt.QueryInterface[IMapTileBitmapRequestedEventArgs2](unsafe.Pointer(self), &IID_IMapTileBitmapRequestedEventArgs2)
 }
 
+// MapTileDataSource is the Windows.UI.Xaml.Controls.Maps.MapTileDataSource runtime class, surfaced through its
+// default interface IMapTileDataSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapTileDataSource struct {
+	IMapTileDataSource
+}
+
+// NewMapTileDataSource constructs a Windows.UI.Xaml.Controls.Maps.MapTileDataSource instance through
+// Windows.UI.Xaml.Controls.Maps.IMapTileDataSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMapTileDataSource() (*MapTileDataSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapTileDataSource", &IID_IMapTileDataSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMapTileDataSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MapTileDataSource)(unsafe.Pointer(instance)), nil
+}
+
+// MapTileSource is the Windows.UI.Xaml.Controls.Maps.MapTileSource runtime class, surfaced through its
+// default interface IMapTileSource. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type MapTileSource struct {
+	IMapTileSource
+}
+
+// AsMapTileSource2 queries the instance's IMapTileSource2 interface.
+// The returned reference is owned by the caller.
+func (self *MapTileSource) AsMapTileSource2() (*IMapTileSource2, error) {
+	return winrt.QueryInterface[IMapTileSource2](unsafe.Pointer(self), &IID_IMapTileSource2)
+}
+
+// MapTileSourceStatics returns the Windows.UI.Xaml.Controls.Maps.IMapTileSourceStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.MapTileSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapTileSourceStatics() (*IMapTileSourceStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapTileSource", &IID_IMapTileSourceStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapTileSourceStatics)(unsafe.Pointer(factory)), nil
+}
+
+// MapTileSourceStatics2 returns the Windows.UI.Xaml.Controls.Maps.IMapTileSourceStatics2 statics of the
+// Windows.UI.Xaml.Controls.Maps.MapTileSource runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func MapTileSourceStatics2() (*IMapTileSourceStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapTileSource", &IID_IMapTileSourceStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IMapTileSourceStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// NewMapTileSource constructs a Windows.UI.Xaml.Controls.Maps.MapTileSource instance through
+// Windows.UI.Xaml.Controls.Maps.IMapTileSourceFactory.CreateInstance with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMapTileSource() (*MapTileSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapTileSource", &IID_IMapTileSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMapTileSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstance(nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MapTileSource)(unsafe.Pointer(instance)), nil
+}
+
+// NewMapTileSourceWithDataSource constructs a Windows.UI.Xaml.Controls.Maps.MapTileSource instance through
+// Windows.UI.Xaml.Controls.Maps.IMapTileSourceFactory.CreateInstanceWithDataSource with a NULL controlling outer: the
+// class is created as itself, not derived from (instantiate-only
+// composition). The activation factory is fetched per call (a factory cache
+// is a future optimization).
+func NewMapTileSourceWithDataSource(dataSource *IMapTileDataSource) (*MapTileSource, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.MapTileSource", &IID_IMapTileSourceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMapTileSourceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	inner := new(*syswinrt.IInspectable)
+	instance, err := factory.CreateInstanceWithDataSource(dataSource, nil, inner)
+	if err != nil {
+		return nil, err
+	}
+	if *inner != nil {
+		// Under null-outer composition the inner is a SECOND reference to
+		// the same object instance carries: drop it.
+		(*inner).Release()
+	}
+	return (*MapTileSource)(unsafe.Pointer(instance)), nil
+}
+
 // MapTileUriRequest is the Windows.UI.Xaml.Controls.Maps.MapTileUriRequest runtime class, surfaced through its
 // default interface IMapTileUriRequest. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -404,4 +1386,47 @@ func NewMapTileUriRequestedEventArgs() (*MapTileUriRequestedEventArgs, error) {
 // The returned reference is owned by the caller.
 func (self *MapTileUriRequestedEventArgs) AsMapTileUriRequestedEventArgs2() (*IMapTileUriRequestedEventArgs2, error) {
 	return winrt.QueryInterface[IMapTileUriRequestedEventArgs2](unsafe.Pointer(self), &IID_IMapTileUriRequestedEventArgs2)
+}
+
+// StreetsideExperience is the Windows.UI.Xaml.Controls.Maps.StreetsideExperience runtime class, surfaced through its
+// default interface IStreetsideExperience. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type StreetsideExperience struct {
+	IStreetsideExperience
+}
+
+// CreateInstanceWithPanorama constructs a Windows.UI.Xaml.Controls.Maps.StreetsideExperience instance through
+// Windows.UI.Xaml.Controls.Maps.IStreetsideExperienceFactory.CreateInstanceWithPanorama. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstanceWithPanorama(panorama *IStreetsidePanorama) (*StreetsideExperience, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.StreetsideExperience", &IID_IStreetsideExperienceFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IStreetsideExperienceFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstanceWithPanorama(panorama)
+	if err != nil {
+		return nil, err
+	}
+	return (*StreetsideExperience)(unsafe.Pointer(instance)), nil
+}
+
+// StreetsidePanorama is the Windows.UI.Xaml.Controls.Maps.StreetsidePanorama runtime class, surfaced through its
+// default interface IStreetsidePanorama. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type StreetsidePanorama struct {
+	IStreetsidePanorama
+}
+
+// StreetsidePanoramaStatics returns the Windows.UI.Xaml.Controls.Maps.IStreetsidePanoramaStatics statics of the
+// Windows.UI.Xaml.Controls.Maps.StreetsidePanorama runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func StreetsidePanoramaStatics() (*IStreetsidePanoramaStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Xaml.Controls.Maps.StreetsidePanorama", &IID_IStreetsidePanoramaStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IStreetsidePanoramaStatics)(unsafe.Pointer(factory)), nil
 }

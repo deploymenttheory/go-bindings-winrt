@@ -83,6 +83,333 @@ func (self *IAsyncOperationOfSmsSendMessageResult) Await() (*ISmsSendMessageResu
 	return self.GetResults()
 }
 
+// IIterableOfInt32 is the WinRT interface Windows.Foundation.Collections.IIterable`1<Int32>.
+// IID: 81a643fb-f51c-5565-83c4-f96425777b66
+type IIterableOfInt32 struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfInt32 is the interface identifier for IIterableOfInt32.
+var IID_IIterableOfInt32 = win32.GUID{Data1: 0x81a643fb, Data2: 0xf51c, Data3: 0x5565, Data4: [8]byte{0x83, 0xc4, 0xf9, 0x64, 0x25, 0x77, 0x7b, 0x66}}
+
+// First dispatches through IIterableOfInt32's vtable slot 6.
+func (self *IIterableOfInt32) First() (*IIteratorOfInt32, error) {
+	result := new(*IIteratorOfInt32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfInt32 creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Int32>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfInt32(items []int32) *IIterableOfInt32 {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Int32>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInt32, Iterator: IID_IIteratorOfInt32}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfInt32)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSmsBroadcastType is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsBroadcastType>.
+// IID: 12276b75-173e-514b-98f0-8a7927a9206c
+type IIterableOfSmsBroadcastType struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSmsBroadcastType is the interface identifier for IIterableOfSmsBroadcastType.
+var IID_IIterableOfSmsBroadcastType = win32.GUID{Data1: 0x12276b75, Data2: 0x173e, Data3: 0x514b, Data4: [8]byte{0x98, 0xf0, 0x8a, 0x79, 0x27, 0xa9, 0x20, 0x6c}}
+
+// First dispatches through IIterableOfSmsBroadcastType's vtable slot 6.
+func (self *IIterableOfSmsBroadcastType) First() (*IIteratorOfSmsBroadcastType, error) {
+	result := new(*IIteratorOfSmsBroadcastType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSmsBroadcastType creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsBroadcastType>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfSmsBroadcastType(items []SmsBroadcastType) *IIterableOfSmsBroadcastType {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsBroadcastType>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSmsBroadcastType, Iterator: IID_IIteratorOfSmsBroadcastType}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfSmsBroadcastType)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSmsFilterRule is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsFilterRule>.
+// IID: 03ed8267-9c90-5260-8bc0-6c3e3306c964
+type IIterableOfSmsFilterRule struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSmsFilterRule is the interface identifier for IIterableOfSmsFilterRule.
+var IID_IIterableOfSmsFilterRule = win32.GUID{Data1: 0x03ed8267, Data2: 0x9c90, Data3: 0x5260, Data4: [8]byte{0x8b, 0xc0, 0x6c, 0x3e, 0x33, 0x06, 0xc9, 0x64}}
+
+// First dispatches through IIterableOfSmsFilterRule's vtable slot 6.
+func (self *IIterableOfSmsFilterRule) First() (*IIteratorOfSmsFilterRule, error) {
+	result := new(*IIteratorOfSmsFilterRule)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSmsFilterRule creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsFilterRule>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSmsFilterRule(items []*ISmsFilterRule) *IIterableOfSmsFilterRule {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsFilterRule>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSmsFilterRule, Iterator: IID_IIteratorOfSmsFilterRule}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSmsFilterRule)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSmsMessageRegistration is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsMessageRegistration>.
+// IID: f836fa0a-770d-5e8f-8664-01c43f959eea
+type IIterableOfSmsMessageRegistration struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSmsMessageRegistration is the interface identifier for IIterableOfSmsMessageRegistration.
+var IID_IIterableOfSmsMessageRegistration = win32.GUID{Data1: 0xf836fa0a, Data2: 0x770d, Data3: 0x5e8f, Data4: [8]byte{0x86, 0x64, 0x01, 0xc4, 0x3f, 0x95, 0x9e, 0xea}}
+
+// First dispatches through IIterableOfSmsMessageRegistration's vtable slot 6.
+func (self *IIterableOfSmsMessageRegistration) First() (*IIteratorOfSmsMessageRegistration, error) {
+	result := new(*IIteratorOfSmsMessageRegistration)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSmsMessageRegistration creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsMessageRegistration>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSmsMessageRegistration(items []*ISmsMessageRegistration) *IIterableOfSmsMessageRegistration {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsMessageRegistration>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSmsMessageRegistration, Iterator: IID_IIteratorOfSmsMessageRegistration}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSmsMessageRegistration)(unsafe.Pointer(obj))
+}
+
+// IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
+// IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
+type IIterableOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfString is the interface identifier for IIterableOfString.
+var IID_IIterableOfString = win32.GUID{Data1: 0xe2fcc7c1, Data2: 0x3bfc, Data3: 0x5a0b, Data4: [8]byte{0xb2, 0xb0, 0x72, 0xe7, 0x69, 0xd1, 0xcb, 0x7e}}
+
+// First dispatches through IIterableOfString's vtable slot 6.
+func (self *IIterableOfString) First() (*IIteratorOfString, error) {
+	result := new(*IIteratorOfString)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfInt32 is the WinRT interface Windows.Foundation.Collections.IIterator`1<Int32>.
+// IID: bfea7f78-50c2-5f1d-a6ea-9e978d2699ff
+type IIteratorOfInt32 struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfInt32 is the interface identifier for IIteratorOfInt32.
+var IID_IIteratorOfInt32 = win32.GUID{Data1: 0xbfea7f78, Data2: 0x50c2, Data3: 0x5f1d, Data4: [8]byte{0xa6, 0xea, 0x9e, 0x97, 0x8d, 0x26, 0x99, 0xff}}
+
+// Current (propget get_Current) dispatches through IIteratorOfInt32's vtable slot 6.
+func (self *IIteratorOfInt32) Current() (int32, error) {
+	result := new(int32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfInt32's vtable slot 7.
+func (self *IIteratorOfInt32) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfInt32's vtable slot 8.
+func (self *IIteratorOfInt32) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSmsBroadcastType is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Sms.SmsBroadcastType>.
+// IID: 6448ddea-c1cd-5143-a422-5fe4f008cc92
+type IIteratorOfSmsBroadcastType struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSmsBroadcastType is the interface identifier for IIteratorOfSmsBroadcastType.
+var IID_IIteratorOfSmsBroadcastType = win32.GUID{Data1: 0x6448ddea, Data2: 0xc1cd, Data3: 0x5143, Data4: [8]byte{0xa4, 0x22, 0x5f, 0xe4, 0xf0, 0x08, 0xcc, 0x92}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSmsBroadcastType's vtable slot 6.
+func (self *IIteratorOfSmsBroadcastType) Current() (SmsBroadcastType, error) {
+	result := new(SmsBroadcastType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSmsBroadcastType's vtable slot 7.
+func (self *IIteratorOfSmsBroadcastType) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSmsBroadcastType's vtable slot 8.
+func (self *IIteratorOfSmsBroadcastType) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSmsFilterRule is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Sms.SmsFilterRule>.
+// IID: fec7cae6-97f5-5a19-b32a-d8f0ba276f34
+type IIteratorOfSmsFilterRule struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSmsFilterRule is the interface identifier for IIteratorOfSmsFilterRule.
+var IID_IIteratorOfSmsFilterRule = win32.GUID{Data1: 0xfec7cae6, Data2: 0x97f5, Data3: 0x5a19, Data4: [8]byte{0xb3, 0x2a, 0xd8, 0xf0, 0xba, 0x27, 0x6f, 0x34}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSmsFilterRule's vtable slot 6.
+func (self *IIteratorOfSmsFilterRule) Current() (*ISmsFilterRule, error) {
+	result := new(*ISmsFilterRule)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSmsFilterRule's vtable slot 7.
+func (self *IIteratorOfSmsFilterRule) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSmsFilterRule's vtable slot 8.
+func (self *IIteratorOfSmsFilterRule) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSmsMessageRegistration is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Sms.SmsMessageRegistration>.
+// IID: ee1a0675-f3c9-5c12-93e0-f2b01bdce611
+type IIteratorOfSmsMessageRegistration struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSmsMessageRegistration is the interface identifier for IIteratorOfSmsMessageRegistration.
+var IID_IIteratorOfSmsMessageRegistration = win32.GUID{Data1: 0xee1a0675, Data2: 0xf3c9, Data3: 0x5c12, Data4: [8]byte{0x93, 0xe0, 0xf2, 0xb0, 0x1b, 0xdc, 0xe6, 0x11}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSmsMessageRegistration's vtable slot 6.
+func (self *IIteratorOfSmsMessageRegistration) Current() (*ISmsMessageRegistration, error) {
+	result := new(*ISmsMessageRegistration)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSmsMessageRegistration's vtable slot 7.
+func (self *IIteratorOfSmsMessageRegistration) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSmsMessageRegistration's vtable slot 8.
+func (self *IIteratorOfSmsMessageRegistration) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
+// IID: 8c304ebb-6615-50a4-8829-879ecd443236
+type IIteratorOfString struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfString is the interface identifier for IIteratorOfString.
+var IID_IIteratorOfString = win32.GUID{Data1: 0x8c304ebb, Data2: 0x6615, Data3: 0x50a4, Data4: [8]byte{0x88, 0x29, 0x87, 0x9e, 0xcd, 0x44, 0x32, 0x36}}
+
+// Current (propget get_Current) dispatches through IIteratorOfString's vtable slot 6.
+func (self *IIteratorOfString) Current() (string, error) {
+	result := new(syswinrt.HSTRING)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	if err := win32.ErrIfFailed(int32(r1)); err != nil {
+		return "", err
+	}
+	return winrt.TakeHString(*result), nil
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfString's vtable slot 7.
+func (self *IIteratorOfString) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfString's vtable slot 8.
+func (self *IIteratorOfString) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IMapOfStringAndString is the WinRT interface Windows.Foundation.Collections.IMap`2<String, String>.
 // IID: f6d1f700-49c2-52ae-8154-826f9908773c
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, String>>.
@@ -313,6 +640,24 @@ func (self *IVectorOfInt32) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfInt32 creates a Go-implemented Windows.Foundation.Collections.IVector`1<Int32>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfInt32(items []int32) *IVectorOfInt32 {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Int32>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInt32, Iterator: IID_IIteratorOfInt32, VectorView: IID_IVectorViewOfInt32, Vector: IID_IVectorOfInt32}, winrt.CodecScalar(4), boxed)
+	return (*IVectorOfInt32)(unsafe.Pointer(obj))
+}
+
 // IVectorOfSmsBroadcastType is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Devices.Sms.SmsBroadcastType>.
 // IID: d76bef0b-1358-5895-bd42-f17f6f33eed1
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsBroadcastType>.
@@ -391,6 +736,24 @@ func (self *IVectorOfSmsBroadcastType) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfSmsBroadcastType creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Sms.SmsBroadcastType>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfSmsBroadcastType(items []SmsBroadcastType) *IVectorOfSmsBroadcastType {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Sms.SmsBroadcastType>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSmsBroadcastType, Iterator: IID_IIteratorOfSmsBroadcastType, VectorView: IID_IVectorViewOfSmsBroadcastType, Vector: IID_IVectorOfSmsBroadcastType}, winrt.CodecScalar(4), boxed)
+	return (*IVectorOfSmsBroadcastType)(unsafe.Pointer(obj))
+}
+
 // IVectorOfSmsFilterRule is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Devices.Sms.SmsFilterRule>.
 // IID: 8e72fa52-4867-5696-b4d9-4ca23f19e177
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsFilterRule>.
@@ -468,6 +831,28 @@ func (self *IVectorOfSmsFilterRule) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfSmsFilterRule creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Sms.SmsFilterRule>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfSmsFilterRule(items []*ISmsFilterRule) *IVectorOfSmsFilterRule {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Sms.SmsFilterRule>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSmsFilterRule, Iterator: IID_IIteratorOfSmsFilterRule, VectorView: IID_IVectorViewOfSmsFilterRule, Vector: IID_IVectorOfSmsFilterRule}, winrt.CodecInterface, boxed)
+	return (*IVectorOfSmsFilterRule)(unsafe.Pointer(obj))
+}
 
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
@@ -570,6 +955,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfInt32 is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Int32>.
 // IID: 8d720cdf-3934-5d3f-9a55-40e8063b086a
 // Requires: Windows.Foundation.Collections.IIterable`1<Int32>.
@@ -602,6 +1006,21 @@ func (self *IVectorViewOfInt32) IndexOf(value int32, index *uint32) (bool, error
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfInt32 creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Int32>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfInt32(items []int32) *IVectorViewOfInt32 {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Int32>", winrt.CollectionIIDs{Iterable: IID_IIterableOfInt32, Iterator: IID_IIteratorOfInt32, VectorView: IID_IVectorViewOfInt32}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfInt32)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfSmsBroadcastType is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sms.SmsBroadcastType>.
 // IID: 4063e791-da2d-5e4c-9113-5b6ba0a7c595
@@ -636,6 +1055,21 @@ func (self *IVectorViewOfSmsBroadcastType) IndexOf(value SmsBroadcastType, index
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfSmsBroadcastType creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sms.SmsBroadcastType>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfSmsBroadcastType(items []SmsBroadcastType) *IVectorViewOfSmsBroadcastType {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sms.SmsBroadcastType>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSmsBroadcastType, Iterator: IID_IIteratorOfSmsBroadcastType, VectorView: IID_IVectorViewOfSmsBroadcastType}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfSmsBroadcastType)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfSmsFilterRule is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sms.SmsFilterRule>.
 // IID: f3ed4299-de36-5d82-993f-35fc677d8b72
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsFilterRule>.
@@ -669,6 +1103,25 @@ func (self *IVectorViewOfSmsFilterRule) IndexOf(value *ISmsFilterRule, index *ui
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfSmsFilterRule creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sms.SmsFilterRule>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSmsFilterRule(items []*ISmsFilterRule) *IVectorViewOfSmsFilterRule {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sms.SmsFilterRule>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSmsFilterRule, Iterator: IID_IIteratorOfSmsFilterRule, VectorView: IID_IVectorViewOfSmsFilterRule}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSmsFilterRule)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfSmsMessageRegistration is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sms.SmsMessageRegistration>.
 // IID: 23aaa815-24ef-57c4-b1bc-94d62c0a59a3
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sms.SmsMessageRegistration>.
@@ -701,6 +1154,25 @@ func (self *IVectorViewOfSmsMessageRegistration) IndexOf(value *ISmsMessageRegis
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfSmsMessageRegistration creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sms.SmsMessageRegistration>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSmsMessageRegistration(items []*ISmsMessageRegistration) *IVectorViewOfSmsMessageRegistration {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sms.SmsMessageRegistration>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSmsMessageRegistration, Iterator: IID_IIteratorOfSmsMessageRegistration, VectorView: IID_IVectorViewOfSmsMessageRegistration}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSmsMessageRegistration)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -742,3 +1214,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

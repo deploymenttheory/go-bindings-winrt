@@ -15,6 +15,41 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/media"
 )
 
+// IIterableOfMediaBreak is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Playback.MediaBreak>.
+// IID: 04f000ec-c727-5dc0-9f7c-245c75c92f2f
+type IIterableOfMediaBreak struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfMediaBreak is the interface identifier for IIterableOfMediaBreak.
+var IID_IIterableOfMediaBreak = win32.GUID{Data1: 0x04f000ec, Data2: 0xc727, Data3: 0x5dc0, Data4: [8]byte{0x9f, 0x7c, 0x24, 0x5c, 0x75, 0xc9, 0x2f, 0x2f}}
+
+// First dispatches through IIterableOfMediaBreak's vtable slot 6.
+func (self *IIterableOfMediaBreak) First() (*IIteratorOfMediaBreak, error) {
+	result := new(*IIteratorOfMediaBreak)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMediaBreak creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Playback.MediaBreak>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMediaBreak(items []*IMediaBreak) *IIterableOfMediaBreak {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Playback.MediaBreak>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMediaBreak, Iterator: IID_IIteratorOfMediaBreak}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMediaBreak)(unsafe.Pointer(obj))
+}
+
 // IIterableOfMediaPlaybackItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Playback.MediaPlaybackItem>.
 // IID: 8b8ab4a4-0253-56e9-a232-94e335aefa8f
 type IIterableOfMediaPlaybackItem struct {
@@ -29,6 +64,25 @@ func (self *IIterableOfMediaPlaybackItem) First() (*IIteratorOfMediaPlaybackItem
 	result := new(*IIteratorOfMediaPlaybackItem)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfMediaPlaybackItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Playback.MediaPlaybackItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfMediaPlaybackItem(items []*IMediaPlaybackItem) *IIterableOfMediaPlaybackItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Playback.MediaPlaybackItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMediaPlaybackItem, Iterator: IID_IIteratorOfMediaPlaybackItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfMediaPlaybackItem)(unsafe.Pointer(obj))
 }
 
 // IIterableOfPlaybackMediaMarker is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.Playback.PlaybackMediaMarker>.
@@ -46,6 +100,57 @@ func (self *IIterableOfPlaybackMediaMarker) First() (*IIteratorOfPlaybackMediaMa
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfPlaybackMediaMarker creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.Playback.PlaybackMediaMarker>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPlaybackMediaMarker(items []*IPlaybackMediaMarker) *IIterableOfPlaybackMediaMarker {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.Playback.PlaybackMediaMarker>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPlaybackMediaMarker, Iterator: IID_IIteratorOfPlaybackMediaMarker}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPlaybackMediaMarker)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfMediaBreak is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Playback.MediaBreak>.
+// IID: 9efd8746-f93c-524f-9f95-4b598acf8d25
+type IIteratorOfMediaBreak struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfMediaBreak is the interface identifier for IIteratorOfMediaBreak.
+var IID_IIteratorOfMediaBreak = win32.GUID{Data1: 0x9efd8746, Data2: 0xf93c, Data3: 0x524f, Data4: [8]byte{0x9f, 0x95, 0x4b, 0x59, 0x8a, 0xcf, 0x8d, 0x25}}
+
+// Current (propget get_Current) dispatches through IIteratorOfMediaBreak's vtable slot 6.
+func (self *IIteratorOfMediaBreak) Current() (*IMediaBreak, error) {
+	result := new(*IMediaBreak)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfMediaBreak's vtable slot 7.
+func (self *IIteratorOfMediaBreak) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfMediaBreak's vtable slot 8.
+func (self *IIteratorOfMediaBreak) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfMediaPlaybackItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.Playback.MediaPlaybackItem>.
 // IID: ab074059-8c08-53e7-9654-02d2598fff55
@@ -204,6 +309,25 @@ func (self *IVectorViewOfMediaBreak) IndexOf(value *IMediaBreak, index *uint32) 
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfMediaBreak creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Playback.MediaBreak>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMediaBreak(items []*IMediaBreak) *IVectorViewOfMediaBreak {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Playback.MediaBreak>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMediaBreak, Iterator: IID_IIteratorOfMediaBreak, VectorView: IID_IVectorViewOfMediaBreak}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMediaBreak)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfMediaPlaybackItem is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.Playback.MediaPlaybackItem>.
 // IID: b6a4c9fe-c73d-5eba-b5ab-6f8deaca30b9
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.Playback.MediaPlaybackItem>.
@@ -236,6 +360,25 @@ func (self *IVectorViewOfMediaPlaybackItem) IndexOf(value *IMediaPlaybackItem, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfMediaPlaybackItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.Playback.MediaPlaybackItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfMediaPlaybackItem(items []*IMediaPlaybackItem) *IVectorViewOfMediaPlaybackItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.Playback.MediaPlaybackItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfMediaPlaybackItem, Iterator: IID_IIteratorOfMediaPlaybackItem, VectorView: IID_IVectorViewOfMediaPlaybackItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfMediaPlaybackItem)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfMediaTimeRange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.MediaTimeRange>.
 // IID: 2628205b-a57a-5179-92e6-9b6e13cb8d0d

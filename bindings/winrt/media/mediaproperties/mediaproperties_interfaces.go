@@ -943,7 +943,7 @@ type IMediaEncodingProperties struct {
 var IID_IMediaEncodingProperties = win32.GUID{Data1: 0xb4002af6, Data2: 0xacd4, Data3: 0x4e5a, Data4: [8]byte{0xa2, 0x4b, 0x5d, 0x74, 0x98, 0xa8, 0xb8, 0xc4}}
 
 // Properties (propget get_Properties) dispatches through IMediaEncodingProperties's vtable slot 6.
-// The return value's class Windows.Media.MediaProperties.MediaPropertySet is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.Media.MediaProperties.MediaPropertySet is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IMediaEncodingProperties) Properties() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))

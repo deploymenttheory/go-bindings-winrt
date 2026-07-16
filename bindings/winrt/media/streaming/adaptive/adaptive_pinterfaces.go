@@ -83,6 +83,69 @@ func (self *IAsyncOperationOfAdaptiveMediaSourceCreationResult) Await() (*IAdapt
 	return self.GetResults()
 }
 
+// IIterableOfUInt32 is the WinRT interface Windows.Foundation.Collections.IIterable`1<UInt32>.
+// IID: 421d4b91-b13b-5f37-ae54-b5249bd80539
+type IIterableOfUInt32 struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUInt32 is the interface identifier for IIterableOfUInt32.
+var IID_IIterableOfUInt32 = win32.GUID{Data1: 0x421d4b91, Data2: 0xb13b, Data3: 0x5f37, Data4: [8]byte{0xae, 0x54, 0xb5, 0x24, 0x9b, 0xd8, 0x05, 0x39}}
+
+// First dispatches through IIterableOfUInt32's vtable slot 6.
+func (self *IIterableOfUInt32) First() (*IIteratorOfUInt32, error) {
+	result := new(*IIteratorOfUInt32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUInt32 creates a Go-implemented Windows.Foundation.Collections.IIterable`1<UInt32>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfUInt32(items []uint32) *IIterableOfUInt32 {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<UInt32>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUInt32, Iterator: IID_IIteratorOfUInt32}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfUInt32)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfUInt32 is the WinRT interface Windows.Foundation.Collections.IIterator`1<UInt32>.
+// IID: f06a2739-9443-5ef0-b284-dc5aff3e7d10
+type IIteratorOfUInt32 struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUInt32 is the interface identifier for IIteratorOfUInt32.
+var IID_IIteratorOfUInt32 = win32.GUID{Data1: 0xf06a2739, Data2: 0x9443, Data3: 0x5ef0, Data4: [8]byte{0xb2, 0x84, 0xdc, 0x5a, 0xff, 0x3e, 0x7d, 0x10}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUInt32's vtable slot 6.
+func (self *IIteratorOfUInt32) Current() (uint32, error) {
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUInt32's vtable slot 7.
+func (self *IIteratorOfUInt32) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUInt32's vtable slot 8.
+func (self *IIteratorOfUInt32) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfAdaptiveMediaSourceResourceType is the WinRT interface Windows.Foundation.IReference`1<Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType>.
 // IID: 74c8c3aa-de03-5bf0-aae8-aa8b692066b3
 // Requires: Windows.Foundation.IPropertyValue.
@@ -229,3 +292,18 @@ func (self *IVectorViewOfUInt32) IndexOf(value uint32, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUInt32 creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<UInt32>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfUInt32(items []uint32) *IVectorViewOfUInt32 {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<UInt32>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUInt32, Iterator: IID_IIteratorOfUInt32, VectorView: IID_IVectorViewOfUInt32}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfUInt32)(unsafe.Pointer(obj))
+}

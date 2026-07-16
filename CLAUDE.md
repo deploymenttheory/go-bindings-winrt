@@ -71,16 +71,37 @@ go run ./examples/calendar                # the vertical, end to end
     grew the calling goroutine's stack would move it and strand the raw
     `&result` out-pointer the in-flight generated SyscallN already handed
     to native code (verified live), so the callback side only stages
-    arguments and parks, allocation-free.
-  - `collections.go` — Go-slice-backed WinRT string collections atop that
-    core: `NewStringIterable` (IIterable<String>), `NewStringIterator`
-    (IIterator<String>; E_BOUNDS past the end, GetMany partial reads), and
-    `NewStringVectorView` (IVectorView<String> plus an IIterable<String>
-    tear-off facet sharing one refcount/identity). IIDs hard-coded and
-    pinned against the pinterface derivation by `internal/verify`; cast
-    `Ptr()`/the object pointer to a generated consumer type
-    (`*globalization.IIterableOfString`) to pass into bindings — the
-    Calendar factory ctors are live-proven consuming one in `acceptance/`.
+    arguments and parks, allocation-free. The worker is thread-locked and
+    publishes its OS thread id: a callback arriving ON that thread is a
+    nested reentry (a collection body AddRef/Releasing a Go-implemented
+    element) and runs INLINE instead of parking — the self-deadlock guard
+    the element codecs rely on. An optional per-object `destroy` hook runs
+    once at refcount zero (collections release retained elements there).
+  - `collections_core.go` — element-generic Go-implemented WinRT
+    collections: non-generic core types `Iterable`/`Iterator`/`VectorView`/
+    writable `Vector` (all 12 IVector slots: E_BOUNDS bounds, ReplaceAll
+    all-or-nothing, GetView/First = re-retained SNAPSHOTS, GetMany with
+    unwind) carrying a `[]any` payload plus an `ElementCodec`
+    (`CodecString`, `CodecInterface` — AddRef/Release retention,
+    identity-word IndexOf equality, documented no-QI limitation —
+    `CodecScalar(n)`, `CodecGuid`). One shared trampoline per
+    shape/slot dispatches through the codec: fixed NewCallback budget, never
+    per element type. Constructors `NewIterableObject`/`NewVectorViewObject`/
+    `NewVectorObject(class, CollectionIIDs, codec, items)`.
+  - `collections.go` — the String wrappers over that core (exported API and
+    IIDs unchanged): `NewStringIterable`, `NewStringIterator`,
+    `NewStringVectorView`. IIDs hard-coded and pinned against the
+    pinterface derivation by `internal/verify`; cast `Ptr()`/the object
+    pointer to a generated consumer type, or use the GENERATED typed
+    constructors — every monomorphized `IIterable<X>`/`IVectorView<X>`/
+    `IVector<X>` with a codec-able element gains `New<Mangled>(items
+    []<GoElem>) *<Mangled>` in `<pkg>_pinterfaces.go` (sibling
+    instantiations requested so their IID vars exist in-package;
+    un-codec-able elements skip under `collection-ctor-skipped`). The
+    Calendar factories, `IppAttributeValueStatics.Create{Uri,Integer}Array`,
+    `DataPackage.SetStorageItems` → `GetStorageItemsAsync().Await()`, and
+    the full writable IVector<String> surface are live-proven in
+    `acceptance/`.
 - **`internal/winrtmeta` + `internal/winrtmeta/ingest`** — the IR and its
   producer: the pinned contract winmds project into per-namespace
   `metadata/winrt/<Namespace>.winrtmeta.json` files (committed; the CI
@@ -116,9 +137,23 @@ go run ./examples/calendar                # the vertical, end to end
     emitter is self-cleaning and only ever prunes files bearing the header.
 - **Emit rules**: slot = 6 + MethodDef index; skipped members NEVER
   renumber — they leave `// slot N: name skipped: reason` comments.
-  Classes (non-composable) embed their default interface by value;
-  direct-activatable classes get `NewFoo()`; other instance interfaces get
-  `As<Name>()` query methods. Closed generic INTERFACE instantiations
+  Classes — composable ones included — embed their default interface by
+  value; direct-activatable classes get `NewFoo()`; other instance
+  interfaces get `As<Name>()` query methods. Composition is
+  INSTANTIATE-ONLY: a class-typed param/return resolves to the class's
+  default-interface pointer (composable or not), and each emitted
+  `[Composable]` factory method whose trailing params are the composition
+  pair (`baseInterface` in Object + `innerInterface` out Object) and whose
+  return is the class default interface becomes a package-level
+  `New<Class>` / `New<Class>With<Suffix>` constructor taking only the
+  LEADING params: it delegates to the generated factory method with a NULL
+  outer and an inner out-pointer, Releases the returned non-nil inner (a
+  second reference to the same object under null-outer composition), and
+  re-types the retval as the class. Shape-rule failures record
+  `composable-factory-skipped`; factory-less composables (SpriteVisual) are
+  a valid platform shape — class type + queries + statics, no diagnostic.
+  Go-side derivation (non-null outer) is out of scope; inherited
+  (base-class) interfaces are reached via `winrt.QueryInterface`. Closed generic INTERFACE instantiations
   referenced by emittable members are emitted as concrete (monomorphized)
   types into the CONSUMING package's `<pkg>_pinterfaces.go` — mangled name
   (`IVectorView`1<String>` → `IVectorViewOfString`), IID derived by
@@ -207,8 +242,8 @@ go run ./examples/calendar                # the vertical, end to end
   for updates).
 - Conventional commits, release-please, SHA-pinned actions, LF-normalized
   text (`.gitattributes`), `*.winmd` binary.
-- See `docs/ROADMAP.md` for the landed/deferred state (composition, delegate
-  returns, and progress handlers' Await stay deferred; events, statics,
-  factory constructors, delegate-typed method params, and async awaiting are
-  emitted). User-facing guides live in `docs/*.md`; runnable examples in
+- See `docs/ROADMAP.md` for the landed/deferred state (Go-side derivation of
+  composable classes and delegate returns stay deferred; events, statics,
+  factory constructors, composable constructors, delegate-typed method
+  params, and async awaiting — WithProgress included — are emitted). User-facing guides live in `docs/*.md`; runnable examples in
   `examples/` (indexed by `examples/README.md`).

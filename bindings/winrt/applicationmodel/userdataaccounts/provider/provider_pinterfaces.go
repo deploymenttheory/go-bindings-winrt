@@ -13,6 +13,73 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 )
 
+// IIterableOfUserDataAccountPartnerAccountInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo>.
+// IID: 5cdb425e-da5a-55fa-b349-5467996cab32
+type IIterableOfUserDataAccountPartnerAccountInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUserDataAccountPartnerAccountInfo is the interface identifier for IIterableOfUserDataAccountPartnerAccountInfo.
+var IID_IIterableOfUserDataAccountPartnerAccountInfo = win32.GUID{Data1: 0x5cdb425e, Data2: 0xda5a, Data3: 0x55fa, Data4: [8]byte{0xb3, 0x49, 0x54, 0x67, 0x99, 0x6c, 0xab, 0x32}}
+
+// First dispatches through IIterableOfUserDataAccountPartnerAccountInfo's vtable slot 6.
+func (self *IIterableOfUserDataAccountPartnerAccountInfo) First() (*IIteratorOfUserDataAccountPartnerAccountInfo, error) {
+	result := new(*IIteratorOfUserDataAccountPartnerAccountInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUserDataAccountPartnerAccountInfo creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUserDataAccountPartnerAccountInfo(items []*IUserDataAccountPartnerAccountInfo) *IIterableOfUserDataAccountPartnerAccountInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserDataAccountPartnerAccountInfo, Iterator: IID_IIteratorOfUserDataAccountPartnerAccountInfo}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUserDataAccountPartnerAccountInfo)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfUserDataAccountPartnerAccountInfo is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo>.
+// IID: ac401b26-3ebf-5cbf-9643-c96a40ab40a2
+type IIteratorOfUserDataAccountPartnerAccountInfo struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUserDataAccountPartnerAccountInfo is the interface identifier for IIteratorOfUserDataAccountPartnerAccountInfo.
+var IID_IIteratorOfUserDataAccountPartnerAccountInfo = win32.GUID{Data1: 0xac401b26, Data2: 0x3ebf, Data3: 0x5cbf, Data4: [8]byte{0x96, 0x43, 0xc9, 0x6a, 0x40, 0xab, 0x40, 0xa2}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUserDataAccountPartnerAccountInfo's vtable slot 6.
+func (self *IIteratorOfUserDataAccountPartnerAccountInfo) Current() (*IUserDataAccountPartnerAccountInfo, error) {
+	result := new(*IUserDataAccountPartnerAccountInfo)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUserDataAccountPartnerAccountInfo's vtable slot 7.
+func (self *IIteratorOfUserDataAccountPartnerAccountInfo) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUserDataAccountPartnerAccountInfo's vtable slot 8.
+func (self *IIteratorOfUserDataAccountPartnerAccountInfo) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorViewOfUserDataAccountPartnerAccountInfo is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo>.
 // IID: b730f093-e2fb-5b20-9d9e-4f9defe647b0
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo>.
@@ -45,3 +112,22 @@ func (self *IVectorViewOfUserDataAccountPartnerAccountInfo) IndexOf(value *IUser
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUserDataAccountPartnerAccountInfo creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUserDataAccountPartnerAccountInfo(items []*IUserDataAccountPartnerAccountInfo) *IVectorViewOfUserDataAccountPartnerAccountInfo {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUserDataAccountPartnerAccountInfo, Iterator: IID_IIteratorOfUserDataAccountPartnerAccountInfo, VectorView: IID_IVectorViewOfUserDataAccountPartnerAccountInfo}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUserDataAccountPartnerAccountInfo)(unsafe.Pointer(obj))
+}

@@ -11,6 +11,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 )
 
 // IAsyncOperationWithProgressOfSyndicationFeedAndRetrievalProgress is the WinRT interface Windows.Foundation.IAsyncOperationWithProgress`2<Windows.Web.Syndication.SyndicationFeed, Windows.Web.Syndication.RetrievalProgress>.
@@ -46,6 +47,447 @@ func (self *IAsyncOperationWithProgressOfSyndicationFeedAndRetrievalProgress) Ge
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfSyndicationFeedAndRetrievalProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfSyndicationFeedAndRetrievalProgress) Await() (*ISyndicationFeed, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfSyndicationFeedAndRetrievalProgress(func(_ *IAsyncOperationWithProgressOfSyndicationFeedAndRetrievalProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
+// IIterableOfISyndicationNode is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.ISyndicationNode>.
+// IID: b486569a-72b3-57aa-9950-cea0b3e4fc58
+type IIterableOfISyndicationNode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfISyndicationNode is the interface identifier for IIterableOfISyndicationNode.
+var IID_IIterableOfISyndicationNode = win32.GUID{Data1: 0xb486569a, Data2: 0x72b3, Data3: 0x57aa, Data4: [8]byte{0x99, 0x50, 0xce, 0xa0, 0xb3, 0xe4, 0xfc, 0x58}}
+
+// First dispatches through IIterableOfISyndicationNode's vtable slot 6.
+func (self *IIterableOfISyndicationNode) First() (*IIteratorOfISyndicationNode, error) {
+	result := new(*IIteratorOfISyndicationNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfISyndicationNode creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.ISyndicationNode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfISyndicationNode(items []*ISyndicationNode) *IIterableOfISyndicationNode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.ISyndicationNode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfISyndicationNode, Iterator: IID_IIteratorOfISyndicationNode}, winrt.CodecInterface, boxed)
+	return (*IIterableOfISyndicationNode)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSyndicationAttribute is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationAttribute>.
+// IID: 329eabe1-efcc-539e-96ba-f6a44f221dbd
+type IIterableOfSyndicationAttribute struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSyndicationAttribute is the interface identifier for IIterableOfSyndicationAttribute.
+var IID_IIterableOfSyndicationAttribute = win32.GUID{Data1: 0x329eabe1, Data2: 0xefcc, Data3: 0x539e, Data4: [8]byte{0x96, 0xba, 0xf6, 0xa4, 0x4f, 0x22, 0x1d, 0xbd}}
+
+// First dispatches through IIterableOfSyndicationAttribute's vtable slot 6.
+func (self *IIterableOfSyndicationAttribute) First() (*IIteratorOfSyndicationAttribute, error) {
+	result := new(*IIteratorOfSyndicationAttribute)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSyndicationAttribute creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationAttribute>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSyndicationAttribute(items []*ISyndicationAttribute) *IIterableOfSyndicationAttribute {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationAttribute>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationAttribute, Iterator: IID_IIteratorOfSyndicationAttribute}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSyndicationAttribute)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSyndicationCategory is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationCategory>.
+// IID: d151f7d1-eabd-5300-b55c-149eb289cc71
+type IIterableOfSyndicationCategory struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSyndicationCategory is the interface identifier for IIterableOfSyndicationCategory.
+var IID_IIterableOfSyndicationCategory = win32.GUID{Data1: 0xd151f7d1, Data2: 0xeabd, Data3: 0x5300, Data4: [8]byte{0xb5, 0x5c, 0x14, 0x9e, 0xb2, 0x89, 0xcc, 0x71}}
+
+// First dispatches through IIterableOfSyndicationCategory's vtable slot 6.
+func (self *IIterableOfSyndicationCategory) First() (*IIteratorOfSyndicationCategory, error) {
+	result := new(*IIteratorOfSyndicationCategory)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSyndicationCategory creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationCategory>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSyndicationCategory(items []*ISyndicationCategory) *IIterableOfSyndicationCategory {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationCategory>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationCategory, Iterator: IID_IIteratorOfSyndicationCategory}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSyndicationCategory)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSyndicationItem is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationItem>.
+// IID: 55463eef-ecb8-59cd-8d6b-74daacbe7d19
+type IIterableOfSyndicationItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSyndicationItem is the interface identifier for IIterableOfSyndicationItem.
+var IID_IIterableOfSyndicationItem = win32.GUID{Data1: 0x55463eef, Data2: 0xecb8, Data3: 0x59cd, Data4: [8]byte{0x8d, 0x6b, 0x74, 0xda, 0xac, 0xbe, 0x7d, 0x19}}
+
+// First dispatches through IIterableOfSyndicationItem's vtable slot 6.
+func (self *IIterableOfSyndicationItem) First() (*IIteratorOfSyndicationItem, error) {
+	result := new(*IIteratorOfSyndicationItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSyndicationItem creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSyndicationItem(items []*ISyndicationItem) *IIterableOfSyndicationItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationItem, Iterator: IID_IIteratorOfSyndicationItem}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSyndicationItem)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSyndicationLink is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationLink>.
+// IID: c6919f6a-66d9-556a-9632-87d39af14638
+type IIterableOfSyndicationLink struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSyndicationLink is the interface identifier for IIterableOfSyndicationLink.
+var IID_IIterableOfSyndicationLink = win32.GUID{Data1: 0xc6919f6a, Data2: 0x66d9, Data3: 0x556a, Data4: [8]byte{0x96, 0x32, 0x87, 0xd3, 0x9a, 0xf1, 0x46, 0x38}}
+
+// First dispatches through IIterableOfSyndicationLink's vtable slot 6.
+func (self *IIterableOfSyndicationLink) First() (*IIteratorOfSyndicationLink, error) {
+	result := new(*IIteratorOfSyndicationLink)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSyndicationLink creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationLink>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSyndicationLink(items []*ISyndicationLink) *IIterableOfSyndicationLink {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationLink>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationLink, Iterator: IID_IIteratorOfSyndicationLink}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSyndicationLink)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSyndicationPerson is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationPerson>.
+// IID: e58e7844-eb34-5284-b09e-de6762d548ca
+type IIterableOfSyndicationPerson struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSyndicationPerson is the interface identifier for IIterableOfSyndicationPerson.
+var IID_IIterableOfSyndicationPerson = win32.GUID{Data1: 0xe58e7844, Data2: 0xeb34, Data3: 0x5284, Data4: [8]byte{0xb0, 0x9e, 0xde, 0x67, 0x62, 0xd5, 0x48, 0xca}}
+
+// First dispatches through IIterableOfSyndicationPerson's vtable slot 6.
+func (self *IIterableOfSyndicationPerson) First() (*IIteratorOfSyndicationPerson, error) {
+	result := new(*IIteratorOfSyndicationPerson)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSyndicationPerson creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationPerson>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSyndicationPerson(items []*ISyndicationPerson) *IIterableOfSyndicationPerson {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationPerson>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationPerson, Iterator: IID_IIteratorOfSyndicationPerson}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSyndicationPerson)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfISyndicationNode is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.Syndication.ISyndicationNode>.
+// IID: 2dc8d9d6-0f44-5692-933e-f8902ab7fb94
+type IIteratorOfISyndicationNode struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfISyndicationNode is the interface identifier for IIteratorOfISyndicationNode.
+var IID_IIteratorOfISyndicationNode = win32.GUID{Data1: 0x2dc8d9d6, Data2: 0x0f44, Data3: 0x5692, Data4: [8]byte{0x93, 0x3e, 0xf8, 0x90, 0x2a, 0xb7, 0xfb, 0x94}}
+
+// Current (propget get_Current) dispatches through IIteratorOfISyndicationNode's vtable slot 6.
+func (self *IIteratorOfISyndicationNode) Current() (*ISyndicationNode, error) {
+	result := new(*ISyndicationNode)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfISyndicationNode's vtable slot 7.
+func (self *IIteratorOfISyndicationNode) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfISyndicationNode's vtable slot 8.
+func (self *IIteratorOfISyndicationNode) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSyndicationAttribute is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.Syndication.SyndicationAttribute>.
+// IID: a76fcde8-f86f-5b75-aa7d-5787467a319d
+type IIteratorOfSyndicationAttribute struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSyndicationAttribute is the interface identifier for IIteratorOfSyndicationAttribute.
+var IID_IIteratorOfSyndicationAttribute = win32.GUID{Data1: 0xa76fcde8, Data2: 0xf86f, Data3: 0x5b75, Data4: [8]byte{0xaa, 0x7d, 0x57, 0x87, 0x46, 0x7a, 0x31, 0x9d}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSyndicationAttribute's vtable slot 6.
+func (self *IIteratorOfSyndicationAttribute) Current() (*ISyndicationAttribute, error) {
+	result := new(*ISyndicationAttribute)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSyndicationAttribute's vtable slot 7.
+func (self *IIteratorOfSyndicationAttribute) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSyndicationAttribute's vtable slot 8.
+func (self *IIteratorOfSyndicationAttribute) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSyndicationCategory is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.Syndication.SyndicationCategory>.
+// IID: 2a9228fa-b088-5690-bb38-b7044e0b502b
+type IIteratorOfSyndicationCategory struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSyndicationCategory is the interface identifier for IIteratorOfSyndicationCategory.
+var IID_IIteratorOfSyndicationCategory = win32.GUID{Data1: 0x2a9228fa, Data2: 0xb088, Data3: 0x5690, Data4: [8]byte{0xbb, 0x38, 0xb7, 0x04, 0x4e, 0x0b, 0x50, 0x2b}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSyndicationCategory's vtable slot 6.
+func (self *IIteratorOfSyndicationCategory) Current() (*ISyndicationCategory, error) {
+	result := new(*ISyndicationCategory)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSyndicationCategory's vtable slot 7.
+func (self *IIteratorOfSyndicationCategory) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSyndicationCategory's vtable slot 8.
+func (self *IIteratorOfSyndicationCategory) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSyndicationItem is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.Syndication.SyndicationItem>.
+// IID: d5692aa3-d785-5db4-ac5c-b3832082e629
+type IIteratorOfSyndicationItem struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSyndicationItem is the interface identifier for IIteratorOfSyndicationItem.
+var IID_IIteratorOfSyndicationItem = win32.GUID{Data1: 0xd5692aa3, Data2: 0xd785, Data3: 0x5db4, Data4: [8]byte{0xac, 0x5c, 0xb3, 0x83, 0x20, 0x82, 0xe6, 0x29}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSyndicationItem's vtable slot 6.
+func (self *IIteratorOfSyndicationItem) Current() (*ISyndicationItem, error) {
+	result := new(*ISyndicationItem)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSyndicationItem's vtable slot 7.
+func (self *IIteratorOfSyndicationItem) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSyndicationItem's vtable slot 8.
+func (self *IIteratorOfSyndicationItem) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSyndicationLink is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.Syndication.SyndicationLink>.
+// IID: 901642b7-6ca4-5b57-b8f1-73208342ba4a
+type IIteratorOfSyndicationLink struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSyndicationLink is the interface identifier for IIteratorOfSyndicationLink.
+var IID_IIteratorOfSyndicationLink = win32.GUID{Data1: 0x901642b7, Data2: 0x6ca4, Data3: 0x5b57, Data4: [8]byte{0xb8, 0xf1, 0x73, 0x20, 0x83, 0x42, 0xba, 0x4a}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSyndicationLink's vtable slot 6.
+func (self *IIteratorOfSyndicationLink) Current() (*ISyndicationLink, error) {
+	result := new(*ISyndicationLink)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSyndicationLink's vtable slot 7.
+func (self *IIteratorOfSyndicationLink) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSyndicationLink's vtable slot 8.
+func (self *IIteratorOfSyndicationLink) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSyndicationPerson is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Web.Syndication.SyndicationPerson>.
+// IID: 1745e807-f209-5da6-8855-7f99e25eb1fc
+type IIteratorOfSyndicationPerson struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSyndicationPerson is the interface identifier for IIteratorOfSyndicationPerson.
+var IID_IIteratorOfSyndicationPerson = win32.GUID{Data1: 0x1745e807, Data2: 0xf209, Data3: 0x5da6, Data4: [8]byte{0x88, 0x55, 0x7f, 0x99, 0xe2, 0x5e, 0xb1, 0xfc}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSyndicationPerson's vtable slot 6.
+func (self *IIteratorOfSyndicationPerson) Current() (*ISyndicationPerson, error) {
+	result := new(*ISyndicationPerson)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSyndicationPerson's vtable slot 7.
+func (self *IIteratorOfSyndicationPerson) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSyndicationPerson's vtable slot 8.
+func (self *IIteratorOfSyndicationPerson) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IVectorOfISyndicationNode is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.ISyndicationNode>.
 // IID: f4508afa-9f02-5eb8-a389-14bbe5193ac0
@@ -125,6 +567,28 @@ func (self *IVectorOfISyndicationNode) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfISyndicationNode creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.ISyndicationNode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfISyndicationNode(items []*ISyndicationNode) *IVectorOfISyndicationNode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.ISyndicationNode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfISyndicationNode, Iterator: IID_IIteratorOfISyndicationNode, VectorView: IID_IVectorViewOfISyndicationNode, Vector: IID_IVectorOfISyndicationNode}, winrt.CodecInterface, boxed)
+	return (*IVectorOfISyndicationNode)(unsafe.Pointer(obj))
+}
+
 // IVectorOfSyndicationAttribute is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationAttribute>.
 // IID: 2fe84e7b-2350-5941-94b5-a64677b585d1
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationAttribute>.
@@ -202,6 +666,28 @@ func (self *IVectorOfSyndicationAttribute) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfSyndicationAttribute creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationAttribute>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfSyndicationAttribute(items []*ISyndicationAttribute) *IVectorOfSyndicationAttribute {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationAttribute>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationAttribute, Iterator: IID_IIteratorOfSyndicationAttribute, VectorView: IID_IVectorViewOfSyndicationAttribute, Vector: IID_IVectorOfSyndicationAttribute}, winrt.CodecInterface, boxed)
+	return (*IVectorOfSyndicationAttribute)(unsafe.Pointer(obj))
+}
 
 // IVectorOfSyndicationCategory is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationCategory>.
 // IID: 72e456e4-0e52-52cb-b363-f3581327f033
@@ -281,6 +767,28 @@ func (self *IVectorOfSyndicationCategory) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfSyndicationCategory creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationCategory>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfSyndicationCategory(items []*ISyndicationCategory) *IVectorOfSyndicationCategory {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationCategory>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationCategory, Iterator: IID_IIteratorOfSyndicationCategory, VectorView: IID_IVectorViewOfSyndicationCategory, Vector: IID_IVectorOfSyndicationCategory}, winrt.CodecInterface, boxed)
+	return (*IVectorOfSyndicationCategory)(unsafe.Pointer(obj))
+}
+
 // IVectorOfSyndicationItem is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationItem>.
 // IID: aa01130b-4631-5117-8c48-dc21b0295096
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationItem>.
@@ -358,6 +866,28 @@ func (self *IVectorOfSyndicationItem) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfSyndicationItem creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfSyndicationItem(items []*ISyndicationItem) *IVectorOfSyndicationItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationItem, Iterator: IID_IIteratorOfSyndicationItem, VectorView: IID_IVectorViewOfSyndicationItem, Vector: IID_IVectorOfSyndicationItem}, winrt.CodecInterface, boxed)
+	return (*IVectorOfSyndicationItem)(unsafe.Pointer(obj))
+}
 
 // IVectorOfSyndicationLink is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationLink>.
 // IID: b8fb25a5-01c3-5207-814e-892b2b5343f7
@@ -437,6 +967,28 @@ func (self *IVectorOfSyndicationLink) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfSyndicationLink creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationLink>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfSyndicationLink(items []*ISyndicationLink) *IVectorOfSyndicationLink {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationLink>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationLink, Iterator: IID_IIteratorOfSyndicationLink, VectorView: IID_IVectorViewOfSyndicationLink, Vector: IID_IVectorOfSyndicationLink}, winrt.CodecInterface, boxed)
+	return (*IVectorOfSyndicationLink)(unsafe.Pointer(obj))
+}
+
 // IVectorOfSyndicationPerson is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationPerson>.
 // IID: ab772cd6-8ce7-5db9-83ac-0db9e44a1b0c
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationPerson>.
@@ -515,6 +1067,28 @@ func (self *IVectorOfSyndicationPerson) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfSyndicationPerson creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationPerson>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfSyndicationPerson(items []*ISyndicationPerson) *IVectorOfSyndicationPerson {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Web.Syndication.SyndicationPerson>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationPerson, Iterator: IID_IIteratorOfSyndicationPerson, VectorView: IID_IVectorViewOfSyndicationPerson, Vector: IID_IVectorOfSyndicationPerson}, winrt.CodecInterface, boxed)
+	return (*IVectorOfSyndicationPerson)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfISyndicationNode is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.ISyndicationNode>.
 // IID: 6b4bd4a1-b4f6-5433-afd7-bd2e501a1041
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.ISyndicationNode>.
@@ -547,6 +1121,25 @@ func (self *IVectorViewOfISyndicationNode) IndexOf(value *ISyndicationNode, inde
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfISyndicationNode creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.ISyndicationNode>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfISyndicationNode(items []*ISyndicationNode) *IVectorViewOfISyndicationNode {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.ISyndicationNode>", winrt.CollectionIIDs{Iterable: IID_IIterableOfISyndicationNode, Iterator: IID_IIteratorOfISyndicationNode, VectorView: IID_IVectorViewOfISyndicationNode}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfISyndicationNode)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfSyndicationAttribute is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationAttribute>.
 // IID: c1d6d1cc-69ce-5486-9f35-c87e13111387
@@ -581,6 +1174,25 @@ func (self *IVectorViewOfSyndicationAttribute) IndexOf(value *ISyndicationAttrib
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfSyndicationAttribute creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationAttribute>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSyndicationAttribute(items []*ISyndicationAttribute) *IVectorViewOfSyndicationAttribute {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationAttribute>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationAttribute, Iterator: IID_IIteratorOfSyndicationAttribute, VectorView: IID_IVectorViewOfSyndicationAttribute}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSyndicationAttribute)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfSyndicationCategory is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationCategory>.
 // IID: a1ac007c-9d94-552e-840e-139f109a9b88
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationCategory>.
@@ -613,6 +1225,25 @@ func (self *IVectorViewOfSyndicationCategory) IndexOf(value *ISyndicationCategor
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfSyndicationCategory creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationCategory>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSyndicationCategory(items []*ISyndicationCategory) *IVectorViewOfSyndicationCategory {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationCategory>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationCategory, Iterator: IID_IIteratorOfSyndicationCategory, VectorView: IID_IVectorViewOfSyndicationCategory}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSyndicationCategory)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfSyndicationItem is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationItem>.
 // IID: 9496279b-567e-5652-b942-f6fb70c34173
@@ -647,6 +1278,25 @@ func (self *IVectorViewOfSyndicationItem) IndexOf(value *ISyndicationItem, index
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfSyndicationItem creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationItem>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSyndicationItem(items []*ISyndicationItem) *IVectorViewOfSyndicationItem {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationItem>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationItem, Iterator: IID_IIteratorOfSyndicationItem, VectorView: IID_IVectorViewOfSyndicationItem}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSyndicationItem)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfSyndicationLink is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationLink>.
 // IID: eb8b7ff6-fa64-576a-8be4-a055f7a04a73
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationLink>.
@@ -680,6 +1330,25 @@ func (self *IVectorViewOfSyndicationLink) IndexOf(value *ISyndicationLink, index
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfSyndicationLink creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationLink>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSyndicationLink(items []*ISyndicationLink) *IVectorViewOfSyndicationLink {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationLink>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationLink, Iterator: IID_IIteratorOfSyndicationLink, VectorView: IID_IVectorViewOfSyndicationLink}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSyndicationLink)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfSyndicationPerson is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationPerson>.
 // IID: 0e450d3d-e750-5787-885b-488abc72b5b9
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Web.Syndication.SyndicationPerson>.
@@ -712,3 +1381,22 @@ func (self *IVectorViewOfSyndicationPerson) IndexOf(value *ISyndicationPerson, i
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfSyndicationPerson creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationPerson>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSyndicationPerson(items []*ISyndicationPerson) *IVectorViewOfSyndicationPerson {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Web.Syndication.SyndicationPerson>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSyndicationPerson, Iterator: IID_IIteratorOfSyndicationPerson, VectorView: IID_IVectorViewOfSyndicationPerson}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSyndicationPerson)(unsafe.Pointer(obj))
+}

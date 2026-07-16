@@ -704,6 +704,274 @@ func (self *IAsyncOperationOfPerceptionInfraredFrameSource) Await() (*IPerceptio
 	return self.GetResults()
 }
 
+// IIterableOfPerceptionColorFrameSource is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionColorFrameSource>.
+// IID: db18069e-7b5a-54c3-a627-d56f9517fdf5
+type IIterableOfPerceptionColorFrameSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPerceptionColorFrameSource is the interface identifier for IIterableOfPerceptionColorFrameSource.
+var IID_IIterableOfPerceptionColorFrameSource = win32.GUID{Data1: 0xdb18069e, Data2: 0x7b5a, Data3: 0x54c3, Data4: [8]byte{0xa6, 0x27, 0xd5, 0x6f, 0x95, 0x17, 0xfd, 0xf5}}
+
+// First dispatches through IIterableOfPerceptionColorFrameSource's vtable slot 6.
+func (self *IIterableOfPerceptionColorFrameSource) First() (*IIteratorOfPerceptionColorFrameSource, error) {
+	result := new(*IIteratorOfPerceptionColorFrameSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPerceptionColorFrameSource creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionColorFrameSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPerceptionColorFrameSource(items []*IPerceptionColorFrameSource) *IIterableOfPerceptionColorFrameSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionColorFrameSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPerceptionColorFrameSource, Iterator: IID_IIteratorOfPerceptionColorFrameSource}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPerceptionColorFrameSource)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPerceptionDepthFrameSource is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionDepthFrameSource>.
+// IID: 8a07e1e8-5a02-585b-a26e-ad79beaa94cf
+type IIterableOfPerceptionDepthFrameSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPerceptionDepthFrameSource is the interface identifier for IIterableOfPerceptionDepthFrameSource.
+var IID_IIterableOfPerceptionDepthFrameSource = win32.GUID{Data1: 0x8a07e1e8, Data2: 0x5a02, Data3: 0x585b, Data4: [8]byte{0xa2, 0x6e, 0xad, 0x79, 0xbe, 0xaa, 0x94, 0xcf}}
+
+// First dispatches through IIterableOfPerceptionDepthFrameSource's vtable slot 6.
+func (self *IIterableOfPerceptionDepthFrameSource) First() (*IIteratorOfPerceptionDepthFrameSource, error) {
+	result := new(*IIteratorOfPerceptionDepthFrameSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPerceptionDepthFrameSource creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionDepthFrameSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPerceptionDepthFrameSource(items []*IPerceptionDepthFrameSource) *IIterableOfPerceptionDepthFrameSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionDepthFrameSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPerceptionDepthFrameSource, Iterator: IID_IIteratorOfPerceptionDepthFrameSource}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPerceptionDepthFrameSource)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPerceptionInfraredFrameSource is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionInfraredFrameSource>.
+// IID: 9309d0db-338d-5adf-8b3e-509bfdfccef3
+type IIterableOfPerceptionInfraredFrameSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPerceptionInfraredFrameSource is the interface identifier for IIterableOfPerceptionInfraredFrameSource.
+var IID_IIterableOfPerceptionInfraredFrameSource = win32.GUID{Data1: 0x9309d0db, Data2: 0x338d, Data3: 0x5adf, Data4: [8]byte{0x8b, 0x3e, 0x50, 0x9b, 0xfd, 0xfc, 0xce, 0xf3}}
+
+// First dispatches through IIterableOfPerceptionInfraredFrameSource's vtable slot 6.
+func (self *IIterableOfPerceptionInfraredFrameSource) First() (*IIteratorOfPerceptionInfraredFrameSource, error) {
+	result := new(*IIteratorOfPerceptionInfraredFrameSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPerceptionInfraredFrameSource creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionInfraredFrameSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPerceptionInfraredFrameSource(items []*IPerceptionInfraredFrameSource) *IIterableOfPerceptionInfraredFrameSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionInfraredFrameSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPerceptionInfraredFrameSource, Iterator: IID_IIteratorOfPerceptionInfraredFrameSource}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPerceptionInfraredFrameSource)(unsafe.Pointer(obj))
+}
+
+// IIterableOfPerceptionVideoProfile is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionVideoProfile>.
+// IID: f6aea351-eb9b-564d-b10a-06673094acc8
+type IIterableOfPerceptionVideoProfile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfPerceptionVideoProfile is the interface identifier for IIterableOfPerceptionVideoProfile.
+var IID_IIterableOfPerceptionVideoProfile = win32.GUID{Data1: 0xf6aea351, Data2: 0xeb9b, Data3: 0x564d, Data4: [8]byte{0xb1, 0x0a, 0x06, 0x67, 0x30, 0x94, 0xac, 0xc8}}
+
+// First dispatches through IIterableOfPerceptionVideoProfile's vtable slot 6.
+func (self *IIterableOfPerceptionVideoProfile) First() (*IIteratorOfPerceptionVideoProfile, error) {
+	result := new(*IIteratorOfPerceptionVideoProfile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfPerceptionVideoProfile creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionVideoProfile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfPerceptionVideoProfile(items []*IPerceptionVideoProfile) *IIterableOfPerceptionVideoProfile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionVideoProfile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPerceptionVideoProfile, Iterator: IID_IIteratorOfPerceptionVideoProfile}, winrt.CodecInterface, boxed)
+	return (*IIterableOfPerceptionVideoProfile)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfPerceptionColorFrameSource is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Perception.PerceptionColorFrameSource>.
+// IID: 24089f00-ba6d-50d4-ac46-f288755e4181
+type IIteratorOfPerceptionColorFrameSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPerceptionColorFrameSource is the interface identifier for IIteratorOfPerceptionColorFrameSource.
+var IID_IIteratorOfPerceptionColorFrameSource = win32.GUID{Data1: 0x24089f00, Data2: 0xba6d, Data3: 0x50d4, Data4: [8]byte{0xac, 0x46, 0xf2, 0x88, 0x75, 0x5e, 0x41, 0x81}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPerceptionColorFrameSource's vtable slot 6.
+func (self *IIteratorOfPerceptionColorFrameSource) Current() (*IPerceptionColorFrameSource, error) {
+	result := new(*IPerceptionColorFrameSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPerceptionColorFrameSource's vtable slot 7.
+func (self *IIteratorOfPerceptionColorFrameSource) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPerceptionColorFrameSource's vtable slot 8.
+func (self *IIteratorOfPerceptionColorFrameSource) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPerceptionDepthFrameSource is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Perception.PerceptionDepthFrameSource>.
+// IID: 20cff8c2-7844-54e5-ae4f-57e7768f9b69
+type IIteratorOfPerceptionDepthFrameSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPerceptionDepthFrameSource is the interface identifier for IIteratorOfPerceptionDepthFrameSource.
+var IID_IIteratorOfPerceptionDepthFrameSource = win32.GUID{Data1: 0x20cff8c2, Data2: 0x7844, Data3: 0x54e5, Data4: [8]byte{0xae, 0x4f, 0x57, 0xe7, 0x76, 0x8f, 0x9b, 0x69}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPerceptionDepthFrameSource's vtable slot 6.
+func (self *IIteratorOfPerceptionDepthFrameSource) Current() (*IPerceptionDepthFrameSource, error) {
+	result := new(*IPerceptionDepthFrameSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPerceptionDepthFrameSource's vtable slot 7.
+func (self *IIteratorOfPerceptionDepthFrameSource) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPerceptionDepthFrameSource's vtable slot 8.
+func (self *IIteratorOfPerceptionDepthFrameSource) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPerceptionInfraredFrameSource is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Perception.PerceptionInfraredFrameSource>.
+// IID: b22b294f-a4d2-5726-a7fc-5e331432d9b4
+type IIteratorOfPerceptionInfraredFrameSource struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPerceptionInfraredFrameSource is the interface identifier for IIteratorOfPerceptionInfraredFrameSource.
+var IID_IIteratorOfPerceptionInfraredFrameSource = win32.GUID{Data1: 0xb22b294f, Data2: 0xa4d2, Data3: 0x5726, Data4: [8]byte{0xa7, 0xfc, 0x5e, 0x33, 0x14, 0x32, 0xd9, 0xb4}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPerceptionInfraredFrameSource's vtable slot 6.
+func (self *IIteratorOfPerceptionInfraredFrameSource) Current() (*IPerceptionInfraredFrameSource, error) {
+	result := new(*IPerceptionInfraredFrameSource)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPerceptionInfraredFrameSource's vtable slot 7.
+func (self *IIteratorOfPerceptionInfraredFrameSource) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPerceptionInfraredFrameSource's vtable slot 8.
+func (self *IIteratorOfPerceptionInfraredFrameSource) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfPerceptionVideoProfile is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Perception.PerceptionVideoProfile>.
+// IID: 38ce8062-7079-5d7b-841f-9aa4580fd5f1
+type IIteratorOfPerceptionVideoProfile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfPerceptionVideoProfile is the interface identifier for IIteratorOfPerceptionVideoProfile.
+var IID_IIteratorOfPerceptionVideoProfile = win32.GUID{Data1: 0x38ce8062, Data2: 0x7079, Data3: 0x5d7b, Data4: [8]byte{0x84, 0x1f, 0x9a, 0xa4, 0x58, 0x0f, 0xd5, 0xf1}}
+
+// Current (propget get_Current) dispatches through IIteratorOfPerceptionVideoProfile's vtable slot 6.
+func (self *IIteratorOfPerceptionVideoProfile) Current() (*IPerceptionVideoProfile, error) {
+	result := new(*IPerceptionVideoProfile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfPerceptionVideoProfile's vtable slot 7.
+func (self *IIteratorOfPerceptionVideoProfile) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfPerceptionVideoProfile's vtable slot 8.
+func (self *IIteratorOfPerceptionVideoProfile) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IMapViewOfStringAndObject is the WinRT interface Windows.Foundation.Collections.IMapView`2<String, Object>.
 // IID: bb78502a-f79d-54fa-92c9-90c5039fdf7e
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<String, Object>>.
@@ -784,6 +1052,25 @@ func (self *IVectorViewOfPerceptionColorFrameSource) IndexOf(value *IPerceptionC
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfPerceptionColorFrameSource creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Perception.PerceptionColorFrameSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPerceptionColorFrameSource(items []*IPerceptionColorFrameSource) *IVectorViewOfPerceptionColorFrameSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Perception.PerceptionColorFrameSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPerceptionColorFrameSource, Iterator: IID_IIteratorOfPerceptionColorFrameSource, VectorView: IID_IVectorViewOfPerceptionColorFrameSource}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPerceptionColorFrameSource)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfPerceptionDepthFrameSource is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Perception.PerceptionDepthFrameSource>.
 // IID: 574d3642-9f78-5125-851f-8b67e0313e2f
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionDepthFrameSource>.
@@ -816,6 +1103,25 @@ func (self *IVectorViewOfPerceptionDepthFrameSource) IndexOf(value *IPerceptionD
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPerceptionDepthFrameSource creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Perception.PerceptionDepthFrameSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPerceptionDepthFrameSource(items []*IPerceptionDepthFrameSource) *IVectorViewOfPerceptionDepthFrameSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Perception.PerceptionDepthFrameSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPerceptionDepthFrameSource, Iterator: IID_IIteratorOfPerceptionDepthFrameSource, VectorView: IID_IVectorViewOfPerceptionDepthFrameSource}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPerceptionDepthFrameSource)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfPerceptionInfraredFrameSource is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Perception.PerceptionInfraredFrameSource>.
 // IID: f272ae7a-c5c4-5712-8552-01deb8b70e07
@@ -850,6 +1156,25 @@ func (self *IVectorViewOfPerceptionInfraredFrameSource) IndexOf(value *IPercepti
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfPerceptionInfraredFrameSource creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Perception.PerceptionInfraredFrameSource>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPerceptionInfraredFrameSource(items []*IPerceptionInfraredFrameSource) *IVectorViewOfPerceptionInfraredFrameSource {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Perception.PerceptionInfraredFrameSource>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPerceptionInfraredFrameSource, Iterator: IID_IIteratorOfPerceptionInfraredFrameSource, VectorView: IID_IVectorViewOfPerceptionInfraredFrameSource}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPerceptionInfraredFrameSource)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfPerceptionVideoProfile is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Perception.PerceptionVideoProfile>.
 // IID: 8dcb30e8-4ec1-51b7-9997-10f325f03d47
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Perception.PerceptionVideoProfile>.
@@ -882,3 +1207,22 @@ func (self *IVectorViewOfPerceptionVideoProfile) IndexOf(value *IPerceptionVideo
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfPerceptionVideoProfile creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Perception.PerceptionVideoProfile>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfPerceptionVideoProfile(items []*IPerceptionVideoProfile) *IVectorViewOfPerceptionVideoProfile {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Perception.PerceptionVideoProfile>", winrt.CollectionIIDs{Iterable: IID_IIterableOfPerceptionVideoProfile, Iterator: IID_IIteratorOfPerceptionVideoProfile, VectorView: IID_IVectorViewOfPerceptionVideoProfile}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfPerceptionVideoProfile)(unsafe.Pointer(obj))
+}

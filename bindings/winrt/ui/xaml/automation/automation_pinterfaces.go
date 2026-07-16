@@ -14,6 +14,207 @@ import (
 	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
 )
 
+// IIterableOfAutomationAnnotation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.AutomationAnnotation>.
+// IID: c6e210cb-1c7b-5e6a-936b-61d4e536a291
+type IIterableOfAutomationAnnotation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfAutomationAnnotation is the interface identifier for IIterableOfAutomationAnnotation.
+var IID_IIterableOfAutomationAnnotation = win32.GUID{Data1: 0xc6e210cb, Data2: 0x1c7b, Data3: 0x5e6a, Data4: [8]byte{0x93, 0x6b, 0x61, 0xd4, 0xe5, 0x36, 0xa2, 0x91}}
+
+// First dispatches through IIterableOfAutomationAnnotation's vtable slot 6.
+func (self *IIterableOfAutomationAnnotation) First() (*IIteratorOfAutomationAnnotation, error) {
+	result := new(*IIteratorOfAutomationAnnotation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfAutomationAnnotation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.AutomationAnnotation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfAutomationAnnotation(items []*IAutomationAnnotation) *IIterableOfAutomationAnnotation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.AutomationAnnotation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAutomationAnnotation, Iterator: IID_IIteratorOfAutomationAnnotation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfAutomationAnnotation)(unsafe.Pointer(obj))
+}
+
+// IIterableOfDependencyObject is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.DependencyObject>.
+// IID: f66c6bd3-55b4-5bbb-b82a-6d9ce383091a
+type IIterableOfDependencyObject struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDependencyObject is the interface identifier for IIterableOfDependencyObject.
+var IID_IIterableOfDependencyObject = win32.GUID{Data1: 0xf66c6bd3, Data2: 0x55b4, Data3: 0x5bbb, Data4: [8]byte{0xb8, 0x2a, 0x6d, 0x9c, 0xe3, 0x83, 0x09, 0x1a}}
+
+// First dispatches through IIterableOfDependencyObject's vtable slot 6.
+func (self *IIterableOfDependencyObject) First() (*IIteratorOfDependencyObject, error) {
+	result := new(*IIteratorOfDependencyObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDependencyObject creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.DependencyObject>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDependencyObject(items []*uixaml.IDependencyObject) *IIterableOfDependencyObject {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.DependencyObject>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDependencyObject, Iterator: IID_IIteratorOfDependencyObject}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDependencyObject)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUIElement is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.UIElement>.
+// IID: 42e26ae1-d357-57e8-bb48-f75c9ff69d91
+type IIterableOfUIElement struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUIElement is the interface identifier for IIterableOfUIElement.
+var IID_IIterableOfUIElement = win32.GUID{Data1: 0x42e26ae1, Data2: 0xd357, Data3: 0x57e8, Data4: [8]byte{0xbb, 0x48, 0xf7, 0x5c, 0x9f, 0xf6, 0x9d, 0x91}}
+
+// First dispatches through IIterableOfUIElement's vtable slot 6.
+func (self *IIterableOfUIElement) First() (*IIteratorOfUIElement, error) {
+	result := new(*IIteratorOfUIElement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUIElement creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.UIElement>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUIElement(items []*uixaml.IUIElement) *IIterableOfUIElement {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.UIElement>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUIElement, Iterator: IID_IIteratorOfUIElement}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUIElement)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfAutomationAnnotation is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.Automation.AutomationAnnotation>.
+// IID: 7ed32ba3-db0c-5a54-ab43-30628afbc2d8
+type IIteratorOfAutomationAnnotation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfAutomationAnnotation is the interface identifier for IIteratorOfAutomationAnnotation.
+var IID_IIteratorOfAutomationAnnotation = win32.GUID{Data1: 0x7ed32ba3, Data2: 0xdb0c, Data3: 0x5a54, Data4: [8]byte{0xab, 0x43, 0x30, 0x62, 0x8a, 0xfb, 0xc2, 0xd8}}
+
+// Current (propget get_Current) dispatches through IIteratorOfAutomationAnnotation's vtable slot 6.
+func (self *IIteratorOfAutomationAnnotation) Current() (*IAutomationAnnotation, error) {
+	result := new(*IAutomationAnnotation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfAutomationAnnotation's vtable slot 7.
+func (self *IIteratorOfAutomationAnnotation) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfAutomationAnnotation's vtable slot 8.
+func (self *IIteratorOfAutomationAnnotation) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfDependencyObject is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.DependencyObject>.
+// IID: 29f8d454-905d-587e-b9d8-bfd418805a65
+type IIteratorOfDependencyObject struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDependencyObject is the interface identifier for IIteratorOfDependencyObject.
+var IID_IIteratorOfDependencyObject = win32.GUID{Data1: 0x29f8d454, Data2: 0x905d, Data3: 0x587e, Data4: [8]byte{0xb9, 0xd8, 0xbf, 0xd4, 0x18, 0x80, 0x5a, 0x65}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDependencyObject's vtable slot 6.
+func (self *IIteratorOfDependencyObject) Current() (*uixaml.IDependencyObject, error) {
+	result := new(*uixaml.IDependencyObject)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDependencyObject's vtable slot 7.
+func (self *IIteratorOfDependencyObject) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDependencyObject's vtable slot 8.
+func (self *IIteratorOfDependencyObject) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUIElement is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.Xaml.UIElement>.
+// IID: 1d1f9d60-d53b-57f7-b144-8f7c487846e8
+type IIteratorOfUIElement struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUIElement is the interface identifier for IIteratorOfUIElement.
+var IID_IIteratorOfUIElement = win32.GUID{Data1: 0x1d1f9d60, Data2: 0xd53b, Data3: 0x57f7, Data4: [8]byte{0xb1, 0x44, 0x8f, 0x7c, 0x48, 0x78, 0x46, 0xe8}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUIElement's vtable slot 6.
+func (self *IIteratorOfUIElement) Current() (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUIElement's vtable slot 7.
+func (self *IIteratorOfUIElement) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUIElement's vtable slot 8.
+func (self *IIteratorOfUIElement) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfAutomationAnnotation is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Automation.AutomationAnnotation>.
 // IID: 73596c82-f6e5-5b57-8dc5-556cb7a8fbe6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.AutomationAnnotation>.
@@ -25,9 +226,8 @@ type IVectorOfAutomationAnnotation struct {
 var IID_IVectorOfAutomationAnnotation = win32.GUID{Data1: 0x73596c82, Data2: 0xf6e5, Data3: 0x5b57, Data4: [8]byte{0x8d, 0xc5, 0x55, 0x6c, 0xb7, 0xa8, 0xfb, 0xe6}}
 
 // GetAt dispatches through IVectorOfAutomationAnnotation's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationAnnotation) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfAutomationAnnotation) GetAt(index uint32) (*IAutomationAnnotation, error) {
+	result := new(*IAutomationAnnotation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -47,23 +247,20 @@ func (self *IVectorOfAutomationAnnotation) GetView() (*IVectorViewOfAutomationAn
 }
 
 // IndexOf dispatches through IVectorOfAutomationAnnotation's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationAnnotation) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfAutomationAnnotation) IndexOf(value *IAutomationAnnotation, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfAutomationAnnotation's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationAnnotation) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationAnnotation) SetAt(index uint32, value *IAutomationAnnotation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfAutomationAnnotation's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationAnnotation) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationAnnotation) InsertAt(index uint32, value *IAutomationAnnotation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -75,8 +272,7 @@ func (self *IVectorOfAutomationAnnotation) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfAutomationAnnotation's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfAutomationAnnotation) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfAutomationAnnotation) Append(value *IAutomationAnnotation) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -96,6 +292,28 @@ func (self *IVectorOfAutomationAnnotation) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfAutomationAnnotation creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Automation.AutomationAnnotation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfAutomationAnnotation(items []*IAutomationAnnotation) *IVectorOfAutomationAnnotation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.Automation.AutomationAnnotation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAutomationAnnotation, Iterator: IID_IIteratorOfAutomationAnnotation, VectorView: IID_IVectorViewOfAutomationAnnotation, Vector: IID_IVectorOfAutomationAnnotation}, winrt.CodecInterface, boxed)
+	return (*IVectorOfAutomationAnnotation)(unsafe.Pointer(obj))
+}
 
 // IVectorOfDependencyObject is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.DependencyObject>.
 // IID: 771b857e-ab5c-5db8-a021-397c92cdc44c
@@ -175,6 +393,28 @@ func (self *IVectorOfDependencyObject) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfDependencyObject creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.DependencyObject>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfDependencyObject(items []*uixaml.IDependencyObject) *IVectorOfDependencyObject {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.DependencyObject>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDependencyObject, Iterator: IID_IIteratorOfDependencyObject, VectorView: IID_IVectorViewOfDependencyObject, Vector: IID_IVectorOfDependencyObject}, winrt.CodecInterface, boxed)
+	return (*IVectorOfDependencyObject)(unsafe.Pointer(obj))
+}
+
 // IVectorOfUIElement is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.UIElement>.
 // IID: b4c1e3ac-8768-5b9d-a661-f63330b8507b
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.UIElement>.
@@ -186,9 +426,8 @@ type IVectorOfUIElement struct {
 var IID_IVectorOfUIElement = win32.GUID{Data1: 0xb4c1e3ac, Data2: 0x8768, Data3: 0x5b9d, Data4: [8]byte{0xa6, 0x61, 0xf6, 0x33, 0x30, 0xb8, 0x50, 0x7b}}
 
 // GetAt dispatches through IVectorOfUIElement's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfUIElement) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorOfUIElement) GetAt(index uint32) (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -208,23 +447,20 @@ func (self *IVectorOfUIElement) GetView() (*IVectorViewOfUIElement, error) {
 }
 
 // IndexOf dispatches through IVectorOfUIElement's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfUIElement) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorOfUIElement) IndexOf(value *uixaml.IUIElement, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // SetAt dispatches through IVectorOfUIElement's vtable slot 10.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfUIElement) SetAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfUIElement) SetAt(index uint32, value *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // InsertAt dispatches through IVectorOfUIElement's vtable slot 11.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfUIElement) InsertAt(index uint32, value *syswinrt.IInspectable) error {
+func (self *IVectorOfUIElement) InsertAt(index uint32, value *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -236,8 +472,7 @@ func (self *IVectorOfUIElement) RemoveAt(index uint32) error {
 }
 
 // Append dispatches through IVectorOfUIElement's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorOfUIElement) Append(value *syswinrt.IInspectable) error {
+func (self *IVectorOfUIElement) Append(value *uixaml.IUIElement) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -258,6 +493,28 @@ func (self *IVectorOfUIElement) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfUIElement creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.UIElement>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfUIElement(items []*uixaml.IUIElement) *IVectorOfUIElement {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.UI.Xaml.UIElement>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUIElement, Iterator: IID_IIteratorOfUIElement, VectorView: IID_IVectorViewOfUIElement, Vector: IID_IVectorOfUIElement}, winrt.CodecInterface, boxed)
+	return (*IVectorOfUIElement)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfAutomationAnnotation is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Automation.AutomationAnnotation>.
 // IID: a4b8a26c-9009-5394-98c8-98107e80db61
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.Automation.AutomationAnnotation>.
@@ -269,9 +526,8 @@ type IVectorViewOfAutomationAnnotation struct {
 var IID_IVectorViewOfAutomationAnnotation = win32.GUID{Data1: 0xa4b8a26c, Data2: 0x9009, Data3: 0x5394, Data4: [8]byte{0x98, 0xc8, 0x98, 0x10, 0x7e, 0x80, 0xdb, 0x61}}
 
 // GetAt dispatches through IVectorViewOfAutomationAnnotation's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfAutomationAnnotation) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfAutomationAnnotation) GetAt(index uint32) (*IAutomationAnnotation, error) {
+	result := new(*IAutomationAnnotation)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -284,14 +540,32 @@ func (self *IVectorViewOfAutomationAnnotation) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfAutomationAnnotation's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.Automation.AutomationAnnotation is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfAutomationAnnotation) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfAutomationAnnotation) IndexOf(value *IAutomationAnnotation, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfAutomationAnnotation creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Automation.AutomationAnnotation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfAutomationAnnotation(items []*IAutomationAnnotation) *IVectorViewOfAutomationAnnotation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.Automation.AutomationAnnotation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfAutomationAnnotation, Iterator: IID_IIteratorOfAutomationAnnotation, VectorView: IID_IVectorViewOfAutomationAnnotation}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfAutomationAnnotation)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfDependencyObject is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.DependencyObject>.
 // IID: fe750d77-1307-5df2-a021-1c7a8d6b80ad
@@ -326,6 +600,25 @@ func (self *IVectorViewOfDependencyObject) IndexOf(value *uixaml.IDependencyObje
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfDependencyObject creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.DependencyObject>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDependencyObject(items []*uixaml.IDependencyObject) *IVectorViewOfDependencyObject {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.DependencyObject>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDependencyObject, Iterator: IID_IIteratorOfDependencyObject, VectorView: IID_IVectorViewOfDependencyObject}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDependencyObject)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUIElement is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.UIElement>.
 // IID: f3864c10-14a4-5516-b1d9-63b6579429b1
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.Xaml.UIElement>.
@@ -337,9 +630,8 @@ type IVectorViewOfUIElement struct {
 var IID_IVectorViewOfUIElement = win32.GUID{Data1: 0xf3864c10, Data2: 0x14a4, Data3: 0x5516, Data4: [8]byte{0xb1, 0xd9, 0x63, 0xb6, 0x57, 0x94, 0x29, 0xb1}}
 
 // GetAt dispatches through IVectorViewOfUIElement's vtable slot 6.
-// The return value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfUIElement) GetAt(index uint32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IVectorViewOfUIElement) GetAt(index uint32) (*uixaml.IUIElement, error) {
+	result := new(*uixaml.IUIElement)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -352,11 +644,29 @@ func (self *IVectorViewOfUIElement) Size() (uint32, error) {
 }
 
 // IndexOf dispatches through IVectorViewOfUIElement's vtable slot 8.
-// Parameter value's class Windows.UI.Xaml.UIElement is projected as IInspectable (the class is not emitted this wave).
-func (self *IVectorViewOfUIElement) IndexOf(value *syswinrt.IInspectable, index *uint32) (bool, error) {
+func (self *IVectorViewOfUIElement) IndexOf(value *uixaml.IUIElement, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUIElement creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.UIElement>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUIElement(items []*uixaml.IUIElement) *IVectorViewOfUIElement {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.UI.Xaml.UIElement>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUIElement, Iterator: IID_IIteratorOfUIElement, VectorView: IID_IVectorViewOfUIElement}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUIElement)(unsafe.Pointer(obj))
+}

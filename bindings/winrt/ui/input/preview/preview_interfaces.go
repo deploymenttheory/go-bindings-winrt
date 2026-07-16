@@ -11,6 +11,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	uiinput "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/input"
 	uiwindowmanagement "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/windowmanagement"
 )
 
@@ -25,9 +26,8 @@ type IInputActivationListenerPreviewStatics struct {
 var IID_IInputActivationListenerPreviewStatics = win32.GUID{Data1: 0xf0551ce5, Data2: 0x0de6, Data3: 0x5be0, Data4: [8]byte{0xa5, 0x89, 0xf7, 0x37, 0x20, 0x1a, 0x45, 0x82}}
 
 // CreateForApplicationWindow dispatches through IInputActivationListenerPreviewStatics's vtable slot 6.
-// The return value's class Windows.UI.Input.InputActivationListener is projected as IInspectable (the class is not emitted this wave).
-func (self *IInputActivationListenerPreviewStatics) CreateForApplicationWindow(window *uiwindowmanagement.IAppWindow) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IInputActivationListenerPreviewStatics) CreateForApplicationWindow(window *uiwindowmanagement.IAppWindow) (*uiinput.IInputActivationListener, error) {
+	result := new(*uiinput.IInputActivationListener)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(window)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

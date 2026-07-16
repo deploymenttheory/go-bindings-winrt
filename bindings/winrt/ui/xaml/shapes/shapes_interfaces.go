@@ -11,6 +11,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	uicomposition "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/composition"
 	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
 	uixamlmedia "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/media"
 )
@@ -100,16 +101,14 @@ type IPath struct {
 var IID_IPath = win32.GUID{Data1: 0x78883609, Data2: 0x3d57, Data3: 0x4f3c, Data4: [8]byte{0xb8, 0xa5, 0x6c, 0xab, 0xca, 0xc9, 0x71, 0x1f}}
 
 // Data (propget get_Data) dispatches through IPath's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Geometry is projected as IInspectable (the class is not emitted this wave).
-func (self *IPath) Data() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPath) Data() (*uixamlmedia.IGeometry, error) {
+	result := new(*uixamlmedia.IGeometry)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetData (propput put_Data) dispatches through IPath's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Geometry is projected as IInspectable (the class is not emitted this wave).
-func (self *IPath) SetData(value *syswinrt.IInspectable) error {
+func (self *IPath) SetData(value *uixamlmedia.IGeometry) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -125,9 +124,8 @@ type IPathFactory struct {
 var IID_IPathFactory = win32.GUID{Data1: 0x2340a4e3, Data2: 0x5a86, Data3: 0x4fc6, Data4: [8]byte{0x9a, 0x50, 0xcb, 0xb9, 0x3b, 0x82, 0x87, 0x66}}
 
 // CreateInstance dispatches through IPathFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Shapes.Path is projected as IInspectable (the class is not emitted this wave).
-func (self *IPathFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IPathFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IPath, error) {
+	result := new(*IPath)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -173,7 +171,7 @@ func (self *IPolygon) SetFillRule(value uixamlmedia.FillRule) error {
 }
 
 // Points (propget get_Points) dispatches through IPolygon's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.PointCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Xaml.Media.PointCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IPolygon) Points() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -181,7 +179,7 @@ func (self *IPolygon) Points() (*syswinrt.IInspectable, error) {
 }
 
 // SetPoints (propput put_Points) dispatches through IPolygon's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Media.PointCollection is projected as IInspectable (the class is not emitted this wave).
+// Parameter value's class Windows.UI.Xaml.Media.PointCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IPolygon) SetPoints(value *syswinrt.IInspectable) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
@@ -235,7 +233,7 @@ func (self *IPolyline) SetFillRule(value uixamlmedia.FillRule) error {
 }
 
 // Points (propget get_Points) dispatches through IPolyline's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.PointCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Xaml.Media.PointCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IPolyline) Points() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -243,7 +241,7 @@ func (self *IPolyline) Points() (*syswinrt.IInspectable, error) {
 }
 
 // SetPoints (propput put_Points) dispatches through IPolyline's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Media.PointCollection is projected as IInspectable (the class is not emitted this wave).
+// Parameter value's class Windows.UI.Xaml.Media.PointCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IPolyline) SetPoints(value *syswinrt.IInspectable) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
@@ -326,31 +324,27 @@ type IShape struct {
 var IID_IShape = win32.GUID{Data1: 0x786f2b75, Data2: 0x9aa0, Data3: 0x454d, Data4: [8]byte{0xae, 0x06, 0xa2, 0x46, 0x6e, 0x37, 0xc8, 0x32}}
 
 // Fill (propget get_Fill) dispatches through IShape's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IShape) Fill() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IShape) Fill() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetFill (propput put_Fill) dispatches through IShape's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IShape) SetFill(value *syswinrt.IInspectable) error {
+func (self *IShape) SetFill(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // Stroke (propget get_Stroke) dispatches through IShape's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IShape) Stroke() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IShape) Stroke() (*uixamlmedia.IBrush, error) {
+	result := new(*uixamlmedia.IBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetStroke (propput put_Stroke) dispatches through IShape's vtable slot 9.
-// Parameter value's class Windows.UI.Xaml.Media.Brush is projected as IInspectable (the class is not emitted this wave).
-func (self *IShape) SetStroke(value *syswinrt.IInspectable) error {
+func (self *IShape) SetStroke(value *uixamlmedia.IBrush) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -420,7 +414,7 @@ func (self *IShape) SetStrokeDashCap(value uixamlmedia.PenLineCap) error {
 }
 
 // StrokeDashArray (propget get_StrokeDashArray) dispatches through IShape's vtable slot 24.
-// The return value's class Windows.UI.Xaml.Media.DoubleCollection is projected as IInspectable (the class is not emitted this wave).
+// The return value's class Windows.UI.Xaml.Media.DoubleCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IShape) StrokeDashArray() (*syswinrt.IInspectable, error) {
 	result := new(*syswinrt.IInspectable)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[24], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
@@ -428,7 +422,7 @@ func (self *IShape) StrokeDashArray() (*syswinrt.IInspectable, error) {
 }
 
 // SetStrokeDashArray (propput put_StrokeDashArray) dispatches through IShape's vtable slot 25.
-// Parameter value's class Windows.UI.Xaml.Media.DoubleCollection is projected as IInspectable (the class is not emitted this wave).
+// Parameter value's class Windows.UI.Xaml.Media.DoubleCollection is projected as IInspectable (no emittable default interface is reachable here).
 func (self *IShape) SetStrokeDashArray(value *syswinrt.IInspectable) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[25], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
@@ -448,9 +442,8 @@ func (self *IShape) SetStretch(value uixamlmedia.Stretch) error {
 }
 
 // GeometryTransform (propget get_GeometryTransform) dispatches through IShape's vtable slot 28.
-// The return value's class Windows.UI.Xaml.Media.Transform is projected as IInspectable (the class is not emitted this wave).
-func (self *IShape) GeometryTransform() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IShape) GeometryTransform() (*uixamlmedia.ITransform, error) {
+	result := new(*uixamlmedia.ITransform)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[28], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -466,9 +459,8 @@ type IShape2 struct {
 var IID_IShape2 = win32.GUID{Data1: 0x97248dba, Data2: 0x49f2, Data3: 0x49a4, Data4: [8]byte{0xa5, 0xdd, 0x16, 0x4d, 0xf8, 0x24, 0xdb, 0x14}}
 
 // GetAlphaMask dispatches through IShape2's vtable slot 6.
-// The return value's class Windows.UI.Composition.CompositionBrush is projected as IInspectable (the class is not emitted this wave).
-func (self *IShape2) GetAlphaMask() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IShape2) GetAlphaMask() (*uicomposition.ICompositionBrush, error) {
+	result := new(*uicomposition.ICompositionBrush)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -484,9 +476,8 @@ type IShapeFactory struct {
 var IID_IShapeFactory = win32.GUID{Data1: 0x4b717613, Data2: 0xf6aa, Data3: 0x48d5, Data4: [8]byte{0x95, 0x88, 0xe1, 0xd1, 0x88, 0xea, 0xcb, 0xc9}}
 
 // CreateInstance dispatches through IShapeFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Shapes.Shape is projected as IInspectable (the class is not emitted this wave).
-func (self *IShapeFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IShapeFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IShape, error) {
+	result := new(*IShape)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

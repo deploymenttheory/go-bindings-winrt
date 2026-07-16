@@ -104,11 +104,65 @@ type AppWindowTitleBarOcclusion struct {
 	IAppWindowTitleBarOcclusion
 }
 
+// CompactOverlayPresentationConfiguration is the Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration runtime class, surfaced through its
+// default interface ICompactOverlayPresentationConfiguration. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type CompactOverlayPresentationConfiguration struct {
+	ICompactOverlayPresentationConfiguration
+}
+
+// NewCompactOverlayPresentationConfiguration activates Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration through its default
+// constructor.
+func NewCompactOverlayPresentationConfiguration() (*CompactOverlayPresentationConfiguration, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[CompactOverlayPresentationConfiguration](unsafe.Pointer(instance), &IID_ICompactOverlayPresentationConfiguration)
+}
+
+// DefaultPresentationConfiguration is the Windows.UI.WindowManagement.DefaultPresentationConfiguration runtime class, surfaced through its
+// default interface IDefaultPresentationConfiguration. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type DefaultPresentationConfiguration struct {
+	IDefaultPresentationConfiguration
+}
+
+// NewDefaultPresentationConfiguration activates Windows.UI.WindowManagement.DefaultPresentationConfiguration through its default
+// constructor.
+func NewDefaultPresentationConfiguration() (*DefaultPresentationConfiguration, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.WindowManagement.DefaultPresentationConfiguration")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[DefaultPresentationConfiguration](unsafe.Pointer(instance), &IID_IDefaultPresentationConfiguration)
+}
+
 // DisplayRegion is the Windows.UI.WindowManagement.DisplayRegion runtime class, surfaced through its
 // default interface IDisplayRegion. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
 type DisplayRegion struct {
 	IDisplayRegion
+}
+
+// FullScreenPresentationConfiguration is the Windows.UI.WindowManagement.FullScreenPresentationConfiguration runtime class, surfaced through its
+// default interface IFullScreenPresentationConfiguration. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type FullScreenPresentationConfiguration struct {
+	IFullScreenPresentationConfiguration
+}
+
+// NewFullScreenPresentationConfiguration activates Windows.UI.WindowManagement.FullScreenPresentationConfiguration through its default
+// constructor.
+func NewFullScreenPresentationConfiguration() (*FullScreenPresentationConfiguration, error) {
+	instance, err := winrt.ActivateInstance("Windows.UI.WindowManagement.FullScreenPresentationConfiguration")
+	if err != nil {
+		return nil, err
+	}
+	defer instance.Release()
+	return winrt.QueryInterface[FullScreenPresentationConfiguration](unsafe.Pointer(instance), &IID_IFullScreenPresentationConfiguration)
 }
 
 // WindowServicesStatics returns the Windows.UI.WindowManagement.IWindowServicesStatics statics of the

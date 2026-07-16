@@ -63,9 +63,8 @@ func (self *IAnnotationProvider) DateTime() (string, error) {
 }
 
 // Target (propget get_Target) dispatches through IAnnotationProvider's vtable slot 10.
-// The return value's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-func (self *IAnnotationProvider) Target() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IAnnotationProvider) Target() (*IIRawElementProviderSimple, error) {
+	result := new(*IIRawElementProviderSimple)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -206,9 +205,8 @@ func (self *IGridItemProvider) ColumnSpan() (int32, error) {
 }
 
 // ContainingGrid (propget get_ContainingGrid) dispatches through IGridItemProvider's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridItemProvider) ContainingGrid() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridItemProvider) ContainingGrid() (*IIRawElementProviderSimple, error) {
+	result := new(*IIRawElementProviderSimple)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -251,9 +249,8 @@ func (self *IGridProvider) RowCount() (int32, error) {
 }
 
 // GetItem dispatches through IGridProvider's vtable slot 8.
-// The return value's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-func (self *IGridProvider) GetItem(row int32, column int32) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IGridProvider) GetItem(row int32, column int32) (*IIRawElementProviderSimple, error) {
+	result := new(*IIRawElementProviderSimple)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(row), uintptr(column), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -293,10 +290,8 @@ type IItemContainerProvider struct {
 var IID_IItemContainerProvider = win32.GUID{Data1: 0xef5cd845, Data2: 0xe1d4, Data3: 0x40f4, Data4: [8]byte{0xba, 0xd5, 0xc7, 0xfa, 0xd4, 0x4a, 0x70, 0x3e}}
 
 // FindItemByProperty dispatches through IItemContainerProvider's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-// Parameter startAfter's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-func (self *IItemContainerProvider) FindItemByProperty(startAfter *syswinrt.IInspectable, automationProperty *uixamlautomation.IAutomationProperty, value *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IItemContainerProvider) FindItemByProperty(startAfter *IIRawElementProviderSimple, automationProperty *uixamlautomation.IAutomationProperty, value *syswinrt.IInspectable) (*IIRawElementProviderSimple, error) {
+	result := new(*IIRawElementProviderSimple)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(startAfter)), uintptr(unsafe.Pointer(automationProperty)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -450,9 +445,8 @@ func (self *ISelectionItemProvider) IsSelected() (bool, error) {
 }
 
 // SelectionContainer (propget get_SelectionContainer) dispatches through ISelectionItemProvider's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-func (self *ISelectionItemProvider) SelectionContainer() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ISelectionItemProvider) SelectionContainer() (*IIRawElementProviderSimple, error) {
+	result := new(*IIRawElementProviderSimple)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -533,14 +527,13 @@ type ISpreadsheetProvider struct {
 var IID_ISpreadsheetProvider = win32.GUID{Data1: 0x15359093, Data2: 0xbd99, Data3: 0x4cfd, Data4: [8]byte{0x9f, 0x07, 0x3b, 0x14, 0xb3, 0x15, 0xe2, 0x3d}}
 
 // GetItemByName dispatches through ISpreadsheetProvider's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-func (self *ISpreadsheetProvider) GetItemByName(name string) (*syswinrt.IInspectable, error) {
+func (self *ISpreadsheetProvider) GetItemByName(name string) (*IIRawElementProviderSimple, error) {
 	hName, err := winrt.NewHString(name)
 	if err != nil {
 		return nil, err
 	}
 	defer hName.Close()
-	result := new(*syswinrt.IInspectable)
+	result := new(*IIRawElementProviderSimple)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -679,9 +672,8 @@ type ITextChildProvider struct {
 var IID_ITextChildProvider = win32.GUID{Data1: 0x1133c336, Data2: 0xa89b, Data3: 0x4130, Data4: [8]byte{0x9b, 0xe6, 0x55, 0xe3, 0x33, 0x34, 0xf5, 0x57}}
 
 // TextContainer (propget get_TextContainer) dispatches through ITextChildProvider's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-func (self *ITextChildProvider) TextContainer() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ITextChildProvider) TextContainer() (*IIRawElementProviderSimple, error) {
+	result := new(*IIRawElementProviderSimple)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -745,8 +737,7 @@ func (self *ITextProvider) SupportedTextSelection() (uixamlautomation.SupportedT
 // slot 9: GetVisibleRanges skipped: conformant array
 
 // RangeFromChild dispatches through ITextProvider's vtable slot 10.
-// Parameter childElement's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-func (self *ITextProvider) RangeFromChild(childElement *syswinrt.IInspectable) (*ITextRangeProvider, error) {
+func (self *ITextProvider) RangeFromChild(childElement *IIRawElementProviderSimple) (*ITextRangeProvider, error) {
 	result := new(*ITextRangeProvider)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(childElement)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
@@ -765,8 +756,7 @@ type ITextProvider2 struct {
 var IID_ITextProvider2 = win32.GUID{Data1: 0xdf1d48bc, Data2: 0x0487, Data3: 0x4e7f, Data4: [8]byte{0x9d, 0x5e, 0xf0, 0x9e, 0x77, 0xe4, 0x12, 0x46}}
 
 // RangeFromAnnotation dispatches through ITextProvider2's vtable slot 6.
-// Parameter annotationElement's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-func (self *ITextProvider2) RangeFromAnnotation(annotationElement *syswinrt.IInspectable) (*ITextRangeProvider, error) {
+func (self *ITextProvider2) RangeFromAnnotation(annotationElement *IIRawElementProviderSimple) (*ITextRangeProvider, error) {
 	result := new(*ITextRangeProvider)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(annotationElement)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
@@ -851,9 +841,8 @@ func (self *ITextRangeProvider) GetAttributeValue(attributeId int32) (*syswinrt.
 // slot 13: GetBoundingRectangles skipped: conformant array
 
 // GetEnclosingElement dispatches through ITextRangeProvider's vtable slot 14.
-// The return value's class Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple is projected as IInspectable (the class is not emitted this wave).
-func (self *ITextRangeProvider) GetEnclosingElement() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ITextRangeProvider) GetEnclosingElement() (*IIRawElementProviderSimple, error) {
+	result := new(*IIRawElementProviderSimple)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

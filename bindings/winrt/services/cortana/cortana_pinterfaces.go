@@ -168,6 +168,21 @@ func (self *IIterableOfCortanaPermission) First() (*IIteratorOfCortanaPermission
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfCortanaPermission creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Services.Cortana.CortanaPermission>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfCortanaPermission(items []CortanaPermission) *IIterableOfCortanaPermission {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Services.Cortana.CortanaPermission>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCortanaPermission, Iterator: IID_IIteratorOfCortanaPermission}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfCortanaPermission)(unsafe.Pointer(obj))
+}
+
 // IIteratorOfCortanaPermission is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Services.Cortana.CortanaPermission>.
 // IID: 0f1ac33c-511a-52e8-af09-d89f7004e8c5
 type IIteratorOfCortanaPermission struct {

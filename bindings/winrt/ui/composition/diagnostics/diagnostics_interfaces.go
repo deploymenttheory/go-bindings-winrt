@@ -25,29 +25,25 @@ type ICompositionDebugHeatMaps struct {
 var IID_ICompositionDebugHeatMaps = win32.GUID{Data1: 0xe49c90ac, Data2: 0x2ff3, Data3: 0x5805, Data4: [8]byte{0x71, 0x8c, 0xb7, 0x25, 0xee, 0x07, 0x65, 0x0f}}
 
 // Hide dispatches through ICompositionDebugHeatMaps's vtable slot 6.
-// Parameter subtree's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionDebugHeatMaps) Hide(subtree *syswinrt.IInspectable) error {
+func (self *ICompositionDebugHeatMaps) Hide(subtree *uicomposition.IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(subtree)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // ShowMemoryUsage dispatches through ICompositionDebugHeatMaps's vtable slot 7.
-// Parameter subtree's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionDebugHeatMaps) ShowMemoryUsage(subtree *syswinrt.IInspectable) error {
+func (self *ICompositionDebugHeatMaps) ShowMemoryUsage(subtree *uicomposition.IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(subtree)))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // ShowOverdraw dispatches through ICompositionDebugHeatMaps's vtable slot 8.
-// Parameter subtree's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionDebugHeatMaps) ShowOverdraw(subtree *syswinrt.IInspectable, contentKinds CompositionDebugOverdrawContentKinds) error {
+func (self *ICompositionDebugHeatMaps) ShowOverdraw(subtree *uicomposition.IVisual, contentKinds CompositionDebugOverdrawContentKinds) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(subtree)), uintptr(contentKinds))
 	return win32.ErrIfFailed(int32(r1))
 }
 
 // ShowRedraw dispatches through ICompositionDebugHeatMaps's vtable slot 9.
-// Parameter subtree's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICompositionDebugHeatMaps) ShowRedraw(subtree *syswinrt.IInspectable) error {
+func (self *ICompositionDebugHeatMaps) ShowRedraw(subtree *uicomposition.IVisual) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(subtree)))
 	return win32.ErrIfFailed(int32(r1))
 }

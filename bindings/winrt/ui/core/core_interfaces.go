@@ -500,8 +500,7 @@ type ICoreIndependentInputSourceControllerStatics struct {
 var IID_ICoreIndependentInputSourceControllerStatics = win32.GUID{Data1: 0x3edc4e20, Data2: 0x9a8a, Data3: 0x5691, Data4: [8]byte{0x85, 0x86, 0xfc, 0xa4, 0xcb, 0x57, 0x52, 0x6d}}
 
 // CreateForVisual dispatches through ICoreIndependentInputSourceControllerStatics's vtable slot 6.
-// Parameter visual's class Windows.UI.Composition.Visual is projected as IInspectable (the class is not emitted this wave).
-func (self *ICoreIndependentInputSourceControllerStatics) CreateForVisual(visual *syswinrt.IInspectable) (*ICoreIndependentInputSourceController, error) {
+func (self *ICoreIndependentInputSourceControllerStatics) CreateForVisual(visual *uicomposition.IVisual) (*ICoreIndependentInputSourceController, error) {
 	result := new(*ICoreIndependentInputSourceController)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(visual)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))

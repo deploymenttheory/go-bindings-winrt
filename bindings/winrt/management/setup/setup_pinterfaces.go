@@ -83,6 +83,140 @@ func (self *IAsyncOperationOfDevicePreparationExecutionContext) Await() (*IDevic
 	return self.GetResults()
 }
 
+// IIterableOfDeploymentWorkload is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Management.Setup.DeploymentWorkload>.
+// IID: 0d04004b-d236-5ddc-a504-8df6b127e2bb
+type IIterableOfDeploymentWorkload struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDeploymentWorkload is the interface identifier for IIterableOfDeploymentWorkload.
+var IID_IIterableOfDeploymentWorkload = win32.GUID{Data1: 0x0d04004b, Data2: 0xd236, Data3: 0x5ddc, Data4: [8]byte{0xa5, 0x04, 0x8d, 0xf6, 0xb1, 0x27, 0xe2, 0xbb}}
+
+// First dispatches through IIterableOfDeploymentWorkload's vtable slot 6.
+func (self *IIterableOfDeploymentWorkload) First() (*IIteratorOfDeploymentWorkload, error) {
+	result := new(*IIteratorOfDeploymentWorkload)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDeploymentWorkload creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Management.Setup.DeploymentWorkload>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDeploymentWorkload(items []*IDeploymentWorkload) *IIterableOfDeploymentWorkload {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Management.Setup.DeploymentWorkload>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeploymentWorkload, Iterator: IID_IIteratorOfDeploymentWorkload}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDeploymentWorkload)(unsafe.Pointer(obj))
+}
+
+// IIterableOfDeploymentWorkloadBatch is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Management.Setup.DeploymentWorkloadBatch>.
+// IID: 88795c64-7f00-5ad8-86a0-76df57771cfd
+type IIterableOfDeploymentWorkloadBatch struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDeploymentWorkloadBatch is the interface identifier for IIterableOfDeploymentWorkloadBatch.
+var IID_IIterableOfDeploymentWorkloadBatch = win32.GUID{Data1: 0x88795c64, Data2: 0x7f00, Data3: 0x5ad8, Data4: [8]byte{0x86, 0xa0, 0x76, 0xdf, 0x57, 0x77, 0x1c, 0xfd}}
+
+// First dispatches through IIterableOfDeploymentWorkloadBatch's vtable slot 6.
+func (self *IIterableOfDeploymentWorkloadBatch) First() (*IIteratorOfDeploymentWorkloadBatch, error) {
+	result := new(*IIteratorOfDeploymentWorkloadBatch)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDeploymentWorkloadBatch creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Management.Setup.DeploymentWorkloadBatch>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDeploymentWorkloadBatch(items []*IDeploymentWorkloadBatch) *IIterableOfDeploymentWorkloadBatch {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Management.Setup.DeploymentWorkloadBatch>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeploymentWorkloadBatch, Iterator: IID_IIteratorOfDeploymentWorkloadBatch}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDeploymentWorkloadBatch)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfDeploymentWorkload is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Management.Setup.DeploymentWorkload>.
+// IID: bd27bfca-2f1c-5ffb-957a-2a7106c92e59
+type IIteratorOfDeploymentWorkload struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDeploymentWorkload is the interface identifier for IIteratorOfDeploymentWorkload.
+var IID_IIteratorOfDeploymentWorkload = win32.GUID{Data1: 0xbd27bfca, Data2: 0x2f1c, Data3: 0x5ffb, Data4: [8]byte{0x95, 0x7a, 0x2a, 0x71, 0x06, 0xc9, 0x2e, 0x59}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDeploymentWorkload's vtable slot 6.
+func (self *IIteratorOfDeploymentWorkload) Current() (*IDeploymentWorkload, error) {
+	result := new(*IDeploymentWorkload)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDeploymentWorkload's vtable slot 7.
+func (self *IIteratorOfDeploymentWorkload) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDeploymentWorkload's vtable slot 8.
+func (self *IIteratorOfDeploymentWorkload) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfDeploymentWorkloadBatch is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Management.Setup.DeploymentWorkloadBatch>.
+// IID: db39f586-844a-5f5a-b73d-104956648b3e
+type IIteratorOfDeploymentWorkloadBatch struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDeploymentWorkloadBatch is the interface identifier for IIteratorOfDeploymentWorkloadBatch.
+var IID_IIteratorOfDeploymentWorkloadBatch = win32.GUID{Data1: 0xdb39f586, Data2: 0x844a, Data3: 0x5f5a, Data4: [8]byte{0xb7, 0x3d, 0x10, 0x49, 0x56, 0x64, 0x8b, 0x3e}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDeploymentWorkloadBatch's vtable slot 6.
+func (self *IIteratorOfDeploymentWorkloadBatch) Current() (*IDeploymentWorkloadBatch, error) {
+	result := new(*IDeploymentWorkloadBatch)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDeploymentWorkloadBatch's vtable slot 7.
+func (self *IIteratorOfDeploymentWorkloadBatch) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDeploymentWorkloadBatch's vtable slot 8.
+func (self *IIteratorOfDeploymentWorkloadBatch) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfDateTime is the WinRT interface Windows.Foundation.IReference`1<Windows.Foundation.DateTime>.
 // IID: 5541d8a7-497c-5aa4-86fc-7713adbf2a2c
 // Requires: Windows.Foundation.IPropertyValue.
@@ -178,6 +312,28 @@ func (self *IVectorOfDeploymentWorkload) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfDeploymentWorkload creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Management.Setup.DeploymentWorkload>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfDeploymentWorkload(items []*IDeploymentWorkload) *IVectorOfDeploymentWorkload {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Management.Setup.DeploymentWorkload>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeploymentWorkload, Iterator: IID_IIteratorOfDeploymentWorkload, VectorView: IID_IVectorViewOfDeploymentWorkload, Vector: IID_IVectorOfDeploymentWorkload}, winrt.CodecInterface, boxed)
+	return (*IVectorOfDeploymentWorkload)(unsafe.Pointer(obj))
+}
+
 // IVectorOfDeploymentWorkloadBatch is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Management.Setup.DeploymentWorkloadBatch>.
 // IID: 0b1bd2b8-bbed-5d64-8712-ee309a3bfad9
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Management.Setup.DeploymentWorkloadBatch>.
@@ -256,6 +412,28 @@ func (self *IVectorOfDeploymentWorkloadBatch) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfDeploymentWorkloadBatch creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Management.Setup.DeploymentWorkloadBatch>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfDeploymentWorkloadBatch(items []*IDeploymentWorkloadBatch) *IVectorOfDeploymentWorkloadBatch {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Management.Setup.DeploymentWorkloadBatch>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeploymentWorkloadBatch, Iterator: IID_IIteratorOfDeploymentWorkloadBatch, VectorView: IID_IVectorViewOfDeploymentWorkloadBatch, Vector: IID_IVectorOfDeploymentWorkloadBatch}, winrt.CodecInterface, boxed)
+	return (*IVectorOfDeploymentWorkloadBatch)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfDeploymentWorkload is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Management.Setup.DeploymentWorkload>.
 // IID: 55013416-d0b5-544e-b16d-95fcdb395f76
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Management.Setup.DeploymentWorkload>.
@@ -289,6 +467,25 @@ func (self *IVectorViewOfDeploymentWorkload) IndexOf(value *IDeploymentWorkload,
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfDeploymentWorkload creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Management.Setup.DeploymentWorkload>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDeploymentWorkload(items []*IDeploymentWorkload) *IVectorViewOfDeploymentWorkload {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Management.Setup.DeploymentWorkload>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeploymentWorkload, Iterator: IID_IIteratorOfDeploymentWorkload, VectorView: IID_IVectorViewOfDeploymentWorkload}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDeploymentWorkload)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfDeploymentWorkloadBatch is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Management.Setup.DeploymentWorkloadBatch>.
 // IID: d5be9795-a43c-597e-b020-62ee328d2b56
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Management.Setup.DeploymentWorkloadBatch>.
@@ -321,3 +518,22 @@ func (self *IVectorViewOfDeploymentWorkloadBatch) IndexOf(value *IDeploymentWork
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfDeploymentWorkloadBatch creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Management.Setup.DeploymentWorkloadBatch>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDeploymentWorkloadBatch(items []*IDeploymentWorkloadBatch) *IVectorViewOfDeploymentWorkloadBatch {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Management.Setup.DeploymentWorkloadBatch>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDeploymentWorkloadBatch, Iterator: IID_IIteratorOfDeploymentWorkloadBatch, VectorView: IID_IVectorViewOfDeploymentWorkloadBatch}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDeploymentWorkloadBatch)(unsafe.Pointer(obj))
+}

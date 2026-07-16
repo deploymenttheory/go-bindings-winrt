@@ -25,16 +25,14 @@ type IBinding struct {
 var IID_IBinding = win32.GUID{Data1: 0x3f7a0c6b, Data2: 0xd00f, Data3: 0x4730, Data4: [8]byte{0x8c, 0x1d, 0x48, 0xe1, 0x6c, 0x46, 0xf9, 0xca}}
 
 // Path (propget get_Path) dispatches through IBinding's vtable slot 6.
-// The return value's class Windows.UI.Xaml.PropertyPath is projected as IInspectable (the class is not emitted this wave).
-func (self *IBinding) Path() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IBinding) Path() (*uixaml.IPropertyPath, error) {
+	result := new(*uixaml.IPropertyPath)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetPath (propput put_Path) dispatches through IBinding's vtable slot 7.
-// Parameter value's class Windows.UI.Xaml.PropertyPath is projected as IInspectable (the class is not emitted this wave).
-func (self *IBinding) SetPath(value *syswinrt.IInspectable) error {
+func (self *IBinding) SetPath(value *uixaml.IPropertyPath) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -66,16 +64,14 @@ func (self *IBinding) SetSource(value *syswinrt.IInspectable) error {
 }
 
 // RelativeSource (propget get_RelativeSource) dispatches through IBinding's vtable slot 12.
-// The return value's class Windows.UI.Xaml.Data.RelativeSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IBinding) RelativeSource() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IBinding) RelativeSource() (*IRelativeSource, error) {
+	result := new(*IRelativeSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetRelativeSource (propput put_RelativeSource) dispatches through IBinding's vtable slot 13.
-// Parameter value's class Windows.UI.Xaml.Data.RelativeSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IBinding) SetRelativeSource(value *syswinrt.IInspectable) error {
+func (self *IBinding) SetRelativeSource(value *IRelativeSource) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -218,9 +214,8 @@ type IBindingBaseFactory struct {
 var IID_IBindingBaseFactory = win32.GUID{Data1: 0x22dafc3a, Data2: 0x7701, Data3: 0x4666, Data4: [8]byte{0xa1, 0xba, 0x98, 0x59, 0xbd, 0xcf, 0xec, 0x34}}
 
 // CreateInstance dispatches through IBindingBaseFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Data.BindingBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IBindingBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IBindingBaseFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IBindingBase, error) {
+	result := new(*IBindingBase)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -243,9 +238,8 @@ func (self *IBindingExpression) DataItem() (*syswinrt.IInspectable, error) {
 }
 
 // ParentBinding (propget get_ParentBinding) dispatches through IBindingExpression's vtable slot 7.
-// The return value's class Windows.UI.Xaml.Data.Binding is projected as IInspectable (the class is not emitted this wave).
-func (self *IBindingExpression) ParentBinding() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IBindingExpression) ParentBinding() (*IBinding, error) {
+	result := new(*IBinding)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -297,9 +291,8 @@ type IBindingFactory struct {
 var IID_IBindingFactory = win32.GUID{Data1: 0xff42bb08, Data2: 0xc39e, Data3: 0x4f7e, Data4: [8]byte{0x84, 0x34, 0xa1, 0x56, 0x90, 0x83, 0x88, 0x3c}}
 
 // CreateInstance dispatches through IBindingFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Data.Binding is projected as IInspectable (the class is not emitted this wave).
-func (self *IBindingFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IBindingFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IBinding, error) {
+	result := new(*IBinding)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
@@ -325,8 +318,7 @@ type IBindingOperationsStatics struct {
 var IID_IBindingOperationsStatics = win32.GUID{Data1: 0xe155ef73, Data2: 0x95a0, Data3: 0x4aab, Data4: [8]byte{0x8c, 0x7d, 0x2a, 0x47, 0xda, 0x07, 0x3c, 0x79}}
 
 // SetBinding dispatches through IBindingOperationsStatics's vtable slot 6.
-// Parameter binding's class Windows.UI.Xaml.Data.BindingBase is projected as IInspectable (the class is not emitted this wave).
-func (self *IBindingOperationsStatics) SetBinding(target *uixaml.IDependencyObject, dp *uixaml.IDependencyProperty, binding *syswinrt.IInspectable) error {
+func (self *IBindingOperationsStatics) SetBinding(target *uixaml.IDependencyObject, dp *uixaml.IDependencyProperty, binding *IBindingBase) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(target)), uintptr(unsafe.Pointer(dp)), uintptr(unsafe.Pointer(binding)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -551,16 +543,14 @@ func (self *ICollectionViewSource) SetIsSourceGrouped(value bool) error {
 }
 
 // ItemsPath (propget get_ItemsPath) dispatches through ICollectionViewSource's vtable slot 11.
-// The return value's class Windows.UI.Xaml.PropertyPath is projected as IInspectable (the class is not emitted this wave).
-func (self *ICollectionViewSource) ItemsPath() (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *ICollectionViewSource) ItemsPath() (*uixaml.IPropertyPath, error) {
+	result := new(*uixaml.IPropertyPath)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // SetItemsPath (propput put_ItemsPath) dispatches through ICollectionViewSource's vtable slot 12.
-// Parameter value's class Windows.UI.Xaml.PropertyPath is projected as IInspectable (the class is not emitted this wave).
-func (self *ICollectionViewSource) SetItemsPath(value *syswinrt.IInspectable) error {
+func (self *ICollectionViewSource) SetItemsPath(value *uixaml.IPropertyPath) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[12], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)))
 	return win32.ErrIfFailed(int32(r1))
 }
@@ -926,9 +916,8 @@ type IRelativeSourceFactory struct {
 var IID_IRelativeSourceFactory = win32.GUID{Data1: 0xef8392cd, Data2: 0x446e, Data3: 0x4f93, Data4: [8]byte{0xaa, 0xcb, 0x9b, 0x12, 0x55, 0x57, 0x74, 0x60}}
 
 // CreateInstance dispatches through IRelativeSourceFactory's vtable slot 6.
-// The return value's class Windows.UI.Xaml.Data.RelativeSource is projected as IInspectable (the class is not emitted this wave).
-func (self *IRelativeSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
-	result := new(*syswinrt.IInspectable)
+func (self *IRelativeSourceFactory) CreateInstance(baseInterface *syswinrt.IInspectable, innerInterface **syswinrt.IInspectable) (*IRelativeSource, error) {
+	result := new(*IRelativeSource)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(baseInterface)), uintptr(winrt.OutParam(unsafe.Pointer(innerInterface))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }

@@ -222,6 +222,111 @@ func (self *IAsyncOperationOfSpeechRecognitionResult) Await() (*ISpeechRecogniti
 	return self.GetResults()
 }
 
+// IIterableOfISpeechRecognitionConstraint is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint>.
+// IID: 88e6436c-3253-520b-9ed8-a63b178c44a2
+type IIterableOfISpeechRecognitionConstraint struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfISpeechRecognitionConstraint is the interface identifier for IIterableOfISpeechRecognitionConstraint.
+var IID_IIterableOfISpeechRecognitionConstraint = win32.GUID{Data1: 0x88e6436c, Data2: 0x3253, Data3: 0x520b, Data4: [8]byte{0x9e, 0xd8, 0xa6, 0x3b, 0x17, 0x8c, 0x44, 0xa2}}
+
+// First dispatches through IIterableOfISpeechRecognitionConstraint's vtable slot 6.
+func (self *IIterableOfISpeechRecognitionConstraint) First() (*IIteratorOfISpeechRecognitionConstraint, error) {
+	result := new(*IIteratorOfISpeechRecognitionConstraint)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfISpeechRecognitionConstraint creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfISpeechRecognitionConstraint(items []*ISpeechRecognitionConstraint) *IIterableOfISpeechRecognitionConstraint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfISpeechRecognitionConstraint, Iterator: IID_IIteratorOfISpeechRecognitionConstraint}, winrt.CodecInterface, boxed)
+	return (*IIterableOfISpeechRecognitionConstraint)(unsafe.Pointer(obj))
+}
+
+// IIterableOfLanguage is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Language>.
+// IID: 48409a10-61b6-5db1-a69d-8abc46ac608a
+type IIterableOfLanguage struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfLanguage is the interface identifier for IIterableOfLanguage.
+var IID_IIterableOfLanguage = win32.GUID{Data1: 0x48409a10, Data2: 0x61b6, Data3: 0x5db1, Data4: [8]byte{0xa6, 0x9d, 0x8a, 0xbc, 0x46, 0xac, 0x60, 0x8a}}
+
+// First dispatches through IIterableOfLanguage's vtable slot 6.
+func (self *IIterableOfLanguage) First() (*IIteratorOfLanguage, error) {
+	result := new(*IIteratorOfLanguage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfLanguage creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Language>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfLanguage(items []*globalization.ILanguage) *IIterableOfLanguage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Globalization.Language>", winrt.CollectionIIDs{Iterable: IID_IIterableOfLanguage, Iterator: IID_IIteratorOfLanguage}, winrt.CodecInterface, boxed)
+	return (*IIterableOfLanguage)(unsafe.Pointer(obj))
+}
+
+// IIterableOfSpeechRecognitionResult is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.SpeechRecognition.SpeechRecognitionResult>.
+// IID: 0d9b7b48-98a1-5b22-9a66-6f812f5947aa
+type IIterableOfSpeechRecognitionResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfSpeechRecognitionResult is the interface identifier for IIterableOfSpeechRecognitionResult.
+var IID_IIterableOfSpeechRecognitionResult = win32.GUID{Data1: 0x0d9b7b48, Data2: 0x98a1, Data3: 0x5b22, Data4: [8]byte{0x9a, 0x66, 0x6f, 0x81, 0x2f, 0x59, 0x47, 0xaa}}
+
+// First dispatches through IIterableOfSpeechRecognitionResult's vtable slot 6.
+func (self *IIterableOfSpeechRecognitionResult) First() (*IIteratorOfSpeechRecognitionResult, error) {
+	result := new(*IIteratorOfSpeechRecognitionResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfSpeechRecognitionResult creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.SpeechRecognition.SpeechRecognitionResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfSpeechRecognitionResult(items []*ISpeechRecognitionResult) *IIterableOfSpeechRecognitionResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.SpeechRecognition.SpeechRecognitionResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSpeechRecognitionResult, Iterator: IID_IIteratorOfSpeechRecognitionResult}, winrt.CodecInterface, boxed)
+	return (*IIterableOfSpeechRecognitionResult)(unsafe.Pointer(obj))
+}
+
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
 // IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
 type IIterableOfString struct {
@@ -237,6 +342,118 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfISpeechRecognitionConstraint is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint>.
+// IID: 738f00b1-e18c-5140-a53a-f1788d10c93d
+type IIteratorOfISpeechRecognitionConstraint struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfISpeechRecognitionConstraint is the interface identifier for IIteratorOfISpeechRecognitionConstraint.
+var IID_IIteratorOfISpeechRecognitionConstraint = win32.GUID{Data1: 0x738f00b1, Data2: 0xe18c, Data3: 0x5140, Data4: [8]byte{0xa5, 0x3a, 0xf1, 0x78, 0x8d, 0x10, 0xc9, 0x3d}}
+
+// Current (propget get_Current) dispatches through IIteratorOfISpeechRecognitionConstraint's vtable slot 6.
+func (self *IIteratorOfISpeechRecognitionConstraint) Current() (*ISpeechRecognitionConstraint, error) {
+	result := new(*ISpeechRecognitionConstraint)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfISpeechRecognitionConstraint's vtable slot 7.
+func (self *IIteratorOfISpeechRecognitionConstraint) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfISpeechRecognitionConstraint's vtable slot 8.
+func (self *IIteratorOfISpeechRecognitionConstraint) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfLanguage is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Globalization.Language>.
+// IID: 30e99ae6-f414-5243-8db2-aab38ea3f1f1
+type IIteratorOfLanguage struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfLanguage is the interface identifier for IIteratorOfLanguage.
+var IID_IIteratorOfLanguage = win32.GUID{Data1: 0x30e99ae6, Data2: 0xf414, Data3: 0x5243, Data4: [8]byte{0x8d, 0xb2, 0xaa, 0xb3, 0x8e, 0xa3, 0xf1, 0xf1}}
+
+// Current (propget get_Current) dispatches through IIteratorOfLanguage's vtable slot 6.
+func (self *IIteratorOfLanguage) Current() (*globalization.ILanguage, error) {
+	result := new(*globalization.ILanguage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfLanguage's vtable slot 7.
+func (self *IIteratorOfLanguage) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfLanguage's vtable slot 8.
+func (self *IIteratorOfLanguage) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfSpeechRecognitionResult is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.SpeechRecognition.SpeechRecognitionResult>.
+// IID: 20756dd2-6d3f-5409-846a-0f0f01d7bf9a
+type IIteratorOfSpeechRecognitionResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfSpeechRecognitionResult is the interface identifier for IIteratorOfSpeechRecognitionResult.
+var IID_IIteratorOfSpeechRecognitionResult = win32.GUID{Data1: 0x20756dd2, Data2: 0x6d3f, Data3: 0x5409, Data4: [8]byte{0x84, 0x6a, 0x0f, 0x0f, 0x01, 0xd7, 0xbf, 0x9a}}
+
+// Current (propget get_Current) dispatches through IIteratorOfSpeechRecognitionResult's vtable slot 6.
+func (self *IIteratorOfSpeechRecognitionResult) Current() (*ISpeechRecognitionResult, error) {
+	result := new(*ISpeechRecognitionResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSpeechRecognitionResult's vtable slot 7.
+func (self *IIteratorOfSpeechRecognitionResult) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfSpeechRecognitionResult's vtable slot 8.
+func (self *IIteratorOfSpeechRecognitionResult) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfString is the WinRT interface Windows.Foundation.Collections.IIterator`1<String>.
 // IID: 8c304ebb-6615-50a4-8829-879ecd443236
@@ -398,6 +615,28 @@ func (self *IVectorOfISpeechRecognitionConstraint) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfISpeechRecognitionConstraint creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfISpeechRecognitionConstraint(items []*ISpeechRecognitionConstraint) *IVectorOfISpeechRecognitionConstraint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfISpeechRecognitionConstraint, Iterator: IID_IIteratorOfISpeechRecognitionConstraint, VectorView: IID_IVectorViewOfISpeechRecognitionConstraint, Vector: IID_IVectorOfISpeechRecognitionConstraint}, winrt.CodecInterface, boxed)
+	return (*IVectorOfISpeechRecognitionConstraint)(unsafe.Pointer(obj))
+}
+
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
 // Requires: Windows.Foundation.Collections.IIterable`1<String>.
@@ -499,6 +738,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfISpeechRecognitionConstraint is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint>.
 // IID: 341dee1d-6ac2-5d06-9026-b30ada205665
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint>.
@@ -531,6 +789,25 @@ func (self *IVectorViewOfISpeechRecognitionConstraint) IndexOf(value *ISpeechRec
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfISpeechRecognitionConstraint creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfISpeechRecognitionConstraint(items []*ISpeechRecognitionConstraint) *IVectorViewOfISpeechRecognitionConstraint {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.SpeechRecognition.ISpeechRecognitionConstraint>", winrt.CollectionIIDs{Iterable: IID_IIterableOfISpeechRecognitionConstraint, Iterator: IID_IIteratorOfISpeechRecognitionConstraint, VectorView: IID_IVectorViewOfISpeechRecognitionConstraint}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfISpeechRecognitionConstraint)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfLanguage is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Globalization.Language>.
 // IID: 144b0f3d-2d59-5dd2-b012-908ec3e06435
@@ -565,6 +842,25 @@ func (self *IVectorViewOfLanguage) IndexOf(value *globalization.ILanguage, index
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfLanguage creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Globalization.Language>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfLanguage(items []*globalization.ILanguage) *IVectorViewOfLanguage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Globalization.Language>", winrt.CollectionIIDs{Iterable: IID_IIterableOfLanguage, Iterator: IID_IIteratorOfLanguage, VectorView: IID_IVectorViewOfLanguage}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfLanguage)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfSpeechRecognitionResult is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.SpeechRecognition.SpeechRecognitionResult>.
 // IID: 0e37810f-1de6-5199-833f-5a6b0bd91e23
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.SpeechRecognition.SpeechRecognitionResult>.
@@ -597,6 +893,25 @@ func (self *IVectorViewOfSpeechRecognitionResult) IndexOf(value *ISpeechRecognit
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfSpeechRecognitionResult creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.SpeechRecognition.SpeechRecognitionResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfSpeechRecognitionResult(items []*ISpeechRecognitionResult) *IVectorViewOfSpeechRecognitionResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.SpeechRecognition.SpeechRecognitionResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfSpeechRecognitionResult, Iterator: IID_IIteratorOfSpeechRecognitionResult, VectorView: IID_IVectorViewOfSpeechRecognitionResult}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfSpeechRecognitionResult)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -638,3 +953,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

@@ -99,10 +99,9 @@ var IID_ExceptionRoutedEventHandler = win32.GUID{Data1: 0x68e0e810, Data2: 0xf6e
 // Pointer-typed callback arguments are BORROWED references owned by the
 // event source for the duration of the callback: do not Release them or
 // retain them past its return.
-// Parameter e's class Windows.UI.Xaml.ExceptionRoutedEventArgs is projected as IInspectable (the class is not emitted this wave).
-func NewExceptionRoutedEventHandler(fn func(sender *syswinrt.IInspectable, e *syswinrt.IInspectable)) (*ExceptionRoutedEventHandler, error) {
+func NewExceptionRoutedEventHandler(fn func(sender *syswinrt.IInspectable, e *uixaml.IExceptionRoutedEventArgs)) (*ExceptionRoutedEventHandler, error) {
 	delegate, err := winrt.NewDelegate(IID_ExceptionRoutedEventHandler, 2, func(raw []uintptr) uintptr {
-		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*syswinrt.IInspectable)(unsafe.Pointer(raw[1])))
+		fn((*syswinrt.IInspectable)(unsafe.Pointer(raw[0])), (*uixaml.IExceptionRoutedEventArgs)(unsafe.Pointer(raw[1])))
 		return 0
 	})
 	if err != nil {

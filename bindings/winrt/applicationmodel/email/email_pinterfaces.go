@@ -1342,6 +1342,301 @@ func (self *IIterableOfCertificate) First() (*IIteratorOfCertificate, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfCertificate creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.Certificate>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCertificate(items []*securitycryptographycertificates.ICertificate) *IIterableOfCertificate {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.Certificate>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCertificate, Iterator: IID_IIteratorOfCertificate}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCertificate)(unsafe.Pointer(obj))
+}
+
+// IIterableOfEmailAttachment is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailAttachment>.
+// IID: a5ab00e4-0ed7-52ee-aacb-83d840d6f8fa
+type IIterableOfEmailAttachment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfEmailAttachment is the interface identifier for IIterableOfEmailAttachment.
+var IID_IIterableOfEmailAttachment = win32.GUID{Data1: 0xa5ab00e4, Data2: 0x0ed7, Data3: 0x52ee, Data4: [8]byte{0xaa, 0xcb, 0x83, 0xd8, 0x40, 0xd6, 0xf8, 0xfa}}
+
+// First dispatches through IIterableOfEmailAttachment's vtable slot 6.
+func (self *IIterableOfEmailAttachment) First() (*IIteratorOfEmailAttachment, error) {
+	result := new(*IIteratorOfEmailAttachment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfEmailAttachment creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailAttachment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfEmailAttachment(items []*IEmailAttachment) *IIterableOfEmailAttachment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailAttachment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailAttachment, Iterator: IID_IIteratorOfEmailAttachment}, winrt.CodecInterface, boxed)
+	return (*IIterableOfEmailAttachment)(unsafe.Pointer(obj))
+}
+
+// IIterableOfEmailCertificateValidationStatus is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailCertificateValidationStatus>.
+// IID: 7e326530-7449-51a7-b1bc-c43533a78e06
+type IIterableOfEmailCertificateValidationStatus struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfEmailCertificateValidationStatus is the interface identifier for IIterableOfEmailCertificateValidationStatus.
+var IID_IIterableOfEmailCertificateValidationStatus = win32.GUID{Data1: 0x7e326530, Data2: 0x7449, Data3: 0x51a7, Data4: [8]byte{0xb1, 0xbc, 0xc4, 0x35, 0x33, 0xa7, 0x8e, 0x06}}
+
+// First dispatches through IIterableOfEmailCertificateValidationStatus's vtable slot 6.
+func (self *IIterableOfEmailCertificateValidationStatus) First() (*IIteratorOfEmailCertificateValidationStatus, error) {
+	result := new(*IIteratorOfEmailCertificateValidationStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfEmailCertificateValidationStatus creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailCertificateValidationStatus>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfEmailCertificateValidationStatus(items []EmailCertificateValidationStatus) *IIterableOfEmailCertificateValidationStatus {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailCertificateValidationStatus>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailCertificateValidationStatus, Iterator: IID_IIteratorOfEmailCertificateValidationStatus}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfEmailCertificateValidationStatus)(unsafe.Pointer(obj))
+}
+
+// IIterableOfEmailConversation is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailConversation>.
+// IID: d495f8dc-4327-5bca-a506-44b172d6d435
+type IIterableOfEmailConversation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfEmailConversation is the interface identifier for IIterableOfEmailConversation.
+var IID_IIterableOfEmailConversation = win32.GUID{Data1: 0xd495f8dc, Data2: 0x4327, Data3: 0x5bca, Data4: [8]byte{0xa5, 0x06, 0x44, 0xb1, 0x72, 0xd6, 0xd4, 0x35}}
+
+// First dispatches through IIterableOfEmailConversation's vtable slot 6.
+func (self *IIterableOfEmailConversation) First() (*IIteratorOfEmailConversation, error) {
+	result := new(*IIteratorOfEmailConversation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfEmailConversation creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailConversation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfEmailConversation(items []*IEmailConversation) *IIterableOfEmailConversation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailConversation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailConversation, Iterator: IID_IIteratorOfEmailConversation}, winrt.CodecInterface, boxed)
+	return (*IIterableOfEmailConversation)(unsafe.Pointer(obj))
+}
+
+// IIterableOfEmailFolder is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailFolder>.
+// IID: 6dcb53eb-8a35-54bf-8c8e-449bce9b3920
+type IIterableOfEmailFolder struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfEmailFolder is the interface identifier for IIterableOfEmailFolder.
+var IID_IIterableOfEmailFolder = win32.GUID{Data1: 0x6dcb53eb, Data2: 0x8a35, Data3: 0x54bf, Data4: [8]byte{0x8c, 0x8e, 0x44, 0x9b, 0xce, 0x9b, 0x39, 0x20}}
+
+// First dispatches through IIterableOfEmailFolder's vtable slot 6.
+func (self *IIterableOfEmailFolder) First() (*IIteratorOfEmailFolder, error) {
+	result := new(*IIteratorOfEmailFolder)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfEmailFolder creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailFolder>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfEmailFolder(items []*IEmailFolder) *IIterableOfEmailFolder {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailFolder>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailFolder, Iterator: IID_IIteratorOfEmailFolder}, winrt.CodecInterface, boxed)
+	return (*IIterableOfEmailFolder)(unsafe.Pointer(obj))
+}
+
+// IIterableOfEmailMailbox is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMailbox>.
+// IID: 8fc76b2e-f800-5f1d-a023-de47e5f306e0
+type IIterableOfEmailMailbox struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfEmailMailbox is the interface identifier for IIterableOfEmailMailbox.
+var IID_IIterableOfEmailMailbox = win32.GUID{Data1: 0x8fc76b2e, Data2: 0xf800, Data3: 0x5f1d, Data4: [8]byte{0xa0, 0x23, 0xde, 0x47, 0xe5, 0xf3, 0x06, 0xe0}}
+
+// First dispatches through IIterableOfEmailMailbox's vtable slot 6.
+func (self *IIterableOfEmailMailbox) First() (*IIteratorOfEmailMailbox, error) {
+	result := new(*IIteratorOfEmailMailbox)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfEmailMailbox creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMailbox>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfEmailMailbox(items []*IEmailMailbox) *IIterableOfEmailMailbox {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMailbox>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailMailbox, Iterator: IID_IIteratorOfEmailMailbox}, winrt.CodecInterface, boxed)
+	return (*IIterableOfEmailMailbox)(unsafe.Pointer(obj))
+}
+
+// IIterableOfEmailMailboxAction is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMailboxAction>.
+// IID: 26419311-1cd7-5bab-9c4a-e95884d5539c
+type IIterableOfEmailMailboxAction struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfEmailMailboxAction is the interface identifier for IIterableOfEmailMailboxAction.
+var IID_IIterableOfEmailMailboxAction = win32.GUID{Data1: 0x26419311, Data2: 0x1cd7, Data3: 0x5bab, Data4: [8]byte{0x9c, 0x4a, 0xe9, 0x58, 0x84, 0xd5, 0x53, 0x9c}}
+
+// First dispatches through IIterableOfEmailMailboxAction's vtable slot 6.
+func (self *IIterableOfEmailMailboxAction) First() (*IIteratorOfEmailMailboxAction, error) {
+	result := new(*IIteratorOfEmailMailboxAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfEmailMailboxAction creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMailboxAction>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfEmailMailboxAction(items []*IEmailMailboxAction) *IIterableOfEmailMailboxAction {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMailboxAction>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailMailboxAction, Iterator: IID_IIteratorOfEmailMailboxAction}, winrt.CodecInterface, boxed)
+	return (*IIterableOfEmailMailboxAction)(unsafe.Pointer(obj))
+}
+
+// IIterableOfEmailMailboxChange is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMailboxChange>.
+// IID: 4630ccb6-dfce-57dc-a5d1-28b889c2c2b7
+type IIterableOfEmailMailboxChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfEmailMailboxChange is the interface identifier for IIterableOfEmailMailboxChange.
+var IID_IIterableOfEmailMailboxChange = win32.GUID{Data1: 0x4630ccb6, Data2: 0xdfce, Data3: 0x57dc, Data4: [8]byte{0xa5, 0xd1, 0x28, 0xb8, 0x89, 0xc2, 0xc2, 0xb7}}
+
+// First dispatches through IIterableOfEmailMailboxChange's vtable slot 6.
+func (self *IIterableOfEmailMailboxChange) First() (*IIteratorOfEmailMailboxChange, error) {
+	result := new(*IIteratorOfEmailMailboxChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfEmailMailboxChange creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMailboxChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfEmailMailboxChange(items []*IEmailMailboxChange) *IIterableOfEmailMailboxChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMailboxChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailMailboxChange, Iterator: IID_IIteratorOfEmailMailboxChange}, winrt.CodecInterface, boxed)
+	return (*IIterableOfEmailMailboxChange)(unsafe.Pointer(obj))
+}
+
+// IIterableOfEmailMessage is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMessage>.
+// IID: a5fac823-8e6d-5bbe-ad16-8350aea446e0
+type IIterableOfEmailMessage struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfEmailMessage is the interface identifier for IIterableOfEmailMessage.
+var IID_IIterableOfEmailMessage = win32.GUID{Data1: 0xa5fac823, Data2: 0x8e6d, Data3: 0x5bbe, Data4: [8]byte{0xad, 0x16, 0x83, 0x50, 0xae, 0xa4, 0x46, 0xe0}}
+
+// First dispatches through IIterableOfEmailMessage's vtable slot 6.
+func (self *IIterableOfEmailMessage) First() (*IIteratorOfEmailMessage, error) {
+	result := new(*IIteratorOfEmailMessage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfEmailMessage creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMessage>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfEmailMessage(items []*IEmailMessage) *IIterableOfEmailMessage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMessage>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailMessage, Iterator: IID_IIteratorOfEmailMessage}, winrt.CodecInterface, boxed)
+	return (*IIterableOfEmailMessage)(unsafe.Pointer(obj))
+}
+
 // IIterableOfEmailRecipient is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailRecipient>.
 // IID: 5f18cab2-236d-5ec5-bc64-e3e63d29e774
 type IIterableOfEmailRecipient struct {
@@ -1358,6 +1653,60 @@ func (self *IIterableOfEmailRecipient) First() (*IIteratorOfEmailRecipient, erro
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// NewIIterableOfEmailRecipient creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailRecipient>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfEmailRecipient(items []*IEmailRecipient) *IIterableOfEmailRecipient {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailRecipient>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailRecipient, Iterator: IID_IIteratorOfEmailRecipient}, winrt.CodecInterface, boxed)
+	return (*IIterableOfEmailRecipient)(unsafe.Pointer(obj))
+}
+
+// IIterableOfEmailRecipientResolutionResult is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailRecipientResolutionResult>.
+// IID: cae3c1c4-c689-5787-976f-1a158ffdd16b
+type IIterableOfEmailRecipientResolutionResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfEmailRecipientResolutionResult is the interface identifier for IIterableOfEmailRecipientResolutionResult.
+var IID_IIterableOfEmailRecipientResolutionResult = win32.GUID{Data1: 0xcae3c1c4, Data2: 0xc689, Data3: 0x5787, Data4: [8]byte{0x97, 0x6f, 0x1a, 0x15, 0x8f, 0xfd, 0xd1, 0x6b}}
+
+// First dispatches through IIterableOfEmailRecipientResolutionResult's vtable slot 6.
+func (self *IIterableOfEmailRecipientResolutionResult) First() (*IIteratorOfEmailRecipientResolutionResult, error) {
+	result := new(*IIteratorOfEmailRecipientResolutionResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfEmailRecipientResolutionResult creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailRecipientResolutionResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfEmailRecipientResolutionResult(items []*IEmailRecipientResolutionResult) *IIterableOfEmailRecipientResolutionResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailRecipientResolutionResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailRecipientResolutionResult, Iterator: IID_IIteratorOfEmailRecipientResolutionResult}, winrt.CodecInterface, boxed)
+	return (*IIterableOfEmailRecipientResolutionResult)(unsafe.Pointer(obj))
+}
+
 // IIterableOfString is the WinRT interface Windows.Foundation.Collections.IIterable`1<String>.
 // IID: e2fcc7c1-3bfc-5a0b-b2b0-72e769d1cb7e
 type IIterableOfString struct {
@@ -1372,6 +1721,22 @@ func (self *IIterableOfString) First() (*IIteratorOfString, error) {
 	result := new(*IIteratorOfString)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfString creates a Go-implemented Windows.Foundation.Collections.IIterable`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIIterableOfString(items []string) *IIterableOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString}, winrt.CodecString, boxed)
+	return (*IIterableOfString)(unsafe.Pointer(obj))
 }
 
 // IIteratorOfCertificate is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Cryptography.Certificates.Certificate>.
@@ -1406,6 +1771,262 @@ func (self *IIteratorOfCertificate) MoveNext() (bool, error) {
 
 // slot 9: GetMany skipped: conformant array
 
+// IIteratorOfEmailAttachment is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Email.EmailAttachment>.
+// IID: 44655b88-9a99-5994-8e0f-5b9640924120
+type IIteratorOfEmailAttachment struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfEmailAttachment is the interface identifier for IIteratorOfEmailAttachment.
+var IID_IIteratorOfEmailAttachment = win32.GUID{Data1: 0x44655b88, Data2: 0x9a99, Data3: 0x5994, Data4: [8]byte{0x8e, 0x0f, 0x5b, 0x96, 0x40, 0x92, 0x41, 0x20}}
+
+// Current (propget get_Current) dispatches through IIteratorOfEmailAttachment's vtable slot 6.
+func (self *IIteratorOfEmailAttachment) Current() (*IEmailAttachment, error) {
+	result := new(*IEmailAttachment)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfEmailAttachment's vtable slot 7.
+func (self *IIteratorOfEmailAttachment) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfEmailAttachment's vtable slot 8.
+func (self *IIteratorOfEmailAttachment) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfEmailCertificateValidationStatus is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Email.EmailCertificateValidationStatus>.
+// IID: 1cfe3d41-16a5-5026-a6fe-2cb0a303a605
+type IIteratorOfEmailCertificateValidationStatus struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfEmailCertificateValidationStatus is the interface identifier for IIteratorOfEmailCertificateValidationStatus.
+var IID_IIteratorOfEmailCertificateValidationStatus = win32.GUID{Data1: 0x1cfe3d41, Data2: 0x16a5, Data3: 0x5026, Data4: [8]byte{0xa6, 0xfe, 0x2c, 0xb0, 0xa3, 0x03, 0xa6, 0x05}}
+
+// Current (propget get_Current) dispatches through IIteratorOfEmailCertificateValidationStatus's vtable slot 6.
+func (self *IIteratorOfEmailCertificateValidationStatus) Current() (EmailCertificateValidationStatus, error) {
+	result := new(EmailCertificateValidationStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfEmailCertificateValidationStatus's vtable slot 7.
+func (self *IIteratorOfEmailCertificateValidationStatus) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfEmailCertificateValidationStatus's vtable slot 8.
+func (self *IIteratorOfEmailCertificateValidationStatus) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfEmailConversation is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Email.EmailConversation>.
+// IID: fadada27-e629-5a34-b2e9-1d25c93544b5
+type IIteratorOfEmailConversation struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfEmailConversation is the interface identifier for IIteratorOfEmailConversation.
+var IID_IIteratorOfEmailConversation = win32.GUID{Data1: 0xfadada27, Data2: 0xe629, Data3: 0x5a34, Data4: [8]byte{0xb2, 0xe9, 0x1d, 0x25, 0xc9, 0x35, 0x44, 0xb5}}
+
+// Current (propget get_Current) dispatches through IIteratorOfEmailConversation's vtable slot 6.
+func (self *IIteratorOfEmailConversation) Current() (*IEmailConversation, error) {
+	result := new(*IEmailConversation)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfEmailConversation's vtable slot 7.
+func (self *IIteratorOfEmailConversation) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfEmailConversation's vtable slot 8.
+func (self *IIteratorOfEmailConversation) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfEmailFolder is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Email.EmailFolder>.
+// IID: 95ae5494-43bc-5f6b-a02b-b6956d0c7069
+type IIteratorOfEmailFolder struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfEmailFolder is the interface identifier for IIteratorOfEmailFolder.
+var IID_IIteratorOfEmailFolder = win32.GUID{Data1: 0x95ae5494, Data2: 0x43bc, Data3: 0x5f6b, Data4: [8]byte{0xa0, 0x2b, 0xb6, 0x95, 0x6d, 0x0c, 0x70, 0x69}}
+
+// Current (propget get_Current) dispatches through IIteratorOfEmailFolder's vtable slot 6.
+func (self *IIteratorOfEmailFolder) Current() (*IEmailFolder, error) {
+	result := new(*IEmailFolder)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfEmailFolder's vtable slot 7.
+func (self *IIteratorOfEmailFolder) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfEmailFolder's vtable slot 8.
+func (self *IIteratorOfEmailFolder) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfEmailMailbox is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Email.EmailMailbox>.
+// IID: 312f8d4a-0e85-566e-b7aa-dbd40a0343ff
+type IIteratorOfEmailMailbox struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfEmailMailbox is the interface identifier for IIteratorOfEmailMailbox.
+var IID_IIteratorOfEmailMailbox = win32.GUID{Data1: 0x312f8d4a, Data2: 0x0e85, Data3: 0x566e, Data4: [8]byte{0xb7, 0xaa, 0xdb, 0xd4, 0x0a, 0x03, 0x43, 0xff}}
+
+// Current (propget get_Current) dispatches through IIteratorOfEmailMailbox's vtable slot 6.
+func (self *IIteratorOfEmailMailbox) Current() (*IEmailMailbox, error) {
+	result := new(*IEmailMailbox)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfEmailMailbox's vtable slot 7.
+func (self *IIteratorOfEmailMailbox) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfEmailMailbox's vtable slot 8.
+func (self *IIteratorOfEmailMailbox) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfEmailMailboxAction is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Email.EmailMailboxAction>.
+// IID: b9d8eec0-f0e0-5a4d-88d0-758acbc6380f
+type IIteratorOfEmailMailboxAction struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfEmailMailboxAction is the interface identifier for IIteratorOfEmailMailboxAction.
+var IID_IIteratorOfEmailMailboxAction = win32.GUID{Data1: 0xb9d8eec0, Data2: 0xf0e0, Data3: 0x5a4d, Data4: [8]byte{0x88, 0xd0, 0x75, 0x8a, 0xcb, 0xc6, 0x38, 0x0f}}
+
+// Current (propget get_Current) dispatches through IIteratorOfEmailMailboxAction's vtable slot 6.
+func (self *IIteratorOfEmailMailboxAction) Current() (*IEmailMailboxAction, error) {
+	result := new(*IEmailMailboxAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfEmailMailboxAction's vtable slot 7.
+func (self *IIteratorOfEmailMailboxAction) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfEmailMailboxAction's vtable slot 8.
+func (self *IIteratorOfEmailMailboxAction) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfEmailMailboxChange is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Email.EmailMailboxChange>.
+// IID: b2b91198-5f8b-5e4a-85f8-ddca82ba0b7f
+type IIteratorOfEmailMailboxChange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfEmailMailboxChange is the interface identifier for IIteratorOfEmailMailboxChange.
+var IID_IIteratorOfEmailMailboxChange = win32.GUID{Data1: 0xb2b91198, Data2: 0x5f8b, Data3: 0x5e4a, Data4: [8]byte{0x85, 0xf8, 0xdd, 0xca, 0x82, 0xba, 0x0b, 0x7f}}
+
+// Current (propget get_Current) dispatches through IIteratorOfEmailMailboxChange's vtable slot 6.
+func (self *IIteratorOfEmailMailboxChange) Current() (*IEmailMailboxChange, error) {
+	result := new(*IEmailMailboxChange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfEmailMailboxChange's vtable slot 7.
+func (self *IIteratorOfEmailMailboxChange) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfEmailMailboxChange's vtable slot 8.
+func (self *IIteratorOfEmailMailboxChange) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfEmailMessage is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Email.EmailMessage>.
+// IID: ca569bf8-d6d7-5411-9600-ab95ec065c72
+type IIteratorOfEmailMessage struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfEmailMessage is the interface identifier for IIteratorOfEmailMessage.
+var IID_IIteratorOfEmailMessage = win32.GUID{Data1: 0xca569bf8, Data2: 0xd6d7, Data3: 0x5411, Data4: [8]byte{0x96, 0x00, 0xab, 0x95, 0xec, 0x06, 0x5c, 0x72}}
+
+// Current (propget get_Current) dispatches through IIteratorOfEmailMessage's vtable slot 6.
+func (self *IIteratorOfEmailMessage) Current() (*IEmailMessage, error) {
+	result := new(*IEmailMessage)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfEmailMessage's vtable slot 7.
+func (self *IIteratorOfEmailMessage) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfEmailMessage's vtable slot 8.
+func (self *IIteratorOfEmailMessage) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IIteratorOfEmailRecipient is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Email.EmailRecipient>.
 // IID: 12238d88-1a2f-5e7a-89b1-8dc140536bac
 type IIteratorOfEmailRecipient struct {
@@ -1431,6 +2052,38 @@ func (self *IIteratorOfEmailRecipient) HasCurrent() (bool, error) {
 
 // MoveNext dispatches through IIteratorOfEmailRecipient's vtable slot 8.
 func (self *IIteratorOfEmailRecipient) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfEmailRecipientResolutionResult is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.ApplicationModel.Email.EmailRecipientResolutionResult>.
+// IID: 5c040cd6-9593-5e74-9a5e-7284cd1b7200
+type IIteratorOfEmailRecipientResolutionResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfEmailRecipientResolutionResult is the interface identifier for IIteratorOfEmailRecipientResolutionResult.
+var IID_IIteratorOfEmailRecipientResolutionResult = win32.GUID{Data1: 0x5c040cd6, Data2: 0x9593, Data3: 0x5e74, Data4: [8]byte{0x9a, 0x5e, 0x72, 0x84, 0xcd, 0x1b, 0x72, 0x00}}
+
+// Current (propget get_Current) dispatches through IIteratorOfEmailRecipientResolutionResult's vtable slot 6.
+func (self *IIteratorOfEmailRecipientResolutionResult) Current() (*IEmailRecipientResolutionResult, error) {
+	result := new(*IEmailRecipientResolutionResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfEmailRecipientResolutionResult's vtable slot 7.
+func (self *IIteratorOfEmailRecipientResolutionResult) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfEmailRecipientResolutionResult's vtable slot 8.
+func (self *IIteratorOfEmailRecipientResolutionResult) MoveNext() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
@@ -1619,6 +2272,28 @@ func (self *IVectorOfEmailAttachment) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfEmailAttachment creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Email.EmailAttachment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfEmailAttachment(items []*IEmailAttachment) *IVectorOfEmailAttachment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Email.EmailAttachment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailAttachment, Iterator: IID_IIteratorOfEmailAttachment, VectorView: IID_IVectorViewOfEmailAttachment, Vector: IID_IVectorOfEmailAttachment}, winrt.CodecInterface, boxed)
+	return (*IVectorOfEmailAttachment)(unsafe.Pointer(obj))
+}
+
 // IVectorOfEmailMailboxAction is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Email.EmailMailboxAction>.
 // IID: 4c954eb2-f15c-5869-abd7-2e328de4a4af
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMailboxAction>.
@@ -1697,6 +2372,28 @@ func (self *IVectorOfEmailMailboxAction) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfEmailMailboxAction creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Email.EmailMailboxAction>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfEmailMailboxAction(items []*IEmailMailboxAction) *IVectorOfEmailMailboxAction {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Email.EmailMailboxAction>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailMailboxAction, Iterator: IID_IIteratorOfEmailMailboxAction, VectorView: IID_IVectorViewOfEmailMailboxAction, Vector: IID_IVectorOfEmailMailboxAction}, winrt.CodecInterface, boxed)
+	return (*IVectorOfEmailMailboxAction)(unsafe.Pointer(obj))
+}
+
 // IVectorOfEmailRecipient is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Email.EmailRecipient>.
 // IID: 1151f664-39c5-5aaa-8a2e-3350e611624b
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailRecipient>.
@@ -1774,6 +2471,28 @@ func (self *IVectorOfEmailRecipient) Clear() error {
 // slot 16: GetMany skipped: conformant array
 
 // slot 17: ReplaceAll skipped: conformant array
+
+// NewIVectorOfEmailRecipient creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Email.EmailRecipient>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfEmailRecipient(items []*IEmailRecipient) *IVectorOfEmailRecipient {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.ApplicationModel.Email.EmailRecipient>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailRecipient, Iterator: IID_IIteratorOfEmailRecipient, VectorView: IID_IVectorViewOfEmailRecipient, Vector: IID_IVectorOfEmailRecipient}, winrt.CodecInterface, boxed)
+	return (*IVectorOfEmailRecipient)(unsafe.Pointer(obj))
+}
 
 // IVectorOfString is the WinRT interface Windows.Foundation.Collections.IVector`1<String>.
 // IID: 98b9acc1-4b56-532e-ac73-03d5291cca90
@@ -1876,6 +2595,25 @@ func (self *IVectorOfString) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfString creates a Go-implemented Windows.Foundation.Collections.IVector`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfString(items []string) *IVectorOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString, Vector: IID_IVectorOfString}, winrt.CodecString, boxed)
+	return (*IVectorOfString)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfCertificate is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.Certificate>.
 // IID: 963f7013-77c2-51c5-8038-b5bcef633edb
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.Certificate>.
@@ -1908,6 +2646,25 @@ func (self *IVectorViewOfCertificate) IndexOf(value *securitycryptographycertifi
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfCertificate creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.Certificate>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCertificate(items []*securitycryptographycertificates.ICertificate) *IVectorViewOfCertificate {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.Certificate>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCertificate, Iterator: IID_IIteratorOfCertificate, VectorView: IID_IVectorViewOfCertificate}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCertificate)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfEmailAttachment is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailAttachment>.
 // IID: 1d71b8e6-3f41-51cc-894b-dbc10ebc9d52
@@ -1942,6 +2699,25 @@ func (self *IVectorViewOfEmailAttachment) IndexOf(value *IEmailAttachment, index
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfEmailAttachment creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailAttachment>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfEmailAttachment(items []*IEmailAttachment) *IVectorViewOfEmailAttachment {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailAttachment>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailAttachment, Iterator: IID_IIteratorOfEmailAttachment, VectorView: IID_IVectorViewOfEmailAttachment}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfEmailAttachment)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfEmailCertificateValidationStatus is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailCertificateValidationStatus>.
 // IID: a5665ff7-b44e-57e3-bd7a-ef191aa5519c
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailCertificateValidationStatus>.
@@ -1974,6 +2750,21 @@ func (self *IVectorViewOfEmailCertificateValidationStatus) IndexOf(value EmailCe
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfEmailCertificateValidationStatus creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailCertificateValidationStatus>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfEmailCertificateValidationStatus(items []EmailCertificateValidationStatus) *IVectorViewOfEmailCertificateValidationStatus {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailCertificateValidationStatus>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailCertificateValidationStatus, Iterator: IID_IIteratorOfEmailCertificateValidationStatus, VectorView: IID_IVectorViewOfEmailCertificateValidationStatus}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfEmailCertificateValidationStatus)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfEmailConversation is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailConversation>.
 // IID: 0a7c62d7-fc19-5bd7-b37a-0d6242df48c0
@@ -2008,6 +2799,25 @@ func (self *IVectorViewOfEmailConversation) IndexOf(value *IEmailConversation, i
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfEmailConversation creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailConversation>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfEmailConversation(items []*IEmailConversation) *IVectorViewOfEmailConversation {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailConversation>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailConversation, Iterator: IID_IIteratorOfEmailConversation, VectorView: IID_IVectorViewOfEmailConversation}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfEmailConversation)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfEmailFolder is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailFolder>.
 // IID: 4e35d275-abdf-5e2c-b3e8-7546ed5ad573
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailFolder>.
@@ -2040,6 +2850,25 @@ func (self *IVectorViewOfEmailFolder) IndexOf(value *IEmailFolder, index *uint32
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfEmailFolder creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailFolder>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfEmailFolder(items []*IEmailFolder) *IVectorViewOfEmailFolder {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailFolder>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailFolder, Iterator: IID_IIteratorOfEmailFolder, VectorView: IID_IVectorViewOfEmailFolder}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfEmailFolder)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfEmailMailbox is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMailbox>.
 // IID: d4816e16-43c9-5b63-a444-6189acb56f6e
@@ -2074,6 +2903,25 @@ func (self *IVectorViewOfEmailMailbox) IndexOf(value *IEmailMailbox, index *uint
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfEmailMailbox creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMailbox>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfEmailMailbox(items []*IEmailMailbox) *IVectorViewOfEmailMailbox {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMailbox>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailMailbox, Iterator: IID_IIteratorOfEmailMailbox, VectorView: IID_IVectorViewOfEmailMailbox}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfEmailMailbox)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfEmailMailboxAction is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMailboxAction>.
 // IID: f7bdef91-beff-5be2-8ef9-2f8112e59a6f
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMailboxAction>.
@@ -2106,6 +2954,25 @@ func (self *IVectorViewOfEmailMailboxAction) IndexOf(value *IEmailMailboxAction,
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfEmailMailboxAction creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMailboxAction>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfEmailMailboxAction(items []*IEmailMailboxAction) *IVectorViewOfEmailMailboxAction {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMailboxAction>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailMailboxAction, Iterator: IID_IIteratorOfEmailMailboxAction, VectorView: IID_IVectorViewOfEmailMailboxAction}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfEmailMailboxAction)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfEmailMailboxChange is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMailboxChange>.
 // IID: 9ea98fb4-9e7e-5caa-a320-cc7ab5338084
@@ -2140,6 +3007,25 @@ func (self *IVectorViewOfEmailMailboxChange) IndexOf(value *IEmailMailboxChange,
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfEmailMailboxChange creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMailboxChange>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfEmailMailboxChange(items []*IEmailMailboxChange) *IVectorViewOfEmailMailboxChange {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMailboxChange>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailMailboxChange, Iterator: IID_IIteratorOfEmailMailboxChange, VectorView: IID_IVectorViewOfEmailMailboxChange}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfEmailMailboxChange)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfEmailMessage is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMessage>.
 // IID: 51b8edf2-6ca6-55de-be45-1d1fc51df076
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailMessage>.
@@ -2172,6 +3058,25 @@ func (self *IVectorViewOfEmailMessage) IndexOf(value *IEmailMessage, index *uint
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfEmailMessage creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMessage>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfEmailMessage(items []*IEmailMessage) *IVectorViewOfEmailMessage {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailMessage>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailMessage, Iterator: IID_IIteratorOfEmailMessage, VectorView: IID_IVectorViewOfEmailMessage}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfEmailMessage)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfEmailRecipient is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailRecipient>.
 // IID: f6d6af60-f11a-5c03-80cc-473407a5aabf
@@ -2206,6 +3111,25 @@ func (self *IVectorViewOfEmailRecipient) IndexOf(value *IEmailRecipient, index *
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfEmailRecipient creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailRecipient>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfEmailRecipient(items []*IEmailRecipient) *IVectorViewOfEmailRecipient {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailRecipient>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailRecipient, Iterator: IID_IIteratorOfEmailRecipient, VectorView: IID_IVectorViewOfEmailRecipient}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfEmailRecipient)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfEmailRecipientResolutionResult is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailRecipientResolutionResult>.
 // IID: 9307eb24-38f6-525e-ba0d-3b4e863fe0f8
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.ApplicationModel.Email.EmailRecipientResolutionResult>.
@@ -2238,6 +3162,25 @@ func (self *IVectorViewOfEmailRecipientResolutionResult) IndexOf(value *IEmailRe
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfEmailRecipientResolutionResult creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailRecipientResolutionResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfEmailRecipientResolutionResult(items []*IEmailRecipientResolutionResult) *IVectorViewOfEmailRecipientResolutionResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.ApplicationModel.Email.EmailRecipientResolutionResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfEmailRecipientResolutionResult, Iterator: IID_IIteratorOfEmailRecipientResolutionResult, VectorView: IID_IVectorViewOfEmailRecipientResolutionResult}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfEmailRecipientResolutionResult)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfString is the WinRT interface Windows.Foundation.Collections.IVectorView`1<String>.
 // IID: 2f13c006-a03a-5f69-b090-75a43e33423e
@@ -2279,3 +3222,19 @@ func (self *IVectorViewOfString) IndexOf(value string, index *uint32) (bool, err
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfString creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<String>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are copied; IndexOf compares string values.
+func NewIVectorViewOfString(items []string) *IVectorViewOfString {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = item
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<String>", winrt.CollectionIIDs{Iterable: IID_IIterableOfString, Iterator: IID_IIteratorOfString, VectorView: IID_IVectorViewOfString}, winrt.CodecString, boxed)
+	return (*IVectorViewOfString)(unsafe.Pointer(obj))
+}

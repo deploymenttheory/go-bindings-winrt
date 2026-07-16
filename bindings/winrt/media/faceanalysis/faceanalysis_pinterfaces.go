@@ -222,6 +222,136 @@ func (self *IAsyncOperationOfIVectorOfDetectedFace) Await() (*IVectorOfDetectedF
 	return self.GetResults()
 }
 
+// IIterableOfBitmapPixelFormat is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.BitmapPixelFormat>.
+// IID: e924d9ed-a13e-5bdb-9ed8-65a1474dc274
+type IIterableOfBitmapPixelFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfBitmapPixelFormat is the interface identifier for IIterableOfBitmapPixelFormat.
+var IID_IIterableOfBitmapPixelFormat = win32.GUID{Data1: 0xe924d9ed, Data2: 0xa13e, Data3: 0x5bdb, Data4: [8]byte{0x9e, 0xd8, 0x65, 0xa1, 0x47, 0x4d, 0xc2, 0x74}}
+
+// First dispatches through IIterableOfBitmapPixelFormat's vtable slot 6.
+func (self *IIterableOfBitmapPixelFormat) First() (*IIteratorOfBitmapPixelFormat, error) {
+	result := new(*IIteratorOfBitmapPixelFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfBitmapPixelFormat creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.BitmapPixelFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfBitmapPixelFormat(items []graphicsimaging.BitmapPixelFormat) *IIterableOfBitmapPixelFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.BitmapPixelFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBitmapPixelFormat, Iterator: IID_IIteratorOfBitmapPixelFormat}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfBitmapPixelFormat)(unsafe.Pointer(obj))
+}
+
+// IIterableOfDetectedFace is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Media.FaceAnalysis.DetectedFace>.
+// IID: 25347323-3556-5cbb-9855-2b5856437f4d
+type IIterableOfDetectedFace struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfDetectedFace is the interface identifier for IIterableOfDetectedFace.
+var IID_IIterableOfDetectedFace = win32.GUID{Data1: 0x25347323, Data2: 0x3556, Data3: 0x5cbb, Data4: [8]byte{0x98, 0x55, 0x2b, 0x58, 0x56, 0x43, 0x7f, 0x4d}}
+
+// First dispatches through IIterableOfDetectedFace's vtable slot 6.
+func (self *IIterableOfDetectedFace) First() (*IIteratorOfDetectedFace, error) {
+	result := new(*IIteratorOfDetectedFace)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfDetectedFace creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Media.FaceAnalysis.DetectedFace>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfDetectedFace(items []*IDetectedFace) *IIterableOfDetectedFace {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Media.FaceAnalysis.DetectedFace>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDetectedFace, Iterator: IID_IIteratorOfDetectedFace}, winrt.CodecInterface, boxed)
+	return (*IIterableOfDetectedFace)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfBitmapPixelFormat is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Graphics.Imaging.BitmapPixelFormat>.
+// IID: 7fc2e293-1084-5d45-b8b8-93e10692bcc8
+type IIteratorOfBitmapPixelFormat struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfBitmapPixelFormat is the interface identifier for IIteratorOfBitmapPixelFormat.
+var IID_IIteratorOfBitmapPixelFormat = win32.GUID{Data1: 0x7fc2e293, Data2: 0x1084, Data3: 0x5d45, Data4: [8]byte{0xb8, 0xb8, 0x93, 0xe1, 0x06, 0x92, 0xbc, 0xc8}}
+
+// Current (propget get_Current) dispatches through IIteratorOfBitmapPixelFormat's vtable slot 6.
+func (self *IIteratorOfBitmapPixelFormat) Current() (graphicsimaging.BitmapPixelFormat, error) {
+	result := new(graphicsimaging.BitmapPixelFormat)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfBitmapPixelFormat's vtable slot 7.
+func (self *IIteratorOfBitmapPixelFormat) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfBitmapPixelFormat's vtable slot 8.
+func (self *IIteratorOfBitmapPixelFormat) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfDetectedFace is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Media.FaceAnalysis.DetectedFace>.
+// IID: a0cf090e-0340-531f-898b-c21eafb9f4ae
+type IIteratorOfDetectedFace struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfDetectedFace is the interface identifier for IIteratorOfDetectedFace.
+var IID_IIteratorOfDetectedFace = win32.GUID{Data1: 0xa0cf090e, Data2: 0x0340, Data3: 0x531f, Data4: [8]byte{0x89, 0x8b, 0xc2, 0x1e, 0xaf, 0xb9, 0xf4, 0xae}}
+
+// Current (propget get_Current) dispatches through IIteratorOfDetectedFace's vtable slot 6.
+func (self *IIteratorOfDetectedFace) Current() (*IDetectedFace, error) {
+	result := new(*IDetectedFace)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfDetectedFace's vtable slot 7.
+func (self *IIteratorOfDetectedFace) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfDetectedFace's vtable slot 8.
+func (self *IIteratorOfDetectedFace) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IVectorOfDetectedFace is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Media.FaceAnalysis.DetectedFace>.
 // IID: 0dfd8e09-73f2-505c-a796-a8f031b4ede0
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.FaceAnalysis.DetectedFace>.
@@ -300,6 +430,28 @@ func (self *IVectorOfDetectedFace) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfDetectedFace creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Media.FaceAnalysis.DetectedFace>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfDetectedFace(items []*IDetectedFace) *IVectorOfDetectedFace {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Media.FaceAnalysis.DetectedFace>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDetectedFace, Iterator: IID_IIteratorOfDetectedFace, VectorView: IID_IVectorViewOfDetectedFace, Vector: IID_IVectorOfDetectedFace}, winrt.CodecInterface, boxed)
+	return (*IVectorOfDetectedFace)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfBitmapPixelFormat is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Imaging.BitmapPixelFormat>.
 // IID: 76ac4bc2-c19c-559c-b287-1694c0dc3a0d
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.Imaging.BitmapPixelFormat>.
@@ -333,6 +485,21 @@ func (self *IVectorViewOfBitmapPixelFormat) IndexOf(value graphicsimaging.Bitmap
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfBitmapPixelFormat creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Imaging.BitmapPixelFormat>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfBitmapPixelFormat(items []graphicsimaging.BitmapPixelFormat) *IVectorViewOfBitmapPixelFormat {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.Imaging.BitmapPixelFormat>", winrt.CollectionIIDs{Iterable: IID_IIterableOfBitmapPixelFormat, Iterator: IID_IIteratorOfBitmapPixelFormat, VectorView: IID_IVectorViewOfBitmapPixelFormat}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfBitmapPixelFormat)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfDetectedFace is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Media.FaceAnalysis.DetectedFace>.
 // IID: 39ef4411-0618-5b8d-8ea2-81c637f823f8
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Media.FaceAnalysis.DetectedFace>.
@@ -365,3 +532,22 @@ func (self *IVectorViewOfDetectedFace) IndexOf(value *IDetectedFace, index *uint
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfDetectedFace creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Media.FaceAnalysis.DetectedFace>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfDetectedFace(items []*IDetectedFace) *IVectorViewOfDetectedFace {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Media.FaceAnalysis.DetectedFace>", winrt.CollectionIIDs{Iterable: IID_IIterableOfDetectedFace, Iterator: IID_IIteratorOfDetectedFace, VectorView: IID_IVectorViewOfDetectedFace}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfDetectedFace)(unsafe.Pointer(obj))
+}

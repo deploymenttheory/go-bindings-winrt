@@ -222,6 +222,743 @@ func (self *IAsyncOperationOfUsbDevice) Await() (*IUsbDevice, error) {
 	return self.GetResults()
 }
 
+// IIterableOfUsbBulkInEndpointDescriptor is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkInEndpointDescriptor>.
+// IID: 101b1fd9-f1c9-5dda-9ad4-71176fa839b2
+type IIterableOfUsbBulkInEndpointDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUsbBulkInEndpointDescriptor is the interface identifier for IIterableOfUsbBulkInEndpointDescriptor.
+var IID_IIterableOfUsbBulkInEndpointDescriptor = win32.GUID{Data1: 0x101b1fd9, Data2: 0xf1c9, Data3: 0x5dda, Data4: [8]byte{0x9a, 0xd4, 0x71, 0x17, 0x6f, 0xa8, 0x39, 0xb2}}
+
+// First dispatches through IIterableOfUsbBulkInEndpointDescriptor's vtable slot 6.
+func (self *IIterableOfUsbBulkInEndpointDescriptor) First() (*IIteratorOfUsbBulkInEndpointDescriptor, error) {
+	result := new(*IIteratorOfUsbBulkInEndpointDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUsbBulkInEndpointDescriptor creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkInEndpointDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUsbBulkInEndpointDescriptor(items []*IUsbBulkInEndpointDescriptor) *IIterableOfUsbBulkInEndpointDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkInEndpointDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbBulkInEndpointDescriptor, Iterator: IID_IIteratorOfUsbBulkInEndpointDescriptor}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUsbBulkInEndpointDescriptor)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUsbBulkInPipe is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkInPipe>.
+// IID: 2201a671-42d2-508d-a848-64b5447083c8
+type IIterableOfUsbBulkInPipe struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUsbBulkInPipe is the interface identifier for IIterableOfUsbBulkInPipe.
+var IID_IIterableOfUsbBulkInPipe = win32.GUID{Data1: 0x2201a671, Data2: 0x42d2, Data3: 0x508d, Data4: [8]byte{0xa8, 0x48, 0x64, 0xb5, 0x44, 0x70, 0x83, 0xc8}}
+
+// First dispatches through IIterableOfUsbBulkInPipe's vtable slot 6.
+func (self *IIterableOfUsbBulkInPipe) First() (*IIteratorOfUsbBulkInPipe, error) {
+	result := new(*IIteratorOfUsbBulkInPipe)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUsbBulkInPipe creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkInPipe>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUsbBulkInPipe(items []*IUsbBulkInPipe) *IIterableOfUsbBulkInPipe {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkInPipe>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbBulkInPipe, Iterator: IID_IIteratorOfUsbBulkInPipe}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUsbBulkInPipe)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUsbBulkOutEndpointDescriptor is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkOutEndpointDescriptor>.
+// IID: b80beb39-62b3-5f59-b3e7-882cc9c5b0c0
+type IIterableOfUsbBulkOutEndpointDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUsbBulkOutEndpointDescriptor is the interface identifier for IIterableOfUsbBulkOutEndpointDescriptor.
+var IID_IIterableOfUsbBulkOutEndpointDescriptor = win32.GUID{Data1: 0xb80beb39, Data2: 0x62b3, Data3: 0x5f59, Data4: [8]byte{0xb3, 0xe7, 0x88, 0x2c, 0xc9, 0xc5, 0xb0, 0xc0}}
+
+// First dispatches through IIterableOfUsbBulkOutEndpointDescriptor's vtable slot 6.
+func (self *IIterableOfUsbBulkOutEndpointDescriptor) First() (*IIteratorOfUsbBulkOutEndpointDescriptor, error) {
+	result := new(*IIteratorOfUsbBulkOutEndpointDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUsbBulkOutEndpointDescriptor creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkOutEndpointDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUsbBulkOutEndpointDescriptor(items []*IUsbBulkOutEndpointDescriptor) *IIterableOfUsbBulkOutEndpointDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkOutEndpointDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbBulkOutEndpointDescriptor, Iterator: IID_IIteratorOfUsbBulkOutEndpointDescriptor}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUsbBulkOutEndpointDescriptor)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUsbBulkOutPipe is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkOutPipe>.
+// IID: 9824caba-5ca6-5c2d-80cf-1949026d7857
+type IIterableOfUsbBulkOutPipe struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUsbBulkOutPipe is the interface identifier for IIterableOfUsbBulkOutPipe.
+var IID_IIterableOfUsbBulkOutPipe = win32.GUID{Data1: 0x9824caba, Data2: 0x5ca6, Data3: 0x5c2d, Data4: [8]byte{0x80, 0xcf, 0x19, 0x49, 0x02, 0x6d, 0x78, 0x57}}
+
+// First dispatches through IIterableOfUsbBulkOutPipe's vtable slot 6.
+func (self *IIterableOfUsbBulkOutPipe) First() (*IIteratorOfUsbBulkOutPipe, error) {
+	result := new(*IIteratorOfUsbBulkOutPipe)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUsbBulkOutPipe creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkOutPipe>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUsbBulkOutPipe(items []*IUsbBulkOutPipe) *IIterableOfUsbBulkOutPipe {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkOutPipe>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbBulkOutPipe, Iterator: IID_IIteratorOfUsbBulkOutPipe}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUsbBulkOutPipe)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUsbDescriptor is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbDescriptor>.
+// IID: 989909a5-5a03-51fb-bd94-84da7bda8819
+type IIterableOfUsbDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUsbDescriptor is the interface identifier for IIterableOfUsbDescriptor.
+var IID_IIterableOfUsbDescriptor = win32.GUID{Data1: 0x989909a5, Data2: 0x5a03, Data3: 0x51fb, Data4: [8]byte{0xbd, 0x94, 0x84, 0xda, 0x7b, 0xda, 0x88, 0x19}}
+
+// First dispatches through IIterableOfUsbDescriptor's vtable slot 6.
+func (self *IIterableOfUsbDescriptor) First() (*IIteratorOfUsbDescriptor, error) {
+	result := new(*IIteratorOfUsbDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUsbDescriptor creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUsbDescriptor(items []*IUsbDescriptor) *IIterableOfUsbDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbDescriptor, Iterator: IID_IIteratorOfUsbDescriptor}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUsbDescriptor)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUsbInterface is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterface>.
+// IID: f54037ed-92e9-590d-b904-3ad7bfa9a621
+type IIterableOfUsbInterface struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUsbInterface is the interface identifier for IIterableOfUsbInterface.
+var IID_IIterableOfUsbInterface = win32.GUID{Data1: 0xf54037ed, Data2: 0x92e9, Data3: 0x590d, Data4: [8]byte{0xb9, 0x04, 0x3a, 0xd7, 0xbf, 0xa9, 0xa6, 0x21}}
+
+// First dispatches through IIterableOfUsbInterface's vtable slot 6.
+func (self *IIterableOfUsbInterface) First() (*IIteratorOfUsbInterface, error) {
+	result := new(*IIteratorOfUsbInterface)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUsbInterface creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterface>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUsbInterface(items []*IUsbInterface) *IIterableOfUsbInterface {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterface>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterface, Iterator: IID_IIteratorOfUsbInterface}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUsbInterface)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUsbInterfaceSetting is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterfaceSetting>.
+// IID: 1aaf5739-9c2c-533e-a0e9-d53fdb45d15d
+type IIterableOfUsbInterfaceSetting struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUsbInterfaceSetting is the interface identifier for IIterableOfUsbInterfaceSetting.
+var IID_IIterableOfUsbInterfaceSetting = win32.GUID{Data1: 0x1aaf5739, Data2: 0x9c2c, Data3: 0x533e, Data4: [8]byte{0xa0, 0xe9, 0xd5, 0x3f, 0xdb, 0x45, 0xd1, 0x5d}}
+
+// First dispatches through IIterableOfUsbInterfaceSetting's vtable slot 6.
+func (self *IIterableOfUsbInterfaceSetting) First() (*IIteratorOfUsbInterfaceSetting, error) {
+	result := new(*IIteratorOfUsbInterfaceSetting)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUsbInterfaceSetting creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterfaceSetting>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUsbInterfaceSetting(items []*IUsbInterfaceSetting) *IIterableOfUsbInterfaceSetting {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterfaceSetting>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterfaceSetting, Iterator: IID_IIteratorOfUsbInterfaceSetting}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUsbInterfaceSetting)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUsbInterruptInEndpointDescriptor is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptInEndpointDescriptor>.
+// IID: 8a7bac69-1f10-59c7-9837-72cfed7154a4
+type IIterableOfUsbInterruptInEndpointDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUsbInterruptInEndpointDescriptor is the interface identifier for IIterableOfUsbInterruptInEndpointDescriptor.
+var IID_IIterableOfUsbInterruptInEndpointDescriptor = win32.GUID{Data1: 0x8a7bac69, Data2: 0x1f10, Data3: 0x59c7, Data4: [8]byte{0x98, 0x37, 0x72, 0xcf, 0xed, 0x71, 0x54, 0xa4}}
+
+// First dispatches through IIterableOfUsbInterruptInEndpointDescriptor's vtable slot 6.
+func (self *IIterableOfUsbInterruptInEndpointDescriptor) First() (*IIteratorOfUsbInterruptInEndpointDescriptor, error) {
+	result := new(*IIteratorOfUsbInterruptInEndpointDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUsbInterruptInEndpointDescriptor creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptInEndpointDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUsbInterruptInEndpointDescriptor(items []*IUsbInterruptInEndpointDescriptor) *IIterableOfUsbInterruptInEndpointDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptInEndpointDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterruptInEndpointDescriptor, Iterator: IID_IIteratorOfUsbInterruptInEndpointDescriptor}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUsbInterruptInEndpointDescriptor)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUsbInterruptInPipe is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptInPipe>.
+// IID: 39aef336-18aa-5be4-86d9-e332fe2632f3
+type IIterableOfUsbInterruptInPipe struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUsbInterruptInPipe is the interface identifier for IIterableOfUsbInterruptInPipe.
+var IID_IIterableOfUsbInterruptInPipe = win32.GUID{Data1: 0x39aef336, Data2: 0x18aa, Data3: 0x5be4, Data4: [8]byte{0x86, 0xd9, 0xe3, 0x32, 0xfe, 0x26, 0x32, 0xf3}}
+
+// First dispatches through IIterableOfUsbInterruptInPipe's vtable slot 6.
+func (self *IIterableOfUsbInterruptInPipe) First() (*IIteratorOfUsbInterruptInPipe, error) {
+	result := new(*IIteratorOfUsbInterruptInPipe)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUsbInterruptInPipe creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptInPipe>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUsbInterruptInPipe(items []*IUsbInterruptInPipe) *IIterableOfUsbInterruptInPipe {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptInPipe>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterruptInPipe, Iterator: IID_IIteratorOfUsbInterruptInPipe}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUsbInterruptInPipe)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUsbInterruptOutEndpointDescriptor is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor>.
+// IID: 09393d62-2316-536b-8a10-7038884ab2a7
+type IIterableOfUsbInterruptOutEndpointDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUsbInterruptOutEndpointDescriptor is the interface identifier for IIterableOfUsbInterruptOutEndpointDescriptor.
+var IID_IIterableOfUsbInterruptOutEndpointDescriptor = win32.GUID{Data1: 0x09393d62, Data2: 0x2316, Data3: 0x536b, Data4: [8]byte{0x8a, 0x10, 0x70, 0x38, 0x88, 0x4a, 0xb2, 0xa7}}
+
+// First dispatches through IIterableOfUsbInterruptOutEndpointDescriptor's vtable slot 6.
+func (self *IIterableOfUsbInterruptOutEndpointDescriptor) First() (*IIteratorOfUsbInterruptOutEndpointDescriptor, error) {
+	result := new(*IIteratorOfUsbInterruptOutEndpointDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUsbInterruptOutEndpointDescriptor creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUsbInterruptOutEndpointDescriptor(items []*IUsbInterruptOutEndpointDescriptor) *IIterableOfUsbInterruptOutEndpointDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterruptOutEndpointDescriptor, Iterator: IID_IIteratorOfUsbInterruptOutEndpointDescriptor}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUsbInterruptOutEndpointDescriptor)(unsafe.Pointer(obj))
+}
+
+// IIterableOfUsbInterruptOutPipe is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptOutPipe>.
+// IID: e61a011e-4abe-53f2-83b3-ed4a949d2e3f
+type IIterableOfUsbInterruptOutPipe struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfUsbInterruptOutPipe is the interface identifier for IIterableOfUsbInterruptOutPipe.
+var IID_IIterableOfUsbInterruptOutPipe = win32.GUID{Data1: 0xe61a011e, Data2: 0x4abe, Data3: 0x53f2, Data4: [8]byte{0x83, 0xb3, 0xed, 0x4a, 0x94, 0x9d, 0x2e, 0x3f}}
+
+// First dispatches through IIterableOfUsbInterruptOutPipe's vtable slot 6.
+func (self *IIterableOfUsbInterruptOutPipe) First() (*IIteratorOfUsbInterruptOutPipe, error) {
+	result := new(*IIteratorOfUsbInterruptOutPipe)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfUsbInterruptOutPipe creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptOutPipe>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfUsbInterruptOutPipe(items []*IUsbInterruptOutPipe) *IIterableOfUsbInterruptOutPipe {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptOutPipe>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterruptOutPipe, Iterator: IID_IIteratorOfUsbInterruptOutPipe}, winrt.CodecInterface, boxed)
+	return (*IIterableOfUsbInterruptOutPipe)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfUsbBulkInEndpointDescriptor is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Usb.UsbBulkInEndpointDescriptor>.
+// IID: ea511030-89c4-503d-8caf-667f4230d2a9
+type IIteratorOfUsbBulkInEndpointDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUsbBulkInEndpointDescriptor is the interface identifier for IIteratorOfUsbBulkInEndpointDescriptor.
+var IID_IIteratorOfUsbBulkInEndpointDescriptor = win32.GUID{Data1: 0xea511030, Data2: 0x89c4, Data3: 0x503d, Data4: [8]byte{0x8c, 0xaf, 0x66, 0x7f, 0x42, 0x30, 0xd2, 0xa9}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUsbBulkInEndpointDescriptor's vtable slot 6.
+func (self *IIteratorOfUsbBulkInEndpointDescriptor) Current() (*IUsbBulkInEndpointDescriptor, error) {
+	result := new(*IUsbBulkInEndpointDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUsbBulkInEndpointDescriptor's vtable slot 7.
+func (self *IIteratorOfUsbBulkInEndpointDescriptor) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUsbBulkInEndpointDescriptor's vtable slot 8.
+func (self *IIteratorOfUsbBulkInEndpointDescriptor) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUsbBulkInPipe is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Usb.UsbBulkInPipe>.
+// IID: d7af2c5b-528d-5cbb-a997-d830ade704c7
+type IIteratorOfUsbBulkInPipe struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUsbBulkInPipe is the interface identifier for IIteratorOfUsbBulkInPipe.
+var IID_IIteratorOfUsbBulkInPipe = win32.GUID{Data1: 0xd7af2c5b, Data2: 0x528d, Data3: 0x5cbb, Data4: [8]byte{0xa9, 0x97, 0xd8, 0x30, 0xad, 0xe7, 0x04, 0xc7}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUsbBulkInPipe's vtable slot 6.
+func (self *IIteratorOfUsbBulkInPipe) Current() (*IUsbBulkInPipe, error) {
+	result := new(*IUsbBulkInPipe)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUsbBulkInPipe's vtable slot 7.
+func (self *IIteratorOfUsbBulkInPipe) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUsbBulkInPipe's vtable slot 8.
+func (self *IIteratorOfUsbBulkInPipe) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUsbBulkOutEndpointDescriptor is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Usb.UsbBulkOutEndpointDescriptor>.
+// IID: a8b89ab3-883d-5361-9903-f489cc62bea5
+type IIteratorOfUsbBulkOutEndpointDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUsbBulkOutEndpointDescriptor is the interface identifier for IIteratorOfUsbBulkOutEndpointDescriptor.
+var IID_IIteratorOfUsbBulkOutEndpointDescriptor = win32.GUID{Data1: 0xa8b89ab3, Data2: 0x883d, Data3: 0x5361, Data4: [8]byte{0x99, 0x03, 0xf4, 0x89, 0xcc, 0x62, 0xbe, 0xa5}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUsbBulkOutEndpointDescriptor's vtable slot 6.
+func (self *IIteratorOfUsbBulkOutEndpointDescriptor) Current() (*IUsbBulkOutEndpointDescriptor, error) {
+	result := new(*IUsbBulkOutEndpointDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUsbBulkOutEndpointDescriptor's vtable slot 7.
+func (self *IIteratorOfUsbBulkOutEndpointDescriptor) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUsbBulkOutEndpointDescriptor's vtable slot 8.
+func (self *IIteratorOfUsbBulkOutEndpointDescriptor) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUsbBulkOutPipe is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Usb.UsbBulkOutPipe>.
+// IID: 46dd2f6a-573b-5c45-b168-9223038491dd
+type IIteratorOfUsbBulkOutPipe struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUsbBulkOutPipe is the interface identifier for IIteratorOfUsbBulkOutPipe.
+var IID_IIteratorOfUsbBulkOutPipe = win32.GUID{Data1: 0x46dd2f6a, Data2: 0x573b, Data3: 0x5c45, Data4: [8]byte{0xb1, 0x68, 0x92, 0x23, 0x03, 0x84, 0x91, 0xdd}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUsbBulkOutPipe's vtable slot 6.
+func (self *IIteratorOfUsbBulkOutPipe) Current() (*IUsbBulkOutPipe, error) {
+	result := new(*IUsbBulkOutPipe)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUsbBulkOutPipe's vtable slot 7.
+func (self *IIteratorOfUsbBulkOutPipe) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUsbBulkOutPipe's vtable slot 8.
+func (self *IIteratorOfUsbBulkOutPipe) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUsbDescriptor is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Usb.UsbDescriptor>.
+// IID: 521598ed-0167-528e-990d-52abb712f072
+type IIteratorOfUsbDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUsbDescriptor is the interface identifier for IIteratorOfUsbDescriptor.
+var IID_IIteratorOfUsbDescriptor = win32.GUID{Data1: 0x521598ed, Data2: 0x0167, Data3: 0x528e, Data4: [8]byte{0x99, 0x0d, 0x52, 0xab, 0xb7, 0x12, 0xf0, 0x72}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUsbDescriptor's vtable slot 6.
+func (self *IIteratorOfUsbDescriptor) Current() (*IUsbDescriptor, error) {
+	result := new(*IUsbDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUsbDescriptor's vtable slot 7.
+func (self *IIteratorOfUsbDescriptor) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUsbDescriptor's vtable slot 8.
+func (self *IIteratorOfUsbDescriptor) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUsbInterface is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Usb.UsbInterface>.
+// IID: 216b5a5f-63e3-5a9b-9c99-b09cbc0ff3b1
+type IIteratorOfUsbInterface struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUsbInterface is the interface identifier for IIteratorOfUsbInterface.
+var IID_IIteratorOfUsbInterface = win32.GUID{Data1: 0x216b5a5f, Data2: 0x63e3, Data3: 0x5a9b, Data4: [8]byte{0x9c, 0x99, 0xb0, 0x9c, 0xbc, 0x0f, 0xf3, 0xb1}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUsbInterface's vtable slot 6.
+func (self *IIteratorOfUsbInterface) Current() (*IUsbInterface, error) {
+	result := new(*IUsbInterface)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUsbInterface's vtable slot 7.
+func (self *IIteratorOfUsbInterface) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUsbInterface's vtable slot 8.
+func (self *IIteratorOfUsbInterface) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUsbInterfaceSetting is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Usb.UsbInterfaceSetting>.
+// IID: 71267ec7-5697-5dea-b2f8-14cf698ec0ad
+type IIteratorOfUsbInterfaceSetting struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUsbInterfaceSetting is the interface identifier for IIteratorOfUsbInterfaceSetting.
+var IID_IIteratorOfUsbInterfaceSetting = win32.GUID{Data1: 0x71267ec7, Data2: 0x5697, Data3: 0x5dea, Data4: [8]byte{0xb2, 0xf8, 0x14, 0xcf, 0x69, 0x8e, 0xc0, 0xad}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUsbInterfaceSetting's vtable slot 6.
+func (self *IIteratorOfUsbInterfaceSetting) Current() (*IUsbInterfaceSetting, error) {
+	result := new(*IUsbInterfaceSetting)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUsbInterfaceSetting's vtable slot 7.
+func (self *IIteratorOfUsbInterfaceSetting) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUsbInterfaceSetting's vtable slot 8.
+func (self *IIteratorOfUsbInterfaceSetting) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUsbInterruptInEndpointDescriptor is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Usb.UsbInterruptInEndpointDescriptor>.
+// IID: 6717500f-ec1c-5b12-bf33-0e3e3d244587
+type IIteratorOfUsbInterruptInEndpointDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUsbInterruptInEndpointDescriptor is the interface identifier for IIteratorOfUsbInterruptInEndpointDescriptor.
+var IID_IIteratorOfUsbInterruptInEndpointDescriptor = win32.GUID{Data1: 0x6717500f, Data2: 0xec1c, Data3: 0x5b12, Data4: [8]byte{0xbf, 0x33, 0x0e, 0x3e, 0x3d, 0x24, 0x45, 0x87}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUsbInterruptInEndpointDescriptor's vtable slot 6.
+func (self *IIteratorOfUsbInterruptInEndpointDescriptor) Current() (*IUsbInterruptInEndpointDescriptor, error) {
+	result := new(*IUsbInterruptInEndpointDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUsbInterruptInEndpointDescriptor's vtable slot 7.
+func (self *IIteratorOfUsbInterruptInEndpointDescriptor) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUsbInterruptInEndpointDescriptor's vtable slot 8.
+func (self *IIteratorOfUsbInterruptInEndpointDescriptor) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUsbInterruptInPipe is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Usb.UsbInterruptInPipe>.
+// IID: e3a7b1c0-74f6-5292-a22a-672aa2b49985
+type IIteratorOfUsbInterruptInPipe struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUsbInterruptInPipe is the interface identifier for IIteratorOfUsbInterruptInPipe.
+var IID_IIteratorOfUsbInterruptInPipe = win32.GUID{Data1: 0xe3a7b1c0, Data2: 0x74f6, Data3: 0x5292, Data4: [8]byte{0xa2, 0x2a, 0x67, 0x2a, 0xa2, 0xb4, 0x99, 0x85}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUsbInterruptInPipe's vtable slot 6.
+func (self *IIteratorOfUsbInterruptInPipe) Current() (*IUsbInterruptInPipe, error) {
+	result := new(*IUsbInterruptInPipe)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUsbInterruptInPipe's vtable slot 7.
+func (self *IIteratorOfUsbInterruptInPipe) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUsbInterruptInPipe's vtable slot 8.
+func (self *IIteratorOfUsbInterruptInPipe) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUsbInterruptOutEndpointDescriptor is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor>.
+// IID: 4b6426db-db32-5b51-adad-04532ea94acd
+type IIteratorOfUsbInterruptOutEndpointDescriptor struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUsbInterruptOutEndpointDescriptor is the interface identifier for IIteratorOfUsbInterruptOutEndpointDescriptor.
+var IID_IIteratorOfUsbInterruptOutEndpointDescriptor = win32.GUID{Data1: 0x4b6426db, Data2: 0xdb32, Data3: 0x5b51, Data4: [8]byte{0xad, 0xad, 0x04, 0x53, 0x2e, 0xa9, 0x4a, 0xcd}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUsbInterruptOutEndpointDescriptor's vtable slot 6.
+func (self *IIteratorOfUsbInterruptOutEndpointDescriptor) Current() (*IUsbInterruptOutEndpointDescriptor, error) {
+	result := new(*IUsbInterruptOutEndpointDescriptor)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUsbInterruptOutEndpointDescriptor's vtable slot 7.
+func (self *IIteratorOfUsbInterruptOutEndpointDescriptor) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUsbInterruptOutEndpointDescriptor's vtable slot 8.
+func (self *IIteratorOfUsbInterruptOutEndpointDescriptor) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfUsbInterruptOutPipe is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Usb.UsbInterruptOutPipe>.
+// IID: cbd8d8a8-2286-5cbd-a6e4-962742ffd91a
+type IIteratorOfUsbInterruptOutPipe struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfUsbInterruptOutPipe is the interface identifier for IIteratorOfUsbInterruptOutPipe.
+var IID_IIteratorOfUsbInterruptOutPipe = win32.GUID{Data1: 0xcbd8d8a8, Data2: 0x2286, Data3: 0x5cbd, Data4: [8]byte{0xa6, 0xe4, 0x96, 0x27, 0x42, 0xff, 0xd9, 0x1a}}
+
+// Current (propget get_Current) dispatches through IIteratorOfUsbInterruptOutPipe's vtable slot 6.
+func (self *IIteratorOfUsbInterruptOutPipe) Current() (*IUsbInterruptOutPipe, error) {
+	result := new(*IUsbInterruptOutPipe)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfUsbInterruptOutPipe's vtable slot 7.
+func (self *IIteratorOfUsbInterruptOutPipe) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfUsbInterruptOutPipe's vtable slot 8.
+func (self *IIteratorOfUsbInterruptOutPipe) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
 // IReferenceOfUInt8 is the WinRT interface Windows.Foundation.IReference`1<UInt8>.
 // IID: e5198cc8-2873-55f5-b0a1-84ff9e4aad62
 // Requires: Windows.Foundation.IPropertyValue.
@@ -272,6 +1009,25 @@ func (self *IVectorViewOfUsbBulkInEndpointDescriptor) IndexOf(value *IUsbBulkInE
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfUsbBulkInEndpointDescriptor creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbBulkInEndpointDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUsbBulkInEndpointDescriptor(items []*IUsbBulkInEndpointDescriptor) *IVectorViewOfUsbBulkInEndpointDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbBulkInEndpointDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbBulkInEndpointDescriptor, Iterator: IID_IIteratorOfUsbBulkInEndpointDescriptor, VectorView: IID_IVectorViewOfUsbBulkInEndpointDescriptor}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUsbBulkInEndpointDescriptor)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUsbBulkInPipe is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbBulkInPipe>.
 // IID: a93c84bc-6484-5959-b61a-703cc7115f6f
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkInPipe>.
@@ -304,6 +1060,25 @@ func (self *IVectorViewOfUsbBulkInPipe) IndexOf(value *IUsbBulkInPipe, index *ui
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUsbBulkInPipe creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbBulkInPipe>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUsbBulkInPipe(items []*IUsbBulkInPipe) *IVectorViewOfUsbBulkInPipe {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbBulkInPipe>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbBulkInPipe, Iterator: IID_IIteratorOfUsbBulkInPipe, VectorView: IID_IVectorViewOfUsbBulkInPipe}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUsbBulkInPipe)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfUsbBulkOutEndpointDescriptor is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbBulkOutEndpointDescriptor>.
 // IID: 22a53676-a3ea-5dcd-bb39-b28a5327c4a3
@@ -338,6 +1113,25 @@ func (self *IVectorViewOfUsbBulkOutEndpointDescriptor) IndexOf(value *IUsbBulkOu
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfUsbBulkOutEndpointDescriptor creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbBulkOutEndpointDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUsbBulkOutEndpointDescriptor(items []*IUsbBulkOutEndpointDescriptor) *IVectorViewOfUsbBulkOutEndpointDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbBulkOutEndpointDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbBulkOutEndpointDescriptor, Iterator: IID_IIteratorOfUsbBulkOutEndpointDescriptor, VectorView: IID_IVectorViewOfUsbBulkOutEndpointDescriptor}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUsbBulkOutEndpointDescriptor)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUsbBulkOutPipe is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbBulkOutPipe>.
 // IID: 0a873512-15f1-5e8e-a72a-045cfd7a5e83
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbBulkOutPipe>.
@@ -370,6 +1164,25 @@ func (self *IVectorViewOfUsbBulkOutPipe) IndexOf(value *IUsbBulkOutPipe, index *
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUsbBulkOutPipe creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbBulkOutPipe>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUsbBulkOutPipe(items []*IUsbBulkOutPipe) *IVectorViewOfUsbBulkOutPipe {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbBulkOutPipe>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbBulkOutPipe, Iterator: IID_IIteratorOfUsbBulkOutPipe, VectorView: IID_IVectorViewOfUsbBulkOutPipe}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUsbBulkOutPipe)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfUsbDescriptor is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbDescriptor>.
 // IID: 5408baa2-291e-537a-b61f-137062f7ff7d
@@ -404,6 +1217,25 @@ func (self *IVectorViewOfUsbDescriptor) IndexOf(value *IUsbDescriptor, index *ui
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfUsbDescriptor creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUsbDescriptor(items []*IUsbDescriptor) *IVectorViewOfUsbDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbDescriptor, Iterator: IID_IIteratorOfUsbDescriptor, VectorView: IID_IVectorViewOfUsbDescriptor}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUsbDescriptor)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUsbInterface is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterface>.
 // IID: 9c69ec7f-2e42-58cd-a74a-f4974811134d
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterface>.
@@ -436,6 +1268,25 @@ func (self *IVectorViewOfUsbInterface) IndexOf(value *IUsbInterface, index *uint
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUsbInterface creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterface>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUsbInterface(items []*IUsbInterface) *IVectorViewOfUsbInterface {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterface>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterface, Iterator: IID_IIteratorOfUsbInterface, VectorView: IID_IVectorViewOfUsbInterface}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUsbInterface)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfUsbInterfaceSetting is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterfaceSetting>.
 // IID: 71194af7-77c2-54d5-a116-287f0b7fd53f
@@ -470,6 +1321,25 @@ func (self *IVectorViewOfUsbInterfaceSetting) IndexOf(value *IUsbInterfaceSettin
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfUsbInterfaceSetting creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterfaceSetting>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUsbInterfaceSetting(items []*IUsbInterfaceSetting) *IVectorViewOfUsbInterfaceSetting {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterfaceSetting>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterfaceSetting, Iterator: IID_IIteratorOfUsbInterfaceSetting, VectorView: IID_IVectorViewOfUsbInterfaceSetting}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUsbInterfaceSetting)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUsbInterruptInEndpointDescriptor is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptInEndpointDescriptor>.
 // IID: 3fc7f890-218e-5057-904d-6387c591cc93
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptInEndpointDescriptor>.
@@ -502,6 +1372,25 @@ func (self *IVectorViewOfUsbInterruptInEndpointDescriptor) IndexOf(value *IUsbIn
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUsbInterruptInEndpointDescriptor creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptInEndpointDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUsbInterruptInEndpointDescriptor(items []*IUsbInterruptInEndpointDescriptor) *IVectorViewOfUsbInterruptInEndpointDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptInEndpointDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterruptInEndpointDescriptor, Iterator: IID_IIteratorOfUsbInterruptInEndpointDescriptor, VectorView: IID_IVectorViewOfUsbInterruptInEndpointDescriptor}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUsbInterruptInEndpointDescriptor)(unsafe.Pointer(obj))
+}
 
 // IVectorViewOfUsbInterruptInPipe is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptInPipe>.
 // IID: 37469574-b4c5-5ba0-9616-894dd822ff5b
@@ -536,6 +1425,25 @@ func (self *IVectorViewOfUsbInterruptInPipe) IndexOf(value *IUsbInterruptInPipe,
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfUsbInterruptInPipe creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptInPipe>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUsbInterruptInPipe(items []*IUsbInterruptInPipe) *IVectorViewOfUsbInterruptInPipe {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptInPipe>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterruptInPipe, Iterator: IID_IIteratorOfUsbInterruptInPipe, VectorView: IID_IVectorViewOfUsbInterruptInPipe}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUsbInterruptInPipe)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUsbInterruptOutEndpointDescriptor is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor>.
 // IID: 984e7e15-c5ac-5140-a3c0-b583190085d7
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor>.
@@ -569,6 +1477,25 @@ func (self *IVectorViewOfUsbInterruptOutEndpointDescriptor) IndexOf(value *IUsbI
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfUsbInterruptOutEndpointDescriptor creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUsbInterruptOutEndpointDescriptor(items []*IUsbInterruptOutEndpointDescriptor) *IVectorViewOfUsbInterruptOutEndpointDescriptor {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterruptOutEndpointDescriptor, Iterator: IID_IIteratorOfUsbInterruptOutEndpointDescriptor, VectorView: IID_IVectorViewOfUsbInterruptOutEndpointDescriptor}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUsbInterruptOutEndpointDescriptor)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfUsbInterruptOutPipe is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptOutPipe>.
 // IID: 748196c8-83bf-5ec3-8d28-a3112b3ee3cc
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Usb.UsbInterruptOutPipe>.
@@ -601,3 +1528,22 @@ func (self *IVectorViewOfUsbInterruptOutPipe) IndexOf(value *IUsbInterruptOutPip
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfUsbInterruptOutPipe creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptOutPipe>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfUsbInterruptOutPipe(items []*IUsbInterruptOutPipe) *IVectorViewOfUsbInterruptOutPipe {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Usb.UsbInterruptOutPipe>", winrt.CollectionIIDs{Iterable: IID_IIterableOfUsbInterruptOutPipe, Iterator: IID_IIteratorOfUsbInterruptOutPipe, VectorView: IID_IVectorViewOfUsbInterruptOutPipe}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfUsbInterruptOutPipe)(unsafe.Pointer(obj))
+}

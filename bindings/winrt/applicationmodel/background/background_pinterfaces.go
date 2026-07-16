@@ -499,6 +499,37 @@ func (self *IAsyncOperationOfMediaProcessingTriggerResult) Await() (MediaProcess
 	return self.GetResults()
 }
 
+// IIterableOfActivityType is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivityType>.
+// IID: 2a04cdfa-5dfd-5178-8731-ade998e4a7f6
+type IIterableOfActivityType struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfActivityType is the interface identifier for IIterableOfActivityType.
+var IID_IIterableOfActivityType = win32.GUID{Data1: 0x2a04cdfa, Data2: 0x5dfd, Data3: 0x5178, Data4: [8]byte{0x87, 0x31, 0xad, 0xe9, 0x98, 0xe4, 0xa7, 0xf6}}
+
+// First dispatches through IIterableOfActivityType's vtable slot 6.
+func (self *IIterableOfActivityType) First() (*IIteratorOfActivityType, error) {
+	result := new(*IIteratorOfActivityType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfActivityType creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivityType>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfActivityType(items []devicessensors.ActivityType) *IIterableOfActivityType {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivityType>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivityType, Iterator: IID_IIteratorOfActivityType}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfActivityType)(unsafe.Pointer(obj))
+}
+
 // IIterableOfStorageLibrary is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Storage.StorageLibrary>.
 // IID: 851e3cfd-306b-5c8e-ae3c-a8d83c623604
 type IIterableOfStorageLibrary struct {
@@ -514,6 +545,57 @@ func (self *IIterableOfStorageLibrary) First() (*IIteratorOfStorageLibrary, erro
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// NewIIterableOfStorageLibrary creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Storage.StorageLibrary>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfStorageLibrary(items []*storage.IStorageLibrary) *IIterableOfStorageLibrary {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Storage.StorageLibrary>", winrt.CollectionIIDs{Iterable: IID_IIterableOfStorageLibrary, Iterator: IID_IIteratorOfStorageLibrary}, winrt.CodecInterface, boxed)
+	return (*IIterableOfStorageLibrary)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfActivityType is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Devices.Sensors.ActivityType>.
+// IID: 40524281-a7c6-50b1-b6f5-0baa95d902c2
+type IIteratorOfActivityType struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfActivityType is the interface identifier for IIteratorOfActivityType.
+var IID_IIteratorOfActivityType = win32.GUID{Data1: 0x40524281, Data2: 0xa7c6, Data3: 0x50b1, Data4: [8]byte{0xb6, 0xf5, 0x0b, 0xaa, 0x95, 0xd9, 0x02, 0xc2}}
+
+// Current (propget get_Current) dispatches through IIteratorOfActivityType's vtable slot 6.
+func (self *IIteratorOfActivityType) Current() (devicessensors.ActivityType, error) {
+	result := new(devicessensors.ActivityType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfActivityType's vtable slot 7.
+func (self *IIteratorOfActivityType) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfActivityType's vtable slot 8.
+func (self *IIteratorOfActivityType) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IIteratorOfStorageLibrary is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Storage.StorageLibrary>.
 // IID: 0a1c6409-fbd3-58c8-9af3-6262cc56e5b3
@@ -743,6 +825,24 @@ func (self *IVectorOfActivityType) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfActivityType creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Devices.Sensors.ActivityType>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfActivityType(items []devicessensors.ActivityType) *IVectorOfActivityType {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Devices.Sensors.ActivityType>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivityType, Iterator: IID_IIteratorOfActivityType, VectorView: IID_IVectorViewOfActivityType, Vector: IID_IVectorOfActivityType}, winrt.CodecScalar(4), boxed)
+	return (*IVectorOfActivityType)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfActivityType is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivityType>.
 // IID: fc7a0488-2803-505c-9e62-9200afe416c6
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Devices.Sensors.ActivityType>.
@@ -775,3 +875,18 @@ func (self *IVectorViewOfActivityType) IndexOf(value devicessensors.ActivityType
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfActivityType creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivityType>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfActivityType(items []devicessensors.ActivityType) *IVectorViewOfActivityType {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Devices.Sensors.ActivityType>", winrt.CollectionIIDs{Iterable: IID_IIterableOfActivityType, Iterator: IID_IIteratorOfActivityType, VectorView: IID_IVectorViewOfActivityType}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfActivityType)(unsafe.Pointer(obj))
+}

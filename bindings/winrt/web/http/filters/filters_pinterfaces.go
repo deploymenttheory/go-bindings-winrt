@@ -11,6 +11,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 	securitycryptographycertificates "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/security/cryptography/certificates"
 	webhttp "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/web/http"
 )
@@ -48,6 +49,175 @@ func (self *IAsyncOperationWithProgressOfHttpResponseMessageAndHttpProgress) Get
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
+
+// Await registers a Completed handler and blocks until IAsyncOperationWithProgressOfHttpResponseMessageAndHttpProgress reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationWithProgressOfHttpResponseMessageAndHttpProgress) Await() (*webhttp.IHttpResponseMessage, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationWithProgressCompletedHandlerOfHttpResponseMessageAndHttpProgress(func(_ *IAsyncOperationWithProgressOfHttpResponseMessageAndHttpProgress, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
+// IIterableOfCertificate is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.Certificate>.
+// IID: 0c7d1423-e8fd-5a91-b55c-8bfbe7ac2d40
+type IIterableOfCertificate struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfCertificate is the interface identifier for IIterableOfCertificate.
+var IID_IIterableOfCertificate = win32.GUID{Data1: 0x0c7d1423, Data2: 0xe8fd, Data3: 0x5a91, Data4: [8]byte{0xb5, 0x5c, 0x8b, 0xfb, 0xe7, 0xac, 0x2d, 0x40}}
+
+// First dispatches through IIterableOfCertificate's vtable slot 6.
+func (self *IIterableOfCertificate) First() (*IIteratorOfCertificate, error) {
+	result := new(*IIteratorOfCertificate)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfCertificate creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.Certificate>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIIterableOfCertificate(items []*securitycryptographycertificates.ICertificate) *IIterableOfCertificate {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.Certificate>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCertificate, Iterator: IID_IIteratorOfCertificate}, winrt.CodecInterface, boxed)
+	return (*IIterableOfCertificate)(unsafe.Pointer(obj))
+}
+
+// IIterableOfChainValidationResult is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>.
+// IID: 2628f58f-3f02-54f2-808f-e1117709d6d0
+type IIterableOfChainValidationResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIterableOfChainValidationResult is the interface identifier for IIterableOfChainValidationResult.
+var IID_IIterableOfChainValidationResult = win32.GUID{Data1: 0x2628f58f, Data2: 0x3f02, Data3: 0x54f2, Data4: [8]byte{0x80, 0x8f, 0xe1, 0x11, 0x77, 0x09, 0xd6, 0xd0}}
+
+// First dispatches through IIterableOfChainValidationResult's vtable slot 6.
+func (self *IIterableOfChainValidationResult) First() (*IIteratorOfChainValidationResult, error) {
+	result := new(*IIteratorOfChainValidationResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// NewIIterableOfChainValidationResult creates a Go-implemented Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIIterableOfChainValidationResult(items []securitycryptographycertificates.ChainValidationResult) *IIterableOfChainValidationResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewIterableObject("Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChainValidationResult, Iterator: IID_IIteratorOfChainValidationResult}, winrt.CodecScalar(4), boxed)
+	return (*IIterableOfChainValidationResult)(unsafe.Pointer(obj))
+}
+
+// IIteratorOfCertificate is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Cryptography.Certificates.Certificate>.
+// IID: 676fc159-f15c-58bd-91a7-28f7e795c756
+type IIteratorOfCertificate struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfCertificate is the interface identifier for IIteratorOfCertificate.
+var IID_IIteratorOfCertificate = win32.GUID{Data1: 0x676fc159, Data2: 0xf15c, Data3: 0x58bd, Data4: [8]byte{0x91, 0xa7, 0x28, 0xf7, 0xe7, 0x95, 0xc7, 0x56}}
+
+// Current (propget get_Current) dispatches through IIteratorOfCertificate's vtable slot 6.
+func (self *IIteratorOfCertificate) Current() (*securitycryptographycertificates.ICertificate, error) {
+	result := new(*securitycryptographycertificates.ICertificate)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfCertificate's vtable slot 7.
+func (self *IIteratorOfCertificate) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfCertificate's vtable slot 8.
+func (self *IIteratorOfCertificate) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
+
+// IIteratorOfChainValidationResult is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>.
+// IID: 8bcad2b7-0e3b-5eae-bf69-e1f6d9c888f8
+type IIteratorOfChainValidationResult struct {
+	syswinrt.IInspectable
+}
+
+// IID_IIteratorOfChainValidationResult is the interface identifier for IIteratorOfChainValidationResult.
+var IID_IIteratorOfChainValidationResult = win32.GUID{Data1: 0x8bcad2b7, Data2: 0x0e3b, Data3: 0x5eae, Data4: [8]byte{0xbf, 0x69, 0xe1, 0xf6, 0xd9, 0xc8, 0x88, 0xf8}}
+
+// Current (propget get_Current) dispatches through IIteratorOfChainValidationResult's vtable slot 6.
+func (self *IIteratorOfChainValidationResult) Current() (securitycryptographycertificates.ChainValidationResult, error) {
+	result := new(securitycryptographycertificates.ChainValidationResult)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfChainValidationResult's vtable slot 7.
+func (self *IIteratorOfChainValidationResult) HasCurrent() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// MoveNext dispatches through IIteratorOfChainValidationResult's vtable slot 8.
+func (self *IIteratorOfChainValidationResult) MoveNext() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// slot 9: GetMany skipped: conformant array
 
 // IVectorOfChainValidationResult is the WinRT interface Windows.Foundation.Collections.IVector`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>.
 // IID: d7828cf7-4301-58d3-aab5-06e5eefcf79f
@@ -127,6 +297,24 @@ func (self *IVectorOfChainValidationResult) Clear() error {
 
 // slot 17: ReplaceAll skipped: conformant array
 
+// NewIVectorOfChainValidationResult creates a Go-implemented Windows.Foundation.Collections.IVector`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// The vector is writable through the WinRT ABI (the Go side exposes no
+// mutation API); GetView returns an immutable SNAPSHOT of the contents at
+// call time.
+func NewIVectorOfChainValidationResult(items []securitycryptographycertificates.ChainValidationResult) *IVectorOfChainValidationResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorObject("Windows.Foundation.Collections.IVector`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChainValidationResult, Iterator: IID_IIteratorOfChainValidationResult, VectorView: IID_IVectorViewOfChainValidationResult, Vector: IID_IVectorOfChainValidationResult}, winrt.CodecScalar(4), boxed)
+	return (*IVectorOfChainValidationResult)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfCertificate is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.Certificate>.
 // IID: 963f7013-77c2-51c5-8038-b5bcef633edb
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.Certificate>.
@@ -160,6 +348,25 @@ func (self *IVectorViewOfCertificate) IndexOf(value *securitycryptographycertifi
 
 // slot 9: GetMany skipped: conformant array
 
+// NewIVectorViewOfCertificate creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.Certificate>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+// Items are BORROWED: the collection AddRefs each element and releases it
+// as it is displaced, removed, or when the collection itself is released.
+// IndexOf compares COM identity WORDS (no QueryInterface is issued): an
+// element matches only the exact interface pointer it was built from.
+func NewIVectorViewOfCertificate(items []*securitycryptographycertificates.ICertificate) *IVectorViewOfCertificate {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uintptr(unsafe.Pointer(item))
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.Certificate>", winrt.CollectionIIDs{Iterable: IID_IIterableOfCertificate, Iterator: IID_IIteratorOfCertificate, VectorView: IID_IVectorViewOfCertificate}, winrt.CodecInterface, boxed)
+	return (*IVectorViewOfCertificate)(unsafe.Pointer(obj))
+}
+
 // IVectorViewOfChainValidationResult is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>.
 // IID: cb383486-c2bc-5756-912d-6a708a07e5bd
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>.
@@ -192,3 +399,18 @@ func (self *IVectorViewOfChainValidationResult) IndexOf(value securitycryptograp
 }
 
 // slot 9: GetMany skipped: conformant array
+
+// NewIVectorViewOfChainValidationResult creates a Go-implemented Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>
+// over items, for passing INTO WinRT methods that consume the collection —
+// native code drives it through Go-implemented vtables (see the runtime's
+// collection core). The object starts with one caller-owned reference:
+// Release it (through the embedded IInspectable) once no native code can
+// still hold it.
+func NewIVectorViewOfChainValidationResult(items []securitycryptographycertificates.ChainValidationResult) *IVectorViewOfChainValidationResult {
+	boxed := make([]any, len(items))
+	for i, item := range items {
+		boxed[i] = uint64(item)
+	}
+	obj := winrt.NewVectorViewObject("Windows.Foundation.Collections.IVectorView`1<Windows.Security.Cryptography.Certificates.ChainValidationResult>", winrt.CollectionIIDs{Iterable: IID_IIterableOfChainValidationResult, Iterator: IID_IIteratorOfChainValidationResult, VectorView: IID_IVectorViewOfChainValidationResult}, winrt.CodecScalar(4), boxed)
+	return (*IVectorViewOfChainValidationResult)(unsafe.Pointer(obj))
+}
