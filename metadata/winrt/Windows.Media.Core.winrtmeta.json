@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Media.Core",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "AudioDecoderDegradation": {
       "base_type": "int32",
@@ -11929,10 +11929,10 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Media.Core.IMediaSourceStatics3",
-        "Windows.Media.Core.IMediaSourceStatics",
         "Windows.Media.Core.IMediaSourceStatics2",
-        "Windows.Media.Core.IMediaSourceStatics4"
+        "Windows.Media.Core.IMediaSourceStatics3",
+        "Windows.Media.Core.IMediaSourceStatics4",
+        "Windows.Media.Core.IMediaSourceStatics"
       ]
     },
     "MediaSourceAppServiceConnection": {
@@ -12024,8 +12024,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Media.Core.IMediaStreamSampleStatics2",
-        "Windows.Media.Core.IMediaStreamSampleStatics"
+        "Windows.Media.Core.IMediaStreamSampleStatics",
+        "Windows.Media.Core.IMediaStreamSampleStatics2"
       ]
     },
     "MediaStreamSamplePropertySet": {

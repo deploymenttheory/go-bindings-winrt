@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Search",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "ILocalContentSuggestionSettings": {
       "guid": "eeaeb062-743d-456e-84a3-23f06f2d15d7",

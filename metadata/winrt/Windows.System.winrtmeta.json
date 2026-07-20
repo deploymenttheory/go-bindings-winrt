@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.System",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "AppDiagnosticInfoWatcherStatus": {
       "base_type": "int32",
@@ -7899,9 +7899,9 @@
     },
     "Launcher": {
       "static_interfaces": [
-        "Windows.System.ILauncherStatics2",
-        "Windows.System.ILauncherStatics3",
         "Windows.System.ILauncherStatics",
+        "Windows.System.ILauncherStatics3",
+        "Windows.System.ILauncherStatics2",
         "Windows.System.ILauncherStatics4",
         "Windows.System.ILauncherStatics5"
       ]
@@ -7966,8 +7966,8 @@
     "MemoryManager": {
       "static_interfaces": [
         "Windows.System.IMemoryManagerStatics2",
-        "Windows.System.IMemoryManagerStatics",
         "Windows.System.IMemoryManagerStatics3",
+        "Windows.System.IMemoryManagerStatics",
         "Windows.System.IMemoryManagerStatics4"
       ]
     },

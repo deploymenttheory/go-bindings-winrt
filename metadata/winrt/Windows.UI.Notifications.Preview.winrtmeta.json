@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Notifications.Preview",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IToastOcclusionManagerPreviewStatics": {
       "guid": "507e5c83-50f9-5412-8953-b65c18cfab12",

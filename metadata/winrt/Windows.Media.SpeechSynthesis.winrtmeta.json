@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Media.SpeechSynthesis",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "SpeechAppendedSilence": {
       "base_type": "int32",
@@ -748,8 +748,8 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.Media.SpeechSynthesis.IInstalledVoicesStatic",
-        "Windows.Media.SpeechSynthesis.IInstalledVoicesStatic2"
+        "Windows.Media.SpeechSynthesis.IInstalledVoicesStatic2",
+        "Windows.Media.SpeechSynthesis.IInstalledVoicesStatic"
       ]
     },
     "SpeechSynthesizerOptions": {

@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Devices.Power",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IBattery": {
       "guid": "bc894fc6-0072-47c8-8b5d-614aaa7a437e",

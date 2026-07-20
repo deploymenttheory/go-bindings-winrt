@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Web.Http.Headers",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IHttpCacheDirectiveHeaderValueCollection": {
       "guid": "9a586b89-d5d0-4fbe-bd9d-b5b3636811b4",

@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Networking.BackgroundTransfer",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "BackgroundTransferBehavior": {
       "base_type": "int32",
@@ -3094,15 +3094,15 @@
         "Windows.Networking.BackgroundTransfer.IBackgroundUploaderFactory"
       ],
       "static_interfaces": [
+        "Windows.Networking.BackgroundTransfer.IBackgroundUploaderUserConsent",
         "Windows.Networking.BackgroundTransfer.IBackgroundUploaderStaticMethods",
-        "Windows.Networking.BackgroundTransfer.IBackgroundUploaderStaticMethods2",
-        "Windows.Networking.BackgroundTransfer.IBackgroundUploaderUserConsent"
+        "Windows.Networking.BackgroundTransfer.IBackgroundUploaderStaticMethods2"
       ]
     },
     "ContentPrefetcher": {
       "static_interfaces": [
-        "Windows.Networking.BackgroundTransfer.IContentPrefetcher",
-        "Windows.Networking.BackgroundTransfer.IContentPrefetcherTime"
+        "Windows.Networking.BackgroundTransfer.IContentPrefetcherTime",
+        "Windows.Networking.BackgroundTransfer.IContentPrefetcher"
       ]
     },
     "DownloadOperation": {

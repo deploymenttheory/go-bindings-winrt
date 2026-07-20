@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Devices.Perception",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "PerceptionFrameSourceAccessStatus": {
       "base_type": "int32",
@@ -5638,8 +5638,8 @@
     },
     "KnownPerceptionFrameSourceProperties": {
       "static_interfaces": [
-        "Windows.Devices.Perception.IKnownPerceptionFrameSourcePropertiesStatics2",
-        "Windows.Devices.Perception.IKnownPerceptionFrameSourcePropertiesStatics"
+        "Windows.Devices.Perception.IKnownPerceptionFrameSourcePropertiesStatics",
+        "Windows.Devices.Perception.IKnownPerceptionFrameSourcePropertiesStatics2"
       ]
     },
     "KnownPerceptionInfraredFrameSourceProperties": {

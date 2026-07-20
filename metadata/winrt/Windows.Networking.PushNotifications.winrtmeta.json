@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Networking.PushNotifications",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "PushNotificationType": {
       "base_type": "int32",
@@ -788,9 +788,9 @@
     "PushNotificationChannelManager": {
       "static_interfaces": [
         "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics4",
-        "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics2",
         "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics",
-        "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics3"
+        "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics3",
+        "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics2"
       ]
     },
     "PushNotificationChannelManagerForUser": {

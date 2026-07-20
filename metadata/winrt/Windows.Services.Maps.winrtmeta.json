@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Services.Maps",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "ManeuverWarningKind": {
       "base_type": "int32",
@@ -3312,8 +3312,8 @@
     },
     "MapLocationFinder": {
       "static_interfaces": [
-        "Windows.Services.Maps.IMapLocationFinderStatics2",
-        "Windows.Services.Maps.IMapLocationFinderStatics"
+        "Windows.Services.Maps.IMapLocationFinderStatics",
+        "Windows.Services.Maps.IMapLocationFinderStatics2"
       ]
     },
     "MapLocationFinderResult": {
@@ -3396,9 +3396,9 @@
     },
     "MapRouteFinder": {
       "static_interfaces": [
-        "Windows.Services.Maps.IMapRouteFinderStatics3",
+        "Windows.Services.Maps.IMapRouteFinderStatics2",
         "Windows.Services.Maps.IMapRouteFinderStatics",
-        "Windows.Services.Maps.IMapRouteFinderStatics2"
+        "Windows.Services.Maps.IMapRouteFinderStatics3"
       ]
     },
     "MapRouteFinderResult": {
@@ -3475,10 +3475,10 @@
     },
     "MapService": {
       "static_interfaces": [
-        "Windows.Services.Maps.IMapServiceStatics2",
-        "Windows.Services.Maps.IMapServiceStatics3",
+        "Windows.Services.Maps.IMapServiceStatics4",
         "Windows.Services.Maps.IMapServiceStatics",
-        "Windows.Services.Maps.IMapServiceStatics4"
+        "Windows.Services.Maps.IMapServiceStatics3",
+        "Windows.Services.Maps.IMapServiceStatics2"
       ]
     },
     "PlaceInfo": {

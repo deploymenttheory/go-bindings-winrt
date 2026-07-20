@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Chat",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "ChatConversationThreadingKind": {
       "base_type": "int32",
@@ -5746,8 +5746,8 @@
     "ChatMessageManager": {
       "static_interfaces": [
         "Windows.ApplicationModel.Chat.IChatMessageManager2Statics",
-        "Windows.ApplicationModel.Chat.IChatMessageManagerStatic",
-        "Windows.ApplicationModel.Chat.IChatMessageManagerStatics3"
+        "Windows.ApplicationModel.Chat.IChatMessageManagerStatics3",
+        "Windows.ApplicationModel.Chat.IChatMessageManagerStatic"
       ]
     },
     "ChatMessageNotificationTriggerDetails": {
@@ -6056,8 +6056,8 @@
     },
     "RcsManager": {
       "static_interfaces": [
-        "Windows.ApplicationModel.Chat.IRcsManagerStatics",
-        "Windows.ApplicationModel.Chat.IRcsManagerStatics2"
+        "Windows.ApplicationModel.Chat.IRcsManagerStatics2",
+        "Windows.ApplicationModel.Chat.IRcsManagerStatics"
       ]
     },
     "RcsServiceKindSupportedChangedEventArgs": {

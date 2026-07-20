@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.PackageExtensions",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IPackageExtension": {
       "guid": "da70c957-7ead-5c3b-9cf0-cc43faf474b4",

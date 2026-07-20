@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Media.Protection.PlayReady",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "NDCertificateFeature": {
       "base_type": "int32",
@@ -4551,8 +4551,8 @@
         }
       ],
       "activatable_factories": [
-        "Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory2",
-        "Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory"
+        "Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory",
+        "Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory2"
       ]
     },
     "PlayReadyContentResolver": {
@@ -5082,11 +5082,11 @@
     },
     "PlayReadyStatics": {
       "static_interfaces": [
-        "Windows.Media.Protection.PlayReady.IPlayReadyStatics3",
-        "Windows.Media.Protection.PlayReady.IPlayReadyStatics4",
-        "Windows.Media.Protection.PlayReady.IPlayReadyStatics5",
+        "Windows.Media.Protection.PlayReady.IPlayReadyStatics",
         "Windows.Media.Protection.PlayReady.IPlayReadyStatics2",
-        "Windows.Media.Protection.PlayReady.IPlayReadyStatics"
+        "Windows.Media.Protection.PlayReady.IPlayReadyStatics3",
+        "Windows.Media.Protection.PlayReady.IPlayReadyStatics5",
+        "Windows.Media.Protection.PlayReady.IPlayReadyStatics4"
       ]
     }
   }

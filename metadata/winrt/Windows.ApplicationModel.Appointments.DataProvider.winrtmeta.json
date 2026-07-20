@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IAppointmentCalendarCancelMeetingRequest": {
       "guid": "49460f8d-6434-40d7-ad46-6297419314d1",

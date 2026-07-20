@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IAddAppointmentOperation": {
       "guid": "ec4a9af3-620d-4c69-add7-9794e918081f",

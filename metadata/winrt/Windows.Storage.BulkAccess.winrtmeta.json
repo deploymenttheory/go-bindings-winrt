@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Storage.BulkAccess",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IFileInformationFactory": {
       "guid": "401d88be-960f-4d6d-a7d0-1a3861e76c83",

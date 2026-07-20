@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Graphics.Imaging",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "BitmapAlphaMode": {
       "base_type": "int32",
@@ -2875,8 +2875,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Graphics.Imaging.IBitmapEncoderStatics",
-        "Windows.Graphics.Imaging.IBitmapEncoderStatics2"
+        "Windows.Graphics.Imaging.IBitmapEncoderStatics2",
+        "Windows.Graphics.Imaging.IBitmapEncoderStatics"
       ]
     },
     "BitmapFrame": {

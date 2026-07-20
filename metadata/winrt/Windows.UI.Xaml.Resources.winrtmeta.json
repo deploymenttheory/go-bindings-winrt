@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Xaml.Resources",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "ICustomXamlResourceLoader": {
       "guid": "511a84ab-4a88-419f-852e-54083b90b078",

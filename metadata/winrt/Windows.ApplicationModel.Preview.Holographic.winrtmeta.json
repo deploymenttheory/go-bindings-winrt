@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Preview.Holographic",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IHolographicApplicationPreviewStatics": {
       "guid": "fe038691-2a3a-45a9-a208-7bed691919f3",

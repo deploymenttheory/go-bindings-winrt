@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Security.Authentication.Identity",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IEnterpriseKeyCredentialRegistrationInfo": {
       "guid": "38321acc-672b-4823-b603-6b3c753daf97",

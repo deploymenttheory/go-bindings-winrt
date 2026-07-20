@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Resources",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IResourceLoader": {
       "guid": "08524908-16ef-45ad-a602-293637d7e61a",
@@ -237,10 +237,10 @@
         "Windows.ApplicationModel.Resources.IResourceLoaderFactory"
       ],
       "static_interfaces": [
-        "Windows.ApplicationModel.Resources.IResourceLoaderStatics3",
-        "Windows.ApplicationModel.Resources.IResourceLoaderStatics4",
         "Windows.ApplicationModel.Resources.IResourceLoaderStatics",
-        "Windows.ApplicationModel.Resources.IResourceLoaderStatics2"
+        "Windows.ApplicationModel.Resources.IResourceLoaderStatics2",
+        "Windows.ApplicationModel.Resources.IResourceLoaderStatics3",
+        "Windows.ApplicationModel.Resources.IResourceLoaderStatics4"
       ]
     }
   }

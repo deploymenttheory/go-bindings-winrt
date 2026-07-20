@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Foundation.Diagnostics",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "CausalityRelation": {
       "base_type": "int32",
@@ -5733,8 +5733,8 @@
         }
       ],
       "activatable_factories": [
-        "Windows.Foundation.Diagnostics.ILoggingChannelFactory2",
-        "Windows.Foundation.Diagnostics.ILoggingChannelFactory"
+        "Windows.Foundation.Diagnostics.ILoggingChannelFactory",
+        "Windows.Foundation.Diagnostics.ILoggingChannelFactory2"
       ]
     },
     "LoggingChannelOptions": {

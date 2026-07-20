@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Networking.NetworkOperators",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "DataClasses": {
       "base_type": "uint32",
@@ -12715,10 +12715,10 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics",
-        "Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics2",
+        "Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics3",
         "Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics4",
-        "Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics3"
+        "Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics",
+        "Windows.Networking.NetworkOperators.INetworkOperatorTetheringManagerStatics2"
       ]
     },
     "NetworkOperatorTetheringOperationResult": {

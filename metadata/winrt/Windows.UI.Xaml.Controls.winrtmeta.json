@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Xaml.Controls",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "AppBarClosedDisplayMode": {
       "base_type": "int32",
@@ -85123,8 +85123,8 @@
       ],
       "static_interfaces": [
         "Windows.UI.Xaml.Controls.IAppBarStatics4",
-        "Windows.UI.Xaml.Controls.IAppBarStatics2",
-        "Windows.UI.Xaml.Controls.IAppBarStatics"
+        "Windows.UI.Xaml.Controls.IAppBarStatics",
+        "Windows.UI.Xaml.Controls.IAppBarStatics2"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IAppBarFactory"
@@ -85177,8 +85177,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IAppBarButtonStatics4",
         "Windows.UI.Xaml.Controls.IAppBarButtonStatics3",
+        "Windows.UI.Xaml.Controls.IAppBarButtonStatics4",
         "Windows.UI.Xaml.Controls.IAppBarButtonStatics"
       ],
       "composable_factories": [
@@ -85249,8 +85249,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IAppBarSeparatorStatics",
-        "Windows.UI.Xaml.Controls.IAppBarSeparatorStatics3"
+        "Windows.UI.Xaml.Controls.IAppBarSeparatorStatics3",
+        "Windows.UI.Xaml.Controls.IAppBarSeparatorStatics"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IAppBarSeparatorFactory"
@@ -85303,9 +85303,9 @@
         }
       ],
       "static_interfaces": [
+        "Windows.UI.Xaml.Controls.IAppBarToggleButtonStatics",
         "Windows.UI.Xaml.Controls.IAppBarToggleButtonStatics3",
-        "Windows.UI.Xaml.Controls.IAppBarToggleButtonStatics4",
-        "Windows.UI.Xaml.Controls.IAppBarToggleButtonStatics"
+        "Windows.UI.Xaml.Controls.IAppBarToggleButtonStatics4"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IAppBarToggleButtonFactory"
@@ -85347,10 +85347,10 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IAutoSuggestBoxStatics4",
         "Windows.UI.Xaml.Controls.IAutoSuggestBoxStatics2",
-        "Windows.UI.Xaml.Controls.IAutoSuggestBoxStatics3",
-        "Windows.UI.Xaml.Controls.IAutoSuggestBoxStatics"
+        "Windows.UI.Xaml.Controls.IAutoSuggestBoxStatics",
+        "Windows.UI.Xaml.Controls.IAutoSuggestBoxStatics4",
+        "Windows.UI.Xaml.Controls.IAutoSuggestBoxStatics3"
       ],
       "composable": true
     },
@@ -85450,8 +85450,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IBitmapIconStatics2",
-        "Windows.UI.Xaml.Controls.IBitmapIconStatics"
+        "Windows.UI.Xaml.Controls.IBitmapIconStatics",
+        "Windows.UI.Xaml.Controls.IBitmapIconStatics2"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IBitmapIconFactory"
@@ -85566,8 +85566,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.ICalendarDatePickerStatics",
         "Windows.UI.Xaml.Controls.ICalendarDatePickerStatics2",
+        "Windows.UI.Xaml.Controls.ICalendarDatePickerStatics",
         "Windows.UI.Xaml.Controls.ICalendarDatePickerStatics3"
       ],
       "composable_factories": [
@@ -85613,8 +85613,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.ICalendarViewStatics",
-        "Windows.UI.Xaml.Controls.ICalendarViewStatics2"
+        "Windows.UI.Xaml.Controls.ICalendarViewStatics2",
+        "Windows.UI.Xaml.Controls.ICalendarViewStatics"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.ICalendarViewFactory"
@@ -85965,11 +85965,11 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IComboBoxStatics2",
-        "Windows.UI.Xaml.Controls.IComboBoxStatics3",
-        "Windows.UI.Xaml.Controls.IComboBoxStatics5",
-        "Windows.UI.Xaml.Controls.IComboBoxStatics4",
         "Windows.UI.Xaml.Controls.IComboBoxStatics6",
+        "Windows.UI.Xaml.Controls.IComboBoxStatics5",
+        "Windows.UI.Xaml.Controls.IComboBoxStatics2",
+        "Windows.UI.Xaml.Controls.IComboBoxStatics4",
+        "Windows.UI.Xaml.Controls.IComboBoxStatics3",
         "Windows.UI.Xaml.Controls.IComboBoxStatics"
       ],
       "composable_factories": [
@@ -86042,8 +86042,8 @@
       ],
       "static_interfaces": [
         "Windows.UI.Xaml.Controls.ICommandBarStatics",
-        "Windows.UI.Xaml.Controls.ICommandBarStatics2",
-        "Windows.UI.Xaml.Controls.ICommandBarStatics3"
+        "Windows.UI.Xaml.Controls.ICommandBarStatics3",
+        "Windows.UI.Xaml.Controls.ICommandBarStatics2"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.ICommandBarFactory"
@@ -86336,11 +86336,11 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IContentPresenterStatics2",
-        "Windows.UI.Xaml.Controls.IContentPresenterStatics",
-        "Windows.UI.Xaml.Controls.IContentPresenterStatics4",
+        "Windows.UI.Xaml.Controls.IContentPresenterStatics5",
         "Windows.UI.Xaml.Controls.IContentPresenterStatics3",
-        "Windows.UI.Xaml.Controls.IContentPresenterStatics5"
+        "Windows.UI.Xaml.Controls.IContentPresenterStatics2",
+        "Windows.UI.Xaml.Controls.IContentPresenterStatics4",
+        "Windows.UI.Xaml.Controls.IContentPresenterStatics"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IContentPresenterFactory"
@@ -86579,8 +86579,8 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IDatePickerFlyoutStatics2",
-        "Windows.UI.Xaml.Controls.IDatePickerFlyoutStatics"
+        "Windows.UI.Xaml.Controls.IDatePickerFlyoutStatics",
+        "Windows.UI.Xaml.Controls.IDatePickerFlyoutStatics2"
       ],
       "composable": true
     },
@@ -87011,8 +87011,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IFrameStatics5",
         "Windows.UI.Xaml.Controls.IFrameStatics",
+        "Windows.UI.Xaml.Controls.IFrameStatics5",
         "Windows.UI.Xaml.Controls.IFrameStatics2"
       ],
       "composable_factories": [
@@ -87055,9 +87055,9 @@
       ],
       "static_interfaces": [
         "Windows.UI.Xaml.Controls.IGridStatics3",
+        "Windows.UI.Xaml.Controls.IGridStatics",
         "Windows.UI.Xaml.Controls.IGridStatics2",
-        "Windows.UI.Xaml.Controls.IGridStatics4",
-        "Windows.UI.Xaml.Controls.IGridStatics"
+        "Windows.UI.Xaml.Controls.IGridStatics4"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IGridFactory"
@@ -87254,8 +87254,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IHandwritingViewStatics",
-        "Windows.UI.Xaml.Controls.IHandwritingViewStatics2"
+        "Windows.UI.Xaml.Controls.IHandwritingViewStatics2",
+        "Windows.UI.Xaml.Controls.IHandwritingViewStatics"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IHandwritingViewFactory"
@@ -87582,9 +87582,9 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IInkToolbarStatics",
+        "Windows.UI.Xaml.Controls.IInkToolbarStatics2",
         "Windows.UI.Xaml.Controls.IInkToolbarStatics3",
-        "Windows.UI.Xaml.Controls.IInkToolbarStatics2"
+        "Windows.UI.Xaml.Controls.IInkToolbarStatics"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IInkToolbarFactory"
@@ -88184,8 +88184,8 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IItemsPresenterStatics",
-        "Windows.UI.Xaml.Controls.IItemsPresenterStatics2"
+        "Windows.UI.Xaml.Controls.IItemsPresenterStatics2",
+        "Windows.UI.Xaml.Controls.IItemsPresenterStatics"
       ],
       "composable": true
     },
@@ -88405,10 +88405,10 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IListViewBaseStatics2",
         "Windows.UI.Xaml.Controls.IListViewBaseStatics3",
-        "Windows.UI.Xaml.Controls.IListViewBaseStatics4",
+        "Windows.UI.Xaml.Controls.IListViewBaseStatics2",
         "Windows.UI.Xaml.Controls.IListViewBaseStatics",
+        "Windows.UI.Xaml.Controls.IListViewBaseStatics4",
         "Windows.UI.Xaml.Controls.IListViewBaseStatics5"
       ],
       "composable_factories": [
@@ -88609,8 +88609,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IMediaTransportControlsStatics3",
         "Windows.UI.Xaml.Controls.IMediaTransportControlsStatics4",
+        "Windows.UI.Xaml.Controls.IMediaTransportControlsStatics3",
         "Windows.UI.Xaml.Controls.IMediaTransportControlsStatics2",
         "Windows.UI.Xaml.Controls.IMediaTransportControlsStatics"
       ],
@@ -88762,8 +88762,8 @@
       ],
       "static_interfaces": [
         "Windows.UI.Xaml.Controls.IMenuFlyoutItemStatics",
-        "Windows.UI.Xaml.Controls.IMenuFlyoutItemStatics2",
-        "Windows.UI.Xaml.Controls.IMenuFlyoutItemStatics3"
+        "Windows.UI.Xaml.Controls.IMenuFlyoutItemStatics3",
+        "Windows.UI.Xaml.Controls.IMenuFlyoutItemStatics2"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IMenuFlyoutItemFactory"
@@ -88964,8 +88964,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.INavigationViewItemStatics2",
-        "Windows.UI.Xaml.Controls.INavigationViewItemStatics"
+        "Windows.UI.Xaml.Controls.INavigationViewItemStatics",
+        "Windows.UI.Xaml.Controls.INavigationViewItemStatics2"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.INavigationViewItemFactory"
@@ -89280,10 +89280,10 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IPasswordBoxStatics5",
-        "Windows.UI.Xaml.Controls.IPasswordBoxStatics",
         "Windows.UI.Xaml.Controls.IPasswordBoxStatics2",
-        "Windows.UI.Xaml.Controls.IPasswordBoxStatics3"
+        "Windows.UI.Xaml.Controls.IPasswordBoxStatics3",
+        "Windows.UI.Xaml.Controls.IPasswordBoxStatics5",
+        "Windows.UI.Xaml.Controls.IPasswordBoxStatics"
       ],
       "composable": true
     },
@@ -89456,9 +89456,9 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IPivotStatics2",
         "Windows.UI.Xaml.Controls.IPivotStatics",
-        "Windows.UI.Xaml.Controls.IPivotStatics3"
+        "Windows.UI.Xaml.Controls.IPivotStatics3",
+        "Windows.UI.Xaml.Controls.IPivotStatics2"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IPivotFactory"
@@ -89777,8 +89777,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IRelativePanelStatics",
-        "Windows.UI.Xaml.Controls.IRelativePanelStatics2"
+        "Windows.UI.Xaml.Controls.IRelativePanelStatics2",
+        "Windows.UI.Xaml.Controls.IRelativePanelStatics"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IRelativePanelFactory"
@@ -89843,14 +89843,14 @@
         }
       ],
       "static_interfaces": [
+        "Windows.UI.Xaml.Controls.IRichEditBoxStatics4",
         "Windows.UI.Xaml.Controls.IRichEditBoxStatics7",
-        "Windows.UI.Xaml.Controls.IRichEditBoxStatics5",
-        "Windows.UI.Xaml.Controls.IRichEditBoxStatics2",
         "Windows.UI.Xaml.Controls.IRichEditBoxStatics3",
-        "Windows.UI.Xaml.Controls.IRichEditBoxStatics6",
         "Windows.UI.Xaml.Controls.IRichEditBoxStatics8",
+        "Windows.UI.Xaml.Controls.IRichEditBoxStatics6",
         "Windows.UI.Xaml.Controls.IRichEditBoxStatics",
-        "Windows.UI.Xaml.Controls.IRichEditBoxStatics4"
+        "Windows.UI.Xaml.Controls.IRichEditBoxStatics2",
+        "Windows.UI.Xaml.Controls.IRichEditBoxStatics5"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IRichEditBoxFactory"
@@ -89942,11 +89942,11 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
+        "Windows.UI.Xaml.Controls.IRichTextBlockStatics5",
+        "Windows.UI.Xaml.Controls.IRichTextBlockStatics6",
         "Windows.UI.Xaml.Controls.IRichTextBlockStatics4",
         "Windows.UI.Xaml.Controls.IRichTextBlockStatics3",
         "Windows.UI.Xaml.Controls.IRichTextBlockStatics2",
-        "Windows.UI.Xaml.Controls.IRichTextBlockStatics6",
-        "Windows.UI.Xaml.Controls.IRichTextBlockStatics5",
         "Windows.UI.Xaml.Controls.IRichTextBlockStatics"
       ],
       "composable": true
@@ -89980,9 +89980,9 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.IRichTextBlockOverflowStatics",
         "Windows.UI.Xaml.Controls.IRichTextBlockOverflowStatics3",
-        "Windows.UI.Xaml.Controls.IRichTextBlockOverflowStatics2"
+        "Windows.UI.Xaml.Controls.IRichTextBlockOverflowStatics2",
+        "Windows.UI.Xaml.Controls.IRichTextBlockOverflowStatics"
       ],
       "composable": true
     },
@@ -90121,9 +90121,9 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
+        "Windows.UI.Xaml.Controls.IScrollViewerStatics4",
         "Windows.UI.Xaml.Controls.IScrollViewerStatics",
-        "Windows.UI.Xaml.Controls.IScrollViewerStatics2",
-        "Windows.UI.Xaml.Controls.IScrollViewerStatics4"
+        "Windows.UI.Xaml.Controls.IScrollViewerStatics2"
       ],
       "composable": true
     },
@@ -90580,10 +90580,10 @@
         }
       ],
       "static_interfaces": [
+        "Windows.UI.Xaml.Controls.IStackPanelStatics2",
         "Windows.UI.Xaml.Controls.IStackPanelStatics4",
         "Windows.UI.Xaml.Controls.IStackPanelStatics5",
-        "Windows.UI.Xaml.Controls.IStackPanelStatics",
-        "Windows.UI.Xaml.Controls.IStackPanelStatics2"
+        "Windows.UI.Xaml.Controls.IStackPanelStatics"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.IStackPanelFactory"
@@ -90877,12 +90877,12 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.ITextBlockStatics2",
-        "Windows.UI.Xaml.Controls.ITextBlockStatics6",
-        "Windows.UI.Xaml.Controls.ITextBlockStatics",
         "Windows.UI.Xaml.Controls.ITextBlockStatics5",
         "Windows.UI.Xaml.Controls.ITextBlockStatics3",
-        "Windows.UI.Xaml.Controls.ITextBlockStatics7"
+        "Windows.UI.Xaml.Controls.ITextBlockStatics7",
+        "Windows.UI.Xaml.Controls.ITextBlockStatics2",
+        "Windows.UI.Xaml.Controls.ITextBlockStatics6",
+        "Windows.UI.Xaml.Controls.ITextBlockStatics"
       ],
       "composable": true
     },
@@ -90945,12 +90945,12 @@
       ],
       "static_interfaces": [
         "Windows.UI.Xaml.Controls.ITextBoxStatics6",
-        "Windows.UI.Xaml.Controls.ITextBoxStatics7",
+        "Windows.UI.Xaml.Controls.ITextBoxStatics5",
+        "Windows.UI.Xaml.Controls.ITextBoxStatics3",
         "Windows.UI.Xaml.Controls.ITextBoxStatics2",
         "Windows.UI.Xaml.Controls.ITextBoxStatics",
         "Windows.UI.Xaml.Controls.ITextBoxStatics8",
-        "Windows.UI.Xaml.Controls.ITextBoxStatics5",
-        "Windows.UI.Xaml.Controls.ITextBoxStatics3"
+        "Windows.UI.Xaml.Controls.ITextBoxStatics7"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.ITextBoxFactory"
@@ -91190,9 +91190,9 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.ITimePickerStatics3",
         "Windows.UI.Xaml.Controls.ITimePickerStatics2",
-        "Windows.UI.Xaml.Controls.ITimePickerStatics"
+        "Windows.UI.Xaml.Controls.ITimePickerStatics",
+        "Windows.UI.Xaml.Controls.ITimePickerStatics3"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.ITimePickerFactory"
@@ -91467,8 +91467,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.ITreeViewStatics",
-        "Windows.UI.Xaml.Controls.ITreeViewStatics2"
+        "Windows.UI.Xaml.Controls.ITreeViewStatics2",
+        "Windows.UI.Xaml.Controls.ITreeViewStatics"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.ITreeViewFactory"
@@ -91573,8 +91573,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.ITreeViewItemStatics2",
-        "Windows.UI.Xaml.Controls.ITreeViewItemStatics"
+        "Windows.UI.Xaml.Controls.ITreeViewItemStatics",
+        "Windows.UI.Xaml.Controls.ITreeViewItemStatics2"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.ITreeViewItemFactory"
@@ -91921,8 +91921,8 @@
         "Windows.UI.Xaml.Controls.IWebViewStatics2",
         "Windows.UI.Xaml.Controls.IWebViewStatics4",
         "Windows.UI.Xaml.Controls.IWebViewStatics",
-        "Windows.UI.Xaml.Controls.IWebViewStatics3",
-        "Windows.UI.Xaml.Controls.IWebViewStatics5"
+        "Windows.UI.Xaml.Controls.IWebViewStatics5",
+        "Windows.UI.Xaml.Controls.IWebViewStatics3"
       ],
       "composable": true
     },

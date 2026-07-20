@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Xaml",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "ApplicationHighContrastAdjustment": {
       "base_type": "uint32",
@@ -19009,8 +19009,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.IElementSoundPlayerStatics",
-        "Windows.UI.Xaml.IElementSoundPlayerStatics2"
+        "Windows.UI.Xaml.IElementSoundPlayerStatics2",
+        "Windows.UI.Xaml.IElementSoundPlayerStatics"
       ]
     },
     "EventTrigger": {
@@ -19115,11 +19115,11 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.IFrameworkElementStatics5",
-        "Windows.UI.Xaml.IFrameworkElementStatics6",
-        "Windows.UI.Xaml.IFrameworkElementStatics",
         "Windows.UI.Xaml.IFrameworkElementStatics4",
-        "Windows.UI.Xaml.IFrameworkElementStatics2"
+        "Windows.UI.Xaml.IFrameworkElementStatics5",
+        "Windows.UI.Xaml.IFrameworkElementStatics2",
+        "Windows.UI.Xaml.IFrameworkElementStatics",
+        "Windows.UI.Xaml.IFrameworkElementStatics6"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.IFrameworkElementFactory"
@@ -19890,15 +19890,15 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.IUIElementStatics7",
-        "Windows.UI.Xaml.IUIElementStatics6",
         "Windows.UI.Xaml.IUIElementStatics10",
+        "Windows.UI.Xaml.IUIElementStatics6",
         "Windows.UI.Xaml.IUIElementStatics",
-        "Windows.UI.Xaml.IUIElementStatics3",
         "Windows.UI.Xaml.IUIElementStatics8",
+        "Windows.UI.Xaml.IUIElementStatics7",
         "Windows.UI.Xaml.IUIElementStatics9",
         "Windows.UI.Xaml.IUIElementStatics2",
         "Windows.UI.Xaml.IUIElementStatics4",
+        "Windows.UI.Xaml.IUIElementStatics3",
         "Windows.UI.Xaml.IUIElementStatics5"
       ],
       "composable_factories": [

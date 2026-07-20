@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Media.Capture.Core",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IVariablePhotoCapturedEventArgs": {
       "guid": "d1eb4c5c-1b53-4e4a-8b5c-db7887ac949b",

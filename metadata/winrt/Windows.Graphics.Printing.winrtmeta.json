@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Graphics.Printing",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "PrintBinding": {
       "base_type": "int32",
@@ -3239,8 +3239,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Graphics.Printing.IPrintManagerStatic2",
-        "Windows.Graphics.Printing.IPrintManagerStatic"
+        "Windows.Graphics.Printing.IPrintManagerStatic",
+        "Windows.Graphics.Printing.IPrintManagerStatic2"
       ]
     },
     "PrintPageInfo": {
