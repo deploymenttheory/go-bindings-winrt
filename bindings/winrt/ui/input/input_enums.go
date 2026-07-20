@@ -364,15 +364,15 @@ func (e RadialControllerSystemMenuItemKind) String() string {
 type TouchpadGlobalAction int32
 
 const (
-	TouchpadGlobalActionThreeFingerTap       TouchpadGlobalAction = 0
-	TouchpadGlobalActionFourFingerTap        TouchpadGlobalAction = 1
-	TouchpadGlobalActionFiveFingerTap        TouchpadGlobalAction = 2
-	TouchpadGlobalActionThreeFingerPressDown TouchpadGlobalAction = 3
-	TouchpadGlobalActionFourFingerPressDown  TouchpadGlobalAction = 4
-	TouchpadGlobalActionFiveFingerPressDown  TouchpadGlobalAction = 5
-	TouchpadGlobalActionThreeFingerPressUp   TouchpadGlobalAction = 6
-	TouchpadGlobalActionFourFingerPressUp    TouchpadGlobalAction = 7
-	TouchpadGlobalActionFiveFingerPressUp    TouchpadGlobalAction = 8
+	TouchpadGlobalActionThreeFingerTap     TouchpadGlobalAction = 0
+	TouchpadGlobalActionFourFingerTap      TouchpadGlobalAction = 1
+	TouchpadGlobalActionFiveFingerTap      TouchpadGlobalAction = 2
+	TouchpadGlobalActionThreeFingerPress   TouchpadGlobalAction = 3
+	TouchpadGlobalActionFourFingerPress    TouchpadGlobalAction = 4
+	TouchpadGlobalActionFiveFingerPress    TouchpadGlobalAction = 5
+	TouchpadGlobalActionThreeFingerRelease TouchpadGlobalAction = 6
+	TouchpadGlobalActionFourFingerRelease  TouchpadGlobalAction = 7
+	TouchpadGlobalActionFiveFingerRelease  TouchpadGlobalAction = 8
 )
 
 // String returns the TouchpadGlobalAction constant's name, or its numeric form when
@@ -385,18 +385,18 @@ func (e TouchpadGlobalAction) String() string {
 		return "TouchpadGlobalActionFourFingerTap"
 	case TouchpadGlobalActionFiveFingerTap:
 		return "TouchpadGlobalActionFiveFingerTap"
-	case TouchpadGlobalActionThreeFingerPressDown:
-		return "TouchpadGlobalActionThreeFingerPressDown"
-	case TouchpadGlobalActionFourFingerPressDown:
-		return "TouchpadGlobalActionFourFingerPressDown"
-	case TouchpadGlobalActionFiveFingerPressDown:
-		return "TouchpadGlobalActionFiveFingerPressDown"
-	case TouchpadGlobalActionThreeFingerPressUp:
-		return "TouchpadGlobalActionThreeFingerPressUp"
-	case TouchpadGlobalActionFourFingerPressUp:
-		return "TouchpadGlobalActionFourFingerPressUp"
-	case TouchpadGlobalActionFiveFingerPressUp:
-		return "TouchpadGlobalActionFiveFingerPressUp"
+	case TouchpadGlobalActionThreeFingerPress:
+		return "TouchpadGlobalActionThreeFingerPress"
+	case TouchpadGlobalActionFourFingerPress:
+		return "TouchpadGlobalActionFourFingerPress"
+	case TouchpadGlobalActionFiveFingerPress:
+		return "TouchpadGlobalActionFiveFingerPress"
+	case TouchpadGlobalActionThreeFingerRelease:
+		return "TouchpadGlobalActionThreeFingerRelease"
+	case TouchpadGlobalActionFourFingerRelease:
+		return "TouchpadGlobalActionFourFingerRelease"
+	case TouchpadGlobalActionFiveFingerRelease:
+		return "TouchpadGlobalActionFiveFingerRelease"
 	default:
 		return fmt.Sprintf("TouchpadGlobalAction(%d)", int32(e))
 	}

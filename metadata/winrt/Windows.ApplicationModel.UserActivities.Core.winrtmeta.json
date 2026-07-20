@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.UserActivities.Core",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "ICoreUserActivityManagerStatics": {
       "guid": "ca3adb02-a4be-4d4d-bfa8-6795f4264efb",

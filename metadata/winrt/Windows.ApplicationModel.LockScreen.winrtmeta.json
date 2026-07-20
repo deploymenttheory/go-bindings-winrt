@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.LockScreen",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "ILockApplicationHost": {
       "guid": "38ee31ad-d94f-4e7c-81fa-4f4436506281",

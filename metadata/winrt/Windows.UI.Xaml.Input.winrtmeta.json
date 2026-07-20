@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Xaml.Input",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "FocusInputDeviceKind": {
       "base_type": "int32",
@@ -5494,8 +5494,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Input.IAccessKeyManagerStatics",
-        "Windows.UI.Xaml.Input.IAccessKeyManagerStatics2"
+        "Windows.UI.Xaml.Input.IAccessKeyManagerStatics2",
+        "Windows.UI.Xaml.Input.IAccessKeyManagerStatics"
       ]
     },
     "CanExecuteRequestedEventArgs": {
@@ -5616,13 +5616,13 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Input.IFocusManagerStatics2",
-        "Windows.UI.Xaml.Input.IFocusManagerStatics3",
         "Windows.UI.Xaml.Input.IFocusManagerStatics5",
-        "Windows.UI.Xaml.Input.IFocusManagerStatics4",
         "Windows.UI.Xaml.Input.IFocusManagerStatics7",
         "Windows.UI.Xaml.Input.IFocusManagerStatics6",
-        "Windows.UI.Xaml.Input.IFocusManagerStatics"
+        "Windows.UI.Xaml.Input.IFocusManagerStatics2",
+        "Windows.UI.Xaml.Input.IFocusManagerStatics",
+        "Windows.UI.Xaml.Input.IFocusManagerStatics4",
+        "Windows.UI.Xaml.Input.IFocusManagerStatics3"
       ]
     },
     "FocusManagerGotFocusEventArgs": {

@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Security.Authentication.Web.Core",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "FindAllWebAccountsStatus": {
       "base_type": "int32",
@@ -2209,11 +2209,11 @@
     },
     "WebAuthenticationCoreManager": {
       "static_interfaces": [
+        "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics3",
+        "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics4",
         "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics2",
         "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics5",
-        "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics4",
-        "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics",
-        "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics3"
+        "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics"
       ]
     },
     "WebAuthenticationTransferTokenRequest": {

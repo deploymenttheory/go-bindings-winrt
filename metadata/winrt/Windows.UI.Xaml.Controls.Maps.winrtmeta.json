@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Xaml.Controls.Maps",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "MapAnimationKind": {
       "base_type": "int32",
@@ -12461,13 +12461,13 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics8",
-        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics",
-        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics2",
-        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics7",
-        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics6",
         "Windows.UI.Xaml.Controls.Maps.IMapControlStatics5",
-        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics4"
+        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics",
+        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics8",
+        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics2",
+        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics6",
+        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics4",
+        "Windows.UI.Xaml.Controls.Maps.IMapControlStatics7"
       ],
       "composable": true
     },
@@ -12736,8 +12736,8 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.Maps.IMapIconStatics",
-        "Windows.UI.Xaml.Controls.Maps.IMapIconStatics2"
+        "Windows.UI.Xaml.Controls.Maps.IMapIconStatics2",
+        "Windows.UI.Xaml.Controls.Maps.IMapIconStatics"
       ],
       "composable": true
     },

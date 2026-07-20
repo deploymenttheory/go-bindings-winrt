@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Background",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "ApplicationTriggerResult": {
       "base_type": "int32",
@@ -4645,9 +4645,9 @@
     },
     "BackgroundExecutionManager": {
       "static_interfaces": [
-        "Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics2",
+        "Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3",
         "Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics",
-        "Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3"
+        "Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics2"
       ]
     },
     "BackgroundTaskBuilder": {
@@ -4782,8 +4782,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.ApplicationModel.Background.IBackgroundTaskRegistrationStatics",
-        "Windows.ApplicationModel.Background.IBackgroundTaskRegistrationStatics2"
+        "Windows.ApplicationModel.Background.IBackgroundTaskRegistrationStatics2",
+        "Windows.ApplicationModel.Background.IBackgroundTaskRegistrationStatics"
       ]
     },
     "BackgroundTaskRegistrationGroup": {
@@ -5226,8 +5226,8 @@
         }
       ],
       "activatable_factories": [
-        "Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory2",
-        "Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory"
+        "Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory",
+        "Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory2"
       ]
     },
     "GattServiceProviderTrigger": {

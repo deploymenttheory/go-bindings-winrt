@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Composition.Desktop",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IDesktopWindowTarget": {
       "guid": "6329d6ca-3366-490e-9db3-25312929ac51",

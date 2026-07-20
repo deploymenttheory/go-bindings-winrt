@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.System.Power.Diagnostics",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IBackgroundEnergyDiagnosticsStatics": {
       "guid": "d7663702-d3a6-46e0-8f9b-50b95bb4f9c5",

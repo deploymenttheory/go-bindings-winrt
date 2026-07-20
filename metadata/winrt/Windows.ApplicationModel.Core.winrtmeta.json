@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Core",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "AppRestartFailureReason": {
       "base_type": "int32",
@@ -1636,15 +1636,15 @@
     },
     "CoreApplication": {
       "static_interfaces": [
-        "Windows.ApplicationModel.Core.ICoreApplication",
-        "Windows.ApplicationModel.Core.ICoreApplicationUseCount",
         "Windows.ApplicationModel.Core.ICoreImmersiveApplication3",
+        "Windows.ApplicationModel.Core.ICoreApplication",
         "Windows.ApplicationModel.Core.ICoreImmersiveApplication2",
-        "Windows.ApplicationModel.Core.ICoreApplicationUnhandledError",
-        "Windows.ApplicationModel.Core.ICoreApplication2",
-        "Windows.ApplicationModel.Core.ICoreImmersiveApplication",
         "Windows.ApplicationModel.Core.ICoreApplicationExit",
-        "Windows.ApplicationModel.Core.ICoreApplication3"
+        "Windows.ApplicationModel.Core.ICoreImmersiveApplication",
+        "Windows.ApplicationModel.Core.ICoreApplication3",
+        "Windows.ApplicationModel.Core.ICoreApplication2",
+        "Windows.ApplicationModel.Core.ICoreApplicationUnhandledError",
+        "Windows.ApplicationModel.Core.ICoreApplicationUseCount"
       ]
     },
     "CoreApplicationView": {

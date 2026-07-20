@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.UserActivities",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "UserActivityState": {
       "base_type": "int32",
@@ -1319,9 +1319,9 @@
         }
       ],
       "static_interfaces": [
-        "Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics2",
         "Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics",
-        "Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics3"
+        "Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics3",
+        "Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics2"
       ]
     },
     "UserActivityContentInfo": {

@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Devices.Sensors",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "AccelerometerReadingType": {
       "base_type": "int32",
@@ -10222,9 +10222,9 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.Sensors.IAccelerometerStatics",
+        "Windows.Devices.Sensors.IAccelerometerStatics3",
         "Windows.Devices.Sensors.IAccelerometerStatics2",
-        "Windows.Devices.Sensors.IAccelerometerStatics3"
+        "Windows.Devices.Sensors.IAccelerometerStatics"
       ]
     },
     "AccelerometerDataThreshold": {
@@ -10585,8 +10585,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.Sensors.ICompassStatics",
-        "Windows.Devices.Sensors.ICompassStatics2"
+        "Windows.Devices.Sensors.ICompassStatics2",
+        "Windows.Devices.Sensors.ICompassStatics"
       ]
     },
     "CompassDataThreshold": {
@@ -10705,8 +10705,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.Sensors.IGyrometerStatics2",
-        "Windows.Devices.Sensors.IGyrometerStatics"
+        "Windows.Devices.Sensors.IGyrometerStatics",
+        "Windows.Devices.Sensors.IGyrometerStatics2"
       ]
     },
     "GyrometerDataThreshold": {
@@ -10902,8 +10902,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.Sensors.IHumanPresenceSensorStatics",
-        "Windows.Devices.Sensors.IHumanPresenceSensorStatics2"
+        "Windows.Devices.Sensors.IHumanPresenceSensorStatics2",
+        "Windows.Devices.Sensors.IHumanPresenceSensorStatics"
       ]
     },
     "HumanPresenceSensorReading": {
@@ -11384,10 +11384,10 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.Sensors.IOrientationSensorStatics4",
+        "Windows.Devices.Sensors.IOrientationSensorStatics2",
         "Windows.Devices.Sensors.IOrientationSensorStatics",
         "Windows.Devices.Sensors.IOrientationSensorStatics3",
-        "Windows.Devices.Sensors.IOrientationSensorStatics2"
+        "Windows.Devices.Sensors.IOrientationSensorStatics4"
       ]
     },
     "OrientationSensorReading": {
@@ -11456,8 +11456,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.Sensors.IPedometerStatics",
-        "Windows.Devices.Sensors.IPedometerStatics2"
+        "Windows.Devices.Sensors.IPedometerStatics2",
+        "Windows.Devices.Sensors.IPedometerStatics"
       ]
     },
     "PedometerDataThreshold": {
@@ -11674,8 +11674,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.Sensors.ISimpleOrientationSensorStatics2",
-        "Windows.Devices.Sensors.ISimpleOrientationSensorStatics"
+        "Windows.Devices.Sensors.ISimpleOrientationSensorStatics",
+        "Windows.Devices.Sensors.ISimpleOrientationSensorStatics2"
       ]
     },
     "SimpleOrientationSensorOrientationChangedEventArgs": {

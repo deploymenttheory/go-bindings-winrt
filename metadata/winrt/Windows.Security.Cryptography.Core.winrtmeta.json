@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Security.Cryptography.Core",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "Capi1KdfTargetAlgorithm": {
       "base_type": "int32",
@@ -3454,8 +3454,8 @@
   "classes": {
     "AsymmetricAlgorithmNames": {
       "static_interfaces": [
-        "Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics2",
-        "Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics"
+        "Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics",
+        "Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics2"
       ]
     },
     "AsymmetricKeyAlgorithmProvider": {
@@ -3568,8 +3568,8 @@
     },
     "KeyDerivationAlgorithmNames": {
       "static_interfaces": [
-        "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics",
-        "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics2"
+        "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics2",
+        "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics"
       ]
     },
     "KeyDerivationAlgorithmProvider": {

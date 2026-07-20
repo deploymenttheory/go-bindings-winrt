@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Devices.PointOfService",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "BarcodeScannerStatus": {
       "base_type": "int32",
@@ -14440,8 +14440,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.PointOfService.IBarcodeScannerStatics2",
-        "Windows.Devices.PointOfService.IBarcodeScannerStatics"
+        "Windows.Devices.PointOfService.IBarcodeScannerStatics",
+        "Windows.Devices.PointOfService.IBarcodeScannerStatics2"
       ]
     },
     "BarcodeScannerCapabilities": {
@@ -14599,8 +14599,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.PointOfService.ICashDrawerStatics2",
-        "Windows.Devices.PointOfService.ICashDrawerStatics"
+        "Windows.Devices.PointOfService.ICashDrawerStatics",
+        "Windows.Devices.PointOfService.ICashDrawerStatics2"
       ]
     },
     "CashDrawerCapabilities": {
@@ -15304,8 +15304,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.PointOfService.IMagneticStripeReaderStatics2",
-        "Windows.Devices.PointOfService.IMagneticStripeReaderStatics"
+        "Windows.Devices.PointOfService.IMagneticStripeReaderStatics",
+        "Windows.Devices.PointOfService.IMagneticStripeReaderStatics2"
       ]
     },
     "MagneticStripeReaderAamvaCardDataReceivedEventArgs": {

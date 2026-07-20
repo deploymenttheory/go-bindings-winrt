@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Media.ClosedCaptioning",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "ClosedCaptionColor": {
       "base_type": "int32",
@@ -894,8 +894,8 @@
   "classes": {
     "ClosedCaptionProperties": {
       "static_interfaces": [
-        "Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics",
-        "Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics2"
+        "Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics2",
+        "Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics"
       ]
     },
     "ClosedCaptionTheme": {

@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Email.DataProvider",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IEmailDataProviderConnection": {
       "guid": "3b9c9dc7-37b2-4bf0-ae30-7b644a1c96e1",

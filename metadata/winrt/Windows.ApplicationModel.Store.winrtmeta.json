@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Store",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "FulfillmentResult": {
       "base_type": "int32",
@@ -1923,19 +1923,19 @@
   "classes": {
     "CurrentApp": {
       "static_interfaces": [
-        "Windows.ApplicationModel.Store.ICurrentAppWithConsumables",
+        "Windows.ApplicationModel.Store.ICurrentAppStaticsWithFiltering",
+        "Windows.ApplicationModel.Store.ICurrentApp2Statics",
         "Windows.ApplicationModel.Store.ICurrentApp",
         "Windows.ApplicationModel.Store.ICurrentAppWithCampaignId",
-        "Windows.ApplicationModel.Store.ICurrentApp2Statics",
-        "Windows.ApplicationModel.Store.ICurrentAppStaticsWithFiltering"
+        "Windows.ApplicationModel.Store.ICurrentAppWithConsumables"
       ]
     },
     "CurrentAppSimulator": {
       "static_interfaces": [
-        "Windows.ApplicationModel.Store.ICurrentAppSimulator",
+        "Windows.ApplicationModel.Store.ICurrentAppSimulatorStaticsWithFiltering",
         "Windows.ApplicationModel.Store.ICurrentAppSimulatorWithConsumables",
-        "Windows.ApplicationModel.Store.ICurrentAppSimulatorWithCampaignId",
-        "Windows.ApplicationModel.Store.ICurrentAppSimulatorStaticsWithFiltering"
+        "Windows.ApplicationModel.Store.ICurrentAppSimulator",
+        "Windows.ApplicationModel.Store.ICurrentAppSimulatorWithCampaignId"
       ]
     },
     "LicenseInformation": {

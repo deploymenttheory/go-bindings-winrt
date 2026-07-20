@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Holographic",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IHolographicKeyboard": {
       "guid": "07dd0893-aa21-5e6f-a91b-11b2b3fd7be3",

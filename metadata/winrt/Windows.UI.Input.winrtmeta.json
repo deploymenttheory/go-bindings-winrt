@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Input",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "CrossSlidingState": {
       "base_type": "int32",
@@ -338,27 +338,27 @@
           "value": "2"
         },
         {
-          "name": "ThreeFingerPressDown",
+          "name": "ThreeFingerPress",
           "value": "3"
         },
         {
-          "name": "FourFingerPressDown",
+          "name": "FourFingerPress",
           "value": "4"
         },
         {
-          "name": "FiveFingerPressDown",
+          "name": "FiveFingerPress",
           "value": "5"
         },
         {
-          "name": "ThreeFingerPressUp",
+          "name": "ThreeFingerRelease",
           "value": "6"
         },
         {
-          "name": "FourFingerPressUp",
+          "name": "FourFingerRelease",
           "value": "7"
         },
         {
-          "name": "FiveFingerPressUp",
+          "name": "FiveFingerRelease",
           "value": "8"
         }
       ]
@@ -8713,8 +8713,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Input.IRadialControllerMenuItemStatics2",
-        "Windows.UI.Input.IRadialControllerMenuItemStatics"
+        "Windows.UI.Input.IRadialControllerMenuItemStatics",
+        "Windows.UI.Input.IRadialControllerMenuItemStatics2"
       ]
     },
     "RadialControllerRotationChangedEventArgs": {

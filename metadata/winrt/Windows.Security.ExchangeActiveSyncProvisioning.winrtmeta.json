@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Security.ExchangeActiveSyncProvisioning",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IEasClientDeviceInformation": {
       "guid": "54dfd981-1968-4ca3-b958-e595d16505eb",

@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.System.Threading.Core",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IPreallocatedWorkItem": {
       "guid": "b6daa9fc-bc5b-401a-a8b2-6e754d14daa6",

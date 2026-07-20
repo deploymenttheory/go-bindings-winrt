@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "AddResourcePackageOptions": {
       "base_type": "uint32",
@@ -4382,8 +4382,8 @@
     },
     "DesignMode": {
       "static_interfaces": [
-        "Windows.ApplicationModel.IDesignModeStatics2",
-        "Windows.ApplicationModel.IDesignModeStatics"
+        "Windows.ApplicationModel.IDesignModeStatics",
+        "Windows.ApplicationModel.IDesignModeStatics2"
       ]
     },
     "EnteredBackgroundEventArgs": {

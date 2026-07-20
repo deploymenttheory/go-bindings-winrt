@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Xaml.Controls.Primitives",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "AnimationDirection": {
       "base_type": "int32",
@@ -14230,11 +14230,11 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics5",
         "Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics",
-        "Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics3",
+        "Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics6",
+        "Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics5",
         "Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics2",
-        "Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics6"
+        "Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseStatics3"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Controls.Primitives.IFlyoutBaseFactory"
@@ -14421,8 +14421,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.Primitives.ILayoutInformationStatics",
-        "Windows.UI.Xaml.Controls.Primitives.ILayoutInformationStatics2"
+        "Windows.UI.Xaml.Controls.Primitives.ILayoutInformationStatics2",
+        "Windows.UI.Xaml.Controls.Primitives.ILayoutInformationStatics"
       ]
     },
     "ListViewItemPresenter": {
@@ -14459,8 +14459,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterStatics",
         "Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterStatics3",
+        "Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterStatics",
         "Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterStatics2",
         "Windows.UI.Xaml.Controls.Primitives.IListViewItemPresenterStatics4"
       ],
@@ -14762,9 +14762,9 @@
       "activatable_direct": true,
       "static_interfaces": [
         "Windows.UI.Xaml.Controls.Primitives.IPopupStatics4",
-        "Windows.UI.Xaml.Controls.Primitives.IPopupStatics2",
+        "Windows.UI.Xaml.Controls.Primitives.IPopupStatics3",
         "Windows.UI.Xaml.Controls.Primitives.IPopupStatics",
-        "Windows.UI.Xaml.Controls.Primitives.IPopupStatics3"
+        "Windows.UI.Xaml.Controls.Primitives.IPopupStatics2"
       ],
       "composable": true
     },

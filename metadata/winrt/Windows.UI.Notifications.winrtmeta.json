@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Notifications",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "AdaptiveNotificationContentKind": {
       "base_type": "int32",
@@ -6317,10 +6317,10 @@
     },
     "ToastNotificationManager": {
       "static_interfaces": [
-        "Windows.UI.Notifications.IToastNotificationManagerStatics5",
-        "Windows.UI.Notifications.IToastNotificationManagerStatics4",
         "Windows.UI.Notifications.IToastNotificationManagerStatics2",
-        "Windows.UI.Notifications.IToastNotificationManagerStatics"
+        "Windows.UI.Notifications.IToastNotificationManagerStatics4",
+        "Windows.UI.Notifications.IToastNotificationManagerStatics",
+        "Windows.UI.Notifications.IToastNotificationManagerStatics5"
       ]
     },
     "ToastNotificationManagerForUser": {

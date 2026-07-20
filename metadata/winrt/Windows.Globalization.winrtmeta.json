@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Globalization",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "DayOfWeek": {
       "base_type": "int32",
@@ -5698,8 +5698,8 @@
     "CalendarIdentifiers": {
       "static_interfaces": [
         "Windows.Globalization.ICalendarIdentifiersStatics2",
-        "Windows.Globalization.ICalendarIdentifiersStatics3",
-        "Windows.Globalization.ICalendarIdentifiersStatics"
+        "Windows.Globalization.ICalendarIdentifiersStatics",
+        "Windows.Globalization.ICalendarIdentifiersStatics3"
       ]
     },
     "ClockIdentifiers": {
@@ -5793,9 +5793,9 @@
         "Windows.Globalization.ILanguageFactory"
       ],
       "static_interfaces": [
-        "Windows.Globalization.ILanguageStatics3",
+        "Windows.Globalization.ILanguageStatics",
         "Windows.Globalization.ILanguageStatics2",
-        "Windows.Globalization.ILanguageStatics"
+        "Windows.Globalization.ILanguageStatics3"
       ]
     },
     "NumeralSystemIdentifiers": {

@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Xaml.Hosting",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IElementCompositionPreview": {
       "guid": "b6f1a676-cfe6-46ac-acf6-c4687bb65e60",
@@ -256,8 +256,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Hosting.IElementCompositionPreviewStatics2",
         "Windows.UI.Xaml.Hosting.IElementCompositionPreviewStatics",
+        "Windows.UI.Xaml.Hosting.IElementCompositionPreviewStatics2",
         "Windows.UI.Xaml.Hosting.IElementCompositionPreviewStatics3"
       ]
     }

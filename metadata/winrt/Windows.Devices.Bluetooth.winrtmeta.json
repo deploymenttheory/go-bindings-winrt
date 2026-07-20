@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Devices.Bluetooth",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "BluetoothAddressType": {
       "base_type": "int32",
@@ -4536,8 +4536,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics",
-        "Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics2"
+        "Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics2",
+        "Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics"
       ]
     },
     "BluetoothLEPreferredConnectionParameters": {

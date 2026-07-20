@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Media.FaceAnalysis",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IDetectedFace": {
       "guid": "8200d454-66bc-34df-9410-e89400195414",

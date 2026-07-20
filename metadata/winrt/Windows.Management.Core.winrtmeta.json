@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Management.Core",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IApplicationDataManager": {
       "guid": "74d10432-2e99-4000-9a3a-64307e858129",

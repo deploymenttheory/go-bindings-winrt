@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Devices.Enumeration",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "DeviceAccessStatus": {
       "base_type": "int32",
@@ -3974,9 +3974,9 @@
         }
       ],
       "static_interfaces": [
+        "Windows.Devices.Enumeration.IDeviceInformationStatics2",
         "Windows.Devices.Enumeration.IDeviceInformationStatics3",
-        "Windows.Devices.Enumeration.IDeviceInformationStatics",
-        "Windows.Devices.Enumeration.IDeviceInformationStatics2"
+        "Windows.Devices.Enumeration.IDeviceInformationStatics"
       ]
     },
     "DeviceInformationCollection": {

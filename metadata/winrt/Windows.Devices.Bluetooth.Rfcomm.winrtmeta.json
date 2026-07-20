@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Devices.Bluetooth.Rfcomm",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "interfaces": {
     "IRfcommDeviceService": {
       "guid": "ae81ff1f-c5a1-4c40-8c28-f3efd69062f3",
@@ -892,8 +892,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics2",
-        "Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics"
+        "Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics",
+        "Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics2"
       ]
     },
     "RfcommDeviceServicesResult": {

@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Xaml.Automation",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2270",
   "enums": {
     "AnnotationType": {
       "base_type": "int32",
@@ -4991,14 +4991,14 @@
         }
       ],
       "static_interfaces": [
+        "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics4",
+        "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics2",
+        "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics7",
         "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics6",
-        "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics3",
+        "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics5",
         "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics",
         "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics8",
-        "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics2",
-        "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics5",
-        "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics4",
-        "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics7"
+        "Windows.UI.Xaml.Automation.IAutomationElementIdentifiersStatics3"
       ]
     },
     "AutomationProperties": {
@@ -5017,15 +5017,15 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics8",
-        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics6",
-        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics2",
-        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics3",
-        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics",
-        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics5",
-        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics7",
         "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics9",
-        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics4"
+        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics6",
+        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics4",
+        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics",
+        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics8",
+        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics3",
+        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics2",
+        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics7",
+        "Windows.UI.Xaml.Automation.IAutomationPropertiesStatics5"
       ]
     },
     "AutomationProperty": {
