@@ -73,7 +73,7 @@ jobs:
 
       - name: Open pull request
         if: steps.fetch.outputs.updated == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: chore/winmd-update
           commit-message: "chore(metadata): update contract winmds to ${{ steps.fetch.outputs.version }}"
