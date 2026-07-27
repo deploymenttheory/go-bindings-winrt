@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.System.Power",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "BatteryStatus": {
       "base_type": "int32",
@@ -38,6 +38,27 @@
         {
           "name": "On",
           "value": "2"
+        }
+      ]
+    },
+    "EnergySaverStatus2": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Off",
+          "value": "1"
+        },
+        {
+          "name": "Standard",
+          "value": "2"
+        },
+        {
+          "name": "HighSavings",
+          "value": "3"
         }
       ]
     },
@@ -903,6 +924,107 @@
           "remove_method": "remove_RemainingDischargeTimeChanged"
         }
       ]
+    },
+    "IPowerManagerStatics2": {
+      "guid": "67a446c3-4f2e-5d56-b2e8-7707c264745b",
+      "exclusive_to": "Windows.System.Power.PowerManager",
+      "methods": [
+        {
+          "name": "get_EnergySaverStatus2",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EnergySaverStatus2",
+            "namespace": "Windows.System.Power",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsEnergySaverStatus2Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_EnergySaverStatus2Changed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnergySaverStatus2Changed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "EnergySaverStatus2",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EnergySaverStatus2",
+            "namespace": "Windows.System.Power",
+            "target_kind": "Enum"
+          },
+          "getter": "get_EnergySaverStatus2"
+        },
+        {
+          "name": "IsEnergySaverStatus2Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnergySaverStatus2Supported"
+        }
+      ],
+      "events": [
+        {
+          "name": "EnergySaverStatus2Changed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_EnergySaverStatus2Changed",
+          "remove_method": "remove_EnergySaverStatus2Changed"
+        }
+      ]
     }
   },
   "classes": {
@@ -918,6 +1040,7 @@
     },
     "PowerManager": {
       "static_interfaces": [
+        "Windows.System.Power.IPowerManagerStatics2",
         "Windows.System.Power.IPowerManagerStatics"
       ]
     }

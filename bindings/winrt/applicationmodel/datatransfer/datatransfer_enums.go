@@ -37,10 +37,12 @@ func (e ClipboardHistoryItemsResultStatus) String() string {
 type DataPackageOperation uint32
 
 const (
-	DataPackageOperationNone DataPackageOperation = 0
-	DataPackageOperationCopy DataPackageOperation = 1
-	DataPackageOperationMove DataPackageOperation = 2
-	DataPackageOperationLink DataPackageOperation = 4
+	DataPackageOperationNone             DataPackageOperation = 0
+	DataPackageOperationCopy             DataPackageOperation = 1
+	DataPackageOperationMove             DataPackageOperation = 2
+	DataPackageOperationLink             DataPackageOperation = 4
+	DataPackageOperationNewTarget        DataPackageOperation = 1073741824
+	DataPackageOperationBackgroundTarget DataPackageOperation = 536870912
 )
 
 // String returns the DataPackageOperation constant's name, or its numeric form when
@@ -55,6 +57,10 @@ func (e DataPackageOperation) String() string {
 		return "DataPackageOperationMove"
 	case DataPackageOperationLink:
 		return "DataPackageOperationLink"
+	case DataPackageOperationNewTarget:
+		return "DataPackageOperationNewTarget"
+	case DataPackageOperationBackgroundTarget:
+		return "DataPackageOperationBackgroundTarget"
 	default:
 		return fmt.Sprintf("DataPackageOperation(%d)", uint32(e))
 	}

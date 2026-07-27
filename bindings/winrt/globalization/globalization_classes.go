@@ -58,6 +58,23 @@ func (self *Calendar) AsTimeZoneOnCalendar() (*ITimeZoneOnCalendar, error) {
 	return winrt.QueryInterface[ITimeZoneOnCalendar](unsafe.Pointer(self), &IID_ITimeZoneOnCalendar)
 }
 
+// CreateCalendarWithTimeZone constructs a Windows.Globalization.Calendar instance through
+// Windows.Globalization.ICalendarFactory2.CreateCalendarWithTimeZone. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateCalendarWithTimeZone(languages *IIterableOfString, calendar string, clock string, timeZoneId string) (*Calendar, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Globalization.Calendar", &IID_ICalendarFactory2)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ICalendarFactory2)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateCalendarWithTimeZone(languages, calendar, clock, timeZoneId)
+	if err != nil {
+		return nil, err
+	}
+	return (*Calendar)(unsafe.Pointer(instance)), nil
+}
+
 // CreateCalendarDefaultCalendarAndClock constructs a Windows.Globalization.Calendar instance through
 // Windows.Globalization.ICalendarFactory.CreateCalendarDefaultCalendarAndClock. The activation factory is fetched
 // per call (a factory cache is a future optimization).
@@ -86,23 +103,6 @@ func CreateCalendar(languages *IIterableOfString, calendar string, clock string)
 	factory := (*ICalendarFactory)(unsafe.Pointer(factoryUnknown))
 	defer factory.Release()
 	instance, err := factory.CreateCalendar(languages, calendar, clock)
-	if err != nil {
-		return nil, err
-	}
-	return (*Calendar)(unsafe.Pointer(instance)), nil
-}
-
-// CreateCalendarWithTimeZone constructs a Windows.Globalization.Calendar instance through
-// Windows.Globalization.ICalendarFactory2.CreateCalendarWithTimeZone. The activation factory is fetched
-// per call (a factory cache is a future optimization).
-func CreateCalendarWithTimeZone(languages *IIterableOfString, calendar string, clock string, timeZoneId string) (*Calendar, error) {
-	factoryUnknown, err := winrt.GetActivationFactory("Windows.Globalization.Calendar", &IID_ICalendarFactory2)
-	if err != nil {
-		return nil, err
-	}
-	factory := (*ICalendarFactory2)(unsafe.Pointer(factoryUnknown))
-	defer factory.Release()
-	instance, err := factory.CreateCalendarWithTimeZone(languages, calendar, clock, timeZoneId)
 	if err != nil {
 		return nil, err
 	}

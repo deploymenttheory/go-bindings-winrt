@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.System.RemoteDesktop.Provider",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "RemoteDesktopConnectionStatus": {
       "base_type": "int32",
@@ -460,6 +460,71 @@
           "getter": "get_DesktopInfos"
         }
       ]
+    },
+    "IRemoteDesktopRegistrarStatics2": {
+      "guid": "4139976d-4f8e-5bb4-b953-d6447cac4e5f",
+      "exclusive_to": "Windows.System.RemoteDesktop.Provider.RemoteDesktopRegistrar",
+      "methods": [
+        {
+          "name": "add_ConnectionCenterRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ConnectionCenterRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ConnectionCenterRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ConnectionCenterRequested",
+          "remove_method": "remove_ConnectionCenterRequested"
+        }
+      ]
     }
   },
   "classes": {
@@ -550,7 +615,8 @@
     },
     "RemoteDesktopRegistrar": {
       "static_interfaces": [
-        "Windows.System.RemoteDesktop.Provider.IRemoteDesktopRegistrarStatics"
+        "Windows.System.RemoteDesktop.Provider.IRemoteDesktopRegistrarStatics",
+        "Windows.System.RemoteDesktop.Provider.IRemoteDesktopRegistrarStatics2"
       ]
     }
   }

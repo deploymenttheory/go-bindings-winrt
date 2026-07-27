@@ -85,6 +85,23 @@ func SecondaryTileStatics() (*ISecondaryTileStatics, error) {
 	return (*ISecondaryTileStatics)(unsafe.Pointer(factory)), nil
 }
 
+// CreateMinimalTile constructs a Windows.UI.StartScreen.SecondaryTile instance through
+// Windows.UI.StartScreen.ISecondaryTileFactory2.CreateMinimalTile. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateMinimalTile(tileId string, displayName string, arguments string, square150x150Logo *foundation.IUriRuntimeClass, desiredSize TileSize) (*SecondaryTile, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.StartScreen.SecondaryTile", &IID_ISecondaryTileFactory2)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ISecondaryTileFactory2)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateMinimalTile(tileId, displayName, arguments, square150x150Logo, desiredSize)
+	if err != nil {
+		return nil, err
+	}
+	return (*SecondaryTile)(unsafe.Pointer(instance)), nil
+}
+
 // CreateTile constructs a Windows.UI.StartScreen.SecondaryTile instance through
 // Windows.UI.StartScreen.ISecondaryTileFactory.CreateTile. The activation factory is fetched
 // per call (a factory cache is a future optimization).
@@ -130,23 +147,6 @@ func CreateWithId(tileId string) (*SecondaryTile, error) {
 	factory := (*ISecondaryTileFactory)(unsafe.Pointer(factoryUnknown))
 	defer factory.Release()
 	instance, err := factory.CreateWithId(tileId)
-	if err != nil {
-		return nil, err
-	}
-	return (*SecondaryTile)(unsafe.Pointer(instance)), nil
-}
-
-// CreateMinimalTile constructs a Windows.UI.StartScreen.SecondaryTile instance through
-// Windows.UI.StartScreen.ISecondaryTileFactory2.CreateMinimalTile. The activation factory is fetched
-// per call (a factory cache is a future optimization).
-func CreateMinimalTile(tileId string, displayName string, arguments string, square150x150Logo *foundation.IUriRuntimeClass, desiredSize TileSize) (*SecondaryTile, error) {
-	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.StartScreen.SecondaryTile", &IID_ISecondaryTileFactory2)
-	if err != nil {
-		return nil, err
-	}
-	factory := (*ISecondaryTileFactory2)(unsafe.Pointer(factoryUnknown))
-	defer factory.Release()
-	instance, err := factory.CreateMinimalTile(tileId, displayName, arguments, square150x150Logo, desiredSize)
 	if err != nil {
 		return nil, err
 	}

@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.ViewManagement",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "ApplicationViewBoundsMode": {
       "base_type": "int32",
@@ -4357,11 +4357,11 @@
       ],
       "static_interfaces": [
         "Windows.UI.ViewManagement.IApplicationViewStatics3",
-        "Windows.UI.ViewManagement.IApplicationViewFullscreenStatics",
-        "Windows.UI.ViewManagement.IApplicationViewInteropStatics",
-        "Windows.UI.ViewManagement.IApplicationViewStatics",
         "Windows.UI.ViewManagement.IApplicationViewStatics2",
-        "Windows.UI.ViewManagement.IApplicationViewStatics4"
+        "Windows.UI.ViewManagement.IApplicationViewStatics",
+        "Windows.UI.ViewManagement.IApplicationViewStatics4",
+        "Windows.UI.ViewManagement.IApplicationViewFullscreenStatics",
+        "Windows.UI.ViewManagement.IApplicationViewInteropStatics"
       ]
     },
     "ApplicationViewConsolidatedEventArgs": {
@@ -4457,8 +4457,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.ViewManagement.IInputPaneStatics2",
-        "Windows.UI.ViewManagement.IInputPaneStatics"
+        "Windows.UI.ViewManagement.IInputPaneStatics",
+        "Windows.UI.ViewManagement.IInputPaneStatics2"
       ]
     },
     "InputPaneVisibilityEventArgs": {

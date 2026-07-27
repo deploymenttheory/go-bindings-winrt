@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Xaml.Documents",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "LogicalDirection": {
       "base_type": "int32",
@@ -7499,8 +7499,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Documents.IBlockStatics",
-        "Windows.UI.Xaml.Documents.IBlockStatics2"
+        "Windows.UI.Xaml.Documents.IBlockStatics2",
+        "Windows.UI.Xaml.Documents.IBlockStatics"
       ],
       "composable_factories": [
         "Windows.UI.Xaml.Documents.IBlockFactory"
@@ -7762,9 +7762,9 @@
       "static_interfaces": [
         "Windows.UI.Xaml.Documents.IHyperlinkStatics",
         "Windows.UI.Xaml.Documents.IHyperlinkStatics5",
+        "Windows.UI.Xaml.Documents.IHyperlinkStatics4",
         "Windows.UI.Xaml.Documents.IHyperlinkStatics3",
-        "Windows.UI.Xaml.Documents.IHyperlinkStatics2",
-        "Windows.UI.Xaml.Documents.IHyperlinkStatics4"
+        "Windows.UI.Xaml.Documents.IHyperlinkStatics2"
       ],
       "composable": true
     },
@@ -8032,8 +8032,8 @@
       ],
       "static_interfaces": [
         "Windows.UI.Xaml.Documents.ITextElementStatics4",
-        "Windows.UI.Xaml.Documents.ITextElementStatics2",
         "Windows.UI.Xaml.Documents.ITextElementStatics3",
+        "Windows.UI.Xaml.Documents.ITextElementStatics2",
         "Windows.UI.Xaml.Documents.ITextElementStatics"
       ],
       "composable_factories": [

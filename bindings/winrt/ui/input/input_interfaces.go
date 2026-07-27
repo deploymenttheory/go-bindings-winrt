@@ -226,6 +226,58 @@ func (self *IEdgeGestureStatics) GetForCurrentView() (*IEdgeGesture, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// IGamepadNavigationConfiguration is the WinRT interface Windows.UI.Input.IGamepadNavigationConfiguration.
+// IID: b8abab2d-e7f5-59a7-a3d5-9746bfbf224d
+// Exclusive to the Windows.UI.Input.GamepadNavigationConfiguration runtime class.
+type IGamepadNavigationConfiguration struct {
+	syswinrt.IInspectable
+}
+
+// IID_IGamepadNavigationConfiguration is the interface identifier for IGamepadNavigationConfiguration.
+var IID_IGamepadNavigationConfiguration = win32.GUID{Data1: 0xb8abab2d, Data2: 0xe7f5, Data3: 0x59a7, Data4: [8]byte{0xa3, 0xd5, 0x97, 0x46, 0xbf, 0xbf, 0x22, 0x4d}}
+
+// NavigationEnabled (propget get_NavigationEnabled) dispatches through IGamepadNavigationConfiguration's vtable slot 6.
+func (self *IGamepadNavigationConfiguration) NavigationEnabled() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// TrySetNavigationEnabled dispatches through IGamepadNavigationConfiguration's vtable slot 7.
+func (self *IGamepadNavigationConfiguration) TrySetNavigationEnabled(enabled bool) (bool, error) {
+	_enabled := uintptr(0)
+	if enabled {
+		_enabled = 1
+	}
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), _enabled, uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// IGamepadNavigationConfigurationStatics is the WinRT interface Windows.UI.Input.IGamepadNavigationConfigurationStatics.
+// IID: 9c7c3e1d-2aff-5de0-88f1-904acc561f68
+// Exclusive to the Windows.UI.Input.GamepadNavigationConfiguration runtime class.
+type IGamepadNavigationConfigurationStatics struct {
+	syswinrt.IInspectable
+}
+
+// IID_IGamepadNavigationConfigurationStatics is the interface identifier for IGamepadNavigationConfigurationStatics.
+var IID_IGamepadNavigationConfigurationStatics = win32.GUID{Data1: 0x9c7c3e1d, Data2: 0x2aff, Data3: 0x5de0, Data4: [8]byte{0x88, 0xf1, 0x90, 0x4a, 0xcc, 0x56, 0x1f, 0x68}}
+
+// TryGetForCurrentProcess dispatches through IGamepadNavigationConfigurationStatics's vtable slot 6.
+func (self *IGamepadNavigationConfigurationStatics) TryGetForCurrentProcess() (*IGamepadNavigationConfiguration, error) {
+	result := new(*IGamepadNavigationConfiguration)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// IsSupported (propget get_IsSupported) dispatches through IGamepadNavigationConfigurationStatics's vtable slot 7.
+func (self *IGamepadNavigationConfigurationStatics) IsSupported() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
 // IGestureRecognizer is the WinRT interface Windows.UI.Input.IGestureRecognizer.
 // IID: b47a37bf-3d6b-4f88-83e8-6dcb4012ffb0
 // Exclusive to the Windows.UI.Input.GestureRecognizer runtime class.

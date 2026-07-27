@@ -45,3 +45,15 @@ func PowerManagerStatics() (*IPowerManagerStatics, error) {
 	}
 	return (*IPowerManagerStatics)(unsafe.Pointer(factory)), nil
 }
+
+// PowerManagerStatics2 returns the Windows.System.Power.IPowerManagerStatics2 statics of the
+// Windows.System.Power.PowerManager runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func PowerManagerStatics2() (*IPowerManagerStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.System.Power.PowerManager", &IID_IPowerManagerStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IPowerManagerStatics2)(unsafe.Pointer(factory)), nil
+}

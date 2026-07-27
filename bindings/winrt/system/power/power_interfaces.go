@@ -320,3 +320,43 @@ func (self *IPowerManagerStatics) RemoveRemainingDischargeTimeChanged(token sysw
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[20], uintptr(unsafe.Pointer(self)), uintptr(token.Value))
 	return win32.ErrIfFailed(int32(r1))
 }
+
+// IPowerManagerStatics2 is the WinRT interface Windows.System.Power.IPowerManagerStatics2.
+// IID: 67a446c3-4f2e-5d56-b2e8-7707c264745b
+// Exclusive to the Windows.System.Power.PowerManager runtime class.
+type IPowerManagerStatics2 struct {
+	syswinrt.IInspectable
+}
+
+// IID_IPowerManagerStatics2 is the interface identifier for IPowerManagerStatics2.
+var IID_IPowerManagerStatics2 = win32.GUID{Data1: 0x67a446c3, Data2: 0x4f2e, Data3: 0x5d56, Data4: [8]byte{0xb2, 0xe8, 0x77, 0x07, 0xc2, 0x64, 0x74, 0x5b}}
+
+// EnergySaverStatus2 (propget get_EnergySaverStatus2) dispatches through IPowerManagerStatics2's vtable slot 6.
+func (self *IPowerManagerStatics2) EnergySaverStatus2() (EnergySaverStatus2, error) {
+	result := new(EnergySaverStatus2)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// IsEnergySaverStatus2Supported (propget get_IsEnergySaverStatus2Supported) dispatches through IPowerManagerStatics2's vtable slot 7.
+func (self *IPowerManagerStatics2) IsEnergySaverStatus2Supported() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// AddEnergySaverStatus2Changed (event add add_EnergySaverStatus2Changed) dispatches through IPowerManagerStatics2's vtable slot 8.
+// The handler stays registered (and referenced by the runtime) until the
+// returned token is passed to RemoveEnergySaverStatus2Changed.
+func (self *IPowerManagerStatics2) AddEnergySaverStatus2Changed(handler *EventHandlerOfObject) (syswinrt.EventRegistrationToken, error) {
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// RemoveEnergySaverStatus2Changed (event remove remove_EnergySaverStatus2Changed) dispatches through IPowerManagerStatics2's vtable slot 9,
+// unregistering the EnergySaverStatus2Changed handler the token was returned for.
+func (self *IPowerManagerStatics2) RemoveEnergySaverStatus2Changed(token syswinrt.EventRegistrationToken) error {
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(token.Value))
+	return win32.ErrIfFailed(int32(r1))
+}

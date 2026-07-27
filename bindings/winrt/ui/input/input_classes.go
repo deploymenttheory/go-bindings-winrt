@@ -76,6 +76,25 @@ type EdgeGestureEventArgs struct {
 	IEdgeGestureEventArgs
 }
 
+// GamepadNavigationConfiguration is the Windows.UI.Input.GamepadNavigationConfiguration runtime class, surfaced through its
+// default interface IGamepadNavigationConfiguration. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type GamepadNavigationConfiguration struct {
+	IGamepadNavigationConfiguration
+}
+
+// GamepadNavigationConfigurationStatics returns the Windows.UI.Input.IGamepadNavigationConfigurationStatics statics of the
+// Windows.UI.Input.GamepadNavigationConfiguration runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func GamepadNavigationConfigurationStatics() (*IGamepadNavigationConfigurationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Input.GamepadNavigationConfiguration", &IID_IGamepadNavigationConfigurationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IGamepadNavigationConfigurationStatics)(unsafe.Pointer(factory)), nil
+}
+
 // GestureRecognizer is the Windows.UI.Input.GestureRecognizer runtime class, surfaced through its
 // default interface IGestureRecognizer. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).

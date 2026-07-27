@@ -103,3 +103,15 @@ func RemoteDesktopRegistrarStatics() (*IRemoteDesktopRegistrarStatics, error) {
 	}
 	return (*IRemoteDesktopRegistrarStatics)(unsafe.Pointer(factory)), nil
 }
+
+// RemoteDesktopRegistrarStatics2 returns the Windows.System.RemoteDesktop.Provider.IRemoteDesktopRegistrarStatics2 statics of the
+// Windows.System.RemoteDesktop.Provider.RemoteDesktopRegistrar runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func RemoteDesktopRegistrarStatics2() (*IRemoteDesktopRegistrarStatics2, error) {
+	factory, err := winrt.GetActivationFactory("Windows.System.RemoteDesktop.Provider.RemoteDesktopRegistrar", &IID_IRemoteDesktopRegistrarStatics2)
+	if err != nil {
+		return nil, err
+	}
+	return (*IRemoteDesktopRegistrarStatics2)(unsafe.Pointer(factory)), nil
+}

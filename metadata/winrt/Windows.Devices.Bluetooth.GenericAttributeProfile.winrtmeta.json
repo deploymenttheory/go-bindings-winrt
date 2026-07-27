@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "GattCharacteristicProperties": {
       "base_type": "uint32",
@@ -7834,8 +7834,8 @@
     },
     "GattCharacteristicUuids": {
       "static_interfaces": [
-        "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicUuidsStatics2",
-        "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicUuidsStatics"
+        "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicUuidsStatics",
+        "Windows.Devices.Bluetooth.GenericAttributeProfile.IGattCharacteristicUuidsStatics2"
       ]
     },
     "GattCharacteristicsResult": {

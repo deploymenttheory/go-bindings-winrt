@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Globalization",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "DayOfWeek": {
       "base_type": "int32",
@@ -5691,8 +5691,8 @@
       ],
       "activatable_direct": true,
       "activatable_factories": [
-        "Windows.Globalization.ICalendarFactory",
-        "Windows.Globalization.ICalendarFactory2"
+        "Windows.Globalization.ICalendarFactory2",
+        "Windows.Globalization.ICalendarFactory"
       ]
     },
     "CalendarIdentifiers": {
@@ -5728,9 +5728,9 @@
     },
     "CurrencyIdentifiers": {
       "static_interfaces": [
-        "Windows.Globalization.ICurrencyIdentifiersStatics",
+        "Windows.Globalization.ICurrencyIdentifiersStatics2",
         "Windows.Globalization.ICurrencyIdentifiersStatics3",
-        "Windows.Globalization.ICurrencyIdentifiersStatics2"
+        "Windows.Globalization.ICurrencyIdentifiersStatics"
       ]
     },
     "GeographicRegion": {
@@ -5793,15 +5793,15 @@
         "Windows.Globalization.ILanguageFactory"
       ],
       "static_interfaces": [
-        "Windows.Globalization.ILanguageStatics3",
         "Windows.Globalization.ILanguageStatics2",
+        "Windows.Globalization.ILanguageStatics3",
         "Windows.Globalization.ILanguageStatics"
       ]
     },
     "NumeralSystemIdentifiers": {
       "static_interfaces": [
-        "Windows.Globalization.INumeralSystemIdentifiersStatics2",
-        "Windows.Globalization.INumeralSystemIdentifiersStatics"
+        "Windows.Globalization.INumeralSystemIdentifiersStatics",
+        "Windows.Globalization.INumeralSystemIdentifiersStatics2"
       ]
     }
   }

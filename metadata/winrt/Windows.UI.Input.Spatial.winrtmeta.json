@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Input.Spatial",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "SpatialGestureSettings": {
       "base_type": "uint32",
@@ -4049,8 +4049,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Input.Spatial.ISpatialInteractionManagerStatics2",
-        "Windows.UI.Input.Spatial.ISpatialInteractionManagerStatics"
+        "Windows.UI.Input.Spatial.ISpatialInteractionManagerStatics",
+        "Windows.UI.Input.Spatial.ISpatialInteractionManagerStatics2"
       ]
     },
     "SpatialInteractionSource": {

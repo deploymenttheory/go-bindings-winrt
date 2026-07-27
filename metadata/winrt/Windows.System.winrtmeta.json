@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.System",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "AppDiagnosticInfoWatcherStatus": {
       "base_type": "int32",
@@ -7494,8 +7494,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.System.IAppDiagnosticInfoStatics2",
-        "Windows.System.IAppDiagnosticInfoStatics"
+        "Windows.System.IAppDiagnosticInfoStatics",
+        "Windows.System.IAppDiagnosticInfoStatics2"
       ]
     },
     "AppDiagnosticInfoWatcher": {
@@ -7772,8 +7772,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.System.IAppUriHandlerRegistrationManagerStatics",
-        "Windows.System.IAppUriHandlerRegistrationManagerStatics2"
+        "Windows.System.IAppUriHandlerRegistrationManagerStatics2",
+        "Windows.System.IAppUriHandlerRegistrationManagerStatics"
       ]
     },
     "DispatcherQueue": {
@@ -7899,11 +7899,11 @@
     },
     "Launcher": {
       "static_interfaces": [
-        "Windows.System.ILauncherStatics2",
-        "Windows.System.ILauncherStatics3",
         "Windows.System.ILauncherStatics",
-        "Windows.System.ILauncherStatics4",
-        "Windows.System.ILauncherStatics5"
+        "Windows.System.ILauncherStatics2",
+        "Windows.System.ILauncherStatics5",
+        "Windows.System.ILauncherStatics3",
+        "Windows.System.ILauncherStatics4"
       ]
     },
     "LauncherOptions": {
@@ -7965,9 +7965,9 @@
     },
     "MemoryManager": {
       "static_interfaces": [
-        "Windows.System.IMemoryManagerStatics2",
         "Windows.System.IMemoryManagerStatics",
         "Windows.System.IMemoryManagerStatics3",
+        "Windows.System.IMemoryManagerStatics2",
         "Windows.System.IMemoryManagerStatics4"
       ]
     },
