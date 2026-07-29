@@ -239,3 +239,29 @@ func (self *IRemoteDesktopRegistrarStatics) IsSwitchToLocalSessionEnabled() (boo
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
+
+// IRemoteDesktopRegistrarStatics2 is the WinRT interface Windows.System.RemoteDesktop.Provider.IRemoteDesktopRegistrarStatics2.
+// IID: 4139976d-4f8e-5bb4-b953-d6447cac4e5f
+// Exclusive to the Windows.System.RemoteDesktop.Provider.RemoteDesktopRegistrar runtime class.
+type IRemoteDesktopRegistrarStatics2 struct {
+	syswinrt.IInspectable
+}
+
+// IID_IRemoteDesktopRegistrarStatics2 is the interface identifier for IRemoteDesktopRegistrarStatics2.
+var IID_IRemoteDesktopRegistrarStatics2 = win32.GUID{Data1: 0x4139976d, Data2: 0x4f8e, Data3: 0x5bb4, Data4: [8]byte{0xb9, 0x53, 0xd6, 0x44, 0x7c, 0xac, 0x4e, 0x5f}}
+
+// AddConnectionCenterRequested (event add add_ConnectionCenterRequested) dispatches through IRemoteDesktopRegistrarStatics2's vtable slot 6.
+// The handler stays registered (and referenced by the runtime) until the
+// returned token is passed to RemoveConnectionCenterRequested.
+func (self *IRemoteDesktopRegistrarStatics2) AddConnectionCenterRequested(handler *EventHandlerOfObject) (syswinrt.EventRegistrationToken, error) {
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// RemoveConnectionCenterRequested (event remove remove_ConnectionCenterRequested) dispatches through IRemoteDesktopRegistrarStatics2's vtable slot 7,
+// unregistering the ConnectionCenterRequested handler the token was returned for.
+func (self *IRemoteDesktopRegistrarStatics2) RemoveConnectionCenterRequested(token syswinrt.EventRegistrationToken) error {
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(token.Value))
+	return win32.ErrIfFailed(int32(r1))
+}

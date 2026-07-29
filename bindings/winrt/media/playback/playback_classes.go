@@ -248,23 +248,6 @@ func MediaPlaybackItemStatics() (*IMediaPlaybackItemStatics, error) {
 	return (*IMediaPlaybackItemStatics)(unsafe.Pointer(factory)), nil
 }
 
-// CreateMediaPlaybackItem constructs a Windows.Media.Playback.MediaPlaybackItem instance through
-// Windows.Media.Playback.IMediaPlaybackItemFactory.Create. The activation factory is fetched
-// per call (a factory cache is a future optimization).
-func CreateMediaPlaybackItem(source *mediacore.IMediaSource2) (*MediaPlaybackItem, error) {
-	factoryUnknown, err := winrt.GetActivationFactory("Windows.Media.Playback.MediaPlaybackItem", &IID_IMediaPlaybackItemFactory)
-	if err != nil {
-		return nil, err
-	}
-	factory := (*IMediaPlaybackItemFactory)(unsafe.Pointer(factoryUnknown))
-	defer factory.Release()
-	instance, err := factory.Create(source)
-	if err != nil {
-		return nil, err
-	}
-	return (*MediaPlaybackItem)(unsafe.Pointer(instance)), nil
-}
-
 // CreateWithStartTime constructs a Windows.Media.Playback.MediaPlaybackItem instance through
 // Windows.Media.Playback.IMediaPlaybackItemFactory2.CreateWithStartTime. The activation factory is fetched
 // per call (a factory cache is a future optimization).
@@ -293,6 +276,23 @@ func CreateWithStartTimeAndDurationLimit(source *mediacore.IMediaSource2, startT
 	factory := (*IMediaPlaybackItemFactory2)(unsafe.Pointer(factoryUnknown))
 	defer factory.Release()
 	instance, err := factory.CreateWithStartTimeAndDurationLimit(source, startTime, durationLimit)
+	if err != nil {
+		return nil, err
+	}
+	return (*MediaPlaybackItem)(unsafe.Pointer(instance)), nil
+}
+
+// CreateMediaPlaybackItem constructs a Windows.Media.Playback.MediaPlaybackItem instance through
+// Windows.Media.Playback.IMediaPlaybackItemFactory.Create. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateMediaPlaybackItem(source *mediacore.IMediaSource2) (*MediaPlaybackItem, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Media.Playback.MediaPlaybackItem", &IID_IMediaPlaybackItemFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IMediaPlaybackItemFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.Create(source)
 	if err != nil {
 		return nil, err
 	}

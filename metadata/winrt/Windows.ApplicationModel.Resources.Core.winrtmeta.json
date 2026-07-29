@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Resources.Core",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "ResourceCandidateKind": {
       "base_type": "int32",
@@ -1303,10 +1303,10 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.ApplicationModel.Resources.Core.IResourceContextStatics3",
+        "Windows.ApplicationModel.Resources.Core.IResourceContextStatics2",
         "Windows.ApplicationModel.Resources.Core.IResourceContextStatics",
         "Windows.ApplicationModel.Resources.Core.IResourceContextStatics4",
-        "Windows.ApplicationModel.Resources.Core.IResourceContextStatics2"
+        "Windows.ApplicationModel.Resources.Core.IResourceContextStatics3"
       ]
     },
     "ResourceContextLanguagesVectorView": {

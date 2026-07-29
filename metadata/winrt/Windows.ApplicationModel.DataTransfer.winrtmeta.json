@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.DataTransfer",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "ClipboardHistoryItemsResultStatus": {
       "base_type": "int32",
@@ -39,6 +39,14 @@
         {
           "name": "Link",
           "value": "4"
+        },
+        {
+          "name": "NewTarget",
+          "value": "1073741824"
+        },
+        {
+          "name": "BackgroundTarget",
+          "value": "536870912"
         }
       ]
     },
@@ -4455,8 +4463,8 @@
   "classes": {
     "Clipboard": {
       "static_interfaces": [
-        "Windows.ApplicationModel.DataTransfer.IClipboardStatics",
-        "Windows.ApplicationModel.DataTransfer.IClipboardStatics2"
+        "Windows.ApplicationModel.DataTransfer.IClipboardStatics2",
+        "Windows.ApplicationModel.DataTransfer.IClipboardStatics"
       ]
     },
     "ClipboardContentOptions": {
@@ -4849,9 +4857,9 @@
         }
       ],
       "static_interfaces": [
-        "Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics2",
+        "Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics3",
         "Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics",
-        "Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics3"
+        "Windows.ApplicationModel.DataTransfer.IDataTransferManagerStatics2"
       ]
     },
     "HtmlFormatHelper": {
@@ -4988,9 +4996,9 @@
     },
     "StandardDataFormats": {
       "static_interfaces": [
-        "Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics",
+        "Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics3",
         "Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics2",
-        "Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics3"
+        "Windows.ApplicationModel.DataTransfer.IStandardDataFormatsStatics"
       ]
     },
     "TargetApplicationChosenEventArgs": {

@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Media.Playback",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "AutoLoadedDisplayPropertyKind": {
       "base_type": "int32",
@@ -9564,8 +9564,8 @@
         }
       ],
       "activatable_factories": [
-        "Windows.Media.Playback.IMediaPlaybackItemFactory",
-        "Windows.Media.Playback.IMediaPlaybackItemFactory2"
+        "Windows.Media.Playback.IMediaPlaybackItemFactory2",
+        "Windows.Media.Playback.IMediaPlaybackItemFactory"
       ],
       "static_interfaces": [
         "Windows.Media.Playback.IMediaPlaybackItemStatics"

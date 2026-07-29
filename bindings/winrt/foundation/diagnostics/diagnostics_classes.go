@@ -163,23 +163,6 @@ func (self *LoggingChannel) AsLoggingTarget() (*ILoggingTarget, error) {
 	return winrt.QueryInterface[ILoggingTarget](unsafe.Pointer(self), &IID_ILoggingTarget)
 }
 
-// CreateWithOptions constructs a Windows.Foundation.Diagnostics.LoggingChannel instance through
-// Windows.Foundation.Diagnostics.ILoggingChannelFactory2.CreateWithOptions. The activation factory is fetched
-// per call (a factory cache is a future optimization).
-func CreateWithOptions(name string, options *ILoggingChannelOptions) (*LoggingChannel, error) {
-	factoryUnknown, err := winrt.GetActivationFactory("Windows.Foundation.Diagnostics.LoggingChannel", &IID_ILoggingChannelFactory2)
-	if err != nil {
-		return nil, err
-	}
-	factory := (*ILoggingChannelFactory2)(unsafe.Pointer(factoryUnknown))
-	defer factory.Release()
-	instance, err := factory.CreateWithOptions(name, options)
-	if err != nil {
-		return nil, err
-	}
-	return (*LoggingChannel)(unsafe.Pointer(instance)), nil
-}
-
 // CreateLoggingChannel constructs a Windows.Foundation.Diagnostics.LoggingChannel instance through
 // Windows.Foundation.Diagnostics.ILoggingChannelFactory.Create. The activation factory is fetched
 // per call (a factory cache is a future optimization).
@@ -191,6 +174,23 @@ func CreateLoggingChannel(name string) (*LoggingChannel, error) {
 	factory := (*ILoggingChannelFactory)(unsafe.Pointer(factoryUnknown))
 	defer factory.Release()
 	instance, err := factory.Create(name)
+	if err != nil {
+		return nil, err
+	}
+	return (*LoggingChannel)(unsafe.Pointer(instance)), nil
+}
+
+// CreateWithOptions constructs a Windows.Foundation.Diagnostics.LoggingChannel instance through
+// Windows.Foundation.Diagnostics.ILoggingChannelFactory2.CreateWithOptions. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateWithOptions(name string, options *ILoggingChannelOptions) (*LoggingChannel, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Foundation.Diagnostics.LoggingChannel", &IID_ILoggingChannelFactory2)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*ILoggingChannelFactory2)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateWithOptions(name, options)
 	if err != nil {
 		return nil, err
 	}

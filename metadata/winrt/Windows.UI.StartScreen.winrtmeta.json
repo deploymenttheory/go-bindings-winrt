@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.StartScreen",
   "schema_version": 1,
-  "winmd_version": "10.0.26100.8249",
+  "winmd_version": "10.0.28000.2526",
   "enums": {
     "ForegroundText": {
       "base_type": "int32",
@@ -2515,8 +2515,8 @@
       ],
       "activatable_direct": true,
       "activatable_factories": [
-        "Windows.UI.StartScreen.ISecondaryTileFactory",
-        "Windows.UI.StartScreen.ISecondaryTileFactory2"
+        "Windows.UI.StartScreen.ISecondaryTileFactory2",
+        "Windows.UI.StartScreen.ISecondaryTileFactory"
       ],
       "static_interfaces": [
         "Windows.UI.StartScreen.ISecondaryTileStatics"

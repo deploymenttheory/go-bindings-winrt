@@ -59,6 +59,33 @@ func (e EnergySaverStatus) String() string {
 	}
 }
 
+// EnergySaverStatus2 is Windows.System.Power.EnergySaverStatus2.
+type EnergySaverStatus2 int32
+
+const (
+	EnergySaverStatus2Unknown     EnergySaverStatus2 = 0
+	EnergySaverStatus2Off         EnergySaverStatus2 = 1
+	EnergySaverStatus2Standard    EnergySaverStatus2 = 2
+	EnergySaverStatus2HighSavings EnergySaverStatus2 = 3
+)
+
+// String returns the EnergySaverStatus2 constant's name, or its numeric form when
+// the value is not a known constant.
+func (e EnergySaverStatus2) String() string {
+	switch e {
+	case EnergySaverStatus2Unknown:
+		return "EnergySaverStatus2Unknown"
+	case EnergySaverStatus2Off:
+		return "EnergySaverStatus2Off"
+	case EnergySaverStatus2Standard:
+		return "EnergySaverStatus2Standard"
+	case EnergySaverStatus2HighSavings:
+		return "EnergySaverStatus2HighSavings"
+	default:
+		return fmt.Sprintf("EnergySaverStatus2(%d)", int32(e))
+	}
+}
+
 // PowerSupplyStatus is Windows.System.Power.PowerSupplyStatus.
 type PowerSupplyStatus int32
 
