@@ -2,3 +2,5 @@ github.com/deploymenttheory/go-bindings-win32 v0.2.1 h1:mApZJdaGj636R5lLwSPIIdA+
 github.com/deploymenttheory/go-bindings-win32 v0.2.1/go.mod h1:UCwSCOc2LcmtnGEQFuhyDZ9pFjMdpxvOhR4MsjOji94=
 github.com/deploymenttheory/go-winmd v0.3.0 h1:yi8Xl6UD957ND8vd+OA30PY5KXP30Jyii0YxXpDBoNI=
 github.com/deploymenttheory/go-winmd v0.3.0/go.mod h1:NCfBjdOlOObVRHJ9afmVsTWlAEhvMD8MIXpnph3caxY=
+github.com/deploymenttheory/go-winmd v0.4.0 h1:snHk08j1NJZl7ZFzVdsYDNWnDCCdNu+wAEmMuP3F3RA=
+github.com/deploymenttheory/go-winmd v0.4.0/go.mod h1:NCfBjdOlOObVRHJ9afmVsTWlAEhvMD8MIXpnph3caxY=

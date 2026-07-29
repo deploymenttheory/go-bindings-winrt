@@ -23,6 +23,23 @@ func (self *Deferral) AsClosable() (*IClosable, error) {
 	return winrt.QueryInterface[IClosable](unsafe.Pointer(self), &IID_IClosable)
 }
 
+// Create constructs a Windows.Foundation.Deferral instance through
+// Windows.Foundation.IDeferralFactory.Create. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func Create(handler *DeferralCompletedHandler) (*Deferral, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.Foundation.Deferral", &IID_IDeferralFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IDeferralFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.Create(handler)
+	if err != nil {
+		return nil, err
+	}
+	return (*Deferral)(unsafe.Pointer(instance)), nil
+}
+
 // GuidHelperStatics returns the Windows.Foundation.IGuidHelperStatics statics of the
 // Windows.Foundation.GuidHelper runtime class. The activation factory is queried for
 // the statics IID directly, so the returned reference (owned by the caller;
@@ -48,10 +65,10 @@ func (self *MemoryBuffer) AsClosable() (*IClosable, error) {
 	return winrt.QueryInterface[IClosable](unsafe.Pointer(self), &IID_IClosable)
 }
 
-// Create constructs a Windows.Foundation.MemoryBuffer instance through
+// CreateMemoryBuffer constructs a Windows.Foundation.MemoryBuffer instance through
 // Windows.Foundation.IMemoryBufferFactory.Create. The activation factory is fetched
 // per call (a factory cache is a future optimization).
-func Create(capacity uint32) (*MemoryBuffer, error) {
+func CreateMemoryBuffer(capacity uint32) (*MemoryBuffer, error) {
 	factoryUnknown, err := winrt.GetActivationFactory("Windows.Foundation.MemoryBuffer", &IID_IMemoryBufferFactory)
 	if err != nil {
 		return nil, err

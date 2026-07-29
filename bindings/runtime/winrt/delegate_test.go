@@ -3,6 +3,7 @@
 package winrt
 
 import (
+	"runtime"
 	"slices"
 	"syscall"
 	"testing"
@@ -82,9 +83,128 @@ func TestDelegateVtableDispatch(t *testing.T) {
 
 func TestDelegateParamCountBounds(t *testing.T) {
 	iid := MustGUID("64e12a45-973b-4a3a-b260-91898a49a82c")
-	for _, n := range []int{0, 4} {
+	for _, n := range []int{-1, 4} {
 		if _, err := NewDelegate(iid, n, func([]uintptr) uintptr { return 0 }); err == nil {
 			t.Errorf("NewDelegate(%d params) succeeded, want error", n)
 		}
+	}
+}
+
+// TestDelegateZeroParams covers the parameterless Invoke shape.
+// DispatcherQueueHandler has one, and it is the delegate every TryEnqueue
+// takes — without it there is no way to marshal work onto a UI thread.
+func TestDelegateZeroParams(t *testing.T) {
+	iid := MustGUID("2e0872a9-4e29-5f14-b688-fb96d5f9d5f8")
+	invoked := 0
+	var got []uintptr
+	d, err := NewDelegate(iid, 0, func(args []uintptr) uintptr {
+		invoked++
+		got = slices.Clone(args)
+		return 0
+	})
+	if err != nil {
+		t.Fatalf("NewDelegate(0 params): %v", err)
+	}
+	defer d.Release()
+
+	if hr := call(t, d, 3); hr != 0 {
+		t.Fatalf("Invoke HRESULT = %#x", hr)
+	}
+	if invoked != 1 {
+		t.Fatalf("handler ran %d times, want 1", invoked)
+	}
+	if len(got) != 0 {
+		t.Fatalf("Invoke args = %#v, want none", got)
+	}
+}
+
+// TestDelegateInlineThread pins the affinity contract SetInlineThread exists
+// for: on the declared thread the handler must observe the invoking thread,
+// not a goroutine the scheduler chose. XAML keys its state to the UI thread,
+// so a handler that ran anywhere else could not legally touch it.
+func TestDelegateInlineThread(t *testing.T) {
+	iid := MustGUID("64e12a45-973b-4a3a-b260-91898a49a82c")
+
+	runtime.LockOSThread()
+	defer runtime.UnlockOSThread()
+	callerTID := CurrentThreadID()
+
+	var handlerTID uint32
+	d, err := NewDelegate(iid, 1, func([]uintptr) uintptr {
+		handlerTID = CurrentThreadID()
+		return 0
+	})
+	if err != nil {
+		t.Fatalf("NewDelegate: %v", err)
+	}
+	defer d.Release()
+
+	// Default: the body is handed to a fresh goroutine, so it is not
+	// guaranteed to observe the invoking thread.
+	if hr := call(t, d, 3, 0); hr != 0 {
+		t.Fatalf("Invoke HRESULT = %#x", hr)
+	}
+
+	SetInlineThread(callerTID)
+	defer SetInlineThread(0)
+
+	handlerTID = 0
+	if hr := call(t, d, 3, 0); hr != 0 {
+		t.Fatalf("inline Invoke HRESULT = %#x", hr)
+	}
+	if handlerTID != callerTID {
+		t.Fatalf("handler ran on thread %d, want the invoking thread %d", handlerTID, callerTID)
+	}
+}
+
+// TestDelegateInlineThreadOtherThread confirms the declaration is scoped to
+// the named thread: a callback arriving elsewhere still takes the goroutine
+// hop, so declaring a UI thread does not change dispatch for the rest of the
+// process.
+func TestDelegateInlineThreadOtherThread(t *testing.T) {
+	iid := MustGUID("64e12a45-973b-4a3a-b260-91898a49a82c")
+
+	// Declare a thread id that is not the one invoking below.
+	SetInlineThread(^uint32(0))
+	defer SetInlineThread(0)
+
+	var handlerTID uint32
+	d, err := NewDelegate(iid, 1, func([]uintptr) uintptr {
+		handlerTID = CurrentThreadID()
+		return 0
+	})
+	if err != nil {
+		t.Fatalf("NewDelegate: %v", err)
+	}
+	defer d.Release()
+
+	if hr := call(t, d, 3, 0); hr != 0 {
+		t.Fatalf("Invoke HRESULT = %#x", hr)
+	}
+	if handlerTID == 0 {
+		t.Fatal("handler did not run")
+	}
+}
+
+// TestDelegateInlineReleasedFails keeps the released-delegate guard on the
+// inline path: it must fail cleanly there exactly as it does on the parked
+// path, rather than calling into a dead handler.
+func TestDelegateInlineReleasedFails(t *testing.T) {
+	iid := MustGUID("64e12a45-973b-4a3a-b260-91898a49a82c")
+
+	runtime.LockOSThread()
+	defer runtime.UnlockOSThread()
+	SetInlineThread(CurrentThreadID())
+	defer SetInlineThread(0)
+
+	d, err := NewDelegate(iid, 1, func([]uintptr) uintptr { return 0 })
+	if err != nil {
+		t.Fatalf("NewDelegate: %v", err)
+	}
+	if refs := d.Release(); refs != 0 {
+		t.Fatalf("final Release = %d, want 0", refs)
+	}
+	if hr := call(t, d, 3, 0); hr == 0 {
+		t.Fatal("inline Invoke after release succeeded")
 	}
 }

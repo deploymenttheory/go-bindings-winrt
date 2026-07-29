@@ -38,8 +38,17 @@ go run ./examples/calendar                # the vertical, end to end
 ## Architecture
 
 - **`bindings/runtime/winrt/`** — the hand-written runtime layer:
-  - `init.go` — process-wide `Initialize()` (MTA once-guard;
-    RPC_E_CHANGED_MODE tolerated), `Uninitialize()`.
+  - `init.go` — per-thread `Initialize()` (MTA; RPC_E_CHANGED_MODE
+    tolerated), `Uninitialize()`. Apartment init is per-THREAD, so this
+    cannot be a process-wide `sync.Once`: a Once consumed by whichever
+    thread activated first left every later thread uninitialized, and that
+    thread's first activation failed with CO_E_NOTINITIALIZED.
+    `CoGetApartmentType` is the side-effect-free probe — RoInitialize's
+    "already initialized" answer is the SUCCESS code S_FALSE,
+    indistinguishable through a binding that maps every success to a nil
+    error, and it takes a reference that would then need balancing. A
+    thread that already has an apartment keeps it, which is what lets an
+    apartment-affine caller enter an STA first.
   - `hstring.go` — `HString` RAII input wrapper (`NewHString`/`Raw`/`Close`),
     `HStringToString` (length-honoring read; embedded NULs legal; null
     handle = ""), `TakeHString` (read + delete — the `[out, retval]`
@@ -53,9 +62,21 @@ go run ./examples/calendar                # the vertical, end to end
     code uses struct literals).
   - `delegate.go` — Go-implemented WinRT delegates (`NewDelegate`): a
     4-slot COM object over shared `syscall.NewCallback` trampolines (one
-    set per Invoke arity, 1–3 raw ABI words), a pin registry keyed by the
+    set per Invoke arity, 0–3 raw ABI words), a pin registry keyed by the
     native `this` word, and QI answering the delegate IID + IUnknown +
     IAgileObject. Live-proven by event registration in `acceptance/`.
+    Arity 0 is not a degenerate case to skip: `DispatcherQueueHandler` —
+    the delegate every `TryEnqueue` takes, and so the only way to marshal
+    work onto a UI thread — has a parameterless Invoke.
+    `SetInlineThread(tid)` declares an OS thread whose Invoke bodies run
+    synchronously on the invoking thread instead of the usual fresh
+    goroutine. Apartment-affine frameworks need it: XAML keys its state to
+    the UI thread and generated bindings dispatch straight through vtable
+    slots with no proxy, so a handler parked onto another goroutine could
+    not legally touch the objects it was handed. Safe for the same reason
+    `dispatchInspectable`'s worker-reentry path is, plus the OutParam
+    heap-escape invariant that already closed the stack-growth hazard the
+    goroutine hop existed for. The caller owns `runtime.LockOSThread`.
   - `async.go` — `AsyncError(status, hresult int32) error`, the
     terminal-failure error generated `Await` methods return: names the
     AsyncStatus and wraps the IAsyncInfo error code as a `win32.HRESULT`
@@ -171,7 +192,7 @@ go run ./examples/calendar                # the vertical, end to end
   words to typed callback arguments (pointers are BORROWED for the
   callback's duration, HSTRINGs read without consuming). Events whose
   delegate cannot be adapted (float/struct/array params, an Invoke return,
-  or a param count outside 1–3) skip with `event-delegate-unloweable`.
+  or a param count outside 0–3) skip with `event-delegate-unloweable`.
   Delegate-typed method PARAMS ARE emitted through the same grounding (same
   adaptability rules): an adaptable delegate param lowers to
   `handler *<Handler>` passing `handler.Ptr()` (nil passes NULL); an

@@ -165,7 +165,17 @@ type IDeferralFactory struct {
 // IID_IDeferralFactory is the interface identifier for IDeferralFactory.
 var IID_IDeferralFactory = win32.GUID{Data1: 0x65a1ecc5, Data2: 0x3fb5, Data3: 0x4832, Data4: [8]byte{0x8c, 0xa9, 0xf0, 0x61, 0xb2, 0x81, 0xd1, 0x3a}}
 
-// slot 6: Create skipped: delegate Windows.Foundation.DeferralCompletedHandler
+// Create dispatches through IDeferralFactory's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IDeferralFactory) Create(handler *DeferralCompletedHandler) (*IDeferral, error) {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	result := new(*IDeferral)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler, uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // IGetActivationFactory is the WinRT interface Windows.Foundation.IGetActivationFactory.
 // IID: 4edb8ee2-96dd-49a7-94f7-4607ddab8e3c

@@ -622,6 +622,38 @@ func (h *AsyncOperationCompletedHandlerOfUserAgeConsentResult) Ptr() uintptr { r
 // the runtime keeps its own references while the handler stays registered.
 func (h *AsyncOperationCompletedHandlerOfUserAgeConsentResult) Close() { h.delegate.Release() }
 
+// DispatcherQueueHandler is a Go-implemented handler for the WinRT delegate
+// Windows.System.DispatcherQueueHandler.
+// IID: dfa2dc9c-1a2d-4917-98f2-939af1d6e0c8
+type DispatcherQueueHandler struct {
+	delegate *winrt.Delegate
+}
+
+// IID_DispatcherQueueHandler is the delegate identifier for DispatcherQueueHandler.
+var IID_DispatcherQueueHandler = win32.GUID{Data1: 0xdfa2dc9c, Data2: 0x1a2d, Data3: 0x4917, Data4: [8]byte{0x98, 0xf2, 0x93, 0x9a, 0xf1, 0xd6, 0xe0, 0xc8}}
+
+// NewDispatcherQueueHandler wraps fn as a COM-callable Windows.System.DispatcherQueueHandler.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+func NewDispatcherQueueHandler(fn func()) (*DispatcherQueueHandler, error) {
+	delegate, err := winrt.NewDelegate(IID_DispatcherQueueHandler, 0, func(raw []uintptr) uintptr {
+		fn()
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &DispatcherQueueHandler{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *DispatcherQueueHandler) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *DispatcherQueueHandler) Close() { h.delegate.Release() }
+
 // EventHandlerOfAppMemoryUsageLimitChangingEventArgs is a Go-implemented handler for the WinRT delegate
 // Windows.Foundation.EventHandler`1<Windows.System.AppMemoryUsageLimitChangingEventArgs>.
 // IID: 6030e7c3-f93f-5e9c-9ba2-9a018d2b09c0

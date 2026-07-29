@@ -999,9 +999,29 @@ func (self *IDispatcherQueue) CreateTimer() (*IDispatcherQueueTimer, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 7: TryEnqueue skipped: delegate Windows.System.DispatcherQueueHandler
+// TryEnqueue dispatches through IDispatcherQueue's vtable slot 7.
+// A nil callback passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IDispatcherQueue) TryEnqueue(callback *DispatcherQueueHandler) (bool, error) {
+	_callback := uintptr(0)
+	if callback != nil {
+		_callback = callback.Ptr()
+	}
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), _callback, uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
 
-// slot 8: TryEnqueue skipped: delegate Windows.System.DispatcherQueueHandler
+// TryEnqueueWithPriority dispatches through IDispatcherQueue's vtable slot 8.
+// A nil callback passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IDispatcherQueue) TryEnqueueWithPriority(priority DispatcherQueuePriority, callback *DispatcherQueueHandler) (bool, error) {
+	_callback := uintptr(0)
+	if callback != nil {
+		_callback = callback.Ptr()
+	}
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(priority), _callback, uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
 
 // AddShutdownStarting (event add add_ShutdownStarting) dispatches through IDispatcherQueue's vtable slot 9.
 // The handler stays registered (and referenced by the runtime) until the

@@ -10,6 +10,7 @@ import (
 	"unsafe"
 
 	win32 "github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
+	systemthreading "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/threading"
 )
 
 // Delegate is a Go-implemented WinRT delegate: a minimal COM object whose
@@ -83,6 +84,9 @@ var (
 			p0: unsafe.Pointer(this),
 		})
 	})
+	callbackInvoke0 = syscall.NewCallback(func(this *Delegate) uintptr {
+		return dispatchInvoke(this)
+	})
 	callbackInvoke1 = syscall.NewCallback(func(this *Delegate, a uintptr) uintptr {
 		return dispatchInvoke(this, a)
 	})
@@ -94,8 +98,12 @@ var (
 	})
 )
 
-// One immutable vtable per Invoke arity, shared across instances.
+// One immutable vtable per Invoke arity, shared across instances. Arity 0 is
+// not a degenerate case to skip: DispatcherQueueHandler — the delegate every
+// TryEnqueue takes, and so the only way to marshal work onto a UI thread —
+// has a parameterless Invoke.
 var delegateVtbls = [4][4]uintptr{
+	0: {callbackQI, callbackAddRef, callbackRelease, callbackInvoke0},
 	1: {callbackQI, callbackAddRef, callbackRelease, callbackInvoke1},
 	2: {callbackQI, callbackAddRef, callbackRelease, callbackInvoke2},
 	3: {callbackQI, callbackAddRef, callbackRelease, callbackInvoke3},
@@ -103,12 +111,12 @@ var delegateVtbls = [4][4]uintptr{
 
 // NewDelegate creates a delegate for the given IID whose Invoke receives
 // paramCount raw ABI words (the delegate's logical parameters, after the
-// implicit this; 1–3 supported). invoke returns an HRESULT — return 0 for
+// implicit this; 0–3 supported). invoke returns an HRESULT — return 0 for
 // success. The delegate starts with one reference owned by the caller;
 // Release it when no native code can still hold it.
 func NewDelegate(iid win32.GUID, paramCount int, invoke func(args []uintptr) uintptr) (*Delegate, error) {
-	if paramCount < 1 || paramCount > 3 {
-		return nil, fmt.Errorf("winrt: delegate with %d params unsupported (1-3)", paramCount)
+	if paramCount < 0 || paramCount > 3 {
+		return nil, fmt.Errorf("winrt: delegate with %d params unsupported (0-3)", paramCount)
 	}
 	// The delegate's QI/AddRef/Release trampolines stage onto the shared
 	// worker (see inspectable.go); make sure it — and the deadlock-detector
@@ -174,11 +182,49 @@ func delegateRelease(this *Delegate) uintptr {
 	return uintptr(remaining)
 }
 
+// inlineInvokeTID, when non-zero, names the OS thread on which Invoke bodies
+// run on the invoking thread instead of a fresh goroutine. Zero — the
+// default — means every handler takes the goroutine hop.
+var inlineInvokeTID atomic.Uint32
+
+// SetInlineThread declares an OS thread whose delegate Invoke bodies must run
+// synchronously, on the thread the framework invoked them from, rather than
+// being handed to a fresh goroutine. Pass 0 to clear.
+//
+// Apartment-affine frameworks require this. XAML holds its state in
+// thread-local storage keyed to the UI thread, and generated bindings dispatch
+// straight through vtable slots with no COM proxy in between, so a handler
+// that touches a XAML object from any other thread is an unmarshalled
+// cross-apartment call — RPC_E_WRONG_THREAD at best. Parking on a goroutine
+// loses the very affinity the framework demands.
+//
+// The caller is responsible for runtime.LockOSThread on the declared thread:
+// the goroutine must stay put for its id to keep meaning what it said. This
+// is the same shape dispatchInspectable already uses for worker-thread
+// reentry, and it is safe for the same reason plus one more — the stack-growth
+// hazard that motivated the goroutine hop is closed on the caller side, where
+// every native-written out-param is heap-escaped through OutParam (see
+// outparam.go), so a body growing this thread's stack strands nothing.
+func SetInlineThread(tid uint32) { inlineInvokeTID.Store(tid) }
+
+// CurrentThreadID is the calling goroutine's current OS thread id, for
+// pairing with SetInlineThread.
+func CurrentThreadID() uint32 { return systemthreading.GetCurrentThreadId() }
+
 // dispatchInvoke runs the user handler on a fresh goroutine and parks the
 // callback goroutine until it finishes: the handler's stack can grow (and
 // nest further WinRT calls) without ever moving the frames a surrounding
 // native call may still point into.
+//
+// On a thread declared by SetInlineThread the body runs INLINE instead,
+// because thread identity is the thing the caller is protecting.
 func dispatchInvoke(this *Delegate, args ...uintptr) uintptr {
+	if tid := inlineInvokeTID.Load(); tid != 0 && tid == systemthreading.GetCurrentThreadId() {
+		if !registered(this) {
+			return eFail // invoked after release
+		}
+		return this.invoke(args)
+	}
 	done := make(chan uintptr, 1)
 	go func() {
 		if !registered(this) {

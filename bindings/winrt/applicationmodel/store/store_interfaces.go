@@ -461,9 +461,21 @@ func (self *ILicenseInformation) ExpirationDate() (foundation.DateTime, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 10: add_LicenseChanged skipped: Windows.ApplicationModel.Store.LicenseChangedEventHandler Invoke has 0 parameters (1-3 supported)
+// AddLicenseChanged (event add add_LicenseChanged) dispatches through ILicenseInformation's vtable slot 10.
+// The handler stays registered (and referenced by the runtime) until the
+// returned token is passed to RemoveLicenseChanged.
+func (self *ILicenseInformation) AddLicenseChanged(handler *LicenseChangedEventHandler) (syswinrt.EventRegistrationToken, error) {
+	result := new(syswinrt.EventRegistrationToken)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), handler.Ptr(), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
-// slot 11: remove_LicenseChanged skipped: Windows.ApplicationModel.Store.LicenseChangedEventHandler Invoke has 0 parameters (1-3 supported)
+// RemoveLicenseChanged (event remove remove_LicenseChanged) dispatches through ILicenseInformation's vtable slot 11,
+// unregistering the LicenseChanged handler the token was returned for.
+func (self *ILicenseInformation) RemoveLicenseChanged(token syswinrt.EventRegistrationToken) error {
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(token.Value))
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // IListingInformation is the WinRT interface Windows.ApplicationModel.Store.IListingInformation.
 // IID: 588b4abf-bc74-4383-b78c-99606323dece

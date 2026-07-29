@@ -261,7 +261,7 @@ func TestEventAccessorEmission(t *testing.T) {
 	// Diagnostics: the unloweable reasons are keyed event-delegate-unloweable.
 	diagnostics := strings.Join(generator.Diagnostics, "\n")
 	for _, want := range []string{
-		"event-delegate-unloweable: Windows.Test.IThing.add_Wide (Windows.Test.WideHandler Invoke has 4 parameters (1-3 supported))",
+		"event-delegate-unloweable: Windows.Test.IThing.add_Wide (Windows.Test.WideHandler Invoke has 4 parameters (0-3 supported))",
 		"event-delegate-unloweable: Windows.Test.IThing.add_Scaled (Windows.Test.FloatHandler Invoke parameter value (float64) has no adapter conversion)",
 		"event-delegate-unloweable: Windows.Test.IThing.add_Ret (Windows.Test.ReturningHandler Invoke returns a value)",
 		"event-skipped: Windows.Test.IThing.add_Orphan (no event metadata pairs this accessor)",

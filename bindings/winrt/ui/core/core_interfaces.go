@@ -345,7 +345,17 @@ func (self *ICoreDispatcher) ProcessEvents(options CoreProcessEventsOption) erro
 	return win32.ErrIfFailed(int32(r1))
 }
 
-// slot 8: RunAsync skipped: delegate Windows.UI.Core.DispatchedHandler
+// RunAsync dispatches through ICoreDispatcher's vtable slot 8.
+// A nil agileCallback passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *ICoreDispatcher) RunAsync(priority CoreDispatcherPriority, agileCallback *DispatchedHandler) (*foundation.IAsyncAction, error) {
+	_agileCallback := uintptr(0)
+	if agileCallback != nil {
+		_agileCallback = agileCallback.Ptr()
+	}
+	result := new(*foundation.IAsyncAction)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(priority), _agileCallback, uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // RunIdleAsync dispatches through ICoreDispatcher's vtable slot 9.
 // A nil agileCallback passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
@@ -369,7 +379,17 @@ type ICoreDispatcher2 struct {
 // IID_ICoreDispatcher2 is the interface identifier for ICoreDispatcher2.
 var IID_ICoreDispatcher2 = win32.GUID{Data1: 0x6f5e63c7, Data2: 0xe3aa, Data3: 0x4eae, Data4: [8]byte{0xb0, 0xe0, 0xdc, 0xf3, 0x21, 0xca, 0x4b, 0x2f}}
 
-// slot 6: TryRunAsync skipped: delegate Windows.UI.Core.DispatchedHandler
+// TryRunAsync dispatches through ICoreDispatcher2's vtable slot 6.
+// A nil agileCallback passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *ICoreDispatcher2) TryRunAsync(priority CoreDispatcherPriority, agileCallback *DispatchedHandler) (*IAsyncOperationOfBool, error) {
+	_agileCallback := uintptr(0)
+	if agileCallback != nil {
+		_agileCallback = agileCallback.Ptr()
+	}
+	result := new(*IAsyncOperationOfBool)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(priority), _agileCallback, uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // TryRunIdleAsync dispatches through ICoreDispatcher2's vtable slot 7.
 // A nil agileCallback passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
