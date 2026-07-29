@@ -1,4 +1,4 @@
-//go:build windows && (amd64 || arm64)
+//go:build windows && amd64
 
 // Command events subscribes a Go function to a WinRT event and watches it
 // fire: IMemoryBufferReference.Closed, whose delegate is the generic
@@ -31,7 +31,7 @@ import (
 func main() {
 	// A MemoryBuffer through its factory constructor, and a reference into
 	// it — the object whose Closed event we subscribe to.
-	buffer, err := foundation.Create(64)
+	buffer, err := foundation.CreateMemoryBuffer(64)
 	if err != nil {
 		log.Fatalf("MemoryBuffer Create: %v", err)
 	}

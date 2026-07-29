@@ -1,4 +1,4 @@
-//go:build windows && (amd64 || arm64)
+//go:build windows && amd64
 
 // Command calendar prints the current date through several WinRT calendar
 // systems plus the system time zone — the Windows.Globalization.Calendar

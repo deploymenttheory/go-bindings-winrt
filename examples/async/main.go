@@ -1,4 +1,4 @@
-//go:build windows && (amd64 || arm64)
+//go:build windows && amd64
 
 // Command async awaits a real WinRT async operation from Go:
 // StorageFile.GetFileFromPathAsync returns an IAsyncOperation<StorageFile>,

@@ -29,13 +29,18 @@ jobs:
       - name: Vet (non-generated packages)
         run: go vet ./cmd/... ./internal/... ./acceptance/ ./bindings/runtime/...
 
-      # amd64 and arm64 share the LLP64 layout, so the same bindings must
-      # compile for both; 386 is deliberately excluded by build constraints.
-      - name: Cross-compile for windows/arm64
-        run: go build ./bindings/...
-        env:
-          GOOS: windows
-          GOARCH: arm64
+      # The module is windows/amd64 only. Go's asm_windows_arm64.s loads
+      # only R0-R7 and never touches V0-V7 (it still carries a "TODO(rsc)
+      # floating point like amd64" note), so on arm64 every float and
+      # homogeneous-float-aggregate argument would be silently corrupted.
+      # Assert the constraint holds rather than cross-compiling for an
+      # architecture the bindings deliberately exclude.
+      - name: Assert amd64-only build constraints
+        run: |
+          if git grep -l 'go:build windows && (amd64 || arm64)' -- '*.go'; then
+            echo "::error::files still claim arm64; see fileasm.GeneratedBuildTag"
+            exit 1
+          fi
 
       - name: Runtime tests (live HSTRING/activation calls)
         run: go test ./bindings/runtime/...

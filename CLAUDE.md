@@ -38,8 +38,17 @@ go run ./examples/calendar                # the vertical, end to end
 ## Architecture
 
 - **`bindings/runtime/winrt/`** — the hand-written runtime layer:
-  - `init.go` — process-wide `Initialize()` (MTA once-guard;
-    RPC_E_CHANGED_MODE tolerated), `Uninitialize()`.
+  - `init.go` — per-thread `Initialize()` (MTA; RPC_E_CHANGED_MODE
+    tolerated), `Uninitialize()`. Apartment init is per-THREAD, so this
+    cannot be a process-wide `sync.Once`: a Once consumed by whichever
+    thread activated first left every later thread uninitialized, and that
+    thread's first activation failed with CO_E_NOTINITIALIZED.
+    `CoGetApartmentType` is the side-effect-free probe — RoInitialize's
+    "already initialized" answer is the SUCCESS code S_FALSE,
+    indistinguishable through a binding that maps every success to a nil
+    error, and it takes a reference that would then need balancing. A
+    thread that already has an apartment keeps it, which is what lets an
+    apartment-affine caller enter an STA first.
   - `hstring.go` — `HString` RAII input wrapper (`NewHString`/`Raw`/`Close`),
     `HStringToString` (length-honoring read; embedded NULs legal; null
     handle = ""), `TakeHString` (read + delete — the `[out, retval]`
@@ -53,9 +62,21 @@ go run ./examples/calendar                # the vertical, end to end
     code uses struct literals).
   - `delegate.go` — Go-implemented WinRT delegates (`NewDelegate`): a
     4-slot COM object over shared `syscall.NewCallback` trampolines (one
-    set per Invoke arity, 1–3 raw ABI words), a pin registry keyed by the
+    set per Invoke arity, 0–3 raw ABI words), a pin registry keyed by the
     native `this` word, and QI answering the delegate IID + IUnknown +
     IAgileObject. Live-proven by event registration in `acceptance/`.
+    Arity 0 is not a degenerate case to skip: `DispatcherQueueHandler` —
+    the delegate every `TryEnqueue` takes, and so the only way to marshal
+    work onto a UI thread — has a parameterless Invoke.
+    `SetInlineThread(tid)` declares an OS thread whose Invoke bodies run
+    synchronously on the invoking thread instead of the usual fresh
+    goroutine. Apartment-affine frameworks need it: XAML keys its state to
+    the UI thread and generated bindings dispatch straight through vtable
+    slots with no proxy, so a handler parked onto another goroutine could
+    not legally touch the objects it was handed. Safe for the same reason
+    `dispatchInspectable`'s worker-reentry path is, plus the OutParam
+    heap-escape invariant that already closed the stack-growth hazard the
+    goroutine hop existed for. The caller owns `runtime.LockOSThread`.
   - `async.go` — `AsyncError(status, hresult int32) error`, the
     terminal-failure error generated `Await` methods return: names the
     AsyncStatus and wraps the IAsyncInfo error code as a `win32.HRESULT`
@@ -171,7 +192,7 @@ go run ./examples/calendar                # the vertical, end to end
   words to typed callback arguments (pointers are BORROWED for the
   callback's duration, HSTRINGs read without consuming). Events whose
   delegate cannot be adapted (float/struct/array params, an Invoke return,
-  or a param count outside 1–3) skip with `event-delegate-unloweable`.
+  or a param count outside 0–3) skip with `event-delegate-unloweable`.
   Delegate-typed method PARAMS ARE emitted through the same grounding (same
   adaptability rules): an adaptable delegate param lowers to
   `handler *<Handler>` passing `handler.Ptr()` (nil passes NULL); an
@@ -203,9 +224,35 @@ go run ./examples/calendar                # the vertical, end to end
   the result as the class — the factory interface itself stays emitted as a
   plain interface. The factory is fetched per call (a cache is a future
   optimization). Open generic types themselves, delegate-returning methods
-  (`get_Completed`), delegate TypeDefs in their home namespace, arrays, and
-  by-value structs wider than one integer word are still skipped with
-  diagnostics.
+  (`get_Completed`), delegate TypeDefs in their home namespace, and arrays
+  are still skipped with diagnostics.
+- **The amd64 ABI** (`internal/codegen/typemap/layout.go`) is what lets
+  floats and by-value structs be emitted rather than skipped:
+  - A float RETURN was never an ABI question at all — a WinRT return is an
+    `[out, retval]` POINTER and the HRESULT is the actual return, so the
+    value comes back through memory on every architecture.
+  - A float PARAMETER travels as its bit pattern in an ordinary argument
+    word (`math.Float64bits`), because Go's `asm_windows_amd64.s` mirrors
+    the first four argument words into XMM0-XMM3 before the call, and
+    arguments five and beyond share one stack slot shape whatever their
+    type.
+  - A by-value AGGREGATE is classified by SIZE alone, per Windows x64: 1,
+    2, 4 or 8 bytes travel in a general purpose register as an integer of
+    that width (a width-exact read of the value's bytes — reading eight out
+    of a four-byte struct would read past it); any other size travels as a
+    pointer to a caller-owned temporary, heap-escaped through
+    `winrt.OutParam` because the stale-stack-pointer hazard is the same in
+    this direction. MSVC never puts an aggregate in an XMM register, so a
+    two-float Point is an 8-byte integer word.
+  - Sizes are COMPUTED, not measured, because the decision is needed at
+    generate time; that is sound because emittable structs hold only
+    scalars, floats, bools, GUIDs, enums and nested structs, which Go lays
+    out exactly as C does. `layout_test.go` pins the arithmetic (tail
+    padding, GUID's 4-byte alignment) and `acceptance/abi_float_struct_test.go`
+    pins the result against live WinRT calls.
+  - Delegate INVOKE signatures keep the float/struct skip: `callbackasm1`
+    saves only CX/DX/R8/R9 and no XMM, so the inbound direction genuinely
+    cannot recover them.
 - **Diagnostics ratchet**: `metadata/diagnostics-baseline.json` is the
   committed degradation set; `bindings --diagnostics-baseline` fails on any
   NEW diagnostic, and CI's regen job enforces byte-identical regeneration
@@ -222,8 +269,16 @@ go run ./examples/calendar                # the vertical, end to end
   from `go-bindings-win32/bindings/win32/system/winrt` (import alias
   `syswinrt`); HRESULT/`ErrIfFailed`, GUID, IUnknown, UTF-16 helpers from
   `go-bindings-win32/bindings/runtime/win32` (alias `win32`).
-- All Windows-facing files carry `//go:build windows && (amd64 || arm64)`
-  (LLP64 pair; 386 excluded).
+- All Windows-facing files carry `//go:build windows && amd64`. arm64 is
+  excluded because Go's `asm_windows_arm64.s` loads only R0-R7 and never
+  touches V0-V7 — it still carries a `TODO(rsc) floating point like amd64`
+  note — so on AArch64/Windows every `double` (passed in V0) and every
+  homogeneous float aggregate (Point, Rect, Vector3, passed in V0-V3) would
+  be silently corrupted. Emitting for arm64 would mean either miscompiling
+  those members or skipping ~2,000 of them on that architecture alone;
+  excluding it is the honest option until Go grows the mirroring. 386 stays
+  excluded for the older reason (32-bit pointers, distinct layouts). CI
+  asserts the constraint instead of cross-compiling.
 
 ## Conventions
 

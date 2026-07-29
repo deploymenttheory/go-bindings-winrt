@@ -1,4 +1,4 @@
-//go:build windows && (amd64 || arm64)
+//go:build windows && amd64
 
 // Command packages queries the installed app packages for the current user
 // through Windows.Management.Deployment.PackageManager and prints the first

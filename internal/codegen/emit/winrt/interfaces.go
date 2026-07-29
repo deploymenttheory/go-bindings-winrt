@@ -263,8 +263,6 @@ func (g *Generator) buildMethod(meta *winrtmeta.NamespaceMeta, interfaceGoName s
 		case typemap.KindUnsupported:
 			s := splitReason(resolved.Reason)
 			return view.MethodModel{}, &s
-		case typemap.KindFloat:
-			return view.MethodModel{}, &skip{key: "float-abi-skipped", detail: fmt.Sprintf("%s return cannot cross SyscallN", resolved.GoType)}
 		case typemap.KindString:
 			model.ReturnKind = view.RetString
 			model.ReturnSig = "(string, error)"
@@ -277,7 +275,11 @@ func (g *Generator) buildMethod(meta *winrtmeta.NamespaceMeta, interfaceGoName s
 			model.ResultDecl = "result := new(byte)"
 			model.ResultExpr = "*result != 0"
 			model.ZeroReturn = "false"
-		case typemap.KindScalar, typemap.KindEnum:
+		case typemap.KindScalar, typemap.KindEnum, typemap.KindFloat:
+			// A WinRT return is an [out, retval] POINTER — the HRESULT is
+			// the actual return — so a float comes back through memory the
+			// callee writes, never through XMM0. Nothing about the lowering
+			// differs from an integer scalar.
 			model.ReturnKind = view.RetValue
 			model.ReturnSig = "(" + resolved.GoType + ", error)"
 			model.ResultDecl = "result := new(" + resolved.GoType + ")"
@@ -320,9 +322,6 @@ func (g *Generator) buildMethod(meta *winrtmeta.NamespaceMeta, interfaceGoName s
 		if resolved.Kind == typemap.KindUnsupported {
 			s := splitReason(resolved.Reason)
 			return view.MethodModel{}, &s
-		}
-		if resolved.Kind == typemap.KindFloat {
-			return view.MethodModel{}, &skip{key: "float-abi-skipped", detail: fmt.Sprintf("%s parameter %s cannot cross SyscallN", resolved.GoType, param.Name)}
 		}
 		if resolved.Kind == typemap.KindDelegatePtr {
 			noteLines = append(noteLines, fmt.Sprintf("A nil %s passes NULL at the ABI (WinRT accepts it where a handler may be cleared).", paramName))
@@ -377,6 +376,45 @@ func lowerOutParam(paramName string, resolved typemap.Resolved) (decl, arg strin
 	return "", "", &skip{key: "out-param-skipped", detail: fmt.Sprintf("out parameter %s not representable", paramName)}
 }
 
+// guidByValueSize is sizeof(win32.GUID): sixteen bytes, so a by-value GUID
+// parameter always takes the by-reference path below.
+const guidByValueSize = 16
+
+// lowerByValueAggregate lowers a by-value struct or GUID parameter under the
+// Windows x64 rule, which keys on SIZE alone: an aggregate of 1, 2, 4 or 8
+// bytes travels in a general purpose register as an integer of that width,
+// and any other size travels as a pointer to a caller-owned temporary.
+// MSVC never puts an aggregate in an XMM register whatever its fields, so a
+// two-float Point is an 8-byte integer word.
+//
+// The inline read is width-exact rather than a blanket 8-byte load: reading
+// eight bytes out of a four-byte struct would read past it.
+//
+// The by-reference temporary goes through winrt.OutParam. That helper is
+// named for the out-param invariant, but the hazard is the same in this
+// direction — a native call can reenter Go on the same goroutine and a
+// concurrent GC may then move the stack, leaving the callee reading freed
+// memory through a stale pointer. Heap-escaping the argument closes it.
+func lowerByValueAggregate(paramName, goType string, size int, taken map[string]bool) (decl string, preamble []string, arg string, skipped *skip) {
+	decl = paramName + " " + goType
+	if typemap.ClassifyAggregate(size) == typemap.ParamByRef {
+		return decl, nil, "uintptr(winrt.OutParam(unsafe.Pointer(&" + paramName + ")))", nil
+	}
+	local := freshLocal("_"+paramName, taken)
+	var read string
+	switch size {
+	case 1:
+		read = "uintptr(*(*uint8)(unsafe.Pointer(&" + paramName + ")))"
+	case 2:
+		read = "uintptr(*(*uint16)(unsafe.Pointer(&" + paramName + ")))"
+	case 4:
+		read = "uintptr(*(*uint32)(unsafe.Pointer(&" + paramName + ")))"
+	default:
+		read = "*(*uintptr)(unsafe.Pointer(&" + paramName + "))"
+	}
+	return decl, []string{local + " := " + read}, local, nil
+}
+
 // lowerInParam lowers one input parameter to its SyscallN argument word,
 // with any conversion preamble (HSTRING inputs, bool → 0/1 words).
 func (g *Generator) lowerInParam(paramName string, param *winrtmeta.Param, resolved typemap.Resolved, taken map[string]bool, errReturn string) (decl string, preamble []string, arg string, skipped *skip) {
@@ -402,20 +440,29 @@ func (g *Generator) lowerInParam(paramName string, param *winrtmeta.Param, resol
 			"defer " + local + ".Close()",
 		}
 		return paramName + " string", preamble, "uintptr(" + local + ".Raw())", nil
+	case typemap.KindFloat:
+		// amd64 asmstdcall mirrors each of the first four argument words
+		// into XMM0-XMM3 before the call, and arguments five and beyond
+		// occupy the same stack slot whatever their type, so a float
+		// travels as its bit pattern in an ordinary argument word.
+		local := freshLocal("_"+paramName, taken)
+		bits := "math.Float64bits"
+		if resolved.GoType == "float32" {
+			// The low 32 bits of the word land in the low 32 bits of the
+			// XMM register, which is exactly where a single is read from.
+			bits = "math.Float32bits"
+		}
+		preamble = []string{local + " := uintptr(" + bits + "(" + paramName + "))"}
+		return paramName + " " + resolved.GoType, preamble, local, nil
 	case typemap.KindStruct:
-		// By-value structs cross SyscallN only when they flatten to a
-		// single integer word (DateTime, TimeSpan).
-		field, ok := g.mapper.SingleIntegerField(resolved.StructNamespace, resolved.StructName)
+		layout, ok := g.mapper.StructLayout(resolved.StructNamespace, resolved.StructName)
 		if !ok {
 			return "", nil, "", &skip{key: "byval-struct-param-skipped",
-				detail: fmt.Sprintf("by-value %s.%s parameter %s does not flatten to one integer word", resolved.StructNamespace, resolved.StructName, paramName)}
+				detail: fmt.Sprintf("by-value %s.%s parameter %s has no computable amd64 layout", resolved.StructNamespace, resolved.StructName, paramName)}
 		}
-		return paramName + " " + resolved.GoType, nil, "uintptr(" + paramName + "." + field + ")", nil
+		return lowerByValueAggregate(paramName, resolved.GoType, layout.Size, taken)
 	case typemap.KindGUID:
-		// 16 bytes by value: two registers on arm64, hidden reference on
-		// amd64 — no single SyscallN lowering covers both.
-		return "", nil, "", &skip{key: "byval-struct-param-skipped",
-			detail: fmt.Sprintf("by-value GUID parameter %s has divergent amd64/arm64 ABIs", paramName)}
+		return lowerByValueAggregate(paramName, resolved.GoType, guidByValueSize, taken)
 	case typemap.KindInterfacePtr, typemap.KindObjectPtr:
 		return paramName + " " + resolved.GoType, nil, "uintptr(unsafe.Pointer(" + paramName + "))", nil
 	case typemap.KindDelegatePtr:

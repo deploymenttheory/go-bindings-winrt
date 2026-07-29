@@ -1,4 +1,4 @@
-//go:build windows && (amd64 || arm64)
+//go:build windows && amd64
 
 // Command mdmpolicy reads the Windows.Management.Workplace MDM allow
 // policies — pure statics reads, no MDM enrollment required. On an unmanaged

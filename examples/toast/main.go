@@ -1,4 +1,4 @@
-//go:build windows && (amd64 || arm64)
+//go:build windows && amd64
 
 // Command toast runs the full toast-notification pipeline: fetch a template
 // XML document from the ToastNotificationManager statics, set its text

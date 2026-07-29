@@ -22,7 +22,7 @@ package emitwinrt
 //
 // An event whose delegate cannot be adapted (Invoke with a return value,
 // [out] or float/struct/array parameters, or an arity outside the delegate
-// runtime's 1–3 raw words) is skipped with an event-delegate-unloweable
+// runtime's 0–3 raw words) is skipped with an event-delegate-unloweable
 // diagnostic; both accessors keep their slot comments.
 
 import (
@@ -207,13 +207,14 @@ func (g *Generator) requestEventDelegate(meta *winrtmeta.NamespaceMeta, ref *win
 // Anything else — floats (which never crossed the raw word intact), structs,
 // arrays, unresolved or unemittable types — makes the event unloweable, as
 // does an Invoke with a return value, an [out] parameter, or a parameter
-// count outside the delegate runtime's 1–3 raw words.
+// count outside the delegate runtime's 0–3 raw words. A parameterless Invoke
+// lowers fine: the handler constructor simply takes a func().
 func (g *Generator) buildDelegateModel(meta *winrtmeta.NamespaceMeta, fullName, goName, iid string, invoke *winrtmeta.Method) (view.DelegateModel, *skip) {
 	if invoke.Return != nil {
 		return view.DelegateModel{}, eventUnloweable("%s Invoke returns a value", fullName)
 	}
-	if len(invoke.Params) < 1 || len(invoke.Params) > 3 {
-		return view.DelegateModel{}, eventUnloweable("%s Invoke has %d parameters (1-3 supported)", fullName, len(invoke.Params))
+	if len(invoke.Params) > 3 {
+		return view.DelegateModel{}, eventUnloweable("%s Invoke has %d parameters (0-3 supported)", fullName, len(invoke.Params))
 	}
 	literal, err := guidLiteral(iid)
 	if err != nil {

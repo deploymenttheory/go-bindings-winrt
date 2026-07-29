@@ -51,7 +51,7 @@ type Kind uint8
 const (
 	KindVoid         Kind = iota // no value (returns only)
 	KindScalar                   // integer scalar (incl. Char16 → uint16)
-	KindFloat                    // float32/float64 — cannot cross SyscallN by value
+	KindFloat                    // float32/float64; crosses SyscallN as a bit pattern (layout.go)
 	KindBool                     // Go bool; one byte at the WinRT ABI
 	KindString                   // Go string; syswinrt.HSTRING at the ABI
 	KindGUID                     // win32.GUID by value
@@ -119,6 +119,9 @@ type Mapper struct {
 
 	// structEmittable memoizes the per-struct emittability decision.
 	structEmittable map[string]bool
+
+	// structLayout memoizes the per-struct amd64 layout (see layout.go).
+	structLayout map[string]layoutResult
 }
 
 // externalTypes are Windows.Foundation types that are NEVER emitted: they
@@ -328,27 +331,6 @@ func (m *Mapper) StructEmittable(namespace, name string) bool {
 	}
 	m.structEmittable[key] = verdict
 	return verdict
-}
-
-// SingleIntegerField returns the field selector for a struct that flattens
-// to exactly one integer field of at most eight bytes — the only struct
-// shape a by-value parameter can take through SyscallN (DateTime, TimeSpan).
-func (m *Mapper) SingleIntegerField(namespace, name string) (string, bool) {
-	if namespace+"."+name == "Windows.Foundation.EventRegistrationToken" {
-		return "Value", true
-	}
-	definition := m.Registry.Struct(namespace, name)
-	if definition == nil || len(definition.Fields) != 1 {
-		return "", false
-	}
-	field := &definition.Fields[0]
-	if field.Type.Kind != "Native" {
-		return "", false
-	}
-	if _, ok := nativeScalars[field.Type.Name]; !ok {
-		return "", false
-	}
-	return naming.Export(field.Name), true
 }
 
 // ImportPathFor returns the Go import path of the package that carries the

@@ -1,4 +1,4 @@
-//go:build windows && (amd64 || arm64)
+//go:build windows && amd64
 
 // Package acceptance exercises the bindings against the live Windows
 // Runtime. These tests make real WinRT calls; they are the ground truth

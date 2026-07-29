@@ -1,4 +1,4 @@
-//go:build windows && (amd64 || arm64)
+//go:build windows && amd64
 
 // Command speech enumerates the installed text-to-speech voices, then
 // synthesizes a short phrase to an in-memory audio stream and reports its

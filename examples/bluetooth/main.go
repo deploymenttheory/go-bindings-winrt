@@ -1,4 +1,4 @@
-//go:build windows && (amd64 || arm64)
+//go:build windows && amd64
 
 // Command bluetooth reads the default Bluetooth adapter's capabilities and —
 // when the host has a powered-on BLE-capable radio — runs a ~3 second BLE
