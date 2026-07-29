@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.4.0](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.3.0...v0.4.0) (2026-07-29)
+
+
+### Features
+
+* **abi:** emit float and by-value struct members, restricting to amd64 ([768201f](https://github.com/deploymenttheory/go-bindings-winrt/commit/768201f7fcbe807acb769c3a07a0d0bd1c242183))
+* **runtime:** per-thread apartment init, inline delegate dispatch, arity-0 delegates ([c304676](https://github.com/deploymenttheory/go-bindings-winrt/commit/c3046764a2692d17d6a1e9064bed7d612e93058d))
+* UI-thread affinity, per-thread COM init, and the amd64 float/struct ABI ([9969c49](https://github.com/deploymenttheory/go-bindings-winrt/commit/9969c493a8243b92f65d970c9654416ae2c5f056))
+
 ## [0.3.0](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.2.0...v0.3.0) (2026-07-16)
 
 
