@@ -327,6 +327,7 @@ func (g *Generator) writeFile(dir, fileName, packageName string, imports typemap
 	for alias, path := range map[string]string{
 		"unsafe":   "unsafe",
 		"syscall":  "syscall",
+		"math":     "math",
 		"win32":    typemap.Win32RuntimeImport,
 		"syswinrt": typemap.SysWinRTImport,
 		"winrt":    g.mapper.RuntimeImportPath(),

@@ -1,4 +1,4 @@
-//go:build windows && (amd64 || arm64)
+//go:build windows && amd64
 
 // Command events subscribes a Go function to a WinRT event and watches it
 // fire: IMemoryBufferReference.Closed, whose delegate is the generic

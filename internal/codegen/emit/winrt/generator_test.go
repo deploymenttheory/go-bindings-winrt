@@ -129,11 +129,11 @@ func TestMethodLowering(t *testing.T) {
 		}
 	}
 
-	// Skip comments hold their slots in order.
+	// Skip comments hold their slots in order. Move (an 8-byte by-value
+	// Point) and GetRatio (a float64 retval) are no longer among them: the
+	// first travels as an integer word, the second through an out-pointer.
 	for i, want := range map[int]string{
 		1: "slot 7: get_Languages skipped:",
-		5: "slot 11: Move skipped:",
-		6: "slot 12: GetRatio skipped:",
 		7: "slot 13: add_Changed skipped:",
 	} {
 		if !strings.HasPrefix(model.Methods[i].SkipComment, want) {
@@ -148,10 +148,24 @@ func TestMethodLowering(t *testing.T) {
 		getName.ResultExpr != "winrt.TakeHString(*result)" {
 		t.Errorf("GetName lowering = %+v", getName)
 	}
-	// By-value single-word struct flattens to its field.
+	// An 8-byte by-value struct travels as one integer word, read from the
+	// value's own bytes rather than from a named field — which is what lets
+	// multi-field structs like Point cross at all.
 	setWhen := byName["SetWhen"]
-	if len(setWhen.ArgExprs) != 1 || setWhen.ArgExprs[0] != "uintptr(value.UniversalTime)" {
-		t.Errorf("SetWhen args = %v", setWhen.ArgExprs)
+	if len(setWhen.ArgExprs) != 1 || setWhen.ArgExprs[0] != "_value" ||
+		strings.Join(setWhen.Preamble, "\n") != "_value := *(*uintptr)(unsafe.Pointer(&value))" {
+		t.Errorf("SetWhen lowering: args=%v preamble=%v", setWhen.ArgExprs, setWhen.Preamble)
+	}
+	// Point is two float32s: 8 bytes, so it takes the same inline path.
+	move := byName["Move"]
+	if len(move.ArgExprs) != 1 || move.ArgExprs[0] != "_point" ||
+		strings.Join(move.Preamble, "\n") != "_point := *(*uintptr)(unsafe.Pointer(&point))" {
+		t.Errorf("Move lowering: args=%v preamble=%v", move.ArgExprs, move.Preamble)
+	}
+	// A float64 return is an [out, retval] pointer like any other scalar.
+	getRatio := byName["GetRatio"]
+	if getRatio.ReturnSig != "(float64, error)" || getRatio.ResultDecl != "result := new(float64)" {
+		t.Errorf("GetRatio lowering = %+v", getRatio)
 	}
 	// Bool retval reads a heap-allocated byte.
 	isEnabled := byName["IsEnabled"]
@@ -173,7 +187,7 @@ func TestMethodLowering(t *testing.T) {
 
 	// Diagnostics carry the ratchet keys.
 	diagnostics := strings.Join(generator.Diagnostics, "\n")
-	for _, key := range []string{"generic-member-skipped", "byval-struct-param-skipped", "float-abi-skipped", "event-skipped"} {
+	for _, key := range []string{"generic-member-skipped", "event-skipped"} {
 		if !strings.Contains(diagnostics, key) {
 			t.Errorf("diagnostics missing key %s: %v", key, generator.Diagnostics)
 		}
@@ -218,8 +232,25 @@ func TestMethodBodyHeapEscapesOutParams(t *testing.T) {
 	if !strings.Contains(body, "result := new(byte)") || !strings.Contains(body, "return *result != 0, win32.ErrIfFailed(int32(r1))") {
 		t.Errorf("rendered body missing the heap-escaped bool retval shape:\n%s", body)
 	}
-	// No method may ever pass a stack local's address to native code.
-	if strings.Contains(body, "unsafe.Pointer(&") {
+	// No method may ever hand a stack local's address to native code. Two
+	// forms take an address without handing one over; they are stripped
+	// before the check rather than exempted from the invariant:
+	//   - *(*T)(unsafe.Pointer(&x)) reads x's bytes inline for a by-value
+	//     aggregate argument — the pointer is dereferenced on the spot and
+	//     never reaches the callee.
+	//   - winrt.OutParam(unsafe.Pointer(&x)) IS the escape hatch: it forces
+	//     x onto the heap, which is what makes passing the pointer safe.
+	residue := body
+	for _, safe := range []string{
+		"*(*uintptr)(unsafe.Pointer(&",
+		"*(*uint8)(unsafe.Pointer(&",
+		"*(*uint16)(unsafe.Pointer(&",
+		"*(*uint32)(unsafe.Pointer(&",
+		"winrt.OutParam(unsafe.Pointer(&",
+	} {
+		residue = strings.ReplaceAll(residue, safe, "")
+	}
+	if strings.Contains(residue, "unsafe.Pointer(&") {
 		t.Errorf("rendered body passes a stack address to SyscallN:\n%s", body)
 	}
 }

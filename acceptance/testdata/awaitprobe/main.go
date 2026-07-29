@@ -1,4 +1,4 @@
-//go:build windows && (amd64 || arm64)
+//go:build windows && amd64
 
 // Command awaitprobe is the checkdead regression probe: a minimal program
 // whose ONLY pending wake-up during Await is the WinRT completion callback.
