@@ -36,6 +36,10 @@ jobs:
       # Assert the constraint holds rather than cross-compiling for an
       # architecture the bindings deliberately exclude.
       - name: Assert amd64-only build constraints
+        # windows-latest defaults to PowerShell, where this bash `if` is a parse
+        # error — so the assertion had never actually run, and the step failed on
+        # every push instead of checking anything.
+        shell: bash
         run: |
           if git grep -l 'go:build windows && (amd64 || arm64)' -- '*.go'; then
             echo "::error::files still claim arm64; see fileasm.GeneratedBuildTag"
