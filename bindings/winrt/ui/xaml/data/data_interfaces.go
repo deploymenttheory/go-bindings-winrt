@@ -12,6 +12,7 @@ import (
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
+	uixamlinterop "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/interop"
 )
 
 // IBinding is the WinRT interface Windows.UI.Xaml.Data.IBinding.
@@ -664,7 +665,12 @@ type ICustomProperty struct {
 // IID_ICustomProperty is the interface identifier for ICustomProperty.
 var IID_ICustomProperty = win32.GUID{Data1: 0x30da92c0, Data2: 0x23e8, Data3: 0x42a0, Data4: [8]byte{0xae, 0x7c, 0x73, 0x4a, 0x0e, 0x5d, 0x27, 0x82}}
 
-// slot 6: get_Type skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// Type (propget get_Type) dispatches through ICustomProperty's vtable slot 6.
+func (self *ICustomProperty) Type() (uixamlinterop.TypeName, error) {
+	result := new(uixamlinterop.TypeName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // Name (propget get_Name) dispatches through ICustomProperty's vtable slot 7.
 func (self *ICustomProperty) Name() (string, error) {
@@ -737,7 +743,17 @@ func (self *ICustomPropertyProvider) GetCustomProperty(name string) (*ICustomPro
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 7: GetIndexedProperty skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// GetIndexedProperty dispatches through ICustomPropertyProvider's vtable slot 7.
+func (self *ICustomPropertyProvider) GetIndexedProperty(name string, type_ uixamlinterop.TypeName) (*ICustomProperty, error) {
+	hName, err := winrt.NewHString(name)
+	if err != nil {
+		return nil, err
+	}
+	defer hName.Close()
+	result := new(*ICustomProperty)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(&type_))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // GetStringRepresentation dispatches through ICustomPropertyProvider's vtable slot 8.
 func (self *ICustomPropertyProvider) GetStringRepresentation() (string, error) {
@@ -749,7 +765,12 @@ func (self *ICustomPropertyProvider) GetStringRepresentation() (string, error) {
 	return winrt.TakeHString(*result), nil
 }
 
-// slot 9: get_Type skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// Type (propget get_Type) dispatches through ICustomPropertyProvider's vtable slot 9.
+func (self *ICustomPropertyProvider) Type() (uixamlinterop.TypeName, error) {
+	result := new(uixamlinterop.TypeName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // IItemIndexRange is the WinRT interface Windows.UI.Xaml.Data.IItemIndexRange.
 // IID: 83b834be-0583-4a26-9b64-8bf4a2f65704
@@ -989,6 +1010,26 @@ type IValueConverter struct {
 // IID_IValueConverter is the interface identifier for IValueConverter.
 var IID_IValueConverter = win32.GUID{Data1: 0xe6f2fef0, Data2: 0x0712, Data3: 0x487f, Data4: [8]byte{0xb3, 0x13, 0xf3, 0x00, 0xb8, 0xd7, 0x9a, 0xa1}}
 
-// slot 6: Convert skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// Convert dispatches through IValueConverter's vtable slot 6.
+func (self *IValueConverter) Convert(value *syswinrt.IInspectable, targetType uixamlinterop.TypeName, parameter *syswinrt.IInspectable, language string) (*syswinrt.IInspectable, error) {
+	hLanguage, err := winrt.NewHString(language)
+	if err != nil {
+		return nil, err
+	}
+	defer hLanguage.Close()
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(&targetType))), uintptr(unsafe.Pointer(parameter)), uintptr(hLanguage.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
-// slot 7: ConvertBack skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// ConvertBack dispatches through IValueConverter's vtable slot 7.
+func (self *IValueConverter) ConvertBack(value *syswinrt.IInspectable, targetType uixamlinterop.TypeName, parameter *syswinrt.IInspectable, language string) (*syswinrt.IInspectable, error) {
+	hLanguage, err := winrt.NewHString(language)
+	if err != nil {
+		return nil, err
+	}
+	defer hLanguage.Close()
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(&targetType))), uintptr(unsafe.Pointer(parameter)), uintptr(hLanguage.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}

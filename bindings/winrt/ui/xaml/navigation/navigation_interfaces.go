@@ -13,6 +13,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
+	uixamlinterop "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/interop"
 	uixamlmediaanimation "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/media/animation"
 )
 
@@ -107,7 +108,12 @@ func (self *INavigatingCancelEventArgs) NavigationMode() (NavigationMode, error)
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 9: get_SourcePageType skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// SourcePageType (propget get_SourcePageType) dispatches through INavigatingCancelEventArgs's vtable slot 9.
+func (self *INavigatingCancelEventArgs) SourcePageType() (uixamlinterop.TypeName, error) {
+	result := new(uixamlinterop.TypeName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // INavigatingCancelEventArgs2 is the WinRT interface Windows.UI.Xaml.Navigation.INavigatingCancelEventArgs2.
 // IID: 5407b704-8147-4343-838f-dd1ee908c137
@@ -157,7 +163,12 @@ func (self *INavigationEventArgs) Parameter() (*syswinrt.IInspectable, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 8: get_SourcePageType skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// SourcePageType (propget get_SourcePageType) dispatches through INavigationEventArgs's vtable slot 8.
+func (self *INavigationEventArgs) SourcePageType() (uixamlinterop.TypeName, error) {
+	result := new(uixamlinterop.TypeName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // NavigationMode (propget get_NavigationMode) dispatches through INavigationEventArgs's vtable slot 9.
 func (self *INavigationEventArgs) NavigationMode() (NavigationMode, error) {
@@ -230,7 +241,12 @@ func (self *INavigationFailedEventArgs) SetHandled(value bool) error {
 	return win32.ErrIfFailed(int32(r1))
 }
 
-// slot 9: get_SourcePageType skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// SourcePageType (propget get_SourcePageType) dispatches through INavigationFailedEventArgs's vtable slot 9.
+func (self *INavigationFailedEventArgs) SourcePageType() (uixamlinterop.TypeName, error) {
+	result := new(uixamlinterop.TypeName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // IPageStackEntry is the WinRT interface Windows.UI.Xaml.Navigation.IPageStackEntry.
 // IID: ef8814a6-9388-4aca-8572-405194069080
@@ -242,7 +258,12 @@ type IPageStackEntry struct {
 // IID_IPageStackEntry is the interface identifier for IPageStackEntry.
 var IID_IPageStackEntry = win32.GUID{Data1: 0xef8814a6, Data2: 0x9388, Data3: 0x4aca, Data4: [8]byte{0x85, 0x72, 0x40, 0x51, 0x94, 0x06, 0x90, 0x80}}
 
-// slot 6: get_SourcePageType skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// SourcePageType (propget get_SourcePageType) dispatches through IPageStackEntry's vtable slot 6.
+func (self *IPageStackEntry) SourcePageType() (uixamlinterop.TypeName, error) {
+	result := new(uixamlinterop.TypeName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // Parameter (propget get_Parameter) dispatches through IPageStackEntry's vtable slot 7.
 func (self *IPageStackEntry) Parameter() (*syswinrt.IInspectable, error) {
@@ -268,7 +289,12 @@ type IPageStackEntryFactory struct {
 // IID_IPageStackEntryFactory is the interface identifier for IPageStackEntryFactory.
 var IID_IPageStackEntryFactory = win32.GUID{Data1: 0x4454048a, Data2: 0xa8b9, Data3: 0x4f78, Data4: [8]byte{0x9b, 0x84, 0x1f, 0x51, 0xf5, 0x88, 0x51, 0xff}}
 
-// slot 6: CreateInstance skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// CreateInstance dispatches through IPageStackEntryFactory's vtable slot 6.
+func (self *IPageStackEntryFactory) CreateInstance(sourcePageType uixamlinterop.TypeName, parameter *syswinrt.IInspectable, navigationTransitionInfo *uixamlmediaanimation.INavigationTransitionInfo) (*IPageStackEntry, error) {
+	result := new(*IPageStackEntry)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(&sourcePageType))), uintptr(unsafe.Pointer(parameter)), uintptr(unsafe.Pointer(navigationTransitionInfo)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // IPageStackEntryStatics is the WinRT interface Windows.UI.Xaml.Navigation.IPageStackEntryStatics.
 // IID: aceff8e3-246c-4033-9f01-01cb0da5254e

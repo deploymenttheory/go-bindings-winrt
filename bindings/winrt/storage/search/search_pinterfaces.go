@@ -895,7 +895,12 @@ type IIteratorOfSortEntry struct {
 // IID_IIteratorOfSortEntry is the interface identifier for IIteratorOfSortEntry.
 var IID_IIteratorOfSortEntry = win32.GUID{Data1: 0x520434a2, Data2: 0xacf7, Data3: 0x58c9, Data4: [8]byte{0xb4, 0x7a, 0x27, 0x41, 0xf2, 0xfa, 0xc2, 0xc2}}
 
-// slot 6: get_Current skipped: reference to skipped struct Windows.Storage.Search.SortEntry
+// Current (propget get_Current) dispatches through IIteratorOfSortEntry's vtable slot 6.
+func (self *IIteratorOfSortEntry) Current() (SortEntry, error) {
+	result := new(SortEntry)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfSortEntry's vtable slot 7.
 func (self *IIteratorOfSortEntry) HasCurrent() (bool, error) {
@@ -1270,7 +1275,12 @@ type IVectorOfSortEntry struct {
 // IID_IVectorOfSortEntry is the interface identifier for IVectorOfSortEntry.
 var IID_IVectorOfSortEntry = win32.GUID{Data1: 0xd8ea401b, Data2: 0x47b3, Data3: 0x5254, Data4: [8]byte{0x84, 0xf4, 0xee, 0xa1, 0x0c, 0x4c, 0xf0, 0x68}}
 
-// slot 6: GetAt skipped: reference to skipped struct Windows.Storage.Search.SortEntry
+// GetAt dispatches through IVectorOfSortEntry's vtable slot 6.
+func (self *IVectorOfSortEntry) GetAt(index uint32) (SortEntry, error) {
+	result := new(SortEntry)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // Size (propget get_Size) dispatches through IVectorOfSortEntry's vtable slot 7.
 func (self *IVectorOfSortEntry) Size() (uint32, error) {
@@ -1286,11 +1296,24 @@ func (self *IVectorOfSortEntry) GetView() (*IVectorViewOfSortEntry, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 9: IndexOf skipped: reference to skipped struct Windows.Storage.Search.SortEntry
+// IndexOf dispatches through IVectorOfSortEntry's vtable slot 9.
+func (self *IVectorOfSortEntry) IndexOf(value SortEntry, index *uint32) (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(&value))), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
 
-// slot 10: SetAt skipped: reference to skipped struct Windows.Storage.Search.SortEntry
+// SetAt dispatches through IVectorOfSortEntry's vtable slot 10.
+func (self *IVectorOfSortEntry) SetAt(index uint32, value SortEntry) error {
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[10], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(&value))))
+	return win32.ErrIfFailed(int32(r1))
+}
 
-// slot 11: InsertAt skipped: reference to skipped struct Windows.Storage.Search.SortEntry
+// InsertAt dispatches through IVectorOfSortEntry's vtable slot 11.
+func (self *IVectorOfSortEntry) InsertAt(index uint32, value SortEntry) error {
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(&value))))
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // RemoveAt dispatches through IVectorOfSortEntry's vtable slot 12.
 func (self *IVectorOfSortEntry) RemoveAt(index uint32) error {
@@ -1298,7 +1321,11 @@ func (self *IVectorOfSortEntry) RemoveAt(index uint32) error {
 	return win32.ErrIfFailed(int32(r1))
 }
 
-// slot 13: Append skipped: reference to skipped struct Windows.Storage.Search.SortEntry
+// Append dispatches through IVectorOfSortEntry's vtable slot 13.
+func (self *IVectorOfSortEntry) Append(value SortEntry) error {
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[13], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(&value))))
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // RemoveAtEnd dispatches through IVectorOfSortEntry's vtable slot 14.
 func (self *IVectorOfSortEntry) RemoveAtEnd() error {
@@ -1602,7 +1629,12 @@ type IVectorViewOfSortEntry struct {
 // IID_IVectorViewOfSortEntry is the interface identifier for IVectorViewOfSortEntry.
 var IID_IVectorViewOfSortEntry = win32.GUID{Data1: 0x823c7604, Data2: 0xb37b, Data3: 0x5465, Data4: [8]byte{0xa1, 0x69, 0x29, 0x49, 0x78, 0x93, 0xcd, 0xb9}}
 
-// slot 6: GetAt skipped: reference to skipped struct Windows.Storage.Search.SortEntry
+// GetAt dispatches through IVectorViewOfSortEntry's vtable slot 6.
+func (self *IVectorViewOfSortEntry) GetAt(index uint32) (SortEntry, error) {
+	result := new(SortEntry)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // Size (propget get_Size) dispatches through IVectorViewOfSortEntry's vtable slot 7.
 func (self *IVectorViewOfSortEntry) Size() (uint32, error) {
@@ -1611,7 +1643,12 @@ func (self *IVectorViewOfSortEntry) Size() (uint32, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 8: IndexOf skipped: reference to skipped struct Windows.Storage.Search.SortEntry
+// IndexOf dispatches through IVectorViewOfSortEntry's vtable slot 8.
+func (self *IVectorViewOfSortEntry) IndexOf(value SortEntry, index *uint32) (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(&value))), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
 
 // slot 9: GetMany skipped: conformant array
 

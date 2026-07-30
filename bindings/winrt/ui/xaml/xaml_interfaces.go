@@ -23,6 +23,7 @@ import (
 	uicore "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/core"
 	uiinput "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/input"
 	uixamlinput "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/input"
+	uixamlinterop "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/interop"
 )
 
 // IAdaptiveTrigger is the WinRT interface Windows.UI.Xaml.IAdaptiveTrigger.
@@ -1581,7 +1582,12 @@ type IDependencyProperty struct {
 // IID_IDependencyProperty is the interface identifier for IDependencyProperty.
 var IID_IDependencyProperty = win32.GUID{Data1: 0x85b13970, Data2: 0x9bc4, Data3: 0x4e96, Data4: [8]byte{0xac, 0xf1, 0x30, 0xc8, 0xfd, 0x3d, 0x55, 0xc8}}
 
-// slot 6: GetMetadata skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// GetMetadata dispatches through IDependencyProperty's vtable slot 6.
+func (self *IDependencyProperty) GetMetadata(forType uixamlinterop.TypeName) (*IPropertyMetadata, error) {
+	result := new(*IPropertyMetadata)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(&forType))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // IDependencyPropertyChangedEventArgs is the WinRT interface Windows.UI.Xaml.IDependencyPropertyChangedEventArgs.
 // IID: 81212c2b-24d0-4957-abc3-224470a93a4e
@@ -1631,9 +1637,29 @@ func (self *IDependencyPropertyStatics) UnsetValue() (*syswinrt.IInspectable, er
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 7: Register skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// Register dispatches through IDependencyPropertyStatics's vtable slot 7.
+func (self *IDependencyPropertyStatics) Register(name string, propertyType uixamlinterop.TypeName, ownerType uixamlinterop.TypeName, typeMetadata *IPropertyMetadata) (*IDependencyProperty, error) {
+	hName, err := winrt.NewHString(name)
+	if err != nil {
+		return nil, err
+	}
+	defer hName.Close()
+	result := new(*IDependencyProperty)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(&propertyType))), uintptr(winrt.OutParam(unsafe.Pointer(&ownerType))), uintptr(unsafe.Pointer(typeMetadata)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
-// slot 8: RegisterAttached skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// RegisterAttached dispatches through IDependencyPropertyStatics's vtable slot 8.
+func (self *IDependencyPropertyStatics) RegisterAttached(name string, propertyType uixamlinterop.TypeName, ownerType uixamlinterop.TypeName, defaultMetadata *IPropertyMetadata) (*IDependencyProperty, error) {
+	hName, err := winrt.NewHString(name)
+	if err != nil {
+		return nil, err
+	}
+	defer hName.Close()
+	result := new(*IDependencyProperty)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(hName.Raw()), uintptr(winrt.OutParam(unsafe.Pointer(&propertyType))), uintptr(winrt.OutParam(unsafe.Pointer(&ownerType))), uintptr(unsafe.Pointer(defaultMetadata)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // IDispatcherTimer is the WinRT interface Windows.UI.Xaml.IDispatcherTimer.
 // IID: d160ce46-cd22-4f5f-8c97-40e61da3e2dc
@@ -4231,9 +4257,18 @@ func (self *IStyle) Setters() (*ISetterBaseCollection, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 8: get_TargetType skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// TargetType (propget get_TargetType) dispatches through IStyle's vtable slot 8.
+func (self *IStyle) TargetType() (uixamlinterop.TypeName, error) {
+	result := new(uixamlinterop.TypeName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
-// slot 9: put_TargetType skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// SetTargetType (propput put_TargetType) dispatches through IStyle's vtable slot 9.
+func (self *IStyle) SetTargetType(value uixamlinterop.TypeName) error {
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(&value))))
+	return win32.ErrIfFailed(int32(r1))
+}
 
 // BasedOn (propget get_BasedOn) dispatches through IStyle's vtable slot 10.
 func (self *IStyle) BasedOn() (*IStyle, error) {
@@ -4264,7 +4299,12 @@ type IStyleFactory struct {
 // IID_IStyleFactory is the interface identifier for IStyleFactory.
 var IID_IStyleFactory = win32.GUID{Data1: 0xa36824e3, Data2: 0x3d81, Data3: 0x4ce5, Data4: [8]byte{0xaa, 0x51, 0x8b, 0x41, 0x0f, 0x60, 0x2f, 0xcd}}
 
-// slot 6: CreateInstance skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// CreateInstance dispatches through IStyleFactory's vtable slot 6.
+func (self *IStyleFactory) CreateInstance(targetType uixamlinterop.TypeName) (*IStyle, error) {
+	result := new(*IStyle)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(&targetType))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // ITargetPropertyPath is the WinRT interface Windows.UI.Xaml.ITargetPropertyPath.
 // IID: 40740f8e-085f-4ced-be70-6f47acf15ad0
