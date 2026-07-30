@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.0](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.4.1...v0.5.0) (2026-07-30)
+
+
+### Features
+
+* **runtime:** Go-implemented WinRT interfaces, and COM aggregation ([ce2013d](https://github.com/deploymenttheory/go-bindings-winrt/commit/ce2013dd11dd7716b1b75362d4d6735078f84a8e))
+* **runtime:** Go-implemented WinRT interfaces, and COM aggregation ([e20b34c](https://github.com/deploymenttheory/go-bindings-winrt/commit/e20b34c5f46122a22366fd3b0748e000e5dcee68))
+
 ## [0.4.1](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.4.0...v0.4.1) (2026-07-30)
 
 
