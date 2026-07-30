@@ -50,6 +50,15 @@ type inspectable struct {
 	// worker (or inline on the worker thread — see dispatchInspectable) and
 	// may itself reenter Go-implemented objects (an element's Release).
 	destroy func()
+	// methods are the implemented vtable slots past IInspectable, for facets
+	// built by NewImplementation. Nil for the collections, whose slots are
+	// static per-type vtables of their own.
+	methods []Method
+	// inner (identity only, optional) is the non-delegating inner of an
+	// aggregated runtime class. When set, QueryInterface forwards anything the
+	// facets do not answer to it — which is what makes the outer answer for
+	// both halves of the aggregate. See aggregate.go.
+	inner *syswinrt.IInspectable
 }
 
 const (
@@ -252,6 +261,18 @@ func inspectableQIBody(w *inspectableWork) uintptr {
 			*ppv = uintptr(unsafe.Pointer(facet))
 			return 0
 		}
+	}
+	// Aggregation: anything this object does not implement is the inner's to answer.
+	// The inner AddRefs whatever it returns, and its reference is the caller's — the
+	// outer's count is deliberately untouched, because the inner's own delegating
+	// IUnknown already routes back here.
+	if identity.inner != nil {
+		vtbl := *(**[1]uintptr)(unsafe.Pointer(identity.inner))
+		hr, _, _ := syscall.SyscallN(vtbl[0],
+			uintptr(unsafe.Pointer(identity.inner)),
+			uintptr(unsafe.Pointer(riid)),
+			uintptr(unsafe.Pointer(ppv)))
+		return hr
 	}
 	*ppv = 0
 	return eNoInterface

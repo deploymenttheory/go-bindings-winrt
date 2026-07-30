@@ -148,3 +148,37 @@ interface struct is a single vtable-pointer word, layout-compatible with
 `win32.IUnknown` — that compatibility is a design guarantee, not a
 coincidence. Keep the `unsafe` at the call boundary and expose ordinary Go
 types to the rest of your program, as the [examples](../examples) do.
+
+## Implementing a WinRT interface, and aggregation
+
+`winrt.NewImplementation` creates a Go object that implements one or more WinRT
+interfaces: you supply an IID and the method bodies, and it supplies the six
+`IInspectable` slots, the reference count, COM identity across facets, and
+`GetRuntimeClassName`.
+
+```go
+object, err := winrt.NewImplementation("MyApp.Provider",
+    winrt.Interface{IID: iidProvider, Methods: []winrt.Method{
+        func(args []uintptr) uintptr { /* slot 6 */ return 0 },
+    }})
+defer object.Close()
+```
+
+A `Method` receives the raw ABI words after `this` and returns an HRESULT — the same
+contract as `NewDelegate`, for the same reason: the runtime cannot know your signature.
+
+**Aggregation** is what lets a Go object be a WinRT runtime class. `Aggregate` takes a
+composable factory's `CreateInstance(outer, &inner)`, keeps the non-delegating inner,
+and forwards every `QueryInterface` the Go side does not answer to it — so one object
+answers for both halves:
+
+```go
+err := object.Aggregate(func(outer *syswinrt.IInspectable, inner **syswinrt.IInspectable) error {
+    app, e := factory.CreateInstance(outer, inner)
+    ...
+})
+```
+
+Ownership: the inner reference belongs to the implementation and is released with it.
+The default interface `CreateInstance` returns *delegates* to the outer, so holding it
+holds a reference to your object — that is the aggregation contract rather than a leak.
