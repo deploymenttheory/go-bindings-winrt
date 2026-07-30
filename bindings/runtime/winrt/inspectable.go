@@ -183,6 +183,25 @@ func dispatchInspectable(work inspectableWork) uintptr {
 	if tid := inspectableWorkerTID.Load(); tid != 0 && tid == systemthreading.GetCurrentThreadId() {
 		return work.fn(&work)
 	}
+	// A thread declared by SetInlineThread runs the body INLINE, for the same reason
+	// delegate invocations do: thread identity is what the caller is protecting.
+	//
+	// This is not an optimisation. A Go-implemented object's methods may call back into
+	// APIs with thread affinity — a XAML metadata provider forwarding to WinUI's own
+	// provider is exactly that — and XAML lives in a single-threaded apartment. Staging
+	// such a body onto the worker calls into the apartment from the wrong thread while
+	// the UI thread is parked waiting for the worker to finish, which deadlocks both.
+	//
+	// The thread id is read LAZILY, inside each condition, and that is not style. An
+	// earlier version hoisted one GetCurrentThreadId call to the top of this function
+	// and QueryInterface began returning S_OK with nothing written to its out-pointer —
+	// the moving-stack failure described above, reproduced exactly: the extra call on a
+	// path that previously made none grew the callback goroutine's stack, and the
+	// native frame beneath was left pointing into the old one. Anything added here must
+	// stay off the paths that do not already need it.
+	if tid := inlineInvokeTID.Load(); tid != 0 && tid == systemthreading.GetCurrentThreadId() {
+		return work.fn(&work)
+	}
 	inspectableWorkMu.Lock()
 	pendingInspectableWork = work
 	inspectableWorkReady <- struct{}{}
