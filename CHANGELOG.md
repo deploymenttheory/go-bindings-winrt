@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.1](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.4.0...v0.4.1) (2026-07-30)
+
+
+### Bug Fixes
+
+* **codegen:** emit structs with string fields, carrying the HSTRING handle ([fdddbfa](https://github.com/deploymenttheory/go-bindings-winrt/commit/fdddbfae380b963319bb504f3776c985c6b57fad))
+* **codegen:** emit structs with string fields, carrying the HSTRING handle ([5116fbf](https://github.com/deploymenttheory/go-bindings-winrt/commit/5116fbf7bb916806e55967980709d19bc77f9a2a))
+
 ## [0.4.0](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.3.0...v0.4.0) (2026-07-29)
 
 
