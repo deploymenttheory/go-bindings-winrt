@@ -31,6 +31,56 @@ Choosing between the last two is the whole game: a string an API *returned*
 is yours to delete (`TakeHString`); a string passed *into* your callback is
 the caller's (`HStringToString`).
 
+### The exception: string fields inside a struct
+
+Four WinRT structs have string fields, and their Go form carries the handle
+rather than a `string`:
+
+```go
+// Windows.UI.Xaml.Interop.TypeName
+type TypeName struct {
+	Name syswinrt.HSTRING
+	Kind TypeKind
+}
+```
+
+Not an oversight. A struct crosses the ABI as a block of bytes, and there is
+no boundary inside one at which a conversion could run — a Go `string` header
+is two words where the ABI has one handle, so a `string` field would compile
+and then corrupt every call passing the struct. A parameter or a return can
+convert precisely *because* there is a boundary there.
+
+So these four are the second place you handle a handle yourself, and the
+ownership rules above apply unchanged:
+
+```go
+name, err := winrt.NewHString("MyApp.MainPage")
+if err != nil {
+	return err
+}
+defer name.Close()                       // you built it, you release it
+
+ok, err := frame.Navigate(
+	uixamlinterop.TypeName{Name: name.Raw(), Kind: uixamlinterop.TypeKindMetadata},
+	nil,
+)
+```
+
+Reading one the callee wrote is the mirror image: `winrt.TakeHString` if the
+struct was handed to you by value from a call (you own the string),
+`winrt.HStringToString` if it arrived in a callback (the caller still owns
+it).
+
+The structs are `Windows.UI.Xaml.Interop.TypeName`,
+`Windows.UI.Xaml.Markup.XmlnsDefinition`,
+`Windows.Storage.Search.SortEntry` and
+`Windows.Storage.AccessCache.AccessListEntry`. Each generated type says so in
+its own doc comment.
+
+The alternative was a shadow struct per type, marshalled at every signature
+naming one. It reads better, and it costs the property arrays depend on: that
+a `[]T` over emittable structs is a direct view of the callee's buffer.
+
 ## Reference counting
 
 Interface pointers are refcounted; the rules are mechanical:

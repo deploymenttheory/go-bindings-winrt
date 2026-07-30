@@ -4,9 +4,24 @@
 
 package markup
 
+import (
+	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
+)
+
 // XamlBinaryWriterErrorInformation is Windows.UI.Xaml.Markup.XamlBinaryWriterErrorInformation.
 type XamlBinaryWriterErrorInformation struct {
 	InputStreamIndex uint32
 	LineNumber       uint32
 	LinePosition     uint32
+}
+
+// XmlnsDefinition is Windows.UI.Xaml.Markup.XmlnsDefinition.
+//
+// XmlNamespace and Namespace are HSTRING handles, not Go strings. A struct crosses the ABI as a
+// block of bytes, and there is no boundary inside one at which a conversion could
+// run. Build a handle with winrt.NewHString and release it when the struct is done
+// with it; take ownership of one the callee wrote with winrt.TakeHString.
+type XmlnsDefinition struct {
+	XmlNamespace syswinrt.HSTRING
+	Namespace    syswinrt.HSTRING
 }

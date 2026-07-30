@@ -9,6 +9,8 @@ import (
 
 	syswinrt "github.com/deploymenttheory/go-bindings-win32/bindings/win32/system/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
+	uixamlinterop "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/interop"
+	uixamlmediaanimation "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/media/animation"
 )
 
 // FrameNavigationOptions is the Windows.UI.Xaml.Navigation.FrameNavigationOptions runtime class, surfaced through its
@@ -93,4 +95,21 @@ func PageStackEntryStatics() (*IPageStackEntryStatics, error) {
 		return nil, err
 	}
 	return (*IPageStackEntryStatics)(unsafe.Pointer(factory)), nil
+}
+
+// CreateInstance constructs a Windows.UI.Xaml.Navigation.PageStackEntry instance through
+// Windows.UI.Xaml.Navigation.IPageStackEntryFactory.CreateInstance. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstance(sourcePageType uixamlinterop.TypeName, parameter *syswinrt.IInspectable, navigationTransitionInfo *uixamlmediaanimation.INavigationTransitionInfo) (*PageStackEntry, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Navigation.PageStackEntry", &IID_IPageStackEntryFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPageStackEntryFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstance(sourcePageType, parameter, navigationTransitionInfo)
+	if err != nil {
+		return nil, err
+	}
+	return (*PageStackEntry)(unsafe.Pointer(instance)), nil
 }

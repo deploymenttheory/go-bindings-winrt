@@ -29,6 +29,10 @@ type StructModel struct {
 	TypeName string
 	FullName string
 	Fields   []StructFieldModel
+	// NoteLines are doc-comment lines after the summary. A struct carrying an
+	// HSTRING field needs them: the field is a handle with an ownership rule that
+	// the type alone does not state.
+	NoteLines []string
 }
 
 // StructFieldModel is one struct field, fully resolved.

@@ -14,6 +14,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 	uixaml "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml"
+	uixamlinterop "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/interop"
 )
 
 // IComponentConnector is the WinRT interface Windows.UI.Xaml.Markup.IComponentConnector.
@@ -206,7 +207,12 @@ func (self *IXamlBindingHelperStatics) ResumeRendering(target *uixaml.IUIElement
 	return win32.ErrIfFailed(int32(r1))
 }
 
-// slot 11: ConvertValue skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// ConvertValue dispatches through IXamlBindingHelperStatics's vtable slot 11.
+func (self *IXamlBindingHelperStatics) ConvertValue(type_ uixamlinterop.TypeName, value *syswinrt.IInspectable) (*syswinrt.IInspectable, error) {
+	result := new(*syswinrt.IInspectable)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[11], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(&type_))), uintptr(unsafe.Pointer(value)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // SetPropertyFromString dispatches through IXamlBindingHelperStatics's vtable slot 12.
 func (self *IXamlBindingHelperStatics) SetPropertyFromString(dependencyObject *syswinrt.IInspectable, propertyToSet *uixaml.IDependencyProperty, value string) error {
@@ -427,7 +433,12 @@ type IXamlMetadataProvider struct {
 // IID_IXamlMetadataProvider is the interface identifier for IXamlMetadataProvider.
 var IID_IXamlMetadataProvider = win32.GUID{Data1: 0xb3765d69, Data2: 0x68a5, Data3: 0x4b32, Data4: [8]byte{0x88, 0x61, 0xfd, 0xb9, 0x0c, 0x1f, 0x58, 0x36}}
 
-// slot 6: GetXamlType skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// GetXamlType dispatches through IXamlMetadataProvider's vtable slot 6.
+func (self *IXamlMetadataProvider) GetXamlType(type_ uixamlinterop.TypeName) (*IXamlType, error) {
+	result := new(*IXamlType)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(&type_))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // GetXamlTypeByFullName dispatches through IXamlMetadataProvider's vtable slot 7.
 func (self *IXamlMetadataProvider) GetXamlTypeByFullName(fullName string) (*IXamlType, error) {
@@ -576,7 +587,12 @@ func (self *IXamlType) KeyType() (*IXamlType, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// slot 17: get_UnderlyingType skipped: reference to skipped struct Windows.UI.Xaml.Interop.TypeName
+// UnderlyingType (propget get_UnderlyingType) dispatches through IXamlType's vtable slot 17.
+func (self *IXamlType) UnderlyingType() (uixamlinterop.TypeName, error) {
+	result := new(uixamlinterop.TypeName)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[17], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // ActivateInstance dispatches through IXamlType's vtable slot 18.
 func (self *IXamlType) ActivateInstance() (*syswinrt.IInspectable, error) {

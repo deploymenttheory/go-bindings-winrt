@@ -169,7 +169,10 @@ the emitter's job.
   is skipped and recorded as `import-cycle-skipped`.
 - **`typemap/`** is the only place that decides what a metadata type becomes
   in Go. `Bool` is one byte at the ABI (Go `bool`); `HString` is a Go
-  `string` (`syswinrt.HSTRING` at the ABI); `Guid` is `win32.GUID`; `Object`
+  `string` (`syswinrt.HSTRING` at the ABI) — except as a STRUCT FIELD, where
+  `StructFieldGoType` emits the handle itself, because a struct crosses as a
+  block of bytes and has no boundary at which a conversion could run; `Guid`
+  is `win32.GUID`; `Object`
   is `*syswinrt.IInspectable`; a class reference becomes a pointer to that
   class's default interface. Closed generic *interface* instantiations become
   a package-local concrete type through the `Context.RequestInstantiation`

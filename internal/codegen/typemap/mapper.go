@@ -325,12 +325,36 @@ func (m *Mapper) StructEmittable(namespace, name string) bool {
 		case KindScalar, KindFloat, KindBool, KindGUID, KindEnum, KindStruct:
 			// Value shapes embed fine; Bool fields are one byte at the ABI,
 			// which Go bool matches.
+		case KindString:
+			// Emitted as the HSTRING handle rather than a Go string — see
+			// StructFieldGoType.
 		default:
 			verdict = false
 		}
 	}
 	m.structEmittable[key] = verdict
 	return verdict
+}
+
+// StructFieldGoType is the Go type a resolved struct field is emitted with, which
+// is not always the type the same resolution would give a parameter.
+//
+// A struct crosses the ABI as a block of bytes, so every field has to BE its ABI
+// form: there is no call boundary inside a struct at which a conversion could run.
+// For a string field that means the handle, syswinrt.HSTRING, not string. A
+// parameter or a return converts (winrt.NewHString going in, winrt.TakeHString
+// coming out) precisely because there IS a boundary there.
+//
+// The alternative was a shadow struct per type, marshalled at every signature that
+// names one. It reads better and it costs the property arrays depend on: that a
+// []T over emittable structs is a direct view of the callee's buffer. Four structs
+// in this metadata have string fields, so the trade was not close.
+func (m *Mapper) StructFieldGoType(resolved Resolved, imports ImportSet) string {
+	if resolved.Kind == KindString {
+		imports["syswinrt"] = Import{Path: SysWinRTImport}
+		return "syswinrt.HSTRING"
+	}
+	return resolved.GoType
 }
 
 // ImportPathFor returns the Go import path of the package that carries the

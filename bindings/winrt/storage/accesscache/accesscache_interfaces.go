@@ -25,7 +25,12 @@ type IItemRemovedEventArgs struct {
 // IID_IItemRemovedEventArgs is the interface identifier for IItemRemovedEventArgs.
 var IID_IItemRemovedEventArgs = win32.GUID{Data1: 0x59677e5c, Data2: 0x55be, Data3: 0x4c66, Data4: [8]byte{0xba, 0x66, 0x5e, 0xae, 0xa7, 0x9d, 0x26, 0x31}}
 
-// slot 6: get_RemovedEntry skipped: reference to skipped struct Windows.Storage.AccessCache.AccessListEntry
+// RemovedEntry (propget get_RemovedEntry) dispatches through IItemRemovedEventArgs's vtable slot 6.
+func (self *IItemRemovedEventArgs) RemovedEntry() (AccessListEntry, error) {
+	result := new(AccessListEntry)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
 
 // IStorageApplicationPermissionsStatics is the WinRT interface Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics.
 // IID: 4391dfaa-d033-48f9-8060-3ec847d2e3f1

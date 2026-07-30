@@ -26,6 +26,9 @@ func (e {{.TypeName}}) String() string {
 {{end}}{{end}}
 
 {{define "struct"}}// {{.TypeName}} is {{.FullName}}.
+{{- range .NoteLines}}
+// {{.}}
+{{- end}}
 type {{.TypeName}} struct {
 {{- range .Fields}}
 	{{.Name}} {{.GoType}}

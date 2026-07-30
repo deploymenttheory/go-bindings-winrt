@@ -131,6 +131,11 @@ func (m *Mapper) fieldLayout(field *winrtmeta.StructField, namespace string, vis
 		return Layout{Size: 1, Align: 1}, true
 	case KindGUID:
 		return Layout{Size: guidSize, Align: guidAlign}, true
+	case KindString:
+		// An HSTRING is an opaque handle, pointer-sized. A struct field cannot be a
+		// Go string — there is no boundary at which to convert — so the field is
+		// emitted as the handle itself; see StructFieldGoType.
+		return Layout{Size: abiPointerSize, Align: abiPointerSize}, true
 	case KindScalar, KindFloat:
 		return selfAligned(scalarSize(resolved.GoType))
 	case KindEnum:

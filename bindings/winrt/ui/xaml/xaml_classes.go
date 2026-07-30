@@ -11,6 +11,7 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/runtime/winrt"
 	applicationmodelcore "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/applicationmodel/core"
 	uicomposition "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/composition"
+	uixamlinterop "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/interop"
 )
 
 // AdaptiveTrigger is the Windows.UI.Xaml.AdaptiveTrigger runtime class, surfaced through its
@@ -1374,6 +1375,23 @@ func NewStyle() (*Style, error) {
 	}
 	defer instance.Release()
 	return winrt.QueryInterface[Style](unsafe.Pointer(instance), &IID_IStyle)
+}
+
+// CreateInstanceStyle constructs a Windows.UI.Xaml.Style instance through
+// Windows.UI.Xaml.IStyleFactory.CreateInstance. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateInstanceStyle(targetType uixamlinterop.TypeName) (*Style, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.UI.Xaml.Style", &IID_IStyleFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IStyleFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateInstance(targetType)
+	if err != nil {
+		return nil, err
+	}
+	return (*Style)(unsafe.Pointer(instance)), nil
 }
 
 // TargetPropertyPath is the Windows.UI.Xaml.TargetPropertyPath runtime class, surfaced through its
