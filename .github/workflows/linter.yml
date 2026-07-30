@@ -41,6 +41,15 @@ jobs:
           VALIDATE_GOVET: true
           VALIDATE_GOLANGCI_LINT: true
           VALIDATE_CPD: false # Disable CPD (Copy Paste Detection) for all languages
+          # Go is checked on Windows by ci.yml and go-lint.yml. Super-linter runs
+          # golangci-lint over the CHANGED FILES rather than over packages, so any
+          # pull request touching Go in two directories fails with "named files must
+          # all be in one directory" — a report about the invocation, not the code.
+          VALIDATE_GO: false
+          VALIDATE_GOFMT: false
+          VALIDATE_GOCYCLO: false
+          VALIDATE_GOVET: false
+          VALIDATE_GOLANGCI_LINT: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # To report GitHub Actions status checks
           MARKDOWN_CONFIG_FILE: .markdown-lint.yml
           FILTER_REGEX_EXCLUDE: |

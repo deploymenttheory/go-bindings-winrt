@@ -1,0 +1,11 @@
+[codespell]
+# WinRT vocabulary that codespell reads as misspellings. Both appear in generated
+# code, so they cannot be reworded — they are the names Microsoft gave the types.
+#
+#   statics    the activation factory carrying a runtime class's static members,
+#              projected as IApplicationStatics, IXamlReaderStatics and so on.
+#              codespell wants "statistics".
+#   iiterator  Windows.Foundation.Collections.IIterator<T>, monomorphized into each
+#              consuming package as IIteratorOfObject and friends. codespell wants
+#              "iterator", which would name a different interface.
+ignore-words-list = statics,iiterator
