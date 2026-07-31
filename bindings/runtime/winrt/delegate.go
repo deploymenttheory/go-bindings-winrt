@@ -244,6 +244,6 @@ func dispatchInvoke(this *Delegate, args ...uintptr) uintptr {
 // also terminates the process — and there it additionally leaves dispatchInvoke waiting
 // on a channel that will never be written.
 func invokeContained(this *Delegate, args []uintptr) (result uintptr) {
-	defer containPanic("a delegate body (Invoke)", &result)
+	defer containPanic("a delegate body (Invoke)", noSlot, &result)
 	return this.invoke(args)
 }

@@ -40,31 +40,51 @@ const eUnexpected = uintptr(0x8000FFFF) // E_UNEXPECTED
 // instead of writing to stderr; nil means stderr.
 var panicReporter func(string)
 
-// containPanic runs body and converts any panic into eUnexpected.
+// containPanic converts a panic in the body it is deferred from into eUnexpected.
 //
 // Used as:
 //
 //	func someCallback(args []uintptr) (result uintptr) {
-//		defer containPanic("Delegate.Invoke", &result)
+//		defer containPanic("a delegate body (Invoke)", noSlot, &result)
 //		...
 //	}
 //
 // The result pointer is how the HRESULT is substituted: a deferred function cannot
 // change a non-named return value, and naming it at each call site is clearer than
 // wrapping every body in a closure.
-func containPanic(what string, result *uintptr) {
+//
+// EVERY ARGUMENT MUST BE CHEAP TO EVALUATE, and that is not a style preference.
+// Deferred arguments are evaluated when the defer STATEMENT runs — on every call, not
+// only the panicking ones — and this sits on the path a native callback reenters Go
+// through. Allocating there grows the callback goroutine's stack, morestack copies the
+// stack, and a native frame beneath is left holding a pointer into the old one. That is
+// the failure collections_test.go's callSlot documents at length, and the first version
+// of this function caused it directly: it took a preformatted string, so every call ran
+// a fmt.Sprintf whether it panicked or not.
+//
+// The slot therefore arrives as an int, and formatting happens inside — on the path
+// that has already panicked, where there is nothing left to protect.
+func containPanic(what string, slot int, result *uintptr) {
 	recovered := recover()
 	if recovered == nil {
 		return
 	}
 	*result = eUnexpected
+
+	where := what
+	if slot != noSlot {
+		where = fmt.Sprintf("%s at vtable slot %d", what, slot)
+	}
 	report(fmt.Sprintf(
 		"winrt: PANIC in %s, recovered at the native callback boundary.\n"+
 			"The call returns E_UNEXPECTED; the process continues. This is a bug in the Go\n"+
 			"body, not in the caller — a panic here would otherwise terminate the process\n"+
 			"from inside a COM call, which presents as a hang rather than a crash.\n"+
-			"  panic: %v\n%s", what, recovered, debug.Stack()))
+			"  panic: %v\n%s", where, recovered, debug.Stack()))
 }
+
+// noSlot is the slot argument for a boundary that is not a vtable slot.
+const noSlot = -1
 
 func report(message string) {
 	if panicReporter != nil {

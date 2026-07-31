@@ -32,7 +32,7 @@ func TestContainPanicSubstitutesAnHresult(t *testing.T) {
 	reports := capturePanicReports(t)
 
 	result := func() (result uintptr) {
-		defer containPanic("a test body", &result)
+		defer containPanic("a test body", noSlot, &result)
 		panic("deliberate")
 	}()
 
@@ -58,7 +58,7 @@ func TestContainPanicLeavesSuccessAlone(t *testing.T) {
 
 	for _, want := range []uintptr{0, eFail, eNotImplemented} {
 		got := func() (result uintptr) {
-			defer containPanic("a test body", &result)
+			defer containPanic("a test body", noSlot, &result)
 			return want
 		}()
 		if got != want {

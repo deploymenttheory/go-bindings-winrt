@@ -14,6 +14,33 @@ import (
 
 // callSlot drives a facet's vtable slot exactly as native WinRT code would:
 // the facet word is `this`, its vtable is indexed at slot.
+//
+// The //go:uintptrescapes directive is load-bearing, and without it this package's
+// tests fail intermittently — around one run in eight, and far more often under
+// -count, with out-parameters coming back unwritten:
+//
+//	QueryInterface(...) = 0x0 / 0x0, want success   (S_OK, nothing written)
+//	no live facet registered at 0x0
+//	Size = 0, want 3
+//
+// The cause is the hazard outparam.go documents, arriving from the test side. Callers
+// write `uintptr(unsafe.Pointer(&out))` with out on their own STACK. SyscallN reenters
+// Go on that same goroutine, the reentrant frames can trigger morestack, and morestack
+// COPIES the goroutine's stack — leaving the address the body is about to write through
+// pointing at the old one. Generated bindings never hit this because they route every
+// out-pointer through winrt.OutParam, which forces the pointee onto the heap; the tests
+// bypassed that and were the only violators in the module.
+//
+// //go:uintptrescapes gives the same guarantee here without changing forty call sites:
+// it tells the compiler that uintptr arguments may be converted pointers, so the
+// pointees are heap-allocated and kept alive for the call. It applies to conversions
+// written in the CALL EXPRESSION, which is how every caller here spells them.
+//
+// It is worth being clear about what this is not: it is not a fix to the runtime, and
+// it does not mean the runtime was broken. The invariant was always documented and
+// always honoured by generated code. The tests were the ones getting it wrong.
+//
+//go:uintptrescapes
 func callSlot(t *testing.T, this *inspectable, slot int, args ...uintptr) uintptr {
 	t.Helper()
 	vtbl := unsafe.Slice(this.lpVtbl, slot+1)

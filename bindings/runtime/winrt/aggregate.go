@@ -230,7 +230,7 @@ func implementedMethodBody(w *inspectableWork) (result uintptr) {
 	}
 	// The method is caller-supplied Go code reached from native frames, so a panic in
 	// it cannot be allowed to unwind. See panic.go.
-	defer containPanic(fmt.Sprintf("an implemented interface method at vtable slot %d", 6+index), &result)
+	defer containPanic("an implemented interface method", 6+index, &result)
 	args := (*[MaxImplementedArgs]uintptr)(w.p0)
 	return facet.methods[index](args[:])
 }
