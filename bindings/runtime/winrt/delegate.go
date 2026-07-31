@@ -223,7 +223,7 @@ func dispatchInvoke(this *Delegate, args ...uintptr) uintptr {
 		if !registered(this) {
 			return eFail // invoked after release
 		}
-		return this.invoke(args)
+		return invokeContained(this, args)
 	}
 	done := make(chan uintptr, 1)
 	go func() {
@@ -231,7 +231,19 @@ func dispatchInvoke(this *Delegate, args ...uintptr) uintptr {
 			done <- eFail // invoked after release
 			return
 		}
-		done <- this.invoke(args)
+		done <- invokeContained(this, args)
 	}()
 	return <-done
+}
+
+// invokeContained runs the delegate body with a panic barrier. See panic.go.
+//
+// The barrier is needed on BOTH paths above, and for different reasons. On the inline
+// path the native frames are directly beneath, so an escaping panic terminates the
+// process. On the goroutine path the panic is on a goroutine nobody recovers, which
+// also terminates the process — and there it additionally leaves dispatchInvoke waiting
+// on a channel that will never be written.
+func invokeContained(this *Delegate, args []uintptr) (result uintptr) {
+	defer containPanic("a delegate body (Invoke)", &result)
+	return this.invoke(args)
 }

@@ -29,7 +29,19 @@ jobs:
       # Generated syscall wrappers trip vet's unsafe.Pointer heuristic by
       # design; vet everything hand-written instead.
       - name: Vet (non-generated packages)
-        run: go vet ./cmd/... ./internal/... ./acceptance/ ./bindings/runtime/...
+        run: go vet ./cmd/... ./internal/... ./acceptance/
+
+      # The runtime is vetted with unsafeptr DISABLED, and only that check.
+      #
+      # winrt.InParam converts an address native code supplied into a pointer to
+      # write through, which is what a Go body implementing a WinRT method must do
+      # with its out-parameters. vet's unsafeptr heuristic flags every
+      # uintptr-to-unsafe.Pointer conversion, and here it is wrong for a reason no
+      # rewrite can address: the word IS a native address and there is no Go pointer
+      # it came from. Every other analyzer still runs, and the whole check stays on
+      # for every other package.
+      - name: Vet the runtime (unsafeptr exempted, see winrt.InParam)
+        run: go vet -unsafeptr=false ./bindings/runtime/...
 
       # The module is windows/amd64 only. Go's asm_windows_arm64.s loads
       # only R0-R7 and never touches V0-V7 (it still carries a "TODO(rsc)

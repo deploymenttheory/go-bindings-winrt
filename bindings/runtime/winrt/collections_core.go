@@ -329,11 +329,62 @@ func retainElement(codec ElementCodec, elem any) any {
 	return elem
 }
 
+// elementTyper is implemented by the codecs in this package to report the payload type
+// they require. The methods are unexported, so an ElementCodec written elsewhere simply
+// does not implement it and skips the check rather than being broken by it.
+type elementTyper interface {
+	// payloadType names the Go type this codec's payload elements must have.
+	payloadType() string
+	// accepts reports whether elem is that type.
+	accepts(elem any) bool
+}
+
+func (codecString) payloadType() string    { return "string" }
+func (codecString) accepts(e any) bool     { _, ok := e.(string); return ok }
+func (codecInterface) payloadType() string { return "uintptr (an interface pointer)" }
+func (codecInterface) accepts(e any) bool  { _, ok := e.(uintptr); return ok }
+func (codecScalar) payloadType() string    { return "uint64" }
+func (codecScalar) accepts(e any) bool     { _, ok := e.(uint64); return ok }
+func (codecGuid) payloadType() string      { return "win32.GUID" }
+func (codecGuid) accepts(e any) bool       { _, ok := e.(win32.GUID); return ok }
+
+// checkElements verifies every payload element matches the codec BEFORE the collection
+// is built, and panics naming the offending index if one does not.
+//
+// The panic is the point, and so is where it happens. Each codec asserts its payload
+// type inside MarshalOut — `elem.(uintptr)` and friends — which runs when NATIVE code
+// reads the collection, from inside a COM callback. A failed assertion there cannot
+// unwind past the native frames, so it terminates the process; and because it happens
+// during a call the caller is waiting on, it presents as a HANG rather than as the
+// type error it is. One such mistake cost an afternoon: a caller passed
+// unsafe.Pointer where CodecInterface wanted uintptr, and the symptom was a 45-second
+// timeout with no output.
+//
+// Checking here moves that to the constructor, on the caller's own goroutine, with a
+// message naming the codec, the index and both types — and a Go stack that points at
+// the line which built the slice. Correct code cannot tell the difference.
+func checkElements(codec ElementCodec, items []any) {
+	typer, ok := codec.(elementTyper)
+	if !ok {
+		return // a codec from outside this package; nothing to check it against
+	}
+	for i, item := range items {
+		if !typer.accepts(item) {
+			panic(fmt.Sprintf(
+				"winrt: collection element %d is %T, but this codec requires %s. "+
+					"Left unchecked this would panic inside a native callback instead, "+
+					"where it terminates the process and presents as a hang.",
+				i, item, typer.payloadType()))
+		}
+	}
+}
+
 // retainAll copies items into a fresh retained payload slice. Constructors
 // run it on the caller's goroutine (an element AddRef from there dispatches
 // to the worker normally); First/GetView bodies run it on the worker, where
 // a Go-implemented element's AddRef reenters inline.
 func retainAll(codec ElementCodec, items []any) []any {
+	checkElements(codec, items)
 	retained := make([]any, len(items))
 	for i, item := range items {
 		retained[i] = retainElement(codec, item)
