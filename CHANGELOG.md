@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.1](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.5.0...v0.5.1) (2026-07-31)
+
+
+### Bug Fixes
+
+* **runtime:** run implemented methods inline on the declared UI thread ([0451829](https://github.com/deploymenttheory/go-bindings-winrt/commit/04518295ca7748ad3f83dbb38a88361533e86702))
+* **runtime:** run implemented methods inline on the declared UI thread ([774c61c](https://github.com/deploymenttheory/go-bindings-winrt/commit/774c61cb853d0a3f21fb916283f9eeed5766e79f))
+
 ## [0.5.0](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.4.1...v0.5.0) (2026-07-30)
 
 
