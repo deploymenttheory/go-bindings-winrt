@@ -222,12 +222,15 @@ func invokeImplementedMethod(facet *inspectable, index int, args [MaxImplemented
 	})
 }
 
-func implementedMethodBody(w *inspectableWork) uintptr {
+func implementedMethodBody(w *inspectableWork) (result uintptr) {
 	facet := w.this
 	index := int(w.u0)
 	if index >= len(facet.methods) || facet.methods[index] == nil {
 		return eNotImplemented
 	}
+	// The method is caller-supplied Go code reached from native frames, so a panic in
+	// it cannot be allowed to unwind. See panic.go.
+	defer containPanic(fmt.Sprintf("an implemented interface method at vtable slot %d", 6+index), &result)
 	args := (*[MaxImplementedArgs]uintptr)(w.p0)
 	return facet.methods[index](args[:])
 }

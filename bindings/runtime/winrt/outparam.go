@@ -58,3 +58,41 @@ func heapNew[T any]() *T {
 	}
 	return p
 }
+
+// ---------------------------------------------------------------------------
+// The inbound direction
+
+// InParam converts an address NATIVE code gave Go to write through into a pointer.
+//
+// This is the mirror of OutParam and the two must not be confused:
+//
+//	OutParam  Go allocates, native writes.  The hazard is Go's stack MOVING under a
+//	          pointer native code still holds, so the pointee is forced onto the heap.
+//	InParam   Native allocates, Go writes.  There is no such hazard — the address is
+//	          not in any Go stack and the collector neither moves nor tracks it.
+//
+// It exists because a Go body implementing a WinRT method receives its out-parameters
+// as raw uintptrs (winrt.Method takes []uintptr), and writing through one means
+// converting uintptr to unsafe.Pointer — which `go vet` flags as "possible misuse of
+// unsafe.Pointer" every time. The heuristic is right to be suspicious in general and
+// wrong here specifically: the word IS a native address, and there is no Go pointer it
+// could have come from.
+//
+// Routing those conversions through one named function does not silence vet — nothing
+// can, short of not converting — but it puts the justification in ONE place that can be
+// read, instead of once per call site or, worse, nowhere:
+//
+//	func getValue(args []uintptr) uintptr {
+//		if len(args) < 1 || args[0] == 0 {
+//			return ePointer
+//		}
+//		*(*float64)(winrt.InParam(args[0])) = 42
+//		return 0
+//	}
+//
+// The caller must still check the address is non-zero. A WinRT caller passing null for
+// an out-parameter is a caller bug, and the documented answer is E_POINTER — not a
+// crash, which is what writing through nil would give.
+func InParam(address uintptr) unsafe.Pointer {
+	return unsafe.Pointer(address) //nolint:govet // see the doc comment: a native address, not a Go pointer
+}
