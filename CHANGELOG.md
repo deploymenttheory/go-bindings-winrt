@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.5.1...v0.6.0) (2026-07-31)
+
+
+### Features
+
+* **runtime:** contain panics at the callback boundary, and add InParam ([d1d0070](https://github.com/deploymenttheory/go-bindings-winrt/commit/d1d00707f1dbf8537b69c2ee9575cf0465d9433d))
+* **runtime:** contain panics at the callback boundary, and add InParam ([2c2891a](https://github.com/deploymenttheory/go-bindings-winrt/commit/2c2891a672e160b42da77cc084e34734deee8f8b))
+
 ## [0.5.1](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.5.0...v0.5.1) (2026-07-31)
 
 
