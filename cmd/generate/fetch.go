@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/deploymenttheory/go-winmd/nuget"
+	"github.com/deploymenttheory/go-winmd/pkg/nuget"
 )
 
 const (

@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/deploymenttheory/go-bindings-winrt/internal/winrtmeta"
-	winmd "github.com/deploymenttheory/go-winmd"
+	winmd "github.com/deploymenttheory/go-winmd/pkg/winmd"
 )
 
 // contractFiles are the committed pins ingested by every golden test, in

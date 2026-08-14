@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	win32 "github.com/deploymenttheory/go-bindings-win32/bindings/runtime/win32"
-	winmd "github.com/deploymenttheory/go-winmd"
+	winmd "github.com/deploymenttheory/go-winmd/pkg/winmd"
 
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/globalization"
 	controls "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui/xaml/controls"
