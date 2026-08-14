@@ -10,8 +10,8 @@ import (
 
 	"github.com/deploymenttheory/go-bindings-winrt/internal/winrtmeta"
 	"github.com/deploymenttheory/go-bindings-winrt/internal/winrtmeta/ingest"
-	winmd "github.com/deploymenttheory/go-winmd/pkg/winmd"
 	"github.com/deploymenttheory/go-winmd/pkg/nuget"
+	winmd "github.com/deploymenttheory/go-winmd/pkg/winmd"
 )
 
 // openSources opens every contract winmd listed in the directory's
