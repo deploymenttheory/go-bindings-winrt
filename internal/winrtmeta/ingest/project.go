@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	"github.com/deploymenttheory/go-bindings-winrt/internal/winrtmeta"
-	winmd "github.com/deploymenttheory/go-winmd"
+	winmd "github.com/deploymenttheory/go-winmd/pkg/winmd"
 )
 
 // fileProjector projects one contract file's TypeDefs, resolving TypeRef

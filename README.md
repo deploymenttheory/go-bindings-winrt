@@ -1,5 +1,12 @@
 # go-bindings-winrt
 
+[![GoDoc](https://pkg.go.dev/badge/github.com/deploymenttheory/go-bindings-winrt)](https://pkg.go.dev/github.com/deploymenttheory/go-bindings-winrt)
+[![License](https://img.shields.io/github/license/deploymenttheory/go-bindings-winrt)](LICENSE)
+[![Go Version](https://img.shields.io/github/go-mod/go-version/deploymenttheory/go-bindings-winrt)](https://go.dev/)
+[![Release](https://img.shields.io/github/v/release/deploymenttheory/go-bindings-winrt)](https://github.com/deploymenttheory/go-bindings-winrt/releases)
+[![codecov](https://codecov.io/gh/deploymenttheory/go-bindings-winrt/graph/badge.svg)](https://codecov.io/gh/deploymenttheory/go-bindings-winrt)
+![Status: preview](https://img.shields.io/badge/status-preview-blue)
+
 Idiomatic Go bindings for the **Windows Runtime** — the `Windows.*` API
 surface: toasts/notifications, Bluetooth LE, storage, speech,
 `Windows.Management.*` MDM/provisioning, and everything else in the Windows
