@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.ViewManagement",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "ApplicationViewBoundsMode": {
       "base_type": "int32",
@@ -4388,9 +4388,9 @@
     },
     "ApplicationViewSwitcher": {
       "static_interfaces": [
-        "Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3",
         "Windows.UI.ViewManagement.IApplicationViewSwitcherStatics",
-        "Windows.UI.ViewManagement.IApplicationViewSwitcherStatics2"
+        "Windows.UI.ViewManagement.IApplicationViewSwitcherStatics2",
+        "Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3"
       ]
     },
     "ApplicationViewTitleBar": {
@@ -4457,8 +4457,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.ViewManagement.IInputPaneStatics",
-        "Windows.UI.ViewManagement.IInputPaneStatics2"
+        "Windows.UI.ViewManagement.IInputPaneStatics2",
+        "Windows.UI.ViewManagement.IInputPaneStatics"
       ]
     },
     "InputPaneVisibilityEventArgs": {

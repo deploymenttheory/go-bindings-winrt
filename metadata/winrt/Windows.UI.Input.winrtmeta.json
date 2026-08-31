@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Input",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "CrossSlidingState": {
       "base_type": "int32",
@@ -947,19 +947,26 @@
         }
       ]
     },
-    "IGamepadNavigationConfiguration": {
-      "guid": "b8abab2d-e7f5-59a7-a3d5-9746bfbf224d",
-      "exclusive_to": "Windows.UI.Input.GamepadNavigationConfiguration",
+    "IGamepadKeyRoutingConfigurationStatics": {
+      "guid": "a068e427-0e9e-5174-9012-4fb3a764fdd2",
+      "exclusive_to": "Windows.UI.Input.GamepadKeyRoutingConfiguration",
       "methods": [
         {
-          "name": "get_NavigationEnabled",
+          "name": "IsSupported",
           "return": {
             "kind": "Native",
             "name": "Bool"
           }
         },
         {
-          "name": "TrySetNavigationEnabled",
+          "name": "get_IsKeyRoutingEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TrySetKeyRoutingEnabled",
           "params": [
             {
               "name": "enabled",
@@ -977,44 +984,12 @@
       ],
       "properties": [
         {
-          "name": "NavigationEnabled",
+          "name": "IsKeyRoutingEnabled",
           "type": {
             "kind": "Native",
             "name": "Bool"
           },
-          "getter": "get_NavigationEnabled"
-        }
-      ]
-    },
-    "IGamepadNavigationConfigurationStatics": {
-      "guid": "9c7c3e1d-2aff-5de0-88f1-904acc561f68",
-      "exclusive_to": "Windows.UI.Input.GamepadNavigationConfiguration",
-      "methods": [
-        {
-          "name": "TryGetForCurrentProcess",
-          "return": {
-            "kind": "ApiRef",
-            "name": "GamepadNavigationConfiguration",
-            "namespace": "Windows.UI.Input",
-            "target_kind": "Class"
-          }
-        },
-        {
-          "name": "get_IsSupported",
-          "return": {
-            "kind": "Native",
-            "name": "Bool"
-          }
-        }
-      ],
-      "properties": [
-        {
-          "name": "IsSupported",
-          "type": {
-            "kind": "Native",
-            "name": "Bool"
-          },
-          "getter": "get_IsSupported"
+          "getter": "get_IsKeyRoutingEnabled"
         }
       ]
     },
@@ -8325,23 +8300,9 @@
         }
       ]
     },
-    "GamepadNavigationConfiguration": {
-      "default_interface": {
-        "kind": "ApiRef",
-        "name": "IGamepadNavigationConfiguration",
-        "namespace": "Windows.UI.Input",
-        "target_kind": "Interface"
-      },
-      "interfaces": [
-        {
-          "kind": "ApiRef",
-          "name": "IGamepadNavigationConfiguration",
-          "namespace": "Windows.UI.Input",
-          "target_kind": "Interface"
-        }
-      ],
+    "GamepadKeyRoutingConfiguration": {
       "static_interfaces": [
-        "Windows.UI.Input.IGamepadNavigationConfigurationStatics"
+        "Windows.UI.Input.IGamepadKeyRoutingConfigurationStatics"
       ]
     },
     "GestureRecognizer": {
@@ -8745,8 +8706,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Input.IRadialControllerConfigurationStatics",
-        "Windows.UI.Input.IRadialControllerConfigurationStatics2"
+        "Windows.UI.Input.IRadialControllerConfigurationStatics2",
+        "Windows.UI.Input.IRadialControllerConfigurationStatics"
       ]
     },
     "RadialControllerControlAcquiredEventArgs": {
@@ -8803,8 +8764,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Input.IRadialControllerMenuItemStatics",
-        "Windows.UI.Input.IRadialControllerMenuItemStatics2"
+        "Windows.UI.Input.IRadialControllerMenuItemStatics2",
+        "Windows.UI.Input.IRadialControllerMenuItemStatics"
       ]
     },
     "RadialControllerRotationChangedEventArgs": {

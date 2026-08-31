@@ -2562,6 +2562,23 @@ func (self *IToastNotificationManagerStatics5) GetDefault() (*IToastNotification
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// IToastNotificationStatics is the WinRT interface Windows.UI.Notifications.IToastNotificationStatics.
+// IID: 2aa8f213-d8c9-48fe-b641-4a63d69ce079
+// Exclusive to the Windows.UI.Notifications.ToastNotification runtime class.
+type IToastNotificationStatics struct {
+	syswinrt.IInspectable
+}
+
+// IID_IToastNotificationStatics is the interface identifier for IToastNotificationStatics.
+var IID_IToastNotificationStatics = win32.GUID{Data1: 0x2aa8f213, Data2: 0xd8c9, Data3: 0x48fe, Data4: [8]byte{0xb6, 0x41, 0x4a, 0x63, 0xd6, 0x9c, 0xe0, 0x79}}
+
+// IsExpandableContentSupported (propget get_IsExpandableContentSupported) dispatches through IToastNotificationStatics's vtable slot 6.
+func (self *IToastNotificationStatics) IsExpandableContentSupported() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
 // IToastNotifier is the WinRT interface Windows.UI.Notifications.IToastNotifier.
 // IID: 75927b93-03f3-41ec-91d3-6e5bac1b38e7
 // Exclusive to the Windows.UI.Notifications.ToastNotifier runtime class.

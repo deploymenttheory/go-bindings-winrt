@@ -574,6 +574,12 @@ func (self *User) AsUser2() (*IUser2, error) {
 	return winrt.QueryInterface[IUser2](unsafe.Pointer(self), &IID_IUser2)
 }
 
+// AsUser3 queries the instance's IUser3 interface.
+// The returned reference is owned by the caller.
+func (self *User) AsUser3() (*IUser3, error) {
+	return winrt.QueryInterface[IUser3](unsafe.Pointer(self), &IID_IUser3)
+}
+
 // UserStatics returns the Windows.System.IUserStatics statics of the
 // Windows.System.User runtime class. The activation factory is queried for
 // the statics IID directly, so the returned reference (owned by the caller;
@@ -596,6 +602,13 @@ func UserStatics2() (*IUserStatics2, error) {
 		return nil, err
 	}
 	return (*IUserStatics2)(unsafe.Pointer(factory)), nil
+}
+
+// UserAgeRange is the Windows.System.UserAgeRange runtime class, surfaced through its
+// default interface IUserAgeRange. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type UserAgeRange struct {
+	IUserAgeRange
 }
 
 // UserAuthenticationStatusChangeDeferral is the Windows.System.UserAuthenticationStatusChangeDeferral runtime class, surfaced through its

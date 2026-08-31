@@ -84,6 +84,75 @@ func (self *IAsyncOperationOfIVectorViewOfIVpnProfile) Await() (*IVectorViewOfIV
 	return self.GetResults()
 }
 
+// IAsyncOperationOfIVpnProfile is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Networking.Vpn.IVpnProfile>.
+// IID: 87e6df44-a795-52c8-be99-82c4421224b7
+// Requires: Windows.Foundation.IAsyncInfo.
+type IAsyncOperationOfIVpnProfile struct {
+	syswinrt.IInspectable
+}
+
+// IID_IAsyncOperationOfIVpnProfile is the interface identifier for IAsyncOperationOfIVpnProfile.
+var IID_IAsyncOperationOfIVpnProfile = win32.GUID{Data1: 0x87e6df44, Data2: 0xa795, Data3: 0x52c8, Data4: [8]byte{0xbe, 0x99, 0x82, 0xc4, 0x42, 0x12, 0x24, 0xb7}}
+
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfIVpnProfile's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfIVpnProfile) SetCompleted(handler *AsyncOperationCompletedHandlerOfIVpnProfile) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
+
+// slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+
+// GetResults dispatches through IAsyncOperationOfIVpnProfile's vtable slot 8.
+func (self *IAsyncOperationOfIVpnProfile) GetResults() (*IVpnProfile, error) {
+	result := new(*IVpnProfile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfIVpnProfile reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfIVpnProfile) Await() (*IVpnProfile, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfIVpnProfile(func(_ *IAsyncOperationOfIVpnProfile, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IAsyncOperationOfVpnCredential is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Networking.Vpn.VpnCredential>.
 // IID: 216a6f97-dba1-5f71-a14b-2818ad3c4c69
 // Requires: Windows.Foundation.IAsyncInfo.

@@ -359,23 +359,6 @@ func (self *PaymentRequest) AsPaymentRequest2() (*IPaymentRequest2, error) {
 	return winrt.QueryInterface[IPaymentRequest2](unsafe.Pointer(self), &IID_IPaymentRequest2)
 }
 
-// CreateWithMerchantInfoOptionsAndId constructs a Windows.ApplicationModel.Payments.PaymentRequest instance through
-// Windows.ApplicationModel.Payments.IPaymentRequestFactory2.CreateWithMerchantInfoOptionsAndId. The activation factory is fetched
-// per call (a factory cache is a future optimization).
-func CreateWithMerchantInfoOptionsAndId(details *IPaymentDetails, methodData *IIterableOfPaymentMethodData, merchantInfo *IPaymentMerchantInfo, options *IPaymentOptions, id string) (*PaymentRequest, error) {
-	factoryUnknown, err := winrt.GetActivationFactory("Windows.ApplicationModel.Payments.PaymentRequest", &IID_IPaymentRequestFactory2)
-	if err != nil {
-		return nil, err
-	}
-	factory := (*IPaymentRequestFactory2)(unsafe.Pointer(factoryUnknown))
-	defer factory.Release()
-	instance, err := factory.CreateWithMerchantInfoOptionsAndId(details, methodData, merchantInfo, options, id)
-	if err != nil {
-		return nil, err
-	}
-	return (*PaymentRequest)(unsafe.Pointer(instance)), nil
-}
-
 // CreatePaymentRequest constructs a Windows.ApplicationModel.Payments.PaymentRequest instance through
 // Windows.ApplicationModel.Payments.IPaymentRequestFactory.Create. The activation factory is fetched
 // per call (a factory cache is a future optimization).
@@ -421,6 +404,23 @@ func CreateWithMerchantInfoAndOptions(details *IPaymentDetails, methodData *IIte
 	factory := (*IPaymentRequestFactory)(unsafe.Pointer(factoryUnknown))
 	defer factory.Release()
 	instance, err := factory.CreateWithMerchantInfoAndOptions(details, methodData, merchantInfo, options)
+	if err != nil {
+		return nil, err
+	}
+	return (*PaymentRequest)(unsafe.Pointer(instance)), nil
+}
+
+// CreateWithMerchantInfoOptionsAndId constructs a Windows.ApplicationModel.Payments.PaymentRequest instance through
+// Windows.ApplicationModel.Payments.IPaymentRequestFactory2.CreateWithMerchantInfoOptionsAndId. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateWithMerchantInfoOptionsAndId(details *IPaymentDetails, methodData *IIterableOfPaymentMethodData, merchantInfo *IPaymentMerchantInfo, options *IPaymentOptions, id string) (*PaymentRequest, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.ApplicationModel.Payments.PaymentRequest", &IID_IPaymentRequestFactory2)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IPaymentRequestFactory2)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.CreateWithMerchantInfoOptionsAndId(details, methodData, merchantInfo, options, id)
 	if err != nil {
 		return nil, err
 	}

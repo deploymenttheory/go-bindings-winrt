@@ -515,6 +515,18 @@ func (self *ToastNotification) AsToastNotification6() (*IToastNotification6, err
 	return winrt.QueryInterface[IToastNotification6](unsafe.Pointer(self), &IID_IToastNotification6)
 }
 
+// ToastNotificationStatics returns the Windows.UI.Notifications.IToastNotificationStatics statics of the
+// Windows.UI.Notifications.ToastNotification runtime class. The activation factory is queried for
+// the statics IID directly, so the returned reference (owned by the caller;
+// Release when done) is the statics interface itself.
+func ToastNotificationStatics() (*IToastNotificationStatics, error) {
+	factory, err := winrt.GetActivationFactory("Windows.UI.Notifications.ToastNotification", &IID_IToastNotificationStatics)
+	if err != nil {
+		return nil, err
+	}
+	return (*IToastNotificationStatics)(unsafe.Pointer(factory)), nil
+}
+
 // CreateToastNotification constructs a Windows.UI.Notifications.ToastNotification instance through
 // Windows.UI.Notifications.IToastNotificationFactory.CreateToastNotification. The activation factory is fetched
 // per call (a factory cache is a future optimization).

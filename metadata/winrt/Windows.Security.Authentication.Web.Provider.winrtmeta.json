@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Security.Authentication.Web.Provider",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "WebAccountClientViewType": {
       "base_type": "int32",
@@ -1985,12 +1985,12 @@
     },
     "WebAccountManager": {
       "static_interfaces": [
-        "Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics3",
-        "Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics",
         "Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics4",
         "Windows.Security.Authentication.Web.Provider.IWebAccountScopeManagerStatics",
+        "Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics3",
+        "Windows.Security.Authentication.Web.Provider.IWebAccountMapManagerStatics",
         "Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics2",
-        "Windows.Security.Authentication.Web.Provider.IWebAccountMapManagerStatics"
+        "Windows.Security.Authentication.Web.Provider.IWebAccountManagerStatics"
       ]
     },
     "WebAccountProviderAddAccountOperation": {

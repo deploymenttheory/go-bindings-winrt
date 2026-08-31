@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Shell",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "ShareWindowCommand": {
       "base_type": "int32",
@@ -826,8 +826,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Shell.ITaskbarManagerStatics",
-        "Windows.UI.Shell.ITaskbarManagerDesktopAppSupportStatics"
+        "Windows.UI.Shell.ITaskbarManagerDesktopAppSupportStatics",
+        "Windows.UI.Shell.ITaskbarManagerStatics"
       ]
     }
   }

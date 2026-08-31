@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Storage.Pickers",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "PickerLocationId": {
       "base_type": "int32",
@@ -1128,8 +1128,8 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.Storage.Pickers.IFileOpenPickerStatics2",
-        "Windows.Storage.Pickers.IFileOpenPickerStatics"
+        "Windows.Storage.Pickers.IFileOpenPickerStatics",
+        "Windows.Storage.Pickers.IFileOpenPickerStatics2"
       ]
     },
     "FilePickerFileTypesOrderedMap": {

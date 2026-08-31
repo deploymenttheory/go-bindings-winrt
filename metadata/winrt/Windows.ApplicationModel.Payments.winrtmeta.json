@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Payments",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "PaymentCanMakePaymentResultStatus": {
       "base_type": "int32",
@@ -3121,8 +3121,8 @@
         }
       ],
       "activatable_factories": [
-        "Windows.ApplicationModel.Payments.IPaymentRequestFactory2",
-        "Windows.ApplicationModel.Payments.IPaymentRequestFactory"
+        "Windows.ApplicationModel.Payments.IPaymentRequestFactory",
+        "Windows.ApplicationModel.Payments.IPaymentRequestFactory2"
       ]
     },
     "PaymentRequestChangedArgs": {
