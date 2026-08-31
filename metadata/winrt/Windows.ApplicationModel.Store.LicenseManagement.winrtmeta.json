@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Store.LicenseManagement",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "LicenseRefreshOption": {
       "base_type": "int32",
@@ -306,8 +306,8 @@
   "classes": {
     "LicenseManager": {
       "static_interfaces": [
-        "Windows.ApplicationModel.Store.LicenseManagement.ILicenseManagerStatics",
-        "Windows.ApplicationModel.Store.LicenseManagement.ILicenseManagerStatics2"
+        "Windows.ApplicationModel.Store.LicenseManagement.ILicenseManagerStatics2",
+        "Windows.ApplicationModel.Store.LicenseManagement.ILicenseManagerStatics"
       ]
     },
     "LicenseSatisfactionInfo": {

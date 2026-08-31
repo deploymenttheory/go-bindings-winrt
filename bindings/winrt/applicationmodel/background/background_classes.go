@@ -756,23 +756,6 @@ func (self *GattCharacteristicNotificationTrigger) AsGattCharacteristicNotificat
 	return winrt.QueryInterface[IGattCharacteristicNotificationTrigger2](unsafe.Pointer(self), &IID_IGattCharacteristicNotificationTrigger2)
 }
 
-// CreateGattCharacteristicNotificationTrigger constructs a Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger instance through
-// Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory.Create. The activation factory is fetched
-// per call (a factory cache is a future optimization).
-func CreateGattCharacteristicNotificationTrigger(characteristic *devicesbluetoothgenericattributeprofile.IGattCharacteristic) (*GattCharacteristicNotificationTrigger, error) {
-	factoryUnknown, err := winrt.GetActivationFactory("Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger", &IID_IGattCharacteristicNotificationTriggerFactory)
-	if err != nil {
-		return nil, err
-	}
-	factory := (*IGattCharacteristicNotificationTriggerFactory)(unsafe.Pointer(factoryUnknown))
-	defer factory.Release()
-	instance, err := factory.Create(characteristic)
-	if err != nil {
-		return nil, err
-	}
-	return (*GattCharacteristicNotificationTrigger)(unsafe.Pointer(instance)), nil
-}
-
 // CreateWithEventTriggeringMode constructs a Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger instance through
 // Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory2.CreateWithEventTriggeringMode. The activation factory is fetched
 // per call (a factory cache is a future optimization).
@@ -784,6 +767,23 @@ func CreateWithEventTriggeringMode(characteristic *devicesbluetoothgenericattrib
 	factory := (*IGattCharacteristicNotificationTriggerFactory2)(unsafe.Pointer(factoryUnknown))
 	defer factory.Release()
 	instance, err := factory.CreateWithEventTriggeringMode(characteristic, eventTriggeringMode)
+	if err != nil {
+		return nil, err
+	}
+	return (*GattCharacteristicNotificationTrigger)(unsafe.Pointer(instance)), nil
+}
+
+// CreateGattCharacteristicNotificationTrigger constructs a Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger instance through
+// Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory.Create. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateGattCharacteristicNotificationTrigger(characteristic *devicesbluetoothgenericattributeprofile.IGattCharacteristic) (*GattCharacteristicNotificationTrigger, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger", &IID_IGattCharacteristicNotificationTriggerFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IGattCharacteristicNotificationTriggerFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.Create(characteristic)
 	if err != nil {
 		return nil, err
 	}

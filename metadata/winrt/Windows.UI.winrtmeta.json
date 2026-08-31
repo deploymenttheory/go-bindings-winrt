@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "structs": {
     "Color": {
       "fields": [
@@ -2861,8 +2861,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.IColorHelperStatics",
-        "Windows.UI.IColorHelperStatics2"
+        "Windows.UI.IColorHelperStatics2",
+        "Windows.UI.IColorHelperStatics"
       ]
     },
     "Colors": {

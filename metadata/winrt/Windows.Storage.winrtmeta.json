@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Storage",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "ApplicationDataCreateDisposition": {
       "base_type": "int32",
@@ -6714,8 +6714,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Storage.IApplicationDataStatics",
-        "Windows.Storage.IApplicationDataStatics2"
+        "Windows.Storage.IApplicationDataStatics2",
+        "Windows.Storage.IApplicationDataStatics"
       ]
     },
     "ApplicationDataCompositeValue": {
@@ -6903,13 +6903,13 @@
     },
     "KnownFolders": {
       "static_interfaces": [
-        "Windows.Storage.IKnownFoldersSavedPicturesStatics",
-        "Windows.Storage.IKnownFoldersStatics",
         "Windows.Storage.IKnownFoldersPlaylistsStatics",
-        "Windows.Storage.IKnownFoldersCameraRollStatics",
         "Windows.Storage.IKnownFoldersStatics3",
         "Windows.Storage.IKnownFoldersStatics2",
-        "Windows.Storage.IKnownFoldersStatics4"
+        "Windows.Storage.IKnownFoldersStatics",
+        "Windows.Storage.IKnownFoldersCameraRollStatics",
+        "Windows.Storage.IKnownFoldersStatics4",
+        "Windows.Storage.IKnownFoldersSavedPicturesStatics"
       ]
     },
     "PathIO": {
@@ -7019,8 +7019,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Storage.IStorageFileStatics2",
-        "Windows.Storage.IStorageFileStatics"
+        "Windows.Storage.IStorageFileStatics",
+        "Windows.Storage.IStorageFileStatics2"
       ]
     },
     "StorageFolder": {
@@ -7119,8 +7119,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Storage.IStorageLibraryStatics2",
-        "Windows.Storage.IStorageLibraryStatics"
+        "Windows.Storage.IStorageLibraryStatics",
+        "Windows.Storage.IStorageLibraryStatics2"
       ]
     },
     "StorageLibraryChange": {

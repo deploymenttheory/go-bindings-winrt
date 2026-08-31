@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Devices.PointOfService",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "BarcodeScannerStatus": {
       "base_type": "int32",
@@ -14440,8 +14440,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.PointOfService.IBarcodeScannerStatics2",
-        "Windows.Devices.PointOfService.IBarcodeScannerStatics"
+        "Windows.Devices.PointOfService.IBarcodeScannerStatics",
+        "Windows.Devices.PointOfService.IBarcodeScannerStatics2"
       ]
     },
     "BarcodeScannerCapabilities": {
@@ -14557,8 +14557,8 @@
     },
     "BarcodeSymbologies": {
       "static_interfaces": [
-        "Windows.Devices.PointOfService.IBarcodeSymbologiesStatics",
-        "Windows.Devices.PointOfService.IBarcodeSymbologiesStatics2"
+        "Windows.Devices.PointOfService.IBarcodeSymbologiesStatics2",
+        "Windows.Devices.PointOfService.IBarcodeSymbologiesStatics"
       ]
     },
     "BarcodeSymbologyAttributes": {
@@ -15474,8 +15474,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Devices.PointOfService.IPosPrinterStatics2",
-        "Windows.Devices.PointOfService.IPosPrinterStatics"
+        "Windows.Devices.PointOfService.IPosPrinterStatics",
+        "Windows.Devices.PointOfService.IPosPrinterStatics2"
       ]
     },
     "PosPrinterCapabilities": {

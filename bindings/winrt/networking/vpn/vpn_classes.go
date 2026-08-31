@@ -67,6 +67,12 @@ func (self *VpnChannel) AsVpnChannel6() (*IVpnChannel6, error) {
 	return winrt.QueryInterface[IVpnChannel6](unsafe.Pointer(self), &IID_IVpnChannel6)
 }
 
+// AsVpnChannel7Preview queries the instance's IVpnChannel7Preview interface.
+// The returned reference is owned by the caller.
+func (self *VpnChannel) AsVpnChannel7Preview() (*IVpnChannel7Preview, error) {
+	return winrt.QueryInterface[IVpnChannel7Preview](unsafe.Pointer(self), &IID_IVpnChannel7Preview)
+}
+
 // VpnChannelStatics returns the Windows.Networking.Vpn.IVpnChannelStatics statics of the
 // Windows.Networking.Vpn.VpnChannel runtime class. The activation factory is queried for
 // the statics IID directly, so the returned reference (owned by the caller;
@@ -104,6 +110,13 @@ type VpnChannelConfiguration struct {
 // The returned reference is owned by the caller.
 func (self *VpnChannelConfiguration) AsVpnChannelConfiguration2() (*IVpnChannelConfiguration2, error) {
 	return winrt.QueryInterface[IVpnChannelConfiguration2](unsafe.Pointer(self), &IID_IVpnChannelConfiguration2)
+}
+
+// VpnConnectionDetailsPreview is the Windows.Networking.Vpn.VpnConnectionDetailsPreview runtime class, surfaced through its
+// default interface IVpnConnectionDetailsPreview. Release when done (promoted from
+// the embedded IInspectable → IUnknown chain).
+type VpnConnectionDetailsPreview struct {
+	IVpnConnectionDetailsPreview
 }
 
 // VpnCredential is the Windows.Networking.Vpn.VpnCredential runtime class, surfaced through its
@@ -426,6 +439,12 @@ func NewVpnManagementAgent() (*VpnManagementAgent, error) {
 	}
 	defer instance.Release()
 	return winrt.QueryInterface[VpnManagementAgent](unsafe.Pointer(instance), &IID_IVpnManagementAgent)
+}
+
+// AsVpnManagementAgent2Preview queries the instance's IVpnManagementAgent2Preview interface.
+// The returned reference is owned by the caller.
+func (self *VpnManagementAgent) AsVpnManagementAgent2Preview() (*IVpnManagementAgent2Preview, error) {
+	return winrt.QueryInterface[IVpnManagementAgent2Preview](unsafe.Pointer(self), &IID_IVpnManagementAgent2Preview)
 }
 
 // VpnNamespaceAssignment is the Windows.Networking.Vpn.VpnNamespaceAssignment runtime class, surfaced through its

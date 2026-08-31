@@ -622,6 +622,41 @@ func (h *AsyncOperationCompletedHandlerOfUserAgeConsentResult) Ptr() uintptr { r
 // the runtime keeps its own references while the handler stays registered.
 func (h *AsyncOperationCompletedHandlerOfUserAgeConsentResult) Close() { h.delegate.Release() }
 
+// AsyncOperationCompletedHandlerOfUserAgeRange is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.System.UserAgeRange>.
+// IID: 11c9db94-e99a-5481-9c20-61ed7d2d8916
+type AsyncOperationCompletedHandlerOfUserAgeRange struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfUserAgeRange is the delegate identifier for AsyncOperationCompletedHandlerOfUserAgeRange.
+var IID_AsyncOperationCompletedHandlerOfUserAgeRange = win32.GUID{Data1: 0x11c9db94, Data2: 0xe99a, Data3: 0x5481, Data4: [8]byte{0x9c, 0x20, 0x61, 0xed, 0x7d, 0x2d, 0x89, 0x16}}
+
+// NewAsyncOperationCompletedHandlerOfUserAgeRange wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.System.UserAgeRange>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfUserAgeRange(fn func(asyncInfo *IAsyncOperationOfUserAgeRange, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfUserAgeRange, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfUserAgeRange, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfUserAgeRange)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfUserAgeRange{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfUserAgeRange) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfUserAgeRange) Close() { h.delegate.Release() }
+
 // DispatcherQueueHandler is a Go-implemented handler for the WinRT delegate
 // Windows.System.DispatcherQueueHandler.
 // IID: dfa2dc9c-1a2d-4917-98f2-939af1d6e0c8

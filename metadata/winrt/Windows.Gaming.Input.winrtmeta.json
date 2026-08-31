@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Gaming.Input",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "ArcadeStickButtons": {
       "base_type": "uint32",
@@ -3275,8 +3275,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Gaming.Input.IGamepadStatics2",
-        "Windows.Gaming.Input.IGamepadStatics"
+        "Windows.Gaming.Input.IGamepadStatics",
+        "Windows.Gaming.Input.IGamepadStatics2"
       ]
     },
     "Headset": {
@@ -3398,8 +3398,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Gaming.Input.IUINavigationControllerStatics2",
-        "Windows.Gaming.Input.IUINavigationControllerStatics"
+        "Windows.Gaming.Input.IUINavigationControllerStatics",
+        "Windows.Gaming.Input.IUINavigationControllerStatics2"
       ]
     }
   }

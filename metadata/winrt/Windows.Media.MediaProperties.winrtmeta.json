@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Media.MediaProperties",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "AudioEncodingQuality": {
       "base_type": "int32",
@@ -3774,9 +3774,9 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.Media.MediaProperties.IImageEncodingPropertiesStatics",
         "Windows.Media.MediaProperties.IImageEncodingPropertiesStatics2",
-        "Windows.Media.MediaProperties.IImageEncodingPropertiesStatics3"
+        "Windows.Media.MediaProperties.IImageEncodingPropertiesStatics3",
+        "Windows.Media.MediaProperties.IImageEncodingPropertiesStatics"
       ]
     },
     "MediaEncodingProfile": {
@@ -3808,8 +3808,8 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.Media.MediaProperties.IMediaEncodingProfileStatics4",
         "Windows.Media.MediaProperties.IMediaEncodingProfileStatics",
+        "Windows.Media.MediaProperties.IMediaEncodingProfileStatics4",
         "Windows.Media.MediaProperties.IMediaEncodingProfileStatics3",
         "Windows.Media.MediaProperties.IMediaEncodingProfileStatics2"
       ]
@@ -3817,12 +3817,12 @@
     "MediaEncodingSubtypes": {
       "static_interfaces": [
         "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics5",
-        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics6",
-        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics4",
         "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics2",
+        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics4",
         "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics",
+        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics3",
         "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics7",
-        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics3"
+        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics6"
       ]
     },
     "MediaPropertySet": {
@@ -3981,8 +3981,8 @@
       "activatable_direct": true,
       "static_interfaces": [
         "Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics3",
-        "Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics",
-        "Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics2"
+        "Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics2",
+        "Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics"
       ]
     },
     "Vp9ProfileIds": {

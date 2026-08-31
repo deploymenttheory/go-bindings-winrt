@@ -75,23 +75,6 @@ func (self *IDirect3D11CaptureFrame2) DirtyRegionMode() (GraphicsCaptureDirtyReg
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// IDirect3D11CaptureFrame3 is the WinRT interface Windows.Graphics.Capture.IDirect3D11CaptureFrame3.
-// IID: 71616dc8-fea5-5741-a3d8-591acc39a9ee
-// Exclusive to the Windows.Graphics.Capture.Direct3D11CaptureFrame runtime class.
-type IDirect3D11CaptureFrame3 struct {
-	syswinrt.IInspectable
-}
-
-// IID_IDirect3D11CaptureFrame3 is the interface identifier for IDirect3D11CaptureFrame3.
-var IID_IDirect3D11CaptureFrame3 = win32.GUID{Data1: 0x71616dc8, Data2: 0xfea5, Data3: 0x5741, Data4: [8]byte{0xa3, 0xd8, 0x59, 0x1a, 0xcc, 0x39, 0xa9, 0xee}}
-
-// ConfigurationIteration (propget get_ConfigurationIteration) dispatches through IDirect3D11CaptureFrame3's vtable slot 6.
-func (self *IDirect3D11CaptureFrame3) ConfigurationIteration() (uint64, error) {
-	result := new(uint64)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result, win32.ErrIfFailed(int32(r1))
-}
-
 // IDirect3D11CaptureFramePool is the WinRT interface Windows.Graphics.Capture.IDirect3D11CaptureFramePool.
 // IID: 24eb6d22-1975-422e-82e7-780dbd8ddf24
 // Exclusive to the Windows.Graphics.Capture.Direct3D11CaptureFramePool runtime class.
@@ -179,29 +162,6 @@ func (self *IDirect3D11CaptureFramePoolStatics2) CreateFreeThreaded(device *grap
 	_size := *(*uintptr)(unsafe.Pointer(&size))
 	result := new(*IDirect3D11CaptureFramePool)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(device)), uintptr(pixelFormat), uintptr(numberOfBuffers), _size, uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result, win32.ErrIfFailed(int32(r1))
-}
-
-// IDisplayGraphicsCaptureSession is the WinRT interface Windows.Graphics.Capture.IDisplayGraphicsCaptureSession.
-// IID: bb91f61b-218a-587d-8580-2701a74c0525
-type IDisplayGraphicsCaptureSession struct {
-	syswinrt.IInspectable
-}
-
-// IID_IDisplayGraphicsCaptureSession is the interface identifier for IDisplayGraphicsCaptureSession.
-var IID_IDisplayGraphicsCaptureSession = win32.GUID{Data1: 0xbb91f61b, Data2: 0x218a, Data3: 0x587d, Data4: [8]byte{0x85, 0x80, 0x27, 0x01, 0xa7, 0x4c, 0x05, 0x25}}
-
-// SetWindowExclusionList dispatches through IDisplayGraphicsCaptureSession's vtable slot 6.
-func (self *IDisplayGraphicsCaptureSession) SetWindowExclusionList(excludedWindows *IIterableOfWindowId) (uint64, error) {
-	result := new(uint64)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(excludedWindows)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result, win32.ErrIfFailed(int32(r1))
-}
-
-// GetWindowExclusionList dispatches through IDisplayGraphicsCaptureSession's vtable slot 7.
-func (self *IDisplayGraphicsCaptureSession) GetWindowExclusionList() (*IVectorViewOfWindowId, error) {
-	result := new(*IVectorViewOfWindowId)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
@@ -467,23 +427,6 @@ func (self *IGraphicsCaptureSession6) SetIncludeSecondaryWindows(value bool) err
 	}
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), _value)
 	return win32.ErrIfFailed(int32(r1))
-}
-
-// IGraphicsCaptureSession7 is the WinRT interface Windows.Graphics.Capture.IGraphicsCaptureSession7.
-// IID: 82d1aa4d-4366-543e-a6d0-a4805e6bcf2c
-// Exclusive to the Windows.Graphics.Capture.GraphicsCaptureSession runtime class.
-type IGraphicsCaptureSession7 struct {
-	syswinrt.IInspectable
-}
-
-// IID_IGraphicsCaptureSession7 is the interface identifier for IGraphicsCaptureSession7.
-var IID_IGraphicsCaptureSession7 = win32.GUID{Data1: 0x82d1aa4d, Data2: 0x4366, Data3: 0x543e, Data4: [8]byte{0xa6, 0xd0, 0xa4, 0x80, 0x5e, 0x6b, 0xcf, 0x2c}}
-
-// ConfigurationIteration (propget get_ConfigurationIteration) dispatches through IGraphicsCaptureSession7's vtable slot 6.
-func (self *IGraphicsCaptureSession7) ConfigurationIteration() (uint64, error) {
-	result := new(uint64)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IGraphicsCaptureSessionStatics is the WinRT interface Windows.Graphics.Capture.IGraphicsCaptureSessionStatics.
