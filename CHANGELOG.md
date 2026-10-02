@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.6.1](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.6.0...v0.6.1) (2026-10-02)
+
+
+### Bug Fixes
+
+* build against go-bindings-win32 v0.5.0 on windows/amd64 ([8622602](https://github.com/deploymenttheory/go-bindings-winrt/commit/8622602a26eca3268d5406278ebf668528c00153))
+* build against go-bindings-win32 v0.5.0 on windows/amd64 ([78374a0](https://github.com/deploymenttheory/go-bindings-winrt/commit/78374a07f883df9991e7341ab9d9fbb6a61f7a9d))
+* gofmt the repository after the go-winmd path change ([3542512](https://github.com/deploymenttheory/go-bindings-winrt/commit/354251244243395a8899b8999f0b182f6566b5e6))
+* restore import ordering after the go-winmd path change ([9e7cf97](https://github.com/deploymenttheory/go-bindings-winrt/commit/9e7cf970a2c5766b5ebe22d99e2655c85a1f541d))
+
 ## [0.6.0](https://github.com/deploymenttheory/go-bindings-winrt/compare/v0.5.1...v0.6.0) (2026-07-31)
 
 
