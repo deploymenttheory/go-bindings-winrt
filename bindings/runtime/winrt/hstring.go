@@ -30,7 +30,7 @@ func NewHString(s string) (HString, error) {
 	}
 	length := uint32(len(utf16.Encode([]rune(s))))
 	var h syswinrt.HSTRING
-	if err := syswinrt.WindowsCreateString(s, length, &h); err != nil {
+	if err := syswinrt.WindowsCreateString(&s, length, &h); err != nil {
 		return HString{}, fmt.Errorf("winrt: creating HSTRING: %w", err)
 	}
 	return HString{raw: h}, nil
