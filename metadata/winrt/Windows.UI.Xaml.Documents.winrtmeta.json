@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.Xaml.Documents",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "LogicalDirection": {
       "base_type": "int32",
@@ -7760,8 +7760,8 @@
       ],
       "activatable_direct": true,
       "static_interfaces": [
-        "Windows.UI.Xaml.Documents.IHyperlinkStatics",
         "Windows.UI.Xaml.Documents.IHyperlinkStatics5",
+        "Windows.UI.Xaml.Documents.IHyperlinkStatics",
         "Windows.UI.Xaml.Documents.IHyperlinkStatics4",
         "Windows.UI.Xaml.Documents.IHyperlinkStatics3",
         "Windows.UI.Xaml.Documents.IHyperlinkStatics2"
@@ -8031,8 +8031,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.Xaml.Documents.ITextElementStatics4",
         "Windows.UI.Xaml.Documents.ITextElementStatics3",
+        "Windows.UI.Xaml.Documents.ITextElementStatics4",
         "Windows.UI.Xaml.Documents.ITextElementStatics2",
         "Windows.UI.Xaml.Documents.ITextElementStatics"
       ],

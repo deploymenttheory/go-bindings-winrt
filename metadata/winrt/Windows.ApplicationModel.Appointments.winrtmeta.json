@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Appointments",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "AppointmentBusyStatus": {
       "base_type": "int32",
@@ -6259,8 +6259,8 @@
     "AppointmentManager": {
       "static_interfaces": [
         "Windows.ApplicationModel.Appointments.IAppointmentManagerStatics2",
-        "Windows.ApplicationModel.Appointments.IAppointmentManagerStatics",
-        "Windows.ApplicationModel.Appointments.IAppointmentManagerStatics3"
+        "Windows.ApplicationModel.Appointments.IAppointmentManagerStatics3",
+        "Windows.ApplicationModel.Appointments.IAppointmentManagerStatics"
       ]
     },
     "AppointmentManagerForUser": {

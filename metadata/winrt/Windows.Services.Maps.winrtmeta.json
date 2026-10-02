@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Services.Maps",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "ManeuverWarningKind": {
       "base_type": "int32",
@@ -3397,8 +3397,8 @@
     "MapRouteFinder": {
       "static_interfaces": [
         "Windows.Services.Maps.IMapRouteFinderStatics",
-        "Windows.Services.Maps.IMapRouteFinderStatics3",
-        "Windows.Services.Maps.IMapRouteFinderStatics2"
+        "Windows.Services.Maps.IMapRouteFinderStatics2",
+        "Windows.Services.Maps.IMapRouteFinderStatics3"
       ]
     },
     "MapRouteFinderResult": {
@@ -3475,9 +3475,9 @@
     },
     "MapService": {
       "static_interfaces": [
-        "Windows.Services.Maps.IMapServiceStatics4",
-        "Windows.Services.Maps.IMapServiceStatics3",
         "Windows.Services.Maps.IMapServiceStatics2",
+        "Windows.Services.Maps.IMapServiceStatics3",
+        "Windows.Services.Maps.IMapServiceStatics4",
         "Windows.Services.Maps.IMapServiceStatics"
       ]
     },
@@ -3497,8 +3497,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.Services.Maps.IPlaceInfoStatics2",
-        "Windows.Services.Maps.IPlaceInfoStatics"
+        "Windows.Services.Maps.IPlaceInfoStatics",
+        "Windows.Services.Maps.IPlaceInfoStatics2"
       ]
     },
     "PlaceInfoCreateOptions": {

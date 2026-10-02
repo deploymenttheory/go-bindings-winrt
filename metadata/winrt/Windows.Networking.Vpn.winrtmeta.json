@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Networking.Vpn",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "VpnAppIdType": {
       "base_type": "int32",
@@ -72,6 +72,35 @@
         }
       ]
     },
+    "VpnConnectionTypePreview": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NoConnection",
+          "value": "0"
+        },
+        {
+          "name": "PlatformUXInitiated",
+          "value": "1"
+        },
+        {
+          "name": "ApiInitiated",
+          "value": "2"
+        },
+        {
+          "name": "Auto",
+          "value": "3"
+        },
+        {
+          "name": "FastReconnect",
+          "value": "4"
+        },
+        {
+          "name": "PluginCrashReconnect",
+          "value": "5"
+        }
+      ]
+    },
     "VpnCredentialType": {
       "base_type": "int32",
       "members": [
@@ -115,6 +144,63 @@
         {
           "name": "Receive",
           "value": "1"
+        }
+      ]
+    },
+    "VpnDisconnectReasonPreview": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "NotDisconnected",
+          "value": "1"
+        },
+        {
+          "name": "PlatformUXInitiated",
+          "value": "2"
+        },
+        {
+          "name": "ApiInitiated",
+          "value": "3"
+        },
+        {
+          "name": "Standby",
+          "value": "4"
+        },
+        {
+          "name": "NetworkFailure",
+          "value": "5"
+        },
+        {
+          "name": "ServiceStop",
+          "value": "6"
+        },
+        {
+          "name": "UserLogOff",
+          "value": "7"
+        },
+        {
+          "name": "Shutdown",
+          "value": "8"
+        },
+        {
+          "name": "PluginUninstall",
+          "value": "9"
+        },
+        {
+          "name": "CaptivePortalDetected",
+          "value": "10"
+        },
+        {
+          "name": "AppTriggerDisconnect",
+          "value": "11"
+        },
+        {
+          "name": "EnteredTrustedNetwork",
+          "value": "12"
         }
       ]
     },
@@ -1662,6 +1748,72 @@
         }
       ]
     },
+    "IVpnChannel7Preview": {
+      "guid": "19862972-f14b-406b-bf10-f72ee323771b",
+      "exclusive_to": "Windows.Networking.Vpn.VpnChannel",
+      "methods": [
+        {
+          "name": "SetErrorMessage",
+          "overload": "SetErrorMessageWithDetails",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "errCode",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ConnectionDetail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnConnectionDetailsPreview",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DisconnectReason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnDisconnectReasonPreview",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionDetail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnConnectionDetailsPreview",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          },
+          "getter": "get_ConnectionDetail"
+        },
+        {
+          "name": "DisconnectReason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnDisconnectReasonPreview",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DisconnectReason"
+        }
+      ]
+    },
     "IVpnChannelActivityEventArgs": {
       "guid": "a36c88f2-afdc-4775-855d-d4ac0a35fc55",
       "exclusive_to": "Windows.Networking.Vpn.VpnChannelActivityEventArgs",
@@ -1853,6 +2005,48 @@
               }
             }
           ]
+        }
+      ]
+    },
+    "IVpnConnectionDetailsPreview": {
+      "guid": "bbd3e70b-1ab8-49c9-9fb1-dc78564058d4",
+      "exclusive_to": "Windows.Networking.Vpn.VpnConnectionDetailsPreview",
+      "methods": [
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnConnectionTypePreview",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Attempt",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Attempt",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Attempt"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnConnectionTypePreview",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
         }
       ]
     },
@@ -3347,6 +3541,80 @@
         },
         {
           "name": "DisconnectProfileAsync",
+          "params": [
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IVpnProfile",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnManagementErrorStatus",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IVpnManagementAgent2Preview": {
+      "guid": "73791cc7-acd7-491b-8bed-e9a17c3433da",
+      "exclusive_to": "Windows.Networking.Vpn.VpnManagementAgent",
+      "methods": [
+        {
+          "name": "GetAlwaysOnActiveProfile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IVpnProfile",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetAlwaysOnActiveProfileAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IVpnProfile",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetAlwaysOnActiveProfile",
+          "params": [
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IVpnProfile",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetAlwaysOnActiveProfileAsync",
           "params": [
             {
               "name": "profile",
@@ -5794,6 +6062,12 @@
           "name": "IVpnChannel6",
           "namespace": "Windows.Networking.Vpn",
           "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnChannel7Preview",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
         }
       ],
       "static_interfaces": [
@@ -5849,6 +6123,22 @@
         {
           "kind": "ApiRef",
           "name": "IVpnChannelConfiguration2",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VpnConnectionDetailsPreview": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnConnectionDetailsPreview",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnConnectionDetailsPreview",
           "namespace": "Windows.Networking.Vpn",
           "target_kind": "Interface"
         }
@@ -6193,6 +6483,12 @@
         {
           "kind": "ApiRef",
           "name": "IVpnManagementAgent",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnManagementAgent2Preview",
           "namespace": "Windows.Networking.Vpn",
           "target_kind": "Interface"
         }

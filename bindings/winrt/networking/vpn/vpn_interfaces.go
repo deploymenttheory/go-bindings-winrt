@@ -444,6 +444,41 @@ func (self *IVpnChannel6) ActivateForeground(packageRelativeAppId string, shared
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// IVpnChannel7Preview is the WinRT interface Windows.Networking.Vpn.IVpnChannel7Preview.
+// IID: 19862972-f14b-406b-bf10-f72ee323771b
+// Exclusive to the Windows.Networking.Vpn.VpnChannel runtime class.
+type IVpnChannel7Preview struct {
+	syswinrt.IInspectable
+}
+
+// IID_IVpnChannel7Preview is the interface identifier for IVpnChannel7Preview.
+var IID_IVpnChannel7Preview = win32.GUID{Data1: 0x19862972, Data2: 0xf14b, Data3: 0x406b, Data4: [8]byte{0xbf, 0x10, 0xf7, 0x2e, 0xe3, 0x23, 0x77, 0x1b}}
+
+// SetErrorMessageWithDetails dispatches through IVpnChannel7Preview's vtable slot 6.
+func (self *IVpnChannel7Preview) SetErrorMessageWithDetails(message string, errCode uint32) error {
+	hMessage, err := winrt.NewHString(message)
+	if err != nil {
+		return err
+	}
+	defer hMessage.Close()
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(hMessage.Raw()), uintptr(errCode))
+	return win32.ErrIfFailed(int32(r1))
+}
+
+// ConnectionDetail (propget get_ConnectionDetail) dispatches through IVpnChannel7Preview's vtable slot 7.
+func (self *IVpnChannel7Preview) ConnectionDetail() (*IVpnConnectionDetailsPreview, error) {
+	result := new(*IVpnConnectionDetailsPreview)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// DisconnectReason (propget get_DisconnectReason) dispatches through IVpnChannel7Preview's vtable slot 8.
+func (self *IVpnChannel7Preview) DisconnectReason() (VpnDisconnectReasonPreview, error) {
+	result := new(VpnDisconnectReasonPreview)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
 // IVpnChannelActivityEventArgs is the WinRT interface Windows.Networking.Vpn.IVpnChannelActivityEventArgs.
 // IID: a36c88f2-afdc-4775-855d-d4ac0a35fc55
 // Exclusive to the Windows.Networking.Vpn.VpnChannelActivityEventArgs runtime class.
@@ -545,6 +580,30 @@ var IID_IVpnChannelStatics = win32.GUID{Data1: 0x88eb062d, Data2: 0xe818, Data3:
 func (self *IVpnChannelStatics) ProcessEventAsync(thirdPartyPlugIn *syswinrt.IInspectable, event *syswinrt.IInspectable) error {
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(thirdPartyPlugIn)), uintptr(unsafe.Pointer(event)))
 	return win32.ErrIfFailed(int32(r1))
+}
+
+// IVpnConnectionDetailsPreview is the WinRT interface Windows.Networking.Vpn.IVpnConnectionDetailsPreview.
+// IID: bbd3e70b-1ab8-49c9-9fb1-dc78564058d4
+// Exclusive to the Windows.Networking.Vpn.VpnConnectionDetailsPreview runtime class.
+type IVpnConnectionDetailsPreview struct {
+	syswinrt.IInspectable
+}
+
+// IID_IVpnConnectionDetailsPreview is the interface identifier for IVpnConnectionDetailsPreview.
+var IID_IVpnConnectionDetailsPreview = win32.GUID{Data1: 0xbbd3e70b, Data2: 0x1ab8, Data3: 0x49c9, Data4: [8]byte{0x9f, 0xb1, 0xdc, 0x78, 0x56, 0x40, 0x58, 0xd4}}
+
+// Type (propget get_Type) dispatches through IVpnConnectionDetailsPreview's vtable slot 6.
+func (self *IVpnConnectionDetailsPreview) Type() (VpnConnectionTypePreview, error) {
+	result := new(VpnConnectionTypePreview)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Attempt (propget get_Attempt) dispatches through IVpnConnectionDetailsPreview's vtable slot 7.
+func (self *IVpnConnectionDetailsPreview) Attempt() (uint32, error) {
+	result := new(uint32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
 }
 
 // IVpnCredential is the WinRT interface Windows.Networking.Vpn.IVpnCredential.
@@ -1305,6 +1364,43 @@ func (self *IVpnManagementAgent) ConnectProfileWithPasswordCredentialAsync(profi
 func (self *IVpnManagementAgent) DisconnectProfileAsync(profile *IVpnProfile) (*IAsyncOperationOfVpnManagementErrorStatus, error) {
 	result := new(*IAsyncOperationOfVpnManagementErrorStatus)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[14], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(profile)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// IVpnManagementAgent2Preview is the WinRT interface Windows.Networking.Vpn.IVpnManagementAgent2Preview.
+// IID: 73791cc7-acd7-491b-8bed-e9a17c3433da
+// Exclusive to the Windows.Networking.Vpn.VpnManagementAgent runtime class.
+type IVpnManagementAgent2Preview struct {
+	syswinrt.IInspectable
+}
+
+// IID_IVpnManagementAgent2Preview is the interface identifier for IVpnManagementAgent2Preview.
+var IID_IVpnManagementAgent2Preview = win32.GUID{Data1: 0x73791cc7, Data2: 0xacd7, Data3: 0x491b, Data4: [8]byte{0x8b, 0xed, 0xe9, 0xa1, 0x7c, 0x34, 0x33, 0xda}}
+
+// GetAlwaysOnActiveProfile dispatches through IVpnManagementAgent2Preview's vtable slot 6.
+func (self *IVpnManagementAgent2Preview) GetAlwaysOnActiveProfile() (*IVpnProfile, error) {
+	result := new(*IVpnProfile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// GetAlwaysOnActiveProfileAsync dispatches through IVpnManagementAgent2Preview's vtable slot 7.
+func (self *IVpnManagementAgent2Preview) GetAlwaysOnActiveProfileAsync() (*IAsyncOperationOfIVpnProfile, error) {
+	result := new(*IAsyncOperationOfIVpnProfile)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// SetAlwaysOnActiveProfile dispatches through IVpnManagementAgent2Preview's vtable slot 8.
+func (self *IVpnManagementAgent2Preview) SetAlwaysOnActiveProfile(profile *IVpnProfile) error {
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(profile)))
+	return win32.ErrIfFailed(int32(r1))
+}
+
+// SetAlwaysOnActiveProfileAsync dispatches through IVpnManagementAgent2Preview's vtable slot 9.
+func (self *IVpnManagementAgent2Preview) SetAlwaysOnActiveProfileAsync(profile *IVpnProfile) (*IAsyncOperationOfVpnManagementErrorStatus, error) {
+	result := new(*IAsyncOperationOfVpnManagementErrorStatus)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[9], uintptr(unsafe.Pointer(self)), uintptr(unsafe.Pointer(profile)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 

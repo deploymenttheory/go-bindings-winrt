@@ -49,6 +49,41 @@ func (h *AsyncOperationCompletedHandlerOfIVectorViewOfIVpnProfile) Ptr() uintptr
 // the runtime keeps its own references while the handler stays registered.
 func (h *AsyncOperationCompletedHandlerOfIVectorViewOfIVpnProfile) Close() { h.delegate.Release() }
 
+// AsyncOperationCompletedHandlerOfIVpnProfile is a Go-implemented handler for the WinRT delegate
+// Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Networking.Vpn.IVpnProfile>.
+// IID: 99cbff9b-7b47-50ae-8145-d15b50f3d407
+type AsyncOperationCompletedHandlerOfIVpnProfile struct {
+	delegate *winrt.Delegate
+}
+
+// IID_AsyncOperationCompletedHandlerOfIVpnProfile is the delegate identifier for AsyncOperationCompletedHandlerOfIVpnProfile.
+var IID_AsyncOperationCompletedHandlerOfIVpnProfile = win32.GUID{Data1: 0x99cbff9b, Data2: 0x7b47, Data3: 0x50ae, Data4: [8]byte{0x81, 0x45, 0xd1, 0x5b, 0x50, 0xf3, 0xd4, 0x07}}
+
+// NewAsyncOperationCompletedHandlerOfIVpnProfile wraps fn as a COM-callable Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Networking.Vpn.IVpnProfile>.
+// The handler starts with one Go-held reference; Close it once no native
+// code can still invoke it.
+// Pointer-typed callback arguments are BORROWED references owned by the
+// event source for the duration of the callback: do not Release them or
+// retain them past its return.
+func NewAsyncOperationCompletedHandlerOfIVpnProfile(fn func(asyncInfo *IAsyncOperationOfIVpnProfile, asyncStatus foundation.AsyncStatus)) (*AsyncOperationCompletedHandlerOfIVpnProfile, error) {
+	delegate, err := winrt.NewDelegate(IID_AsyncOperationCompletedHandlerOfIVpnProfile, 2, func(raw []uintptr) uintptr {
+		fn((*IAsyncOperationOfIVpnProfile)(unsafe.Pointer(raw[0])), foundation.AsyncStatus(raw[1]))
+		return 0
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &AsyncOperationCompletedHandlerOfIVpnProfile{delegate: delegate}, nil
+}
+
+// Ptr is the COM object pointer an Add<Event> method registers.
+func (h *AsyncOperationCompletedHandlerOfIVpnProfile) Ptr() uintptr { return h.delegate.Ptr() }
+
+// Close releases the Go-held reference. Call it once no native code can
+// still invoke the handler (after the event source removed it or closed);
+// the runtime keeps its own references while the handler stays registered.
+func (h *AsyncOperationCompletedHandlerOfIVpnProfile) Close() { h.delegate.Release() }
+
 // AsyncOperationCompletedHandlerOfVpnCredential is a Go-implemented handler for the WinRT delegate
 // Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Networking.Vpn.VpnCredential>.
 // IID: 1c9c4504-4b75-57ea-837d-5338358bb762

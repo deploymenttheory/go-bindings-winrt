@@ -24,12 +24,6 @@ func (self *Direct3D11CaptureFrame) AsDirect3D11CaptureFrame2() (*IDirect3D11Cap
 	return winrt.QueryInterface[IDirect3D11CaptureFrame2](unsafe.Pointer(self), &IID_IDirect3D11CaptureFrame2)
 }
 
-// AsDirect3D11CaptureFrame3 queries the instance's IDirect3D11CaptureFrame3 interface.
-// The returned reference is owned by the caller.
-func (self *Direct3D11CaptureFrame) AsDirect3D11CaptureFrame3() (*IDirect3D11CaptureFrame3, error) {
-	return winrt.QueryInterface[IDirect3D11CaptureFrame3](unsafe.Pointer(self), &IID_IDirect3D11CaptureFrame3)
-}
-
 // AsClosable queries the instance's foundation.IClosable interface.
 // The returned reference is owned by the caller.
 func (self *Direct3D11CaptureFrame) AsClosable() (*foundation.IClosable, error) {
@@ -169,12 +163,6 @@ func (self *GraphicsCaptureSession) AsGraphicsCaptureSession5() (*IGraphicsCaptu
 // The returned reference is owned by the caller.
 func (self *GraphicsCaptureSession) AsGraphicsCaptureSession6() (*IGraphicsCaptureSession6, error) {
 	return winrt.QueryInterface[IGraphicsCaptureSession6](unsafe.Pointer(self), &IID_IGraphicsCaptureSession6)
-}
-
-// AsGraphicsCaptureSession7 queries the instance's IGraphicsCaptureSession7 interface.
-// The returned reference is owned by the caller.
-func (self *GraphicsCaptureSession) AsGraphicsCaptureSession7() (*IGraphicsCaptureSession7, error) {
-	return winrt.QueryInterface[IGraphicsCaptureSession7](unsafe.Pointer(self), &IID_IGraphicsCaptureSession7)
 }
 
 // AsClosable queries the instance's foundation.IClosable interface.

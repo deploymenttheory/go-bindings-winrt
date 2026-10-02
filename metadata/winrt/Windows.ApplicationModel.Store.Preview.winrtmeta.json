@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Store.Preview",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "DeliveryOptimizationDownloadMode": {
       "base_type": "int32",
@@ -1361,11 +1361,11 @@
     },
     "StoreConfiguration": {
       "static_interfaces": [
-        "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics2",
-        "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics4",
         "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics",
+        "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics2",
+        "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics3",
         "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics5",
-        "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics3"
+        "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics4"
       ]
     },
     "StoreHardwareManufacturerInfo": {

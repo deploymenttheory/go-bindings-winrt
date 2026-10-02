@@ -14,7 +14,6 @@ import (
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/foundation"
 	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/graphics"
 	securityauthorizationappcapabilityaccess "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/security/authorization/appcapabilityaccess"
-	"github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/ui"
 )
 
 // IAsyncOperationOfAppCapabilityAccessStatus is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus>.
@@ -155,54 +154,6 @@ func (self *IAsyncOperationOfGraphicsCaptureItem) Await() (*IGraphicsCaptureItem
 	return self.GetResults()
 }
 
-// IIterableOfWindowId is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.UI.WindowId>.
-// IID: 745698bf-22ad-5c0d-b0e0-07d35a1c9719
-type IIterableOfWindowId struct {
-	syswinrt.IInspectable
-}
-
-// IID_IIterableOfWindowId is the interface identifier for IIterableOfWindowId.
-var IID_IIterableOfWindowId = win32.GUID{Data1: 0x745698bf, Data2: 0x22ad, Data3: 0x5c0d, Data4: [8]byte{0xb0, 0xe0, 0x07, 0xd3, 0x5a, 0x1c, 0x97, 0x19}}
-
-// First dispatches through IIterableOfWindowId's vtable slot 6.
-func (self *IIterableOfWindowId) First() (*IIteratorOfWindowId, error) {
-	result := new(*IIteratorOfWindowId)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result, win32.ErrIfFailed(int32(r1))
-}
-
-// IIteratorOfWindowId is the WinRT interface Windows.Foundation.Collections.IIterator`1<Windows.UI.WindowId>.
-// IID: ba0a30a1-c082-5671-ac07-7aaa4f269670
-type IIteratorOfWindowId struct {
-	syswinrt.IInspectable
-}
-
-// IID_IIteratorOfWindowId is the interface identifier for IIteratorOfWindowId.
-var IID_IIteratorOfWindowId = win32.GUID{Data1: 0xba0a30a1, Data2: 0xc082, Data3: 0x5671, Data4: [8]byte{0xac, 0x07, 0x7a, 0xaa, 0x4f, 0x26, 0x96, 0x70}}
-
-// Current (propget get_Current) dispatches through IIteratorOfWindowId's vtable slot 6.
-func (self *IIteratorOfWindowId) Current() (ui.WindowId, error) {
-	result := new(ui.WindowId)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result, win32.ErrIfFailed(int32(r1))
-}
-
-// HasCurrent (propget get_HasCurrent) dispatches through IIteratorOfWindowId's vtable slot 7.
-func (self *IIteratorOfWindowId) HasCurrent() (bool, error) {
-	result := new(byte)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result != 0, win32.ErrIfFailed(int32(r1))
-}
-
-// MoveNext dispatches through IIteratorOfWindowId's vtable slot 8.
-func (self *IIteratorOfWindowId) MoveNext() (bool, error) {
-	result := new(byte)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result != 0, win32.ErrIfFailed(int32(r1))
-}
-
-// slot 9: GetMany skipped: conformant array
-
 // IVectorViewOfRectInt32 is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.Graphics.RectInt32>.
 // IID: 4f5e243f-3812-5200-b70c-30dcfc61717b
 // Requires: Windows.Foundation.Collections.IIterable`1<Windows.Graphics.RectInt32>.
@@ -231,40 +182,6 @@ func (self *IVectorViewOfRectInt32) Size() (uint32, error) {
 func (self *IVectorViewOfRectInt32) IndexOf(value graphics.RectInt32, index *uint32) (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(&value))), uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result != 0, win32.ErrIfFailed(int32(r1))
-}
-
-// slot 9: GetMany skipped: conformant array
-
-// IVectorViewOfWindowId is the WinRT interface Windows.Foundation.Collections.IVectorView`1<Windows.UI.WindowId>.
-// IID: f49e7371-b31a-5620-a42e-7e969003f0ff
-// Requires: Windows.Foundation.Collections.IIterable`1<Windows.UI.WindowId>.
-type IVectorViewOfWindowId struct {
-	syswinrt.IInspectable
-}
-
-// IID_IVectorViewOfWindowId is the interface identifier for IVectorViewOfWindowId.
-var IID_IVectorViewOfWindowId = win32.GUID{Data1: 0xf49e7371, Data2: 0xb31a, Data3: 0x5620, Data4: [8]byte{0xa4, 0x2e, 0x7e, 0x96, 0x90, 0x03, 0xf0, 0xff}}
-
-// GetAt dispatches through IVectorViewOfWindowId's vtable slot 6.
-func (self *IVectorViewOfWindowId) GetAt(index uint32) (ui.WindowId, error) {
-	result := new(ui.WindowId)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(index), uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result, win32.ErrIfFailed(int32(r1))
-}
-
-// Size (propget get_Size) dispatches through IVectorViewOfWindowId's vtable slot 7.
-func (self *IVectorViewOfWindowId) Size() (uint32, error) {
-	result := new(uint32)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result, win32.ErrIfFailed(int32(r1))
-}
-
-// IndexOf dispatches through IVectorViewOfWindowId's vtable slot 8.
-func (self *IVectorViewOfWindowId) IndexOf(value ui.WindowId, index *uint32) (bool, error) {
-	_value := *(*uintptr)(unsafe.Pointer(&value))
-	result := new(byte)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), _value, uintptr(winrt.OutParam(unsafe.Pointer(index))), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 

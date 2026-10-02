@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Contacts",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "ContactAddressKind": {
       "base_type": "int32",
@@ -10549,8 +10549,8 @@
     },
     "ContactManager": {
       "static_interfaces": [
-        "Windows.ApplicationModel.Contacts.IContactManagerStatics",
         "Windows.ApplicationModel.Contacts.IContactManagerStatics2",
+        "Windows.ApplicationModel.Contacts.IContactManagerStatics",
         "Windows.ApplicationModel.Contacts.IContactManagerStatics5",
         "Windows.ApplicationModel.Contacts.IContactManagerStatics4",
         "Windows.ApplicationModel.Contacts.IContactManagerStatics3"

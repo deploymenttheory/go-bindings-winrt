@@ -2232,6 +2232,47 @@ func (self *IUser2) CheckUserAgeConsentGroupAsync(consentGroup UserAgeConsentGro
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
+// IUser3 is the WinRT interface Windows.System.IUser3.
+// IID: e5e54579-ca5e-5754-946d-1c57e02e0a42
+// Exclusive to the Windows.System.User runtime class.
+type IUser3 struct {
+	syswinrt.IInspectable
+}
+
+// IID_IUser3 is the interface identifier for IUser3.
+var IID_IUser3 = win32.GUID{Data1: 0xe5e54579, Data2: 0xca5e, Data3: 0x5754, Data4: [8]byte{0x94, 0x6d, 0x1c, 0x57, 0xe0, 0x2e, 0x0a, 0x42}}
+
+// GetUserAgeRangeAsync dispatches through IUser3's vtable slot 6.
+func (self *IUser3) GetUserAgeRangeAsync() (*IAsyncOperationOfUserAgeRange, error) {
+	result := new(*IAsyncOperationOfUserAgeRange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// IUserAgeRange is the WinRT interface Windows.System.IUserAgeRange.
+// IID: d002ffca-8130-5f64-be0f-e66adb64dd12
+// Exclusive to the Windows.System.UserAgeRange runtime class.
+type IUserAgeRange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IUserAgeRange is the interface identifier for IUserAgeRange.
+var IID_IUserAgeRange = win32.GUID{Data1: 0xd002ffca, Data2: 0x8130, Data3: 0x5f64, Data4: [8]byte{0xbe, 0x0f, 0xe6, 0x6a, 0xdb, 0x64, 0xdd, 0x12}}
+
+// Lower (propget get_Lower) dispatches through IUserAgeRange's vtable slot 6.
+func (self *IUserAgeRange) Lower() (int32, error) {
+	result := new(int32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Upper (propget get_Upper) dispatches through IUserAgeRange's vtable slot 7.
+func (self *IUserAgeRange) Upper() (int32, error) {
+	result := new(int32)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
 // IUserAuthenticationStatusChangeDeferral is the WinRT interface Windows.System.IUserAuthenticationStatusChangeDeferral.
 // IID: 88b59568-bb30-42fb-a270-e9902e40efa7
 // Exclusive to the Windows.System.UserAuthenticationStatusChangeDeferral runtime class.

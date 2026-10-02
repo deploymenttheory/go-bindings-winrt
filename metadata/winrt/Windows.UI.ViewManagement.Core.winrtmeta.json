@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.UI.ViewManagement.Core",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "CoreInputViewKind": {
       "base_type": "int32",
@@ -1613,8 +1613,8 @@
         }
       ],
       "static_interfaces": [
-        "Windows.UI.ViewManagement.Core.ICoreInputViewStatics",
-        "Windows.UI.ViewManagement.Core.ICoreInputViewStatics2"
+        "Windows.UI.ViewManagement.Core.ICoreInputViewStatics2",
+        "Windows.UI.ViewManagement.Core.ICoreInputViewStatics"
       ]
     },
     "CoreInputViewAnimationStartingEventArgs": {

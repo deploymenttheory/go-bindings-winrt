@@ -227,55 +227,38 @@ func (self *IEdgeGestureStatics) GetForCurrentView() (*IEdgeGesture, error) {
 	return *result, win32.ErrIfFailed(int32(r1))
 }
 
-// IGamepadNavigationConfiguration is the WinRT interface Windows.UI.Input.IGamepadNavigationConfiguration.
-// IID: b8abab2d-e7f5-59a7-a3d5-9746bfbf224d
-// Exclusive to the Windows.UI.Input.GamepadNavigationConfiguration runtime class.
-type IGamepadNavigationConfiguration struct {
+// IGamepadKeyRoutingConfigurationStatics is the WinRT interface Windows.UI.Input.IGamepadKeyRoutingConfigurationStatics.
+// IID: a068e427-0e9e-5174-9012-4fb3a764fdd2
+// Exclusive to the Windows.UI.Input.GamepadKeyRoutingConfiguration runtime class.
+type IGamepadKeyRoutingConfigurationStatics struct {
 	syswinrt.IInspectable
 }
 
-// IID_IGamepadNavigationConfiguration is the interface identifier for IGamepadNavigationConfiguration.
-var IID_IGamepadNavigationConfiguration = win32.GUID{Data1: 0xb8abab2d, Data2: 0xe7f5, Data3: 0x59a7, Data4: [8]byte{0xa3, 0xd5, 0x97, 0x46, 0xbf, 0xbf, 0x22, 0x4d}}
+// IID_IGamepadKeyRoutingConfigurationStatics is the interface identifier for IGamepadKeyRoutingConfigurationStatics.
+var IID_IGamepadKeyRoutingConfigurationStatics = win32.GUID{Data1: 0xa068e427, Data2: 0x0e9e, Data3: 0x5174, Data4: [8]byte{0x90, 0x12, 0x4f, 0xb3, 0xa7, 0x64, 0xfd, 0xd2}}
 
-// NavigationEnabled (propget get_NavigationEnabled) dispatches through IGamepadNavigationConfiguration's vtable slot 6.
-func (self *IGamepadNavigationConfiguration) NavigationEnabled() (bool, error) {
+// IsSupported dispatches through IGamepadKeyRoutingConfigurationStatics's vtable slot 6.
+func (self *IGamepadKeyRoutingConfigurationStatics) IsSupported() (bool, error) {
 	result := new(byte)
 	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 
-// TrySetNavigationEnabled dispatches through IGamepadNavigationConfiguration's vtable slot 7.
-func (self *IGamepadNavigationConfiguration) TrySetNavigationEnabled(enabled bool) (bool, error) {
+// IsKeyRoutingEnabled (propget get_IsKeyRoutingEnabled) dispatches through IGamepadKeyRoutingConfigurationStatics's vtable slot 7.
+func (self *IGamepadKeyRoutingConfigurationStatics) IsKeyRoutingEnabled() (bool, error) {
+	result := new(byte)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result != 0, win32.ErrIfFailed(int32(r1))
+}
+
+// TrySetKeyRoutingEnabled dispatches through IGamepadKeyRoutingConfigurationStatics's vtable slot 8.
+func (self *IGamepadKeyRoutingConfigurationStatics) TrySetKeyRoutingEnabled(enabled bool) (bool, error) {
 	_enabled := uintptr(0)
 	if enabled {
 		_enabled = 1
 	}
 	result := new(byte)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), _enabled, uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result != 0, win32.ErrIfFailed(int32(r1))
-}
-
-// IGamepadNavigationConfigurationStatics is the WinRT interface Windows.UI.Input.IGamepadNavigationConfigurationStatics.
-// IID: 9c7c3e1d-2aff-5de0-88f1-904acc561f68
-// Exclusive to the Windows.UI.Input.GamepadNavigationConfiguration runtime class.
-type IGamepadNavigationConfigurationStatics struct {
-	syswinrt.IInspectable
-}
-
-// IID_IGamepadNavigationConfigurationStatics is the interface identifier for IGamepadNavigationConfigurationStatics.
-var IID_IGamepadNavigationConfigurationStatics = win32.GUID{Data1: 0x9c7c3e1d, Data2: 0x2aff, Data3: 0x5de0, Data4: [8]byte{0x88, 0xf1, 0x90, 0x4a, 0xcc, 0x56, 0x1f, 0x68}}
-
-// TryGetForCurrentProcess dispatches through IGamepadNavigationConfigurationStatics's vtable slot 6.
-func (self *IGamepadNavigationConfigurationStatics) TryGetForCurrentProcess() (*IGamepadNavigationConfiguration, error) {
-	result := new(*IGamepadNavigationConfiguration)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
-	return *result, win32.ErrIfFailed(int32(r1))
-}
-
-// IsSupported (propget get_IsSupported) dispatches through IGamepadNavigationConfigurationStatics's vtable slot 7.
-func (self *IGamepadNavigationConfigurationStatics) IsSupported() (bool, error) {
-	result := new(byte)
-	r1, _, _ := syscall.SyscallN(self.LpVtbl[7], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), _enabled, uintptr(winrt.OutParam(unsafe.Pointer(result))))
 	return *result != 0, win32.ErrIfFailed(int32(r1))
 }
 

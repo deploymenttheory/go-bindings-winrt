@@ -37,26 +37,9 @@ func (self *EmailAttachment) AsEmailAttachment2() (*IEmailAttachment2, error) {
 }
 
 // Create constructs a Windows.ApplicationModel.Email.EmailAttachment instance through
-// Windows.ApplicationModel.Email.IEmailAttachmentFactory.Create. The activation factory is fetched
-// per call (a factory cache is a future optimization).
-func Create(fileName string, data *storagestreams.IRandomAccessStreamReference) (*EmailAttachment, error) {
-	factoryUnknown, err := winrt.GetActivationFactory("Windows.ApplicationModel.Email.EmailAttachment", &IID_IEmailAttachmentFactory)
-	if err != nil {
-		return nil, err
-	}
-	factory := (*IEmailAttachmentFactory)(unsafe.Pointer(factoryUnknown))
-	defer factory.Release()
-	instance, err := factory.Create(fileName, data)
-	if err != nil {
-		return nil, err
-	}
-	return (*EmailAttachment)(unsafe.Pointer(instance)), nil
-}
-
-// CreateEmailAttachment constructs a Windows.ApplicationModel.Email.EmailAttachment instance through
 // Windows.ApplicationModel.Email.IEmailAttachmentFactory2.Create. The activation factory is fetched
 // per call (a factory cache is a future optimization).
-func CreateEmailAttachment(fileName string, data *storagestreams.IRandomAccessStreamReference, mimeType string) (*EmailAttachment, error) {
+func Create(fileName string, data *storagestreams.IRandomAccessStreamReference, mimeType string) (*EmailAttachment, error) {
 	factoryUnknown, err := winrt.GetActivationFactory("Windows.ApplicationModel.Email.EmailAttachment", &IID_IEmailAttachmentFactory2)
 	if err != nil {
 		return nil, err
@@ -64,6 +47,23 @@ func CreateEmailAttachment(fileName string, data *storagestreams.IRandomAccessSt
 	factory := (*IEmailAttachmentFactory2)(unsafe.Pointer(factoryUnknown))
 	defer factory.Release()
 	instance, err := factory.Create(fileName, data, mimeType)
+	if err != nil {
+		return nil, err
+	}
+	return (*EmailAttachment)(unsafe.Pointer(instance)), nil
+}
+
+// CreateEmailAttachment constructs a Windows.ApplicationModel.Email.EmailAttachment instance through
+// Windows.ApplicationModel.Email.IEmailAttachmentFactory.Create. The activation factory is fetched
+// per call (a factory cache is a future optimization).
+func CreateEmailAttachment(fileName string, data *storagestreams.IRandomAccessStreamReference) (*EmailAttachment, error) {
+	factoryUnknown, err := winrt.GetActivationFactory("Windows.ApplicationModel.Email.EmailAttachment", &IID_IEmailAttachmentFactory)
+	if err != nil {
+		return nil, err
+	}
+	factory := (*IEmailAttachmentFactory)(unsafe.Pointer(factoryUnknown))
+	defer factory.Release()
+	instance, err := factory.Create(fileName, data)
 	if err != nil {
 		return nil, err
 	}

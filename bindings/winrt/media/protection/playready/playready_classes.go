@@ -14,122 +14,6 @@ import (
 	mediaprotection "github.com/deploymenttheory/go-bindings-winrt/bindings/winrt/media/protection"
 )
 
-// NDClient is the Windows.Media.Protection.PlayReady.NDClient runtime class, surfaced through its
-// default interface INDClient. Release when done (promoted from
-// the embedded IInspectable → IUnknown chain).
-type NDClient struct {
-	INDClient
-}
-
-// CreateInstance constructs a Windows.Media.Protection.PlayReady.NDClient instance through
-// Windows.Media.Protection.PlayReady.INDClientFactory.CreateInstance. The activation factory is fetched
-// per call (a factory cache is a future optimization).
-func CreateInstance(downloadEngine *INDDownloadEngine, streamParser *INDStreamParser, pMessenger *INDMessenger) (*NDClient, error) {
-	factoryUnknown, err := winrt.GetActivationFactory("Windows.Media.Protection.PlayReady.NDClient", &IID_INDClientFactory)
-	if err != nil {
-		return nil, err
-	}
-	factory := (*INDClientFactory)(unsafe.Pointer(factoryUnknown))
-	defer factory.Release()
-	instance, err := factory.CreateInstance(downloadEngine, streamParser, pMessenger)
-	if err != nil {
-		return nil, err
-	}
-	return (*NDClient)(unsafe.Pointer(instance)), nil
-}
-
-// NDCustomData is the Windows.Media.Protection.PlayReady.NDCustomData runtime class, surfaced through its
-// default interface INDCustomData. Release when done (promoted from
-// the embedded IInspectable → IUnknown chain).
-type NDCustomData struct {
-	INDCustomData
-}
-
-// NDDownloadEngineNotifier is the Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier runtime class, surfaced through its
-// default interface INDDownloadEngineNotifier. Release when done (promoted from
-// the embedded IInspectable → IUnknown chain).
-type NDDownloadEngineNotifier struct {
-	INDDownloadEngineNotifier
-}
-
-// NewNDDownloadEngineNotifier activates Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier through its default
-// constructor.
-func NewNDDownloadEngineNotifier() (*NDDownloadEngineNotifier, error) {
-	instance, err := winrt.ActivateInstance("Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier")
-	if err != nil {
-		return nil, err
-	}
-	defer instance.Release()
-	return winrt.QueryInterface[NDDownloadEngineNotifier](unsafe.Pointer(instance), &IID_INDDownloadEngineNotifier)
-}
-
-// NDLicenseFetchDescriptor is the Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor runtime class, surfaced through its
-// default interface INDLicenseFetchDescriptor. Release when done (promoted from
-// the embedded IInspectable → IUnknown chain).
-type NDLicenseFetchDescriptor struct {
-	INDLicenseFetchDescriptor
-}
-
-// NDStorageFileHelper is the Windows.Media.Protection.PlayReady.NDStorageFileHelper runtime class, surfaced through its
-// default interface INDStorageFileHelper. Release when done (promoted from
-// the embedded IInspectable → IUnknown chain).
-type NDStorageFileHelper struct {
-	INDStorageFileHelper
-}
-
-// NewNDStorageFileHelper activates Windows.Media.Protection.PlayReady.NDStorageFileHelper through its default
-// constructor.
-func NewNDStorageFileHelper() (*NDStorageFileHelper, error) {
-	instance, err := winrt.ActivateInstance("Windows.Media.Protection.PlayReady.NDStorageFileHelper")
-	if err != nil {
-		return nil, err
-	}
-	defer instance.Release()
-	return winrt.QueryInterface[NDStorageFileHelper](unsafe.Pointer(instance), &IID_INDStorageFileHelper)
-}
-
-// NDStreamParserNotifier is the Windows.Media.Protection.PlayReady.NDStreamParserNotifier runtime class, surfaced through its
-// default interface INDStreamParserNotifier. Release when done (promoted from
-// the embedded IInspectable → IUnknown chain).
-type NDStreamParserNotifier struct {
-	INDStreamParserNotifier
-}
-
-// NewNDStreamParserNotifier activates Windows.Media.Protection.PlayReady.NDStreamParserNotifier through its default
-// constructor.
-func NewNDStreamParserNotifier() (*NDStreamParserNotifier, error) {
-	instance, err := winrt.ActivateInstance("Windows.Media.Protection.PlayReady.NDStreamParserNotifier")
-	if err != nil {
-		return nil, err
-	}
-	defer instance.Release()
-	return winrt.QueryInterface[NDStreamParserNotifier](unsafe.Pointer(instance), &IID_INDStreamParserNotifier)
-}
-
-// NDTCPMessenger is the Windows.Media.Protection.PlayReady.NDTCPMessenger runtime class, surfaced through its
-// default interface INDMessenger. Release when done (promoted from
-// the embedded IInspectable → IUnknown chain).
-type NDTCPMessenger struct {
-	INDMessenger
-}
-
-// CreateInstanceNDTCPMessenger constructs a Windows.Media.Protection.PlayReady.NDTCPMessenger instance through
-// Windows.Media.Protection.PlayReady.INDTCPMessengerFactory.CreateInstance. The activation factory is fetched
-// per call (a factory cache is a future optimization).
-func CreateInstanceNDTCPMessenger(remoteHostName string, remoteHostPort uint32) (*NDTCPMessenger, error) {
-	factoryUnknown, err := winrt.GetActivationFactory("Windows.Media.Protection.PlayReady.NDTCPMessenger", &IID_INDTCPMessengerFactory)
-	if err != nil {
-		return nil, err
-	}
-	factory := (*INDTCPMessengerFactory)(unsafe.Pointer(factoryUnknown))
-	defer factory.Release()
-	instance, err := factory.CreateInstance(remoteHostName, remoteHostPort)
-	if err != nil {
-		return nil, err
-	}
-	return (*NDTCPMessenger)(unsafe.Pointer(instance)), nil
-}
-
 // PlayReadyContentHeader is the Windows.Media.Protection.PlayReady.PlayReadyContentHeader runtime class, surfaced through its
 // default interface IPlayReadyContentHeader. Release when done (promoted from
 // the embedded IInspectable → IUnknown chain).
@@ -367,10 +251,10 @@ func (self *PlayReadyLicenseSession) AsPlayReadyLicenseSession2() (*IPlayReadyLi
 	return winrt.QueryInterface[IPlayReadyLicenseSession2](unsafe.Pointer(self), &IID_IPlayReadyLicenseSession2)
 }
 
-// CreateInstancePlayReadyLicenseSession constructs a Windows.Media.Protection.PlayReady.PlayReadyLicenseSession instance through
+// CreateInstance constructs a Windows.Media.Protection.PlayReady.PlayReadyLicenseSession instance through
 // Windows.Media.Protection.PlayReady.IPlayReadyLicenseSessionFactory.CreateInstance. The activation factory is fetched
 // per call (a factory cache is a future optimization).
-func CreateInstancePlayReadyLicenseSession(configuration *foundationcollections.IPropertySet) (*PlayReadyLicenseSession, error) {
+func CreateInstance(configuration *foundationcollections.IPropertySet) (*PlayReadyLicenseSession, error) {
 	factoryUnknown, err := winrt.GetActivationFactory("Windows.Media.Protection.PlayReady.PlayReadyLicenseSession", &IID_IPlayReadyLicenseSessionFactory)
 	if err != nil {
 		return nil, err

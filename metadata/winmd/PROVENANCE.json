@@ -1,26 +1,26 @@
 [
   {
     "package": "Microsoft.Windows.SDK.Contracts",
-    "version": "10.0.28000.2526",
-    "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.contracts/10.0.28000.2526/microsoft.windows.sdk.contracts.10.0.28000.2526.nupkg",
+    "version": "10.0.29648.1000-preview",
+    "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.contracts/10.0.29648.1000-preview/microsoft.windows.sdk.contracts.10.0.29648.1000-preview.nupkg",
     "file": "ref/netstandard2.0/Windows.Foundation.FoundationContract.winmd",
-    "sha256": "1f0ad9e78a795ba40e4e80cbeef82c7d53382d513a3574248b7b91f069cb4da3",
-    "fetched": "2026-07-27"
+    "sha256": "df24f522c73665dcd765fd520abab78483508e4d41ae780bb6fe517a8aebe0b2",
+    "fetched": "2026-08-31"
   },
   {
     "package": "Microsoft.Windows.SDK.Contracts",
-    "version": "10.0.28000.2526",
-    "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.contracts/10.0.28000.2526/microsoft.windows.sdk.contracts.10.0.28000.2526.nupkg",
+    "version": "10.0.29648.1000-preview",
+    "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.contracts/10.0.29648.1000-preview/microsoft.windows.sdk.contracts.10.0.29648.1000-preview.nupkg",
     "file": "ref/netstandard2.0/Windows.Foundation.UniversalApiContract.winmd",
-    "sha256": "92a4330647b256df0084bb45ee9442202832d6cf85243d0105b16f140cb42bfb",
-    "fetched": "2026-07-27"
+    "sha256": "2406c065e753be5c73b6accf2eb0736c4049484301405e805605a55f095a56dc",
+    "fetched": "2026-08-31"
   },
   {
     "package": "Microsoft.Windows.SDK.Contracts",
-    "version": "10.0.28000.2526",
-    "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.contracts/10.0.28000.2526/microsoft.windows.sdk.contracts.10.0.28000.2526.nupkg",
+    "version": "10.0.29648.1000-preview",
+    "source": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.sdk.contracts/10.0.29648.1000-preview/microsoft.windows.sdk.contracts.10.0.29648.1000-preview.nupkg",
     "file": "ref/netstandard2.0/Windows.Networking.Connectivity.WwanContract.winmd",
-    "sha256": "a03e357c3f161838318f41c31ed2a9e714ee5b641f2c1686643d2fe864659df5",
-    "fetched": "2026-07-27"
+    "sha256": "5bd58082ace7d5172768c735c4c416b6e1bbb47f6dd42d0b05fa9eb39685cb35",
+    "fetched": "2026-08-31"
   }
 ]

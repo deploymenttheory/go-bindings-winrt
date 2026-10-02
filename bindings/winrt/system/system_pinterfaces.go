@@ -1189,6 +1189,75 @@ func (self *IAsyncOperationOfUserAgeConsentResult) Await() (UserAgeConsentResult
 	return self.GetResults()
 }
 
+// IAsyncOperationOfUserAgeRange is the WinRT interface Windows.Foundation.IAsyncOperation`1<Windows.System.UserAgeRange>.
+// IID: 9536d8c3-c091-591b-bb09-8e4103965dcf
+// Requires: Windows.Foundation.IAsyncInfo.
+type IAsyncOperationOfUserAgeRange struct {
+	syswinrt.IInspectable
+}
+
+// IID_IAsyncOperationOfUserAgeRange is the interface identifier for IAsyncOperationOfUserAgeRange.
+var IID_IAsyncOperationOfUserAgeRange = win32.GUID{Data1: 0x9536d8c3, Data2: 0xc091, Data3: 0x591b, Data4: [8]byte{0xbb, 0x09, 0x8e, 0x41, 0x03, 0x96, 0x5d, 0xcf}}
+
+// SetCompleted (propput put_Completed) dispatches through IAsyncOperationOfUserAgeRange's vtable slot 6.
+// A nil handler passes NULL at the ABI (WinRT accepts it where a handler may be cleared).
+func (self *IAsyncOperationOfUserAgeRange) SetCompleted(handler *AsyncOperationCompletedHandlerOfUserAgeRange) error {
+	_handler := uintptr(0)
+	if handler != nil {
+		_handler = handler.Ptr()
+	}
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[6], uintptr(unsafe.Pointer(self)), _handler)
+	return win32.ErrIfFailed(int32(r1))
+}
+
+// slot 7: get_Completed skipped: parameterized type Windows.Foundation.AsyncOperationCompletedHandler`1
+
+// GetResults dispatches through IAsyncOperationOfUserAgeRange's vtable slot 8.
+func (self *IAsyncOperationOfUserAgeRange) GetResults() (*IUserAgeRange, error) {
+	result := new(*IUserAgeRange)
+	r1, _, _ := syscall.SyscallN(self.LpVtbl[8], uintptr(unsafe.Pointer(self)), uintptr(winrt.OutParam(unsafe.Pointer(result))))
+	return *result, win32.ErrIfFailed(int32(r1))
+}
+
+// Await registers a Completed handler and blocks until IAsyncOperationOfUserAgeRange reaches
+// a terminal state, then returns GetResults() — or, when the status is not
+// Completed, an error carrying the status and the IAsyncInfo error code (see
+// winrt.AsyncError). Safe on an operation that already completed: WinRT
+// invokes a handler assigned after completion immediately. put_Completed
+// accepts a single assignment per operation, so Await (or SetCompleted) can
+// be used at most once per instance. Await blocks indefinitely by design; a
+// context-aware variant is future work. The completion signal is sent from
+// the handler's Invoke, which the delegate runtime runs on a fresh goroutine
+// — it never contends with the runtime's callback worker, so a completed
+// operation cannot deadlock Await.
+func (self *IAsyncOperationOfUserAgeRange) Await() (*IUserAgeRange, error) {
+	completion := make(chan foundation.AsyncStatus, 1)
+	handler, err := NewAsyncOperationCompletedHandlerOfUserAgeRange(func(_ *IAsyncOperationOfUserAgeRange, asyncStatus foundation.AsyncStatus) {
+		completion <- asyncStatus
+	})
+	if err != nil {
+		return nil, err
+	}
+	defer handler.Close()
+	if err := self.SetCompleted(handler); err != nil {
+		return nil, err
+	}
+	status := <-completion
+	if status != foundation.AsyncStatusCompleted {
+		info, err := winrt.QueryInterface[foundation.IAsyncInfo](unsafe.Pointer(self), &foundation.IID_IAsyncInfo)
+		if err != nil {
+			return nil, err
+		}
+		defer info.Release()
+		code, err := info.ErrorCode()
+		if err != nil {
+			return nil, err
+		}
+		return nil, winrt.AsyncError(int32(status), code)
+	}
+	return self.GetResults()
+}
+
 // IIterableOfAppDiagnosticInfo is the WinRT interface Windows.Foundation.Collections.IIterable`1<Windows.System.AppDiagnosticInfo>.
 // IID: 8118de8f-3ae3-55e1-80a8-25453cdba894
 type IIterableOfAppDiagnosticInfo struct {

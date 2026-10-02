@@ -105,6 +105,39 @@ func (e VpnChannelRequestCredentialsOptions) String() string {
 	}
 }
 
+// VpnConnectionTypePreview is Windows.Networking.Vpn.VpnConnectionTypePreview.
+type VpnConnectionTypePreview int32
+
+const (
+	VpnConnectionTypePreviewNoConnection         VpnConnectionTypePreview = 0
+	VpnConnectionTypePreviewPlatformUXInitiated  VpnConnectionTypePreview = 1
+	VpnConnectionTypePreviewApiInitiated         VpnConnectionTypePreview = 2
+	VpnConnectionTypePreviewAuto                 VpnConnectionTypePreview = 3
+	VpnConnectionTypePreviewFastReconnect        VpnConnectionTypePreview = 4
+	VpnConnectionTypePreviewPluginCrashReconnect VpnConnectionTypePreview = 5
+)
+
+// String returns the VpnConnectionTypePreview constant's name, or its numeric form when
+// the value is not a known constant.
+func (e VpnConnectionTypePreview) String() string {
+	switch e {
+	case VpnConnectionTypePreviewNoConnection:
+		return "VpnConnectionTypePreviewNoConnection"
+	case VpnConnectionTypePreviewPlatformUXInitiated:
+		return "VpnConnectionTypePreviewPlatformUXInitiated"
+	case VpnConnectionTypePreviewApiInitiated:
+		return "VpnConnectionTypePreviewApiInitiated"
+	case VpnConnectionTypePreviewAuto:
+		return "VpnConnectionTypePreviewAuto"
+	case VpnConnectionTypePreviewFastReconnect:
+		return "VpnConnectionTypePreviewFastReconnect"
+	case VpnConnectionTypePreviewPluginCrashReconnect:
+		return "VpnConnectionTypePreviewPluginCrashReconnect"
+	default:
+		return fmt.Sprintf("VpnConnectionTypePreview(%d)", int32(e))
+	}
+}
+
 // VpnCredentialType is Windows.Networking.Vpn.VpnCredentialType.
 type VpnCredentialType int32
 
@@ -159,6 +192,60 @@ func (e VpnDataPathType) String() string {
 		return "VpnDataPathTypeReceive"
 	default:
 		return fmt.Sprintf("VpnDataPathType(%d)", int32(e))
+	}
+}
+
+// VpnDisconnectReasonPreview is Windows.Networking.Vpn.VpnDisconnectReasonPreview.
+type VpnDisconnectReasonPreview int32
+
+const (
+	VpnDisconnectReasonPreviewUnknown               VpnDisconnectReasonPreview = 0
+	VpnDisconnectReasonPreviewNotDisconnected       VpnDisconnectReasonPreview = 1
+	VpnDisconnectReasonPreviewPlatformUXInitiated   VpnDisconnectReasonPreview = 2
+	VpnDisconnectReasonPreviewApiInitiated          VpnDisconnectReasonPreview = 3
+	VpnDisconnectReasonPreviewStandby               VpnDisconnectReasonPreview = 4
+	VpnDisconnectReasonPreviewNetworkFailure        VpnDisconnectReasonPreview = 5
+	VpnDisconnectReasonPreviewServiceStop           VpnDisconnectReasonPreview = 6
+	VpnDisconnectReasonPreviewUserLogOff            VpnDisconnectReasonPreview = 7
+	VpnDisconnectReasonPreviewShutdown              VpnDisconnectReasonPreview = 8
+	VpnDisconnectReasonPreviewPluginUninstall       VpnDisconnectReasonPreview = 9
+	VpnDisconnectReasonPreviewCaptivePortalDetected VpnDisconnectReasonPreview = 10
+	VpnDisconnectReasonPreviewAppTriggerDisconnect  VpnDisconnectReasonPreview = 11
+	VpnDisconnectReasonPreviewEnteredTrustedNetwork VpnDisconnectReasonPreview = 12
+)
+
+// String returns the VpnDisconnectReasonPreview constant's name, or its numeric form when
+// the value is not a known constant.
+func (e VpnDisconnectReasonPreview) String() string {
+	switch e {
+	case VpnDisconnectReasonPreviewUnknown:
+		return "VpnDisconnectReasonPreviewUnknown"
+	case VpnDisconnectReasonPreviewNotDisconnected:
+		return "VpnDisconnectReasonPreviewNotDisconnected"
+	case VpnDisconnectReasonPreviewPlatformUXInitiated:
+		return "VpnDisconnectReasonPreviewPlatformUXInitiated"
+	case VpnDisconnectReasonPreviewApiInitiated:
+		return "VpnDisconnectReasonPreviewApiInitiated"
+	case VpnDisconnectReasonPreviewStandby:
+		return "VpnDisconnectReasonPreviewStandby"
+	case VpnDisconnectReasonPreviewNetworkFailure:
+		return "VpnDisconnectReasonPreviewNetworkFailure"
+	case VpnDisconnectReasonPreviewServiceStop:
+		return "VpnDisconnectReasonPreviewServiceStop"
+	case VpnDisconnectReasonPreviewUserLogOff:
+		return "VpnDisconnectReasonPreviewUserLogOff"
+	case VpnDisconnectReasonPreviewShutdown:
+		return "VpnDisconnectReasonPreviewShutdown"
+	case VpnDisconnectReasonPreviewPluginUninstall:
+		return "VpnDisconnectReasonPreviewPluginUninstall"
+	case VpnDisconnectReasonPreviewCaptivePortalDetected:
+		return "VpnDisconnectReasonPreviewCaptivePortalDetected"
+	case VpnDisconnectReasonPreviewAppTriggerDisconnect:
+		return "VpnDisconnectReasonPreviewAppTriggerDisconnect"
+	case VpnDisconnectReasonPreviewEnteredTrustedNetwork:
+		return "VpnDisconnectReasonPreviewEnteredTrustedNetwork"
+	default:
+		return fmt.Sprintf("VpnDisconnectReasonPreview(%d)", int32(e))
 	}
 }
 

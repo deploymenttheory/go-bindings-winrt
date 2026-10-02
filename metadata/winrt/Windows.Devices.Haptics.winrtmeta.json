@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.Devices.Haptics",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "enums": {
     "HapticDeviceType": {
       "base_type": "int32",
@@ -1101,8 +1101,8 @@
     },
     "KnownSimpleHapticsControllerWaveforms": {
       "static_interfaces": [
-        "Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics2",
         "Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics",
+        "Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics2",
         "Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics3"
       ]
     },

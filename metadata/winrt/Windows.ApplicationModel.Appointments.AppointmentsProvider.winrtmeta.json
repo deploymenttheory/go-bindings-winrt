@@ -1,7 +1,7 @@
 {
   "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
   "schema_version": 1,
-  "winmd_version": "10.0.28000.2526",
+  "winmd_version": "10.0.29648.1000-preview",
   "interfaces": {
     "IAddAppointmentOperation": {
       "guid": "ec4a9af3-620d-4c69-add7-9794e918081f",
@@ -402,8 +402,8 @@
     },
     "AppointmentsProviderLaunchActionVerbs": {
       "static_interfaces": [
-        "Windows.ApplicationModel.Appointments.AppointmentsProvider.IAppointmentsProviderLaunchActionVerbsStatics2",
-        "Windows.ApplicationModel.Appointments.AppointmentsProvider.IAppointmentsProviderLaunchActionVerbsStatics"
+        "Windows.ApplicationModel.Appointments.AppointmentsProvider.IAppointmentsProviderLaunchActionVerbsStatics",
+        "Windows.ApplicationModel.Appointments.AppointmentsProvider.IAppointmentsProviderLaunchActionVerbsStatics2"
       ]
     },
     "RemoveAppointmentOperation": {
